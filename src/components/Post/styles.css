@@ -1,0 +1,45 @@
+.container{
+  width: 500px;
+  height: 160px;
+  background: #3b3b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  flex-direction: column;
+}
+.container + .container {
+  margin-top: 10px;
+}
+.component img{
+  width: 80px;
+  height: 80px;
+}
+
+.header{
+  display: flex;
+  width: 90%;
+  height: 15px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  background: transparent;
+  color:#1a1919
+}
+.description{
+  color: #FFF;
+  margin-left: 10px;
+  word-wrap:break-word
+}
+.description p {
+  max-width: 300px;
+}
+.buttonOff img{
+  width: 30px;
+}
+.component{
+  display: flex;  
+  align-items: center;
+}
+.buttonOff {
+  background: transparent;
+}
