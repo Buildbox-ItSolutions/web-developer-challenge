@@ -1,3 +1,3 @@
 import { combineReducers } from "redux";
-
-export default combineReducers({});
+import feed from "./posts/reducer";
+export default combineReducers({ feed });
