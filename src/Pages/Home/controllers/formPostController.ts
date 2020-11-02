@@ -1,5 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addPost } from "../../../GlobalStates/stores/posts/actions";
 
 export class FormPostController {
   imageAvatar: string;
@@ -8,11 +11,26 @@ export class FormPostController {
   setName: React.Dispatch<React.SetStateAction<string>>;
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
+  dispatch: any;
+  enableButtonPublish: boolean;
+  setEnableButtonPublish: React.Dispatch<React.SetStateAction<boolean>>;
 
   constructor() {
-    [this.imageAvatar, this.setImageAvatar] = useState("");
-    [this.name, this.setName] = useState("");
-    [this.message, this.setMessage] = useState("");
+    [this.imageAvatar, this.setImageAvatar] = useState<string>("");
+    [this.name, this.setName] = useState<string>("");
+    [this.message, this.setMessage] = useState<string>("");
+    [this.enableButtonPublish, this.setEnableButtonPublish] = useState<boolean>(
+      false
+    );
+    this.dispatch = useDispatch();
+
+    useEffect(() => {
+      if (this.name.length > 1 && this.message.length > 1) {
+        this.setEnableButtonPublish(true);
+      } else {
+        this.setEnableButtonPublish(false);
+      }
+    }, [this.message]);
   }
 
   handleImageToBase64(e: any) {
@@ -40,11 +58,25 @@ export class FormPostController {
 
   handlePublishPost(e: any) {
     e.preventDefault();
+
     if (this.name.length === 0) {
-      return alert("erro");
+      return toast.error("Insira um Nome", {});
     }
     if (this.message.length === 0) {
-      return alert("");
+      return toast.error("Insira uma menssagem");
     }
+    if (this.name.length > 30) {
+      return toast.error("Nome não pode ter mais de 30 caracteres");
+    }
+    this.dispatch(
+      addPost({
+        image: this.imageAvatar,
+        message: this.message,
+        name: this.name,
+      })
+    );
+    this.setImageAvatar("");
+    this.setMessage("");
+    this.setName("");
   }
 }

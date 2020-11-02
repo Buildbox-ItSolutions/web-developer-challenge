@@ -16,5 +16,11 @@ export const Container = styled.div<PropsContainer>`
     color: #fff;
     padding: 10px;
     resize: none;
+    @media (max-width: 560px) {
+      max-width: 400px;
+    }
+    @media (max-width: 400px) {
+      max-width: 250px;
+    }
   }
 `;

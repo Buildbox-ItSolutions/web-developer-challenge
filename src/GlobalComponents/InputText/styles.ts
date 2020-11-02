@@ -25,5 +25,13 @@ export const Container = styled.div<PropsContainer>`
     letter-spacing: normal;
     text-align: left;
     white-space: pre;
+
+    @media (max-width: 560px) {
+      max-width: 400px;
+    }
+
+    @media (max-width: 400px) {
+      max-width: 250px;
+    }
   }
 `;

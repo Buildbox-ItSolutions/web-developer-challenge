@@ -7,12 +7,27 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    
     input:-internal-autofill-selected{
       background-color: none !important
     }
     font-family: 'Roboto', sans-serif ;
     line-height: 1.29;
-   
+  
+
+    ::-webkit-scrollbar {
+      width: 5px;              
+    }
+    ::-webkit-scrollbar-track {
+      background: #2b2b2b;       
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #4b4b4b;    
+      border-radius: 10px;      
+     
+    }
+
+    
     
   }
   *:focus {
@@ -26,6 +41,7 @@ export default createGlobalStyle`
   body {
 	  color:#A3A3A3;
     -webkit-font-smoothing: antialiased !important;
+    overflow-y:auto;
   }
   body, input, button {
     font-size: 14px;
@@ -44,6 +60,13 @@ export default createGlobalStyle`
   button, a {
     cursor: pointer;
   }
- 
+  h1, h2, h3{
+	  color:#4687AE;
+	  margin-bottom:15px;
+  }
+  p{
+	  font-size:14px;
+	  line-height: 1.5em;
+  }
   
 `;

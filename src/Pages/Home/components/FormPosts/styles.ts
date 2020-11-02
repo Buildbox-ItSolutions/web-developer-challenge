@@ -1,25 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-export const Header = styled.div`
-  background: #2b2b2b;
-  height: 93px;
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const PostComments = styled.form`
   width: 100%;
   max-width: 516px;
@@ -31,10 +11,17 @@ export const PostComments = styled.form`
   transition: linear 300ms;
   padding: 20px;
   display: flex;
+  margin-top: 120px;
   flex-direction: column;
   justify-content: space-between;
   :hover {
     border: solid 1px #4b4b4b;
+  }
+  @media (max-width: 560px) {
+    max-width: 450px;
+  }
+  @media (max-width: 400px) {
+    max-width: 300px;
   }
 `;
 
@@ -74,6 +61,11 @@ export const ImageContainer = styled.div`
     justify-content: center;
     transition: display 200ms linear;
     cursor: pointer;
+    transition: 200ms linear;
+
+    :hover {
+      border: solid #6f6f6f 1px;
+    }
 
     input {
       display: none;
@@ -128,18 +120,19 @@ export const DiscardButton = styled.button`
   }
 `;
 
-export const PublishButton = styled.button`
+type PublishButton = {
+  publish: boolean;
+};
+export const PublishButton = styled.button<PublishButton>`
   width: 98px;
   height: 41px;
   border-radius: 8px;
-  background-color: #5f5f5f;
+  background-color: ${(props) => (props.publish ? "#71bb00" : "#5f5f5f")};
   border: none;
   transition: linear 200ms;
-  color: #313131;
+  color: ${(props) => (props.publish ? "#FFF" : "#313131")};
 
   :hover {
-    background: #71bb00;
-    color: #fff;
     transform: scale(1.02);
   }
 `;

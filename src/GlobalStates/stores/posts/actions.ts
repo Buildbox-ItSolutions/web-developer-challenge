@@ -16,7 +16,7 @@ export function addPost(payload: {
 
 export function deletePost(payload: { index: number }) {
   return {
-    type: TypesPost.ADD_POST,
+    type: TypesPost.DELETE_POST,
     payload,
   };
 }

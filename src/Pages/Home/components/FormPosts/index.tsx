@@ -4,6 +4,7 @@ import { InputText } from "../../../../GlobalComponents/InputText/InputText";
 import { TextArea } from "../../../../GlobalComponents/TextArea";
 import { FormPostController } from "../../controllers/formPostController";
 import Trash from "../../../../assets/trash.svg";
+import Image from "../../../../assets/image.svg";
 
 import {
   PostComments,
@@ -23,7 +24,7 @@ const FormPosts: React.FC<{ formController: FormPostController }> = ({
         {formController.imageAvatar === "" ? (
           <div id="inputUpload">
             <label htmlFor="upload">
-              <BiCamera color="#fff" />
+              <img src={Image} alt="" />
             </label>
             <input
               id="upload"
@@ -65,6 +66,7 @@ const FormPosts: React.FC<{ formController: FormPostController }> = ({
         </DiscardButton>
         <PublishButton
           onClick={(e: any) => formController.handlePublishPost(e)}
+          publish={formController.enableButtonPublish}
         >
           Publicar
         </PublishButton>
