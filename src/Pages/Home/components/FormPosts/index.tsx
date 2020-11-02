@@ -1,5 +1,4 @@
 import React from "react";
-import { BiCamera } from "react-icons/bi";
 import { InputText } from "../../../../GlobalComponents/InputText/InputText";
 import { TextArea } from "../../../../GlobalComponents/TextArea";
 import { FormPostController } from "../../controllers/formPostController";
@@ -24,7 +23,7 @@ const FormPosts: React.FC<{ formController: FormPostController }> = ({
         {formController.imageAvatar === "" ? (
           <div id="inputUpload">
             <label htmlFor="upload">
-              <img src={Image} alt="" />
+              <img src={Image} alt="avatar" />
             </label>
             <input
               id="upload"
@@ -41,6 +40,7 @@ const FormPosts: React.FC<{ formController: FormPostController }> = ({
               id="trash"
               title="Descartar"
               onClick={() => formController.setImageAvatar("")}
+              alt="avatar"
             />
           </div>
         )}

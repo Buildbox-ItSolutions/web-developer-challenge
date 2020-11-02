@@ -12,6 +12,8 @@ type InputTextType = {
 /**
  * @param placeholder Insert text in input
  * @param onChange Return string value
+ * @param height Define height component
+ * @param value Props value html
  */
 const InputText: React.FC<InputTextType> = ({
   placeholder,

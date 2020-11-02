@@ -7,6 +7,9 @@ export class HomeController {
   constructor() {
     [this.upButtonEnabled, this.setUpButtonEnabled] = useState<boolean>(false);
 
+    /**
+     * Observer function that checks the position of scrolling the screen
+     */
     useEffect(() => {
       window.addEventListener("scroll", () => {
         const scrollPosition = window.scrollY;

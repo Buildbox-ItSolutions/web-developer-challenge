@@ -1,6 +1,5 @@
 import { TypesPost } from "./actions";
 import { produce } from "immer";
-import tron from "../../../Config/reactotron";
 
 export type PostsTypes = {
   image: string;

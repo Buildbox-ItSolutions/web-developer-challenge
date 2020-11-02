@@ -8,6 +8,12 @@ type TextAreaType = {
   value: string;
 };
 
+/**
+ * @param placeholder Insert text in input
+ * @param onChange Return string value
+ * @param height Define height component
+ * @param value Props value html - Defalt:80px
+ */
 const TextArea: React.FC<TextAreaType> = ({
   onChange,
   placeholder,

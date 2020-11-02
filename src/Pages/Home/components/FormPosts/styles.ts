@@ -120,10 +120,10 @@ export const DiscardButton = styled.button`
   }
 `;
 
-type PublishButton = {
+type PublishButtonType = {
   publish: boolean;
 };
-export const PublishButton = styled.button<PublishButton>`
+export const PublishButton = styled.button<PublishButtonType>`
   width: 98px;
   height: 41px;
   border-radius: 8px;

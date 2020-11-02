@@ -10,7 +10,10 @@ export class FeedController {
     this.posts = useSelector((state: any) => state.feed.posts);
     this.dispatch = useDispatch();
   }
-
+  /**
+   * Function that triggers an action to delete a post
+   * @param index Index array
+   */
   handleDeletePost(index: number): void {
     this.dispatch(deletePost({ index }));
   }
