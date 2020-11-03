@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main must render without errors 1`] = `
+.c1 {
+  width: 80%;
+  height: 353px;
+  background-color: #313131;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  padding: 2em;
+  border: 1px solid #3b3b3b;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.c2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  margin-right: 1em;
+  width: 88px;
+  height: 88px;
+  border-radius: 36px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid #4b4b4b;
+}
+
+.c3 input {
+  display: none;
+}
+
+.c3 label {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+.c5 {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #494949;
+  border: none;
+  color: #ffff;
+  padding: 0.9em;
+  height: 40px;
+}
+
+.c5:focus {
+  outline-width: 0;
+}
+
+.c6 {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #494949;
+  border: none;
+  color: #ffff;
+  padding: 0.9em;
+  height: 80px;
+  resize: none;
+}
+
+.c6:focus {
+  outline-width: 0;
+}
+
+.c7 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c9 {
+  width: 98px;
+  height: 41px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #5f5f5f;
+  color: #313131;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.c9:focus {
+  outline-width: 0;
+}
+
+.c9:active {
+  background-color: #71bb00;
+  color: #fff;
+}
+
+.c8 {
+  width: 60px;
+  font-size: 14px;
+  color: #5f5f5f;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  margin-right: 1.5em;
+}
+
+.c8:focus {
+  outline-width: 0;
+}
+
+.c4 {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 36px;
+}
+
+.c0 {
+  padding-top: 20px;
+  width: 100%;
+  height: auto;
+  grid-area: main;
+  background-color: #343434;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c10 {
+  width: 100%;
+  height: 100px;
+  color: #7a7a7a;
+  font-size: 14px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  display: grid;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+@media (min-width:900px) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+@media (min-width:900px) {
+  .c0 {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+  }
+}
+
+@media (max-width:900px) {
+  .c10 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+<main
+  className="c0"
+>
+  <form
+    className="c1"
+    data-test="publisher-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        <label
+          htmlFor="file"
+        >
+          <img
+            alt="profile"
+            className="c4"
+            height="24px"
+            src="image.svg"
+            width="24px"
+          />
+        </label>
+        <input
+          id="file"
+          name="file"
+          onChange={[Function]}
+          type="file"
+        />
+      </div>
+    </div>
+    <input
+      className="c5"
+      data-test="publisher-input-name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Digite seu nome"
+      required={true}
+      value=""
+    />
+    <textarea
+      className="c6"
+      data-test="publisher-textarea-msg"
+      maxLength={160}
+      name="message"
+      onChange={[Function]}
+      placeholder="Mensagem"
+      required={true}
+      value=""
+    />
+    <div
+      className="c7"
+    >
+      <button
+        className="c8"
+        onClick={[Function]}
+        type="reset"
+      >
+        Descartar
+      </button>
+      <button
+        className="c9"
+        data-test="publisher-btn-submit"
+        type="submit"
+      >
+        Publicar
+      </button>
+    </div>
+  </form>
+  <p
+    className="c10"
+  >
+    Feed
+  </p>
+</main>
+`;
