@@ -15,4 +15,10 @@ const Home: React.FC = () => {
     );
 };
 
+export async function getStaticProps() {
+    return {
+        props: {}
+    };
+}
+
 export default Home;

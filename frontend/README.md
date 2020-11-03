@@ -16,6 +16,32 @@
     <br>
   </p>
 
+  ## How to use
+
+```bash
+
+git clone https://github.com/hudsonfranca/web-developer-challenge.git
+
+```
+
+```bash
+
+cd web-developer-challenge
+
+```
+
+```bash
+
+cd frontend
+
+```
+
+```bash
+
+npm install
+
+```
+
   ## Available Scripts:
 
       dev - Runs next dev which starts Next.js in development mode
