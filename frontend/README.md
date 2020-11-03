@@ -1,20 +1,28 @@
+# Web developer challenge 
 
-## Getting Started
 
-First, run the development server:
+  <p>
+    <img src="images/1.png" >
+    <br>
+    <br>
+    <br>
+    <img src="images/2.png" >
+    <br>
+    <br>
+    <br>
+    <img src="images/3.png" >
+    <br>
+    <br>
+    <br>
+  </p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+  ## Available Scripts:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+      dev - Runs next dev which starts Next.js in development mode
 
-These scripts refer to the different stages of developing an application:
+      build - Runs next build which builds the application for production usage
 
-dev - Runs next dev which starts Next.js in development mode
-build - Runs next build which builds the application for production usage
-start - Runs next start which starts a Next.js production server
+      start - Runs next start which starts a Next.js production server
 
+      Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

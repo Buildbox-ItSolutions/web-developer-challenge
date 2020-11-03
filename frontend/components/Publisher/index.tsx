@@ -34,7 +34,10 @@ const PublisherComponent: FC<Props> = ({ handleSubmit }) => {
     return (
         <Publisher
             data-test="publisher-form"
-            onSubmit={(e) => handleSubmit({ e, message, author, profilePic })}>
+            onSubmit={(e) => {
+                handleCancel();
+                handleSubmit({ e, message, author, profilePic });
+            }}>
             <Wrapper>
                 <ProfilePicture>
                     <label htmlFor="file">
@@ -44,7 +47,7 @@ const PublisherComponent: FC<Props> = ({ handleSubmit }) => {
                             <Img src="image.svg" alt="profile" width="24px" height="24px" />
                         )}
                     </label>
-                    <input type="file" id="file" name="file" onChange={onChange} />
+                    <input type="file" id="file" name="file" onChange={onChange} accept="image/*" />
                 </ProfilePicture>
                 {profilePic !== null && (
                     <Img

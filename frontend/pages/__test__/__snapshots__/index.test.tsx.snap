@@ -353,6 +353,7 @@ exports[`Index Page must render without errors 1`] = `
             />
           </label>
           <input
+            accept="image/*"
             id="file"
             name="file"
             onChange={[Function]}
