@@ -20,9 +20,6 @@ body {
     text-align: center;
     margin-top: 40px;
     background-color: #313131;
-
-
-
     width: 516px;
   height: 353px;
   border-radius: 3px;
@@ -32,18 +29,7 @@ body {
 }
 
 
-.photo-upload {
-    width: 88px;
-    height: 88px;
-    object-fit: contain;
-    border-radius: 36px;
-    border: solid 1px #4b4b4b;
-    background-color: rgba(75, 75, 75, 0);
-    margin-top: 24px;
-    margin-bottom: 16px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
 
 
 
@@ -51,11 +37,12 @@ input {
     width: 468px;
   height: 40px;
   border-radius: 8px;
-  background-color: #494949;
+  
   margin-left: 0;
   margin-right: 0;
   color: white;
   font-weight: bold;
+  background-color: #494949;
 }
 
 textarea {
@@ -110,13 +97,7 @@ textarea {
   }
 
 
-  .image {
-      position: relative;
-      top: 32px;
-      width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
+  
 
   .form-items-div {
       text-align: center;
@@ -177,3 +158,25 @@ img {
     z-index: 2;
 }
 
+.photo-upload {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: 36px;
+    border: solid 1px #4b4b4b;
+    background-color: rgba(75, 75, 75, 0);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+ 
+   
+  }
+  .image {
+    position: relative;
+    top: 32px;
+    width: 24px;
+    height: 24px;
+    
+    object-fit: contain;
+}

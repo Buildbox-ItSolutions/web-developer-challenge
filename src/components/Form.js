@@ -1,11 +1,11 @@
 import React from 'react'
-import FormItems from './FormItems'
+
 
 
 import img from './assets/img/image.png'
 
 
-import imagem from './assets/img/img1.jpg'
+
 
 
 
@@ -17,8 +17,7 @@ class Form extends React.Component {
         this.state = {
             imageUrl: imageUrl,
             image: img,
-            user: false,
-            comment: false,
+           
             
         }
        
@@ -38,28 +37,31 @@ class Form extends React.Component {
         })
     }
 
-    handleOnClickUpload = (e) => {
-        e.preventDefault()
-        this.setState({
-            image: imagem,
-            imageUrl: 'abc',
-            user: true,
-            comment: true
-        })       
-      }
    
-      componentDidUpdate(state) {
-          console.log(this.state)
-      }
+   
+     
 
     render() {
-        console.log(this.state.imageUrl)
+       
         return <div className="form-div">
         
             <form onSubmit={this.props.action}>
                 <div>
                     <input type="text" hidden name="image" defaultValue={imageUrl} />
-                    <FormItems image={this.state.image} handleUpload={this.handleOnClickUpload} imgUrl={this.state.imageUrl} />
+                   
+
+                    {
+                        (this.props.imageUrl === './components/assets/img/image.png') 
+                        ? (<div className="photo-upload" onClick={this.props.upload}>
+                            <img className="image" src={this.props.image} alt="custom post" />
+                            </div>)
+                        : (<div  onClick={this.props.upload}>
+                            <img className="photo-upload" src={this.props.image} alt="custom post" />
+                            </div>)
+                       
+                    
+                     }
+
                 </div>
                 <div>
                 <label htmlFor="userId" />
@@ -72,7 +74,7 @@ class Form extends React.Component {
                 <div className="btn-div">
                 <span onClick={this.props.reset}>Descartar</span>
                 {
-                    (this.state.imageUrl !== './assets/img/image.png' && this.props.user && this.props.comment)
+                    (this.props.imageUrl !== './components/assets/img/image.png' && this.props.user && this.props.comment)
                         ? (<button className="btn-active" type="submit">Publicar</button>)
                         : (<button className="btn-inative" disabled type="submit">Publicar</button>)
                         
