@@ -7,10 +7,11 @@ const ImgPost = styled.div`
 
   img {
     object-fit: contain;
+    width: 100%;
+    height: max-content;
   }
 
   label {
-    margin-top: 0.5rem;
     cursor: pointer;
     width: 88px;
     height: 88px;
@@ -21,6 +22,7 @@ const ImgPost = styled.div`
 
     border-radius: 36px;
     border: 1px solid rgba(155, 155, 155, 0.5);
+    overflow: hidden;
   }
 
   input {

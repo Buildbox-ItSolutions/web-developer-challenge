@@ -15,11 +15,13 @@ const ButtonPost = styled.button<ButtonProps>`
   transition: all 0.3s;
   background-color: ${(props) =>
     props.title === "Publicar" ? "#71bb00" : "transparent"};
-  color: ${(props) =>
-    props.title === "Publicar" ? (props.disabled ? "#313131" : "#FFF") : "#5f5f5f"};
+  color: ${(props) => (props.title === "Publicar" ? "#fff" : "#5f5f5f")};
+  text-decoration: ${(props) => props.title === "Descartar" && "underline"};
 
   &:disabled {
-    background-color: ${(props) => (props.disabled ? "#5f5f5f" : "#71bb00")};
+    background-color: ${(props) =>
+      props.title === "Publicar" ? "#5f5f5f" : "transparent"};
+    color: ${(props) => props.title === "Publicar" && "#313131"};
     cursor: no-drop;
   }
 `;
