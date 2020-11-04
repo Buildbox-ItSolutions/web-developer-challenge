@@ -46,11 +46,11 @@ npm install
 
     npm run test -> Launches the test runner.
 
-     npm run dev -> Runs next dev which starts Next.js in development mode
+    npm run dev -> Runs next dev which starts Next.js in development mode
 
     npm run build -> Runs next build which builds the application for production usage
 
-     npm run start -> Runs next start which starts a Next.js production server
+    npm run start -> Runs next start which starts a Next.js production server
 
-      Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
