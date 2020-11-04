@@ -1,39 +1,17 @@
 import React from "react";
-import styled from "styled-components";
 
 import BxLogo from "../images/Header/bx-logo.png";
 import PostImage from "../images/ImgPost/post-image.png";
 
+// STYLED
+import { BoxBody, ButtonsPost } from "../styles/components/styled";
+// COMPONENTS
 import Header from "../components/Header";
+import CreatePost from "../components/CreatePost";
 import ImgPost from "../components/ImgPost";
-import NamePost from "../components/Input";
-import AreaPost from "../components/TextArea";
-
-const BoxBody = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CreatePost = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 516px;
-  border-radius: 3px;
-  background-color: #3b3b3b;
-  margin: 30px 30px 0px;
-  padding: 1rem;
-  transition: all 0.3s;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-
-  @media (max-width: 425px) {
-    margin: 10px 10px 0px;
-  }
-`;
+import NamePost from "../components/NamePost";
+import AreaPost from "../components/AreaPost";
+import ButtonPost from "../components/ButtonPost";
 
 const Main = () => {
   return (
@@ -52,6 +30,15 @@ const Main = () => {
 
           <NamePost placeholder="Digite seu nome" />
           <AreaPost placeholder="Mensagem" />
+
+          <ButtonsPost>
+            <ButtonPost disabled={false} title="Descartar">
+              Descartar
+            </ButtonPost>
+            <ButtonPost disabled={true} title="Publicar">
+              Publicar
+            </ButtonPost>
+          </ButtonsPost>
         </CreatePost>
       </BoxBody>
     </React.Fragment>

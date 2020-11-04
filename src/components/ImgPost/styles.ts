@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const ImgPost = styled.div`
   display: flex;
   justify-content: center;
   align-itens: center;
@@ -27,3 +27,5 @@ export const Container = styled.div`
     display: none;
   }
 `;
+
+export default ImgPost;

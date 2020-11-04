@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.input`
+const AreaPost = styled.textarea`
   width: 100%;
-  height: 40px;
+  height: 80px;
   background-color: #494949;
   border-radius: 8px;
   outline: none;
   border: none;
-  margin-top: 1.5rem;
+  margin: 0.7rem 0;
   padding: 1rem;
+  resize: none;
 `;
+
+export default AreaPost;

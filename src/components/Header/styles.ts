@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Header = styled.div`
   height: 93px;
   width: 100%;
 
@@ -18,3 +18,5 @@ export const Container = styled.div`
     height: 45px;
   }
 `;
+
+export default Header;
