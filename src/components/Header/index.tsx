@@ -2,15 +2,10 @@ import React from "react";
 
 import { Container } from "./styles";
 
-interface HeaderProps {
-  backgroundColor: string;
-}
-
-const Header: React.FC<HeaderProps> = ({
-  backgroundColor,
+const Header: React.FC = ({
   children,
 }) => (
-  <Container backgroundColor={backgroundColor}>
+  <Container>
     {children}
   </Container>
 );

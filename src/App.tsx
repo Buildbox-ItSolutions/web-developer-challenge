@@ -1,7 +1,7 @@
 import React from "react";
-
 import Main from "./pages";
-import "./styles/global.css";
+
+import "./styles/globals.ts";
 
 function App() {
   return <Main />;

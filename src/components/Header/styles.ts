@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-interface ContainerProps {
-  backgroundColor: string;
-}
-
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   height: 93px;
   width: 100%;
 
@@ -14,7 +10,7 @@ export const Container = styled.div<ContainerProps>`
   -webkit-box-align: center;
   align-items: center;
 
-  background-color: ${(props) => props.backgroundColor};
+  background-color: #2b2b2b;
 
   img {
     object-fit: contain;
