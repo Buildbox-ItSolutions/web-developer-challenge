@@ -44,11 +44,13 @@ npm install
 
   ## Available Scripts:
 
-      dev - Runs next dev which starts Next.js in development mode
+    npm run test -> Launches the test runner.
 
-      build - Runs next build which builds the application for production usage
+     npm run dev -> Runs next dev which starts Next.js in development mode
 
-      start - Runs next start which starts a Next.js production server
+    npm run build -> Runs next build which builds the application for production usage
+
+     npm run start -> Runs next start which starts a Next.js production server
 
       Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
