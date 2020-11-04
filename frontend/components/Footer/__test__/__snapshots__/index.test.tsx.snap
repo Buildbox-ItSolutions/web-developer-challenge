@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer must render without errors 1`] = `
+.c0 {
+  width: 100%;
+  height: 100px;
+  grid-area: footer;
+  background-color: #2b2b2b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  color: #9f9f9f;
+  font-size: 1em;
+}
+
+@media (max-width:342px) {
+  .c0 {
+    text-align: center;
+  }
+}
+
+<footer
+  className="c0"
+>
+  <p
+    className="c1"
+  >
+    © Copyright 2019 - 2020.
+  </p>
+  <p
+    className="c1"
+  >
+    All rights reserved. Powered by the 
+    <strong>
+      Buildbox
+    </strong>
+  </p>
+</footer>
+`;
