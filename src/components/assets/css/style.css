@@ -1,0 +1,301 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1366px;
+    height: 1540px;
+    background-color: #343434;
+  
+}
+
+
+.App {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 90px;
+}
+.form-div {
+  
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 40px;
+    width: 516px;
+    height: 340px;
+    border-radius: 3px;
+    border: solid 1px #3b3b3b;
+    background-color: #313131;
+    padding-bottom: 10px;
+}
+
+
+
+textarea#commentId {
+    margin-top: 8px;
+    width: 456px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #494949;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    padding-left: 12px;
+    margin-left: 16px;
+    margin-right: 16px;
+    
+}
+
+
+input#userId {
+    margin-top: 8px;
+    width: 458px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: #494949;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    font-size: 0.75rem;
+    outline: none;
+    padding: 4px;
+    padding-left: 12px;
+
+    
+}
+
+.header-div {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 1366px;
+    height: 80px;
+    background-color: #2b2b2b;
+   
+  
+}
+
+.banner-top-p {
+    color: greenyellow;
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.banner-bottom-p {
+    padding: 0;
+    margin: 0;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+.btn-inative {
+    width: 98px;
+    height: 41px;
+    border-radius: 8px;
+    background-color: #5f5f5f;
+  }
+
+  .btn-active {
+    width: 98px;
+    height: 41px;
+    border-radius: 8px;
+    background-color: #71bb00;
+  }
+
+
+  
+
+  .form-items-div {
+      text-align: center;
+  }
+
+span {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-right: 15px;
+    color: gray;
+  
+}
+
+.btn-div {
+    text-align: right;
+    padding-top: 24px;
+    margin-right: 20px;
+   
+}
+
+.feed-paragraph {
+    margin-top: 50px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 516px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: left;
+    color: #7a7a7a;
+}
+
+.feed-div {
+    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 4px;
+    background-color: #313131;
+    color: white;
+    font-weight: bold;
+    width: 516px;
+    border-radius: 3px;
+    border: solid 1px #3b3b3b;
+    background-color: #313131;
+    padding-bottom: 15px;
+    padding: 10px;
+   
+    overflow-wrap: break-word;
+    
+    
+}
+
+
+.photo-upload {
+    
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: 36px;
+    border: solid 1px #4b4b4b;
+    background-color: rgba(75, 75, 75, 0);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+ 
+   
+  }
+  .image {
+    position: relative;
+    top: 32px;
+    width: 24px;
+    height: 24px;
+
+}
+
+#userId {
+    width: 468px;
+  height: 40px;
+  border-radius: 8px;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  background: #494949;
+  color: white;
+}
+
+.inner-photo-upload-div {
+    height: 130px;
+}
+
+.feed-comment-div {
+    overflow-wrap: break-word;
+    text-align: justify;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+  
+    color: #9f9f9f;
+ 
+  
+}
+
+.feed-sent-by-div {
+    text-align: left;
+    font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.29px;
+  margin: 0;
+    padding: 0;
+  color: #5f5f5f;
+}
+
+.feed-user-div {
+ 
+    text-align: left;
+    font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+    margin: 0;
+    padding: 0;
+  color: #7a7a7a;
+}
+
+.feed-image-div {
+    float: left;
+   
+    margin: 0;
+    width: 120px;
+    margin-left: 0;
+    margin-right: 10px;
+    min-height: 100px;
+    object-fit: contain;
+   
+}
+
+.feed-delete-div {
+    text-align: right;
+}
+
+
+
+td.feed-image-div {
+    width: 50px;
+}
+p.feed-comment-div {
+    padding-right: 50px;
+}
+
+img.photo-upload {
+    object-fit: cover;
+}
+
+.header-buildbox {
+    position: relative;
+    top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    text-align: center;
+}
+
+div.feed-image-div {
+    position: relative;
+    bottom: 10px;
+}
+
+td {
+    max-width: 380px;
+    overflow-wrap: break-word;
+    margin:0
+}
