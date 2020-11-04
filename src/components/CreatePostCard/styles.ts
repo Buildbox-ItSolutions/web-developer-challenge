@@ -46,11 +46,15 @@ export const RoundImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   img {
     max-width: 88px;
     max-height: 88px;
+    width: auto;
+    height: auto;
   }
-  margin-top:10px;
-  margin-bottom:10px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;

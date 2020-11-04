@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   AppPostCard,
   PostCardBody,
@@ -7,7 +8,7 @@ import {
   PostCardHeader,
   PostCardRoundImage,
   PostCardInfo1,
-  PostCardInfo2
+  PostCardInfo2,
 } from "./styles";
 
 import destroy from "../../assets/delete.png";
@@ -15,13 +16,17 @@ import destroy2x from "../../assets/delete@2x.png";
 import destroy3x from "../../assets/delete@3x.png";
 import photoBase from "../../assets/photo-base.png";
 
-export interface PostI {
-  image?: string;
-  author?: string;
-  message?: string;
-}
+import { PostI } from "../../store/modules/types/Post";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../store/modules/posts/actions";
 
-const PostCard = ({ image, author, message }: PostI) => {
+const PostCard = ({ id, image, author, message }: PostI) => {
+  const dispatch = useDispatch();
+
+  const handleDeletePost = (id: number) => {
+    dispatch(deletePost(id));
+  };
+
   return (
     <AppPostCard>
       <PostCardHeader>
@@ -29,19 +34,20 @@ const PostCard = ({ image, author, message }: PostI) => {
           src={destroy}
           alt="Destroy"
           srcSet={`${destroy2x} 2x, ${destroy3x} 3x,`}
+          onClick={() => handleDeletePost(id as number)}
         />
       </PostCardHeader>
       <PostCardBody>
-        <PostCardRoundImage>
-          <img src={photoBase} alt="" srcSet="" />
-        </PostCardRoundImage>
-        <PostCardBodyText>
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ducimus perspiciatis possimus! Deserunt nulla voluptatibus exercitationem corrupti aspernatur cum ratione voluptatem architecto. Quasi, veritatis provident!
-        </PostCardBodyText>
+        <div>
+          <PostCardRoundImage>
+            <img src={image ? (image as string) : photoBase} alt="" srcSet="" />
+          </PostCardRoundImage>
+        </div>
+        <PostCardBodyText>{message}</PostCardBodyText>
       </PostCardBody>
       <PostCardFooter>
         <PostCardInfo1>Enviado por</PostCardInfo1>
-        <PostCardInfo2>Vinicius Lima</PostCardInfo2>
+        <PostCardInfo2>{author}</PostCardInfo2>
       </PostCardFooter>
     </AppPostCard>
   );
