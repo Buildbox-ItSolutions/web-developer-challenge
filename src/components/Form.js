@@ -1,15 +1,11 @@
 import React from 'react'
 
 
-
 import img from './assets/img/image.png'
-
-
-
-
-
-
 const imageUrl = './assets/img/image.png'
+
+
+
 
 class Form extends React.Component {
     constructor(props) {
@@ -22,22 +18,6 @@ class Form extends React.Component {
         }
        
     }
-
-    
-
-    reset = (e) => {
-        e.preventDefault()
-        
-        this.setState({
-            imageUrl: imageUrl,
-            image: img,
-            user: '',
-            comment: ''
-
-        })
-    }
-
-   
    
      
 
@@ -46,7 +26,7 @@ class Form extends React.Component {
         return <div className="form-div">
         
             <form onSubmit={this.props.action}>
-                <div>
+                <div className="photo-upload-div">
                     <input type="text" hidden name="image" defaultValue={imageUrl} />
                    
 
@@ -55,7 +35,7 @@ class Form extends React.Component {
                         ? (<div className="photo-upload" onClick={this.props.upload}>
                             <img className="image" src={this.props.image} alt="custom post" />
                             </div>)
-                        : (<div  onClick={this.props.upload}>
+                        : (<div className="inner-photo-upload-div" onClick={this.props.upload}>
                             <img className="photo-upload" src={this.props.image} alt="custom post" />
                             </div>)
                        
@@ -63,14 +43,14 @@ class Form extends React.Component {
                      }
 
                 </div>
-                <div>
+                
                 <label htmlFor="userId" />
                 <input type="text" name="user" id="userId" value={this.props.user}  onChange={this.props.inputChange}  placeholder="Digite seu nome" />
-                </div>
-                <div>
+                
+              
                     <label htmlFor="commentId" />
                     <textarea id="commentId" name="comment" value={this.props.comment} onChange={this.props.textareaChange} placeholder="Mensagem" />
-                </div>
+                
                 <div className="btn-div">
                 <span onClick={this.props.reset}>Descartar</span>
                 {
@@ -86,4 +66,5 @@ class Form extends React.Component {
         </div>
     }
 }
+
 export default Form

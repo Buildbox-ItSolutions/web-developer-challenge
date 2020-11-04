@@ -4,8 +4,24 @@ import Banner from './components/Banner'
 import './components/assets/css/style.css'
 import Feed from './components/Feed'
 
-import image from './components/assets/img/img1.jpg'
+//random images
+import img1 from './components/assets/img/img1.jpg'
+import img2 from './components/assets/img/img2.jpg'
+import img3 from './components/assets/img/img3.jpg'
+import img4 from './components/assets/img/img4.jpg'
+
+//icon image
 import defaultImage from './components/assets/img/image.png'
+const imageUrlDefault = './components/assets/img/image.png'
+
+const images = [ 
+    { image: img1, url: './components/assets/img/img1.jpg' },
+    { image: img2, url: './components/assets/img/img2.jpg' },
+    { image: img3, url: './components/assets/img/img3.jpg' },
+    { image: img4, url: './components/assets/img/img4.jpg' }
+  ]
+
+
 
 class App extends React.Component {
  constructor(props) {
@@ -14,13 +30,14 @@ class App extends React.Component {
      user: '',
      comment: '',
      image: defaultImage,
-     imageUrl: './components/assets/img/image.png'
+     imageUrl: imageUrlDefault,
+     showFeed: false,
+     feedsNumber: 0,
+    feedsArray: []
     
    }
  } 
  
-
-
 
 handleInputChange = (e) => {
   e.preventDefault()
@@ -39,13 +56,18 @@ handleTextChange = (e) => {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target.user.value)
-    console.log(e.target.comment.value)
-    console.log(e.target.image.value)
     this.setState({
-      user: e.target.user.value,
-      comment: e.target.comment.value
+      userToPublish: this.state.user,
+      commentToPublish: this.state.comment,
+      imageToPublish: this.state.image,
+      showFeed: true,
+      feedsNumber: this.state.feedsNumber + 1
     })
+
+    const postObj = { user: this.state.user, comment: this.state.comment, image: this.state.image}
+    this.state.feedsArray.push(postObj)
+    console.log(this.state.feedsArray)
+    this.handleReset(e)
 
   }
 
@@ -53,30 +75,40 @@ handleTextChange = (e) => {
     e.preventDefault()
     
     this.setState({
-        imageUrl: 'abc',
+        imageUrl: imageUrlDefault,
         image: defaultImage,
         user: '',
-        comment: ''
+        comment: '',
 
     })
 }
 
-
-
-  componentDidUpdate(props,state) {
-    console.log(this.state)
-  }
-
+generateRamdon = () => {
+  
+  return Math.floor(Math.random() * 3);
+}
 
   handleOnClickUpload = (e) => {
     e.preventDefault()
+
+    let rnd = this.generateRamdon()
+
     this.setState({
-        image: image,
-        imageUrl: 'abc',
+        image: images[rnd].image,
+        imageUrl: images[rnd].url,
         
     })       
   }
 
+  handleOnClickDeletePost = (e) => {
+    e.preventDefault()
+    const index = e.target.id
+    this.state.feedsArray.splice(index,1)
+    this.setState({
+      showFeed: true
+    })
+    console.log(this.state.feedsArray)
+  }
   
   render() {
     return <div className="App">
@@ -92,9 +124,16 @@ handleTextChange = (e) => {
                 imageUrl={this.state.imageUrl}
                 
                />
+               
+              {(this.state.showFeed && this.state.feedsNumber !== 0)
 
-              <Feed user={this.state.user} comment={this.state.comment} />
-     
+              ? this.state.feedsArray.slice(0).reverse().map((post, index) => {
+                return <Feed key={index} user={post.user} comment={post.comment} image={post.image} 
+              handlePostDeletion={this.handleOnClickDeletePost} index={this.state.feedsArray.length - 1 - index} />
+              })
+              :null}
+
+              
             </div>
   }
 }
