@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
+import "cropperjs/dist/cropper.css";
 
 const BoxBody = styled.div`
   display: flex;
@@ -39,7 +40,9 @@ const useStyles = makeStyles({
         maxHeight: "300px",
         width: "100%",
         overflow: "hidden",
-        borderRadius: "8px",
+        "& div.cropper-container": {
+          borderRadius: "8px",
+        },
       },
       "& div.MuiDialogActions-root": {
         width: "100%",

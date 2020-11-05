@@ -1,13 +1,21 @@
 import React from "react";
 
+import { ContextMsg } from "../../contexts/ContextName";
+
 import Container from "./styles";
 
-interface AreaProps {
-  placeholder: string;
-}
-
-const AreaPost: React.FC<AreaProps> = ({ placeholder }) => (
-  <Container placeholder={placeholder}></Container>
-);
+const AreaPost = (props: any) => {
+  return (
+    <ContextMsg.Consumer>
+      {(value) => (
+        <Container
+          placeholder="Mensagem"
+          value={value}
+          onChange={(e) => props.msgVal(e.target.value)}
+        />
+      )}
+    </ContextMsg.Consumer>
+  );
+};
 
 export default AreaPost;
