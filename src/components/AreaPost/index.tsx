@@ -1,20 +1,27 @@
 import React from "react";
 
-import { ContextMsg } from "../../contexts/ContextName";
-
+// CONTEXTS
+import { Context } from "../../contexts/Context";
+// STYLES
 import Container from "./styles";
 
-const AreaPost = (props: any) => {
+const AreaPost = () => {
   return (
-    <ContextMsg.Consumer>
+    <Context.Consumer>
       {(value) => (
         <Container
           placeholder="Mensagem"
-          value={value}
-          onChange={(e) => props.msgVal(e.target.value)}
+          value={value.state.msg}
+          onChange={(e) =>
+            value.setState({
+              image: value.state.image,
+              name: value.state.name,
+              msg: e.target.value,
+            })
+          }
         />
       )}
-    </ContextMsg.Consumer>
+    </Context.Consumer>
   );
 };
 

@@ -1,20 +1,27 @@
 import React from "react";
 
-import { ContextName } from "../../contexts/ContextName";
-
+// CONTEXTS
+import { Context } from "../../contexts/Context";
+// STYLES
 import Container from "./styles";
 
-const NamePost = (props: any) => {
+const NamePost = () => {
   return (
-    <ContextName.Consumer>
+    <Context.Consumer>
       {(value) => (
         <Container
           placeholder="Nome"
-          value={value}
-          onChange={(e) => props.nameVal(e.target.value)}
+          value={value.state.name}
+          onChange={(e) =>
+            value.setState({
+              image: value.state.image,
+              name: e.target.value,
+              msg: value.state.msg,
+            })
+          }
         />
       )}
-    </ContextName.Consumer>
+    </Context.Consumer>
   );
 };
 

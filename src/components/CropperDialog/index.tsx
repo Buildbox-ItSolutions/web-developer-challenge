@@ -7,20 +7,16 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
+// CONTEXTS
+import { Context } from "../../contexts/Context";
+// ICONS
 import CloseIcon from "@material-ui/icons/Close";
-
+// STYLES
 import { useStyles } from "../../styles/components/styled";
 
 const CropperDialog = (props: any) => {
   const material = useStyles();
-
   const [cropper, setCropper] = useState<any>();
-
-  const getCropData = () => {
-    if (typeof cropper !== "undefined") {
-      props.setCropData(cropper.getCroppedCanvas().toDataURL());
-    }
-  };
 
   return (
     <Dialog
@@ -51,14 +47,24 @@ const CropperDialog = (props: any) => {
         />
       </DialogContent>
       <DialogActions>
-        <button
-          onClick={() => {
-            getCropData();
-            props.setShowCropper(false);
-          }}
-        >
-          Cortar
-        </button>
+        <Context.Consumer>
+          {(value) => (
+            <button
+              onClick={() => {
+                if (typeof cropper !== "undefined") {
+                  value.setState({
+                    image: cropper.getCroppedCanvas().toDataURL(),
+                    name: value.state.name,
+                    msg: value.state.msg,
+                  });
+                }
+                props.setShowCropper(false);
+              }}
+            >
+              Cortar
+            </button>
+          )}
+        </Context.Consumer>
       </DialogActions>
     </Dialog>
   );

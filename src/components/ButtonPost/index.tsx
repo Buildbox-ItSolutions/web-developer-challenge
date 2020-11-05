@@ -1,16 +1,41 @@
 import React from "react";
 
+// CONTEXTS
+import { Context } from "../../contexts/Context";
+// STYLES
 import Container from "./styles";
 
-interface AreaProps {
+// TYPES
+interface BtnPostTypes {
   title: string;
-  disabled: boolean;
+  children: string;
 }
 
-const ButtonPost: React.FC<AreaProps> = ({ title, disabled }) => (
-  <Container title={title} disabled={disabled}>
-    {title}
-  </Container>
-);
+const ButtonPost = (props: BtnPostTypes) => {
+  const verifyDisable = (image: string, name: string, msg: string) => {
+    if (props.title === "Publicar") {
+      return image === "" || name === "" || msg === "";
+    } else {
+      return image === "" && name === "" && msg === "";
+    }
+  };
+
+  return (
+    <Context.Consumer>
+      {(value) => (
+        <Container
+          title={props.title}
+          disabled={verifyDisable(
+            value.state.image,
+            value.state.name,
+            value.state.msg
+          )}
+        >
+          {props.title}
+        </Container>
+      )}
+    </Context.Consumer>
+  );
+};
 
 export default ButtonPost;

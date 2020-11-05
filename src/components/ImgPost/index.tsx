@@ -1,7 +1,10 @@
 import React from "react";
 
+// CONTEXTS
+import { Context } from "../../contexts/Context";
+// IMAGES
 import PostImage from "../../images/ImgPost/post-image.png";
-
+// STYLES
 import Container from "./styles";
 
 const ImgPost = (props: any) => {
@@ -23,7 +26,14 @@ const ImgPost = (props: any) => {
   return (
     <Container>
       <label htmlFor="inppost">
-        <img src={props.cropData !== "" ? props.cropData : PostImage} alt="Post" />
+        <Context.Consumer>
+          {(value) => (
+            <img
+              src={value.state.image !== "" ? value.state.image : PostImage}
+              alt="Post"
+            />
+          )}
+        </Context.Consumer>
         <input
           id="inppost"
           onChange={(e) => {
