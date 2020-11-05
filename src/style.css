@@ -1,0 +1,184 @@
+html {
+	height: 100% !important;
+	max-height: 1000%;
+	flex-direction: column;
+	justify-content: center;
+
+	background-size: cover;
+}
+
+body, #root {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+}
+
+section {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#perfil {
+	display: none;
+}
+
+.text,.perfil,input[type=text],input[type=submit],textarea {
+	width: 95% !important;
+	min-height: 20px;
+	height: 20px;
+	padding: 8px;
+
+	background-color: #fff;
+
+	margin: 13px;
+	margin: 13px;
+	padding-right: 10px;
+	padding-left: 10px;
+
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+
+	box-shadow: 2px 1px 8px rgba(0,0,0,0.3);
+	border: none;
+}
+
+input[type=submit] {
+	width: 100% !important;
+	height: 40px;
+}
+input[type=submit]:hover {
+	background-color: rgba(255,255,255,0.5);
+}
+
+.perfil {
+	height: 100px !important;
+
+	background-color: rgba(0,0,0,0.2);
+	background-size: cover;
+	background-position: center;
+	/*background-image: url(img.jpg);*/
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: none
+}
+
+.perfil:hover {
+	background-color: rgba(0,0,0,0.2);
+}
+
+textarea {
+	padding: 8px;
+	height: 100px;
+	text-overflow: wrap;
+}
+
+#feed textarea {
+	min-height: 50px !important;
+}
+
+#feed, #login {
+	width: 100%;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+
+	border-radius: 6px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	justify-content: strecth;
+	border-bottom: solid 2px rgba(0,0,0,0.5);
+	border-radius: 6px;
+}
+
+.close {
+	width: 25px;
+	height: 25px;
+	margin-left: 99%;
+	right: 0px;
+	position: unset;
+	border: none;
+	border-radius: 20px;
+	background-color: rgba(255,255,255,0.5);
+	color: rgba(0,0,0,255);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-align: center;
+}
+
+.close:hover {
+	background-color: rgba(255,255,255,0.8);
+}
+
+#feed {
+	background-color: rgba(0,0,0,0.2);
+	margin-bottom: 100px;
+}
+
+#feed textarea {
+	box-shadow: none;
+	margin: 2px;
+	margin-top: 13px;
+	margin-bottom: 13px;
+}
+
+#feed .user{
+	color: rgba(0,0,0,255);
+	font-weight: bold;
+	font-size: 15pt;
+
+	margin: 13px;
+	margin: 13px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.perfil-div {
+	background-color: rgba(0,0,0,0.2);
+	min-height: 100px;
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(https://img.icons8.com/fluent-systems-filled/50/000000/stack-of-photos.png);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: none
+}
+
+.perfil-image {
+	max-width: 100%;
+	max-height: 300px;
+	padding: 8px;
+	background-color: rgba(0,0,0,0);
+
+	margin: 13px;
+	margin: 13px;
+	padding-right: 10px;
+	padding-left: 10px;
+
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: none;
+}
+
+.hidden {
+	display: none !important;
+}
