@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import "cropperjs/dist/cropper.css";
 
 const useStyles = makeStyles({
   dialog: {
@@ -32,14 +31,6 @@ const useStyles = makeStyles({
       "& div.MuiDialogActions-root": {
         width: "100%",
         padding: "0.5rem 1.5rem 1rem",
-        "& button": {
-          width: "130px",
-          height: "40px",
-          border: "none",
-          borderRadius: "8px",
-          backgroundColor: "#71bb00",
-          color: "#FFF",
-        },
       },
     },
     "@media (max-width: 425px)": {
@@ -49,6 +40,23 @@ const useStyles = makeStyles({
         minHeight: "100%",
         margin: "0",
       },
+    },
+  },
+  button: {
+    width: "130px",
+    height: "40px",
+    border: "none",
+    borderRadius: "8px",
+    backgroundColor: "#71bb00",
+    color: "#FFF",
+    outline: "none",
+    cursor: "pointer",
+    "& span": {
+      marginTop: "0.1rem",
+      textTransform: "none",
+    },
+    "&:hover": {
+      backgroundColor: "#71bb00",
     },
   },
 });

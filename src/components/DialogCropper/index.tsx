@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Cropper } from "react-cropper";
 import {
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -15,7 +16,7 @@ import CloseIcon from "@material-ui/icons/Close";
 // STYLES
 import { useStyles } from "../../styles/components/dialog-cropper";
 
-const CropperDialog = (props: any) => {
+const CropperDialog = () => {
   const material = useStyles();
 
   const ContImage = useContext(ContextImage);
@@ -58,7 +59,8 @@ const CropperDialog = (props: any) => {
         />
       </DialogContent>
       <DialogActions>
-        <button
+        <Button
+          className={material.button}
           onClick={() => {
             if (typeof cropper !== "undefined") {
               ContData.setState({
@@ -74,7 +76,7 @@ const CropperDialog = (props: any) => {
           }}
         >
           Cortar
-        </button>
+        </Button>
       </DialogActions>
     </Dialog>
   );

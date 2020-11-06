@@ -7,6 +7,7 @@ import { ContextImage } from "./contexts/ContextImage";
 import Main from "./pages";
 // STYLES
 import "./styles/globals.ts";
+import "cropperjs/dist/cropper.css";
 
 function App() {
   const [state, setState] = useState({ image: "", name: "", msg: "" });

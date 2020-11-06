@@ -5,7 +5,7 @@ import ImgPost from "../ImgPost";
 import NamePost from "../NamePost";
 import AreaPost from "../AreaPost";
 import ButtonsPost from "../ButtonsPost";
-import CropperDialog from "../CropperDialog";
+import CropperDialog from "../DialogCropper";
 // STYLES
 import Container from "./styles";
 

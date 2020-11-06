@@ -6,7 +6,7 @@ const useStyles = makeStyles({
       backgroundColor: "#3b3b3b",
       minWidth: "320px",
       "& div.MuiDialogTitle-root": {
-        padding: "1rem 2rem 0",
+        padding: "1rem 1rem 0",
         "& h2": {
           display: "flex",
           justifyContent: "space-between",
@@ -15,32 +15,29 @@ const useStyles = makeStyles({
           "& > span": {
             marginRight: "3rem",
           },
+          "& svg": {
+            cursor: "pointer",
+          },
         },
       },
       "& div.MuiDialogContent-root": {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "0.7rem",
+        padding: "1rem",
         "& button": {
-          height: "100px",
           width: "100%",
           textTransform: "none",
           backgroundColor: "#71bb00",
           color: "#FFF",
-          margin: "0.5rem",
           padding: "0.8rem",
-          "& > span": {
-            display: "flex",
-            flexDirection: "column",
-            padding: "0.5rem 0",
-            "& span:nth-child(1)": {
-              marginBottom: "0.3rem",
-            },
-            "& span:nth-child(2)": {
-              margin: "0",
-            },
-          },
+          borderRadius: "8px",
+        },
+        "& button:nth-child(1)": {
+          marginRight: "0.5rem",
+        },
+        "& button:nth-child(2)": {
+          marginLeft: "0.5rem",
         },
       },
     },
