@@ -1,41 +1,56 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // CONTEXTS
-import { Context } from "../../contexts/Context";
+import { Context } from "../../contexts/ContextData";
 // STYLES
 import Container from "./styles";
 
-// TYPES
-interface BtnPostTypes {
-  title: string;
-  children: string;
-}
+const ButtonDsc = () => {
+  const ContData = useContext(Context);
 
-const ButtonPost = (props: BtnPostTypes) => {
-  const verifyDisable = (image: string, name: string, msg: string) => {
-    if (props.title === "Publicar") {
-      return image === "" || name === "" || msg === "";
-    } else {
-      return image === "" && name === "" && msg === "";
-    }
+  const verifyDisable = () => {
+    return (
+      ContData.state.image === "" &&
+      ContData.state.name === "" &&
+      ContData.state.msg === ""
+    );
   };
 
   return (
-    <Context.Consumer>
-      {(value) => (
-        <Container
-          title={props.title}
-          disabled={verifyDisable(
-            value.state.image,
-            value.state.name,
-            value.state.msg
-          )}
-        >
-          {props.title}
-        </Container>
-      )}
-    </Context.Consumer>
+    <Container
+      title="Descartar"
+      disabled={verifyDisable()}
+      onClick={() =>
+        !verifyDisable() && ContData.setState({ image: "", name: "", msg: "" })
+      }
+    >
+      Descartar
+    </Container>
   );
 };
 
-export default ButtonPost;
+const ButtonPbc = () => {
+  const ContData = useContext(Context);
+
+  const verifyDisable = () => {
+    return (
+      ContData.state.image === "" ||
+      ContData.state.name === "" ||
+      ContData.state.msg === ""
+    );
+  };
+
+  return (
+    <Container
+      title="Publicar"
+      disabled={verifyDisable()}
+      onClick={() =>
+        !verifyDisable() && alert([ContData.state.name, ContData.state.msg])
+      }
+    >
+      Publicar
+    </Container>
+  );
+};
+
+export { ButtonDsc, ButtonPbc };

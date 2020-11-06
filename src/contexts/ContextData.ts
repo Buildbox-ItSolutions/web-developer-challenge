@@ -13,5 +13,3 @@ const DefaultValue = {
 };
 
 export const Context = React.createContext(DefaultValue);
-
-

@@ -1,7 +1,7 @@
 import React from "react";
 
 // CONTEXTS
-import { Context } from "../../contexts/Context";
+import { Context } from "../../contexts/ContextData";
 // STYLES
 import Container from "./styles";
 

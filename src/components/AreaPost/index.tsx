@@ -1,27 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // CONTEXTS
-import { Context } from "../../contexts/Context";
+import { Context } from "../../contexts/ContextData";
 // STYLES
 import Container from "./styles";
 
 const AreaPost = () => {
+  const ContData = useContext(Context);
+
   return (
-    <Context.Consumer>
-      {(value) => (
-        <Container
-          placeholder="Mensagem"
-          value={value.state.msg}
-          onChange={(e) =>
-            value.setState({
-              image: value.state.image,
-              name: value.state.name,
-              msg: e.target.value,
-            })
-          }
-        />
-      )}
-    </Context.Consumer>
+    <Container
+      placeholder="Mensagem"
+      value={ContData.state.msg}
+      onChange={(e) =>
+        ContData.setState({
+          image: ContData.state.image,
+          name: ContData.state.name,
+          msg: e.target.value,
+        })
+      }
+    />
   );
 };
 

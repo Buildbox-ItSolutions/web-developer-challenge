@@ -11,7 +11,7 @@ const ImgPost = styled.div`
     height: max-content;
   }
 
-  label {
+  div {
     cursor: pointer;
     width: 88px;
     height: 88px;
