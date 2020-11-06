@@ -9,7 +9,7 @@ interface PropsSetState {
 
 const DefaultValue = {
   state: { image: "", name: "", msg: "" },
-  setState: (state: PropsSetState) => {}, // noop default callback
+  setState: (state: PropsSetState) => {},
 };
 
 export const Context = React.createContext(DefaultValue);

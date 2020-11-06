@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 // CONTEXTS
 import { Context } from "../../contexts/ContextData";
+import { ContextFeed } from "../../contexts/ContextFeed";
 // STYLES
 import Container from "./styles";
 
@@ -31,6 +32,7 @@ const ButtonDsc = () => {
 
 const ButtonPbc = () => {
   const ContData = useContext(Context);
+  const ContFeed = useContext(ContextFeed);
 
   const verifyDisable = () => {
     return (
@@ -44,9 +46,7 @@ const ButtonPbc = () => {
     <Container
       title="Publicar"
       disabled={verifyDisable()}
-      onClick={() =>
-        !verifyDisable() && alert([ContData.state.name, ContData.state.msg])
-      }
+      onClick={() => !verifyDisable() && ContFeed.setStateFeed({ status: true })}
     >
       Publicar
     </Container>
