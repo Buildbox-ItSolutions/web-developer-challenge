@@ -7,6 +7,7 @@ import { Context } from "../../contexts/ContextData";
 import { ContextImage } from "../../contexts/ContextImage";
 // IMAGES
 import PostImage from "../../images/ImgPost/post-image.png";
+import TrashImage from "../../images/ImgPost/trash.png";
 // ICONS
 import CloseIcon from "@material-ui/icons/Close";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
@@ -39,6 +40,18 @@ const ImgPost = () => {
 
   return (
     <Container>
+      <div
+        className={ContData.state.image !== "" ? "active" : ""}
+        onClick={() =>
+          ContData.setState({
+            image: "",
+            name: ContData.state.name,
+            msg: ContData.state.msg,
+          })
+        }
+      >
+        <img alt="Trash" src={TrashImage} />
+      </div>
       <div onClick={() => setShowOption(true)}>
         <img
           src={ContData.state.image !== "" ? ContData.state.image : PostImage}
@@ -46,17 +59,17 @@ const ImgPost = () => {
         />
         <input
           id="inppost"
+          type="file"
+          accept="image/*"
           onChange={(e) => {
             onChange(e);
           }}
-          type="file"
-          accept="image/*"
         />
       </div>
 
       <Dialog
-        className={material.dialog}
         open={showOption}
+        className={material.dialog}
         onClose={() => setShowOption(false)}
       >
         <DialogTitle>
