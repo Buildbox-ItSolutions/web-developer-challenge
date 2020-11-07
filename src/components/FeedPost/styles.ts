@@ -16,7 +16,7 @@ const Container = styled.div`
     text-align: left;
   }
 
-  > div {
+  & > div {
     width: 100%;
     background-color: #313131;
     border: 1px solid #3b3b3b;
@@ -24,9 +24,33 @@ const Container = styled.div`
     margin: 0.3rem 0 1rem;
     padding: 1.5rem;
     position: relative;
-
     display: flex;
     flex-direction: row;
+
+    &:not(.empty-feed) {
+      &.active {
+        animation: 0.7s SlideIn forwards;
+      }
+      & {
+        animation: 0.5s SlideOut forwards;
+      }
+    }
+
+    &.empty-feed {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s;
+
+      > span {
+        text-align: center;
+        font-size: 14px;
+        color: #5f5f5f;
+      }
+      > div {
+        padding: 0.5rem !important;
+      }
+    }
 
     > div:nth-child(1) {
       display: flex;
@@ -77,6 +101,28 @@ const Container = styled.div`
       right: 0.8rem;
       top: 0.8rem;
       cursor: pointer;
+    }
+
+    @keyframes SlideIn {
+      from {
+        opacity: 0;
+        transform: translate(0px, -150px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
+    }
+
+    @keyframes SlideOut {
+      from {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
+      to {
+        opacity: 0;
+        transform: translate(0px, -150px);
+      }
     }
   }
 

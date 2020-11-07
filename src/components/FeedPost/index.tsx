@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 
 import { Context } from "../../contexts/ContextData";
 import { ContextFeed } from "../../contexts/ContextFeed";
@@ -29,43 +30,80 @@ const FeedPost = () => {
     }
   }, [contFeed, contData, values]);
 
-  const removePost = (v: number) => {
-    let newValues: string[] = [];
+  useEffect(() => {}, [values]);
+
+  const removePost = (
+    v: number,
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    let elem = e.target as HTMLAreaElement;
+    elem.parentElement?.classList.remove("active");
+
+    let newValues: string[] = [...values];
+    delete newValues[v];
+
+    elem.parentElement?.addEventListener("animationend", () => {
+      setValues(newValues);
+    });
+  };
+
+  const verifyValues = () => {
     for (let i = 0; i < values.length; i++) {
-      if (i !== v) {
-        newValues.push(values[i]);
+      if (values[i] !== null && typeof values[i] === "object") {
+        return true;
       }
     }
-    setValues(newValues);
+    return false;
   };
 
   return (
     <Container>
       <p>Feed</p>
-      {values.map((v, i) => {
-        return (
-          <div key={i}>
-            <div>
-              <img src={v.img} alt="Img" />
-            </div>
-            <div>
-              <div>
-                <p>{v.msg}</p>
+
+      {!verifyValues() && (
+        <div className="empty-feed">
+          <span>Seu feed está vazio, crie posts!</span>
+          <Loader
+            type="Oval"
+            color="#71bb00"
+            height={20}
+            width={20}
+            timeout={4000}
+          />
+        </div>
+      )}
+
+      {values
+        .map((v, i) => {
+          if (v !== null && typeof v === "object") {
+            return (
+              <div className="active" key={i}>
+                <div>
+                  <img src={v.img} alt="Img" />
+                </div>
+                <div>
+                  <div>
+                    <p>{v.msg}</p>
+                  </div>
+                  <div>
+                    <p>Enviado por</p>
+                    <p>{v.name}</p>
+                  </div>
+                </div>
+                <img
+                  src={FeedClose}
+                  alt="Close"
+                  onClick={(e) => {
+                    removePost(i, e);
+                  }}
+                />
               </div>
-              <div>
-                <p>Enviado por</p>
-                <p>{v.name}</p>
-              </div>
-            </div>
-            <img
-              src={FeedClose}
-              alt="Close"
-              className={i.toString()}
-              onClick={() => removePost(i)}
-            />
-          </div>
-        );
-      })}
+            );
+          } else {
+            return null;
+          }
+        })
+        .reverse()}
     </Container>
   );
 };
