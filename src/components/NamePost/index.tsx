@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // CONTEXTS
 import { Context } from "../../contexts/ContextData";
@@ -6,22 +6,20 @@ import { Context } from "../../contexts/ContextData";
 import Container from "./styles";
 
 const NamePost = () => {
+  const ContData = useContext(Context);
+
   return (
-    <Context.Consumer>
-      {(value) => (
-        <Container
-          placeholder="Nome"
-          value={value.state.name}
-          onChange={(e) =>
-            value.setState({
-              image: value.state.image,
-              name: e.target.value,
-              msg: value.state.msg,
-            })
-          }
-        />
-      )}
-    </Context.Consumer>
+    <Container
+      placeholder="Nome"
+      value={ContData.state.name}
+      onChange={(e) =>
+        ContData.setState({
+          image: ContData.state.image,
+          name: e.target.value,
+          msg: ContData.state.msg,
+        })
+      }
+    />
   );
 };
 

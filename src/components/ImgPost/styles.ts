@@ -8,34 +8,41 @@ const ImgPost = styled.div`
   height: 88px;
   position: relative;
 
-  div:nth-child(1) {
+  .trash {
     cursor: pointer;
     position: absolute;
-    opacity: 0;
-    transform: translate(-120%, -50%);
-    visibility: hidden;
     top: 50%;
     right: -40px;
-  }
+    animation: 0.5s FadeOut forwards;
 
-  div:nth-child(1).active {
-    animation: 0.5s FadeIn forwards;
-  }
-
-  @keyframes FadeIn {
-    from {
-      opacity: 0;
-      transform: translate(-120%, -50%);
-      visibility: hidden;
+    &.active {
+      animation: 0.5s FadeIn forwards;
     }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-      visibility: visible;
+
+    @keyframes FadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-120%, -50%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @keyframes FadeOut {
+      from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+      to {
+        opacity: 0;
+        transform: translate(-120%, -50%);
+      }
     }
   }
 
-  div:nth-child(2) {
+  .up-img {
     cursor: pointer;
     width: 100%;
     height: 100%;

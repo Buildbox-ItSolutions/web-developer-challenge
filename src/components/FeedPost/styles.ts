@@ -14,6 +14,7 @@ const Container = styled.div`
     font-size: 14px;
     line-height: 18px;
     text-align: left;
+    font-weight: 500;
   }
 
   & > div {
@@ -21,7 +22,7 @@ const Container = styled.div`
     background-color: #313131;
     border: 1px solid #3b3b3b;
     border-radius: 3px;
-    margin: 0.3rem 0 1rem;
+    margin: 0.3rem 0 0;
     padding: 1.5rem;
     position: relative;
     display: flex;
@@ -41,25 +42,31 @@ const Container = styled.div`
       justify-content: center;
       align-items: center;
       transition: all 0.3s;
+      padding: 1rem;
 
       > span {
         text-align: center;
         font-size: 14px;
-        color: #5f5f5f;
-      }
-      > div {
-        padding: 0.5rem !important;
+        position: relative;
+
+        > div {
+          position: absolute;
+          right: -27px;
+          top: -2px;
+        }
       }
     }
 
     > div:nth-child(1) {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      margin-top: 1.7rem;
 
       img {
         width: 88px;
         border-radius: 36px;
+        transition: all 0.3s;
       }
     }
 
@@ -67,17 +74,13 @@ const Container = styled.div`
       padding: 1.5rem;
 
       > div:nth-child(1) {
-        height: 80px;
-        margin-bottom: 0.8rem;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        overflow: hidden;
+        margin-bottom: 1.5rem;
 
         p {
           font-size: 16px;
           color: #9f9f9f;
           line-height: 20px;
+          word-break: break-all;
         }
       }
 
@@ -92,6 +95,11 @@ const Container = styled.div`
           font-size: 14px;
           color: #7a7a7a;
           line-height: 18px;
+          word-break: break-all;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
         }
       }
     }
@@ -133,6 +141,33 @@ const Container = styled.div`
   @media (max-width: 425px) {
     width: 95%;
     margin: 5px 30px 10px;
+
+    & > div {
+      padding: 0.8rem;
+
+      > div:nth-child(1) {
+        margin-top: 1.5rem;
+
+        img {
+          width: 60px;
+          border-radius: 23px;
+          transition: all 0.3s;
+        }
+      }
+
+      > div:nth-child(2) {
+        padding: 0 1.2rem 0 0.8rem;
+
+        div {
+          padding: 1.2rem 0 0.3rem 0;
+        }
+      }
+
+      > img {
+        right: 0.5rem;
+        top: 0.5rem;
+      }
+    }
   }
 `;
 

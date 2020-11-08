@@ -8,7 +8,7 @@ const CreatePost = styled.div`
   border-radius: 3px;
   background-color: #313131;
   border: 1px solid #3b3b3b;
-  margin: 30px;
+  margin: 30px 30px 40px;
   padding: 1.5rem 1.5rem 0.8rem;
   transition: all 0.3s;
 

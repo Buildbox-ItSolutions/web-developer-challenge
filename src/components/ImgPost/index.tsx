@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Dialog, DialogContent, DialogTitle } from "@material-ui/core";
 import faker from "faker";
 
@@ -22,6 +22,7 @@ const ImgPost = () => {
   const material = useStyles();
 
   const [showOption, setShowOption] = useState(false);
+  const [showTrash, setShowTrash] = useState(false);
 
   const onChange = (e: any) => {
     e.preventDefault();
@@ -38,24 +39,45 @@ const ImgPost = () => {
     reader.readAsDataURL(files[0]);
   };
 
+  const RemoveImg = () => {
+    let elem = document.getElementById("trash");
+    elem?.classList.remove("active");
+    elem?.addEventListener("animationend", () => {
+      setShowTrash(false);
+    });
+  };
+
+  useEffect(() => {
+    if (ContData.state.image !== "") {
+      setShowTrash(true);
+    } else {
+      RemoveImg();
+    }
+  }, [ContData]);
+
   return (
     <Container>
-      <div
-        className={ContData.state.image !== "" ? "active" : ""}
-        onClick={() =>
-          ContData.setState({
-            image: "",
-            name: ContData.state.name,
-            msg: ContData.state.msg,
-          })
-        }
-      >
-        <img alt="Trash" src={TrashImage} />
-      </div>
-      <div onClick={() => setShowOption(true)}>
+      {showTrash && (
+        <div
+          id="trash"
+          className="trash active"
+          onClick={() => {
+            ContData.setState({
+              image: "",
+              name: ContData.state.name,
+              msg: ContData.state.msg,
+            });
+            RemoveImg();
+          }}
+        >
+          <img alt="Trash" src={TrashImage} />
+        </div>
+      )}
+
+      <div onClick={() => setShowOption(true)} className="up-img">
         <img
-          src={ContData.state.image !== "" ? ContData.state.image : PostImage}
           alt="Post"
+          src={ContData.state.image !== "" ? ContData.state.image : PostImage}
         />
         <input
           id="inppost"

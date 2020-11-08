@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
+// CONTEXTS
 import { Context } from "../../contexts/ContextData";
 import { ContextFeed } from "../../contexts/ContextFeed";
-
+// ICONS
 import FeedClose from "../../images/Feed/delete.png";
-
+// STYLES
 import Container from "./styles";
 
 const FeedPost = () => {
@@ -62,14 +63,16 @@ const FeedPost = () => {
 
       {!verifyValues() && (
         <div className="empty-feed">
-          <span>Seu feed está vazio, crie posts!</span>
-          <Loader
-            type="Oval"
-            color="#71bb00"
-            height={20}
-            width={20}
-            timeout={4000}
-          />
+          <span>
+            Seu feed está vazio, crie posts!
+            <Loader
+              type="Oval"
+              color="#71bb00"
+              height={20}
+              width={20}
+              timeout={2000}
+            />
+          </span>
         </div>
       )}
 

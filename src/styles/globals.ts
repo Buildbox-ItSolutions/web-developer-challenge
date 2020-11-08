@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   button,
   label,
   textarea {
-    font: 400 16px "Roboto", sans-serif !important;
+    font: normal 16px "Roboto", sans-serif !important;
   }
 
   input,

@@ -8,8 +8,8 @@ interface ButtonProps {
 
 const Container = styled(Button)<ButtonProps>`
   && {
-    width: 130px;
-    height: 40px;
+    width: 98px;
+    height: 41px;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -22,6 +22,7 @@ const Container = styled(Button)<ButtonProps>`
       color: ${(props) => (props.title === "Publicar" ? "#fff" : "#5f5f5f")};
       text-decoration: ${(props) => props.title === "Descartar" && "underline"};
       text-transform: none;
+      font-size: 14px;
     }
 
     &:hover {

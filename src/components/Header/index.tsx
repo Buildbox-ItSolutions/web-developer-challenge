@@ -8,7 +8,7 @@ import Container from "./styles";
 const Header = () => {
   return (
     <Container>
-      <img src={BxLogo} className="bx-logo" alt="Logo" />
+      <img src={BxLogo} alt="Logo" />
     </Container>
   );
 };
