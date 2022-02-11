@@ -3,5 +3,4 @@ export const convertFileToBlob = async (file?: File) =>
     ? new Blob([new Uint8Array(await file.arrayBuffer())], { type: file.type })
     : undefined;
 
-export const isFileImage = (file?: File) =>
-  file && file['type'].split('/')[0] === 'image';
+export const isFileImage = (file?: File) => file && file.type.includes('image');

@@ -22,10 +22,9 @@ export const LabelContainer = styled.label`
   justify-content: center;
   align-items: center;
 
-  border-radius: 36px;
-  border: 1px solid ${colors.border2};
-
   .fill {
+    border-radius: 36px;
+
     width: 88px;
     height: 88px;
 
