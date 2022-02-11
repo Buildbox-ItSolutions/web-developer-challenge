@@ -40,9 +40,6 @@ export const FormCreatePost = () => {
     changeCurrentImage("")
   }
 
-  useEffect(() => {
-    console.log(posts)
-  },[posts])
   return (
     <Container>
        
