@@ -16,11 +16,12 @@ Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu 
 
 Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
 
-
 ## Interface XD
+
 https://adobe.ly/2BVcy5C
 
 ## Design - Zeplin
+
 https://app.zeplin.io/login
 
 E-mail - buildbox.guest@gmail.com
