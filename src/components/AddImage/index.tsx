@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Container, DeleteButton, LabelContainer } from './styles';
 import notUploadImage from '../../images/image.svg';
@@ -20,9 +20,13 @@ const AddImage: React.FC<Prop> = ({
   const [imageToShow, setImageToShow] = useState(notUploadImage);
 
   useEffect(() => {
-    convertFileToBlob(image).then((value) => {
-      setImageToShow(value ? URL.createObjectURL(value) : notUploadImage);
-    });
+    if (image) {
+      convertFileToBlob(image).then((value) => {
+        setImageToShow(value ? URL.createObjectURL(value) : notUploadImage);
+      });
+    } else {
+      deleteImage();
+    }
   }, [image]);
 
   const afterChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,9 +37,10 @@ const AddImage: React.FC<Prop> = ({
     }
   };
 
-  const onClickDelete = () => {
+  const deleteImage = useCallback(() => {
     onChange(undefined);
-  };
+    setImageToShow(notUploadImage);
+  }, [onChange]);
 
   return (
     <React.Fragment>
@@ -57,7 +62,7 @@ const AddImage: React.FC<Prop> = ({
         </LabelContainer>
       </Container>
       {image && (
-        <DeleteButton onClick={onClickDelete} type="button">
+        <DeleteButton onClick={deleteImage} type="button">
           <img src={trashImage} alt="Remover a imagem" />
         </DeleteButton>
       )}
