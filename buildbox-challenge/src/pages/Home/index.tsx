@@ -1,11 +1,14 @@
 import React from 'react'
-import { NewPost } from '../../components/NewPost'
+import { Feed } from '../../components/Feed'
+import { FormCreatePost } from '../../components/FormCreatePost'
+import { ImagePost } from '../../components/ImagePost'
 import { Container } from './style'
 
 export const Home = () => {
   return (
     <Container>
-      <NewPost/>
+      <FormCreatePost/>
+      <Feed/>
     </Container>
   )
 }
