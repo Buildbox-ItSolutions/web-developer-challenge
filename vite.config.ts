@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from '@honkhonk/vite-plugin-svgr';
 import tsConfigpaths from 'vite-tsconfig-paths';
 import { EsLinter, linterPlugin } from 'vite-plugin-linter';
 
@@ -16,5 +17,6 @@ export default defineConfig((configEnv) => ({
       include: ['./src/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
     }),
+    svgr(),
   ],
 }));

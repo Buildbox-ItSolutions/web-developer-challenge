@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["@honkhonk/vite-plugin-svgr/client"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": false,
