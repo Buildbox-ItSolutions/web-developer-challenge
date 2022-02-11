@@ -12,4 +12,6 @@ export const theme = {
     primary: '#9f9f9f',
     secondary: '#7a7a7a',
   },
-};
+} as const;
+
+export type Theme = typeof theme;
