@@ -1,31 +1,16 @@
 import Header from '@/components/Header';
 import Container from '@/components/Container';
 import Center from '@/components/Center';
+import Form from '@/components/Form';
+import Feed from '@/components/Feed';
 
 function App() {
   return (
     <Container>
       <Header />
-      <Center as="main" direction="column">
-        <div>
-          <div>logo</div>
-          <input type="text" placeholder="Digite seu nome" />
-          <textarea placeholder="Mensagem" />
-        </div>
-        <div>
-          <ul>
-            <li>
-              <div>
-                <div>header</div>
-                <div>
-                  <p>Content</p>
-                  <p>Enviado por</p>
-                  <p>Igor Wessel</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+      <Center as="main" marginX="16px" direction="column">
+        <Form />
+        <Feed />
       </Center>
     </Container>
   );
