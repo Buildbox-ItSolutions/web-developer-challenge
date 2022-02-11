@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { CurrentImageProvider } from "./CurrentImage";
+import { ModalEditProvider } from "./ModalEditPost";
 import { ModalDeleteProvider } from "./ModelDeletePost";
 import { PostProvider } from "./Posts";
 
@@ -12,9 +13,11 @@ const Providers = ({ children } : ProviderProps) => {
     return(
         <CurrentImageProvider>
             <ModalDeleteProvider>
-                <PostProvider>
-                    { children }
-                </PostProvider>
+                <ModalEditProvider>
+                    <PostProvider>
+                        { children }
+                    </PostProvider>
+                </ModalEditProvider>
             </ModalDeleteProvider>
         </CurrentImageProvider>
     )

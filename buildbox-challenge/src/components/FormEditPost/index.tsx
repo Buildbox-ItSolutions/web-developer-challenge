@@ -1,5 +1,5 @@
 import { ImagePost } from "../ImagePost"
-import { Container, Form, ButtonsContainer, ButtonDiscard, ButtonPublish} from "./style"
+import { Container, Form, ButtonsContainer, ButtonDiscard, ButtonPublish, CloseContainer} from "./style"
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -8,13 +8,15 @@ import { CurrentImageContext } from "../../providers/CurrentImage"
 import { PostContext } from "../../providers/Posts"
 import { useEffect } from "react"
 import { IoMdClose } from 'react-icons/io'
+import { ModalEditContext } from "../../providers/ModalEditPost"
 interface FormData{
     name:string,
     message:string
 }
-export const FormCreatePost = () => {
-  const { posts, addPost } = useContext(PostContext)
+export const FormEditPost = () => {
+  const { posts, editPost } = useContext(PostContext)
   const { currentImage, changeCurrentImage} = useContext(CurrentImageContext)
+  const { settingShowingModalEdit } = useContext(ModalEditContext)
 
   const formSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
@@ -26,10 +28,9 @@ export const FormCreatePost = () => {
       resolver:yupResolver(formSchema)
   })
 
-
   const onSubmit = (data:FormData) => {
     const post = { ...data, image:currentImage }
-    addPost(post)
+    editPost(post)
     reset()
     changeCurrentImage("")
   }
@@ -41,11 +42,14 @@ export const FormCreatePost = () => {
   }
 
   useEffect(() => {
-    console.log(posts)
   },[posts])
   return (
     <Container>
-       
+       <CloseContainer>
+           <div>
+                <IoMdClose onClick={settingShowingModalEdit}/>
+           </div>
+        </CloseContainer>
         <Form onSubmit={handleSubmit(onSubmit)}>
             <ImagePost/>
             <input 

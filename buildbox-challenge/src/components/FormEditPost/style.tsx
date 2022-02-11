@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 516px;
   height: 353px;
   margin:0 auto;
-  padding: 24px;
+  padding: 10px;
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;
@@ -17,10 +17,6 @@ export const Container = styled.div`
       width:90%
   }
 
-  div{
-      display:flex;
-      justify-content:flex-end;
-  }
 `
 
 
@@ -28,7 +24,7 @@ export const Form = styled.form`
     width:90%;
     .input_text{
         width: 100%;
-        margin: 16px 0 8px;
+        margin: 5px 0 8px;
         border-radius: 8px;
         background-color: #494949;
         padding:5px;
@@ -67,7 +63,6 @@ export const ButtonsContainer = styled.div `
     display:flex;
     justify-content:flex-end;
 
-    margin-top:0px;
 `
 
 
@@ -90,7 +85,7 @@ export const ButtonPublish = styled.button`
     width: 98px;
     height: 41px;
     margin: 0 0 0 24px;
-    padding: 12px 24px;
+    /* padding: 12px 24px; */
     object-fit: contain;
     border-radius: 8px;
     background-color: #5f5f5f;
@@ -102,4 +97,28 @@ export const ButtonPublish = styled.button`
         background-color:#71BB01;
         color:white;
     }
+`
+
+
+export const CloseContainer = styled.div`
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+
+    div{
+        cursor:pointer;
+        width:30px;
+        height:30px;
+        border-radius:50%;
+        border:1px solid #e75010;
+        margin:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        transition:0.250s;
+        :hover{
+        /* border:1px solid #ebac91; */
+        background-color: #e75010;
+        }
+  }
 `

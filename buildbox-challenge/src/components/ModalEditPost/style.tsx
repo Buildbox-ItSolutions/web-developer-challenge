@@ -1,9 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  
-  width: 516px;
-  height: 225px;
+export const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  background: rgba(97, 97, 97, 0.8);
+  position: fixed;
+  display: flex;
+  z-index:3;
+  justify-content: center;
+  align-items: center;
+
+`;
+
+export const ModalWrapper = styled.div`
+   width: 516px;
+   height: 380px;
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;
@@ -24,11 +35,26 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width:768px){
-      width:100%
+      width:90%
+      max-width:578px;
   }
-` 
+`;
 
 
+
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 516px;
+  height: 353px;
+  color: #141414;
+  p {
+    margin-bottom: 1rem;
+    margin-top:50px;
+  }
+  color:#9f9f9f;
+`;
 
 
 export const ButtonCloseContainer = styled.div`
@@ -46,7 +72,7 @@ b  img{
     background-color:transparent;
     
   }
-  .remove_button{
+  svg{
     color:#c2582b;
     font-size:15px;
     cursor:pointer;
@@ -55,80 +81,20 @@ b  img{
       color:#3b3b3b;
     }
   }
-
-  
-  .edit_div, .remove_div{
+  div{
     width:30px;
     height:30px;
     border-radius:50%;
-   
+    border:1px solid #e75010;
     margin:0;
-    margin-left:10px;
     display:flex;
     align-items:center;
     justify-content:center;
     transition:0.250s;
-    
-  }
-
-  .remove_div{
-    border:1px solid #e75010;
     :hover{
+      /* border:1px solid #ebac91; */
       background-color: #e75010;
     }
   }
-
-  .edit_div{
-    cursor:pointer;
-    border:1px solid #e7d910;
-    :hover{
-      background-color: #e7eb19;
-    }
-  }
 `
 
-export const Details = styled.div` 
-    width:100%;
-    margin:0;
-    padding:0px;
-    display:flex;
-    margin-top:-10px;
-
-    
-    h6,h3{
-      margin:0;
-    }
-
-
-    
-    h6{
-      color:#5f5f5f;
-      font-size:12px;
-      font-weight: normal;
-    }
-    h3{
-      color:#7a7a7a;
-      font-weight: normal;
-      font-size:14px;
-    }
-
-    p{
-        max-width:90%;
-        min-height:70px;
-        /* height:150px; */
-        color:#9f9f9f;
-    }
-
-    div{
-      margin-left:20px;
-      margin-top:-10px;
-    }
-    
-    @media screen and (max-width:768px){
-      p{
-        height:100px;
-        overflow:scroll;
-      }
-    }
-   
-`
