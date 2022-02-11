@@ -1,12 +1,9 @@
 import { Container, Details, ButtonCloseContainer } from "./style"
-import deleteIcon from '../../assets/delete.svg'
 import { IoMdClose } from 'react-icons/io'
 import { useContext } from "react"
 import { ModalDeleteContext } from "../../providers/ModelDeletePost"
-import postImage from '../../assets/postImage.svg'
 import { GrEdit } from 'react-icons/gr'
 import { ModalEditContext } from "../../providers/ModalEditPost"
-import { useEffect } from "react"
 
 
 interface PostProps{
@@ -23,7 +20,7 @@ export const Post = ({ post}:PostProps) => {
 
   const { settingActualDeleted } = useContext(ModalDeleteContext)
 
-  const { settingActualEdit, actualEdit } = useContext(ModalEditContext)
+  const { settingActualEdit } = useContext(ModalEditContext)
 
 
   return (

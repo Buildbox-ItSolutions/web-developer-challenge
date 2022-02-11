@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import { ModalWrapper,ModalContent, Background, ButtonCloseContainer, ButtonPublish} from './style'
 import { IoMdClose } from 'react-icons/io'
 import { ModalDeleteContext } from '../../providers/ModelDeletePost';
-import { useEffect } from 'react';
 import { PostContext } from '../../providers/Posts';
 
 

@@ -6,14 +6,12 @@ import * as yup from 'yup'
 import { useContext } from "react"
 import { CurrentImageContext } from "../../providers/CurrentImage"
 import { PostContext } from "../../providers/Posts"
-import { useEffect } from "react"
-import { IoMdClose } from 'react-icons/io'
 interface FormData{
     name:string,
     message:string
 }
 export const FormCreatePost = () => {
-  const { posts, addPost } = useContext(PostContext)
+  const {  addPost } = useContext(PostContext)
   const { currentImage, changeCurrentImage} = useContext(CurrentImageContext)
 
   const formSchema = yup.object().shape({
