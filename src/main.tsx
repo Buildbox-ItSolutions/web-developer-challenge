@@ -8,29 +8,32 @@ import { theme } from '@/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  * {
+    box-sizing: border-box;
+  }
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
   @font-face {
-        font-family: 'SFProDisplay';
-        src: url('SFProDisplay-Regular.woff2') format('woff2'),
-          url('SFProDisplay-Regular.woff') format('woff');
+        font-family: 'SF Pro Display';
+        src: url('/fonts/SFProDisplay-Regular.woff2') format('woff2'),
+          url('/fonts/SFProDisplay-Regular.woff') format('woff');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
       }
 
   @font-face {
-    font-family: 'SFProDisplay';
-    src: url('SFProDisplay-Black.woff2') format('woff2'),
-      url('SFProDisplay-Black.woff') format('woff');
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SFProDisplay-Black.woff2') format('woff2'),
+      url('/fonts/SFProDisplay-Black.woff') format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'SFProDisplay';
-    src: url('SFProDisplay-Light.woff2') format('woff2'),
-      url('SFProDisplay-Light.woff') format('woff');
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SFProDisplay-Light.woff2') format('woff2'),
+      url('/fonts/SFProDisplay-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
