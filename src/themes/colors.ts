@@ -5,5 +5,6 @@ export const colors = {
   text2: '#5f5f5f',
   headerBg: '#2b2b2b',
   inputsBg: '#494949',
-  border: '#313131',
+  border: '#3b3b3b',
+  border2: '#4b4b4b',
 };

@@ -1,11 +1,18 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
-import { Container } from './styles';
+import AddImageControl from '../AddImageControl';
+
+import { AddImageContainer, Container } from './styles';
 
 const CreatePost: React.FC = () => {
+  const { control } = useForm();
+
   return (
     <Container>
-      <p>Oi</p>
+      <AddImageContainer>
+        <AddImageControl control={control} name="image" />
+      </AddImageContainer>
     </Container>
   );
 };
