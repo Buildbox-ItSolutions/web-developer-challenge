@@ -10,22 +10,32 @@ export const Container = styled.div`
 
   border-radius: 36px;
   border: 1px solid ${colors.border2};
+
   input {
     display: none;
   }
 `;
 
 export const LabelContainer = styled.label`
+  display: flex;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  border-radius: 36px;
+  border: 1px solid ${colors.border2};
 
-  svg {
-    margin-bottom: 10px;
-    width: 60px;
-    height: 60px;
+  .fill {
+    width: 88px;
+    height: 88px;
+
+    border-radius: 36px;
   }
+`;
+
+export const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  margin-left: 16px;
+  cursor: pointer;
 `;

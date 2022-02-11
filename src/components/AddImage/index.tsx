@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, LabelContainer } from './styles';
+import { Container, DeleteButton, LabelContainer } from './styles';
 import notUploadImage from '../../images/image.svg';
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import trashImage from '../../images/trash.png';
+
 import { convertFileToBlob, isFileImage } from '../../utils/fileUtils';
 
 type Prop = {
@@ -31,19 +32,35 @@ const AddImage: React.FC<Prop> = ({
     }
   };
 
+  const onClickDelete = () => {
+    onChange(undefined);
+  };
+
   return (
-    <Container>
-      <input
-        type="file"
-        id={name}
-        name={name}
-        accept="image/*"
-        onChange={afterChange}
-      />
-      <LabelContainer htmlFor={name}>
-        <img src={imageToShow} alt="Adicionar imagem" loading="lazy" />
-      </LabelContainer>
-    </Container>
+    <React.Fragment>
+      <Container>
+        <input
+          type="file"
+          id={name}
+          name={name}
+          accept="image/*"
+          onChange={afterChange}
+        />
+        <LabelContainer htmlFor={name}>
+          <img
+            src={imageToShow}
+            alt="Adicionar imagem"
+            loading="lazy"
+            className={image ? 'fill' : 'empty'}
+          />
+        </LabelContainer>
+      </Container>
+      {image && (
+        <DeleteButton onClick={onClickDelete} type="button">
+          <img src={trashImage} alt="Remover a imagem" />
+        </DeleteButton>
+      )}
+    </React.Fragment>
   );
 };
 
