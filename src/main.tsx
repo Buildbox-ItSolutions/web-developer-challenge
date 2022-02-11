@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
     box-sizing: border-box;
+    font-family: Roboto, sans-serif;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
   @font-face {
         font-family: 'SF Pro Display';
         src: url('/fonts/SFProDisplay-Regular.woff2') format('woff2'),
