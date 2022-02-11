@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  
+export const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  background: rgba(97, 97, 97, 0.8);
+  position: fixed;
+  display: flex;
+  z-index:3;
+  justify-content: center;
+  align-items: center;
+
+`;
+
+export const ModalWrapper = styled.div`
   width: 516px;
   height: 225px;
   border-radius: 3px;
@@ -24,12 +35,35 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width:768px){
-      width:100%
+      width:90%
+      max-width:578px;
   }
-` 
+`;
 
 
 
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  color: #141414;
+  p {
+    margin-bottom: 1rem;
+    margin-top:50px;
+  }
+  color:#9f9f9f;
+`;
+
+export const Form = styled.form`
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  @media screen and (max-width:768px) {
+    width:300px;
+  }
+  
+`
 
 export const ButtonCloseContainer = styled.div`
   width:100%;
@@ -72,48 +106,22 @@ b  img{
   }
 `
 
-export const Details = styled.div` 
-    width:100%;
-    margin:0;
-    padding:0px;
-    display:flex;
-    margin-top:-10px;
+export const ButtonPublish = styled.button` 
+    margin-left:10px;
+    cursor:pointer;
+    width: 98px;
+    height: 41px;
+    margin: 0 0 0 24px;
+    padding: 12px 24px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #5f5f5f;
+    transition:0.5s;
+    border:none;
+    color:#3b3b3b;
 
-    
-    h6,h3{
-      margin:0;
+    :hover{
+        background-color:#e75010;
+        color:white;
     }
-
-
-    
-    h6{
-      color:#5f5f5f;
-      font-size:12px;
-      font-weight: normal;
-    }
-    h3{
-      color:#7a7a7a;
-      font-weight: normal;
-      font-size:14px;
-    }
-
-    p{
-        max-width:90%;
-        min-height:70px;
-        /* height:150px; */
-        color:#9f9f9f;
-    }
-
-    div{
-      margin-left:20px;
-      margin-top:-10px;
-    }
-    
-    @media screen and (max-width:768px){
-      p{
-        height:100px;
-        overflow:scroll;
-      }
-    }
-   
 `

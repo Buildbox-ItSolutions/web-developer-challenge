@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { CurrentImageProvider } from "./CurrentImage";
+import { ModalDeleteProvider } from "./ModelDeletePost";
 import { PostProvider } from "./Posts";
 
 interface ProviderProps{
@@ -10,9 +11,11 @@ interface ProviderProps{
 const Providers = ({ children } : ProviderProps) => {
     return(
         <CurrentImageProvider>
-            <PostProvider>
-                { children }
-            </PostProvider>
+            <ModalDeleteProvider>
+                <PostProvider>
+                    { children }
+                </PostProvider>
+            </ModalDeleteProvider>
         </CurrentImageProvider>
     )
 }

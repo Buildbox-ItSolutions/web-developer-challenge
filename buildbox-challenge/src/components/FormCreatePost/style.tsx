@@ -47,7 +47,13 @@ export const Form = styled.form`
     .text_area{
         height: 80px;
     }
-
+    p{
+        margin:0;
+        padding:0;
+        font-size:12px;
+        color:red;
+        height:10px;
+    }
 `
 
 export const ButtonsContainer = styled.div ` 
@@ -55,7 +61,7 @@ export const ButtonsContainer = styled.div `
     display:flex;
     justify-content:flex-end;
 
-    margin-top:20px;
+    margin-top:0px;
 `
 
 

@@ -6,7 +6,6 @@ interface Event<T = EventTarget> {
   target: T;
 }
 export const ImagePost = ()  => {
-  // const [selectedImage, setSelectedImage] = <File>useState()
   const [currentImageToRead, setCurrentImageToRead ] = useState<File>()
   
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -41,11 +40,13 @@ export const ImagePost = ()  => {
     }
 
   }, [currentImageToRead])
+
+  
   return (
     <Container>
           <button onClick={(e)=> onClickHandler(e)}> 
             <img 
-              src={currentImage ? currentImage : postImage } 
+              src={currentImage.length !== 0 ? currentImage : postImage } 
               alt="profile"
             />
           </button>

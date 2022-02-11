@@ -8,6 +8,7 @@ interface Post{
     name:string,
     message:string,
     image?:string,
+    id:number
 }
 
 export const Feed = () => {

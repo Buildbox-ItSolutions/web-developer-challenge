@@ -8,35 +8,40 @@ import { CurrentImageContext } from "../../providers/CurrentImage"
 import { PostContext } from "../../providers/Posts"
 import { useEffect } from "react"
 
-
 interface FormData{
     name:string,
     message:string
 }
 export const FormCreatePost = () => {
   const { posts, addPost } = useContext(PostContext)
-  const { currentImage } = useContext(CurrentImageContext)
+  const { currentImage, changeCurrentImage} = useContext(CurrentImageContext)
 
   const formSchema = yup.object().shape({
-    name: yup.string().required("Mensagem obrigatória"),
+    name: yup.string().required("Nome obrigatório"),
     message: yup.string().required("Mensagem obrigatória")
 
   })
 
-  const {register, handleSubmit, formState:{ errors } } = useForm<FormData>({
+  const {register, handleSubmit, formState:{ errors }, reset} = useForm<FormData>({
       resolver:yupResolver(formSchema)
   })
 
 
-  const onSubmit = (data:FormData) =>{
-    const post = {...data, image:currentImage}
-
+  const onSubmit = (data:FormData) => {
+    
+    const post = { ...data, image:currentImage }
     addPost(post)
-
+    reset()
+    changeCurrentImage("")
   }
 
 
-  useEffect(()=>{
+  const handleClick = () =>{
+    reset()
+    changeCurrentImage("")
+  }
+
+  useEffect(() => {
     console.log(posts)
   },[posts])
   return (
@@ -49,15 +54,15 @@ export const FormCreatePost = () => {
                 className="input_text name_field"
                 {...register("name")}
             />
-            <input 
-                type="text"
-                placeholder="Digite seu nome"
+            <p>{errors.name?.message}</p>
+            <textarea 
+                placeholder="Digite sua mensagem"
                 className="input_text text_area"
                 {...register("message")}
             />
-
+            <p>{errors.message?.message}</p>
             <ButtonsContainer>
-                <ButtonDiscard type="submit">Descartar</ButtonDiscard>
+                <ButtonDiscard type="submit" onClick={handleClick}>Descartar</ButtonDiscard>
                 <ButtonPublish>Publicar</ButtonPublish>
             </ButtonsContainer>
         </Form>
@@ -65,3 +70,4 @@ export const FormCreatePost = () => {
     </Container>
   )
 }
+
