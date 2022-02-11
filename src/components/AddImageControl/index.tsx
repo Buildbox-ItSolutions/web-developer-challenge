@@ -2,8 +2,6 @@ import React from 'react';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 import AddImage from '../AddImage';
 
-// import { Container } from './styles';
-
 type Props = {
   control: Control<FieldValues, object>;
   name: string;

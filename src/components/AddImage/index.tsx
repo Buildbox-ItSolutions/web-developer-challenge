@@ -6,13 +6,13 @@ import trashImage from '../../images/trash.png';
 
 import { convertFileToBlob, isFileImage } from '../../utils/fileUtils';
 
-type Prop = {
+type Props = {
   onChange?: (file?: File) => void;
   image?: File;
   name: string;
 };
 
-const AddImage: React.FC<Prop> = ({
+const AddImage: React.FC<Props> = ({
   image,
   onChange = () => undefined,
   name,
