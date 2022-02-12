@@ -16,6 +16,7 @@ interface TypeError {
 }
 
 export function AddNews() {
+    const navigate = useNavigate();
     const formRef = useRef<FormHandles>(null)
 
     const handleSubmit: SubmitHandler<FormData> = async (data, {reset}) => {
@@ -30,8 +31,8 @@ export function AddNews() {
             await maskValidate.validate(data, {
                 abortEarly: false,
             })
-
             reset();
+            navigate('/');
         } catch (err){
 
             if (err instanceof Yup.ValidationError) {

@@ -22,13 +22,13 @@ export function Input ({name, ...rest}: InputProps) {
 
     return (
         <>
-        <input
-        id={fieldName}
-        ref={inputRef}
-        defaultValue={defaultValue}
-        {...rest}
-        />
-        {error && <h4>{error}</h4>}
+            <input
+                id={fieldName}
+                ref={inputRef}
+                defaultValue={defaultValue}
+                {...rest}
+            />
+            {error && <h4>{error}</h4>}
         </>
     )
 }

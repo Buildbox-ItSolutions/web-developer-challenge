@@ -1,9 +1,10 @@
 export const theme = {
     colors: {
-        primary: '#00bcd4',
-        secondary: '#ff9800',
-        neutral: '#fafafa',
-        neutralalt: '#f5f5f5',
+        primary: '#71bb00',
+        secondary: '#2b2b2b',
+        secondaryAlt: '#343434',
+        neutral: '#fff',
+        neutralAlt: '#7a7a7a',
     },
     breakpoints: {
         xs: '576px',
