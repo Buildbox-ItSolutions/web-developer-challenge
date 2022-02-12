@@ -5,6 +5,6 @@ type Props = {
 };
 
 export default styled.div<Props>`
-  height: 100vh;
+  min-height: 100vh;
   background: ${({ bg, theme }) => bg ?? theme.black[400]};
 `;
