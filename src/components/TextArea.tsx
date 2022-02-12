@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import styled from 'styled-components';
 import Input from '@/components/Input';
@@ -9,10 +9,13 @@ const StyledTextArea = styled(Input)`
   height: unset;
 `;
 
-function TextArea(
-  props: React.HTMLAttributes<HTMLTextAreaElement> & InputProps,
-) {
-  return <StyledTextArea as="textarea" {...props} />;
-}
+const TextArea = React.forwardRef(
+  (
+    props: React.HTMLAttributes<HTMLTextAreaElement> & InputProps,
+    ref: React.Ref<HTMLTextAreaElement>,
+  ) => {
+    return <StyledTextArea as="textarea" ref={ref} {...props} />;
+  },
+);
 
 export default TextArea;
