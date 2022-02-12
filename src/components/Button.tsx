@@ -14,11 +14,21 @@ const variantStyles = (
     primary: css`
       background: ${theme.black[100]};
       color: ${theme.black[500]};
+      transition: all 200ms ease-out;
+
+      &:hover {
+        background: ${theme.primary};
+        color: black;
+      }
     `,
     outlined: css`
       background: none;
       color: ${theme.black[100]};
       text-decoration: underline;
+
+      &:hover {
+        color: ${theme.primary};
+      }
     `,
     icon: css`
       padding: 0;
