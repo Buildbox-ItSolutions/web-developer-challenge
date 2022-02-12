@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 
-import { Container, ImageCollected, InputLabel, ImageInput, ImageCollector } from './styles'
+import { Container, InputLabel, ImageInput, ImageCollector } from './styles'
+import ImageCollected from '../ImageDisplay';
 import imageIcon from '../../assets/icons/image.svg'
 
 function ImageWrapper() {
@@ -25,12 +26,11 @@ function ImageWrapper() {
 
   return (
     <Container>
-      <ImageCollector>
+      <ImageCollector hasImage={imageURL ? true : false}>
         <InputLabel onClick={onLabelClick}>
           <ImageCollected 
             hasImage={imageURL ? true : false} 
             src={imageURL ? imageURL : imageIcon} 
-            alt="" 
           />
         </InputLabel>
         <ImageInput  

@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #343434;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -35,9 +36,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-@font-face {
-  font-family: SFProDisplay-Black;
-  src: url('./assets/fonts/FontsFree-Net-SFProDisplay-Black.ttf');
 }

@@ -7,6 +7,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+  }
 `;
 
 export { Container };

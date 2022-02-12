@@ -8,6 +8,7 @@ const Container = styled.div `
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-top: 32px;
 `;
 
 const DiscardButton = styled.div `
@@ -18,8 +19,8 @@ const DiscardButton = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 const PublishButton = styled.div `

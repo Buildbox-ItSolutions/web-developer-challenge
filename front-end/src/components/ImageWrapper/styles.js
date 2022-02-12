@@ -17,7 +17,7 @@ const ImageCollector = styled.div `
   position: relative;
 
   border-radius: 36px;
-  border: solid 1px #4b4b4b;
+  border: ${props => props.hasImage ? "none" : "2px solid #4b4b4b"};
   background-color: rgba(75, 75, 75, 0);
   
 `;
@@ -42,19 +42,10 @@ const ImageInput = styled.input `
   display: none;
 `;
 
-const ImageCollected = styled.img `
-  max-width: 88px;
-  max-height: 88px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: ${props => props.hasImage ? "36px" : "none"};
-`;
 
 export {
   Container,
   ImageCollector,
   InputLabel,
   ImageInput,
-  ImageCollected
 };
