@@ -16,7 +16,11 @@ export default function Feed() {
   return (
     <FeedContainer>
       <FeedText as="h1">Feed</FeedText>
-      <Post />
+      {Array(1)
+        .fill(0)
+        .map((_, i) => (
+          <Post key={i.toString()} />
+        ))}
     </FeedContainer>
   );
 }
