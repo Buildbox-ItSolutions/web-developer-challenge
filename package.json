@@ -12,10 +12,13 @@
     "prettier:fix": "yarn prettier -- --write"
   },
   "dependencies": {
+    "@hookform/resolvers": "2.8.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "7.27.0",
     "styled-components": "5.3.3",
-    "styled-reset": "4.3.4"
+    "styled-reset": "4.3.4",
+    "yup": "0.32.11"
   },
   "devDependencies": {
     "@honkhonk/vite-plugin-svgr": "1.1.0",
