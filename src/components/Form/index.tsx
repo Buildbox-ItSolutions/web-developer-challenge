@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,14 +15,12 @@ import {
 
 import * as yup from 'yup';
 
-import FileUploadIcon from '@/assets/file-upload-icon.svg?component';
-
 import Button from '@/components/Button';
+import FileUploadIcon from '@/assets/file-upload-icon.svg?component';
+import { Post } from '@/types';
 
-type FormData = {
-  avatar: File;
-  name: string;
-  message: string;
+type Props = {
+  handleAddPost: (post: Post) => void;
 };
 
 const schema = yup
@@ -32,17 +31,20 @@ const schema = yup
   })
   .required();
 
-export default function Form() {
+export default function Form({ handleAddPost }: Props) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<Omit<Post, 'id'>>({
     resolver: yupResolver(schema),
   });
+
   const theme = useTheme();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) =>
+    handleAddPost({ id: uuid(), ...data }),
+  );
 
   const avatarInputRef = useRef<HTMLInputElement | null>(null);
 

@@ -13,12 +13,22 @@ import {
 import Text from '@/components/Text';
 import Button from '@/components/Button';
 
-export default function Post() {
+import { Post as PostType } from '@/types';
+
+type Props = {
+  post: PostType;
+  handleRemovePost: (id: string) => void;
+};
+
+export default function Post({ post, handleRemovePost }: Props) {
   const theme = useTheme();
   return (
     <Container>
       <Header>
-        <Button variant="icon">
+        <Button
+          onClick={() => handleRemovePost(post.id)}
+          variant="icon"
+        >
           <DeleteIcon />
         </Button>
       </Header>
@@ -30,9 +40,7 @@ export default function Post() {
             lineHeight="20px"
             color={theme.text.primary}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nulla mattis ligula vel velit scelerisque iaculis. Nam
-            mattis justo id orci commodo, eu tempus purus cursus.
+            {post.message}
           </PostText>
           <Text
             fontSize="12px"
@@ -44,7 +52,7 @@ export default function Post() {
             Enviado por
           </Text>
           <Text fontSize="14px" lineHeight="18px">
-            Igor Wessel
+            {post.name}
           </Text>
         </Content>
       </Body>

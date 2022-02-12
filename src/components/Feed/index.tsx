@@ -1,17 +1,25 @@
 import Post from '@/components/Post';
+import { Post as PostType } from '@/types';
 import { FeedContainer, FeedText } from './styled';
 
-export default function Feed() {
+type Props = {
+  posts: PostType[];
+  handleRemovePost: (id: string) => void;
+};
+
+export default function Feed({ posts, handleRemovePost }: Props) {
   return (
     <FeedContainer>
       <FeedText as="h1" fontWeight="500">
         Feed
       </FeedText>
-      {Array(1)
-        .fill(0)
-        .map((_, i) => (
-          <Post key={i.toString()} />
-        ))}
+      {posts.map((post) => (
+        <Post
+          post={post}
+          handleRemovePost={handleRemovePost}
+          key={post.id}
+        />
+      ))}
     </FeedContainer>
   );
 }
