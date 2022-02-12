@@ -27,17 +27,17 @@ const createFeedServer = () => {
       let newId = 2;
       this.post('/feed', (_, request) => {
         const attrs = JSON.parse(request.requestBody);
-        attrs.id = newId++;
+        attrs.id = ++newId;
         feed.push(attrs);
 
-        return { feed };
+        return feed;
       });
 
       this.delete('/feed/:id', (_, request) => {
         const paramId = Number(request.params.id);
         feed = feed.filter(({ id }) => id !== paramId);
 
-        return { feed };
+        return feed;
       });
     },
   });

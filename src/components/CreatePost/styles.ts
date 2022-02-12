@@ -22,10 +22,12 @@ export const AddImageContainer = styled.div`
 
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 export const AddNameContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 16px 0 8px;
@@ -37,6 +39,7 @@ export const AddNameContainer = styled.div`
 
 export const AddMessageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 

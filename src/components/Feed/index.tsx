@@ -14,7 +14,7 @@ const Feed: React.FC = () => {
 
   return (
     <Container>
-      <CreatePost />
+      <CreatePost onSuccessSubmit={() => undefined} />
     </Container>
   );
 };
