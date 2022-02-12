@@ -63,7 +63,6 @@ const ButtonGroup = styled.div`
 `;
 
 const Error = styled(Text)`
-  /* padding: 0 16px; */
   font-size: 12px;
   margin-bottom: 8px;
   align-self: flex-start;
