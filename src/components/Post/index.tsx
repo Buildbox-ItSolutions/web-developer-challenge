@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTheme } from 'styled-components';
 
-import DeleteIcon from '@/assets/delete.svg?component';
+import { ReactComponent as DeleteIcon } from '@/assets/delete.svg';
 
 import { useDisplayImage } from '@/hooks';
 

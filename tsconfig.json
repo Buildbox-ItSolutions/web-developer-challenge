@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["@honkhonk/vite-plugin-svgr/client", "jest", "uuid"],
+    "types": ["vite-plugin-svgr/client", "jest", "uuid"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": false,
@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src"],
+  "include": ["src", "__mocks__"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

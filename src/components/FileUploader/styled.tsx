@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import type { Error } from '@/types';
 import Button from '@/components/Button';
-import FileUpload from '@/assets/file-upload-icon.svg?component';
+import { ReactComponent as FileUpload } from '@/assets/file-upload-icon.svg';
 
 export const FileUploadIcon = styled(FileUpload)<Error>`
   ${({ error, theme }) =>

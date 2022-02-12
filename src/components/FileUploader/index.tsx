@@ -22,7 +22,7 @@ import {
   validateIMGSupportedTypes,
 } from '@/utils/validators';
 
-import TrashIcon from '@/assets/trash.svg?component';
+import { ReactComponent as TrashIcon } from '@/assets/trash.svg';
 import Error from '@/components/Error';
 import Avatar from '@/components/Avatar';
 

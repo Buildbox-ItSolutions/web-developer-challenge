@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from '@/assets/bx-logo.svg?component';
+import { ReactComponent as Logo } from '@/assets/bx-logo.svg';
 
 export const StyledHeader = styled.header`
   display: flex;
