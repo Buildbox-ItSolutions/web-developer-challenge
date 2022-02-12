@@ -1,7 +1,7 @@
 import { colors } from '../../themes/colors';
 import styled from 'styled-components';
 
-export const Container = styled.div.attrs({ className: 'create-post' })`
+export const Container = styled.form.attrs({ className: 'create-post' })`
   display: block;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +31,17 @@ export const AddNameContainer = styled.div`
   margin: 16px 0 8px;
   width: 100%;
   input {
+    width: 100%;
+  }
+`;
+
+export const AddMessageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  textarea {
     width: 100%;
   }
 `;
