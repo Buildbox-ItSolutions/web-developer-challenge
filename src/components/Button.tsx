@@ -18,7 +18,7 @@ const variantStyles = (
 
       &:hover {
         background: ${theme.primary};
-        color: black;
+        color: white;
       }
     `,
     outlined: css`
