@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export default styled.input`
+export type Props = {
+  error?: boolean;
+};
+
+export default styled.input<Props>`
   width: 100%;
   border: none;
   outline: 1px solid ${({ theme }) => theme.black['250']};
@@ -11,6 +15,8 @@ export default styled.input`
   background: ${({ theme }) => theme.black['250']};
   border-radius: ${({ theme }) => theme.radius.md};
   transition: outline 200ms ease-out;
+
+  ${({ error, theme }) => error && `outline-color: ${theme.error}`};
 
   &:focus,
   &:hover {

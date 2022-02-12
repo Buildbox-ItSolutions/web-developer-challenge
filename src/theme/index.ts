@@ -15,6 +15,7 @@ export const theme = {
     md: '8px',
     lg: '36px',
   },
+  error: 'rgb(214, 89, 35)',
   text: {
     primary: '#9f9f9f',
     secondary: '#7a7a7a',
