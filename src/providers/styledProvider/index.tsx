@@ -8,4 +8,4 @@ export const StyledProvider = ({children}: any) => {
             {children}
         </ThemeProvider>
     )
-}
+}   
