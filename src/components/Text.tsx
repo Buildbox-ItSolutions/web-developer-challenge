@@ -1,7 +1,21 @@
 import styled from 'styled-components';
 
-export default styled.p`
-  font-size: 14px;
-  font-family: Roboto, sans-serif;
-  color: ${({ theme }) => theme.text.secondary};
+type Props = {
+  fontSize?: number | string;
+  fontFamily?: string;
+  fontWeight?: string;
+  lineHeight?: string;
+  letterSpacing?: string;
+  color?: string;
+};
+
+export default styled.p<Props>`
+  font-size: ${({ fontSize }) => fontSize ?? '14px'};
+  font-family: ${({ fontFamily }) =>
+    fontFamily ?? 'Roboto, sans-serif'};
+  font-weight: ${({ fontWeight }) => fontWeight ?? 'unset'};
+  line-height: ${({ lineHeight }) => lineHeight ?? 'unset'};
+  ${({ letterSpacing }) =>
+    letterSpacing && `letter-spacing: ${letterSpacing}`};
+  color: ${({ theme, color }) => color ?? theme.text.secondary};
 `;
