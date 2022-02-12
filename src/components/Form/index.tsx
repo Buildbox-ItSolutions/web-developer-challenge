@@ -1,72 +1,22 @@
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTheme } from 'styled-components';
+import {
+  AvatarContainer,
+  ButtonGroup,
+  Error,
+  ImageButton,
+  InputMessage,
+  InputName,
+  StyledForm,
+} from './styled';
+
 import * as yup from 'yup';
-import styled, { useTheme } from 'styled-components';
 
 import FileUploadIcon from '@/assets/file-upload-icon.svg?component';
 
 import Button from '@/components/Button';
-import Input from '@/components/Input';
-import TextArea from '@/components/TextArea';
-import Text from '@/components/Text';
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  padding: 24px;
-  border-radius: ${({ theme }) => theme.radius.sm};
-  background-color: ${({ theme }) => theme.black['500']};
-  max-width: 516px;
-  min-height: 353px;
-  border: 1px solid ${({ theme }) => theme.black['300']};
-`;
-
-const AvatarContainer = styled.div`
-  width: 88px;
-  height: 88px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-  border-radius: ${({ theme }) => theme.radius.lg};
-  border: 1px solid ${({ theme }) => theme.black['200']};
-  transition: border-color 200ms ease-out;
-
-  &:hover {
-    border-color: ${({ theme }) => theme.primary};
-  }
-`;
-
-const ImageButton = styled(Button)`
-  width: 100%;
-  border-radius: ${({ theme }) => theme.radius.lg};
-`;
-
-const InputName = styled(Input)`
-  margin-bottom: 8px;
-`;
-
-const InputMessage = styled(TextArea)`
-  resize: vertical;
-  margin-bottom: 8px;
-  min-height: 80px;
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  align-self: end;
-`;
-
-const Error = styled(Text)`
-  font-size: 12px;
-  margin-bottom: 8px;
-  align-self: flex-start;
-`;
 
 type FormData = {
   avatar: File;
