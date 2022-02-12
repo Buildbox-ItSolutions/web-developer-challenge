@@ -12,6 +12,10 @@ export const StyledButton = styled(Button)`
     border-radius: 8px;
   }
   &&:hover {
-    background-color: #71bb00;
+    background-color: #5f9d00;
+  }
+  &&:disabled {
+    background: #5f5f5f;
+    color: #313131;
   }
 `;

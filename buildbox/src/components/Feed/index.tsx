@@ -1,25 +1,27 @@
-import { FeedContainer, FeedMessages } from "./style";
-import deletingImage from "../../assets/delete.svg";
+import { FeedContainer } from "./style";
+import FeedCard from "../FeedCard";
+import { useProvider } from "../../providers/Provider";
+
+interface IMessages {
+  name: string;
+  message: string;
+  photo: string;
+}
 const Feed = () => {
+  const { messages } = useProvider();
   return (
     <FeedContainer>
-      <p className="feed">Feed</p>
-      <FeedMessages>
-        <div className="deletingContainer">
-          <img src={deletingImage} alt="delete" />
-        </div>
-        <div className="photo"></div>
-        <div className="message">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa
-            recusandae nesciunt aut natus est in, voluptas quis vero, alias
-            voluptatibus maiores nobis blanditiis dicta soluta voluptate fuga.
-            Ea, quam repudiandae.
-          </p>
-          <div>Autor</div>
-          <p className="name">Fulano de tal</p>
-        </div>
-      </FeedMessages>
+      <span className="feed">Feed</span>
+      {messages
+        .slice(0)
+        .reverse()
+        .map((item: IMessages) => (
+          <FeedCard
+            photo={item.photo}
+            message={item.message}
+            name={item.name}
+          />
+        ))}
     </FeedContainer>
   );
 };

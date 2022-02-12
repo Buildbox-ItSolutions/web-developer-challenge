@@ -1,15 +1,31 @@
 import styled from "styled-components";
-import { Input } from "@chakra-ui/input";
-import { Textarea } from "@chakra-ui/textarea";
+
 export const FormContainer = styled.div`
   border-radius: 3px;
   border: solid 1px #3b3b3b;
-  .photo {
+  .defaultPhotoContainer {
     margin: 0 auto;
-    width: 68px;
-    height: 68px;
-    border: 10px solid red;
-    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #4b4b4b;
+    border-radius: 36px;
+    cursor: pointer;
+  }
+  .profilePhotoContainer {
+    display: flex;
+    align-items: center;
+    .trash {
+      height: 24px;
+      width: 24px;
+      cursor: pointer;
+      transition: 0.2s;
+      :hover {
+        transform: scale(1.2);
+      }
+    }
   }
   .buttons {
     float: right;
@@ -32,39 +48,12 @@ export const FormContainer = styled.div`
     color: #5f5f5f;
     border: none;
     background-color: inherit;
+    :hover {
+      color: #797979;
+    }
   }
-  #message {
-    overflow: hidden;
-    resize: none;
-  }
-`;
-
-export const StyledInputName = styled(Input)`
-  border: none;
-  padding: 12px 16px;
-  font-size: 14px;
-  width: 436px;
-  color: #ffffff;
-  border-radius: 8px;
-  background-color: #494949;
-  margin: 16px 0 8px;
-  :focus {
-    outline: 1px solid #ffffff;
-  }
-`;
-export const StyledMessageTextArea = styled(Textarea)`
-  border: none;
-  padding: 12px 16px;
-  font-size: 14px;
-  width: 436px;
-  margin-bottom: 32px;
-  color: #ffffff;
-  height: 56px;
-  border-radius: 8px;
-  overflow: hidden;
-  resize: none;
-  background-color: #494949;
-  :focus {
-    outline: 1px solid #ffffff;
+  @media screen and (max-width: 570px) {
+    margin: 0 auto;
+    width: 80vw;
   }
 `;
