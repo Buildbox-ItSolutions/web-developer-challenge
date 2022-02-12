@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const ButtonStyled = styled.button`
-    background-color: ${props => props.theme.colors.primary};
+    height: 41px;
+    padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    padding: 12px 24px;
     color: ${props => props.theme.colors.neutral};
+    background-color: ${props => props.theme.colors.primary};
     text-align: center;
+    cursor: pointer;
 
-    &:hover {	
-        background-color: ${props => props.theme.colors.secondaryAlt};
-        transition: .3s;
-        border: ${props => props.theme.colors.primary} solid 1px;
+    &:active {
+        transform: scale(.98);
     }
 `;

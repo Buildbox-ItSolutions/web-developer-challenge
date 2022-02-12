@@ -4,18 +4,20 @@ import { Home } from './pages/home/index';
 import { AddNews } from './pages/addNews/index';
 import { GlobalStyle } from './styles/global';
 import { Header } from './components'
-
+import { Footer } from './components'
 function App() {
 
   return (
     <StyledProvider>
       <GlobalStyle />
-        <Header />
         <BrowserRouter>
+          <Header />
+          
           <Routes>
             <Route path="/*" element={<Home />} />
             <Route path="/addnews" element={<AddNews />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       
     </StyledProvider>

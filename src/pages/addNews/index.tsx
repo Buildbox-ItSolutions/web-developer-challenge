@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { addNews, AddNewsProps } from '../../services/supaFunctions';
-import { SubmitHandler, FormHandles } from '@unform/core'
+import { Input } from '../../components'
+import { AddNewsWrap } from './style';
+
 import { Form } from '@unform/web'
-import { Input } from '../../components/Input/index'
+import { SubmitHandler, FormHandles } from '@unform/core'
 import * as Yup from 'yup';
+import { addNews, AddNewsProps } from '../../services/supaFunctions';
 
 interface FormData {
     name: string
@@ -52,13 +54,15 @@ export function AddNews() {
     }
 
     return (
-        <Form ref={formRef} onSubmit={handleSubmit}>
-            <Input name="author" />
-            <Input name="title" />
-            <Input name="subtitle" />
-            <Input name="content" />
-            <button type='submit'>Submit</button>
-        </Form>
+        <AddNewsWrap>
+            <Form ref={formRef} onSubmit={handleSubmit}>
+                <Input name="author" />
+                <Input name="title" />
+                <Input name="subtitle" />
+                <Input name="content" />
+                <button type='submit'>Submit</button>
+            </Form>
+        </AddNewsWrap>
     )
 }
 

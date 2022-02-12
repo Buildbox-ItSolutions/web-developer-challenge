@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const Navbar = styled.nav`
     width: 100%;
-    height: 60px;
+    height: 93px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 0;
+    padding: 20px 0;
     background-color: ${props => props.theme.colors.secondary};
 
     .navbar {
         &__logo {
             height: 100%;
             width: 100%;
-            padding: 2rem;
         }
 
         &__button {
