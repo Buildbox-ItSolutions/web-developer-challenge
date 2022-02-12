@@ -1,6 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Input, TextArea } from '../../styles/SharedStyles';
+import {
+  ClearButton,
+  Input,
+  SubmitButton,
+  TextArea,
+} from '../../styles/SharedStyles';
 
 import AddImageControl from '../AddImageControl';
 
@@ -8,6 +13,8 @@ import {
   AddImageContainer,
   AddMessageContainer,
   AddNameContainer,
+  BottomButtonsContainer,
+  ButtonsContainer,
   Container,
 } from './styles';
 
@@ -45,12 +52,12 @@ const CreatePost: React.FC = () => {
           })}
         />
       </AddMessageContainer>
-      <div>
-        <button type="button" onClick={onDescartar}>
-          Descartar
-        </button>
-        <button type="submit">Publicar</button>
-      </div>
+      <BottomButtonsContainer>
+        <ButtonsContainer>
+          <ClearButton onClick={onDescartar}>Descartar</ClearButton>
+          <SubmitButton>Publicar</SubmitButton>
+        </ButtonsContainer>
+      </BottomButtonsContainer>
     </Container>
   );
 };

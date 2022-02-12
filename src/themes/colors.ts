@@ -7,4 +7,5 @@ export const colors = {
   inputsBg: '#494949',
   border: '#3b3b3b',
   border2: '#4b4b4b',
+  button1: '#71bb00',
 };

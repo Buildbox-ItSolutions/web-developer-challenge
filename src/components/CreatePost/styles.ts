@@ -45,3 +45,15 @@ export const AddMessageContainer = styled.div`
     width: 100%;
   }
 `;
+
+export const BottomButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 32px;
+`;
+
+export const ButtonsContainer = styled.div`
+  .clear-button {
+    margin-right: 24px;
+  }
+`;
