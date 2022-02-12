@@ -22,7 +22,7 @@ export const Navbar = styled.nav`
         }
     }    
 
-    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    /* @media (min-width: ${props => props.theme.breakpoints.lg}) {
         height: 69px;
-    }
+    } */
 `;

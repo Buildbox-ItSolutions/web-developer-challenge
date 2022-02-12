@@ -8,9 +8,11 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
         font-family: Open-Sans, Helvetica, Sans-Serif;
         box-sizing: border-box;
+        word-break: break-word;
     }
 
-    body {
+    body, html {
+        /* width: 100%; */
         background-color: #343434;
     }
 
@@ -18,6 +20,19 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+    }
+
+    /* Ajusts For Responsivity */
+    @media (max-width: 1024px) {
+        html {
+            font-size: 93.75%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        html {
+            font-size: 87.5%;
+        }
     }
 
 `;

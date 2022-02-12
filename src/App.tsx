@@ -17,9 +17,9 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route path="/addnews" element={<AddNews />} />
           </Routes>
+
           <Footer />
         </BrowserRouter>
-      
     </StyledProvider>
     )
 }

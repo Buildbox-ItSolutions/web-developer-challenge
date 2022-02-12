@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Input } from '../../components'
-import { AddNewsWrap } from './style';
+import { Input, Textarea, Button } from '../../components'
+import { AddNewsWrap, FormWrap } from './style';
 
 import { Form } from '@unform/web'
 import { SubmitHandler, FormHandles } from '@unform/core'
@@ -55,15 +55,23 @@ export function AddNews() {
 
     return (
         <AddNewsWrap>
-            <Form ref={formRef} onSubmit={handleSubmit}>
-                <Input name="author" />
-                <Input name="title" />
-                <Input name="subtitle" />
-                <Input name="content" />
-                <button type='submit'>Submit</button>
-            </Form>
+           <FormWrap>
+                <Form ref={formRef} onSubmit={handleSubmit}>
+                    <Input name="title" placeholder='Titulo'/>
+                    <Input name="subtitle" placeholder='Subtítulo'/>
+                    <Input name="author" placeholder='Nome do Autor'/>
+                    <Textarea name="content" placeholder='Insira o conteúdo do post aqui' />
+
+                    <div className='button-group'>
+                        <Button onClick={() => console.log('clicado')}>Cancelar</Button>
+                        <Button onClick={() => console.log('clicado')}>Publicar</Button>
+                    </div>
+                </Form>
+            </FormWrap>
         </AddNewsWrap>
     )
 }
+
+
 
 

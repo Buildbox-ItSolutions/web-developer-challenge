@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, InputHTMLAttributes } from 'react'
 import { useField } from '@unform/core';
-import { InputStyled } from './style';
+import { TextAreaStyled } from './style';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
+interface InputProps extends InputHTMLAttributes<HTMLTextAreaElement>{
     name: string;
     rest?: InputProps;
 }
 
-export function Input ({name, ...rest}: InputProps) {
+export function Textarea ({name, ...rest}: InputProps) {
     const inputRef = useRef(null)
     const { fieldName, defaultValue, registerField, error } = useField(name);
     
@@ -21,14 +21,15 @@ export function Input ({name, ...rest}: InputProps) {
     }, [inputRef, registerField])
 
     return (
-        <InputStyled>
-            <input
+        <TextAreaStyled>
+            <textarea
                 id={fieldName}
                 ref={inputRef}
                 defaultValue={defaultValue}
+                rows={10}
                 {...rest}
             />
-            {error && <h4 className='erro-message'>{error}</h4>}
-        </InputStyled>
+            {error && <h4>{error}</h4>}
+        </TextAreaStyled>
     )
 }

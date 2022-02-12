@@ -18,7 +18,7 @@ export function Header() {
               <Image src={Logo} alt='Logo' behavior='contain'/>
           </div>
           <div className='navbar__button'>
-            <Button onClick={()=> handleNavigate()}>Novo Post</Button>
+            {/* <Button onClick={()=> handleNavigate()}>Novo Post</Button> */}
           </div>
       </Navbar>
     </>
