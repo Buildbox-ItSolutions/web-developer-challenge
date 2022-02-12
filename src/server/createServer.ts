@@ -2,7 +2,7 @@ import { createServer } from 'miragejs';
 import { Feed } from '../types/feed';
 
 const createFeedServer = () => {
-  const feed: Feed[] = [
+  let feed: Feed[] = [
     {
       id: 1,
       name: 'Everton',
@@ -35,8 +35,9 @@ const createFeedServer = () => {
 
       this.delete('/feed/:id', (_, request) => {
         const paramId = Number(request.params.id);
+        feed = feed.filter(({ id }) => id !== paramId);
 
-        return { feed: feed.filter(({ id }) => id !== paramId) };
+        return { feed };
       });
     },
   });
