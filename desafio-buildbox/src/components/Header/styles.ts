@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   position: fixed;
   top: 0;
+  z-index: 9999;
   background-color: #2b2b2b;
 `;
 

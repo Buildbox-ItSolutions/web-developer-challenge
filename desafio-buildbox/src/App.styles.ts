@@ -3,13 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-  padding: 140px 0;
+  padding: 130px 0;
 `;
 
 export const Area = styled.div`
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: 580px) {
+    width: 90%;
+  }
 `;
 
 export const AddPostArea = styled.div`
@@ -25,7 +29,6 @@ export const AddPostArea = styled.div`
 export const Avatar = styled.img`
   width: 88px;
   height: 88px;
-  border: 1px solid #ccc;
   border-radius: 40%;
   margin-bottom: 20px;
 `;
@@ -92,6 +95,5 @@ export const TextFeed = styled.span`
 
 export const FeedArea = styled.div`
   width: 100%;
-  background-color: #313131;
+  margin-top: 8px;
 `;
-
