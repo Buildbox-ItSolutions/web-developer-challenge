@@ -18,10 +18,9 @@ export const Container = styled.div`
         object-fit: contain;
         border-radius: 36px;
         border: solid 1px #4b4b4b;
-        img .noProfilePhoto{
-            width:50%;
-            height:50%;
-            
+        .profile_pic{
+            width:88px;
+            height:88px;
         }
         :active{
             border: solid 1px #4b4b4b;

@@ -48,6 +48,7 @@ export const ImagePost = ()  => {
             <img 
               src={currentImage.length !== 0 ? currentImage : postImage } 
               alt="profile"
+              className={currentImage.length !== 0 ? "profile_pic" : "no_profile_pic"}
             />
           </button>
           <input
