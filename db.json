@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Jhordan Oliveira",
+      "image": "https://avatars.githubusercontent.com/u/40443861?v=4",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus."
+    }
+  ]
+}
