@@ -1,6 +1,7 @@
 ## Buildbox feed
 
 Feed made with React.js, Typescript, StyledComponents, MaterialUI and ChakraUI
+Deploy: https://buildbox-feed.vercel.app/
 
 Contato:\
 Nome: Lucas Brasil\
