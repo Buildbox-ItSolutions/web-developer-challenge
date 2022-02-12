@@ -8,12 +8,13 @@ const Container = styled.main`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 40px;
   margin-bottom: 56px;
   border: 2px solid #3b3b3b;
   border-radius: 3px;
+  box-sizing: border-box;
 `;
 
 export { Container };
