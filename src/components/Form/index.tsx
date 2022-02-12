@@ -1,13 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useTheme } from 'styled-components';
 import {
-  AvatarContainer,
   ButtonGroup,
-  Error,
-  ImageButton,
   InputMessage,
   InputName,
   StyledForm,
@@ -16,8 +11,10 @@ import {
 import * as yup from 'yup';
 
 import Button from '@/components/Button';
-import FileUploadIcon from '@/assets/file-upload-icon.svg?component';
-import { Post } from '@/types';
+import Error from '@/components/Error';
+import FileUploader from '@/components/FileUploader';
+
+import type { Post, PostForm } from '@/types';
 
 type Props = {
   handleAddPost: (post: Post) => void;
@@ -25,7 +22,17 @@ type Props = {
 
 const schema = yup
   .object({
-    avatar: yup.mixed().optional(),
+    avatar: yup
+      .mixed()
+      .test(
+        'fileType',
+        'Apenas suportamos PNG/JPG.',
+        (value: FileList) =>
+          value.length === 0 ||
+          value[0].type === 'image/jpeg' ||
+          value[0].type === 'image/png' ||
+          value[0].type === 'image/jpg',
+      ),
     name: yup.string().required('Informe seu nome'),
     message: yup.string().required('Deve escrever uma mensagem'),
   })
@@ -36,63 +43,47 @@ export default function Form({ handleAddPost }: Props) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Omit<Post, 'id'>>({
+    control,
+    reset,
+    resetField,
+  } = useForm<PostForm>({
     resolver: yupResolver(schema),
   });
 
-  const theme = useTheme();
+  const onSubmit = handleSubmit((data) => {
+    handleResetForm();
+    handleAddPost({ id: uuid(), ...data });
+  });
 
-  const onSubmit = handleSubmit((data) =>
-    handleAddPost({ id: uuid(), ...data }),
-  );
-
-  const avatarInputRef = useRef<HTMLInputElement | null>(null);
-
-  const handleClickFileInput = () => avatarInputRef.current?.click();
-
-  //  TODO: need to integrate with reducer
+  const handleResetForm = () => reset();
 
   return (
     <StyledForm onSubmit={onSubmit}>
-      <AvatarContainer>
-        <ImageButton
-          variant="outlined"
-          onClick={handleClickFileInput}
-          type="button"
-        >
-          <input
-            type="file"
-            hidden
-            accept="image/png, image/jpeg"
-            {...register('avatar')}
-            ref={avatarInputRef}
-          />
-          <FileUploadIcon />
-        </ImageButton>
-      </AvatarContainer>
+      <FileUploader
+        errors={errors}
+        control={control}
+        resetField={resetField}
+        register={register}
+      />
       <InputName
         type="text"
         placeholder="Digite seu nome"
         error={!!errors.name}
         {...register('name')}
       />
-      {errors.name && (
-        <Error as="span" color={theme.error}>
-          {errors.name.message}
-        </Error>
-      )}
+      {errors.name && <Error as="span">{errors.name.message}</Error>}
       <InputMessage
         placeholder="Mensagem"
         error={!!errors.message}
         {...register('message')}
       />
       {errors.message && (
-        <Error as="span" color={theme.error}>
-          {errors.message.message}
-        </Error>
+        <Error as="span">{errors.message.message}</Error>
       )}
       <ButtonGroup>
-        <Button variant="outlined">Descartar</Button>
+        <Button variant="outlined" onClick={handleResetForm}>
+          Descartar
+        </Button>
         <Button>Publicar</Button>
       </ButtonGroup>
     </StyledForm>

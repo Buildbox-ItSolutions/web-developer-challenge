@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Post } from '@/types';
+import type { Post } from '@/types';
 
 import Header from '@/components/Header';
 import Container from '@/components/Container';

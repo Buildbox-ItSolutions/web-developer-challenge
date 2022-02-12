@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.black[700]};
   background: ${({ theme }) => theme.black[600]};
   height: 93px;
+  z-index: 1;
 `;
 
 export default function Header() {

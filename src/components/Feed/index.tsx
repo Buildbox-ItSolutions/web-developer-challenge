@@ -1,5 +1,5 @@
 import Post from '@/components/Post';
-import { Post as PostType } from '@/types';
+import type { Post as PostType } from '@/types';
 import { FeedContainer, FeedText } from './styled';
 
 type Props = {

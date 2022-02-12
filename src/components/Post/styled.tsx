@@ -25,13 +25,6 @@ export const Body = styled.div`
   gap: 32px;
 `;
 
-export const Avatar = styled.img`
-  width: 88px;
-  height: 88px;
-  border-radius: ${({ theme }) => theme.radius.lg};
-  background: black;
-`;
-
 export const Content = styled.div``;
 
 export const PostText = styled(Text)`

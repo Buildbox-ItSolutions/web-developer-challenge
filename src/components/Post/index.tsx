@@ -1,19 +1,16 @@
+import * as React from 'react';
 import { useTheme } from 'styled-components';
 
 import DeleteIcon from '@/assets/delete.svg?component';
 
-import {
-  Avatar,
-  Body,
-  Container,
-  Content,
-  Header,
-  PostText,
-} from './styled';
+import { useDisplayImage } from '@/hooks';
+
+import { Body, Container, Content, Header, PostText } from './styled';
+import Avatar from '@/components/Avatar';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
 
-import { Post as PostType } from '@/types';
+import type { Post as PostType } from '@/types';
 
 type Props = {
   post: PostType;
@@ -22,6 +19,14 @@ type Props = {
 
 export default function Post({ post, handleRemovePost }: Props) {
   const theme = useTheme();
+  const [img, uploader] = useDisplayImage();
+
+  React.useEffect(() => {
+    if (post.avatar && post.avatar.length !== 0) {
+      uploader(undefined, post.avatar);
+    }
+  }, [post.avatar, uploader]);
+
   return (
     <Container>
       <Header>
@@ -33,7 +38,7 @@ export default function Post({ post, handleRemovePost }: Props) {
         </Button>
       </Header>
       <Body>
-        <Avatar src="https://s2.glbimg.com/115DQucrWsNOUxf_ncmMUisprZI=/0x0:1080x819/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/w/a/cB6VP5QoOByFKEuCleIQ/jonreceitas-109758346-416338779271002-5424220606850697813-n.jpg" />
+        <Avatar src={img} name={post.name} />
         <Content>
           <PostText
             fontSize="16px"
