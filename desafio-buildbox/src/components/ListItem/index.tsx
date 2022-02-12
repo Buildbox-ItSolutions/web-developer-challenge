@@ -6,13 +6,14 @@ import { iPosters } from "../../types/Posters";
 
 type Props = {
   data: iPosters;
+  delPost: () => void;
 };
 
-export const ListItem = ({ data }: Props) => {
+export const ListItem = ({ data, delPost }: Props) => {
   return (
     <C.Container>
-      <C.ButtonDelete>
-        <AiOutlineCloseCircle color="#f00" size={18} />
+      <C.ButtonDelete onClick={delPost}>
+        <AiOutlineCloseCircle color="#ff5454" size={18} />
       </C.ButtonDelete>
       <C.Area>
         <C.Avatar src={data.avatar} />

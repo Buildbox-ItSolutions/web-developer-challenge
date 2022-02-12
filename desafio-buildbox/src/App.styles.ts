@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+type Props = {
+  isActive: string;
+};
 
 export const Container = styled.div`
   width: 100%;
@@ -23,7 +27,7 @@ export const AddPostArea = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #313131;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 `;
 
 export const Avatar = styled.img`
@@ -58,6 +62,7 @@ export const InputMsg = styled.textarea`
   border-radius: 7px;
   outline: none;
   padding: 10px;
+  font-family: Arial;
   resize: none;
   background-color: #494949;
 `;
@@ -69,21 +74,23 @@ export const BtnArea = styled.div`
   justify-content: flex-end;
 `;
 
-export const DiscardBtn = styled.button`
+export const DiscardBtn = styled.button<Props>`
   color: #5f5f5f;
   text-decoration: underline;
   border: none;
   outline: none;
+  pointer-events: ${(props) => (!props.isActive ? "none" : "auto")};
   background-color: transparent;
 `;
 
-export const AddBtn = styled.button`
+export const AddBtn = styled.button<Props>`
   padding: 12px 20px;
   border: none;
   border-radius: 7px;
   outline: none;
-  color: #fff;
-  background-color: #71bb00;
+  color: ${(props) => (!props.isActive ? "#313131" : "#fff")};
+  background-color: ${(props) => (!props.isActive ? "#5f5f5f" : "#71bb00")};
+  pointer-events: ${(props) => (!props.isActive ? "none" : "auto")};
   margin-left: 20px;
 `;
 
@@ -91,9 +98,28 @@ export const TextFeed = styled.span`
   color: #7a7a7a;
   font-weight: bold;
   font-size: 12px;
+  display: block;
+  margin-bottom: 10px;
 `;
 
 export const FeedArea = styled.div`
   width: 100%;
-  margin-top: 8px;
+`;
+
+const slideY = keyframes`
+  from{
+    transform: translateY(30px)
+  }
+  to{
+    transform: translateY(0px)
+  }
+`;
+
+export const EmptyArea = styled.div`
+  width: 100%;
+  color: #9f9f9f;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+  animation: ${slideY} 1s;
 `;

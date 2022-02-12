@@ -1,11 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideY = keyframes`
+  from{
+    transform: scaleY(0)
+  }
+  to{
+    transform: scaleY(1)
+  }
+`;
 
 export const Container = styled.div`
   width: 100%;
   padding: 20px;
   position: relative;
-  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #313131;
+  animation: ${slideY} 1s;
 `;
 
 export const Area = styled.div`
@@ -58,8 +68,6 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
-
-
 `;
 
 export const Text = styled.span`
