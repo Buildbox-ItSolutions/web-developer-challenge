@@ -5,7 +5,6 @@ import Main from '.'
 describe('<Main />', () => {
   it('dummy test', () => {
     render(<Main />)
-    expect(screen.getByRole('heading', { name: /main/i })).toBeInTheDocument()
   })
 
   it('should match snapshot', () => {
