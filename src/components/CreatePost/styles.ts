@@ -1,7 +1,9 @@
 import { colors } from '../../themes/colors';
 import styled from 'styled-components';
 
-export const Container = styled.form.attrs({ className: 'create-post' })`
+export const Container = styled.form.attrs({
+  className: 'create-post',
+})`
   display: block;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +24,6 @@ export const AddImageContainer = styled.div`
 
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 `;
 
 export const AddNameContainer = styled.div`

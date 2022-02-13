@@ -4,6 +4,7 @@ import { Container } from './styles';
 
 type Props = {
   errors: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [x: string]: any;
   };
   name: string;

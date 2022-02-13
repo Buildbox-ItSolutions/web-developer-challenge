@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+import { URL } from 'url';
 import { postFeed } from '../../services/feedServices';
 import {
   ClearButton,
@@ -34,18 +35,22 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
     formState: { errors },
   } = useForm();
 
-  const onDescartar = () => {
+  const onClear = () => {
     reset({ name: '', message: '', image: undefined });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (values: any) => {
-    const body: Feed = { ...values };
-    postFeed(body).then((feed) => {
-      onSuccessSubmit(feed);
-      onDescartar();
-    });
-  };
+  const onSubmit = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (values: any) => {
+      const body: Feed = { ...values, ...(values.image || {}) };
+
+      postFeed(body).then((data) => {
+        onSuccessSubmit(data);
+        onClear();
+      });
+    },
+    [onSuccessSubmit, onClear],
+  );
 
   return (
     <Container
@@ -90,7 +95,7 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
       </AddMessageContainer>
       <BottomButtonsContainer>
         <ButtonsContainer>
-          <ClearButton onClick={onDescartar}>Descartar</ClearButton>
+          <ClearButton onClick={onClear}>Descartar</ClearButton>
           <SubmitButton>Publicar</SubmitButton>
         </ButtonsContainer>
       </BottomButtonsContainer>
