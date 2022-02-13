@@ -54,6 +54,7 @@ export const PostContent = styled.div`
     p {
       color: #9f9f9f;
       margin: 0;
+      white-space: pre-line;
     }
 
     .autor {
