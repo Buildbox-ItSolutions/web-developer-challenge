@@ -13,8 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #343434;
+    font-family: 'Roboto', sans-serif;
+    background-color: ${({ theme }) => theme.colors.blackLight};
   }
   a {
     text-decoration: none;
