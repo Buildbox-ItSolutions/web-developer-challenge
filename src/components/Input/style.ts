@@ -13,12 +13,15 @@ export const InputStyled = styled.div`
         border-radius: 8px;
         outline: none;
         color: ${props => props.theme.colors.neutral};
-        background-color: ${props => props.theme.colors.secondaryAlt};
+        background-color: ${props => props.theme.colors.input};
         ${typography.TextNormal};
     }
 
     .error-message {
         font-family: 'Roboto';
+        color: #BE3144;
+        font-size: 12px;
+        margin: .5rem 0 0;
     }
 `;
 

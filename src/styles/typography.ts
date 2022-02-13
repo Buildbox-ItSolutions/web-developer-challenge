@@ -50,13 +50,13 @@ typography.TitleNormal = css`
 
 typography.TextNormal = css`
     ${text}
-    font-size: .87rem;
+    font-size: .9rem;
     line-height: 1.29;
     font-weight: 400;
     letter-spacing: normal;
     font-stretch: normal;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
 `;
 
 typography.TextSmall = css`

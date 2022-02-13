@@ -28,7 +28,7 @@ export function Input ({name, ...rest}: InputProps) {
                 defaultValue={defaultValue}
                 {...rest}
             />
-            {error && <h4 className='erro-message'>{error}</h4>}
+            {error && <h4 className='error-message'>{error}</h4>}
         </InputStyled>
     )
 }

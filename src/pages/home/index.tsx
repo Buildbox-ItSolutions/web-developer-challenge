@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getNews } from '../../services/supaFunctions';
 import { NewsCard } from '../../components';
 import { NewsProps } from '../../interfaces/News';
+import { HomeStyled } from './style';
 
 export function Home() {
   const [news, setNews] = useState<any>([]);      
@@ -13,16 +14,13 @@ export function Home() {
   }, [])
 
   return (
-    <>
+    <HomeStyled>
+        <h3 className='section-title'>Feed</h3>
     {news && news.map((item: any ) => {
-      console.log(item);
-      
         return (
-          <div key={item.id}>
-            <NewsCard news={item} />
-          </div>
+            <NewsCard news={{item}} key={item.id} />
         )
     })}
-    </>
+    </HomeStyled>
   )
 }

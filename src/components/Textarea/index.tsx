@@ -29,7 +29,7 @@ export function Textarea ({name, ...rest}: InputProps) {
                 rows={10}
                 {...rest}
             />
-            {error && <h4>{error}</h4>}
+            {error && <h4 className="error-message">{error}</h4>}
         </TextAreaStyled>
     )
 }

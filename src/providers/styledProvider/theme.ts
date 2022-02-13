@@ -5,6 +5,7 @@ export const theme = {
         secondaryAlt: '#343434',
         neutral: '#fff',
         neutralAlt: '#7a7a7a',
+        input: '#494949',
     },
     breakpoints: {
         xs: '576px',
