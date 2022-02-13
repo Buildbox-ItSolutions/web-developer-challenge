@@ -24,20 +24,26 @@ function OptionsWrapper() {
   const postCreation = () => {
     setFeed([
       {
+        _id: (feed[feed.length - 1]._id + 1).toString(),
         author,
         message,
         image,
       },
       ...feed,
     ]);
-    setAuthor("")
-    setMessage("")
-    setImage("")
+
+    clearCreation();
+  };
+
+  const clearCreation = () => {
+    setAuthor("");
+    setMessage("");
+    setImage("");
   };
 
   return (
     <Container>
-      <DiscardButton>
+      <DiscardButton onClick={clearCreation}>
         <DiscardLabel>Descartar</DiscardLabel>
       </DiscardButton>
       <PublishButton

@@ -3,6 +3,7 @@ import { FeedContextProps, FeedContextType } from "./types";
 
 const initial = {
   feed: [{
+    _id: "",
     author: "",
     message: "",
     image: "no-img.png",

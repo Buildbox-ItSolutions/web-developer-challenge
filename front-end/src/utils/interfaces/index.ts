@@ -5,6 +5,7 @@ interface EventTarget {
 }
 
 interface ContentCardProps {
+  _id: string;
   author: string;
   message: string;
   image: string;

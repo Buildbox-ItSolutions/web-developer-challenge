@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import {ContentCardProps} from "../utils/interfaces"
+import { ContentCardProps } from "../utils/interfaces";
 
 type CraftContextType = {
   author: string;

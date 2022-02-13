@@ -12,6 +12,7 @@ function Feed() {
   useEffect(() => {
     const initial = jsonData.map<ContentCardProps>(
       (content: ContentDataSource) => ({
+        _id: content._id,
         author: content.author,
         message: content.message,
         image: content.imageName,
@@ -27,6 +28,7 @@ function Feed() {
       {feed.map((content, index) => (
         <ContentCard
           key={index}
+          _id={content._id}
           author={content.author}
           message={content.message}
           image={content.image}
