@@ -61,7 +61,6 @@ export const PostImage = styled.div`
     justify-content: center;
     border: 1px solid #9f9f9f;
     border-radius: 1.5rem;
-    overflow: hidden;
   }
 
   picture {
@@ -70,6 +69,8 @@ export const PostImage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
 
     img {
       min-width: 5rem;
