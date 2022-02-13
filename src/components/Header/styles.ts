@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import LogoImg from '../images/bx-logo.png'
 
-
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
      ${({ theme }) => theme.mixins.flexCenter};
      top: 0;
      z-index: 11px;
@@ -19,7 +17,7 @@ const StyledHeader = styled.header`
     }
 `
 
-const StyledNav = styled.nav`
+export const StyledNav = styled.nav`
     ${({ theme }) => theme.mixins.flexCenter};
     position: relative;
     width: 100%;
@@ -34,23 +32,3 @@ const StyledNav = styled.nav`
         }      
     }
 `
-
-
-const Nav = () => {
-
-    const Logo = (
-        <a href="/" className="logo">
-            <img src={LogoImg} alt="Logo Img"/>
-        </a>
-    )
-
-    return(
-        <StyledHeader>
-            <StyledNav>
-                {Logo}
-            </StyledNav>
-        </StyledHeader>
-    )
-}
-
-export default Nav;

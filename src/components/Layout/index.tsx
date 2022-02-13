@@ -1,13 +1,8 @@
 import { ReactNode } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-import { theme, GlobalStyle } from '../styles/index'
-import Nav from './nav'
-
-const StyledContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-`
+import { ThemeProvider } from 'styled-components'
+import { StyledContent } from './styles';
+import { theme, GlobalStyle } from '../../styles/index'
+import Nav from '../Header'
 
 interface ChildrenProps{
     children: ReactNode

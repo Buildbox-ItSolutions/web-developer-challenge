@@ -36,6 +36,10 @@ const variables = css`
         --border: solid 1px #3b3b3b;
         --border-radius: 3px;
         --nav-height: 93px;
+
+
+        --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+        --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 `
 
