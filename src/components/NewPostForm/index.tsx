@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FaImage, FaTrash } from 'react-icons/fa';
-import { PostForm, PostImage, Buttons } from './styles';
-import * as yup from 'yup';
 import { usePosts } from '../../hooks/usePosts';
+import { ImageResizer } from '../../utils/imageResizer';
+import * as yup from 'yup';
+import { PostForm, PostImage, Buttons } from './styles';
+import { FaImage, FaTrash } from 'react-icons/fa';
 
 const schema = yup
   .object()
@@ -15,24 +16,6 @@ const schema = yup
         'required',
         'Adicione uma imagem válida para seu post.',
         (value) => value && value.length
-      )
-      .test(
-        'fileSize',
-        'O tamanho da imagem é muito alta, isso pode prejudicar o desempenho do seu blog.',
-        (value) => value && value[0] && value[0].size <= 2000000
-      )
-      .test(
-        'type',
-        'O formato do arquivo selecionado não é válido.',
-        (value) => {
-          return (
-            value &&
-            value[0] &&
-            (value[0].type === 'image/png' ||
-              value[0].type === 'image/jpg' ||
-              value[0].type === 'image/jpeg')
-          );
-        }
       ),
     author: yup.string().required('Informe seu nome antes de postar.'),
     text: yup.string().required('Adicione um texto para seu post.'),
@@ -54,25 +37,20 @@ export const NewPostForm = () => {
     reset,
     formState: { errors },
   } = useForm<InputsType>({ resolver: yupResolver(schema) });
-  const [currentImage, setCurrentImage] = useState<string>();
   const [imageUrl, setImageUrl] = useState<string>('');
   const { setPosts } = usePosts();
-
-  useEffect(() => {
-    if (currentImage) {
-      setImageUrl(URL.createObjectURL(currentImage as any));
-    }
-  }, [currentImage]);
 
   const resetImageForm = () => {
     setValue('image', '');
     setImageUrl('');
-    setCurrentImage('');
   };
 
-  const handleNewPost: SubmitHandler<InputsType> = ({ author, text }) => {
-    const imageFomrUrl = imageUrl;
-    const newPost = { image: imageFomrUrl, author, text };
+  const handleNewPost: SubmitHandler<InputsType> = ({
+    image,
+    author,
+    text,
+  }) => {
+    const newPost = { image, author, text };
 
     setPosts((prevPosts) => [...prevPosts, { ...newPost }]);
 
@@ -80,10 +58,20 @@ export const NewPostForm = () => {
     reset();
   };
 
+  const handleImageSelect = async (event: Event) => {
+    const urlImage = await ImageResizer(event);
+
+    if (typeof urlImage !== 'string') {
+      return;
+    }
+    setValue('image', urlImage);
+    setImageUrl(urlImage);
+  };
+
   return (
     <PostForm onSubmit={handleSubmit(handleNewPost)}>
       <PostImage>
-        {imageUrl && currentImage ? (
+        {imageUrl ? (
           <>
             <picture>
               <img src={imageUrl} alt="Imagem para o ser postada." />
@@ -103,7 +91,7 @@ export const NewPostForm = () => {
           type="file"
           accept=".jpg, .jpeg, .png"
           {...register('image', {
-            onChange: (event) => setCurrentImage(event.target.files[0]),
+            onChange: handleImageSelect,
           })}
         />
       </PostImage>

@@ -29,6 +29,7 @@ export const PostForm = styled.form`
   }
 
   textarea {
+    min-height: 8rem;
     background-color: #494949;
     color: #9f9f9f;
     font-size: 1.2rem;
@@ -37,6 +38,20 @@ export const PostForm = styled.form`
     padding: 0.75rem;
     outline: none;
     resize: vertical;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #9f9f9f;
+      border-radius: 8px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      max-height: 10px;
+    }
   }
 
   span {
