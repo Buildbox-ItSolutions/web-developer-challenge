@@ -5,4 +5,8 @@ export const ProfilePicture = styled.img`
   height: 88px;
   border-radius: 36px;
   margin: 0 16px 0 190px;
+  @media screen and (max-width: 570px) {
+    margin: 0 16px 0 40px;
+    /* margin-right: 16px; */
+  }
 `;

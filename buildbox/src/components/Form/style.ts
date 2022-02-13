@@ -26,6 +26,9 @@ export const FormContainer = styled.div`
         transform: scale(1.2);
       }
     }
+    @media screen and (max-width: 570px) {
+      justify-content: center;
+    }
   }
   .buttons {
     float: right;

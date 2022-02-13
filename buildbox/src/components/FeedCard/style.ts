@@ -20,6 +20,9 @@ export const FeedCardContainer = styled.div`
       :hover {
         transform: scale(1.2);
       }
+      @media screen and (max-width: 570px) {
+        margin: 0;
+      }
     }
   }
   .message {
@@ -27,6 +30,11 @@ export const FeedCardContainer = styled.div`
     margin-left: 32px;
     color: #9f9f9f;
     font-size: 16px;
+    word-break: break-all;
+    @media screen and (max-width: 570px) {
+      width: 100%;
+      margin: 12px 12px 0 0;
+    }
     div {
       margin-top: 24px;
       font-size: 12px;
