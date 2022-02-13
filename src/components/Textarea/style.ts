@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { typography } from "../../styles/typography";
 
 export const TextAreaStyled = styled.div`
-     color: #fff;
+    color: #fff;
     margin: .2rem;
 
     textarea {
@@ -18,4 +18,3 @@ export const TextAreaStyled = styled.div`
         ${typography.TextNormal};
     }
 `;
-

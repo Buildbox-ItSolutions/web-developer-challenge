@@ -4,8 +4,10 @@ import { Header } from './Header';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
 import { Footer } from './Footer'
+import { NewsCard } from './NewsCard';
 
 export { 
+    NewsCard,
     Textarea,
     Footer,
     Button,

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { TableHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Input, Textarea, Button } from '../../components'
 import { AddNewsWrap, FormWrap } from './style';
@@ -6,12 +6,8 @@ import { AddNewsWrap, FormWrap } from './style';
 import { Form } from '@unform/web'
 import { SubmitHandler, FormHandles } from '@unform/core'
 import * as Yup from 'yup';
-import { addNews, AddNewsProps } from '../../services/supaFunctions';
-
-interface FormData {
-    name: string
-    email: string
-}
+import { addNews, getNews } from '../../services/supaFunctions';
+import { NewsProps } from '../../interfaces/News';
 
 interface TypeError {
     [key: string]: string
@@ -20,8 +16,8 @@ interface TypeError {
 export function AddNews() {
     const navigate = useNavigate();
     const formRef = useRef<FormHandles>(null)
-
-    const handleSubmit: SubmitHandler<FormData> = async (data, {reset}) => {
+ 
+    const handleSubmit: SubmitHandler<NewsProps> = async (data, {reset}) => {
         try {
             const maskValidate = Yup.object().shape({
                 author: Yup.string().required('O Autor é obrigatório'),  
@@ -33,6 +29,9 @@ export function AddNews() {
             await maskValidate.validate(data, {
                 abortEarly: false,
             })
+
+            await addNews(data);
+
             reset();
             navigate('/');
         } catch (err){
@@ -53,6 +52,10 @@ export function AddNews() {
         }
     }
 
+    const handleDiscart = () => {
+        navigate('/');
+    }
+
     return (
         <AddNewsWrap>
            <FormWrap>
@@ -63,8 +66,8 @@ export function AddNews() {
                     <Textarea name="content" placeholder='Insira o conteúdo do post aqui' />
 
                     <div className='button-group'>
-                        <Button onClick={() => console.log('clicado')}>Cancelar</Button>
-                        <Button onClick={() => console.log('clicado')}>Publicar</Button>
+                        <Button onClick={() => handleDiscart()} bgColor="inherit">Descartar</Button>
+                        <Button>Publicar</Button>
                     </div>
                 </Form>
             </FormWrap>
