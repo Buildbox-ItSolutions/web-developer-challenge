@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const Container = styled.main`
-  width: 38vw;
-  min-width: 516px;
+  width: ${props => props.width < 560 ? `${props.width - 40}px` : "38vw"};
+  min-width: ${props => props.width < 560 ? "0" : "516px"};
   height: 353px;
   background-color: #313131;
   padding: 24px;
-
+  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

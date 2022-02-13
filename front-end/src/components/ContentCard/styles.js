@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 const Container = styled.div `
-  width: 38vw;
-  min-width: 516px;
+  width: ${props => props.width < 560 ? `${props.width - 40}px` : "38vw"};
+  min-width: ${props => props.width < 560 ? "0" : "516px"};
   height: fit-content;
   background-color: #313131;
   padding: 56px 24px 32px 24px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => props.width < 360 ? "column" : "row"};
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: ${props => props.width < 360 ? "center" : "flex-start"};
   margin-bottom: 16px;
   border: 2px solid #3b3b3b;
   border-radius: 3px;
@@ -29,6 +29,7 @@ const TextWrapper = styled.div `
   display: flex;
   flex-direction: column;
   margin-left: 32px;
+  margin-left: ${props => props.width < 360 ? "0" : "32px"};
 `;
 
 const MessageBody = styled.span `
@@ -37,6 +38,7 @@ const MessageBody = styled.span `
   line-height: 1.25;
   text-align: left;
   color: #9f9f9f;
+  margin-top: ${props => props.width < 360 ? "32px" : "0"};
 `;
 
 const AuthorFooter = styled.div `

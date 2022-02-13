@@ -11,6 +11,7 @@ const Container = styled.div`
 
   &::-webkit-scrollbar {
     background: transparent;
+    width: 0;
   }
 `;
 
