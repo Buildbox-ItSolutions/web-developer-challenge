@@ -1,5 +1,7 @@
 import React from "react";
 
+import { CraftContextProvider } from "../../contexts/CraftContext";
+import { FeedContextProvider } from "../../contexts/FeedContext";
 import CraftBox from "../CraftBox";
 import Feed from "../Feed";
 import { Container } from "./styles";
@@ -7,8 +9,12 @@ import { Container } from "./styles";
 function Content() {
   return (
     <Container>
-      <CraftBox />
-      <Feed />
+      <FeedContextProvider>
+        <CraftContextProvider>
+          <CraftBox />
+        </CraftContextProvider>
+        <Feed />
+      </FeedContextProvider>
     </Container>
   );
 }

@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import ContentCard from "../ContentCard";
 import { Container, FeedLabel } from "./styles";
-import jsonData from "../../utils/data/contents.json";
+import { FeedContext } from "../../contexts/FeedContext";
 
 function Feed() {
+  const {feed} = useContext(FeedContext)
+
   return (
     <Container>
       <FeedLabel>Feed</FeedLabel>
-      {jsonData.map((content) => (
+      {feed.map((content, index) => (
         <ContentCard
-          key={content._id}
+          key={index}
           author={content.author}
           message={content.message}
-          imageName={content.imageName}
+          image={content.image}
         />
       ))}
     </Container>

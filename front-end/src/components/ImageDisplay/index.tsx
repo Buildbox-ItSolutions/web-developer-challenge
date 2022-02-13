@@ -1,12 +1,10 @@
 import React from "react";
+
+import { ImageDisplayProps } from "../../utils/interfaces";
 import { Image } from "./styles";
 
-interface PropsType {
-  hasImage?: boolean;
-  src: string;
-}
 
-function ImageDisplay(props: PropsType) {
+function ImageDisplay(props: ImageDisplayProps) {
   const { hasImage = true, src } = props;
 
   return <Image hasImage={hasImage} src={src} />;

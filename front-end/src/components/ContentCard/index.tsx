@@ -11,21 +11,16 @@ import {
   TextWrapper,
 } from "./styles";
 import deleteIcon from "../../assets/icons/delete.svg";
+import { ContentCardProps } from "../../utils/interfaces";
 
-interface ContentProps {
-  author: string;
-  message: string;
-  imageName: string;
-}
-
-function ContentCard(props: ContentProps) {
-  const { author, message, imageName } = props;
-  const image = require(`../../assets/images/${imageName}`);
+function ContentCard(props: ContentCardProps) {
+  const { author, message, image } = props;
+  const imageSource = require(`../../assets/images/${image}`);
 
   return (
     <Container>
       <DeleteIcon src={deleteIcon} />
-      <ImageDisplay src={image} />
+      <ImageDisplay src={imageSource} />
       <TextWrapper>
         <MessageBody>{ message }</MessageBody>
         <AuthorFooter>
