@@ -84,6 +84,8 @@ export default function FileUploader({
                 type="file"
                 hidden
                 accept={SUPPORTED_IMG_TYPES.join(', ')}
+                aria-invalid={errors.avatar ? 'true' : 'false'}
+                aria-label="Upload Avatar Image"
                 ref={(instance) => {
                   avatarReactHookFormRef(instance);
                   avatarInputRef.current = instance;
@@ -98,7 +100,9 @@ export default function FileUploader({
             </ImageButton>
           </FileUploadContainer>
           {errors.avatar && (
-            <Error alignSelf="center">{errors.avatar.message}</Error>
+            <Error alignSelf="center" role="alert">
+              {errors.avatar.message}
+            </Error>
           )}
         </>
       )}

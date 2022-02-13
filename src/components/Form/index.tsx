@@ -27,8 +27,9 @@ const schema = yup
       .test(
         'fileType',
         'Apenas suportamos PNG/JPG.',
-        (value: FileList) =>
-          value.length === 0 ||
+        (value: FileList | undefined) =>
+          !value ||
+          !value[0] ||
           value[0].type === 'image/jpeg' ||
           value[0].type === 'image/png' ||
           value[0].type === 'image/jpg',
@@ -66,19 +67,31 @@ export default function Form({ handleAddPost }: Props) {
         register={register}
       />
       <InputName
+        id="name"
         type="text"
         placeholder="Digite seu nome"
+        aria-label="name"
+        aria-invalid={errors.name ? 'true' : 'false'}
         error={!!errors.name}
         {...register('name')}
       />
-      {errors.name && <Error as="span">{errors.name.message}</Error>}
+      {errors.name && (
+        <Error as="span" role="alert">
+          {errors.name.message}
+        </Error>
+      )}
       <InputMessage
+        id="message"
         placeholder="Mensagem"
+        aria-label="message"
+        aria-invalid={errors.message ? 'true' : 'false'}
         error={!!errors.message}
         {...register('message')}
       />
       {errors.message && (
-        <Error as="span">{errors.message.message}</Error>
+        <Error as="span" role="alert">
+          {errors.message.message}
+        </Error>
       )}
       <ButtonGroup>
         <Button variant="outlined" onClick={handleResetForm}>
