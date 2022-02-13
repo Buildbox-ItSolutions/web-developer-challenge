@@ -1,12 +1,17 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../slicers/counterSlice';
+import postsReducer from '../slicers/postsSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    posts: postsReducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    //only default thunk, immutability and serialization middlewere are added at the moment
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    });
   },
 });
-
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<

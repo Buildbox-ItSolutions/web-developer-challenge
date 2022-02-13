@@ -1,5 +1,4 @@
 import React from "react";
-import Counter from "./components/counter/Counter";
 import Main from "./pages/main";
 
 function App(): JSX.Element {
