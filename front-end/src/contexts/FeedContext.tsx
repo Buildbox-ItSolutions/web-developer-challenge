@@ -1,14 +1,12 @@
 import { createContext, useState } from "react";
 import { FeedContextProps, FeedContextType } from "./types";
-import jsonData from "../utils/data/contents.json";
-import { ContentCardProps, ContentDataSource } from "../utils/interfaces";
 
 const initial = {
-  feed: jsonData.map<ContentCardProps>((content: ContentDataSource) => ({
-    author: content.author,
-    message: content.message,
-    image: content.imageName,
-  })),
+  feed: [{
+    author: "",
+    message: "",
+    image: "no-img.png",
+  }],
   setFeed: () => {},
 };
 

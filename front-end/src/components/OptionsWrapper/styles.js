@@ -28,20 +28,22 @@ const PublishButton = styled.div `
   height: 40px;
   object-fit: contain;
   border-radius: 8px;
-  background-color: #5f5f5f;
+  background-color: ${props => props.enabled ? "#71bb00" : "#5f5f5f"};
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 24px;
   box-sizing: border-box;
-  cursor: pointer;
+  transition: 300ms;
+  cursor: ${props => props.enabled ? "pointer" : "default"};;
 `;
 
 const PublishLabel = styled.span`
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  color: #313131;
+  color: ${props => props.enabled ? "#fff" : "#313131"};
+  transition: 300ms;
 `
 
 const DiscardLabel = styled.span`

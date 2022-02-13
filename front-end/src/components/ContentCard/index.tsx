@@ -15,7 +15,13 @@ import { ContentCardProps } from "../../utils/interfaces";
 
 function ContentCard(props: ContentCardProps) {
   const { author, message, image } = props;
-  const imageSource = require(`../../assets/images/${image}`);
+  let imageSource;
+
+  try {
+    imageSource = require(`../../assets/images/${image}`);
+  } catch {
+    imageSource = image;
+  }
 
   return (
     <Container>

@@ -19,10 +19,18 @@ const ImageCollector = styled.div `
   border-radius: 36px;
   border: ${props => props.hasImage ? "none" : "2px solid #4b4b4b"};
   background-color: rgba(75, 75, 75, 0);
-  
+  transition: 300ms;
 `;
 
-const InputLabel = styled.label`
+const TrashIcon = styled.img `
+  position: absolute;
+  top: 32px;
+  left: 104px;
+  transition: 300ms;
+  cursor: pointer;
+`;
+
+const InputLabel = styled.label `
   width: 88px;
   height: 88px;
   border-radius: 36px;
@@ -31,6 +39,7 @@ const InputLabel = styled.label`
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: 300ms;
   cursor: pointer;
 `
 
@@ -40,12 +49,13 @@ const ImageInput = styled.input `
   border-radius: 36px;
   position: absolute;
   display: none;
+  transition: 300ms;
 `;
-
 
 export {
   Container,
   ImageCollector,
+  TrashIcon,
   InputLabel,
   ImageInput,
 };
