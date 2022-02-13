@@ -16,11 +16,14 @@ export function Home() {
   return (
     <HomeStyled>
         <h3 className='section-title'>Feed</h3>
-    {news && news.map((item: any ) => {
-        return (
-            <NewsCard news={{item}} key={item.id} />
-        )
-    })}
+        <div className='grid-cards'>
+          {news && news.map((item: any ) => {
+              return (
+                  <NewsCard news={{item}} key={item.id} />
+              )
+          })}
+        </div>
+
     </HomeStyled>
   )
 }

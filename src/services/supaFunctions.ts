@@ -1,20 +1,11 @@
 import { dbClient } from './supaConfig';
-const dbName ='buildBox';
 import { NewsProps } from '../interfaces/News';
 
+const dbName ='buildBox';
 
 export const addNews = async (news: NewsProps) => {
     dbClient.from(dbName).insert([news]).then()
 }
-
-// function realTimeMessage() {
-//     return dbClient
-//     .from(dbName)
-//     .on('INSERT', (response) => {
-//       addMessage(response.new)
-//     })
-//     .subscribe()
-//   }
 
 export const getNews = async () => {
     return dbClient
@@ -24,10 +15,18 @@ export const getNews = async () => {
             .then( response => {
                 return response.data
     })
-        
 }
 
-
+export const deleteNews = async (id: number) => {
+    dbClient
+    .from(dbName)
+    .delete()
+    .match({id: id})
+    .then( resp => {
+        console.log(resp, 'Noticia Removida');
+        
+    })
+}
 
 // Função de deletar
 // Função de editara

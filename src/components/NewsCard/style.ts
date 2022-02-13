@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { typography } from "../../styles/typography";
 
 export const CardWrap = styled.div`    
-    height: 225px;
+    min-height: 225px;
     width: 95%;
-    max-width: 516px;
+    /* max-width: 516px; */
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -44,6 +44,11 @@ export const CardWrap = styled.div`
                 margin: 0 12px 24px 32px;
                 ${typography.TextNormal};
                 color: ${props => props.theme.colors.neutralAlt};
+
+            }
+
+            &__content::first-letter {
+                text-transform: capitalize;
             }
 
             &__footer {

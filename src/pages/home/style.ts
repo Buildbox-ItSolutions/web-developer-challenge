@@ -14,4 +14,19 @@ export const HomeStyled = styled.div`
         ${typography.TextNormal};
         color: ${props => props.theme.colors.neutralAlt};
     }
+    
+    .grid-cards {
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1px;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    @media (min-width: ${props => props.theme.breakpoints.lg} ) {
+        .grid-cards {
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        }
+    }
 `;
