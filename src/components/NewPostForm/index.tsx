@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FaImage, FaTrash } from 'react-icons/fa';
 import { PostForm, PostImage, Buttons } from './styles';
 import * as yup from 'yup';
+import { usePosts } from '../../hooks/usePosts';
 
 const schema = yup
   .object()
@@ -33,14 +34,14 @@ const schema = yup
           );
         }
       ),
-    name: yup.string().required('Informe seu nome antes de postar.'),
+    author: yup.string().required('Informe seu nome antes de postar.'),
     text: yup.string().required('Adicione um texto para seu post.'),
   })
   .required();
 
 type InputsType = {
   image: string;
-  name: string;
+  author: string;
   text: string;
 };
 
@@ -53,9 +54,9 @@ export const NewPostForm = () => {
     reset,
     formState: { errors },
   } = useForm<InputsType>({ resolver: yupResolver(schema) });
-
   const [currentImage, setCurrentImage] = useState<string>();
-  const [imageUrl, setImageUrl] = useState<string>();
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const { setPosts } = usePosts();
 
   useEffect(() => {
     if (currentImage) {
@@ -63,14 +64,20 @@ export const NewPostForm = () => {
     }
   }, [currentImage]);
 
-  const handleNewPost: SubmitHandler<InputsType> = (data) => {
-    const { image, name, text } = data;
-  };
-
   const resetImageForm = () => {
     setValue('image', '');
     setImageUrl('');
     setCurrentImage('');
+  };
+
+  const handleNewPost: SubmitHandler<InputsType> = ({ author, text }) => {
+    const imageFomrUrl = imageUrl;
+    const newPost = { image: imageFomrUrl, author, text };
+
+    setPosts((prevPosts) => [...prevPosts, { ...newPost }]);
+
+    resetImageForm();
+    reset();
   };
 
   return (
@@ -101,11 +108,11 @@ export const NewPostForm = () => {
         />
       </PostImage>
 
-      <label htmlFor="nome">Nome</label>
-      <input id="nome" {...register('name', { required: true })} />
-      {<span>{errors.name?.message}</span>}
+      <label htmlFor="nome">Nome *</label>
+      <input id="nome" {...register('author', { required: true })} />
+      {<span>{errors.author?.message}</span>}
 
-      <label htmlFor="text">Mensagem</label>
+      <label htmlFor="text">Mensagem *</label>
       <textarea id="text" {...register('text', { required: true })} />
       {<span>{errors.text?.message}</span>}
 
@@ -122,7 +129,7 @@ export const NewPostForm = () => {
         <button
           type="submit"
           disabled={
-            watch('name') && watch('text') && watch('image') && !errors.image
+            watch('author') && watch('text') && watch('image') && !errors.image
               ? false
               : true
           }

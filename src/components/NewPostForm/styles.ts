@@ -52,20 +52,21 @@ export const PostImage = styled.div`
   gap: 0.5rem;
 
   label {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     color: #9f9f9f;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #9f9f9f;
     border-radius: 1.5rem;
+    cursor: pointer;
   }
 
   picture {
-    max-width: 5rem;
-    max-height: 5rem;
+    max-width: 6rem;
+    max-height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,8 +74,8 @@ export const PostImage = styled.div`
     overflow: hidden;
 
     img {
-      min-width: 5rem;
-      min-height: 5rem;
+      min-width: 6rem;
+      min-height: 6rem;
       object-fit: cover;
       border-radius: 1.5rem;
     }
@@ -85,6 +86,7 @@ export const PostImage = styled.div`
     color: red;
     border: none;
     padding: 0.5rem;
+    cursor: pointer;
   }
 
   p {
