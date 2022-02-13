@@ -3,10 +3,13 @@ import { CardWrap } from './style';
 import Avatar from '../../assets/img/avatar.jpg';
 import { Image } from '../index';
 import { deleteNews } from '../../services/supaFunctions';
+import { useNavigate } from 'react-router-dom';
+
 
 export function NewsCard({news}: any) {
     const { title, subtitle, content, author } = news.item;
-    
+    const navigate = useNavigate();
+
     function  finalContent() {
       const contentShort = content.slice(0, 100);
       const contentLength = content.length;
@@ -18,8 +21,13 @@ export function NewsCard({news}: any) {
       return contentShort
     }
   
+    const handlePage = (news: object) => {
+      return navigate('/single', { state: { news } });
+    }
+    
     return (
-    <CardWrap onClick={() => deleteNews(news.item.id)}>
+      // onClick={() => deleteNews(news.item.id)}
+    <CardWrap onClick={() => handlePage(news.item) } >
         <div className='card'>
           <div className='card-image'>
               <div className='card-image__wrap'>

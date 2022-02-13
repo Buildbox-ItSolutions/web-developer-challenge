@@ -10,6 +10,7 @@ export const CardWrap = styled.div`
     overflow: hidden;
     border: solid 1px #3b3b3b;
     margin: 8px 0 8px;
+    cursor: pointer;
     background-color: ${props => props.theme.colors.secondary};
 
     .card {
