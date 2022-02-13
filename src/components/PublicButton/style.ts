@@ -12,7 +12,7 @@ export const Wrapper = styled.button`
 
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.green};
+  background-color: ${({ theme }) => theme.colors.bgButton};
 
   &:hover {
     opacity: 0.9;
