@@ -1,7 +1,6 @@
 import React from 'react'
 import PhotoPost from '../PhotoPost'
-import { FiXCircle } from 'react-icons/fi'
-import defaultTheme from '../../theme/defaultTheme'
+import { ReactComponent as IconDelete } from '../../assets/delete.svg'
 import * as S from './style'
 
 interface PostProps {
@@ -15,7 +14,7 @@ const Post: React.FC<PostProps> = ({ photo, title, body, author }) => {
   return (
     <S.Wrapper>
       <S.ButtonDeletePost>
-        <FiXCircle size={20} color={defaultTheme.colors.red} />
+        <IconDelete />
       </S.ButtonDeletePost>
       <S.ContentWrapper>
         <PhotoPost photo={photo} alt={title} />
