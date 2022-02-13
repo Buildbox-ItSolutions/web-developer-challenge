@@ -1,7 +1,7 @@
 import { FaWindowClose } from 'react-icons/fa';
 import { PostType } from '../../context/PostsContext';
-import { PostContainer, PostContent } from './styles';
 import { usePosts } from '../../hooks/usePosts';
+import { PostContainer, PostContent } from './styles';
 
 export const Post = ({ post }: { post: PostType }) => {
   const { posts, setPosts } = usePosts();
@@ -16,7 +16,7 @@ export const Post = ({ post }: { post: PostType }) => {
   return (
     <PostContainer>
       <div className="toDelete">
-        <button onClick={handleDeletePost}>
+        <button onClick={handleDeletePost} title="Deletar post">
           <FaWindowClose />
         </button>
       </div>

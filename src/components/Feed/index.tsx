@@ -6,10 +6,6 @@ import { useEffect } from 'react';
 export const Feed = () => {
   const { posts } = usePosts();
 
-  useEffect(() => {
-    console.log({ posts });
-  }, [posts]);
-
   return (
     <FeedContainer>
       <span>Feed</span>

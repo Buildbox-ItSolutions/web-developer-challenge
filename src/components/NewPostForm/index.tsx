@@ -74,14 +74,14 @@ export const NewPostForm = () => {
         {imageUrl ? (
           <>
             <picture>
-              <img src={imageUrl} alt="Imagem para o ser postada." />
+              <img src={imageUrl} alt="Imagem para o ser postada" />
             </picture>
-            <button onClick={resetImageForm}>
+            <button onClick={resetImageForm} title="Remover imagem">
               <FaTrash />
             </button>
           </>
         ) : (
-          <label htmlFor="image">
+          <label htmlFor="image" title="Selecione uma imagem para seu post">
             <FaImage />
           </label>
         )}
@@ -110,6 +110,7 @@ export const NewPostForm = () => {
             resetImageForm();
             reset();
           }}
+          title="Descartar alterações"
         >
           Descartar
         </button>
@@ -121,6 +122,7 @@ export const NewPostForm = () => {
               ? false
               : true
           }
+          title="Publicar"
         >
           Publicar
         </button>

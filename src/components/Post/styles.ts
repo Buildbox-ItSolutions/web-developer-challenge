@@ -21,6 +21,7 @@ export const PostContainer = styled.div`
       padding: 0.25rem;
       border: none;
       outline: none;
+      cursor: pointer;
     }
   }
 `;
