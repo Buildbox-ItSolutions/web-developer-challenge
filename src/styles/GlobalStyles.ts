@@ -12,12 +12,22 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${Colors.bgBody};
-        height: 100vh;
+    }
+    button {
+        all: unset;
+
+        :hover{
+            cursor: pointer;
+        }
+    }
+    a {
+        all: unset;
+        cursor: pointer;
         width: 100%;
-        display: flex;
     }
     #root {
         width: 100%;
     }
+    
 
 `;
