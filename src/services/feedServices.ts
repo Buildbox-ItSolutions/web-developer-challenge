@@ -2,7 +2,7 @@ import { Feed } from '../types/feed';
 import { api } from './api';
 
 type GetFeed = {
-  data: Feed[];
+  feed: Feed[];
 };
 
 const url = '/feed';

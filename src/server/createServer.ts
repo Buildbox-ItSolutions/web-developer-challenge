@@ -25,10 +25,12 @@ const createFeedServer = () => {
       }));
 
       let newId = 2;
-      this.post('/feed', (_, request) => {
+      this.post('/feed', async (_, request) => {
         const attrs = JSON.parse(request.requestBody);
-        attrs.id = ++newId;
-        feed.push(attrs);
+
+        console.log(attrs);
+
+        feed.push({ ...attrs, id: ++newId });
 
         return feed;
       });

@@ -3,4 +3,5 @@ export type Feed = {
   name: string;
   message: string;
   photo?: File;
+  photoUrl?: string | null;
 };

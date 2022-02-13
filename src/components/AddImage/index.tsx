@@ -6,9 +6,14 @@ import trashImage from '../../images/trash.png';
 
 import { convertFileToBlob, isFileImage } from '../../utils/fileUtils';
 
+type FileValues = {
+  photo?: File;
+  photoUrl?: string;
+};
+
 type Props = {
-  onChange?: (file?: File) => void;
-  image?: File;
+  onChange?: (fileValues?: FileValues) => void;
+  image?: FileValues;
   name: string;
 };
 
@@ -19,26 +24,25 @@ const AddImage: React.FC<Props> = ({
 }) => {
   const [imageToShow, setImageToShow] = useState(notUploadImage);
 
-  useEffect(() => {
-    if (image) {
-      convertFileToBlob(image).then((value) => {
-        setImageToShow(value ? URL.createObjectURL(value) : notUploadImage);
-      });
-    } else {
-      deleteImage();
-    }
-  }, [image]);
-
   const afterChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
 
     if (isFileImage(file)) {
-      onChange(file);
+      convertFileToBlob(file).then((value) => {
+        const photoUrl = value ? URL.createObjectURL(value) : notUploadImage;
+        onChange({
+          photo: file,
+          photoUrl,
+        });
+        setImageToShow(photoUrl);
+      });
+    } else {
+      deleteImage();
     }
   };
 
   const deleteImage = useCallback(() => {
-    onChange(undefined);
+    onChange();
     setImageToShow(notUploadImage);
   }, [onChange]);
 
@@ -57,7 +61,7 @@ const AddImage: React.FC<Props> = ({
             src={imageToShow}
             alt="Adicionar imagem"
             loading="lazy"
-            className={image ? 'fill' : 'empty'}
+            className={image?.photo ? 'fill' : 'empty'}
           />
         </LabelContainer>
       </Container>
