@@ -1,12 +1,12 @@
 import React, { TableHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Input, Textarea, Button } from '../../components'
+import { Input, Textarea, Button, ModalImage } from '../../components'
 import { AddNewsWrap, FormWrap } from './style';
 
 import { Form } from '@unform/web'
 import { SubmitHandler, FormHandles } from '@unform/core'
 import * as Yup from 'yup';
-import { addNews, getNews } from '../../services/supaFunctions';
+import { addNews } from '../../services/supaFunctions';
 import { NewsProps } from '../../interfaces/News';
 
 interface TypeError {
@@ -16,6 +16,7 @@ interface TypeError {
 export function AddNews() {
     const navigate = useNavigate();
     const formRef = useRef<FormHandles>(null)
+    
  
     const handleSubmit: SubmitHandler<NewsProps> = async (data, {reset}) => {
         try {
@@ -24,6 +25,7 @@ export function AddNews() {
                 title: Yup.string().required('Titlo é obrigatório'),
                 subtitle: Yup.string().required('Subtitulo é obrigatório'),
                 content: Yup.string().required('Conteúdo é obrigatório'),
+                img: Yup.string().default('placeholder image'),
             })
 
             await maskValidate.validate(data, {
@@ -60,6 +62,9 @@ export function AddNews() {
         <AddNewsWrap>
            <FormWrap>
                 <Form ref={formRef} onSubmit={handleSubmit}>
+                    <div className='image-upload'>
+                            <ModalImage />
+                    </div>
                     <Input name="title" placeholder='Titulo'/>
                     <Input name="subtitle" placeholder='Subtítulo'/>
                     <Input name="author" placeholder='Nome do Autor'/>

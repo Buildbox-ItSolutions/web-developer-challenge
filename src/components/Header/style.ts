@@ -8,6 +8,7 @@ export const Navbar = styled.nav`
     align-items: center;
     padding: 20px 0;
     background-color: ${props => props.theme.colors.secondary};
+    cursor: pointer;
 
     .navbar {
         &__logo {

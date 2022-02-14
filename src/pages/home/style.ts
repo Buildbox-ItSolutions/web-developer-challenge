@@ -13,6 +13,8 @@ export const HomeStyled = styled.div`
     .section-title {
         ${typography.TextNormal};
         color: ${props => props.theme.colors.neutralAlt};
+        width: 90%;
+        margin-left: 2rem;
     }
     
     .grid-cards {

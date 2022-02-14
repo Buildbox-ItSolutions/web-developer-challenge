@@ -56,7 +56,7 @@ typography.TextNormal = css`
     letter-spacing: normal;
     font-stretch: normal;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
 `;
 
 typography.TextSmall = css`

@@ -22,6 +22,15 @@ export const FormWrap =  styled.div`
         justify-content: flex-end;
     }
 
+    .image-upload {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     
+    }
+
     @media (min-width: ${props => props.theme.breakpoints.lg}) {
         width: 50%;
         padding: 1rem 2rem;

@@ -5,6 +5,7 @@ import { Input } from './Input';
 import { Textarea } from './Textarea';
 import { Footer } from './Footer'
 import { NewsCard } from './NewsCard';
+import { ModalImage } from './ModalImage';
 
 export { 
     NewsCard,
@@ -14,4 +15,5 @@ export {
     Image,
     Header,
     Input,
+    ModalImage,
 }
