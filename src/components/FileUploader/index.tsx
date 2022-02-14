@@ -66,6 +66,8 @@ export default function FileUploader({
         <ImageContainer>
           <Avatar src={img} alt={`${name} Avatar`} />
           <TrashButton
+            type="reset"
+            aria-label="Remove Avatar Image"
             onClick={handleRemoveDisplayAvatar}
             variant="icon"
           >
@@ -75,27 +77,28 @@ export default function FileUploader({
       ) : (
         <>
           <FileUploadContainer error={!!errors.avatar}>
+            <input
+              type="file"
+              hidden
+              accept={SUPPORTED_IMG_TYPES.join(', ')}
+              aria-invalid={errors.avatar ? 'true' : 'false'}
+              aria-label="Upload Avatar Image"
+              ref={(instance) => {
+                avatarReactHookFormRef(instance);
+                avatarInputRef.current = instance;
+              }}
+              onChange={(e) => {
+                onChange(e);
+                uploader(e);
+              }}
+              {...avatarFieldProps}
+            />
             <ImageButton
               variant="outlined"
+              aria-label="Upload Image"
               onClick={handleClickFileInput}
               type="button"
             >
-              <input
-                type="file"
-                hidden
-                accept={SUPPORTED_IMG_TYPES.join(', ')}
-                aria-invalid={errors.avatar ? 'true' : 'false'}
-                aria-label="Upload Avatar Image"
-                ref={(instance) => {
-                  avatarReactHookFormRef(instance);
-                  avatarInputRef.current = instance;
-                }}
-                onChange={(e) => {
-                  onChange(e);
-                  uploader(e);
-                }}
-                {...avatarFieldProps}
-              />
               <FileUploadIcon error={!!errors.avatar} />
             </ImageButton>
           </FileUploadContainer>

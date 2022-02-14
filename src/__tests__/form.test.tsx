@@ -1,6 +1,10 @@
 import userEvent from '@testing-library/user-event';
 import PostForm from '@/components/Form';
-import { renderWithProviders, screen } from '@/__tests__/utils';
+import {
+  renderWithProviders,
+  screen,
+  waitFor,
+} from '@/__tests__/utils';
 
 const handleAddPost = jest.fn();
 
@@ -46,6 +50,16 @@ function setup(
     changeName: (name: string) => user.type(nameField, name),
     changeMessage: (message: string) =>
       user.type(messageField, message),
+    clickButtonUpload: () =>
+      user.click(
+        screen.getByRole('button', {
+          name: /^Upload Image$/,
+        }),
+      ),
+    removeAvatar: () =>
+      user.click(
+        screen.getByRole('button', { name: /Remove Avatar Image/ }),
+      ),
     uploadFile: (newFile = file) => user.upload(avatarField, newFile),
     discardForm: () => user.click(buttonDiscard),
     submitForm: () => user.click(buttonSubmit),
@@ -110,6 +124,39 @@ test('should display a error when upload file with invalid type', async () => {
   expect(await screen.findAllByRole('alert')).toHaveLength(1);
 
   expect(handleAddPost).not.toBeCalled();
+});
+
+test('should upload avatar', async () => {
+  const { file, uploadFile, clickButtonUpload, avatarField } =
+    setup();
+
+  await clickButtonUpload();
+  await uploadFile();
+
+  await waitFor(() =>
+    screen.getByRole('button', { name: /Remove Avatar Image/ }),
+  );
+
+  expect(avatarField.files).toHaveLength(1);
+  expect(avatarField.files?.item(0)).toStrictEqual(file);
+});
+
+test('should remove avatar', async () => {
+  const { file, avatarField, uploadFile, removeAvatar } = setup();
+
+  await uploadFile();
+
+  await waitFor(() =>
+    screen.getByRole('button', { name: /Remove Avatar Image/ }),
+  );
+
+  expect(avatarField.files).toHaveLength(1);
+  expect(avatarField.files?.item(0)).toStrictEqual(file);
+
+  await removeAvatar();
+
+  expect(avatarField.files).toHaveLength(0);
+  expect(avatarField.files?.item(0)).toBeNull();
 });
 
 test('should clear all fields when press discard', async () => {
@@ -178,7 +225,7 @@ test('should clear all fields when submit', async () => {
 
   await submitForm();
 
-  avatarField = screen.getByLabelText(/Upload/);
+  avatarField = screen.getByLabelText(/Upload Avatar Image/);
 
   expect(nameField).toHaveValue('');
   expect(messageField).toHaveValue('');
