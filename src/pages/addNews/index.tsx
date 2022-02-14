@@ -66,11 +66,18 @@ export function AddNews() {
                     <div className='image-upload'>
                         <ModalImage 
                          onSelectImage={ (image: string) => {
-                             setImageSrc(image);
+                            setImageSrc(image);
                          } }
                         />
                     </div>
-                    <input type='hidden' value={imageSrc} name='img' />
+                    
+                    <Input 
+                    name="img" 
+                    placeholder='Image' 
+                    value={imageSrc} 
+                    className='input-hidden'
+                    readOnly
+                    />
                     <Input name="title" placeholder='Titulo'/>
                     <Input name="subtitle" placeholder='Subtítulo'/>
                     <Input name="author" placeholder='Nome do Autor'/>

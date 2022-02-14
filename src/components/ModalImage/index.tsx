@@ -39,11 +39,15 @@ export function ModalImage(props: any) {
         queryImages();
     }, [urlImages]);
 
-    function hanadleImage (image: string) {
-
+    function hanadleImage (image: string, toggleModal: boolean) {
         setImage(image);
-        setIsOpen(!isOpen)
-        return props.onSelectImage(image);
+
+        if(toggleModal) {
+            setIsOpen(!isOpen)
+            return props.onSelectImage(image);
+        }
+
+        return props.onSelectImage('');
     }
 
     return (
@@ -53,7 +57,7 @@ export function ModalImage(props: any) {
                 <div onClick={() => setIsOpen(!isOpen)} className="news-image__wrap" >
                     <Image src={image} />
                 </div>
-                <div className='news-image__delete-icon' onClick={() => console.log('trash')}>
+                <div className='news-image__delete-icon' onClick={() => hanadleImage(PlaceholderImg, false)}>
                     <Image src={TrashIcon} />
                 </div>
             </div>
@@ -65,7 +69,7 @@ export function ModalImage(props: any) {
                                 return ( 
                                     <div className='modal-content__image' 
                                     key={image} 
-                                    onClick={() => hanadleImage(image)
+                                    onClick={() => hanadleImage(image, true)
                                     }>
                                         <img src={image} alt=""/> 
                                     </div>

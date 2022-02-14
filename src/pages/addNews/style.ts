@@ -30,6 +30,10 @@ export const FormWrap =  styled.div`
      
     }
 
+    .input-hidden {
+        display: none;
+    }
+
     @media (min-width: ${props => props.theme.breakpoints.lg}) {
         width: 50%;
         padding: 1rem 2rem;
