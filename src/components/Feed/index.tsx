@@ -4,6 +4,8 @@ import { getFeed } from '../../services/feedServices';
 import { Feed as FeedType } from '../../types/feed';
 import CreatePost from '../CreatePost';
 
+import Post from '../Post';
+
 import { Container } from './styles';
 
 const Feed: React.FC = () => {
@@ -18,10 +20,8 @@ const Feed: React.FC = () => {
   return (
     <Container>
       <CreatePost onSuccessSubmit={setFeed} />
-      {feed.map(({ id, message, name, photoUrl }) => (
-        <div key={id}>
-          <img src={photoUrl || ''} alt={`foto do ${name}`} />
-        </div>
+      {feed.map((item) => (
+        <Post {...item} key={item.id} afterClickDelete={setFeed} />
       ))}
     </Container>
   );
