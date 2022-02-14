@@ -11,6 +11,7 @@ export const Navbar = styled.nav`
     cursor: pointer;
 
     .navbar {
+
         &__logo {
             height: 100%;
             width: 100%;
@@ -19,11 +20,15 @@ export const Navbar = styled.nav`
         &__button {
             position: absolute;
             right: 0;
-            margin-right: 2rem;
+            margin-right: 5.5rem;
         }
     }    
 
-    /* @media (min-width: ${props => props.theme.breakpoints.lg}) {
-        height: 69px;
-    } */
+    @media (max-width: ${props => props.theme.breakpoints.sm}) {
+        height: 80px;
+
+        .navbar__button  {
+            margin-right: 1rem;
+        }
+    }
 `;

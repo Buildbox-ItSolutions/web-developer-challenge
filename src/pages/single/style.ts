@@ -16,6 +16,13 @@ export const SingleStyled = styled.div`
 
         &__image {	
             height: 25vh;
+            position: relative;
+        }
+
+        &__button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
         }
 
         &__info {

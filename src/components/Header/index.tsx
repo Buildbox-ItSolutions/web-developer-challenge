@@ -3,13 +3,13 @@ import { Navbar } from './style'
 import Logo from '../../assets/img/logo.png'
 import { Button, Image } from '../index';
 import { useNavigate } from 'react-router-dom';
-
+import { AiOutlineFileAdd } from 'react-icons/ai';
 
 export function Header() {
   const navigate = useNavigate();
 
   function handleNavigate() {
-    navigate('/');
+    navigate('/addnews');
   }
 
   return (
@@ -19,7 +19,7 @@ export function Header() {
               <Image src={Logo} alt='Logo' behavior='contain'/>
           </div>
           <div className='navbar__button'>
-            {/* <Button onClick={()=> handleNavigate()}>Novo Post</Button> */}
+            <Button onClick={()=> navigate('/addnews')}><AiOutlineFileAdd size='20px'/></Button>
           </div>
       </Navbar>
     </>

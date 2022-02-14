@@ -8,10 +8,10 @@ export function NewsCard({news}: any) {
     const navigate = useNavigate();
 
     function  finalContent() {
-      const contentShort = title.slice(0, 100);
-      const contentLength = title.length;
+      const contentShort = content.slice(0, 150);
+      const contentLength = content.length;
 
-      if (contentLength > 60) {
+      if (contentLength > 150) {
         return contentShort + '...';
       }
 

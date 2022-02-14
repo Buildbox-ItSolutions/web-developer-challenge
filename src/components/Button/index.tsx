@@ -3,7 +3,7 @@ import { ButtonStyled } from './style'
 import { SubmitHandler } from '@unform/core'
 
 interface ButtonProps {
-    children: string;
+    children: string | React.ReactChild;
     bgColor?: string;
     onClick?: () => void;
 }
