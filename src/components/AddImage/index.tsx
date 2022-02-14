@@ -30,10 +30,12 @@ const AddImage: React.FC<Props> = ({
     if (isFileImage(file)) {
       convertFileToBlob(file).then((value) => {
         if (value) {
+          const photoUrl = URL.createObjectURL(value);
           onChange({
             photo: file,
-            photoUrl: URL.createObjectURL(value),
+            photoUrl,
           });
+          setImageToShow(photoUrl);
         } else {
           deleteImage();
         }

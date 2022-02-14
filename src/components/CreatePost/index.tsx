@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import { URL } from 'url';
+
 import { postFeed } from '../../services/feedServices';
 import {
   ClearButton,
@@ -53,14 +53,22 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
   );
 
   return (
-    <Container
-      onSubmit={handleSubmit(onSubmit, (val) => {
-        console.log(val);
-      })}
-    >
-      <AddImageContainer>
-        <AddImageControl control={control} name="image" />
-      </AddImageContainer>
+    <Container onSubmit={handleSubmit(onSubmit)}>
+      <React.Fragment>
+        <AddImageContainer>
+          <AddImageControl
+            control={control}
+            name="image"
+            rules={{
+              required: {
+                message: 'Deve-se conter uma foto',
+                value: true,
+              },
+            }}
+          />
+        </AddImageContainer>
+        <ErrorMessage errors={errors} name="image" />
+      </React.Fragment>
       <AddNameContainer>
         <Input
           placeholder="Digite seu nome"
