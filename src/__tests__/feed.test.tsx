@@ -1,7 +1,8 @@
 import {
+  act,
   renderWithProviders,
   screen,
-  waitFor,
+  waitForElementToBeRemoved,
 } from '@/__tests__/utils';
 import Feed from '@/components/Feed';
 import type { Post } from '@/types';
@@ -47,9 +48,9 @@ test('should render a feed with posts', async () => {
     <Feed posts={withPosts} handleRemovePost={handleRemovePost} />,
   );
 
-  await waitFor(() => screen.queryAllByRole('article'));
-  screen.debug();
-  const postsElements = screen.queryAllByRole('article');
+  await waitForElementToBeRemoved(() =>
+    screen.getByLabelText(/Igor/i),
+  );
 
-  expect(postsElements).toHaveLength(2);
+  expect(screen.queryAllByRole('article')).toHaveLength(2);
 });
