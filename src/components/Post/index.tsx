@@ -30,22 +30,22 @@ const Post: React.FC<Props> = ({
   id,
   afterClickDelete,
 }) => {
-  const [isDeleating, setIsDeleating] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const onClick = () => {
-    setIsDeleating(true);
+    setIsDeleting(true);
     deleteFeed(id)
       .then((feed) => {
         afterClickDelete(feed);
       })
       .finally(() => {
-        setIsDeleating(false);
+        setIsDeleting(false);
       });
   };
 
   return (
     <Container>
       <DeleteButtonContainer>
-        {isDeleating ? (
+        {isDeleting ? (
           <ClipLoader color={colors.text} />
         ) : (
           <DeleteButton onClick={onClick} />
