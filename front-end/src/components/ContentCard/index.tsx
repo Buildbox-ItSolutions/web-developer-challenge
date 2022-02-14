@@ -24,7 +24,11 @@ function ContentCard(props: ContentCardProps) {
   try {
     imageSource = require(`../../assets/images/${image}`);
   } catch {
-    imageSource = image;
+    try {
+      imageSource = require(`../../../../back-end/uploads/${image}`);
+    } catch {
+      imageSource = image;
+    }
   }
 
   const deleteContent = (id: string) => {

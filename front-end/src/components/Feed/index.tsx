@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useEffect } from "react";
 
 import ContentCard from "../ContentCard";
@@ -12,17 +13,30 @@ function Feed() {
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    const initial = jsonData.map<ContentCardProps>(
-      (content: ContentDataSource) => ({
-        _id: content._id,
-        image: content.imageName,
-        author: content.author,
-        message: content.message,
-      })
-    );
+    const initial = jsonData.map<ContentCardProps>(parseContent);
 
     setFeed(initial);
+    axios({
+      method: "get",
+      url: "http://localhost:4000/list/content",
+    })
+      .then((response) => {
+        const backendContents = response.data.map(parseContent).reverse();
+
+        setFeed([...backendContents, ...initial]);
+      })
+      .catch((response) => {
+        console.log(response);
+        console.log("backend offline");
+      });
   }, [setFeed]);
+
+  const parseContent = (content: ContentDataSource) => ({
+    _id: content._id,
+    image: content.imageName,
+    author: content.author,
+    message: content.message,
+  });
 
   return (
     <Container width={width}>

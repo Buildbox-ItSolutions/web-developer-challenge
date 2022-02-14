@@ -6,7 +6,11 @@ import imageIcon from "../../assets/icons/image.svg";
 import { CraftContext } from "../../contexts/CraftContext";
 import trashIcon from "../../assets/icons/trash.svg";
 
-function ImageWrapper() {
+interface ImageWrapperProps {
+  onSelectImage: (file: File) => void
+}
+
+function ImageWrapper(props: ImageWrapperProps) {
   const inputFileRef = useRef<any>();
   const { image, setImage, author, message } = useContext(CraftContext);
 
@@ -27,6 +31,7 @@ function ImageWrapper() {
     
     if (e && e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]));
+      props.onSelectImage(e.target.files[0])
     } else {
       setImage("");
     }
