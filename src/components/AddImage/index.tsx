@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Container, DeleteButton, LabelContainer } from './styles';
 import notUploadImage from '../../images/image.svg';
@@ -23,6 +23,12 @@ const AddImage: React.FC<Props> = ({
   name,
 }) => {
   const [imageToShow, setImageToShow] = useState(notUploadImage);
+
+  useEffect(() => {
+    if (!image?.photo) {
+      setImageToShow(notUploadImage);
+    }
+  }, [image?.photo]);
 
   const afterChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
@@ -65,7 +71,7 @@ const AddImage: React.FC<Props> = ({
             src={imageToShow}
             alt="Adicionar imagem"
             loading="lazy"
-            className={image?.photo ? 'fill' : 'empty'}
+            className={image ? 'fill' : 'empty'}
           />
         </LabelContainer>
       </Container>
