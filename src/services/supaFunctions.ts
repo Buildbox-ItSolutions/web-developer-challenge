@@ -1,5 +1,6 @@
 import { dbClient } from './supaConfig';
 import { NewsProps } from '../interfaces/News';
+import { v4 as uuidv4 } from 'uuid'
 
 const dbName ='buildBox';
 
@@ -24,37 +25,46 @@ export const deleteNews = async (id: number) => {
     .match({id: id})
     .then( resp => {
         console.log(resp, 'Noticia Removida');
-        
     })
 }
 
 export const uploadImage = async (event: any)  => {
-    const response = await fetch(event.target.result);
-    const blob = await response.blob();
-    const avatarFile = event.target.files[0]
+    const avatarFile = event.target.files[0];
+    const fileName = uuidv4();
 
-    const { data, error } = await dbClient.storage
-    .from('photo')
-    .upload(`newsImage/${avatarFile.name}`, blob, {
-        cacheControl: '8600',
-        upsert: true
-    })
-}
-
-
-export const getBucket = async () => {
-    try {
-        const { data, error } = await dbClient
+    const { data, error } = await dbClient
         .storage
         .from('photo')
-        .list('newsImage', {
-            limit: 100,
-            offset: 0,
-            // sortBy: { column: 'name', order: 'asc' },
+        .upload(`porra/${fileName}`, avatarFile, {
+            cacheControl: '8600',
+            upsert: false
+    })
+
+    return data
+}
+
+export const getImages = async () => {
+    try {
+        const { data, error } = await dbClient
+            .storage
+            .from('photo')
+            .list('news', {
+                limit: 10,
+                offset: 0,
+                sortBy: { column: 'name', order: 'asc' },
         })
-        console.log(data, 'data');
-        
+        return data
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
+}
+
+export const getPublicUrl = async (name: string) => {
+
+    const { publicURL, error } = dbClient
+        .storage
+        .from('photo')
+        .getPublicUrl(`news/${name}`);
+
+    return publicURL
 }

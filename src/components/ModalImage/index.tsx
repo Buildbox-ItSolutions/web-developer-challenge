@@ -3,40 +3,59 @@ import { Image } from '../index'
 import { ModalWrap } from './style'
 import PlaceholderImg from '../../assets/img/placeholderimg.svg';
 import BG1 from '../../assets/imagePosts/bg.jpg';
-import { getBucket, uploadImage } from '../../services/supaFunctions';
+import { getImages, uploadImage, getPublicUrl } from '../../services/supaFunctions';
 
 export function ModalImage() {
     const [image, setImage] = useState(PlaceholderImg);
     const [isOpen, setIsOpen] = useState(false);
-    const [bg, setBg] = useState();
-
-    console.log(getBucket());
+    const [bg, setBg] = useState<any>();
+    const [modalImages, setModalImages] = useState<any>([]);
+    const [namesImage, setNamesImage] = useState<any>();
 
     useEffect(() => {
-        async function getImages() {
-            const response = await getBucket();
-            console.log(response);
-            
+        async function aff() {
+            const response = await getImages();
+            setNamesImage(response);
         }
-        getImages()
+        aff()
     }, [])
-    
+
     useEffect(() => {
-        console.log(isOpen);
-    }, [isOpen])
+        const allImages: any = [];
+
+        async function teste() {
+            if(namesImage){
+                for (const image of namesImage) {
+
+                    const response = await getPublicUrl(image.name);
+                    allImages.push(response);
+                }
+            }
+
+            setModalImages(allImages);
+        }
+        
+        teste();
+
+    }, [namesImage]);
 
     return (
+    <>
         <ModalWrap onClick={() => setIsOpen(!isOpen)}>
-            <Image src={image}/>
+            {modalImages && modalImages.map( (image: string) => {
+                    return ( <img key={image} src={image} alt=""/> )                
+            })}
             { isOpen && <div className="modal-backdrop">
                     <div className='modal-content'>
-                        <Image src={BG1}/>
+                        {modalImages && modalImages.map( async (img: any) => {
+                            <div className='modal-img' key={img.name}>
+                            </div>
+                        })}
                     </div>
             </div>}
         </ModalWrap>
+        </>
 )
 }
 
 
-
-{/* <input type={'file'} id={'file'} onChange={(e) => uploadImage(e)}/> */}
