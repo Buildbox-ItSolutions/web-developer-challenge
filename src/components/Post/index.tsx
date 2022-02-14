@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ClipLoader } from 'react-spinners';
 import { deleteFeed } from '../../services/feedServices';
+import { colors } from '../../themes/colors';
 import { Feed } from '../../types/feed';
 import DeleteButton from '../DeleteButton';
 
@@ -28,16 +30,26 @@ const Post: React.FC<Props> = ({
   id,
   afterClickDelete,
 }) => {
+  const [isDeleating, setIsDeleating] = useState(false);
   const onClick = () => {
-    deleteFeed(id).then((feed) => {
-      afterClickDelete(feed);
-    });
+    setIsDeleating(true);
+    deleteFeed(id)
+      .then((feed) => {
+        afterClickDelete(feed);
+      })
+      .finally(() => {
+        setIsDeleating(false);
+      });
   };
 
   return (
     <Container>
       <DeleteButtonContainer>
-        <DeleteButton onClick={onClick} />
+        {isDeleating ? (
+          <ClipLoader color={colors.text} />
+        ) : (
+          <DeleteButton onClick={onClick} />
+        )}
       </DeleteButtonContainer>
       <ContentContainer>
         <PhotoContainer>
