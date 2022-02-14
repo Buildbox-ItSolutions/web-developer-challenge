@@ -4,12 +4,14 @@ import { renderWithProviders, screen } from '@/__tests__/utils';
 
 const handleAddPost = jest.fn();
 
-function setup() {
+function setup(
+  userEventOptions?: Parameters<typeof userEvent.setup>[0],
+) {
   const utils = renderWithProviders(
     <PostForm handleAddPost={handleAddPost} />,
   );
 
-  const user = userEvent.setup();
+  const user = userEvent.setup(userEventOptions);
 
   const file = new File(['🍺'], 'test.png', {
     type: 'image/png',
@@ -44,12 +46,7 @@ function setup() {
     changeName: (name: string) => user.type(nameField, name),
     changeMessage: (message: string) =>
       user.type(messageField, message),
-    uploadFile: (
-      newFile = file,
-      ownUserEvent?: ReturnType<typeof userEvent.setup>,
-    ) =>
-      ownUserEvent?.upload(avatarField, newFile) ??
-      user.upload(avatarField, newFile),
+    uploadFile: (newFile = file) => user.upload(avatarField, newFile),
     discardForm: () => user.click(buttonDiscard),
     submitForm: () => user.click(buttonSubmit),
     ...utils,
@@ -95,9 +92,7 @@ test('should display a error when upload file with invalid type', async () => {
     changeMessage,
     changeName,
     uploadFile,
-  } = setup();
-
-  const user = userEvent.setup({ applyAccept: false });
+  } = setup({ applyAccept: false });
 
   const file = new File(['Hello World!'], 'test.txt', {
     type: 'text/plain',
@@ -105,7 +100,7 @@ test('should display a error when upload file with invalid type', async () => {
 
   await changeName('Igor');
   await changeMessage('Hello world!');
-  await uploadFile(file, user);
+  await uploadFile(file);
 
   await submitForm();
 
