@@ -38,7 +38,7 @@ export const NewPostForm = () => {
     formState: { errors },
   } = useForm<InputsType>({ resolver: yupResolver(schema) });
   const [imageUrl, setImageUrl] = useState<string>('');
-  const { setPosts } = usePosts();
+  const { setPosts, updatePostsOnLocalFeed } = usePosts();
 
   const resetImageForm = () => {
     setValue('image', '');
@@ -57,7 +57,11 @@ export const NewPostForm = () => {
       datePosted: new Date(Date.now()).toLocaleString('pt-br'),
     };
 
-    setPosts((prevPosts) => [...prevPosts, { ...newPost }]);
+    setPosts((prevPosts) => {
+      const currentPosts = [...prevPosts, { ...newPost }];
+      updatePostsOnLocalFeed(currentPosts);
+      return currentPosts;
+    });
 
     resetImageForm();
     reset();

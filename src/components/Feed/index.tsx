@@ -4,7 +4,15 @@ import { FeedContainer, EmptyFeed } from './styles';
 import { useEffect } from 'react';
 
 export const Feed = () => {
-  const { posts } = usePosts();
+  const { posts, setPosts } = usePosts();
+
+  useEffect(() => {
+    const postsOnFeed = localStorage.getItem('posts-buildbox-feed');
+
+    if (postsOnFeed) {
+      setPosts(JSON.parse(postsOnFeed));
+    }
+  }, []);
 
   return (
     <FeedContainer>

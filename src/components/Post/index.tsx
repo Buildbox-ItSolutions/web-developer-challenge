@@ -4,12 +4,14 @@ import { usePosts } from '../../hooks/usePosts';
 import { PostContainer, PostContent } from './styles';
 
 export const Post = ({ post }: { post: PostType }) => {
-  const { posts, setPosts } = usePosts();
+  const { posts, setPosts, updatePostsOnLocalFeed } = usePosts();
 
   const handleDeletePost = () => {
     const filteredPosts = posts.filter(
       (postItem) => postItem.image !== post.image
     );
+
+    updatePostsOnLocalFeed(filteredPosts);
     setPosts(filteredPosts);
   };
 

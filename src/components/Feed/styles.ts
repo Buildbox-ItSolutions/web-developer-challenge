@@ -17,4 +17,5 @@ export const EmptyFeed = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding-bottom: 2.5rem;
 `;
