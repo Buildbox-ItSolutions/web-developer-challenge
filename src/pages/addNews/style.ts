@@ -23,7 +23,6 @@ export const FormWrap =  styled.div`
     }
 
     .image-upload {
-        height: 150px;
         width: 100%;
         display: flex;
         justify-content: center;

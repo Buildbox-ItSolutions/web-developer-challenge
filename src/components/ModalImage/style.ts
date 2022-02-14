@@ -8,6 +8,31 @@ export const ModalWrap = styled.div`
     border-radius: 36px;
     overflow: hidden; */
 
+    .news-image {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &__wrap {
+            height: 88px;
+            width: 88px;
+            overflow: hidden;
+            border-radius: 36px;
+            border: solid 1px #3b3b3b;
+            margin-right: 1rem;
+
+            img {
+                overflow: hidden;
+            }
+        }
+
+        &__delete-icon {
+            height: 100%;
+        }
+
+    }
+
     .modal-backdrop {
         height: 100%;
         width: 100%;
@@ -32,15 +57,19 @@ export const ModalWrap = styled.div`
 
         &__wrap {
             height: 80%;
-            width: 80%;
+            width: 90%;
+            overflow-x: scroll;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
             border-radius: 10px;
-            overflow: hidden;
             background-color: ${props => props.theme.colors.secondaryAlt};
         }
     
         &__image {
-            height: 50px;
-            width: 50px;
+            height: 70px;
+            width: 70px;
+            flex: 1 1 auto;
 
             img {
                 height: 100%;

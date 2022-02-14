@@ -16,6 +16,7 @@ interface TypeError {
 export function AddNews() {
     const navigate = useNavigate();
     const formRef = useRef<FormHandles>(null)
+    const [imageSrc, setImageSrc] = useState('');
     
  
     const handleSubmit: SubmitHandler<NewsProps> = async (data, {reset}) => {
@@ -63,8 +64,13 @@ export function AddNews() {
            <FormWrap>
                 <Form ref={formRef} onSubmit={handleSubmit}>
                     <div className='image-upload'>
-                            <ModalImage />
+                        <ModalImage 
+                         onSelectImage={ (image: string) => {
+                             setImageSrc(image);
+                         } }
+                        />
                     </div>
+                    <input type='hidden' value={imageSrc} name='img' />
                     <Input name="title" placeholder='Titulo'/>
                     <Input name="subtitle" placeholder='Subtítulo'/>
                     <Input name="author" placeholder='Nome do Autor'/>
