@@ -4,6 +4,7 @@ export type PostType = {
   image: string;
   author: string;
   text: string;
+  datePosted: string;
 };
 
 type PostTypeContext = {
@@ -15,6 +16,7 @@ const defaultValues = {
   posts: [],
   setPosts: () => {},
 };
+
 export const PostsContext = createContext<PostTypeContext>(defaultValues);
 
 export const PostsProvider = ({ children }: { children: ReactNode }) => {

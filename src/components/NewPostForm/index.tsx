@@ -50,7 +50,12 @@ export const NewPostForm = () => {
     author,
     text,
   }) => {
-    const newPost = { image, author, text };
+    const newPost = {
+      image,
+      author,
+      text,
+      datePosted: new Date(Date.now()).toLocaleString('pt-br'),
+    };
 
     setPosts((prevPosts) => [...prevPosts, { ...newPost }]);
 

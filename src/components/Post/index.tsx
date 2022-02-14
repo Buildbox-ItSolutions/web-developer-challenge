@@ -16,6 +16,7 @@ export const Post = ({ post }: { post: PostType }) => {
   return (
     <PostContainer>
       <div className="toDelete">
+        {post.datePosted}
         <button onClick={handleDeletePost} title="Deletar post">
           <FaWindowClose />
         </button>
@@ -29,7 +30,7 @@ export const Post = ({ post }: { post: PostType }) => {
         </picture>
         <div className="content">
           <p>{post.text}</p>
-          <div className="autor">
+          <div>
             Enviado por
             <span>{post.author}</span>
           </div>

@@ -12,12 +12,15 @@ export const PostContainer = styled.div`
 
   .toDelete {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    color: #9f9f9f;
+    font-size: 0.75rem;
 
     button {
       background-color: #313131;
       color: red;
-      font-size: 1rem;
+      font-size: 1.1rem;
       padding: 0.25rem;
       border: none;
       outline: none;
@@ -57,7 +60,7 @@ export const PostContent = styled.div`
       white-space: pre-line;
     }
 
-    .autor {
+    div {
       display: flex;
       flex-direction: column;
       font-size: 0.7rem;
@@ -69,3 +72,5 @@ export const PostContent = styled.div`
     }
   }
 `;
+
+export const DataPost = styled.div``;
