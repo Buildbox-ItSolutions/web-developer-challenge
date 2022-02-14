@@ -53,7 +53,7 @@ const Post: React.FC<Props> = ({
       </DeleteButtonContainer>
       <ContentContainer>
         <PhotoContainer>
-          <PhotoImg src={photoUrl || ''} alt={`foto do ${name}`} />
+          <PhotoImg src={photoUrl ?? ''} alt={`foto do ${name}`} />
         </PhotoContainer>
         <MessageContainer>
           <p>{message}</p>
