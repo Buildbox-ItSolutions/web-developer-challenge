@@ -4,71 +4,17 @@ import {
   renderWithProviders,
   screen,
   waitFor,
+  setupForm,
 } from '@/__tests__/utils';
 
 const handleAddPost = jest.fn();
 
-function setup(
-  userEventOptions?: Parameters<typeof userEvent.setup>[0],
-) {
-  const utils = renderWithProviders(
-    <PostForm handleAddPost={handleAddPost} />,
-  );
-
-  const user = userEvent.setup(userEventOptions);
-
-  const file = new File(['🍺'], 'test.png', {
-    type: 'image/png',
-  });
-
-  const [
-    nameField,
-    messageField,
-    avatarField,
-    buttonSubmit,
-    buttonDiscard,
-  ]: [
-    HTMLInputElement,
-    HTMLInputElement,
-    HTMLInputElement,
-    HTMLButtonElement,
-    HTMLButtonElement,
-  ] = [
-    screen.getByRole('textbox', { name: /name/i }),
-    screen.getByRole('textbox', { name: /message/i }),
-    screen.getByLabelText(/Upload Avatar/),
-    screen.getByRole('button', { name: /Publicar/i }),
-    screen.getByRole('button', { name: /Descartar/ }),
-  ];
-
-  return {
-    user,
-    file,
-    nameField,
-    messageField,
-    avatarField,
-    changeName: (name: string) => user.type(nameField, name),
-    changeMessage: (message: string) =>
-      user.type(messageField, message),
-    clickButtonUpload: () =>
-      user.click(
-        screen.getByRole('button', {
-          name: /^Upload Image$/,
-        }),
-      ),
-    removeAvatar: () =>
-      user.click(
-        screen.getByRole('button', { name: /Remove Avatar Image/ }),
-      ),
-    uploadFile: (newFile = file) => user.upload(avatarField, newFile),
-    discardForm: () => user.click(buttonDiscard),
-    submitForm: () => user.click(buttonSubmit),
-    ...utils,
-  };
-}
+beforeEach(() => {
+  renderWithProviders(<PostForm handleAddPost={handleAddPost} />);
+});
 
 test('should display a error when value is invalid', async () => {
-  const { submitForm } = setup();
+  const { submitForm } = setupForm();
 
   await submitForm();
 
@@ -78,7 +24,7 @@ test('should display a error when value is invalid', async () => {
 });
 
 test('should display a error when name is not filled', async () => {
-  const { changeMessage, submitForm } = setup();
+  const { changeMessage, submitForm } = setupForm();
 
   await changeMessage('Hello world!');
 
@@ -89,7 +35,7 @@ test('should display a error when name is not filled', async () => {
 });
 
 test('should display a error when message is not filled', async () => {
-  const { changeName, submitForm } = setup();
+  const { changeName, submitForm } = setupForm();
 
   await changeName('Hello World!');
 
@@ -106,7 +52,7 @@ test('should display a error when upload file with invalid type', async () => {
     changeMessage,
     changeName,
     uploadFile,
-  } = setup({ applyAccept: false });
+  } = setupForm({ applyAccept: false });
 
   const file = new File(['Hello World!'], 'test.txt', {
     type: 'text/plain',
@@ -128,7 +74,7 @@ test('should display a error when upload file with invalid type', async () => {
 
 test('should upload avatar', async () => {
   const { file, uploadFile, clickButtonUpload, avatarField } =
-    setup();
+    setupForm();
 
   await clickButtonUpload();
   await uploadFile();
@@ -142,7 +88,7 @@ test('should upload avatar', async () => {
 });
 
 test('should remove avatar', async () => {
-  const { file, avatarField, uploadFile, removeAvatar } = setup();
+  const { file, avatarField, uploadFile, removeAvatar } = setupForm();
 
   await uploadFile();
 
@@ -169,7 +115,7 @@ test('should clear all fields when press discard', async () => {
     uploadFile,
     discardForm,
     file,
-  } = setup();
+  } = setupForm();
 
   const user = 'Igor';
   const message = 'Hello world!';
@@ -197,7 +143,6 @@ test('should clear all fields when press discard', async () => {
   expect(avatarField.files).toHaveLength(0);
   expect(avatarField.files?.[0]).toBeUndefined();
   expect(avatarField.files?.item(0)).toBeNull();
-  expect(avatarField).toBeInTheDocument();
 });
 
 test('should clear all fields when submit', async () => {
@@ -210,7 +155,7 @@ test('should clear all fields when submit', async () => {
     uploadFile,
     submitForm,
     file,
-  } = setup();
+  } = setupForm();
   const user = 'Igor';
   const message = 'Brew is soo good!';
 
@@ -231,6 +176,4 @@ test('should clear all fields when submit', async () => {
   expect(messageField).toHaveValue('');
   expect(avatarField.files).toHaveLength(0);
   expect(avatarField.files?.item(0)).toBeNull();
-
-  expect(handleAddPost).toBeCalled();
 });

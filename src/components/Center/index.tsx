@@ -9,9 +9,8 @@ type Props = {
 
 export default styled.div<Props>`
   display: flex;
-  flex-direction: ${({ direction }) => direction ?? 'unset'};
-  margin: ${({ marginX, marginY }) =>
-    `${marginY ?? 0} ${marginX ?? 0}`};
+  flex-direction: column;
+  margin: 0 16px;
   align-items: center;
   justify-content: center;
 `;

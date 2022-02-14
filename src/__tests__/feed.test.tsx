@@ -1,5 +1,4 @@
 import {
-  act,
   renderWithProviders,
   screen,
   waitForElementToBeRemoved,
@@ -13,7 +12,7 @@ const withPosts: Post[] = [
   {
     id: 'uuid_1',
     name: 'Igor',
-    message: 'Beer is so good!',
+    message: 'Beer is soo good!',
     avatar: {
       0: new File(['🍺'], 'brew.png', { type: 'image/png' }),
       length: 1,
@@ -43,13 +42,26 @@ test('should render a empty feed', async () => {
   expect(postsElements).toHaveLength(0);
 });
 
-test('should render a feed with posts', async () => {
+test("should render a feed with posts (one post have avatar, second don't have", async () => {
   renderWithProviders(
     <Feed posts={withPosts} handleRemovePost={handleRemovePost} />,
   );
 
   await waitForElementToBeRemoved(() =>
     screen.getByLabelText(/Igor/i),
+  );
+
+  expect(screen.getByText(/Igor/)).toHaveTextContent(
+    withPosts[0].name,
+  );
+
+  expect(screen.getByText(/Beer is soo good/)).toHaveTextContent(
+    withPosts[0].message,
+  );
+
+  expect(screen.getByRole('img')).toHaveAttribute(
+    'src',
+    expect.stringMatching(/data:image\/(jpg|jpeg|png);base64/i),
   );
 
   expect(screen.queryAllByRole('article')).toHaveLength(2);

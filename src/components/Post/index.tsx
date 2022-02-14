@@ -31,6 +31,8 @@ export default function Post({ post, handleRemovePost }: Props) {
     <Container>
       <Header>
         <Button
+          type="button"
+          aria-label="Excluir"
           onClick={() => handleRemovePost(post.id)}
           variant="icon"
         >

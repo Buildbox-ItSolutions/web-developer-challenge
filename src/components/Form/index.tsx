@@ -59,7 +59,7 @@ export default function Form({ handleAddPost }: Props) {
   const handleResetForm = () => reset();
 
   return (
-    <StyledForm onSubmit={onSubmit}>
+    <StyledForm name="post" onSubmit={onSubmit}>
       <FileUploader
         errors={errors}
         control={control}

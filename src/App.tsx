@@ -20,7 +20,7 @@ function App() {
   return (
     <Container>
       <Header />
-      <Center as="main" marginX="16px" direction="column">
+      <Center as="main">
         <Form handleAddPost={addPost} />
         <Feed posts={posts} handleRemovePost={removePost} />
       </Center>
