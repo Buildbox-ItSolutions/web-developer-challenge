@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   #root {
-    font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
+    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
     min-height: 100vh;
   }

@@ -6,7 +6,7 @@ import CreatePost from '../CreatePost';
 
 import Post from '../Post';
 
-import { Container } from './styles';
+import { Container, FeedContainer, FeedSpan, PostsContainer } from './styles';
 
 const Feed: React.FC = () => {
   const [feed, setFeed] = useState<FeedType[]>([]);
@@ -20,9 +20,14 @@ const Feed: React.FC = () => {
   return (
     <Container>
       <CreatePost onSuccessSubmit={setFeed} />
-      {feed.map((item) => (
-        <Post {...item} key={item.id} afterClickDelete={setFeed} />
-      ))}
+      <FeedContainer>
+        <FeedSpan>Feed</FeedSpan>
+        <PostsContainer>
+          {feed.map((item) => (
+            <Post {...item} key={item.id} afterClickDelete={setFeed} />
+          ))}
+        </PostsContainer>
+      </FeedContainer>
     </Container>
   );
 };

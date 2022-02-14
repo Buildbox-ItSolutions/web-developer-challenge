@@ -4,6 +4,7 @@ export const colors = {
   text: '#9f9f9f',
   text2: '#5f5f5f',
   text3: '#7a7a7a',
+
   headerBg: '#2b2b2b',
   inputsBg: '#494949',
   border: '#3b3b3b',
