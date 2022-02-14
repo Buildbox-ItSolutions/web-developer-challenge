@@ -1,3 +1,15 @@
+# Notas do autor da solução
+
+Grato pela oportunidade e decidido a ganhar a vaga, aceitei o desafio de fazer não só com Typescript, Styled Components e responsividade, mas decidi aproveitar a oportunidade para testar um método de upload de imagens simplificado que conta com o auxílio do MongoDB remoto, e implementei um backend acoplado ao repositório do desafio e totalmente opcional, rodando na porta 4000, executável em ambiente desenvolvimento.
+
+Basta navegar para o diretório `back-end` e executar o comando `yarn dev`, e ele será capaz de salvar localmente, em sua subpasta `/uploads`, para com o auxílio do meu cluster aberto na núvem, recuperar o conteúdo.
+
+Não implementei nenhum endpoint de deleção para não impactar demais seu funcionamento "offline", deixei apenas um get para listar e um post para criar o conteúdo.
+
+Espero que se divirtam testando tanto quanto me diverti fazendo :)
+
+\- Leandro Koller
+
 # web-developer-challenge
 
 Olá!

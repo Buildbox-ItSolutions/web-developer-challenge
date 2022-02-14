@@ -5,10 +5,7 @@ import ImageCollected from "../ImageDisplay";
 import imageIcon from "../../assets/icons/image.svg";
 import { CraftContext } from "../../contexts/CraftContext";
 import trashIcon from "../../assets/icons/trash.svg";
-
-interface ImageWrapperProps {
-  onSelectImage: (file: File) => void
-}
+import { ImageWrapperProps } from "../../utils/interfaces";
 
 function ImageWrapper(props: ImageWrapperProps) {
   const inputFileRef = useRef<any>();

@@ -23,4 +23,20 @@ interface ContentDataSource {
   imageName: string;
 }
 
-export type { EventTarget, ContentCardProps, ImageDisplayProps, ContentDataSource };
+interface ImageWrapperProps {
+  onSelectImage: (file: File) => void;
+}
+
+interface OptionsWrapperProps {
+  imageData: File;
+  handleClearImageData: () => void;
+}
+
+export type {
+  EventTarget,
+  ContentCardProps,
+  ImageDisplayProps,
+  ContentDataSource,
+  ImageWrapperProps,
+  OptionsWrapperProps,
+};

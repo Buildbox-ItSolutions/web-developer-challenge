@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { CraftContext } from "../../contexts/CraftContext";
 import { FeedContext } from "../../contexts/FeedContext";
+import { OptionsWrapperProps } from "../../utils/interfaces";
 import {
   Container,
   DiscardButton,
@@ -10,11 +11,6 @@ import {
   PublishButton,
   PublishLabel,
 } from "./styles";
-
-interface OptionsWrapperProps {
-  imageData: File;
-  handleClearImageData: () => void;
-}
 
 function OptionsWrapper(props: OptionsWrapperProps) {
   const { author, message, image, setAuthor, setMessage, setImage } =
@@ -33,7 +29,7 @@ function OptionsWrapper(props: OptionsWrapperProps) {
 
     setFeed([
       {
-        _id: (feed[feed.length - 1]._id + 1).toString(),
+        _id: (Math.random() * 1000).toString(),
         image,
         author,
         message,
