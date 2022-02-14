@@ -4,10 +4,14 @@ const { pathsToModuleNameMapper } = require('ts-jest');
 /** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
   preset: 'ts-jest',
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/src/__tests__/setup/afterEnv.ts',
+  ],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: [
     '/node_modules/',
+    '<rootDir>/src/__tests__/setup',
     '<rootDir>/src/__tests__/utils',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
