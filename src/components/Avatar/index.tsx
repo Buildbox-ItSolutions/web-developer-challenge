@@ -1,4 +1,4 @@
-import React, { ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 type Props = {
@@ -32,8 +32,12 @@ export default function Avatar({
   ...props
 }: ImgHTMLAttributes<HTMLImageElement> & Props) {
   if (!src) {
-    return <AvatarPlaceholder>{name?.charAt(0)}</AvatarPlaceholder>;
+    return (
+      <AvatarPlaceholder aria-label={name}>
+        {name?.charAt(0)}
+      </AvatarPlaceholder>
+    );
   }
 
-  return <AvatarStyled src={src} {...props} />;
+  return <AvatarStyled src={src} alt={name} {...props} />;
 }
