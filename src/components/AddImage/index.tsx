@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Container, DeleteButton, LabelContainer } from './styles';
 import notUploadImage from '../../images/image.svg';
@@ -29,12 +29,14 @@ const AddImage: React.FC<Props> = ({
 
     if (isFileImage(file)) {
       convertFileToBlob(file).then((value) => {
-        const photoUrl = value ? URL.createObjectURL(value) : notUploadImage;
-        onChange({
-          photo: file,
-          photoUrl,
-        });
-        setImageToShow(photoUrl);
+        if (value) {
+          onChange({
+            photo: file,
+            photoUrl: URL.createObjectURL(value),
+          });
+        } else {
+          deleteImage();
+        }
       });
     } else {
       deleteImage();
@@ -42,7 +44,7 @@ const AddImage: React.FC<Props> = ({
   };
 
   const deleteImage = useCallback(() => {
-    onChange();
+    onChange(undefined);
     setImageToShow(notUploadImage);
   }, [onChange]);
 
