@@ -8,7 +8,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{tsx}',
+    'src/**/*.{tsx}',
     '!src/**/*.spec.{tsx}',
     '!**/node_modules/**',
     '!src/**/_aop.{tsx}',
