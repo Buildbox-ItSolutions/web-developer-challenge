@@ -17,6 +17,9 @@ describe('Feed component', () => {
     arrayBuffer: () => Promise.resolve(new ArrayBuffer(10)),
   };
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it('Should start with two posts', async () => {
     const Component = () => <Feed />;
 
@@ -63,5 +66,28 @@ describe('Feed component', () => {
 
     const posts = screen.getAllByTestId('post');
     expect(posts.length).toBe(3);
+  });
+
+  it('After creating post should show new post', async () => {
+    const Component = () => <Feed />;
+
+    const { rerender } = render(<Component />);
+
+    await act(async () => {
+      rerender(<Component />);
+    });
+
+    const deleteButtons = screen.getAllByTestId('delete-button');
+
+    await act(async () => {
+      fireEvent.click(deleteButtons[0]);
+    });
+
+    await act(async () => {
+      rerender(<Component />);
+    });
+
+    const posts = screen.getAllByTestId('post');
+    expect(posts.length).toBe(1);
   });
 });
