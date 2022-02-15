@@ -7,12 +7,12 @@ global.URL.createObjectURL = jest.fn(() => 'localhost');
 
 import Header from '.';
 
-describe('Feed component', () => {
+describe('Header component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('Should start with two posts', async () => {
+  it('Should have logo', async () => {
     const Component = () => <Header />;
 
     await act(async () => {

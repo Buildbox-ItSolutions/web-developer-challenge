@@ -3,13 +3,11 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { fireEvent } from '@testing-library/dom';
-
 global.URL.createObjectURL = jest.fn(() => 'localhost');
 
 import CreatePost from '.';
 
-describe('Feed component', () => {
+describe('Create post component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
