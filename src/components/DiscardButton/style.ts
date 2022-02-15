@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.button`
+interface ThemeProps {
+  theme: {
+    gray: string
+  }
+}
+
+export const Wrapper = styled.button<ThemeProps>`
   width: 60px;
   padding: 16px;
 
