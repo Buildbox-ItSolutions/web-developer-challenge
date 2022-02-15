@@ -1,5 +1,7 @@
-import Post from '@/components/Post';
 import type { Post as PostType } from '@/types';
+import { TransitionGroup } from 'react-transition-group';
+import Post from '@/components/Post';
+import Fade from '@/components/Fade';
 import { FeedContainer, FeedText } from './styled';
 
 type Props = {
@@ -13,13 +15,13 @@ export default function Feed({ posts, handleRemovePost }: Props) {
       <FeedText as="h1" fontWeight="500">
         Feed
       </FeedText>
-      {posts.map((post) => (
-        <Post
-          post={post}
-          handleRemovePost={handleRemovePost}
-          key={post.id}
-        />
-      ))}
+      <TransitionGroup component={null}>
+        {posts.map((post) => (
+          <Fade key={post.id}>
+            <Post post={post} handleRemovePost={handleRemovePost} />
+          </Fade>
+        ))}
+      </TransitionGroup>
     </FeedContainer>
   );
 }
