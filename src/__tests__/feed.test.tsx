@@ -37,9 +37,9 @@ test('should render a empty feed', async () => {
     <Feed posts={posts} handleRemovePost={handleRemovePost} />,
   );
 
-  const postsElements = screen.queryAllByRole('article');
+  const postsElements = screen.queryByRole('article');
 
-  expect(postsElements).toHaveLength(0);
+  expect(postsElements).not.toBeInTheDocument();
 });
 
 test("should render a feed with posts (one post have avatar, second don't have", async () => {
@@ -48,7 +48,7 @@ test("should render a feed with posts (one post have avatar, second don't have",
   );
 
   await waitForElementToBeRemoved(() =>
-    screen.getByLabelText(/Igor/i),
+    screen.queryByLabelText(/Igor/i),
   );
 
   expect(screen.getByText(/Igor/)).toHaveTextContent(

@@ -2,7 +2,6 @@ import {
   renderWithProviders,
   setupForm,
   screen,
-  waitFor,
 } from '@/__tests__/utils';
 
 import App from '@/App';
@@ -61,7 +60,7 @@ test('should add new post with avatar', async () => {
   await changeMessage(message);
   await uploadFile();
 
-  await waitFor(() => screen.getByLabelText(/Remove Avatar Image/));
+  await screen.findByLabelText(/Remove Avatar Image/);
 
   expect(avatarField.files).toHaveLength(1);
   expect(avatarField.files?.item(0)).toStrictEqual(file);
@@ -72,7 +71,7 @@ test('should add new post with avatar', async () => {
 
   await submitForm();
 
-  await waitFor(() => screen.getByRole('article'));
+  const post = await screen.findByRole('article');
 
-  expect(screen.getByRole('article')).toBeInTheDocument();
+  expect(post).toBeInTheDocument();
 });

@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import PostForm from '@/components/Form';
 import {
   renderWithProviders,
@@ -9,12 +8,17 @@ import {
 
 const handleAddPost = jest.fn();
 
-beforeEach(() => {
+function setup(setupOptions?: Parameters<typeof setupForm>[0]) {
   renderWithProviders(<PostForm handleAddPost={handleAddPost} />);
-});
+  const form = setupForm(setupOptions);
+
+  return {
+    ...form,
+  };
+}
 
 test('should display a error when value is invalid', async () => {
-  const { submitForm } = setupForm();
+  const { submitForm } = setup();
 
   await submitForm();
 
@@ -24,24 +28,23 @@ test('should display a error when value is invalid', async () => {
 });
 
 test('should display a error when name is not filled', async () => {
-  const { changeMessage, submitForm } = setupForm();
+  const { changeMessage, submitForm } = setup();
 
   await changeMessage('Hello world!');
 
   await submitForm();
 
-  expect(await screen.findAllByRole('alert')).toHaveLength(1);
+  expect(await screen.findByRole('alert')).toBeInTheDocument();
   expect(handleAddPost).not.toBeCalled();
 });
 
 test('should display a error when message is not filled', async () => {
-  const { changeName, submitForm } = setupForm();
-
+  const { changeName, submitForm } = setup();
   await changeName('Hello World!');
 
   await submitForm();
 
-  expect(await screen.findAllByRole('alert')).toHaveLength(1);
+  expect(await screen.findByRole('alert')).toBeInTheDocument();
   expect(handleAddPost).not.toBeCalled();
 });
 
@@ -52,7 +55,7 @@ test('should display a error when upload file with invalid type', async () => {
     changeMessage,
     changeName,
     uploadFile,
-  } = setupForm({ applyAccept: false });
+  } = setup({ applyAccept: false });
 
   const file = new File(['Hello World!'], 'test.txt', {
     type: 'text/plain',
@@ -67,20 +70,20 @@ test('should display a error when upload file with invalid type', async () => {
   expect(avatarField.files).toHaveLength(1);
   expect(avatarField.files?.item(0)).toStrictEqual(file);
 
-  expect(await screen.findAllByRole('alert')).toHaveLength(1);
+  expect(await screen.findByRole('alert')).toBeInTheDocument();
 
   expect(handleAddPost).not.toBeCalled();
 });
 
 test('should upload avatar', async () => {
   const { file, uploadFile, clickButtonUpload, avatarField } =
-    setupForm();
+    setup();
 
   await clickButtonUpload();
   await uploadFile();
 
   await waitFor(() =>
-    screen.getByRole('button', { name: /Remove Avatar Image/ }),
+    screen.findByRole('button', { name: /Remove Avatar Image/ }),
   );
 
   expect(avatarField.files).toHaveLength(1);
@@ -88,12 +91,12 @@ test('should upload avatar', async () => {
 });
 
 test('should remove avatar', async () => {
-  const { file, avatarField, uploadFile, removeAvatar } = setupForm();
+  const { file, avatarField, uploadFile, removeAvatar } = setup();
 
   await uploadFile();
 
   await waitFor(() =>
-    screen.getByRole('button', { name: /Remove Avatar Image/ }),
+    screen.findByRole('button', { name: /Remove Avatar Image/ }),
   );
 
   expect(avatarField.files).toHaveLength(1);
@@ -115,7 +118,7 @@ test('should clear all fields when press discard', async () => {
     uploadFile,
     discardForm,
     file,
-  } = setupForm();
+  } = setup();
 
   const user = 'Igor';
   const message = 'Hello world!';
@@ -155,7 +158,7 @@ test('should clear all fields when submit', async () => {
     uploadFile,
     submitForm,
     file,
-  } = setupForm();
+  } = setup();
   const user = 'Igor';
   const message = 'Brew is soo good!';
 
