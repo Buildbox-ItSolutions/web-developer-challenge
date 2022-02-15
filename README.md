@@ -1,5 +1,5 @@
 # Iniciar projeto
-```yarn start``
+```yarn start```
 ##
 # Testar projeto
 ```yarn test```
