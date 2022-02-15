@@ -1,0 +1,27 @@
+
+#input-name{
+  width:100%;
+  max-width: 468px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #494949;
+  margin:16px 0 8px 0 ;
+  padding:  0 20px;
+  color: #9f9f9f;
+  transition: transform 2ms ease-in-out;
+  outline: none;
+}
+
+#input-name:focus{
+  transform: scale(1.05);
+}
+
+@media screen and (max-width:281px){
+  #input-name{
+    width:100%;
+    height: 30px;
+    padding:  0 15px;
+    font-size: 12px;
+  }
+}
