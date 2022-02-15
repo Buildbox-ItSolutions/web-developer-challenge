@@ -13,7 +13,7 @@ export default createGlobalStyle`
     --webkit-font-smoothing: antialiased;
   }
 
-  body, input, button {
+  body, input, button, textarea {
     font: 16px Roboto, sans-serif;
   }
 
