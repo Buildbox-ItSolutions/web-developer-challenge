@@ -9,9 +9,9 @@
     "test:watch": "yarn test --watch",
     "preview": "vite preview",
     "lint": "eslint src",
-    "lint:fix": "yarn lint -- --fix",
+    "lint:fix": "yarn lint --fix",
     "prettier": "prettier src --check",
-    "prettier:fix": "yarn prettier -- --write"
+    "prettier:fix": "yarn prettier --write"
   },
   "dependencies": {
     "@hookform/resolvers": "2.8.8",
@@ -35,13 +35,11 @@
     "@typescript-eslint/eslint-plugin": "5.11.0",
     "@typescript-eslint/parser": "5.11.0",
     "@vitejs/plugin-react": "^1.0.7",
+    "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "2.0.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
-    "eslint-config-react-app": "6.0.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-config-standard-jsx": "10.0.0",
-    "eslint-config-standard-react": "11.0.1",
+    "eslint-config-react-app": "7.0.0",
     "eslint-plugin-flowtype": "6.1.0",
     "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jest": "25.2.2",
