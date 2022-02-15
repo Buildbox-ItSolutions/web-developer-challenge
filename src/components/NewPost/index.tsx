@@ -3,10 +3,9 @@ import { v4 } from "uuid";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as S from "./styles";
 import noImg from "../../assets/images/image.svg";
-import trash from '../../assets/images/trash.svg'
+import trash from "../../assets/images/trash.svg";
 import { usePosts } from "../../hooks/usePosts";
 import { fileToBase64 } from "../../utils/convertFile";
-
 
 export function NewPost() {
   const [image, setImage] = useState<any>();
@@ -55,16 +54,16 @@ export function NewPost() {
         <S.UploadPhoto>
           {!image ? (
             <img className="noImg" src={noImg} alt="No picture icon" />
-            ) : (
-              <img src={image} className="authorImg" alt='preview picture'/>
-              )}
+          ) : (
+            <img src={image} className="authorImg" alt="preview picture" />
+          )}
         </S.UploadPhoto>
       </label>
       {image && (
-        <button className='removeImage' onClick={removeSelectedImage}>
-            <img src={trash} alt='Remove image preview' />
-          </button>
-        )}
+        <button className="removeImage" onClick={removeSelectedImage}>
+          <img src={trash} alt="Remove image preview" />
+        </button>
+      )}
       <S.EnterName
         type="text"
         placeholder="Digite seu nome"
