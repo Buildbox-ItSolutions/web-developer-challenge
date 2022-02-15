@@ -12,7 +12,7 @@ describe('Create post component', () => {
     jest.clearAllMocks();
   });
 
-  it('Should start with two posts', async () => {
+  it('Should have clear button', async () => {
     const onSucessSubmit = jest.fn();
     const Component = () => <CreatePost onSuccessSubmit={onSucessSubmit} />;
 
