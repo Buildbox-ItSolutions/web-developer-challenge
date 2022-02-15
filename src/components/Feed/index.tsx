@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { usePosts } from "../../hooks/useFeed";
+import React from "react";
+import { usePosts } from "../../hooks/usePosts";
 import FeedPost from "../FeedPost";
 import * as S from './styles'
 

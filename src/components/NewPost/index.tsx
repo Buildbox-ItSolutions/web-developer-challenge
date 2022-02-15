@@ -4,14 +4,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import * as S from "./styles";
 import noImg from "../../assets/images/image.svg";
 import trash from '../../assets/images/trash.svg'
-import { usePosts } from "../../hooks/useFeed";
+import { usePosts } from "../../hooks/usePosts";
 import { fileToBase64 } from "../../utils/convertFile";
 
 
 export function NewPost() {
   const [image, setImage] = useState<any>();
-  const { posts, setPosts } = usePosts();
-  const { register, handleSubmit, reset, watch } = useForm<InputsType>();
+  const { setPosts } = usePosts();
+  const { register, handleSubmit, reset } = useForm<InputsType>();
   const id = v4();
 
   type InputsType = {
@@ -54,9 +54,9 @@ export function NewPost() {
       <label htmlFor="image">
         <S.UploadPhoto>
           {!image ? (
-            <img className="noImg" src={noImg} alt="No Image" />
+            <img className="noImg" src={noImg} alt="No picture icon" />
             ) : (
-              <img src={image} className="authorImg" alt="Author image" />
+              <img src={image} className="authorImg" alt='preview picture'/>
               )}
         </S.UploadPhoto>
       </label>

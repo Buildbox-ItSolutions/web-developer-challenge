@@ -30,6 +30,10 @@ export const ContentWrapper = styled.div`
         top: 12px;
         right: 12px;
         position: relative;
+        transition: transform 0.2s ease-in;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 `;
 
