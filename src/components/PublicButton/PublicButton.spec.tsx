@@ -4,6 +4,6 @@ import PublicButton from '.'
 
 describe('<PublicButton />', () => {
   it('dummy test', () => {
-    render(<PublicButton />)
+    render(<PublicButton type="submit" />)
   })
 })
