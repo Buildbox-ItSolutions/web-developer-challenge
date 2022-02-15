@@ -6,7 +6,6 @@ import * as S from './styles'
 export function Feed(){
     
     const { posts } = usePosts();
-    console.log(posts)
 
     return(
         <S.Wrapper>

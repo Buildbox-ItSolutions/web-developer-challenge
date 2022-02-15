@@ -84,9 +84,10 @@ export const EnterMessage = styled.textarea`
     border-radius: 8px;
     background-color: ${Colors.bgInput};
     color: ${Colors.inputText};
-    overflow-y: hidden;
     resize: none;
-
+    ::-webkit-scrollbar {
+        width: 0px;
+        }
     ::placeholder{
             color:${Colors.placeholderColor}
     }

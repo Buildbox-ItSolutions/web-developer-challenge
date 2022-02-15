@@ -40,8 +40,11 @@ export const ContentWrapper = styled.div`
 export const InfoWrapper = styled.div`
     margin: 32px 24px 0px 24px;
     display: flex;
-
+    
     .post-content{
+        overflow: hidden;
+        max-width: 448px;
+        margin-right: 24px;
         
         p{
             font-size: 16px;
