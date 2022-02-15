@@ -61,8 +61,9 @@ describe('Feed component', () => {
     await act(async () => {
       fireEvent.click(submitButton);
     });
-
-    rerender(<Component />);
+    await act(async () => {
+      rerender(<Component />);
+    });
 
     const posts = screen.getAllByTestId('post');
     expect(posts.length).toBe(3);

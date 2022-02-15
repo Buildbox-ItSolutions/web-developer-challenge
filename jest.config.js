@@ -6,4 +6,13 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
   testEnviroment: 'jsdom',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{tsx}',
+    '!src/**/*.spec.{tsx}',
+    '!**/node_modules/**',
+    '!src/**/_aop.{tsx}',
+    '!src/**/_document.{tsx}',
+  ],
+  coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
 };
