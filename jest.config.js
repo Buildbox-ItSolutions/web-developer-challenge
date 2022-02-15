@@ -5,14 +5,14 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
-  testEnviroment: 'jsdom',
+  testEnvironment: 'jsdom',
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/**/*.{tsx}',
+    '**/*.{tsx}',
     '!src/**/*.spec.{tsx}',
     '!**/node_modules/**',
     '!src/**/_aop.{tsx}',
     '!src/**/_document.{tsx}',
   ],
-  coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
+  coverageReporters: ['clover', 'json', 'lcov'],
 };

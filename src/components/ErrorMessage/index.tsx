@@ -11,7 +11,9 @@ type Props = {
 };
 
 const ErrorMessage: React.FC<Props> = ({ errors, name }) => {
-  return <Container>{errors[name]?.message}</Container>;
+  return (
+    <Container data-testid={`error-${name}`}>{errors[name]?.message}</Container>
+  );
 };
 
 export default ErrorMessage;
