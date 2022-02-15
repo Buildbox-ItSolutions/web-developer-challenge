@@ -43,7 +43,7 @@ const Post: React.FC<Props> = ({
   };
 
   return (
-    <Container>
+    <Container data-testid="post">
       <DeleteButtonContainer>
         {isDeleting ? (
           <ClipLoader color={colors.text} />

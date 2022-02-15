@@ -31,8 +31,6 @@ const createFeedServer = () => {
       this.post('/feed', async (_, request) => {
         const attrs = JSON.parse(request.requestBody);
 
-        console.log(attrs);
-
         feed.push({ ...attrs, id: ++newId });
 
         return feed;

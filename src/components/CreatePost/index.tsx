@@ -82,6 +82,7 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
               value: true,
             },
           })}
+          data-testid="name-input"
         />
         <ErrorMessage errors={errors} name="name" />
       </AddNameContainer>
@@ -98,13 +99,16 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
               value: true,
             },
           })}
+          data-testid="message-input"
         />
         <ErrorMessage errors={errors} name="message" />
       </AddMessageContainer>
       <BottomButtonsContainer>
         <ButtonsContainer>
-          <ClearButton onClick={onClear}>Descartar</ClearButton>
-          <SubmitButton>Publicar</SubmitButton>
+          <ClearButton onClick={onClear} data-testid="clear-button">
+            Descartar
+          </ClearButton>
+          <SubmitButton data-testid="submit-button">Publicar</SubmitButton>
         </ButtonsContainer>
       </BottomButtonsContainer>
     </Container>

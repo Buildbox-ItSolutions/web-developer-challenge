@@ -11,7 +11,11 @@ type Props = {
 const DeleteButton: React.FC<Props> = ({ onClick }) => {
   return (
     <Container onClick={onClick}>
-      <img src={trashImage} alt="excluir mensagem" />
+      <img
+        src={trashImage}
+        alt="excluir mensagem"
+        data-testid="delete-button"
+      />
     </Container>
   );
 };

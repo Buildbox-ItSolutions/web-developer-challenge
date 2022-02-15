@@ -65,6 +65,7 @@ const AddImage: React.FC<Props> = ({
           name={name}
           accept="image/*"
           onChange={afterChange}
+          data-testid="image-upload"
         />
         <LabelContainer htmlFor={name}>
           <img
