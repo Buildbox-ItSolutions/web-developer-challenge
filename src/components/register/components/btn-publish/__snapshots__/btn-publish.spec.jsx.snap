@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BtnPublish/> should match snapshot 1`] = `
+<div>
+  <button
+    class="btn-publish"
+    disabled=""
+  >
+    Publicar
+  </button>
+</div>
+`;

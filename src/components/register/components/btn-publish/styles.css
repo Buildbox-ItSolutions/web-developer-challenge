@@ -1,0 +1,36 @@
+.btn-publish{
+  width: 98px;
+  height: 41px;
+  margin-left: 17px;
+  border-radius: 8px;
+  border: none;
+  background-color: #5f5f5f;
+  color: #313131;
+  cursor: pointer;
+  transition: border 2ms ease-in-out;
+}
+
+.btn-publish:disabled{
+  cursor: not-allowed;
+}
+
+.btn-publish:enabled{
+  background-color: #71bb00;
+  color: #fff;
+}
+
+.btn-publish:hover{
+  border: 2px solid #716f6f ;
+}
+
+.btn-active:hover{
+  border:2px solid #fff;
+}
+
+@media screen and (max-width:281px){
+  .btn-publish{
+    width: 85px;
+    height: 35px;
+    margin-left: 15px;
+  }
+}

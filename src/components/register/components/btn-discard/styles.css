@@ -1,0 +1,16 @@
+
+.btn-discard{
+  width: 98px;
+  height: 41px;
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  color: #5f5f5f;
+  cursor: pointer;
+  transition: border 2ms ease-in-out;
+}
+
+.btn-discard:hover{
+  border-radius: 8px;
+  border: solid 2px #3b3b3b;
+}
