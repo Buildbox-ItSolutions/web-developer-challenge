@@ -12,6 +12,11 @@ export const Container = styled('div')<{ src: string, size: string }>`
     flex-direction: column;
     align-items: center;
 
+    @media(max-width: 767px) {
+        width: 90%;
+        min-width: 320px;
+    }
+
     label {
         width: 88px;
         height: 88px;
@@ -64,12 +69,24 @@ export const Buttons = styled.div`
     align-self: flex-end;
     margin-top: 24px;
 
+    @media(max-width: 767px) {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
     span {
         font-size: 14px;
         text-decoration: underline;
         color: #5f5f5f;
         margin-right: 24px;
         cursor: pointer;
+
+        @media(max-width: 767px) {
+            font-size: 16px;
+        }
 
         &:hover {
             color: #7f7f7f;;
@@ -83,6 +100,11 @@ export const Buttons = styled.div`
         border-radius: 8px;
         border: solid 1px #3b3b3b;
         cursor: pointer;
+
+        @media(max-width: 767px) {
+            font-size: 16px;
+            padding: 12px 30px;
+        }
 
         &:hover {
             background-color: #7f7f7f;

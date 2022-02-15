@@ -8,6 +8,11 @@ export const Container = styled.div`
     margin-top: 56px;
     margin-bottom: 56px;
 
+    @media(max-width: 767px) {
+        width: 90%;
+        min-width: 320px;
+    }
+
     span {
         align-self: flex-start;
         font-size: 14px;

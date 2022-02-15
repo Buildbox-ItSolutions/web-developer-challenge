@@ -8,7 +8,7 @@ export default createGlobalStyle`
         padding: 0;
     }
     
-    body, input, textarea{
+    html, body, input, textarea{
         font-family: 'Roboto', sans-serif;
         color: #9f9f9f;
         background-color: #343434;

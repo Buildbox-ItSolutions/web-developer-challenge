@@ -1,4 +1,4 @@
-import { Container, Image, Text, Span1, Span2, Icon } from './styles'
+import { Container, Icon, Image, Text, Span1, Span2 } from './styles'
 import { SyntheticEvent, useContext } from 'react'
 
 import { PostsContext } from '../../contexts/PostsContext'
@@ -18,15 +18,13 @@ export const Post = (props: { postID: number, src?: string, message: string, nam
 
     return (
         <Container>
+            <Icon title={props.postID.toString()} onClick={deletePost} src='./delete.png' />
             <Image size={size}>
                 <img src={src} alt='user' />
             </Image>
-            <Text>
-                <p>{props.message}</p>
-                <Span1>Enviado por</Span1>
-                <Span2>{props.name}</Span2>
-            </Text>
-            <Icon title={props.postID.toString()} onClick={deletePost} src='./delete.png' />
+            <Text>{props.message}</Text>
+            <Span1>Enviado por</Span1>
+            <Span2>{props.name}</Span2>
         </Container>
     )
 }
