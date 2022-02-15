@@ -41,6 +41,7 @@ export function NewPost() {
   return (
     <S.FormWrapper onSubmit={handleSubmit(handleNewPost)}>
       <input
+        data-cy='fileInput'
         accept="image/*"
         type="file"
         id="image"
@@ -51,20 +52,21 @@ export function NewPost() {
         onChange={imageChange}
       />
       <label htmlFor="image">
-        <S.UploadPhoto>
+        <S.UploadPhoto data-cy='postImgPreview'>
           {!image ? (
-            <img className="noImg" src={noImg} alt="No picture icon" />
+            <img className="noImg" src={noImg} alt="No picture icon"/>
           ) : (
             <img src={image} className="authorImg" alt="preview picture" />
           )}
         </S.UploadPhoto>
       </label>
       {image && (
-        <button className="removeImage" onClick={removeSelectedImage}>
+        <button data-cy='removePicturePreview' className="removeImage" onClick={removeSelectedImage}>
           <img src={trash} alt="Remove image preview" />
         </button>
       )}
       <S.EnterName
+        data-cy='postInputAuthor'
         type="text"
         placeholder="Digite seu nome"
         {...register("author", {
@@ -73,6 +75,7 @@ export function NewPost() {
         required
       />
       <S.EnterMessage
+        data-cy='postInputMsg'
         placeholder="Mensagem"
         {...register("msg", {
           required: true,
@@ -80,10 +83,10 @@ export function NewPost() {
         required
       />
       <S.ButtonsWrapper>
-        <S.DiscartButton onClick={removeSelectedImage} type="reset">
+        <S.DiscartButton onClick={removeSelectedImage} type="reset" data-cy='discartButton' >
           Descartar
         </S.DiscartButton>
-        <S.PublishButton type="submit">Publicar</S.PublishButton>
+        <S.PublishButton type="submit" data-cy='publishButton' >Publicar</S.PublishButton>
       </S.ButtonsWrapper>
     </S.FormWrapper>
   );

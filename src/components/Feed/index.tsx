@@ -16,7 +16,7 @@ export function Feed(){
                     ))}
                 </S.WrapperList></>
             :
-            <div className='noPosts'>Tente adicionar um post primeiro....</div>
+            <div data-cy='emptyFeed' className='noPosts'>Tente adicionar um post primeiro....</div>
             
         }
         </S.Wrapper>

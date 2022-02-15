@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,6 +48,8 @@
     "@types/styled-components": "^5.1.22",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/parser": "^5.11.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-movie": "^3.0.20",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
     "file-loader": "^6.2.0"

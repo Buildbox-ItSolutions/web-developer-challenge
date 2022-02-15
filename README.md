@@ -1,3 +1,11 @@
+# Iniciar projeto
+````yarn start```
+##
+# Testar projeto
+```yarn test```
+
+##
+<img src="./src/assets/images/gif-test.gif" width="640" />
 # web-developer-challenge
 
 Olá!

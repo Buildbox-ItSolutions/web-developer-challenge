@@ -8,18 +8,18 @@ export function FeedPost(post: Post) {
 
   return (
     <S.Feed>
-      <S.Container>
+      <S.Container data-cy='newPost'>
         <S.ContentWrapper>
-          <button className="button-remove" onClick={() => removePost(post)}>
+          <button data-cy='removePostButton' className="button-remove" onClick={() => removePost(post)}>
             <img src={deletePost} alt='Button for remove post'/>
           </button>
           <S.InfoWrapper>
-            <img className="post-photo" src={post.image} alt={`Image of ${post.author}`}/>
+            <img data-cy='postPicture' className="post-photo" src={post.image} alt={`Image of ${post.author}`}/>
             <div className="post-content">
-              <p>{post.msg}</p>
+              <p data-cy='postMsg' >{post.msg}</p>
               <div className="author-wrapper">
                 <span>Enviado por</span>
-                <p>{post.author}</p>
+                <p data-cy='postAuthor' >{post.author}</p>
               </div>
             </div>
           </S.InfoWrapper>
