@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.button`
+interface ThemeProps {
+  theme: {
+    white: string
+    bgButton: string
+  }
+}
+
+export const Wrapper = styled.button<ThemeProps>`
   width: 98px;
   height: 41px;
   border-radius: 8px;

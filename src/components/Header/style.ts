@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.header`
+interface ThemeProps {
+  theme: {
+    blackDark: string
+  }
+}
+
+export const Wrapper = styled.header<ThemeProps>`
   width: 100%;
   padding: 24px 0;
 

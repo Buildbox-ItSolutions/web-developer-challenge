@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+interface ThemeProps {
+  theme: {
+    black: string
+    gray: string
+    grayLight: string
+    grayDark2: string
+    borderColor: string
+  }
+}
+
+export const Wrapper = styled.div<ThemeProps>`
   width: 100%;
   height: 185px;
   max-width: 516px;
@@ -48,13 +58,13 @@ export const ContentWrapper = styled.div`
   display: flex;
 `
 
-export const Description = styled.p`
+export const Description = styled.p<ThemeProps>`
   font-size: 16px;
 
   color: ${({ theme }) => theme.colors.grayLight};
 `
 
-export const InfoAuthor = styled.div`
+export const InfoAuthor = styled.div<ThemeProps>`
   margin-bottom: 32px;
 
   > span {

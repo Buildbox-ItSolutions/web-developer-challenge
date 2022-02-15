@@ -1,4 +1,5 @@
 import React from 'react'
+import defaultTheme from '../../theme/defaultTheme'
 import * as S from './style'
 
 interface PhotoPostProps {
@@ -8,7 +9,7 @@ interface PhotoPostProps {
 
 const PhotoPost: React.FC<PhotoPostProps> = ({ photo, alt }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper theme={defaultTheme}>
       <img src={photo} alt={alt} />
     </S.Wrapper>
   )

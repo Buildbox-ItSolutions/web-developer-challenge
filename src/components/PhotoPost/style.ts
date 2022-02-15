@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+interface ThemeProps {
+  theme: {
+    gray: string
+  }
+}
+
+export const Wrapper = styled.div<ThemeProps>`
   width: 88px;
   height: 88px;
 
