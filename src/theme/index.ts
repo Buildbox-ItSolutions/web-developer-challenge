@@ -15,6 +15,9 @@ export const theme = {
     md: '8px',
     lg: '36px',
   },
+  breakpoints: {
+    sm: '576px',
+  },
   error: 'rgb(214, 89, 35)',
   text: {
     primary: '#9f9f9f',

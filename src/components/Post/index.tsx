@@ -30,32 +30,17 @@ export default function Post({ post, handleRemovePost }: Props) {
   return (
     <Container>
       <Header>
-        <Button
-          type="button"
-          aria-label="Excluir"
-          onClick={() => handleRemovePost(post.id)}
-          variant="icon"
-        >
+        <Button type="button" aria-label="Excluir" onClick={() => handleRemovePost(post.id)} variant="icon">
           <DeleteIcon />
         </Button>
       </Header>
       <Body>
-        <Avatar src={img} name={post.name} />
+        <Avatar includeMediaQuery src={img} name={post.name} />
         <Content>
-          <PostText
-            fontSize="16px"
-            lineHeight="20px"
-            color={theme.text.primary}
-          >
+          <PostText fontSize="16px" lineHeight="20px" color={theme.text.primary}>
             {post.message}
           </PostText>
-          <Text
-            fontSize="12px"
-            fontWeight="500"
-            lineHeight="16px"
-            letterSpacing="0.29px"
-            color={theme.black[100]}
-          >
+          <Text fontSize="12px" fontWeight="500" lineHeight="16px" letterSpacing="0.29px" color={theme.black[100]}>
             Enviado por
           </Text>
           <Text fontSize="14px" lineHeight="18px">
