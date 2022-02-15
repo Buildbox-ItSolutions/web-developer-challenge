@@ -25,8 +25,20 @@ export const Body = styled.div`
   gap: 32px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  position: relative;
+`;
 
-export const PostText = styled(Text)`
+type PostTextProps = {
+  readMore?: boolean;
+};
+
+export const PostText = styled(Text)<PostTextProps>`
   margin-bottom: 24px;
+`;
+
+export const PostShowMoreText = styled(Text)`
+  font-weight: 500;
+  cursor: pointer;
+  color: ${({ theme }) => theme.primary};
 `;

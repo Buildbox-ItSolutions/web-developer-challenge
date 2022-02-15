@@ -9,19 +9,23 @@ type AvatarImgProps = {
   includeMediaQuery?: boolean;
 };
 
-const AvatarStyled = styled.img<AvatarImgProps>`
-  width: 88px;
-  height: 88px;
+const AvatarStyled = styled.div<AvatarImgProps>`
+  width: 100%;
+  max-width: 88px;
+  max-height: 88px;
   object-fit: cover;
   object-position: center;
   border-radius: ${({ theme }) => theme.radius.lg};
 
   ${({ theme, includeMediaQuery }) =>
     includeMediaQuery &&
-    `@media screen and (max-width: ${theme.breakpoints.sm}) {
-  width: 44px;
-  height: 44px;
-}`};
+    `
+    @media screen and (max-width: ${theme.breakpoints.sm}) {
+      min-width: 44px;
+      width: 44px;
+      height: 44px;
+  }
+`};
 `;
 
 export const AvatarPlaceholder = styled(AvatarStyled)`
@@ -37,11 +41,11 @@ export const AvatarPlaceholder = styled(AvatarStyled)`
 export default function Avatar({ src, name, ...props }: ImgHTMLAttributes<HTMLImageElement> & Props & AvatarImgProps) {
   if (!src) {
     return (
-      <AvatarPlaceholder as="div" aria-label={name} includeMediaQuery={props.includeMediaQuery}>
+      <AvatarPlaceholder aria-label={name} includeMediaQuery={props.includeMediaQuery}>
         {name?.charAt(0)}
       </AvatarPlaceholder>
     );
   }
 
-  return <AvatarStyled src={src} alt={name} {...props} />;
+  return <AvatarStyled as="img" src={src} alt={name} {...props} />;
 }
