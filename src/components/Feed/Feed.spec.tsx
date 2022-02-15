@@ -1,12 +1,10 @@
 import React from 'react';
 
-import axios from 'axios';
-
 import Feed from '.';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { waitFor, fireEvent } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
 
 global.URL.createObjectURL = jest.fn(() => 'localhost');
 
