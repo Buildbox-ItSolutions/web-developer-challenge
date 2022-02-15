@@ -13,7 +13,7 @@ const AvatarStyled = styled.img`
   border-radius: ${({ theme }) => theme.radius.lg};
 `;
 
-const AvatarPlaceholder = styled.div`
+export const AvatarPlaceholder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

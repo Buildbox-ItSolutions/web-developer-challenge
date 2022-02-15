@@ -2,12 +2,7 @@ import styled from 'styled-components';
 
 import type { Error } from '@/types';
 import Button from '@/components/Button';
-import { ReactComponent as FileUpload } from '@/assets/file-upload-icon.svg';
-
-export const FileUploadIcon = styled(FileUpload)<Error>`
-  ${({ error, theme }) =>
-    error && `& [data-name="image"] path { fill: ${theme.error} }`}
-`;
+import { AvatarPlaceholder } from '@/components/Avatar';
 
 export const ImageContainer = styled.div`
   display: flex;
@@ -21,17 +16,15 @@ export const TrashButton = styled(Button)`
   right: -36px;
 `;
 
-export const FileUploadContainer = styled.div<Error>`
-  width: 88px;
-  height: 88px;
-  display: flex;
-  justify-content: center;
+export const FileUploadContainer = styled(AvatarPlaceholder)<Error>`
   margin-bottom: 16px;
   border-radius: ${({ theme }) => theme.radius.lg};
   border: 1px solid ${({ theme }) => theme.black['200']};
   transition: border-color 200ms ease-out;
 
-  ${({ error, theme }) => error && `border-color: ${theme.error}`};
+  ${({ error, theme }) =>
+    error &&
+    `border-color: ${theme.error}; & [data-name="image"] path { fill: ${theme.error} }`};
 
   &:hover {
     border-color: ${({ theme }) => theme.primary};

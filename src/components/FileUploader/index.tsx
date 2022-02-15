@@ -9,7 +9,6 @@ import {
 
 import {
   FileUploadContainer,
-  FileUploadIcon,
   ImageContainer,
   ImageButton,
   TrashButton,
@@ -23,6 +22,8 @@ import {
 } from '@/utils/validators';
 
 import { ReactComponent as TrashIcon } from '@/assets/trash.svg';
+import { ReactComponent as FileUploadIcon } from '@/assets/file-upload-icon.svg';
+
 import Error from '@/components/Error';
 import Avatar from '@/components/Avatar';
 
@@ -99,7 +100,7 @@ export default function FileUploader({
               onClick={handleClickFileInput}
               type="button"
             >
-              <FileUploadIcon error={!!errors.avatar} />
+              <FileUploadIcon />
             </ImageButton>
           </FileUploadContainer>
           {errors.avatar && (
