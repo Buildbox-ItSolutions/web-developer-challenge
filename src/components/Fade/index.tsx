@@ -13,7 +13,7 @@ type FadeProps = {
 
 const Animation = styled.div<AnimationProps>`
   transition: 100ms;
-  transform: translateY(-50px);
+  transform: translateY(-20px);
   opacity: 0;
 
   ${({ state }) =>
