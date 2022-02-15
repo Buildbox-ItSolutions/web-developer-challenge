@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: Roboto, sans-serif;
         font-size: 14px;
+        ::-webkit-scrollbar {
+        width: 0px;
+        }
     }
 
     body {
@@ -27,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     #root {
         width: 100%;
+        height: 100vh;
     }
     
 

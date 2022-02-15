@@ -1,0 +1,32 @@
+import * as S from "./styles";
+import deletePost from "../../assets/images/delete.svg";
+import { usePosts } from "../../hooks/useFeed";
+import Post from "../../types/Post";
+
+export function FeedPost(post: Post) {
+  const { posts, setPosts, removePost } = usePosts();
+
+  return (
+    <S.Feed>
+      <S.Container>
+        <S.ContentWrapper>
+          <button className="button-remove" onClick={() => removePost(post)}>
+            <img src={deletePost} />
+          </button>
+          <S.InfoWrapper>
+            <img className="post-photo" src={post.image} />
+            <div className="post-content">
+              <p>{post.msg}</p>
+              <div className="author-wrapper">
+                <span>Enviado por</span>
+                <p>{post.author}</p>
+              </div>
+            </div>
+          </S.InfoWrapper>
+        </S.ContentWrapper>
+      </S.Container>
+    </S.Feed>
+  );
+}
+
+export default FeedPost;

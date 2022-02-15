@@ -1,8 +1,8 @@
 type Post = {
-    id: number;
-    img?: File;
-    content: string;
+    id: string;
+    image: string;
     author: string;
+    msg: string
 };
 
 export default Post;
