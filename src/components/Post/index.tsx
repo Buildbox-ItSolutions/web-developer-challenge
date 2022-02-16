@@ -8,26 +8,27 @@ import Avatar from '@/components/Avatar';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
 
-import type { Post as PostType } from '@/types';
+import { Post as PostType, removePost } from '@/reducers/posts';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 type Props = {
   post: PostType;
-  handleRemovePost: (id: string) => void;
 };
 
-export default function Post({ post, handleRemovePost }: Props) {
+export default function Post({ post }: Props) {
   const needToShowReadMore = post.message.length >= 215;
+  const dispatch = useAppDispatch();
   const [isReadMore, setisReadMore] = React.useState(needToShowReadMore);
   const theme = useTheme();
 
-  const onRemovePost = () => handleRemovePost(post.id);
+  const handleRemovePost = () => dispatch(removePost(post.id));
 
   const handleShowReadMore = () => setisReadMore(!isReadMore);
 
   return (
     <Container>
       <Header>
-        <Button type="button" aria-label="Excluir" onClick={onRemovePost} variant="icon">
+        <Button type="button" aria-label="Excluir" onClick={handleRemovePost} variant="icon">
           <DeleteIcon />
         </Button>
       </Header>

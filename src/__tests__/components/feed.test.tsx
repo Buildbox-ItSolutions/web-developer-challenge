@@ -1,9 +1,8 @@
+import * as redux from 'react-redux';
 import userEvent from '@testing-library/user-event';
-import { renderWithProviders, screen } from '@/__tests__/utils';
+import { renderWithStore, screen } from '@/__tests__/utils';
+import type { Post } from '@/reducers/posts';
 import Feed from '@/components/Feed';
-import type { Post } from '@/types';
-
-const posts: Post[] = [];
 
 const withPosts: Post[] = [
   {
@@ -27,10 +26,8 @@ const withPosts: Post[] = [
   },
 ];
 
-const handleRemovePost = jest.fn();
-
 test('should render a empty feed', async () => {
-  renderWithProviders(<Feed posts={posts} handleRemovePost={handleRemovePost} />);
+  renderWithStore(<Feed />);
 
   const postsElements = screen.queryByRole('article');
 
@@ -38,7 +35,7 @@ test('should render a empty feed', async () => {
 });
 
 test('should render a feed with posts', async () => {
-  renderWithProviders(<Feed posts={withPosts} handleRemovePost={handleRemovePost} />);
+  renderWithStore(<Feed />, { preloadedState: { posts: withPosts } });
 
   expect(screen.getByRole('img')).toHaveAttribute('src', expect.stringMatching(/data:image\/(jpg|jpeg|png);base64/i));
   expect(screen.getByRole('button', { name: /...ler mais/i })).toBeInTheDocument();
@@ -47,7 +44,7 @@ test('should render a feed with posts', async () => {
 });
 
 test('should expand/collapse a post with show more link', async () => {
-  renderWithProviders(<Feed posts={withPosts} handleRemovePost={handleRemovePost} />);
+  renderWithStore(<Feed />, { preloadedState: { posts: withPosts } });
 
   const user = userEvent.setup();
 

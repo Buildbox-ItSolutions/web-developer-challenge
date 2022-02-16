@@ -1,15 +1,15 @@
-import { renderWithProviders, setupForm, screen, waitForElementToBeRemoved } from '@/__tests__/utils';
+import { setupForm, screen, waitForElementToBeRemoved, renderWithStore } from '@/__tests__/utils';
 
 import App from '@/App';
 
 test('should render app', () => {
-  const { container } = renderWithProviders(<App />);
+  const { container } = renderWithStore(<App />);
 
   expect(container).not.toBeNull();
 });
 
 test('should add/remove post', async () => {
-  renderWithProviders(<App />);
+  renderWithStore(<App />);
 
   const { changeName, changeMessage, submitForm, user } = setupForm();
 
@@ -38,7 +38,7 @@ test('should add/remove post', async () => {
 });
 
 test('should add new post with avatar', async () => {
-  renderWithProviders(<App />);
+  renderWithStore(<App />);
 
   const { changeName, changeMessage, uploadFile, submitForm, file, avatarField } = setupForm();
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import App from './App';
 
 import reset from 'styled-reset';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from '@/theme';
+import store from '@/store';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -43,8 +45,10 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
+      <Provider store={store}>
+        <GlobalStyle />
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),

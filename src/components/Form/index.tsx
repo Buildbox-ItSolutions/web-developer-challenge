@@ -4,7 +4,8 @@ import { useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import type { Post, PostForm } from '@/types';
+import { addPost, Post } from '@/reducers/posts';
+
 import {
   ButtonGroup,
   FileUploadContainer,
@@ -22,12 +23,11 @@ import Avatar from '@/components/Avatar';
 import { ReactComponent as TrashIcon } from '@/assets/trash.svg';
 import { ReactComponent as FileUploadIcon } from '@/assets/file-upload-icon.svg';
 
-import { useDisplayImage } from '@/hooks';
+import { useDisplayImage } from '@/hooks/useDisplayImage';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { SUPPORTED_IMG_TYPES, validateIMGSupportedTypes } from '@/utils/validators';
 
-type Props = {
-  handleAddPost: (post: Post) => void;
-};
+type PostForm = Omit<Post, 'id' | 'avatar'> & { avatar: FileList };
 
 const schema = yup
   .object({
@@ -43,7 +43,7 @@ const schema = yup
   })
   .required();
 
-export default function Form({ handleAddPost }: Props) {
+export default function Form() {
   const {
     register,
     handleSubmit,
@@ -55,6 +55,8 @@ export default function Form({ handleAddPost }: Props) {
     resolver: yupResolver(schema),
   });
 
+  const dispatch = useAppDispatch();
+
   const [avatar, name] = useWatch({
     control,
     name: ['avatar', 'name'],
@@ -65,8 +67,9 @@ export default function Form({ handleAddPost }: Props) {
   const [avatarImg, uploader, setAvatarImg] = useDisplayImage();
 
   const onSubmit = handleSubmit(({ name, message }) => {
+    const newPost: Post = { id: uuid(), name, message, avatar: avatarImg };
     handleResetForm();
-    handleAddPost({ id: uuid(), name, message, avatar: avatarImg });
+    dispatch(addPost(newPost));
   });
 
   const { ref: avatarReactHookFormRef, onChange, ...avatarFieldProps } = register('avatar');

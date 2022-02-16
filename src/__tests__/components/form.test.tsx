@@ -1,15 +1,10 @@
 import PostForm from '@/components/Form';
-import {
-  renderWithProviders,
-  screen,
-  waitFor,
-  setupForm,
-} from '@/__tests__/utils';
+import { screen, waitFor, setupForm, renderWithStore } from '@/__tests__/utils';
 
 const handleAddPost = jest.fn();
 
 function setup(setupOptions?: Parameters<typeof setupForm>[0]) {
-  renderWithProviders(<PostForm handleAddPost={handleAddPost} />);
+  renderWithStore(<PostForm />);
   const form = setupForm(setupOptions);
 
   return {
@@ -49,13 +44,7 @@ test('should display a error when message is not filled', async () => {
 });
 
 test('should display a error when upload file with invalid type', async () => {
-  const {
-    avatarField,
-    submitForm,
-    changeMessage,
-    changeName,
-    uploadFile,
-  } = setup({ applyAccept: false });
+  const { avatarField, submitForm, changeMessage, changeName, uploadFile } = setup({ applyAccept: false });
 
   const file = new File(['Hello World!'], 'test.txt', {
     type: 'text/plain',
@@ -76,15 +65,12 @@ test('should display a error when upload file with invalid type', async () => {
 });
 
 test('should upload avatar', async () => {
-  const { file, uploadFile, clickButtonUpload, avatarField } =
-    setup();
+  const { file, uploadFile, clickButtonUpload, avatarField } = setup();
 
   await clickButtonUpload();
   await uploadFile();
 
-  await waitFor(() =>
-    screen.findByRole('button', { name: /Remove Avatar Image/ }),
-  );
+  await waitFor(() => screen.findByRole('button', { name: /Remove Avatar Image/ }));
 
   expect(avatarField.files).toHaveLength(1);
   expect(avatarField.files?.item(0)).toStrictEqual(file);
@@ -95,9 +81,7 @@ test('should remove avatar', async () => {
 
   await uploadFile();
 
-  await waitFor(() =>
-    screen.findByRole('button', { name: /Remove Avatar Image/ }),
-  );
+  await waitFor(() => screen.findByRole('button', { name: /Remove Avatar Image/ }));
 
   expect(avatarField.files).toHaveLength(1);
   expect(avatarField.files?.item(0)).toStrictEqual(file);
@@ -109,16 +93,7 @@ test('should remove avatar', async () => {
 });
 
 test('should clear all fields when press discard', async () => {
-  let {
-    nameField,
-    avatarField,
-    messageField,
-    changeName,
-    changeMessage,
-    uploadFile,
-    discardForm,
-    file,
-  } = setup();
+  let { nameField, avatarField, messageField, changeName, changeMessage, uploadFile, discardForm, file } = setup();
 
   const user = 'Igor';
   const message = 'Hello world!';
@@ -138,8 +113,7 @@ test('should clear all fields when press discard', async () => {
 
   await discardForm();
 
-  avatarField =
-    screen.getByLabelText<HTMLInputElement>(/Upload Avatar/);
+  avatarField = screen.getByLabelText<HTMLInputElement>(/Upload Avatar/);
 
   expect(nameField).toHaveValue('');
   expect(messageField).toHaveValue('');
@@ -149,16 +123,7 @@ test('should clear all fields when press discard', async () => {
 });
 
 test('should clear all fields when submit', async () => {
-  let {
-    nameField,
-    messageField,
-    avatarField,
-    changeName,
-    changeMessage,
-    uploadFile,
-    submitForm,
-    file,
-  } = setup();
+  let { nameField, messageField, avatarField, changeName, changeMessage, uploadFile, submitForm, file } = setup();
   const user = 'Igor';
   const message = 'Brew is soo good!';
 
