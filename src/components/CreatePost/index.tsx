@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+import { useFeedService } from '../../hooks/useFeedService';
 
-import { postFeed } from '../../services/feedServices';
 import {
   ClearButton,
   Input,
@@ -35,6 +35,8 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
     formState: { errors },
   } = useForm();
 
+  const { postFeed } = useFeedService();
+
   const onClear = () => {
     reset({ name: '', message: '', image: undefined });
   };
@@ -49,7 +51,7 @@ const CreatePost: React.FC<Props> = ({ onSuccessSubmit }) => {
         onClear();
       });
     },
-    [onSuccessSubmit, onClear],
+    [onSuccessSubmit, onClear, postFeed],
   );
 
   return (

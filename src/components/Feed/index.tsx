@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useFeedService } from '../../hooks/useFeedService';
 
-import { getFeed } from '../../services/feedServices';
 import { Feed as FeedType } from '../../types/feed';
 import CreatePost from '../CreatePost';
 
@@ -11,11 +11,13 @@ import { Container, FeedContainer, FeedSpan, PostsContainer } from './styles';
 const Feed: React.FC = () => {
   const [feed, setFeed] = useState<FeedType[]>([]);
 
+  const { getFeed } = useFeedService();
+
   useEffect(() => {
     getFeed().then(({ feed: data }) => {
       setFeed(data);
     });
-  }, []);
+  }, [getFeed]);
 
   return (
     <Container>
