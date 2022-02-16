@@ -21,8 +21,23 @@ export const Wrapper = styled.button<ThemeProps>`
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.bgButton};
 
+  &:disabled {
+    cursor: no-drop;
+    color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.grayDark2};
+  }
+
+  &:disabled&:hover {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   &:hover {
     opacity: 0.9;
     transform: scale(1.05);
+  }
+
+  @media only screen and (max-width: 420px) {
+    width: 100%;
   }
 `

@@ -4,11 +4,12 @@ import * as S from './style'
 
 interface PublicButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined
+  disabled?: boolean
 }
 
-const PublicButton: React.FC<PublicButtonProps> = ({ type }) => {
+const PublicButton: React.FC<PublicButtonProps> = ({ type, disabled }) => {
   return (
-    <S.Wrapper theme={defaultTheme} type={type}>
+    <S.Wrapper disabled={disabled} theme={defaultTheme} type={type}>
       Publicar
     </S.Wrapper>
   )
