@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from '../Container'
 import Feed from '../Feed'
 import Form from '../Form'
 import Header from '../Header'
@@ -8,8 +9,10 @@ const Main: React.FC = () => {
   return (
     <S.Wrapper>
       <Header />
-      <Form />
-      <Feed />
+      <Container>
+        <Form />
+        <Feed />
+      </Container>
     </S.Wrapper>
   )
 }
