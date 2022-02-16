@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ClipLoader } from 'react-spinners';
-import { deleteFeed } from '../../services/feedServices';
+import { useFeedService } from '../../hooks/useFeedService';
+
 import { colors } from '../../themes/colors';
 import { Feed } from '../../types/feed';
 import DeleteButton from '../DeleteButton';
@@ -31,6 +32,8 @@ const Post: React.FC<Props> = ({
   afterClickDelete,
 }) => {
   const [isDeleting, setIsDeleting] = useState(false);
+  const { deleteFeed } = useFeedService();
+
   const onClick = () => {
     setIsDeleting(true);
     deleteFeed(id)
