@@ -51,12 +51,6 @@ export const setupForm = (userEventOptions?: Parameters<typeof userEvent.setup>[
   };
 };
 
-export const renderWithProviders = (ui: React.ReactElement, options?: Parameters<typeof render>[1]) =>
-  render(ui, {
-    wrapper: StyledProvider,
-    ...options,
-  });
-
 type RenderWithStoreOptions = {
   preloadedState?: RootState;
   store?: ReturnType<typeof configureStore>;
