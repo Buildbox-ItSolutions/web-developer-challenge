@@ -25,7 +25,6 @@ export const postsSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     insertPost: (state, action: PayloadAction<PostState>) => {
-        debugger
         state.push(action.payload);
     },
     removePost: (state, action: PayloadAction<number>) => {

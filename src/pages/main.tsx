@@ -1,7 +1,7 @@
 import React, { TextareaHTMLAttributes, useRef, useState ,useEffect} from "react";
 import Logo from "../assets/logo.png";
 import './styles.css';
-
+import ImagePost from "../components/imagePost/ImgPost";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import {
   insertPost,
@@ -17,6 +17,7 @@ export default function Main(): JSX.Element {
   const hashtagEdit = true;
   const posts = useAppSelector(selectPost);
   const dispatch = useAppDispatch();
+
   return (
     <div className="App">
       <header>
@@ -31,7 +32,7 @@ export default function Main(): JSX.Element {
               e.preventDefault();
             }}
           > 
-            <img src="img/photo-base.png" className="photo-base" />
+            <ImagePost />
             <div>
               <div className="flex flex-col">
                 <input ref={nome} type="text" className="name" name="nome"/>
