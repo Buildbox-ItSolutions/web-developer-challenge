@@ -1,5 +1,6 @@
 import React, { TextareaHTMLAttributes, useRef, useState ,useEffect} from "react";
 import Logo from "../assets/logo.png";
+import close from "../assets/close.png";
 import './styles.css';
 import ImagePost from "../components/imagePost/ImgPost";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
@@ -18,6 +19,20 @@ export default function Main(): JSX.Element {
   const posts = useAppSelector(selectPost);
   const dispatch = useAppDispatch();
 
+const [previewComponent, updatePreviewComponent] = useState(() => {
+  return {
+    states: {
+      imgSrc: '',
+    },
+    dimensions: {
+      width: 100,
+      height: 100,
+    },
+    calls: 0,
+  };
+});
+
+
   return (
     <div className="App">
       <header>
@@ -32,7 +47,7 @@ export default function Main(): JSX.Element {
               e.preventDefault();
             }}
           > 
-            <ImagePost />
+            <ImagePost previewComponent={previewComponent} updatePreviewComponent={updatePreviewComponent}/>
             <div>
               <div className="flex flex-col">
                 <input ref={nome} type="text" className="name" name="nome"/>
@@ -58,8 +73,11 @@ export default function Main(): JSX.Element {
         </span>
         {posts.map((post,i) => (
           <div key={i} className="grid Retngulo-3">
-            <img src="/" className="photo-base" />
-            <span className="Lorem">
+            <div className="flex">
+              <img src={post.photo} className="photo-base" />
+              <img className="icon" src={close} alt="Close" onClick={(e)=>dispatch(removePost(i))}></img>
+            </div>
+           <span className="Lorem">
               {post.comment}
             </span>
             <span className="Enviado-por">
@@ -79,7 +97,7 @@ export default function Main(): JSX.Element {
     const hashtagValue = hashtag.current!.innerText;
     const post: PostState = {
       comment: (elements.namedItem("comentario") as HTMLTextAreaElement).value,
-      photo: "img/photo-base.png",
+      photo: previewComponent.states.imgSrc,
       name: (elements.namedItem("nome") as HTMLInputElement).value,
       tags: [hashtagValue],
       time: new Date(),

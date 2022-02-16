@@ -134,3 +134,8 @@ textarea.comment {
   text-align: left;
   color: #7a7a7a;
 }
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
