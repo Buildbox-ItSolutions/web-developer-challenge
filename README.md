@@ -1,4 +1,4 @@
-<!-- # web-developer-challenge
+# web-developer-challenge
 
 Olá!
 
@@ -27,4 +27,4 @@ E-mail - buildbox.guest@gmail.com
 
 Senha - JhZ5dAPG
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png) -->
+![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
