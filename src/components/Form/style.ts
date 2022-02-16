@@ -1,10 +1,21 @@
 import styled from 'styled-components'
+import { animationElementEntry } from '../../utils/animations'
 
-export const Wrapper = styled.form`
+interface ThemeProps {
+  theme: {
+    white: string
+    black: string
+    borderColor: string
+    grayDark1: string
+  }
+  photo?: string
+}
+
+export const Wrapper = styled.form<ThemeProps>`
   width: 100%;
   max-width: 516px;
 
-  margin: 24px auto;
+  margin: 32px auto;
 
   display: flex;
   align-items: center;
@@ -17,17 +28,50 @@ export const Wrapper = styled.form`
   border: solid 1px ${({ theme }) => theme.colors.borderColor};
 
   background-color: ${({ theme }) => theme.colors.black};
+
+  @media only screen and (max-width: 420px) {
+    width: 90%;
+  }
 `
 
-export const PhotoWrapper = styled.div`
+export const FieldWrapper = styled.div`
   width: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  > span {
+    top: 0;
+    left: -155px;
+    position: relative;
+    display: inline-block;
+    animation: ${animationElementEntry} ease-in-out 0.3s;
+  }
+
+  @media only screen and (max-width: 420px) {
+    > span {
+      left: -80px;
+    }
+  }
 `
 
-export const InputPhotoElement = styled.label`
+export const PhotoWrapper = styled.div`
+  width: 100%;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: 420px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+`
+
+export const InputPhotoElement = styled.label<ThemeProps>`
   width: 88px;
   height: 88px;
 
@@ -38,7 +82,13 @@ export const InputPhotoElement = styled.label`
 
   cursor: pointer;
 
-  background-color: transparent;
+  ${({ photo }) =>
+    photo
+      ? `background-image: url(${photo});
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;`
+      : ''}
 
   border-radius: 30px;
   border: 1px solid ${({ theme }) => theme.colors.grayDark1};
@@ -50,7 +100,7 @@ export const InputPhotoElement = styled.label`
 
 export const ButtonDiscardPhoto = styled.button`
   width: 20px;
-  margin-left: 24px;
+  margin-left: 16px;
 
   border: none;
   background-color: transparent;
@@ -61,9 +111,20 @@ export const ButtonDiscardPhoto = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+
+  @media only screen and (max-width: 420px) {
+    width: 40px;
+    margin-left: 0;
+    margin-top: 16px;
+
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
 `
 
-export const InputElement = styled.input`
+export const InputElement = styled.input<ThemeProps>`
   width: 100%;
   height: 40px;
   max-width: 468px;
@@ -79,7 +140,7 @@ export const InputElement = styled.input`
   background-color: ${({ theme }) => theme.colors.grayDark1};
 `
 
-export const TextAreaElement = styled.textarea`
+export const TextAreaElement = styled.textarea<ThemeProps>`
   width: 100%;
   height: 80px;
   max-width: 468px;
@@ -101,6 +162,7 @@ export const TextAreaElement = styled.textarea`
 
 export const ButtonsWrappers = styled.div`
   width: 100%;
+  margin-top: 16px;
 
   display: flex;
   align-items: center;
@@ -108,5 +170,11 @@ export const ButtonsWrappers = styled.div`
 
   > button:nth-child(1) {
     margin-right: 32px;
+  }
+
+  @media only screen and (max-width: 420px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
   }
 `
