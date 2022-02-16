@@ -3,9 +3,7 @@ import { useTheme } from 'styled-components';
 
 import { ReactComponent as DeleteIcon } from '@/assets/delete.svg';
 
-import { useDisplayImage } from '@/hooks';
-
-import { Body, Container, Content, Header, PostText, PostShowMoreText } from './styled';
+import { Body, Container, Content, Header, PostText, PostShowMoreText, AvatarContainer } from './styled';
 import Avatar from '@/components/Avatar';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
@@ -21,13 +19,6 @@ export default function Post({ post, handleRemovePost }: Props) {
   const needToShowReadMore = post.message.length >= 215;
   const [isReadMore, setisReadMore] = React.useState(needToShowReadMore);
   const theme = useTheme();
-  const [img, uploader] = useDisplayImage();
-
-  React.useEffect(() => {
-    if (post.avatar && post.avatar.length !== 0) {
-      uploader(undefined, post.avatar);
-    }
-  }, [post.avatar, uploader]);
 
   const onRemovePost = () => handleRemovePost(post.id);
 
@@ -41,12 +32,14 @@ export default function Post({ post, handleRemovePost }: Props) {
         </Button>
       </Header>
       <Body>
-        <Avatar includeMediaQuery src={img} name={post.name} />
+        <AvatarContainer>
+          <Avatar includeMediaQuery src={post.avatar} name={post.name} />
+        </AvatarContainer>
         <Content>
           <PostText fontSize="16px" readMore={isReadMore} lineHeight="20px" color={theme.text.primary}>
             {isReadMore ? post.message.substring(0, 215) : post.message}
             {needToShowReadMore && (
-              <PostShowMoreText as="span" onClick={handleShowReadMore}>
+              <PostShowMoreText as="button" onClick={handleShowReadMore}>
                 {isReadMore ? '...ler mais' : ' mostrar menos'}
               </PostShowMoreText>
             )}

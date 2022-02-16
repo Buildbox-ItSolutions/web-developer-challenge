@@ -1,10 +1,10 @@
 export type Post = {
   id: string;
-  avatar: FileList;
+  avatar: string | undefined;
   name: string;
   message: string;
 };
-export type PostForm = Omit<Post, 'id'> & { avatar: FileList };
+export type PostForm = Omit<Post, 'id' | 'avatar'> & { avatar: FileList };
 
 export type Error = {
   error?: boolean;

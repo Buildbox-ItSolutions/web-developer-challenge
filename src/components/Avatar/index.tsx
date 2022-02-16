@@ -10,9 +10,8 @@ type AvatarImgProps = {
 };
 
 const AvatarStyled = styled.div<AvatarImgProps>`
-  width: 100%;
-  max-width: 88px;
-  max-height: 88px;
+  width: 88px;
+  height: 88px;
   object-fit: cover;
   object-position: center;
   border-radius: ${({ theme }) => theme.radius.lg};

@@ -1,17 +1,18 @@
 import * as React from 'react';
 
-type UploaderFunction = (
-  e: React.ChangeEvent<HTMLInputElement> | undefined,
-  image?: FileList,
-) => void;
+export type UploaderFunction = (e: React.ChangeEvent<HTMLInputElement>, image?: FileList) => void;
 
-type UseDisplayImage = () => [string | undefined, UploaderFunction];
+type UseDisplayImage = () => [
+  string | undefined,
+  UploaderFunction,
+  React.Dispatch<React.SetStateAction<string | undefined>>,
+];
 
 export const useDisplayImage: UseDisplayImage = () => {
   const [result, setResult] = React.useState<string>();
 
-  const uploader: UploaderFunction = React.useCallback((e, image) => {
-    const files = e ? e.target.files : image;
+  const uploader: UploaderFunction = React.useCallback((e) => {
+    const files = e.target.files;
     if (files) {
       const imageFile = files[0];
       const reader = new FileReader();
@@ -26,5 +27,5 @@ export const useDisplayImage: UseDisplayImage = () => {
     }
   }, []);
 
-  return [result, uploader];
+  return [result, uploader, setResult];
 };

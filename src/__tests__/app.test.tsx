@@ -1,8 +1,4 @@
-import {
-  renderWithProviders,
-  setupForm,
-  screen,
-} from '@/__tests__/utils';
+import { renderWithProviders, setupForm, screen, waitForElementToBeRemoved } from '@/__tests__/utils';
 
 import App from '@/App';
 
@@ -36,20 +32,15 @@ test('should add/remove post', async () => {
 
   await user.click(screen.getByRole('button', { name: /Excluir/i }));
 
+  await waitForElementToBeRemoved(() => screen.queryByRole('article'));
+
   expect(screen.queryByRole('article')).not.toBeInTheDocument();
 });
 
 test('should add new post with avatar', async () => {
   renderWithProviders(<App />);
 
-  const {
-    changeName,
-    changeMessage,
-    uploadFile,
-    submitForm,
-    file,
-    avatarField,
-  } = setupForm();
+  const { changeName, changeMessage, uploadFile, submitForm, file, avatarField } = setupForm();
 
   expect(screen.queryByRole('article')).not.toBeInTheDocument();
 
