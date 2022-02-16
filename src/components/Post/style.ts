@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { animationElementEntry } from '../../utils/animations/index'
 
 interface ThemeProps {
   theme: {
@@ -8,11 +9,11 @@ interface ThemeProps {
     grayDark2: string
     borderColor: string
   }
+  photo?: string
 }
 
 export const Wrapper = styled.div<ThemeProps>`
   width: 100%;
-  height: 185px;
   max-width: 516px;
 
   position: relative;
@@ -26,6 +27,8 @@ export const Wrapper = styled.div<ThemeProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  animation: ${animationElementEntry} ease-in-out 0.3s forwards;
 
   background-color: ${({ theme }) => theme.colors.black};
 `
@@ -82,4 +85,24 @@ export const InfoAuthor = styled.div<ThemeProps>`
 
     color: ${({ theme }) => theme.colors.grayDark2};
   }
+`
+
+export const PhotoPost = styled.div<ThemeProps>`
+  width: 88px;
+  height: 88px;
+
+  flex-shrink: 0;
+  margin-right: 32px;
+
+  border-radius: 36px;
+
+  background-color: ${({ theme }) => theme.colors.gray};
+
+  ${({ photo }) =>
+    photo
+      ? `background-image: url(${photo});
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;`
+      : ''}
 `
