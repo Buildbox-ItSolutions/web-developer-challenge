@@ -13,6 +13,7 @@ declare module 'styled-components' {
       gray: string
       grayLight: string
       bgButton: string
+      errorColor: string
     }
   }
 }

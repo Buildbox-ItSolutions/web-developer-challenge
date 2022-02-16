@@ -10,6 +10,6 @@ export default {
     gray: '#5f5f5f',
     grayLight: '#9f9f9f',
     bgButton: '#71bb00',
-    red: '#a62502'
+    errorColor: '#c74714'
   }
 }
