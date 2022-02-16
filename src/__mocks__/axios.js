@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-let feed = [
+const feed = [
   {
     id: 1,
     name: 'Everton',
@@ -21,17 +21,5 @@ let feed = [
 export default {
   create: jest.fn(() => ({
     get: () => Promise.resolve({ data: { feed } }),
-    post: (_, data) => {
-      feed.push();
-
-      return Promise.resolve({ data: [...feed, { ...data, id: 3 }] });
-    },
-    delete: (url = '') => {
-      const deletedId = url.split('/')[2];
-
-      return Promise.resolve({
-        data: feed.filter((item) => item.id != deletedId),
-      });
-    },
   })),
 };
