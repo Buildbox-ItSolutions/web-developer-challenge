@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-interface ImageProps {
-  imageSrc?: string
+interface FormProps {
+  hasData?: boolean
 }
 
 export const Container = styled.div`
@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin-top: 41px;
 `
 
-export const MessagePanel = styled.div`
+export const FormPanel = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +84,7 @@ export const Input = styled.input`
 `
 export const TextArea = styled.textarea`
   height: 80px;
-  margin: 8px 0 32px;
+  margin: 8px 0 15px;
   padding: 12px 16px;
   border: none;
   border-radius: 8px;
@@ -102,7 +102,7 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
 `;
 
-export const ButtonSubmit = styled.button`
+export const ButtonSubmit = styled.button<FormProps>`
   width: 98px;
   height: 41px;
   margin: 0 24px 0 0;
@@ -112,6 +112,8 @@ export const ButtonSubmit = styled.button`
   border: none;
   background-color: #5f5f5f;
   color: #313131;
+
+  ${(props) => props.hasData && css`background-color: greenyellow`}
 `
 export const ButtonCancel = styled.button`
   width: 98px;
@@ -122,4 +124,10 @@ export const ButtonCancel = styled.button`
   background: transparent;
   text-decoration: underline;
   color: #5f5f5f;
+`
+
+export const SpanError = styled.span`
+  font-size: 12px;
+  color: red;
+  font-weight: 700;
 `
