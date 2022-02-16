@@ -31,11 +31,16 @@ export const Wrapper = styled.div<ThemeProps>`
   animation: ${animationElementEntry} ease-in-out 0.3s forwards;
 
   background-color: ${({ theme }) => theme.colors.black};
+
+  @media only screen and (max-width: 420px) {
+    width: 90%;
+    padding: 24px;
+  }
 `
 
 export const ButtonDeletePost = styled.button`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 
   border: none;
   cursor: pointer;
@@ -50,21 +55,46 @@ export const ButtonDeletePost = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+
+  > svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media only screen and (max-width: 420px) {
+    width: 35px;
+    height: 35px;
+
+    > svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
 `
 
 export const ContentWrapper = styled.div`
   width: 100%;
-
   margin-top: 32px;
   margin-bottom: 16px;
 
   display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 420px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const Description = styled.p<ThemeProps>`
   font-size: 16px;
-
   color: ${({ theme }) => theme.colors.grayLight};
+
+  @media only screen and (max-width: 420px) {
+    text-align: center;
+  }
 `
 
 export const InfoAuthor = styled.div<ThemeProps>`
@@ -82,7 +112,6 @@ export const InfoAuthor = styled.div<ThemeProps>`
 
   > p {
     font-size: 14px;
-
     color: ${({ theme }) => theme.colors.grayDark2};
   }
 `
@@ -95,7 +124,6 @@ export const PhotoPost = styled.div<ThemeProps>`
   margin-right: 32px;
 
   border-radius: 36px;
-
   background-color: ${({ theme }) => theme.colors.gray};
 
   ${({ photo }) =>
@@ -105,4 +133,9 @@ export const PhotoPost = styled.div<ThemeProps>`
            background-position: center;
            background-repeat: no-repeat;`
       : ''}
+
+  @media only screen and (max-width: 420px) {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
 `
