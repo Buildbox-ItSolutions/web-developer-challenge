@@ -1,0 +1,8 @@
+{
+  "name": {
+    "required": "Nome é obrigatório."
+  },
+  "message": {
+    "required": "Mensagem é obrigatório."
+  }
+}
