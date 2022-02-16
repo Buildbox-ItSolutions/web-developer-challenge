@@ -41,13 +41,6 @@ test('should render a feed with posts', async () => {
   renderWithProviders(<Feed posts={withPosts} handleRemovePost={handleRemovePost} />);
 
   expect(screen.getByRole('img')).toHaveAttribute('src', expect.stringMatching(/data:image\/(jpg|jpeg|png);base64/i));
-
-  expect(screen.queryAllByRole('article')).toHaveLength(3);
-});
-
-test('should render a feed post with show more link in message', async () => {
-  renderWithProviders(<Feed posts={withPosts} handleRemovePost={handleRemovePost} />);
-
   expect(screen.getByRole('button', { name: /...ler mais/i })).toBeInTheDocument();
 
   expect(screen.queryAllByRole('article')).toHaveLength(3);
