@@ -1,0 +1,107 @@
+.card-post {
+  width: 516px;
+  height: 445px;
+  margin: 40px 425px 56px;
+  padding: 24px;
+  border-radius: 3px;
+  border: solid 1px #3b3b3b;
+  background-color: #313131;
+  margin-top: 2em;
+}
+input[type='file']{
+display: none
+}
+label {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 50px;
+    background-color: #4a4a4a;
+    border: #5f5f5f;
+    border-radius: 4em;
+    transition: 0.5s;
+    margin-left: 37%;
+    height: 2.5em;
+    width: 2.5em;
+
+}
+label:hover{
+    color:#71bb00;
+}
+.iconImage{
+    margin-top:35%;
+    color: #D2DAF5;
+}
+.iconImage:hover{
+    color:#71bb00;
+}
+.imagePreview{
+  width: auto;
+  height: auto;
+  max-height: 3em;
+  max-width: 3em;
+  border-radius:4em;
+}
+input, textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    font-size: 1.2rem;
+    padding-left: 0.8em;
+}
+
+input {
+    height: 2.5em;
+    width: 100%;
+    background-color: #494949;
+    color: white;
+}
+.user{
+    padding-bottom: 0em;
+    padding-top: 0em;
+}
+
+textarea {
+    height: 5em;
+    width: 100%;
+    resize: none;
+    background-color: #494949;
+    color: white;
+    padding-top: 0.5em;
+
+}
+
+.btns{
+    display: flex;
+    margin-top: 2em;
+    justify-content: end;
+    margin-bottom: 1em;
+}
+
+.btn-add-post button{
+    font-size: 1.3rem;
+    height: 2.5em;
+    width: 7em;
+    padding: 5px 30px;
+    color: white;
+    background-color: #71bb00;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-delete-post button{
+    font-size: 1.3rem;
+    height: 2.5em;
+    width: 7em;
+    padding: 5px 5px;
+    color: #5f5f5f;
+    background-color: #313131 ;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: rgb(240, 47, 47);
+}
