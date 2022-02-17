@@ -1,29 +1,37 @@
 import React from 'react'
-import PhotoPost from '../PhotoPost'
 import { ReactComponent as IconDelete } from '../../assets/delete.svg'
 import defaultTheme from '../../theme/defaultTheme'
 import * as S from './style'
 
 interface PostProps {
+  name: string
   photo: string
-  title: string
-  body: string
-  author: string
+  message: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  id: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  deletePostButton: (event: any) => void
 }
 
-const Post: React.FC<PostProps> = ({ photo, title, body, author }) => {
+const Post: React.FC<PostProps> = ({
+  name,
+  photo,
+  id,
+  message,
+  deletePostButton
+}) => {
   return (
-    <S.Wrapper theme={defaultTheme}>
-      <S.ButtonDeletePost>
+    <S.Wrapper id={id} theme={defaultTheme}>
+      <S.ButtonDeletePost onClick={deletePostButton}>
         <IconDelete />
       </S.ButtonDeletePost>
       <S.ContentWrapper>
-        <PhotoPost photo={photo} alt={title} />
-        <S.Description theme={defaultTheme}>{body}</S.Description>
+        <S.PhotoPost photo={photo} />
+        <S.Description theme={defaultTheme}>{message}</S.Description>
       </S.ContentWrapper>
       <S.InfoAuthor theme={defaultTheme}>
         <span>Enviado por</span>
-        <p>{author}</p>
+        <p>{name}</p>
       </S.InfoAuthor>
     </S.Wrapper>
   )
