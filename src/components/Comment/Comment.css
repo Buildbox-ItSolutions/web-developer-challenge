@@ -1,0 +1,47 @@
+.feed-body{
+    background-color: #343434;
+    height: auto;
+}
+.feed-post {
+    background-color: #313131;
+    padding: 5px 35px;
+    border-radius: 0.5em;
+}
+.FeedTitle{
+ color: #6a6a6a;
+ text-align: center;
+ margin-right: 35em;
+ margin-top: 3em;
+}
+p{
+   color: #6a6a6a;
+}
+.userName{
+    font-weight: bold;
+}
+.TextContent{
+    font-weight: bold;
+    padding-left: 2em;
+    word-break: break-all;
+}
+.sendBy{
+ font-size: 0.9em;
+}
+.Content{
+    display: flex;
+    padding-left: 2em;
+    padding-bottom: 1em;
+
+}
+.profileInfo{
+    padding-left: 2em;
+}
+.Image{
+    border-radius: 3em;
+    max-height: 15em;
+    max-width: 10em;
+
+}
+.deleteIcon:hover{
+    color: #71bb00;
+}
