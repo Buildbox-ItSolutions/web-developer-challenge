@@ -1,12 +1,12 @@
 import GlobalStyle from './styles/global'
 import { Header } from './components/Header'
-import { Message } from './components/Message'
+import { PostFeed } from './components/PostFeed'
 
 function App() {
   return (
     <div>
       <Header />
-      <Message />
+      <PostFeed />
       <GlobalStyle />
     </div>
   )
