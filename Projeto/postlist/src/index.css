@@ -1,13 +1,18 @@
 body{
     margin: 0px;
     box-sizing:content-box;
+    background-color: #343434;
+    
 }
 
-header {
+header,footer {
     margin:0px;
     width: auto;
     height: 93px;
     background-color: #2b2b2b;
     
+}
 
+footer{
+height: 12vw;
 }
