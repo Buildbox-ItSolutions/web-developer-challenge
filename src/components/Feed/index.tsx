@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { UseMyPostContext } from '../../context/PostDataContext/useMyPostContext'
 import { v4 as uuidv4 } from 'uuid'
 import Post from '../Post'
@@ -10,6 +10,13 @@ type EventClickButtonDeletePost = React.BaseSyntheticEvent<HTMLButtonElement>
 const Feed: React.FC = () => {
   const [postState, setPostState] = UseMyPostContext()
 
+  useEffect(() => {
+    const dataLocal = window.localStorage.getItem('post')
+    if (dataLocal !== null) {
+      setPostState(JSON.parse(dataLocal))
+    }
+  }, [setPostState])
+
   const newPostState = useMemo(() => {
     return postState.map((post: PostType, index: number) => {
       return {
@@ -18,6 +25,12 @@ const Feed: React.FC = () => {
       }
     })
   }, [postState])
+
+  useEffect(() => {
+    if (newPostState.length > -1) {
+      window.localStorage.setItem('post', JSON.stringify(newPostState))
+    }
+  }, [newPostState])
 
   const handleDeletePostClick = (event: EventClickButtonDeletePost) => {
     const postIndex = event.currentTarget.parentElement.getAttribute('id')
