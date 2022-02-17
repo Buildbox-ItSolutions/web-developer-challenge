@@ -10,7 +10,7 @@ Monte uma página utilizando React.js que contenha uma lista de posts com a poss
 
 **Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas etc.
 
 Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
 
