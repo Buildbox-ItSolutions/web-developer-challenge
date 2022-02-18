@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../context/context';
 import imageUser from '../images/image.svg';
+import { DivForm } from '../style/formsStyle';
 
 function forms() {
   const {
@@ -35,14 +36,16 @@ function forms() {
   }
 
   return (
-    <div>
+    <DivForm>
       <form onSubmit={submitPost}>
-        <label htmlFor="image">
+        <label htmlFor="image" className="imageDetails">
           <img
+            className="userImage"
             alt="userImage"
             src={!image ? imageUser : image}
           />
           <input
+            id="image"
             type="file"
             onChange={(event) => setImage(URL.createObjectURL(event.target.files[0]))}
           />
@@ -52,27 +55,33 @@ function forms() {
           type="text"
           placeholder="Digite seu nome"
           onChange={(e) => setName(e.target.value)}
+          className="nameArea"
         />
         <input
           value={message}
           type="text"
           placeholder="Mensagem"
           onChange={(e) => setMessage(e.target.value)}
+          className="messageArea"
         />
-        <button
-          type="button"
-          onClick={cleanFields}
-        >
-          Descartar
-        </button>
-        <button
-          type="submit"
-          disabled={validateFields()}
-        >
-          Publicar
-        </button>
+        <div className="btnFlex">
+          <button
+            type="button"
+            onClick={cleanFields}
+            className="descartarBtn"
+          >
+            Descartar
+          </button>
+          <button
+            type="submit"
+            disabled={validateFields()}
+            className="publicarBtn"
+          >
+            Publicar
+          </button>
+        </div>
       </form>
-    </div>
+    </DivForm>
   );
 }
 

@@ -1,15 +1,16 @@
 import React from 'react';
+import { DivCard } from '../style/cardStyle';
 
 function formsCard({ name, message, image }) {
   return (
-    <div>
-      <div>
+    <DivCard>
+      <div className="formatCard">
         <img src={image} alt={name} />
-        <p>{message}</p>
-        <p>{name ? 'Enviado por' : ''}</p>
-        <p>{name}</p>
+        <p className="messageText">{message}</p>
+        <p className="nameText">{name ? 'Enviado por' : ''}</p>
+        <p className="peopleName">{name}</p>
       </div>
-    </div>
+    </DivCard>
   );
 }
 
