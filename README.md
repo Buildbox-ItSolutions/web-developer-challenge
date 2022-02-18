@@ -11,7 +11,8 @@ To see more, visit the links below:
 > <a href="https://github.com/jhollyferr/buildbox-blog-client">Client App</a> 
  
 
-Outros projetos que podem ser interessantes 
+Other projects that might be interesting
+
 > <a href="https://github.com/jhollyferr/esparta-todo-api">Todo - Rest API</a>
 
 > <a href="https://github.com/jhollyferr/esparta-todo-client">Todo Client</a>
