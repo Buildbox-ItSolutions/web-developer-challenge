@@ -1,20 +1,51 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2017",
+    "lib": [
+      "es6",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNEXT",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": "./src/",
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+    },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.js",
+    "./jest-setup.ts"
+  ]
 }
