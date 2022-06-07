@@ -8,13 +8,13 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    background: ${props => props.theme.colors.gray_scale_3};
+    color: ${props => props.theme.colors.white};
     font: 400 16px Roboto, sans-serif;
   }
 
   a {
-    color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.white};
     text-decoration: none;
   }
 `;
