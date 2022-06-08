@@ -3,6 +3,8 @@ import Layout from 'components/templates/layout';
 import { PostType } from 'components/molecules/Post';
 import NewPostForm from 'components/organisms/NewPostForm';
 import ListPost from 'components/organisms/ListPost';
+import { IsStringAlphaNumeric, TrimString } from 'utils/string';
+import { notifyError } from 'utils/toasts';
 
 function Home(): JSX.Element {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -14,10 +16,11 @@ function Home(): JSX.Element {
 
   const handleName = useCallback(e => setName(e.target.value), []);
 
-  const handleDescription = useCallback(
-    e => setDescription(e.target.value),
-    []
-  );
+  const handleDescription = useCallback(e => {
+    const { value } = e.target;
+    const filteredValue = value.replace(/[^A-Za-z0-9 ]/g, '');
+    setDescription(filteredValue);
+  }, []);
 
   const onDeleteImage = useCallback(() => setImage(undefined), []);
 
@@ -28,14 +31,29 @@ function Home(): JSX.Element {
   }, []);
 
   const onPublish = useCallback(() => {
+    if (TrimString(name).length <= 0 || TrimString(description).length <= 0) {
+      notifyError('Por favor, preencha todos os campos!');
+      return;
+    }
+
+    if (!IsStringAlphaNumeric(name) || !IsStringAlphaNumeric(description)) {
+      notifyError(
+        'Por favor, verifique se há caracteres inválidos nos campos preenchidos!'
+      );
+      return;
+    }
+
     if (disablePost) {
+      notifyError(
+        'Não foi possível criar o post! Atualize a página e tente novamente!'
+      );
       return;
     }
 
     const post: PostType = {
       id: posts.length,
-      name,
-      description,
+      name: TrimString(name),
+      description: TrimString(description),
       image
     };
 
