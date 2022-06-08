@@ -10,7 +10,7 @@ const Avatar = styled.img<AvatarProps>`
 `;
 
 Avatar.defaultProps = {
-  cursor: 'none'
+  cursor: 'auto'
 };
 
 export default Avatar;

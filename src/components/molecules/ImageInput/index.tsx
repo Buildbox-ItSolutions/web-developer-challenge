@@ -1,20 +1,27 @@
 import Avatar from 'components/atoms/Avatar';
+import { HTMLInputType } from 'components/atoms/Input';
 import React, { useRef } from 'react';
-
-type HTMLInputType = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->;
+import styled from 'styled-components';
+import { ThemeSpacing } from 'styles/theme';
 
 export interface ImageInputProps {
   onChange: HTMLInputType['onChange'];
   image?: string;
+  marginRight?: ThemeSpacing;
 }
 
-function ImageInput({ onChange, image }: ImageInputProps) {
+const Container = styled.div.attrs<{ marginRight: ThemeSpacing }>(
+  ({ marginRight }) => ({
+    marginRight: marginRight ?? '0'
+  })
+)<{ marginRight: ThemeSpacing }>`
+  margin-right: ${props => props.theme.spacing[props.marginRight]};
+`;
+
+function ImageInput({ onChange, image, marginRight }: ImageInputProps) {
   const inputRef = useRef<HTMLInputElement>();
   return (
-    <>
+    <Container marginRight={marginRight}>
       <Avatar
         src={image}
         width="90px"
@@ -31,12 +38,13 @@ function ImageInput({ onChange, image }: ImageInputProps) {
         onChange={onChange}
         style={{ display: 'none' }}
       />
-    </>
+    </Container>
   );
 }
 
 ImageInput.defaultProps = {
-  image: '/avatar.png'
+  image: '/avatar.png',
+  marginRight: '0'
 };
 
 export default ImageInput;

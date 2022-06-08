@@ -1,21 +1,25 @@
 import Button from 'components/atoms/Button';
 import Card from 'components/atoms/Card';
+import Icon from 'components/atoms/Icon';
 import Input, { HTMLInputType } from 'components/atoms/Input';
 import TextArea, { HTMLTextAreaType } from 'components/atoms/TextArea';
 import ImageInput from 'components/molecules/ImageInput';
 import React from 'react';
 import styled from 'styled-components';
+import { ThemeSpacing } from 'styles/theme';
 
 export interface NewPostFormProps {
   image?: string;
   onChangeImage: HTMLInputType['onChange'];
   onPublish: () => void;
   onDiscard: () => void;
-  buttonsDisabled?: boolean;
+  onDeleteImage: () => void;
+  disablePost?: boolean;
   name: string;
   description: string;
   onChangeName: HTMLInputType['onChange'];
   onChangeDescription: HTMLTextAreaType['onChange'];
+  marginBottom?: ThemeSpacing;
 }
 
 const Buttons = styled.div`
@@ -26,6 +30,7 @@ const Buttons = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: ${props => props.theme.spacing[5]};
 `;
 
@@ -34,16 +39,25 @@ function NewPostForm({
   onChangeImage,
   onPublish,
   onDiscard,
-  buttonsDisabled,
+  disablePost,
   name,
   description,
   onChangeName,
-  onChangeDescription
+  onChangeDescription,
+  onDeleteImage,
+  marginBottom
 }: NewPostFormProps) {
   return (
-    <Card>
+    <Card marginBottom={marginBottom}>
       <ImageContainer>
-        <ImageInput image={image} onChange={onChangeImage} />
+        <ImageInput
+          image={image}
+          onChange={onChangeImage}
+          marginRight={image ? '6' : '0'}
+        />
+        {image && (
+          <Icon name="FaTrash" color="orange" onClick={onDeleteImage} />
+        )}
       </ImageContainer>
       <Input
         marginBottom="4"
@@ -67,11 +81,10 @@ function NewPostForm({
           disabledColor="transparent"
           textDecorationLine="underline"
           fontColor="gray_scale_7"
-          disabled={buttonsDisabled}
         >
           Descartar
         </Button>
-        <Button onClick={onPublish} disabled={buttonsDisabled}>
+        <Button onClick={onPublish} disabled={disablePost}>
           Publicar
         </Button>
       </Buttons>
@@ -81,7 +94,8 @@ function NewPostForm({
 
 NewPostForm.defaultProps = {
   image: undefined,
-  buttonsDisabled: false
+  disablePost: false,
+  marginBottom: '0'
 };
 
 export default NewPostForm;
