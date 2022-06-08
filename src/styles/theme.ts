@@ -21,7 +21,7 @@ const theme = {
     lg: '16px'
   },
   fontWeight: {
-    bold: 500,
+    bold: 'bold',
     regular: 'normal'
   },
   spacing: {

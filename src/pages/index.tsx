@@ -3,6 +3,9 @@ import Head from 'next/head';
 import Icon from 'components/atoms/Icon';
 import Button from 'components/atoms/Button';
 import Card from 'components/atoms/Card';
+import Input from 'components/atoms/Input';
+import TextArea from 'components/atoms/TextArea';
+import Typography from 'components/atoms/Typography';
 
 function Home(): JSX.Element {
   return (
@@ -22,6 +25,15 @@ function Home(): JSX.Element {
         >
           Descartar
         </Button>
+        <Typography fontColor="primary">Teste tipografia </Typography>
+        <Typography fontSize="lg" fontColor="orange">
+          Teste tipografia 2
+        </Typography>
+        <Typography fontWeight="bold">Teste tipografia 3</Typography>
+        <Typography>Teste tipografia 4</Typography>
+        <Input marginBottom="6" />
+        <Input />
+        <TextArea />
       </Card>
       <main />
     </>
