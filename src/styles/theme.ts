@@ -37,5 +37,8 @@ const theme = {
 };
 
 export type ThemeColors = keyof typeof theme.colors;
+export type ThemeSpacing = keyof typeof theme.spacing;
+export type ThemeFontSize = keyof typeof theme.fontSize;
+export type ThemeFontWeight = keyof typeof theme.fontWeight;
 
 export default theme;
