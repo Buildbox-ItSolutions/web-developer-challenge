@@ -10,8 +10,6 @@ Primeiro, instalar as dependências do projeto:
     yarn
 ```
 
-Adicione as variáveis de ambiente como mostrado no arquivo .env.example
-
 E por fim, execute o projeto:
 
 ```bash
