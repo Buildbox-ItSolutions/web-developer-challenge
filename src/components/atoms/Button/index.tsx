@@ -22,6 +22,7 @@ export interface ButtonProps extends HTMLButtonType {
 const Button = styled.button<ButtonProps>`
   border: 0px;
   border-radius: 3px;
+  cursor: pointer;
 
   background-color: ${props => props.theme.colors[props.color]};
   color: ${props => props.theme.colors[props.fontColor]};
@@ -38,7 +39,7 @@ const Button = styled.button<ButtonProps>`
 
   text-decoration: ${props => props.textDecorationLine};
 
-  &:hover {
+  &:active {
     background-color: ${props => props.theme.colors[props.active]};
   }
 

@@ -1,5 +1,5 @@
+import Avatar from 'components/atoms/Avatar';
 import React, { useRef } from 'react';
-import styled from 'styled-components';
 
 type HTMLInputType = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -11,25 +11,22 @@ export interface ImageInputProps {
   image?: string;
 }
 
-const Image = styled.input`
-  border-radius: 36px;
-`;
-
 function ImageInput({ onChange, image }: ImageInputProps) {
   const inputRef = useRef<HTMLInputElement>();
   return (
     <>
-      <Image
-        type="image"
+      <Avatar
         src={image}
         width="90px"
         height="90px"
         alt="Image Input"
+        cursor="pointer"
         onClick={() => inputRef.current?.click()}
       />
       <input
         ref={inputRef}
         type="file"
+        accept="image/png, image/gif, image/jpeg"
         id="my_file"
         onChange={onChange}
         style={{ display: 'none' }}
@@ -39,7 +36,7 @@ function ImageInput({ onChange, image }: ImageInputProps) {
 }
 
 ImageInput.defaultProps = {
-  image: '/logo.png'
+  image: '/avatar.png'
 };
 
 export default ImageInput;

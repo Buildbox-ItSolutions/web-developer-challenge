@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeSpacing } from 'styles/theme';
 
-type HTMLTextAreaType = React.DetailedHTMLProps<
+export type HTMLTextAreaType = React.DetailedHTMLProps<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   HTMLTextAreaElement
 >;
