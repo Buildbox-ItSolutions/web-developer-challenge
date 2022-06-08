@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeSpacing } from 'styles/theme';
 
-type HTMLInputType = React.DetailedHTMLProps<
+export type HTMLInputType = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >;
