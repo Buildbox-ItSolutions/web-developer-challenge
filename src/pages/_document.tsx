@@ -37,7 +37,6 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
-          <title>BuildBox - Web Challenge</title>
         </Head>
         <body>
           <Main />

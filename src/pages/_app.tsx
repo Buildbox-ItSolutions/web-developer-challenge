@@ -7,6 +7,7 @@ import theme from 'styles/theme';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
+      <title>BuildBox - Web Challenge</title>
       <Component {...pageProps} />
       <GlobalStyle />
     </ThemeProvider>
