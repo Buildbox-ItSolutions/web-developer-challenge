@@ -1,30 +1,24 @@
-# web-developer-challenge
+## Sobre o Projeto
 
-Olá!
+Projeto feito para o Desafio Técnico BuildBox.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## Iniciando
 
-O Desafio é o seguinte:
+Primeiro, instalar as dependências do projeto:
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+```bash
+    yarn
+```
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+E por fim, execute o projeto:
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+```bash
+    yarn dev
+    or
+    yarn build
+    yarn start
+```
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+## Disponível no vercel
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
-
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+Este projeto está disponível no [Vercel](https://buildbox-challenge.vercel.app/).
