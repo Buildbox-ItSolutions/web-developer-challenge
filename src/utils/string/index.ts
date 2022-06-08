@@ -1,5 +1,7 @@
 const TrimString = (str: string) => str.trim();
 
-const IsStringAlphaNumeric = (str: string) => /^[\w ]+$/.test(str);
+const IsStringAlphaNumeric = (str: string) => /^[A-Za-z0-9 ]+$/.test(str);
 
-export { TrimString, IsStringAlphaNumeric };
+const IsTextValid = (str: string) => /^[A-Za-z0-9 .,]+$/.test(str);
+
+export { TrimString, IsStringAlphaNumeric, IsTextValid };

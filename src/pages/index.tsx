@@ -3,7 +3,7 @@ import Layout from 'components/templates/layout';
 import { PostType } from 'components/molecules/Post';
 import NewPostForm from 'components/organisms/NewPostForm';
 import ListPost from 'components/organisms/ListPost';
-import { IsStringAlphaNumeric, TrimString } from 'utils/string';
+import { IsStringAlphaNumeric, IsTextValid, TrimString } from 'utils/string';
 import { notifyError } from 'utils/toasts';
 
 function Home(): JSX.Element {
@@ -14,11 +14,15 @@ function Home(): JSX.Element {
 
   const disablePost = !name || !description || !image;
 
-  const handleName = useCallback(e => setName(e.target.value), []);
+  const handleName = useCallback(e => {
+    const { value } = e.target;
+    const filteredValue = value.replace(/[^A-Za-z0-9 ]/g, '');
+    setName(filteredValue);
+  }, []);
 
   const handleDescription = useCallback(e => {
     const { value } = e.target;
-    const filteredValue = value.replace(/[^A-Za-z0-9 ]/g, '');
+    const filteredValue = value.replace(/[^A-Za-z0-9 .,]/g, '');
     setDescription(filteredValue);
   }, []);
 
@@ -36,7 +40,7 @@ function Home(): JSX.Element {
       return;
     }
 
-    if (!IsStringAlphaNumeric(name) || !IsStringAlphaNumeric(description)) {
+    if (!IsStringAlphaNumeric(name) || !IsTextValid(description)) {
       notifyError(
         'Por favor, verifique se há caracteres inválidos nos campos preenchidos!'
       );

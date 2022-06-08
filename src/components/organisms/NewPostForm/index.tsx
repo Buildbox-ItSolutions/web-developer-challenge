@@ -65,7 +65,7 @@ function NewPostForm({
         maxLength={48}
         value={name}
         onChange={onChangeName}
-        pattern="^[\w ]+$"
+        pattern="^[A-Za-z0-9 ]+$"
       />
       <TextArea
         marginBottom="8"
