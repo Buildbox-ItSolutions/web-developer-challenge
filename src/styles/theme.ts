@@ -18,7 +18,8 @@ const theme = {
   fontSize: {
     sm: '12px',
     md: '14px',
-    lg: '16px'
+    lg: '16px',
+    huge: '64px'
   },
   fontWeight: {
     bold: 'bold',
