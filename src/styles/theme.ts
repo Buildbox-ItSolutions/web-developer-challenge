@@ -1,6 +1,8 @@
 const theme = {
   colors: {
     primary: '#71bb00',
+    primary_darker: '#518501',
+    primary_light: '#d3f79c',
     orange: '#cf5724',
     white: '#ffffff',
     gray_scale_1: '#2b2b2b',
@@ -10,7 +12,8 @@ const theme = {
     gray_scale_5: '#494949',
     gray_scale_6: '#5f5f5f',
     gray_scale_7: '#7a7a7a',
-    gray_scale_8: '#9f9f9f'
+    gray_scale_8: '#9f9f9f',
+    transparent: 'transparent'
   },
   fontSize: {
     sm: '12px',
@@ -32,5 +35,7 @@ const theme = {
     '8': '32px'
   }
 };
+
+export type ThemeColors = keyof typeof theme.colors;
 
 export default theme;
