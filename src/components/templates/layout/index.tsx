@@ -24,7 +24,7 @@ const ContentContainer = styled.div`
 
 const Content = styled.div`
   margin: auto;
-  word-wrap: break-word;
+  word-break: break-word;
   height: 100%;
   padding-top: ${props => props.theme.spacing[8]};
 

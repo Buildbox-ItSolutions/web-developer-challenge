@@ -30,6 +30,10 @@ const CardBody = styled.div`
   align-items: center;
 `;
 
+const TextContainer = styled.div`
+  word-break: break-word;
+`;
+
 const ImageContainer = styled.div`
   margin-right: ${props => props.theme.spacing[8]};
 `;
@@ -48,7 +52,7 @@ function Post({ data, onDelete, marginBottom }: PostProps) {
             height="90px"
           />
         </ImageContainer>
-        <div>
+        <TextContainer>
           <Typography marginBottom="5" fontSize="lg" fontColor="gray_scale_8">
             {data.description}
           </Typography>
@@ -63,7 +67,7 @@ function Post({ data, onDelete, marginBottom }: PostProps) {
             </Typography>
             <Typography fontColor="gray_scale_7">{data.name}</Typography>
           </div>
-        </div>
+        </TextContainer>
       </CardBody>
     </Card>
   );
