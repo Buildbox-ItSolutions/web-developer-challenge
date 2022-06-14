@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/header'
+import Form from '../components/form'
 import styles from '../styles/Home.module.css'
 import headerImage from '../../public/header-image.png'
 
@@ -18,7 +19,9 @@ const Home: NextPage = () => {
         <Image src={headerImage} width={103} height={45} />
       </Header>
 
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <Form />
+      </main>
     </div>
   )
 }
