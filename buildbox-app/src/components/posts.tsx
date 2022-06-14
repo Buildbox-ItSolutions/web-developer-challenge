@@ -10,7 +10,6 @@ const Posts = () => {
 
   function handleDeletePost(index: any) {
     dispatch({ type: 'DELETE_POST', index })
-    console.log(index)
   }
 
   return posts.map((post: any, index: any) => (
