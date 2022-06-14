@@ -1,11 +1,17 @@
 import Image from 'next/image'
 import styles from '../styles/post.module.css'
-import { usePosts } from './PostsContext'
+import { useDispatchPosts, usePosts } from './PostsContext'
 
 import deleteImage from '../../public/delete.png'
 
 const Posts = () => {
   const posts = usePosts()
+  const dispatch = useDispatchPosts()
+
+  function handleDeletePost(index: any) {
+    dispatch({ type: 'DELETE_POST', index })
+    console.log(index)
+  }
 
   return posts.map((post: any, index: any) => (
     <div className={styles.postContainer} key={index}>
@@ -19,7 +25,10 @@ const Posts = () => {
           <span className={styles.postAuthor}>{post.author}</span>
         </div>
       </div>
-      <span className={styles.deletePost}>
+      <span
+        className={styles.deletePost}
+        onClick={() => handleDeletePost(index)}
+      >
         <Image src={deleteImage} width={20} height={20} />
       </span>
     </div>
