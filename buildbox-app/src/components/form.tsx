@@ -3,11 +3,14 @@ import Image from 'next/image'
 import uploadImage from '../../public/upload-image.png'
 import trashImage from '../../public/trash.png'
 import styles from '../styles/form.module.css'
+import { useDispatchPosts } from '../components/PostsContext'
 
 const Form = () => {
   const [photo, setPhoto] = useState('')
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
+
+  const dispatch = useDispatchPosts()
 
   function handlePhotoChange(e: any) {
     setPhoto(URL.createObjectURL(e.target.files[0]))
@@ -28,6 +31,11 @@ const Form = () => {
   function handleDiscard(e: any) {
     setPhoto('')
     setName('')
+    setMessage('')
+  }
+
+  function handleSubmit(e: any) {
+    dispatch({ type: 'CREATE', payload: { photo, message, author: name } })
     setMessage('')
   }
 
@@ -76,6 +84,7 @@ const Form = () => {
         <button
           className={styles.publicar}
           disabled={!photo || !name || !message}
+          onClick={handleSubmit}
         >
           Publicar
         </button>
