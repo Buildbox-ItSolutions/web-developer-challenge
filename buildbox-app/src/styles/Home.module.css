@@ -1,8 +1,7 @@
 .main {
   margin-top: 93px;
-  width: 100%;
   padding: 40px 0;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,4 +1,5 @@
 .form {
+  width: 100%;
   max-width: 516px;
   padding: 24px;
   border-radius: 3px;
@@ -48,7 +49,7 @@
   display: none;
 }
 .name {
-  width: 468px;
+  width: 100%;
   height: 40px;
   margin-top: 16px;
   border-radius: 8px;
@@ -69,7 +70,7 @@
   outline: none;
 }
 .message {
-  width: 468px;
+  width: 100%;
   height: 80px;
   margin-top: 8px;
   border-radius: 8px;
