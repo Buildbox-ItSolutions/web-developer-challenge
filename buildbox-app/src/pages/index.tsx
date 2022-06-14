@@ -7,7 +7,7 @@ import headerImage from '../../public/header-image.png'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Buildbox Web Developer Challenge</title>
         <meta name="description" content="Buildbox Web Developer Challenge" />
