@@ -14,8 +14,38 @@
   height: 88px;
   border: solid 1px #4b4b4b;
   border-radius: 36px;
-  padding: 32px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.photoWrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.photoContainer {
+  width: 88px;
+  height: 88px;
+  border: solid 1px #4b4b4b;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.trash {
+  position: absolute;
+  right: -36px;
+  cursor: pointer;
+}
+.label {
+  cursor: pointer;
+}
+.fileInput {
+  display: none;
 }
 .name {
   width: 468px;
