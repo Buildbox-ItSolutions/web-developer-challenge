@@ -9,7 +9,6 @@ const reducer = (state, action) => {
     case 'CREATE_POST':
       return [...state, action.payload]
     case 'DELETE_POST':
-      console.log(`state = ${state[action.index]}, index = ${action.index}`)
       return state.filter((post) => state.indexOf(post) !== action.index)
     default:
       throw new Error(`Unknown action: ${action.type}`)
