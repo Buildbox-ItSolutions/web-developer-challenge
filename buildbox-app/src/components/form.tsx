@@ -35,7 +35,7 @@ const Form = () => {
   }
 
   function handleSubmit(e: any) {
-    dispatch({ type: 'CREATE', payload: { photo, message, author: name } })
+    dispatch({ type: 'CREATE_POST', payload: { photo, message, author: name } })
     setMessage('')
   }
 

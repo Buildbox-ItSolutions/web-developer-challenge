@@ -6,7 +6,7 @@ const PostsDispatchContext = createContext()
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'CREATE':
+    case 'CREATE_POST':
       return [...state, action.payload]
     case 'DELETE_POST':
       console.log(`state = ${state[action.index]}, index = ${action.index}`)
