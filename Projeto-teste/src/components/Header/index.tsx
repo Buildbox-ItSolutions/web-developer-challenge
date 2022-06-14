@@ -1,6 +1,6 @@
 import * as Styled from './styles';
 
-function index() {
+function Index() {
   return (
     <Styled.Header>
       <Styled.Img src="logo.png" />
@@ -8,4 +8,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

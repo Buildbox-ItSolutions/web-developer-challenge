@@ -6,6 +6,7 @@ export const Header = styled.header`
   height: 93px;
   padding: 24px 631px 24px 632px;
   background-color: #2b2b2b;
+  z-index: 10;
 `;
 
 export const Img = styled.img`

@@ -4,7 +4,7 @@ import Feed from '../../components/Feed';
 
 import * as Styled from './styles';
 
-function index() {
+function Index() {
   return (
     <div>
       <Styled.Container>
@@ -16,4 +16,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

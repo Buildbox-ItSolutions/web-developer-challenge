@@ -1,29 +1,59 @@
 import * as Styled from './styles';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-function index() {
+// interface Props {
+//   Posts: {
+//     id: number;
+//     img: string;
+//     body: string;
+//   };
+// }
+
+function Index() {
+  const posts = [
+    {
+      name: 'Gustavo Fernandes',
+      img: 'users.jpg',
+      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+    },
+
+    {
+      name: 'Gustavo Fernandes',
+      img: 'users.jpg',
+      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+    },
+
+    {
+      name: 'Gustavo Fernandes',
+      img: 'users.jpg',
+      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+    },
+  ];
+
   return (
     <>
       <Styled.SubTitle>Feed</Styled.SubTitle>
-      <Styled.Container>
-        <Styled.IconDel>
-          <AiOutlineCloseCircle />
-        </Styled.IconDel>
-        <Styled.ConatinerItens>
-          <Styled.Collumn>
-            <Styled.UserImg src="users.jpg" />
-            <Styled.ContainerDescription>
-              <Styled.Description>Description</Styled.Description>
-              <Styled.GirdName>
-                <Styled.SpanSubtitle>Enviado por</Styled.SpanSubtitle>
-                <Styled.Name>Gustavo</Styled.Name>
-              </Styled.GirdName>
-            </Styled.ContainerDescription>
-          </Styled.Collumn>
-        </Styled.ConatinerItens>
-      </Styled.Container>
+      {posts.map((post) => (
+        <Styled.Container key={post.name}>
+          <Styled.IconDel>
+            <AiOutlineCloseCircle />
+          </Styled.IconDel>
+          <Styled.ContainerItens>
+            <Styled.Column>
+              <Styled.UserImg src={post.img} />
+              <Styled.ContainerDescription>
+                <Styled.Description>{post.body}</Styled.Description>
+                <Styled.GirdName>
+                  <Styled.SpanSubtitle>Enviado por</Styled.SpanSubtitle>
+                  <Styled.Name>{post.name}</Styled.Name>
+                </Styled.GirdName>
+              </Styled.ContainerDescription>
+            </Styled.Column>
+          </Styled.ContainerItens>
+        </Styled.Container>
+      ))}
     </>
   );
 }
 
-export default index;
+export default Index;

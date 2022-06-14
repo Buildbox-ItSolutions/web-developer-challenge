@@ -12,7 +12,8 @@ export const Card = styled.form`
   background-color: #313131;
 `;
 
-export const UserImg = styled.img`
+export const ImgWrapper = styled.div`
+  position: relative;
   width: 88px;
   height: 88px;
   margin: 0 8px 16px 190px;
@@ -21,9 +22,36 @@ export const UserImg = styled.img`
   border-radius: 36px;
   border: solid 1px #4b4b4b;
   background-color: rgba(75, 75, 75, 0);
+  z-index: 1;
 `;
 
-export const LabelUser = styled.input`
+export const UserImgPrev = styled.img``;
+
+export const UserImg = styled.img`
+  position: relative;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 36px;
+`;
+
+export const InputImg = styled.input`
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  margin: 0 8px 16px 190px;
+  padding: 32px;
+  object-fit: contain;
+  border-radius: 36px;
+  outline: none;
+  border: solid 1px #4b4b4b;
+  background-color: rgba(75, 75, 75, 0);
+  opacity: 0;
+  z-index: 2;
+`;
+
+export const InputUser = styled.input`
   width: 468px;
   height: 40px;
   margin: 16px 0 8px;
@@ -46,7 +74,7 @@ export const LabelUser = styled.input`
   }
 `;
 
-export const LabelMessage = styled.textarea`
+export const InputMessage = styled.textarea`
   width: 468px;
   height: 80px;
   margin: 8px 0 32px;
