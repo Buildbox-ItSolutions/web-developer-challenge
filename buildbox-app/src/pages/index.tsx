@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Header from '../components/header'
 import styles from '../styles/Home.module.css'
+import headerImage from '../../public/header-image.png'
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +13,10 @@ const Home: NextPage = () => {
         <meta name="description" content="Buildbox Web Developer Challenge" />
         <link rel="icon" href="/favicon.png" />
       </Head>
+
+      <Header>
+        <Image src={headerImage} width={103} height={45} />
+      </Header>
 
       <main className={styles.main}></main>
     </div>
