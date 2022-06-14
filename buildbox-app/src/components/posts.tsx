@@ -7,8 +7,8 @@ import deleteImage from '../../public/delete.png'
 const Posts = () => {
   const posts = usePosts()
 
-  return posts.map((post: any) => (
-    <div className={styles.postContainer}>
+  return posts.map((post: any, index: any) => (
+    <div className={styles.postContainer} key={index}>
       <div className={styles.postLayout}>
         <div className={styles.photoContainer}>
           <Image src={post.photo} width={88} height={88} objectFit="cover" />
