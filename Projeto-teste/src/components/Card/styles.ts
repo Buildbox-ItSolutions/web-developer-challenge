@@ -89,7 +89,7 @@ export const InputUser = styled.input`
   }
 
   @media (max-width: 800px) {
-    width: 376px;
+    width: 355px;
   }
 
   @media (max-width: 600px) {
@@ -121,7 +121,7 @@ export const InputMessage = styled.textarea`
   }
 
   @media (max-width: 800px) {
-    width: 376px;
+    width: 355px;
   }
 
   @media (max-width: 600px) {
@@ -138,7 +138,7 @@ export const GridButton = styled.div`
   margin-top: 32px;
 
   @media (max-width: 800px) {
-    width: 376px;
+    width: 355px;
   }
 
   @media (max-width: 600px) {
@@ -162,6 +162,11 @@ export const ButtonClear = styled.div`
   :hover {
     cursor: pointer;
   }
+
+  @media (max-width: 800px) {
+    font-size: 12px;
+    width: 45px;
+  }
 `;
 
 export const ButtonPost = styled.div`
@@ -179,5 +184,11 @@ export const ButtonPost = styled.div`
     cursor: pointer;
     background-color: #71bb00;
     color: #ffff;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 12px;
+    width: 85px;
+    height: 35px;
   }
 `;

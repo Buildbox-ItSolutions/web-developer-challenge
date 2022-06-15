@@ -7,11 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html {
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden;
-  }
 
   ::-webkit-scrollbar {
     display: none;

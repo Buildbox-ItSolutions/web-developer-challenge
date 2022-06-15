@@ -17,16 +17,17 @@ function Index() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  const handleName = (e: any) => {
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
   };
 
-  const handleMensagem = (e: any) => {
+  const handleMensagem = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewMessage(e.target.value);
   };
 
   const handleImage = (e: any) => {
-    setNewImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setNewImage(file);
   };
 
   const removeImage = () => {
@@ -70,22 +71,24 @@ function Index() {
 
   return (
     <div>
-      <Styled.Container>
-        <Header />
-        <Card
-          newImage={newImage}
-          setNewImage={setNewImage}
-          newName={newName}
-          newMessage={newMessage}
-          handleImage={handleImage}
-          handleName={handleName}
-          handleMensagem={handleMensagem}
-          handleClear={handleClear}
-          handleSubmit={handleSubmit}
-          removeImage={removeImage}
-        />
-        <Feed posts={posts} handDelete={handDelete} />
-      </Styled.Container>
+      <Styled.Section>
+        <Styled.Container>
+          <Header />
+          <Card
+            newImage={newImage}
+            setNewImage={setNewImage}
+            newName={newName}
+            newMessage={newMessage}
+            handleImage={handleImage}
+            handleName={handleName}
+            handleMensagem={handleMensagem}
+            handleClear={handleClear}
+            handleSubmit={handleSubmit}
+            removeImage={removeImage}
+          />
+          <Feed posts={posts} handDelete={handDelete} />
+        </Styled.Container>
+      </Styled.Section>
     </div>
   );
 }

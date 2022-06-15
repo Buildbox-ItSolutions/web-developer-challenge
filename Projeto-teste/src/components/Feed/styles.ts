@@ -55,6 +55,14 @@ export const IconDel = styled.div`
 export const ContainerItens = styled.div`
   width: 515px;
   height: 189px;
+
+  @media (max-width: 800px) {
+    width: 400px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export const Column = styled.div`
@@ -70,6 +78,16 @@ export const UserImg = styled.img`
   height: 88px;
   border-radius: 36px;
   object-fit: cover;
+
+  @media (max-width: 800px) {
+    width: 45px;
+    width: 45px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    width: 40px;
+  }
 `;
 
 export const ContainerDescription = styled.div`
@@ -86,11 +104,12 @@ export const Description = styled.p`
   color: #9f9f9f;
 
   @media (max-width: 800px) {
-    width: 240px;
+    width: 260px;
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 140px;
+    width: 180px;
   }
 `;
 
@@ -117,13 +136,12 @@ export const Name = styled.div`
   line-height: 1.29;
   text-align: left;
   color: #7a7a7a;
-  border: 1px solid red;
 
   @media (max-width: 800px) {
-    width: 240px;
+    width: 260px;
   }
 
   @media (max-width: 600px) {
-    width: 140px;
+    width: 180px;
   }
 `;
