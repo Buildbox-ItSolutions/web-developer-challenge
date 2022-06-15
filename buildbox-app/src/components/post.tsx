@@ -7,12 +7,10 @@ import deleteImage from '../../public/delete.png'
 const Post = (props: any) => {
   const { photo, message, author } = props.data
   const { index } = props
-  // console.log(index)
   const dispatch = useDispatchPosts()
 
   function handleDeletePost(index: any) {
     dispatch({ type: 'DELETE_POST', index })
-    // console.log(index)
   }
 
   return (
