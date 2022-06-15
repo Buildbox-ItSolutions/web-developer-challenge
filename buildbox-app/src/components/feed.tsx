@@ -4,9 +4,11 @@ import { usePosts } from './PostsContext'
 
 const Feed = () => {
   const posts = usePosts()
-  const listOfPosts = posts.map((post: any, index: Number) => (
-    <Post data={post} index={index} key={index} />
-  ))
+  const listOfPosts = [...posts]
+    .reverse()
+    .map((post: any, index: Number) => (
+      <Post data={post} index={index} key={index} />
+    ))
 
   return (
     <div className={styles.feedContainer}>
