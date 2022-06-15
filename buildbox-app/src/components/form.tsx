@@ -36,7 +36,7 @@ const Form = () => {
 
   function handleSubmit(e: any) {
     dispatch({ type: 'CREATE_POST', payload: { photo, message, author: name } })
-    handleDiscard()
+    handleDiscard(e)
   }
 
   return (
