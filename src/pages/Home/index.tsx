@@ -6,7 +6,11 @@ import Logo from "../../assets/images/bx-logo.png";
 import CreateAPost from '../../components/CreateAPost';
 import Feed from '../../components/Feed';
 
+import { useData } from '../../providers/Data';
+
 const Home = () => {
+
+    const { posts } = useData();
 
     return (
         <>
@@ -17,9 +21,11 @@ const Home = () => {
             <Container>
                 <CreateAPost />
 
-                <FeedSpan>
-                    Feed
-                </FeedSpan>
+                {posts.length > 0 && (
+                    <FeedSpan>
+                        Feed
+                    </FeedSpan>
+                )}
 
                 <Feed />
 
