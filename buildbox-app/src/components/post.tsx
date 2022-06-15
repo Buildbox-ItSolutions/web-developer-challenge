@@ -19,7 +19,13 @@ const Post = (props: any) => {
     <div className={styles.postContainer}>
       <div className={styles.postLayout}>
         <div className={styles.photoContainer}>
-          <Image src={photo} width={88} height={88} objectFit="cover" />
+          <Image
+            src={photo}
+            width={88}
+            height={88}
+            objectFit="cover"
+            unoptimized
+          />
         </div>
         <div className={styles.postDetails}>
           <p className={styles.postMessage}>{message}</p>
@@ -31,7 +37,7 @@ const Post = (props: any) => {
         className={styles.deletePost}
         onClick={() => handleDeletePost(index)}
       >
-        <Image src={deleteImage} width={20} height={20} />
+        <Image src={deleteImage} width={20} height={20} unoptimized />
       </span>
     </div>
   )
