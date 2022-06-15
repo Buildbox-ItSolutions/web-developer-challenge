@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { useDispatchPosts } from '../contexts/PostsContext'
 import Image from 'next/image'
 import uploadImage from '../../public/upload-image.png'
 import trashImage from '../../public/trash.png'
 import styles from '../styles/form.module.css'
-import { useDispatchPosts } from '../contexts/PostsContext'
 
 const Form = () => {
   const [photo, setPhoto] = useState('')

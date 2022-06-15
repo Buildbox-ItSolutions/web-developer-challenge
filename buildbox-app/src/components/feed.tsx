@@ -1,6 +1,6 @@
+import { usePosts } from '../contexts/PostsContext'
 import Post from './post'
 import styles from '../styles/feed.module.css'
-import { usePosts } from '../contexts/PostsContext'
 
 const Feed = () => {
   const posts = usePosts()
