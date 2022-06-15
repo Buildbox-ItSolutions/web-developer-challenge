@@ -1,27 +1,30 @@
 import Image from 'next/image'
 import styles from '../styles/post.module.css'
-import { useDispatchPosts, usePosts } from './PostsContext'
+import { useDispatchPosts } from './PostsContext'
 
 import deleteImage from '../../public/delete.png'
 
-const Posts = () => {
-  const posts = usePosts()
+const Post = (props: any) => {
+  const { photo, message, author } = props.data
+  const { index } = props
+  // console.log(index)
   const dispatch = useDispatchPosts()
 
   function handleDeletePost(index: any) {
     dispatch({ type: 'DELETE_POST', index })
+    // console.log(index)
   }
 
-  return posts.map((post: any, index: any) => (
-    <div className={styles.postContainer} key={index}>
+  return (
+    <div className={styles.postContainer}>
       <div className={styles.postLayout}>
         <div className={styles.photoContainer}>
-          <Image src={post.photo} width={88} height={88} objectFit="cover" />
+          <Image src={photo} width={88} height={88} objectFit="cover" />
         </div>
         <div className={styles.postDetails}>
-          <p className={styles.postMessage}>{post.message}</p>
+          <p className={styles.postMessage}>{message}</p>
           <span className={styles.sentBy}>Enviado por</span>
-          <span className={styles.postAuthor}>{post.author}</span>
+          <span className={styles.postAuthor}>{author}</span>
         </div>
       </div>
       <span
@@ -31,7 +34,7 @@ const Posts = () => {
         <Image src={deleteImage} width={20} height={20} />
       </span>
     </div>
-  ))
+  )
 }
 
-export default Posts
+export default Post
