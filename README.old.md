@@ -1,20 +1,5 @@
 # web-developer-challenge
 
-<div align="center">
-<img src="https://i.ibb.co/5hLWHgh/ezgif-com-gif-maker.gif" alt="Exemplo do funcionamento">
-</div>
-
-> Uma plataforma simples onde é possível adicionar uma foto, inserir o nome e a mensagem que queira deixar para o público. Também é possível exclui-las.
-
-## 📝 Contato
-
-[Linkedin](https://www.linkedin.com/in/maxmilan/)\
-[Email](mailto:maxmilan10@hotmail.com)\
-[Telefone: (12) 98898-8035](tel:12988988035)\
-
-Acesse o [site](https://buildbox.vercel.app/)
-#
-
 Olá!
 
 Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
