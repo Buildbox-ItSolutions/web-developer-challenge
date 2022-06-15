@@ -3,39 +3,42 @@ import { BiTrashAlt } from 'react-icons/bi';
 import * as Styled from './styles';
 
 interface Props {
-  newPost?: string | number | readonly string[] | undefined;
+  newImage: string;
+  setNewImage: Blob | MediaSource;
+  newName: string;
+  newMessage: string;
+  handleImage?: React.ChangeEventHandler;
   handleName?: React.ChangeEventHandler;
   handleMensagem?: React.ChangeEventHandler;
   handleClear: React.MouseEventHandler;
   handleSubmit?: React.FormEventHandler;
+  removeImage: React.MouseEventHandler;
 }
 
 function Index({
-  newPost,
+  newImage,
+  newName,
+  newMessage,
+  setNewImage,
+  handleImage,
   handleName,
   handleMensagem,
   handleClear,
   handleSubmit,
+  removeImage,
 }: Props) {
-  const [image, setImage] = useState<any>('');
-  const [endImage] = useState<any>('logouser.svg');
-
-  const LoadImage = (e: any) => {
-    setImage(e.target.files[0]);
-    console.log(e.target.files[0]);
-  };
-
-  const removeImage = () => {
-    setImage('');
-  };
+  const [endImage] = useState<string>('logouser.svg');
 
   return (
     <Styled.Card>
-      <Styled.InputImg type="file" onChange={LoadImage} value={newPost} />
+      <Styled.InputImg type="file" onChange={handleImage} value={newImage} />
       <Styled.ImgWrapper>
-        {image ? (
+        {setNewImage ? (
           <>
-            <Styled.UserImg src={URL.createObjectURL(image)} alt="image" />
+            <Styled.UserImg
+              src={URL.createObjectURL(setNewImage)}
+              alt="image"
+            />
             <Styled.IconTrash>
               <BiTrashAlt onClick={removeImage} />
             </Styled.IconTrash>
@@ -47,13 +50,13 @@ function Index({
 
       <Styled.InputUser
         onChange={handleName}
-        value={newPost}
+        value={newName}
         type="text"
         placeholder="Digite seu nome"
       />
       <Styled.InputMessage
         onChange={handleMensagem}
-        value={newPost}
+        value={newMessage}
         placeholder="Menssagem"
       />
       <Styled.GridButton>
