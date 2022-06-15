@@ -1,42 +1,40 @@
 import * as Styled from './styles';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-// interface Props {
-//   Posts: {
-//     id: number;
-//     img: string;
-//     body: string;
-//   };
-// }
+interface Props {
+  posts: [];
+  handDelete: () => void;
+}
 
-function Index() {
-  const posts = [
-    {
-      name: 'Gustavo Fernandes',
-      img: 'users.jpg',
-      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
-    },
+function Index({ posts, handDelete }: Props) {
+  // const posts = [
+  //   {
+  //     name: 'Gustavo Fernandes',
+  //     img: 'users.jpg',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+  //   },
 
-    {
-      name: 'Gustavo Fernandes',
-      img: 'users.jpg',
-      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
-    },
+  //   {
+  //     name: 'Gustavo Fernandes',
+  //     img: 'users.jpg',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+  //   },
 
-    {
-      name: 'Gustavo Fernandes',
-      img: 'users.jpg',
-      body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
-    },
-  ];
+  //   {
+  //     name: 'Gustavo Fernandes',
+  //     img: 'users.jpg',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing psum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinpsum is simply dummy text of the printing and typesettinv and typesettin',
+  //   },
+  // ];
 
   return (
     <>
       <Styled.SubTitle>Feed</Styled.SubTitle>
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <Styled.Container key={post.name}>
           <Styled.IconDel>
-            <AiOutlineCloseCircle />
+            {/* Bottum Delet */}
+            <AiOutlineCloseCircle onClick={(e) => handDelete(e, index)} />
           </Styled.IconDel>
           <Styled.ContainerItens>
             <Styled.Column>

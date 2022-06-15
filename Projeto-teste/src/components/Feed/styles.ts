@@ -8,7 +8,8 @@ export const SubTitle = styled.span`
   font-weight: 500;
   line-height: 1.29;
   color: #7a7a7a;
-  margin-bottom: 10px;
+  margin-top: 56px;
+  margin-bottom: 8px;
 `;
 
 export const Container = styled.main`
@@ -17,12 +18,13 @@ export const Container = styled.main`
   border-radius: 3px;
   border: 1px solid #3b3b3b;
   background-color: #313131;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 `;
 
 export const IconDel = styled.div`
   width: 21px;
   height: 21px;
+  font-size: 20px;
   text-align: end;
   width: 100%;
   margin-top: 12px;
@@ -37,15 +39,17 @@ export const IconDel = styled.div`
 export const ContainerItens = styled.div`
   width: 515px;
   height: 189px;
-  padding: 20px 24px 32px 24px;
 `;
 
 export const Column = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
+  margin-top: 24px;
 `;
 
 export const UserImg = styled.img`
+  margin-left: 24px;
+  margin-right: 32px;
   width: 88px;
   height: 88px;
   border-radius: 36px;
@@ -53,6 +57,7 @@ export const UserImg = styled.img`
 `;
 
 export const ContainerDescription = styled.div`
+  margin-right: 24px;
   text-align: left;
 `;
 
@@ -72,6 +77,7 @@ export const GirdName = styled.div`
 export const SpanSubtitle = styled.span`
   width: 66px;
   height: 14px;
+  margin-bottom: 2px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
