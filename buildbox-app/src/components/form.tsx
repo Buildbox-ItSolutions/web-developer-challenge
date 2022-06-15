@@ -74,12 +74,14 @@ const Form = () => {
         className={styles.nameInput}
         type="text"
         placeholder="Digite seu nome"
-        onInput={handleChangeName}
+        spellCheck="false"
+        onChange={handleChangeName}
         value={name}
       />
       <textarea
         className={styles.messageInput}
         placeholder="Mensagem"
+        spellCheck="false"
         onChange={handleChangeMessage}
         value={message}
       />
