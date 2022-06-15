@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from '../styles/post.module.css'
-import { useDispatchPosts } from './PostsContext'
+import { useDispatchPosts } from '../contexts/PostsContext'
 
 import deleteImage from '../../public/delete.png'
 
