@@ -75,6 +75,7 @@ const Form = () => {
         type="text"
         placeholder="Digite seu nome"
         spellCheck="false"
+        maxLength={40}
         onChange={handleChangeName}
         value={name}
       />
@@ -82,6 +83,7 @@ const Form = () => {
         className={styles.messageInput}
         placeholder="Mensagem"
         spellCheck="false"
+        maxLength={280}
         onChange={handleChangeMessage}
         value={message}
       />
