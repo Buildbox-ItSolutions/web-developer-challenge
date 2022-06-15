@@ -3,15 +3,15 @@ import { BiTrashAlt } from 'react-icons/bi';
 import * as Styled from './styles';
 
 interface Props {
-  newImage: string;
-  setNewImage: Blob | MediaSource;
+  newImage: any;
+  setNewImage: any;
   newName: string;
   newMessage: string;
-  handleImage?: React.ChangeEventHandler;
-  handleName?: React.ChangeEventHandler;
-  handleMensagem?: React.ChangeEventHandler;
-  handleClear: React.MouseEventHandler;
-  handleSubmit?: React.FormEventHandler;
+  handleImage: React.ChangeEventHandler;
+  handleName: React.ChangeEventHandler;
+  handleMensagem: React.ChangeEventHandler;
+  handleClear: React.FormEventHandler<HTMLDivElement> | undefined;
+  handleSubmit: React.FormEventHandler<HTMLDivElement> | undefined;
   removeImage: React.MouseEventHandler;
 }
 
@@ -19,7 +19,6 @@ function Index({
   newImage,
   newName,
   newMessage,
-  setNewImage,
   handleImage,
   handleName,
   handleMensagem,
@@ -31,14 +30,11 @@ function Index({
 
   return (
     <Styled.Card>
-      <Styled.InputImg type="file" onChange={handleImage} value={newImage} />
+      <Styled.InputImg type="file" onChange={handleImage} value={''} required />
       <Styled.ImgWrapper>
-        {setNewImage ? (
+        {newImage ? (
           <>
-            <Styled.UserImg
-              src={URL.createObjectURL(setNewImage)}
-              alt="image"
-            />
+            <Styled.UserImg src={URL.createObjectURL(newImage)} alt="image" />
             <Styled.IconTrash>
               <BiTrashAlt onClick={removeImage} />
             </Styled.IconTrash>
@@ -53,15 +49,19 @@ function Index({
         value={newName}
         type="text"
         placeholder="Digite seu nome"
+        required
       />
       <Styled.InputMessage
         onChange={handleMensagem}
         value={newMessage}
         placeholder="Menssagem"
+        required
       />
       <Styled.GridButton>
         <Styled.ButtonClear onClick={handleClear}>Descartar</Styled.ButtonClear>
-        <Styled.ButtonPost onSubmit={handleSubmit}>Publicar</Styled.ButtonPost>
+        <Styled.ButtonPost className="buttonPost" onClick={handleSubmit}>
+          Publicar
+        </Styled.ButtonPost>
       </Styled.GridButton>
     </Styled.Card>
   );

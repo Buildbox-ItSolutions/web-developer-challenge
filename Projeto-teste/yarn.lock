@@ -4327,6 +4327,11 @@ file-entry-cache@^6.0.1:
   dependencies:
     flat-cache "^3.0.4"
 
+file-input-react@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/file-input-react/-/file-input-react-1.0.6.tgz#a4ef69d5ad6e452ab9de189322fb124592a2c0e4"
+  integrity sha512-jRi6a8V6TPalrriZlqB07dgqpEMC7Q16yUUzfv5taHrihAAWlaMC/s5PppgPAUwsNp17kI7vI1ozMCsOMcNh5g==
+
 file-loader@^6.2.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/file-loader/-/file-loader-6.2.0.tgz"
@@ -7288,6 +7293,11 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
+react-file-input@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/react-file-input/-/react-file-input-0.2.5.tgz#a355367d9323d5c6352ddd3cd7ec3582e5c9b245"
+  integrity sha512-EsUr+3LfYAMxvYqFs2PL1jmIYxMSziYEeaU0QtyJ6XVaqUM9abDRnD6s3cuPk6dGfuwq3kE2VUJnDV1kPhZSRw==
+
 react-icons@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
@@ -8510,6 +8520,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-file-upload@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/use-file-upload/-/use-file-upload-1.0.11.tgz#6d1ca8644256ad480e2be1a0a1609315b038aa73"
+  integrity sha512-Q8Rueyo1FC9zMdpFEBEVDTSFsstTf29TUnCsjo468buqbjpZREvvAZ+ELyABVf3HmNygvJKeOARp9Q80lo14kw==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

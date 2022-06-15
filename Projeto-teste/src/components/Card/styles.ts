@@ -114,7 +114,7 @@ export const GridButton = styled.div`
   margin-top: 32px;
 `;
 
-export const ButtonClear = styled.button`
+export const ButtonClear = styled.div`
   background-color: transparent;
   width: 55px;
   height: 17px;
@@ -126,17 +126,26 @@ export const ButtonClear = styled.button`
   color: #5f5f5f;
   border: none;
   border-bottom: 1px solid #5f5f5f;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-export const ButtonPost = styled.button`
+export const ButtonPost = styled.div`
   width: 98px;
   height: 41px;
   padding: 12px 24px;
   border-radius: 8px;
-  background-color: #5f5f5f;
   border-style: none;
   font-size: 14px;
+  background-color: #5f5f5f;
   line-height: 1.29;
   color: #313131;
-  pointer-events: none;
+
+  :hover {
+    cursor: pointer;
+    background-color: #71bb00;
+    color: #ffff;
+  }
 `;
