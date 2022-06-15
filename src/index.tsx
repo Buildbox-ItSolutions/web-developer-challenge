@@ -7,16 +7,20 @@ import { GlobalStyle } from './styles/GlobalStyle';
 
 import { BrowserRouter } from 'react-router-dom';
 
+import Providers from './providers';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-    <GlobalStyle />
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <Providers>
+    <BrowserRouter>
+      <React.StrictMode>
+        <GlobalStyle />
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Providers>
 );
 
 reportWebVitals();

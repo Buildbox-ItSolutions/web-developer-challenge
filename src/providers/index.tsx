@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { DataProvider } from './Data/index';
 
-const Providers = () => {
+interface ProviderProps {
+    children: ReactNode;
+}
+
+const Providers = ({ children }: ProviderProps) => {
     return (
-        <>
-            Providers
-        </>
+        <DataProvider>
+            {children}
+        </DataProvider>
     )
 };
 
