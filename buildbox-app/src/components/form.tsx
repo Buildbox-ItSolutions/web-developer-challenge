@@ -40,18 +40,18 @@ const Form = () => {
   }
 
   return (
-    <div className={styles.form}>
+    <div className={styles.formContainer}>
       {photo ? (
-        <div className={styles.photoWrapper}>
-          <div className={styles.photoContainer}>
+        <div className={styles.photoContainer}>
+          <div className={styles.photoLayout}>
             <Image src={photo} width={88} height={88} objectFit="cover" />
           </div>
-          <div className={styles.trash} onClick={handleDeletePhoto}>
+          <div className={styles.trashButton} onClick={handleDeletePhoto}>
             <Image src={trashImage} width={24} height={24} />
           </div>
         </div>
       ) : (
-        <label htmlFor="fileInput" className={styles.label}>
+        <label htmlFor="fileInput" className={styles.fileInputContainer}>
           <input
             type="file"
             id="fileInput"
@@ -59,30 +59,30 @@ const Form = () => {
             accept="image/*"
             onChange={handlePhotoChange}
           />
-          <div className={styles.upload}>
+          <div className={styles.uploadImage}>
             <Image src={uploadImage} width={24} height={24} />
           </div>
         </label>
       )}
       <input
-        className={styles.name}
+        className={styles.nameInput}
         type="text"
         placeholder="Digite seu nome"
         onInput={handleChangeName}
         value={name}
       />
       <textarea
-        className={styles.message}
+        className={styles.messageInput}
         placeholder="Mensagem"
         onChange={handleChangeMessage}
         value={message}
       />
-      <div className={styles.buttons}>
-        <span className={styles.descartar} onClick={handleDiscard}>
+      <div className={styles.buttonsContainer}>
+        <span className={styles.discardButton} onClick={handleDiscard}>
           Descartar
         </span>
         <button
-          className={styles.publicar}
+          className={styles.publishButton}
           disabled={!photo || !name || !message}
           onClick={handleSubmit}
         >
