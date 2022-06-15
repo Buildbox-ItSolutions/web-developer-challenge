@@ -63,7 +63,7 @@
   line-height: 1.29;
   letter-spacing: normal;
   text-align: left;
-  color: #9f9f9f;
+  color: #fff;
 }
 .nameInput:focus {
   outline: none;
@@ -85,7 +85,7 @@
   line-height: 1.29;
   letter-spacing: normal;
   text-align: left;
-  color: #9f9f9f;
+  color: #fff;
 }
 .messageInput:focus {
   outline: none;
