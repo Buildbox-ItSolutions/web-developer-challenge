@@ -10,6 +10,14 @@ export const Card = styled.form`
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;
+
+  @media (max-width: 800px) {
+    width: 400px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -79,6 +87,14 @@ export const InputUser = styled.input`
     height: 17px;
     color: #9f9f9f;
   }
+
+  @media (max-width: 800px) {
+    width: 376px;
+  }
+
+  @media (max-width: 600px) {
+    width: 250px;
+  }
 `;
 
 export const InputMessage = styled.textarea`
@@ -103,6 +119,14 @@ export const InputMessage = styled.textarea`
     height: 17px;
     color: #9f9f9f;
   }
+
+  @media (max-width: 800px) {
+    width: 376px;
+  }
+
+  @media (max-width: 600px) {
+    width: 250px;
+  }
 `;
 
 export const GridButton = styled.div`
@@ -112,6 +136,14 @@ export const GridButton = styled.div`
   width: 468px;
   height: 41px;
   margin-top: 32px;
+
+  @media (max-width: 800px) {
+    width: 376px;
+  }
+
+  @media (max-width: 600px) {
+    width: 250px;
+  }
 `;
 
 export const ButtonClear = styled.div`

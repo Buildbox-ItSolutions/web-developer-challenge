@@ -10,6 +10,14 @@ export const SubTitle = styled.span`
   color: #7a7a7a;
   margin-top: 56px;
   margin-bottom: 8px;
+
+  @media (max-width: 800px) {
+    width: 400px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export const Container = styled.main`
@@ -19,6 +27,14 @@ export const Container = styled.main`
   border: 1px solid #3b3b3b;
   background-color: #313131;
   margin-bottom: 16px;
+
+  @media (max-width: 800px) {
+    width: 400px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export const IconDel = styled.div`
@@ -68,6 +84,14 @@ export const Description = styled.p`
   font-family: 16px;
   line-height: 1.25;
   color: #9f9f9f;
+
+  @media (max-width: 800px) {
+    width: 240px;
+  }
+
+  @media (max-width: 600px) {
+    width: 140px;
+  }
 `;
 
 export const GirdName = styled.div`
@@ -93,4 +117,13 @@ export const Name = styled.div`
   line-height: 1.29;
   text-align: left;
   color: #7a7a7a;
+  border: 1px solid red;
+
+  @media (max-width: 800px) {
+    width: 240px;
+  }
+
+  @media (max-width: 600px) {
+    width: 140px;
+  }
 `;
