@@ -98,7 +98,6 @@ export const InputUser = styled.input`
     font-size: 12px;
 
     ::placeholder {
-      border: 1px solid red;
       font-size: 12px;
     }
   }
@@ -137,7 +136,6 @@ export const InputMessage = styled.textarea`
     font-size: 12px;
 
     ::placeholder {
-      border: 1px solid red;
       font-size: 12px;
     }
   }
