@@ -94,6 +94,13 @@ export const InputUser = styled.input`
 
   @media (max-width: 600px) {
     width: 250px;
+
+    font-size: 12px;
+
+    ::placeholder {
+      border: 1px solid red;
+      font-size: 12px;
+    }
   }
 `;
 
@@ -126,6 +133,13 @@ export const InputMessage = styled.textarea`
 
   @media (max-width: 600px) {
     width: 250px;
+
+    font-size: 12px;
+
+    ::placeholder {
+      border: 1px solid red;
+      font-size: 12px;
+    }
   }
 `;
 
@@ -147,6 +161,8 @@ export const GridButton = styled.div`
 `;
 
 export const ButtonClear = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: transparent;
   width: 55px;
   height: 17px;
@@ -170,6 +186,8 @@ export const ButtonClear = styled.div`
 `;
 
 export const ButtonPost = styled.div`
+  display: flex;
+  justify-content: center;
   width: 98px;
   height: 41px;
   padding: 12px 24px;
