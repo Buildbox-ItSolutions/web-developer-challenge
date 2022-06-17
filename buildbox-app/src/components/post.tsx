@@ -17,7 +17,7 @@ const Post = (props: PostProps) => {
     <div className={styles.postContainer}>
       <div className={styles.postLayout}>
         <div className={styles.photoContainer}>
-          <Image src={photo} width={88} height={88} objectFit="cover" />
+          <Image src={photo} width={88} height={88} />
         </div>
         <div className={styles.postDetails}>
           <p className={styles.postMessage}>{message}</p>

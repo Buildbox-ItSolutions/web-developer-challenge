@@ -48,7 +48,7 @@ const Form = () => {
       {photo ? (
         <div className={styles.photoContainer}>
           <div className={styles.photoLayout}>
-            <Image src={photo} width={88} height={88} objectFit="cover" />
+            <Image src={photo} width={88} height={88} />
           </div>
           <div className={styles.trashButton} onClick={handleDeletePhoto}>
             <Image src={trashImage} width={24} height={24} />
