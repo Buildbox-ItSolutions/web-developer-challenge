@@ -1,5 +1,4 @@
 import { useReducer, useContext, createContext } from 'react'
-import photo from '../../public/me.jpeg'
 
 const PostsStateContext = createContext()
 const PostsDispatchContext = createContext()
@@ -16,9 +15,7 @@ const reducer = (state, action) => {
 }
 
 export const PostsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, [
-    { photo: photo, message: 'Hello world!', author: 'Pedro Gabriel' },
-  ])
+  const [state, dispatch] = useReducer(reducer, [])
   return (
     <PostsDispatchContext.Provider value={dispatch}>
       <PostsStateContext.Provider value={state}>
