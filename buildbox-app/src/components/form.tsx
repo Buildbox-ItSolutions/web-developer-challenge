@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatchPosts } from '../contexts/PostsContext'
 import Image from 'next/image'
 import uploadImage from '../../public/upload-image.png'
@@ -6,37 +6,41 @@ import trashImage from '../../public/trash.png'
 import styles from '../styles/form.module.css'
 
 const Form = () => {
-  const [photo, setPhoto] = useState('')
-  const [name, setName] = useState('')
-  const [message, setMessage] = useState('')
+  const [photo, setPhoto] = useState<string>('')
+  const [name, setName] = useState<string>('')
+  const [message, setMessage] = useState<string>('')
 
   const dispatch = useDispatchPosts()
 
-  function handlePhotoChange(e: any) {
-    setPhoto(URL.createObjectURL(e.target.files[0]))
+  function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    if (event.target.files) {
+      setPhoto(URL.createObjectURL(event.target.files[0]))
+    }
   }
 
-  function handleDeletePhoto(e: any) {
+  function handleDeletePhoto(): void {
     setPhoto('')
   }
 
-  function handleChangeName(e: any) {
-    setName(e.target.value)
+  function handleChangeName(event: React.ChangeEvent<HTMLInputElement>): void {
+    setName(event.target.value)
   }
 
-  function handleChangeMessage(e: any) {
-    setMessage(e.target.value)
+  function handleChangeMessage(
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void {
+    setMessage(event.target.value)
   }
 
-  function handleDiscard(e: any) {
+  function handleDiscard(): void {
     setPhoto('')
     setName('')
     setMessage('')
   }
 
-  function handleSubmit(e: any) {
+  function handleSubmit(event: React.MouseEvent<HTMLButtonElement>): void {
     dispatch({ type: 'CREATE_POST', payload: { photo, message, author: name } })
-    handleDiscard(e)
+    handleDiscard()
   }
 
   return (

@@ -1,15 +1,15 @@
+import { PostProps } from '../@types'
 import { useDispatchPosts } from '../contexts/PostsContext'
 import Image from 'next/image'
 import styles from '../styles/post.module.css'
-
 import deleteImage from '../../public/delete.png'
 
-const Post = (props: any) => {
+const Post = (props: PostProps) => {
   const { photo, message, author } = props.data
   const { index } = props
   const dispatch = useDispatchPosts()
 
-  function handleDeletePost(index: any) {
+  function handleDeletePost(index: number) {
     dispatch({ type: 'DELETE_POST', index })
   }
 
