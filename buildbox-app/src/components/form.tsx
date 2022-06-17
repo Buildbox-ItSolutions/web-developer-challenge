@@ -48,16 +48,10 @@ const Form = () => {
       {photo ? (
         <div className={styles.photoContainer}>
           <div className={styles.photoLayout}>
-            <Image
-              src={photo}
-              width={88}
-              height={88}
-              objectFit="cover"
-              unoptimized
-            />
+            <Image src={photo} width={88} height={88} objectFit="cover" />
           </div>
           <div className={styles.trashButton} onClick={handleDeletePhoto}>
-            <Image src={trashImage} width={24} height={24} unoptimized />
+            <Image src={trashImage} width={24} height={24} />
           </div>
         </div>
       ) : (
@@ -70,7 +64,7 @@ const Form = () => {
             onChange={handlePhotoChange}
           />
           <div className={styles.uploadImage}>
-            <Image src={uploadImage} width={24} height={24} unoptimized />
+            <Image src={uploadImage} width={24} height={24} />
           </div>
         </label>
       )}

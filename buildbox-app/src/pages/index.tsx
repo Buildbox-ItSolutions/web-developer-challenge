@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header>
-        <Image src={headerImage} width={103} height={45} unoptimized />
+        <Image src={headerImage} width={103} height={45} />
       </Header>
 
       <main className={styles.main}>
