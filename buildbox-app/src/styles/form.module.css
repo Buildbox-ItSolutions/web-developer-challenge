@@ -20,13 +20,13 @@
   align-items: center;
   position: relative;
 }
-.photoContainer {
+.photoLayout {
   cursor: pointer;
   display: flex;
   align-items: center;
   position: relative;
 }
-.photoLayout {
+.photoContainer {
   width: 88px;
   height: 88px;
   border: solid 1px #4b4b4b;
