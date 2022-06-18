@@ -13,12 +13,12 @@ const Feed = () => {
 
   return (
     <div className={styles.feedContainer}>
-      {posts.length > 0 && (
-        <>
-          <p className={styles.feedTitle}>Feed</p>
-          {[...listOfPosts].reverse()}
-        </>
-      )}
+      <>
+        <p className={styles.feedTitle}>
+          {posts.length > 0 ? 'Feed' : 'Nenhuma postagem'}
+        </p>
+        {[...listOfPosts].reverse()}
+      </>
     </div>
   )
 }
