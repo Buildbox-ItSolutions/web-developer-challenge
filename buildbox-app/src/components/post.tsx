@@ -22,7 +22,7 @@ const Post = (props: PostProps) => {
 						width={88}
 						height={88}
 						objectFit='cover'
-						alt=''
+						alt='Foto do usuário'
 					/>
 				</div>
 				<div className={styles.postDetails}>
