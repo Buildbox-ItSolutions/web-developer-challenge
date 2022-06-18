@@ -1,0 +1,21 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "prettier.printWidth": 80,
+    "prettier.useTabs": true,
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.bracketSpacing": true,
+    "prettier.jsxBracketSameLine": false,
+    "prettier.endOfLine": "lf",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false
+}
