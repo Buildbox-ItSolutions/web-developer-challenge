@@ -22,6 +22,7 @@ const Post = (props: PostProps) => {
 						width={88}
 						height={88}
 						objectFit='cover'
+						alt=''
 					/>
 				</div>
 				<div className={styles.postDetails}>
@@ -34,7 +35,12 @@ const Post = (props: PostProps) => {
 				className={styles.deletePost}
 				onClick={() => handleDeletePost(index)}
 			>
-				<Image src={deleteImage} width={20} height={20} />
+				<Image
+					src={deleteImage}
+					width={20}
+					height={20}
+					alt='Apagar postagem'
+				/>
 			</span>
 		</div>
 	)

@@ -18,7 +18,7 @@ const StyledHeader = styled.header`
 const Header = () => {
 	return (
 		<StyledHeader>
-			<Image src={headerImage} width={103} height={45} />
+			<Image src={headerImage} width={103} height={45} alt='Logotipo' />
 		</StyledHeader>
 	)
 }

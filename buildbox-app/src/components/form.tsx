@@ -60,13 +60,19 @@ const Form = () => {
 							width={88}
 							height={88}
 							objectFit='cover'
+							alt='Foto do usuário'
 						/>
 					</div>
 					<div
 						className={styles.trashButton}
 						onClick={handleDeletePhoto}
 					>
-						<Image src={trashImage} width={24} height={24} />
+						<Image
+							src={trashImage}
+							width={24}
+							height={24}
+							alt='Apagar foto do usuário'
+						/>
 					</div>
 				</div>
 			) : (
@@ -82,7 +88,12 @@ const Form = () => {
 						onChange={handlePhotoChange}
 					/>
 					<div className={styles.uploadImage}>
-						<Image src={uploadImage} width={24} height={24} />
+						<Image
+							src={uploadImage}
+							width={24}
+							height={24}
+							alt='Selecionar uma foto'
+						/>
 					</div>
 				</label>
 			)}
