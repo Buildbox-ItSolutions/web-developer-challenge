@@ -26,8 +26,7 @@ function Index() {
   };
 
   const handleImage = (e: any) => {
-    const file = e.target.files[0];
-    setNewImage(file);
+    setNewImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const removeImage = () => {

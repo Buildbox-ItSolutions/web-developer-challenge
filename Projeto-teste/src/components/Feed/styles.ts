@@ -80,13 +80,14 @@ export const UserImg = styled.img`
   object-fit: cover;
 
   @media (max-width: 800px) {
-    width: 45px;
-    width: 45px;
+    width: 78px;
+    height: 78px;
     font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 40px;
+    width: 68px;
+    height: 68px;
   }
 `;
 
@@ -104,12 +105,13 @@ export const Description = styled.p`
   color: #9f9f9f;
 
   @media (max-width: 800px) {
-    width: 260px;
+    width: 230px;
+
     font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 180px;
+    width: 160px;
   }
 `;
 
@@ -136,12 +138,15 @@ export const Name = styled.div`
   line-height: 1.29;
   text-align: left;
   color: #7a7a7a;
+  overflow: scroll;
 
   @media (max-width: 800px) {
-    width: 260px;
+    width: 230px;
+
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 180px;
+    width: 160px;
   }
 `;

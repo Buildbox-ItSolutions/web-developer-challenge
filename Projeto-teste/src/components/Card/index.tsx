@@ -30,11 +30,11 @@ function Index({
 
   return (
     <Styled.Card>
-      <Styled.InputImg type="file" onChange={handleImage} value={''} required />
+      <Styled.InputImg type="file" onChange={handleImage} accept="image/*" />
       <Styled.ImgWrapper>
         {newImage ? (
           <>
-            <Styled.UserImg src={URL.createObjectURL(newImage)} alt="image" />
+            <Styled.UserImg src={newImage} alt="image" />
             <Styled.IconTrash>
               <BiTrashAlt onClick={removeImage} />
             </Styled.IconTrash>
