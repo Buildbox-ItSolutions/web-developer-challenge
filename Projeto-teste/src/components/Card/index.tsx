@@ -27,6 +27,7 @@ function Index({
   removeImage,
 }: Props) {
   const [endImage] = useState<string>('logouser.svg');
+  const [active] = useState<any>('');
 
   return (
     <Styled.Card>
@@ -58,10 +59,29 @@ function Index({
         required
       />
       <Styled.GridButton>
-        <Styled.ButtonClear onClick={handleClear}>Descartar</Styled.ButtonClear>
-        <Styled.ButtonPost className="buttonPost" onClick={handleSubmit}>
-          Publicar
-        </Styled.ButtonPost>
+        {newName || newImage || newMessage ? (
+          <Styled.ButtonClear
+            onClick={handleClear}
+            style={{ pointerEvents: active }}
+          >
+            Descartar
+          </Styled.ButtonClear>
+        ) : (
+          <Styled.ButtonClear
+            onClick={handleClear}
+            style={{ pointerEvents: 'none' }}
+          >
+            Descartar
+          </Styled.ButtonClear>
+        )}
+
+        {newName && newImage && newMessage ? (
+          <Styled.ButtonPostActive onClick={handleSubmit}>
+            Publicar
+          </Styled.ButtonPostActive>
+        ) : (
+          <Styled.ButtonPost onClick={handleSubmit}>Publicar</Styled.ButtonPost>
+        )}
       </Styled.GridButton>
     </Styled.Card>
   );

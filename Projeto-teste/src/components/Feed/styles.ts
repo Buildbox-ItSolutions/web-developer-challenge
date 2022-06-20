@@ -22,7 +22,6 @@ export const SubTitle = styled.span`
 
 export const Container = styled.main`
   width: 516px;
-  height: 225px;
   border-radius: 3px;
   border: 1px solid #3b3b3b;
   background-color: #313131;
@@ -38,11 +37,10 @@ export const Container = styled.main`
 `;
 
 export const IconDel = styled.div`
-  width: 21px;
+  width: 100%;
   height: 21px;
   font-size: 20px;
   text-align: end;
-  width: 100%;
   margin-top: 12px;
   padding-right: 12px;
   color: #ee6723;
@@ -54,7 +52,6 @@ export const IconDel = styled.div`
 
 export const ContainerItens = styled.div`
   width: 515px;
-  height: 189px;
 
   @media (max-width: 800px) {
     width: 400px;
@@ -69,6 +66,13 @@ export const Column = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 24px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const UserImg = styled.img`
@@ -79,15 +83,9 @@ export const UserImg = styled.img`
   border-radius: 36px;
   object-fit: cover;
 
-  @media (max-width: 800px) {
-    width: 78px;
-    height: 78px;
-    font-size: 14px;
-  }
-
   @media (max-width: 600px) {
-    width: 68px;
-    height: 68px;
+    width: 80px;
+    height: 80px;
   }
 `;
 
@@ -97,21 +95,21 @@ export const ContainerDescription = styled.div`
 `;
 
 export const Description = styled.p`
-  overflow-y: auto;
   width: 348px;
-  height: 80px;
+  min-height: 80px;
   font-family: 16px;
   line-height: 1.25;
   color: #9f9f9f;
 
   @media (max-width: 800px) {
     width: 230px;
-
     font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 160px;
+    margin-top: 20px;
+    width: 275px;
+    margin-left: 30px;
   }
 `;
 
@@ -121,32 +119,37 @@ export const GirdName = styled.div`
 
 export const SpanSubtitle = styled.span`
   width: 66px;
-  height: 14px;
+  min-height: 14px;
   margin-bottom: 2px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
   letter-spacing: 0.29px;
   color: #5f5f5f;
+
+  @media (max-width: 600px) {
+    width: 275px;
+    margin-left: 30px;
+  }
 `;
 
 export const Name = styled.div`
   width: 348px;
-  height: 17px;
+  min-height: 17px;
   font-family: Roboto;
   font-size: 14px;
   line-height: 1.29;
   text-align: left;
   color: #7a7a7a;
-  overflow: scroll;
+  padding-bottom: 15px;
 
   @media (max-width: 800px) {
     width: 230px;
-
     font-size: 14px;
   }
 
   @media (max-width: 600px) {
-    width: 160px;
+    width: 275px;
+    margin-left: 30px;
   }
 `;

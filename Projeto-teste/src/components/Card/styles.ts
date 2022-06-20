@@ -195,12 +195,28 @@ export const ButtonPost = styled.div`
   background-color: #5f5f5f;
   line-height: 1.29;
   color: #313131;
+  pointer-events: none;
 
-  :hover {
-    cursor: pointer;
-    background-color: #71bb00;
-    color: #ffff;
+  @media (max-width: 800px) {
+    font-size: 12px;
+    width: 85px;
+    height: 35px;
   }
+`;
+
+export const ButtonPostActive = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 98px;
+  height: 41px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border-style: none;
+  font-size: 14px;
+  background-color: #71bb00;
+  line-height: 1.29;
+  color: #ffff;
+  cursor: pointer;
 
   @media (max-width: 800px) {
     font-size: 12px;

@@ -1,15 +1,17 @@
 import * as Styled from './styles';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { useEffect, useState } from 'react';
 
 interface Props {
   posts: any[];
   handDelete: any;
+  feed: any;
 }
 
-function Index({ posts, handDelete }: Props) {
+function Index({ posts, handDelete, feed }: Props) {
   return (
     <>
-      <Styled.SubTitle>Feed</Styled.SubTitle>
+      <Styled.SubTitle>{feed}</Styled.SubTitle>
       {posts.map((post, index) => (
         <Styled.Container key={post.id}>
           <Styled.IconDel>

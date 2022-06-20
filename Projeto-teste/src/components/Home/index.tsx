@@ -10,6 +10,7 @@ function Index() {
   const [newName, setNewName] = useState<any>('');
   const [newMessage, setNewMessage] = useState<string>('');
   const [posts, setPosts] = useState<any[]>([]);
+  const [feed, setFeed] = useState('');
 
   const randomNumber = (min: number, max: number) => {
     min = Math.ceil(min);
@@ -51,6 +52,8 @@ function Index() {
       alert('Porfavor preencher todos os campos');
     }
 
+    setFeed('Feed');
+
     setNewName('');
     setNewMessage('');
     setNewImage('');
@@ -63,9 +66,13 @@ function Index() {
   };
 
   const handDelete = (e: any, index: number) => {
-    const removePost = [...posts];
-    removePost.splice(index, 1);
-    setPosts([...removePost]);
+    const Allposts = [...posts];
+    Allposts.splice(index, 1);
+    setPosts([...Allposts]);
+
+    if (Allposts.length == 0) {
+      setFeed('');
+    }
   };
 
   return (
@@ -85,7 +92,7 @@ function Index() {
             handleSubmit={handleSubmit}
             removeImage={removeImage}
           />
-          <Feed posts={posts} handDelete={handDelete} />
+          <Feed feed={feed} posts={posts} handDelete={handDelete} />
         </Styled.Container>
       </Styled.Section>
     </div>
