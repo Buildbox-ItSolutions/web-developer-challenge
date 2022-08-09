@@ -1,21 +1,32 @@
+import InsertPost from 'components/InsertPost'
+import ShowPosts from 'components/ShowPosts'
+import { useState } from 'react'
 import * as S from './styles'
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'TypeScript, ReactJS, NextJS e Styled Components'
-}) => (
-  <S.Wrapper>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Imagem de um átomo e React Avançado escrito ao lado."
-    />
-    <S.Title>{title}</S.Title>
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Um desenvolvedor de frente para uma tela com código."
-    />
-  </S.Wrapper>
-)
+export interface IntProst {
+  id: number
+  name: string
+  mensagem: string
+}
+
+export type PostProps = Array<IntProst>
+
+const Main = () => {
+  const [postList, setPostList] = useState<PostProps>([])
+  const addPostlist = (postitem: PostProps) =>
+    setPostList([...postList, postitem])
+  const deletPostList = (deletitem: IntProst) =>
+    setPostList(postList.filter((e) => e.id !== deletitem.id))
+  return (
+    <S.Wrapper>
+      <InsertPost addPostlistProp={addPostlist} />
+      <S.Post>
+        {postList.map((e) => (
+          <ShowPosts key={e.id} item={e} deletPostItemProps={deletPostList} />
+        ))}
+      </S.Post>
+    </S.Wrapper>
+  )
+}
 
 export default Main
