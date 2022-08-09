@@ -73,7 +73,7 @@ export const DisplayBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 3%;
+  margin-top: 2%;
   .ContainerImg {
     display: flex;
     justify-content: center;
@@ -162,6 +162,7 @@ export const Input = styled.input`
   text-align: left;
   color: #fff;
   padding: 5px 5px;
+  border: 0;
 `;
 export const BoxText = styled.textarea`
   width: 90%;
@@ -179,6 +180,8 @@ export const BoxText = styled.textarea`
   letter-spacing: normal;
   text-align: left;
   color: #fff;
+  border: 0;
+
 `;
 
 export const Imagem = styled.img`

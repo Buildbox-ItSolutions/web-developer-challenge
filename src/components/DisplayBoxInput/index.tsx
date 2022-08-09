@@ -10,6 +10,8 @@ import {
 
 export function DisplayBoxInput() {
   const [disableButton, setDisableButton] = useState(true);
+  const [user,setUser] = useState(" ")
+  const [message,setMessage] = useState("")
   const handleFocus = () => {
     setDisableButton(false);
   };
@@ -23,8 +25,8 @@ export function DisplayBoxInput() {
         <input type="file" name="arquivo" id="arquivo"></input>
       </div>
       <div className="ContainerInputs">
-        <Input onFocus={handleFocus} />
-        <BoxText onFocus={handleFocus} />
+        <Input value={user} onChange={(e: any) => setUser(e.target.value)} onFocus={handleFocus} />
+        <BoxText value={message} onChange={(e: any) => setMessage(e.target.value)} onFocus={handleFocus} />
       </div>
       <div className="ContainerButtons">
         <TextSmall underline>Descartar</TextSmall>

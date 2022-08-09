@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DisplayBoxInput } from "./components/DisplayBoxInput";
 import { DisplayBoxOutput } from "./components/DisplayBoxOutput";
 import { Header } from "./components/Header";
-import { Container, ContainerBody } from "./styles/style";
+import { Container, ContainerBody, TextSmall } from "./styles/style";
 
 function App() {
   const [comments, setComments] = useState([
@@ -13,7 +13,7 @@ function App() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
     },
     {
-      id: 1,
+      id: 2,
       user: "Marcelo",
       messgae:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
@@ -24,6 +24,7 @@ function App() {
       <Header />
       <ContainerBody>
         <DisplayBoxInput />
+        <TextSmall>Feed</TextSmall>
         {comments.map((coment: any) => (
            <DisplayBoxOutput key={coment.id} />
         ))}
