@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ContextManager } from "../../contex";
 import {
   BoxText,
@@ -18,26 +18,27 @@ export function DisplayBoxInput() {
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const formImgRef = useRef<any>({});
-  const { setComments } = useContext(ContextManager);
+  const { setComments,comments } = useContext(ContextManager);
 
   const handleFocus = () => {
     setDisableButton(false);
   };
   const handlesubmit = () => {
-    console.log(user);
-    console.log(message);
-    console.log(imgUrl);
     setComments((comments: any) => [
       ...comments,
       {
         id: Math.random() * 100000,
         user: user,
         message,
+        img:imgUrl,
       },
     ]);
+
+    
+    
   };
   const discartForm = () => {
-    setStart(!start);
+    setStart(true);
     setUser(" ");
     setMessage(" ");
     formImgRef.current.src = "image.png";
@@ -54,7 +55,9 @@ export function DisplayBoxInput() {
       console.log(error);
     }
   };
-
+  useEffect(()=>{
+    console.log(comments);
+  },[comments])
   return (
     <DisplayBoxContainer>
       <div className="ContainerImg">

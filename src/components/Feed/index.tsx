@@ -8,7 +8,7 @@ export function Feed() {
     <div className="containerFeed">
       {comments?.length > 0 && <h5>Feed</h5>}
       {comments.map((coment: any) => (
-        <DisplayBoxOutput key={coment.id} />
+        <DisplayBoxOutput data={coment} key={coment.id} />
       ))}
     </div>
   );

@@ -6,7 +6,10 @@ import {
   TextSmall,
 } from "../../styles/style";
 
-export function DisplayBoxOutput() {
+interface DisplayBoxOutputProps {
+  data: any;
+}
+export function DisplayBoxOutput({ data }: DisplayBoxOutputProps) {
   return (
     <DisplayBoxContainer>
       <div className="BoxTrash">
@@ -15,17 +18,15 @@ export function DisplayBoxOutput() {
 
       <div className="flexComent">
         <div className="ContainerImg">
-          <Imagem src="https://sme.goiania.go.gov.br/conexaoescola/wp-content/uploads/2020/09/Rio-araguaia-e1600879107526.jpg" />
+          <Imagem src={data.img} />
         </div>
         <div className="boxComent">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            mattis ligula vel velit scelerisque iaculis. Nam mattis justo id
-            orci commodo, eu tempus purus cursus.
+            {data.message}
           </p>
           <div className="sentTo">
             <TextSmall small>Enviado por</TextSmall>
-            <h3>Manuela Oliveira</h3>
+            <h3>{data.user}</h3>
           </div>
         </div>
       </div>
