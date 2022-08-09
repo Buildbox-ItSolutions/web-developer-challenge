@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { ContextManager } from "../../contex";
 import {
   BoxText,
@@ -19,7 +19,7 @@ export function DisplayBoxInput() {
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const formImgRef = useRef<any>({});
-  const { setComments, comments } = useContext(ContextManager);
+  const { setComments } = useContext(ContextManager);
 
   const handleFocus = (): void => {
     setDisableButton(false);
@@ -67,9 +67,7 @@ export function DisplayBoxInput() {
     setImgUrl('')
     setStart(true);
   }
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
+
   return (
     <DisplayBoxContainer>
       <div className="ContainerImg">
