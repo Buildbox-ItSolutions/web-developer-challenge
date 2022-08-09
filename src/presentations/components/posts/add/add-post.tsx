@@ -1,8 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IPostEntity } from "../../../../infra/entities/post";
 import { PostRepository } from "../../../../infra/repositories/post-repository";
 import { convertFileToBase64 } from "../../../../utils/base64";
+
+import {
+  DisabledButton,
+  PrimaryButton,
+} from "../../core/buttons/custom-button";
+import { CustomInput } from "../../core/input/custom-input";
+import { CustomTextArea } from "../../core/input/custom-textarea";
+import ImagePost from "../image";
+import TrashImage from "../../../../assets/images/trash.png";
+
 import * as S from "./styles";
+import { TrashButton } from "../../core/buttons/icon-button";
 
 const initialPost: IPostEntity = {
   image: "",
@@ -29,6 +40,10 @@ export default function AddPost({ repository }: Props) {
     }
   };
 
+  const onClickRemoveImage = () => {
+    setPost((prev) => ({ ...prev, image: "" }));
+  };
+
   useEffect(() => {
     setImagePreview(post.image);
   }, [post.image]);
@@ -51,22 +66,33 @@ export default function AddPost({ repository }: Props) {
     }
   };
 
+  const isValidPost = useMemo(() => !!post.message && !!post.name, [post]);
+
   return (
     <S.Container>
-      <label htmlFor="postImage">
-        <S.Image>
-          <img src={imagePreview} alt="Add Post" />
-        </S.Image>
-        <input
-          id="postImage"
-          accept="image/*"
-          style={{ display: "none" }}
-          type="file"
-          onChange={handleOnChangeImage}
-        />
-      </label>
+      <S.GroupActions>
+        <label htmlFor="postImage">
+          <ImagePost image={imagePreview} />
 
-      <S.Input
+          <input
+            id="postImage"
+            accept="image/*"
+            style={{ display: "none" }}
+            type="file"
+            onChange={handleOnChangeImage}
+          />
+        </label>
+
+        {!!imagePreview && (
+          <TrashButton
+            src={TrashImage}
+            alt="remover imagem"
+            onClick={onClickRemoveImage}
+          />
+        )}
+      </S.GroupActions>
+
+      <CustomInput
         placeholder="Digite seu nome"
         value={post.name}
         onChange={({ currentTarget }) => {
@@ -74,17 +100,19 @@ export default function AddPost({ repository }: Props) {
         }}
       />
 
-      <S.TextArea
+      <CustomTextArea
         placeholder="Digite sua mensagem"
         onChange={({ currentTarget }) => {
           setPost((prev) => ({ ...prev, message: currentTarget.value }));
         }}
         value={post.message}
-      ></S.TextArea>
+      ></CustomTextArea>
 
       <S.GroupButtons>
-        <S.Button onClick={handleOnDiscard}>Descartar</S.Button>
-        <S.Button onClick={handleOnPublish}>Publicar</S.Button>
+        <DisabledButton onClick={handleOnDiscard}>Descartar</DisabledButton>
+        <PrimaryButton onClick={handleOnPublish} disabled={!isValidPost}>
+          Publicar
+        </PrimaryButton>
       </S.GroupButtons>
     </S.Container>
   );
