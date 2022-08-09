@@ -24,10 +24,14 @@ function App() {
       <Header />
       <ContainerBody>
         <DisplayBoxInput />
-        <TextSmall>Feed</TextSmall>
-        {comments.map((coment: any) => (
-           <DisplayBoxOutput key={coment.id} />
-        ))}
+        <div className="containerFeed">
+          {comments?.length > 0 &&(
+            <h5>Feed</h5>
+          )}
+          {comments.map((coment: any) => (
+            <DisplayBoxOutput key={coment.id} />
+          ))}
+        </div>
       </ContainerBody>
     </Container>
   );

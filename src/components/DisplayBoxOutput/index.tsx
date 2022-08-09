@@ -1,9 +1,18 @@
 import { ReactNode } from "react";
-import { DisplayBoxContainer, Imagem, TextSmall } from "../../styles/style";
+import {
+  DisplayBoxContainer,
+  IconTrash,
+  Imagem,
+  TextSmall,
+} from "../../styles/style";
 
 export function DisplayBoxOutput() {
   return (
     <DisplayBoxContainer>
+      <div className="BoxTrash">
+        <IconTrash src="delete.png" />
+      </div>
+
       <div className="flexComent">
         <div className="ContainerImg">
           <Imagem src="https://sme.goiania.go.gov.br/conexaoescola/wp-content/uploads/2020/09/Rio-araguaia-e1600879107526.jpg" />

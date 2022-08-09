@@ -17,6 +17,23 @@ export const ContainerBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .containerFeed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5%;
+    h5 {
+      font-family: Roboto;
+      font-size: 17px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: #7a7a7a;
+    }
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -109,8 +126,18 @@ export const DisplayBoxContainer = styled.div`
   }
   .boxComent {
     width: 70%;
+    > p {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: left;
+      color: #9f9f9f;
+    }
   }
-
   .sentTo {
     display: flex;
     flex-direction: column;
@@ -127,6 +154,24 @@ export const DisplayBoxContainer = styled.div`
       letter-spacing: normal;
       text-align: left;
       color: #7a7a7a;
+    }
+  }
+  .BoxTrash{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -28px;
+    right: -12px;
+  }
+  @media (max-width: 425px) {
+    .flexComent {
+      flex-direction: column;
+    }
+    .boxComent {
+      width: 100%;
+    }
+    .BoxTrash{
+      top: -10px;
     }
   }
 `;
@@ -181,11 +226,16 @@ export const BoxText = styled.textarea`
   text-align: left;
   color: #fff;
   border: 0;
-
 `;
 
 export const Imagem = styled.img`
   width: 88px;
   height: 88px;
   border-radius: 36px;
+`;
+
+export const IconTrash = styled.img`
+  width: 20px;
+  height: 20px;
+
 `;
