@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { IPostEntity } from "../../../../infra/entities/post";
-import { PostRepository } from "../../../../infra/repositories/post-repository";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { IPostAdd } from "../../../../infra/entities/post";
 import { convertFileToBase64 } from "../../../../utils/base64";
 
 import {
@@ -14,19 +13,18 @@ import TrashImage from "../../../../assets/images/trash.png";
 
 import * as S from "./styles";
 import { TrashButton } from "../../core/buttons/icon-button";
+import { PostContext } from "../../../contexts/post";
 
-const initialPost: IPostEntity = {
+const initialPost: IPostAdd = {
   image: "",
   message: "",
   name: "",
 };
 
-type Props = {
-  repository: PostRepository;
-};
+export default function AddPost() {
+  const postContext = useContext(PostContext);
 
-export default function AddPost({ repository }: Props) {
-  const [post, setPost] = useState<IPostEntity>(initialPost);
+  const [post, setPost] = useState<IPostAdd>(initialPost);
   const [imagePreview, setImagePreview] = useState<string>("");
 
   const handleOnChangeImage = async ({ currentTarget }: any) => {
@@ -57,9 +55,9 @@ export default function AddPost({ repository }: Props) {
     addPublish(post);
   };
 
-  const addPublish = async (post: IPostEntity) => {
+  const addPublish = async (post: IPostAdd) => {
     try {
-      await repository.add(post);
+      await postContext?.addPost(post);
       handleOnDiscard();
     } catch (error: any) {
       console.log(error.message);
