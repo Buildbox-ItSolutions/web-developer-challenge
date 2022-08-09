@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
   :root{
+    
+    --gray-1000: #2B2B2B;
     --gray-900: #343434;
     --gray-800: #313131;
     --gray-600: #494949;
@@ -40,6 +42,10 @@ export const GlobalStyles = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6,strong{
     font-weight: 600;
+    color: var(--gray-10);
+  }
+  p{
+    font-weight: 300;
     color: var(--gray-10);
   }
 
