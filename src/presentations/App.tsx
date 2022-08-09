@@ -1,11 +1,15 @@
 import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/layout/header/header";
 import Version1Page from "./pages/version1/Version1Page";
 
-function App() {
+import * as S from "./styles";
+
+function Layout() {
   return (
     <>
-      <h1>App</h1>
+      <Header />
       <Router>
         <Routes>
           <Route path="/" element={<Version1Page />} />
@@ -17,6 +21,14 @@ function App() {
           </Route> */}
         </Routes>
       </Router>
+    </>
+  );
+}
+function App() {
+  return (
+    <>
+      <S.GlobalStyle />
+      <Layout />
     </>
   );
 }
