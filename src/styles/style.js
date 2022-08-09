@@ -77,6 +77,7 @@ export const TextSmall = styled.h4`
   letter-spacing: normal;
   text-align: center;
   color: #5f5f5f;
+  cursor: ${(props) => (props.underline ? "pointer" : "none")};
   text-decoration: ${(props) => (props.underline ? "underline" : "none")};
 `;
 export const DisplayBoxContainer = styled.div`
@@ -186,6 +187,7 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 4%;
+  cursor: pointer;
   p {
     color: ${(props) => (props.disable ? "#313131" : "#fff")};
   }

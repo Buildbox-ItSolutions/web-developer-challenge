@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { ContextManager } from "../../contex";
 import {
   BoxText,
   ButtonContainer,
@@ -14,7 +15,10 @@ export function DisplayBoxInput() {
   const [start, setStart] = useState<boolean>(true);
   const [user, setUser] = useState<string>(" ");
   const [message, setMessage] = useState<string>("");
+  const [imgUrl, setImgUrl] = useState<string>("");
+
   const formImgRef = useRef<any>({});
+  const { setComments } = useContext(ContextManager);
 
   const handleFocus = () => {
     setDisableButton(false);
@@ -22,12 +26,30 @@ export function DisplayBoxInput() {
   const handlesubmit = () => {
     console.log(user);
     console.log(message);
+    console.log(imgUrl);
+    setComments((comments: any) => [
+      ...comments,
+      {
+        id: Math.random() * 100000,
+        user: user,
+        message,
+      },
+    ]);
   };
-
+  const discartForm = () => {
+    setStart(!start);
+    setUser(" ");
+    setMessage(" ");
+    formImgRef.current.src = "image.png";
+  };
   const changeImage = (evt: any): void => {
     try {
       const [file] = evt.target.files;
-      formImgRef.current.src = URL.createObjectURL(file);
+      if (file) {
+        setStart(false);
+        formImgRef.current.src = URL.createObjectURL(file);
+        setImgUrl(URL.createObjectURL(file));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +60,7 @@ export function DisplayBoxInput() {
       <div className="ContainerImg">
         <ImagemCOntainerCircle>
           <label htmlFor="arquivo">
-            <Imagem start={start.toString()} ref={formImgRef} src="image.png" />
+            <Imagem start={start} ref={formImgRef} src="image.png" />
           </label>
           <input
             type="file"
@@ -61,7 +83,9 @@ export function DisplayBoxInput() {
         />
       </div>
       <div className="ContainerButtons">
-        <TextSmall underline>Descartar</TextSmall>
+        <TextSmall underline onClick={discartForm}>
+          Descartar
+        </TextSmall>
         <ButtonContainer onClick={handlesubmit} disable={disableButton}>
           <p>Publicar</p>
         </ButtonContainer>

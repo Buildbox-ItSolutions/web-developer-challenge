@@ -1,37 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { DisplayBoxInput } from "./components/DisplayBoxInput";
-import { DisplayBoxOutput } from "./components/DisplayBoxOutput";
+import { Feed } from "./components/Feed";
 import { Header } from "./components/Header";
-import { Container, ContainerBody, TextSmall } from "./styles/style";
+import { ManagerProvider } from "./contex";
+import { Container, ContainerBody } from "./styles/style";
 
 function App() {
-  const [comments, setComments] = useState([
-    {
-      id: 1,
-      user: "Marcelo",
-      messgae:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
-    },
-    {
-      id: 2,
-      user: "Marcelo",
-      messgae:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
-    },
-  ]);
   return (
     <Container>
       <Header />
       <ContainerBody>
-        <DisplayBoxInput />
-        <div className="containerFeed">
-          {comments?.length > 0 &&(
-            <h5>Feed</h5>
-          )}
-          {comments.map((coment: any) => (
-            <DisplayBoxOutput key={coment.id} />
-          ))}
-        </div>
+        <ManagerProvider>
+          <DisplayBoxInput />
+          <Feed />
+        </ManagerProvider>
       </ContainerBody>
     </Container>
   );
