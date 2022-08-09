@@ -248,4 +248,5 @@ export const ImagemCOntainerCircle = styled.div`
 export const IconTrash = styled.img`
   width: 20px;
   height: 20px;
+  cursor: pointer;
 `;

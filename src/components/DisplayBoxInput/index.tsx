@@ -7,41 +7,46 @@ import {
   Imagem,
   ImagemCOntainerCircle,
   Input,
+  IconTrash,
   TextSmall,
 } from "../../styles/style";
 
 export function DisplayBoxInput() {
   const [disableButton, setDisableButton] = useState<boolean>(true);
   const [start, setStart] = useState<boolean>(true);
-  const [user, setUser] = useState<string>(" ");
+  const [user, setUser] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const formImgRef = useRef<any>({});
   const { setComments, comments } = useContext(ContextManager);
 
-  const handleFocus = () => {
+  const handleFocus = (): void => {
     setDisableButton(false);
   };
-  const discartForm = () => {
+
+  const discartForm = (): void => {
     setStart(true);
-    setUser(" ");
-    setMessage(" ");
+    setUser("");
+    setMessage("");
     formImgRef.current.src = "image.png";
+    setImgUrl("")
     setDisableButton(true)
   };
-  const handlesubmit = () => {
-    setComments((comments: any) => [
-      ...comments,
-      {
-        id: Math.random() * 100000,
-        user: user,
-        message,
-        img: imgUrl,
-      },
-    ]);
 
-    discartForm();
+  const handlesubmit = (): void => {
+    if(user !== "" && message !== "" && imgUrl !== "") {
+      setComments((comments: any) => [
+        ...comments,
+        {
+          id: Math.random() * 100000,
+          user: user,
+          message,
+          img: imgUrl,
+        },
+      ]);
+      discartForm();
+    }
   };
 
   const changeImage = (evt: any): void => {
@@ -56,6 +61,12 @@ export function DisplayBoxInput() {
       console.log(error);
     }
   };
+
+  const handleDiscartImg = (): void => {
+    formImgRef.current.src = "image.png";
+    setImgUrl('')
+    setStart(true);
+  }
   useEffect(() => {
     console.log(comments);
   }, [comments]);
@@ -71,8 +82,10 @@ export function DisplayBoxInput() {
             name="arquivo"
             onChange={changeImage}
             id="arquivo"
+            required
           />
         </ImagemCOntainerCircle>
+        <IconTrash src="trash.png" onClick={handleDiscartImg} style={{marginLeft:"10px"}} />
       </div>
       <div className="ContainerInputs">
         <Input

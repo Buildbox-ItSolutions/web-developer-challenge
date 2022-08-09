@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { useContext } from "react";
+import { ContextManager } from "../../contex";
 import {
   DisplayBoxContainer,
   IconTrash,
@@ -10,10 +11,20 @@ interface DisplayBoxOutputProps {
   data: any;
 }
 export function DisplayBoxOutput({ data }: DisplayBoxOutputProps) {
+  const { setComments, comments } = useContext(ContextManager);
+
+  const deleteComment = () => {
+   
+   const  arr = comments.filter(function(item:any) {
+      return item.id !== data.id
+  });
+    setComments(arr)
+    
+  }
   return (
     <DisplayBoxContainer>
       <div className="BoxTrash">
-        <IconTrash src="delete.png" />
+        <IconTrash src="delete.png" onClick={deleteComment}/>
       </div>
 
       <div className="flexComent">
