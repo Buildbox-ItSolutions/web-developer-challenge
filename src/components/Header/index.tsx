@@ -1,4 +1,4 @@
-import { Container } from "../../pages/Dashboard/styles";
+import { Container } from "./styles";
 
 export const Header = () => {
   return (

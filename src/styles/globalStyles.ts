@@ -7,9 +7,12 @@ export const GlobalStyles = createGlobalStyle`
     --gray-1000: #2B2B2B;
     --gray-900: #343434;
     --gray-800: #313131;
+    --gray-700: #515151;
     --gray-600: #494949;
+    --gray-500: #5F5F5F;
     --gray-20: #565656;
     --gray-10: #5B5B5B;
+    --gray: #888888;
     --white: #FFFFFF;
     --green-600: #71BB00;
     --orange-300: #AD4F26;
@@ -31,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body{
-    background-color: var(--gray-900);
+    background-color: var(--gray-800);
     -webkit-font-smoothing: antialiased;
   }
   
