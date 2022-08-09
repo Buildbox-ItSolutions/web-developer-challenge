@@ -18,10 +18,17 @@ export function DisplayBoxInput() {
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const formImgRef = useRef<any>({});
-  const { setComments,comments } = useContext(ContextManager);
+  const { setComments, comments } = useContext(ContextManager);
 
   const handleFocus = () => {
     setDisableButton(false);
+  };
+  const discartForm = () => {
+    setStart(true);
+    setUser(" ");
+    setMessage(" ");
+    formImgRef.current.src = "image.png";
+    setDisableButton(true)
   };
   const handlesubmit = () => {
     setComments((comments: any) => [
@@ -30,19 +37,13 @@ export function DisplayBoxInput() {
         id: Math.random() * 100000,
         user: user,
         message,
-        img:imgUrl,
+        img: imgUrl,
       },
     ]);
 
-    
-    
+    discartForm();
   };
-  const discartForm = () => {
-    setStart(true);
-    setUser(" ");
-    setMessage(" ");
-    formImgRef.current.src = "image.png";
-  };
+
   const changeImage = (evt: any): void => {
     try {
       const [file] = evt.target.files;
@@ -55,9 +56,9 @@ export function DisplayBoxInput() {
       console.log(error);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     console.log(comments);
-  },[comments])
+  }, [comments]);
   return (
     <DisplayBoxContainer>
       <div className="ContainerImg">
