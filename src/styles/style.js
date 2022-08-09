@@ -91,6 +91,7 @@ export const DisplayBoxContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: 2%;
+
   .ContainerImg {
     display: flex;
     justify-content: center;
@@ -103,7 +104,6 @@ export const DisplayBoxContainer = styled.div`
     label {
       text-align: center;
       display: block;
-      margin-top: 10px;
       cursor: pointer;
     }
   }
@@ -156,7 +156,7 @@ export const DisplayBoxContainer = styled.div`
       color: #7a7a7a;
     }
   }
-  .BoxTrash{
+  .BoxTrash {
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -170,7 +170,7 @@ export const DisplayBoxContainer = styled.div`
     .boxComent {
       width: 100%;
     }
-    .BoxTrash{
+    .BoxTrash {
       top: -10px;
     }
   }
@@ -229,13 +229,21 @@ export const BoxText = styled.textarea`
 `;
 
 export const Imagem = styled.img`
-  width: 88px;
-  height: 88px;
+  width: ${(props) => (props.start ? "24px" : " 88px")};
+  height: ${(props) => (props.start ? "24px" : " 88px")};
   border-radius: 36px;
 `;
-
+export const ImagemCOntainerCircle = styled.div`
+   width: 88px;
+  height: 88px;
+  border-radius: 36px;
+  border: solid 1px #4b4b4b;
+  background-color: rgba(75, 75, 75, 0);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+`;
 export const IconTrash = styled.img`
   width: 20px;
   height: 20px;
-
 `;
