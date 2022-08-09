@@ -25,7 +25,7 @@ const ShowPosts = ({ item, deletPostItemProps }: ShowPostsProps) => {
       </S.Box>
       <div>
         <a onClick={deletPostItem}>
-          <FiTrash />
+          <FiTrash size={20} color="red" />
         </a>
       </div>
     </S.Wrapper>

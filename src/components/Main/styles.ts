@@ -2,11 +2,10 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   background-color: #343434;
-  color: #fff;
+
   width: 100%;
-  height: 100%;
-  padding: 3rem;
-  text-align: center;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,3 +13,7 @@ export const Wrapper = styled.div`
   overflow-y: scroll;
 `
 export const Post = styled.div``
+
+export const All = styled.div`
+  background-color: #343434;
+`
