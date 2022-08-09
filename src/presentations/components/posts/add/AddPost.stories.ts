@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import AddPost from "./AddPost";
+import AddPost from "./add-post";
 
 export default {
   /* 👇 The title prop is optional.
