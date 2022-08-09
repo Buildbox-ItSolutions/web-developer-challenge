@@ -1,7 +1,11 @@
+import { Dashboard } from "./pages/Dashboard";
+import { GlobalStyles } from "./styles/globalStyles";
+
 export const App = () => {
   return (
-    <div className="App">
-      <h1>Oi</h1>
-    </div>
+    <>
+      <Dashboard />
+      <GlobalStyles />
+    </>
   );
 };
