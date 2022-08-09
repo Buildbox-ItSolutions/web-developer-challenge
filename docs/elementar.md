@@ -1,0 +1,17 @@
+- header
+  -- logo
+
+- main
+  -- login
+  --- imagem
+  --- input text name
+  --- input textarea message
+  --- botao descartar
+  --- botao publicar
+  -- feed
+  --- titulo
+  --- posts
+  ---- imagem
+  ---- mensagem
+  ---- nome
+  ---- botao excluir
