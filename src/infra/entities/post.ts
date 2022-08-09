@@ -1,5 +1,5 @@
 export interface IPostEntity {
-  id?: string;
+  id: number;
   name: string;
   message: string;
   image: string; //base64
@@ -7,3 +7,5 @@ export interface IPostEntity {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export type IPostAdd = Omit<IPostEntity, "id">;

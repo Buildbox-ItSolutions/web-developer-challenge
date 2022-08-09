@@ -1,4 +1,4 @@
-import { IPostEntity } from "../entities/post";
+import { IPostAdd, IPostEntity } from "../entities/post";
 
 interface IRepository<T> {
   getAll(): Promise<T[]>;
@@ -21,25 +21,26 @@ export class PostRepository implements IRepository<IPostEntity> {
     return this._instance;
   }
 
-  getAll(): Promise<IPostEntity[]> {
-    throw new Error("Method not implemented.");
+  async getAll(): Promise<IPostEntity[]> {
+    return JSON.parse(localStorage.getItem(this._repositoryName) || "[]");
   }
+
   get(id: number): Promise<IPostEntity> {
     throw new Error("Method not implemented.");
   }
 
-  async add(entity: IPostEntity): Promise<IPostEntity> {
+  async add(entity: IPostAdd): Promise<IPostEntity> {
     const items = JSON.parse(
       localStorage.getItem(this._repositoryName) || "[]"
     );
 
+    const now = new Date().toISOString();
     const post: IPostEntity = {
       ...entity,
+      id: items.length + 1,
+      createdAt: now,
+      updatedAt: now,
     };
-
-    post.id = items.length + 1;
-    post.createdAt = new Date().toISOString();
-    post.updatedAt = new Date().toISOString();
 
     items.push(post);
     localStorage.setItem(this._repositoryName, JSON.stringify(items));
@@ -50,7 +51,12 @@ export class PostRepository implements IRepository<IPostEntity> {
   update(entity: IPostEntity): Promise<IPostEntity> {
     throw new Error("Method not implemented.");
   }
-  destroy(id: number): Promise<void> {
-    throw new Error("Method not implemented.");
+
+  async destroy(id: number): Promise<void> {
+    const items = JSON.parse(
+      localStorage.getItem(this._repositoryName) || "[]"
+    );
+    const filtered = items.filter((item: IPostEntity) => item.id !== id);
+    localStorage.setItem(this._repositoryName, JSON.stringify(filtered));
   }
 }
