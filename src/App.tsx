@@ -12,6 +12,12 @@ function App() {
       messgae:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
     },
+    {
+      id: 1,
+      user: "Marcelo",
+      messgae:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.",
+    },
   ]);
   return (
     <Container>
