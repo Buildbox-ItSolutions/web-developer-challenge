@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/header/header";
-import Version1Page from "./pages/version1/Version1Page";
+import Version1Page from "./pages/version1";
 
 import * as S from "./styles";
 
