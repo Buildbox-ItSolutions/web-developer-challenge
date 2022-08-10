@@ -1,6 +1,13 @@
 import styled  from "styled-components";
-import image from 'assets/image.svg'
-const Content = styled.div`
+import image from 'assets/image.svg';
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { InPost } from "pages/Main";
+
+interface IContent {
+    isActive: boolean;
+  }
+
+const Content = styled.div<IContent>`
     display:flex;
     flex-direction:column;
     width: 516px;
@@ -108,16 +115,107 @@ const ButtonPublish = styled.button`
     color: #313131;
 `;
 
-export default function PostMake() {
+interface InFormPost {
+    posts: InPost[];
+    setPosts: Dispatch<SetStateAction<InPost[]>>;
+  }
+  
+  interface IPostsCreate {
+    data: InFormPost;
+  }
+
+export const PostMake = ({ data }: IPostsCreate) => {
+    const [photo, setPhoto] = useState<string>("");
+    const [name, setName] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+    const [isActive, setIsActive] = useState<boolean>(false);
+    const { posts, setPosts } = data;
+  
+    useEffect(() => {
+      if (photo && name && message) {
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    },
+    [photo, name, message]);
+    const handleClearForm = () => {
+      setName("");
+      setMessage("");
+      setPhoto("");
+    };
+    const handleSelectImage = (event: any) => {
+        if (event.target.files[0]) {
+          const image = event.target.files[0];
+          if (image.type === "image/jpeg" || image.type === "image/png") {
+            setPhoto(URL.createObjectURL(event.target.files[0]));
+          }
+        }
+      };
+    const handleCreatePost = (event: any) => {
+      event.preventDefault();
+      if (!photo || !name || !message) {
+        return alert(
+          "Preencha todo o formulario"
+        );
+      }
+      const newPost: InPost = {
+        photo,
+        name,
+        message
+      };
+      
+      setPosts([newPost, ...posts]);
+      return handleClearForm();
+    };
+  
     return (
-        <Content>
-            <ImgPost src={image} />
-            <NameInput placeholder='Digite seu nome'/>
-            <AreaInput placeholder='Mensagem'/>
-            <WrapButtons>
-                <ButtonDiscard>Descartar</ButtonDiscard>
-                <ButtonPublish>Publicar</ButtonPublish>
-            </WrapButtons>
-        </Content>
+      <Content
+        isActive={isActive}
+        onSubmit={(event) => handleCreatePost(event)}
+      >
+        <label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(event) => handleSelectImage(event)}
+          />
+          {photo !== "" ? (
+            <ImgPost src={photo} />
+          ) : (
+            <ImgPost src={ImageSvg} />
+          )}
+        </label>
+        <NameInput
+          placeholder="Digite seu nome"
+          onChange={(event) => setName(event.target.value)}
+          value={name}
+        />
+        <AreaInput
+          placeholder="Mensagem"
+          onChange={(event) => setMessage(event.target.value)}
+          value={message}
+        />
+        <WrapButtons>
+          <ButtonDiscard  onClick={handleClearForm}>
+            Descartar
+          </ButtonDiscard>
+          <ButtonPublish >Publicar</ButtonPublish>
+        </WrapButtons>
+      </Content>
     );
-}
+  };
+
+// export default function PostMake() {
+//     return (
+//         <Content>
+//             <ImgPost src={image} />
+//             <NameInput placeholder='Digite seu nome'/>
+//             <AreaInput placeholder='Mensagem'/>
+//             <WrapButtons>
+//                 <ButtonDiscard>Descartar</ButtonDiscard>
+//                 <ButtonPublish>Publicar</ButtonPublish>
+//             </WrapButtons>
+//         </Content>
+//     );
+// }
