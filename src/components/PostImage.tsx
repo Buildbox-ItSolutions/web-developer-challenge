@@ -24,10 +24,9 @@ const Image = styled("img")<{ primary: boolean }>`
 const INITIAL_IMG = "/image-upload.svg";
 
 const PostImage = ({ src }: { src: string }) => {
-  console.log(src);
   return (
     <Wrapper>
-      <Image primary={src === INITIAL_IMG} src={INITIAL_IMG} alt="post_image" />
+      <Image primary={src === INITIAL_IMG} src={src} alt="post_image" />
     </Wrapper>
   );
 };

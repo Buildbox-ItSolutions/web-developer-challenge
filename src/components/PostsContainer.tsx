@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { PostType } from "../types/PostType";
 import PostCard from "./PostCard";
@@ -22,11 +22,10 @@ const PostsContainer = ({ posts }: { posts: PostType[] }) => {
   const renderCards = useCallback(() => {
     const cards = posts.map((post, index) => {
       const { name, imageURL, message } = post;
-      const src = "data:image/png;base64," + imageURL;
       return (
         <PostCard
           key={`${index}-${name}`}
-          imageURL={src}
+          imageURL={imageURL}
           name={name}
           message={message}
         />

@@ -48,31 +48,19 @@ type FormImageProps = {
 const INITIAL_IMG = "/image-upload.svg";
 
 const FormImage = ({ resetImage, setResetImage }: FormImageProps) => {
-  const { values, setFieldValue } = useFormikContext<PostType>();
+  const { setFieldValue } = useFormikContext<PostType>();
 
   const [image, setImage] = useState<FileList | null>(null);
   const [imageURL, setImageURL] = useState<string>(INITIAL_IMG);
 
   useEffect(() => {
     if (!image) return;
-
     const newImageURL = URL.createObjectURL(image[0]);
     setImageURL(newImageURL);
   }, [image]);
 
   useEffect(() => {
-    const img = document.getElementById("image");
-    const canvas = document.createElement("canvas");
-    canvas.width = (img as any).width;
-    canvas.height = (img as any).height;
-
-    const ctx = canvas.getContext("2d");
-    (ctx as any).drawImage(img, 0, 0);
-
-    const dataURL = canvas.toDataURL("image/png");
-    const imageData = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-
-    setFieldValue("imageURL", imageData);
+    setFieldValue("imageURL", imageURL);
   }, [imageURL]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { Dispatch, SetStateAction, useCallback, useState } from "react";
 import styled from "styled-components";
 import FormButtons from "./FormButtons";
 import FormImage from "./FormImage";
@@ -33,17 +33,21 @@ const schema = yup.object({
   imageUrl: yup.string(),
 });
 
-const FormPost = () => {
+const FormPost = ({
+  setPosts,
+}: {
+  setPosts: Dispatch<SetStateAction<PostType[] | null>>;
+}) => {
   const [resetImage, setResetImage] = useState<boolean>(false);
 
   const onSubmit = useCallback(
     (values: PostType, actions: FormikHelpers<PostType>) => {
       const valuesArray = [values];
-      const postsArray = localStorage.getItem("posts");
-      const currentArray = postsArray
-        ? [...JSON.parse(postsArray), ...valuesArray]
-        : valuesArray;
-      localStorage.setItem("posts", JSON.stringify(currentArray));
+      setPosts((currentPosts: PostType[] | null) => {
+        return Array.isArray(currentPosts)
+          ? [...currentPosts, ...valuesArray]
+          : valuesArray;
+      });
 
       actions.resetForm();
       setResetImage(true);

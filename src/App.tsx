@@ -20,17 +20,12 @@ const Wrapper = styled.div`
 const App = () => {
   const [posts, setPosts] = useState<PostType[] | null>(null);
 
-  useEffect(() => {
-    const posts = localStorage.getItem("posts");
-    if (posts) setPosts(JSON.parse(posts));
-  }, []);
-
   return (
     <Wrapper>
       <Header>
         <Logo />
       </Header>
-      <FormPost />
+      <FormPost setPosts={setPosts} />
       {posts && <PostsContainer posts={posts} />}
     </Wrapper>
   );
