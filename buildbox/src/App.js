@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // Importando os componentes
-import NewComent from './components/NewComment';
+import NewComment from './components/NewComment';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <header>
         <h1>Buildbox</h1>
         </header>
-        <NewComent />
+        <NewComment />
     </div>
   );
 }

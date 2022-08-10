@@ -1,21 +1,25 @@
 import React from "react";
 
-const NewComent = () => {
+const NewComment = () => {
     return(
-<form>
-      <input type="text" class="todo-input" />
-      <button class="todo-button" type="submit">
+<div>
+      <div class="nova-image">
+        <input class="image" />
+      </div>
+      
+      <div class="novo-nome">
+      <input type="text" class="todo-input" placeholder="Digite seu nome" />
+      </div> 
+
+      <div class="nova-mensagem">
+      <input type="text" class="todo-input" placeholder="Mensagem" />
+      </div>
+
+      <button class="submit-button" type="submit">
         <i class="fas fa-plus-square"></i>
       </button>
-      <div class="select">
-        <select name="todos" class="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div>
-    </form>
+    </div>
     );
 };
 
-export default NewComent;
+export default NewComment;
