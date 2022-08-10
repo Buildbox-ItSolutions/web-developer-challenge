@@ -2,18 +2,15 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import { IPostAdd } from "../../../../infra/entities/post";
 import { convertFileToBase64 } from "../../../../utils/base64";
 
-import {
-  DisabledButton,
-  PrimaryButton,
-} from "../../core/buttons/custom-button";
-import { CustomInput } from "../../core/input/custom-input";
-import { CustomTextArea } from "../../core/input/custom-textarea";
 import ImagePost from "../image";
-import TrashImage from "../../../../assets/images/trash.png";
 
 import * as S from "./styles";
-import { TrashButton } from "../../core/buttons/icon-button";
 import { PostContext } from "../../../contexts/post";
+import { DisabledButton, PrimaryButton } from "../../core/buttons/button";
+import { TrashIconButton } from "../../core/buttons/icons";
+import { CustomGrid } from "../../core/grids/custom";
+import { InputText } from "../../core/inputs/input-text";
+import { InputTextArea } from "../../core/inputs/input-textarea";
 
 const initialPost: IPostAdd = {
   image: "",
@@ -21,7 +18,7 @@ const initialPost: IPostAdd = {
   name: "",
 };
 
-export default function AddPost() {
+export function FeedAddPost() {
   const postContext = useContext(PostContext);
 
   const [post, setPost] = useState<IPostAdd>(initialPost);
@@ -67,7 +64,7 @@ export default function AddPost() {
   const isValidPost = useMemo(() => !!post.message && !!post.name, [post]);
 
   return (
-    <S.Container>
+    <CustomGrid>
       <S.GroupActions>
         <label htmlFor="postImage">
           <ImagePost image={imagePreview} />
@@ -82,15 +79,14 @@ export default function AddPost() {
         </label>
 
         {!!imagePreview && (
-          <TrashButton
-            src={TrashImage}
-            alt="remover imagem"
+          <TrashIconButton
+            label="remover imagem"
             onClick={onClickRemoveImage}
           />
         )}
       </S.GroupActions>
 
-      <CustomInput
+      <InputText
         placeholder="Digite seu nome"
         value={post.name}
         onChange={({ currentTarget }) => {
@@ -98,13 +94,13 @@ export default function AddPost() {
         }}
       />
 
-      <CustomTextArea
+      <InputTextArea
         placeholder="Digite sua mensagem"
         onChange={({ currentTarget }) => {
           setPost((prev) => ({ ...prev, message: currentTarget.value }));
         }}
         value={post.message}
-      ></CustomTextArea>
+      />
 
       <S.GroupButtons>
         <DisabledButton onClick={handleOnDiscard}>Descartar</DisabledButton>
@@ -112,6 +108,6 @@ export default function AddPost() {
           Publicar
         </PrimaryButton>
       </S.GroupButtons>
-    </S.Container>
+    </CustomGrid>
   );
 }

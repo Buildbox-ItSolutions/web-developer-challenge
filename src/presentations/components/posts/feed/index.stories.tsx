@@ -1,15 +1,15 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import AddPost from "./add-post";
+import { FeedPost } from ".";
 
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "AddPost",
-  component: AddPost,
-} as ComponentMeta<typeof AddPost>;
+  title: "Posts/Feed/FeedList",
+  component: FeedPost,
+} as ComponentMeta<typeof FeedPost>;
 
-// export const Primary: ComponentStory<typeof AddPost> = () => <AddPost />;
+export const Feed: ComponentStory<typeof FeedPost> = () => <FeedPost />;

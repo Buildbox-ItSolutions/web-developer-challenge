@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { PostRepository } from "../../../infra/repositories/post-repository";
-import AddPost from "../../components/posts/add/add-post";
+import { FeedAddPost } from "../../components/posts/feed-add";
 import { FeedPost } from "../../components/posts/feed";
 import { PostProvider } from "../../contexts/post";
 
@@ -13,7 +13,7 @@ export default function Version1Page() {
     <PostProvider repository={postRepository}>
       <S.Container>
         <main>
-          <AddPost />
+          <FeedAddPost />
           <FeedPost />
         </main>
       </S.Container>
