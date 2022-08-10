@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -21,14 +21,14 @@ const Image = styled("img")<{ primary: boolean }>`
   margin: ${({ primary }) => (primary ? "32px" : "0")};
 `;
 
-const INITIAL_IMG = "/image-upload.svg";
-
-const PostImage = ({ src }: { src: string }) => {
+const PostImage = memo(({ src }: { src: string }) => {
   return (
     <Wrapper>
-      <Image primary={src === INITIAL_IMG} src={src} alt="post_image" />
+      <Image primary={src === "/image-upload.svg"} src={src} alt="post_image" />
     </Wrapper>
   );
-};
+});
+
+PostImage.displayName = "PostImage";
 
 export default PostImage;

@@ -33,12 +33,12 @@ const schema = yup.object({
   imageUrl: yup.string(),
 });
 
-const FormPost = ({
-  setPosts,
-}: {
+type FormPostProps = {
   setPosts: Dispatch<SetStateAction<PostType[] | null>>;
-}) => {
-  const [resetImage, setResetImage] = useState<boolean>(false);
+};
+
+const FormPost = ({ setPosts }: FormPostProps) => {
+  const [shouldResetImage, setShouldResetImage] = useState<boolean>(false);
 
   const onSubmit = useCallback(
     (values: PostType, actions: FormikHelpers<PostType>) => {
@@ -50,7 +50,7 @@ const FormPost = ({
       });
 
       actions.resetForm();
-      setResetImage(true);
+      setShouldResetImage(true);
     },
     []
   );
@@ -62,7 +62,10 @@ const FormPost = ({
       validationSchema={schema}
     >
       <Wrapper>
-        <FormImage resetImage={resetImage} setResetImage={setResetImage} />
+        <FormImage
+          shouldResetImage={shouldResetImage}
+          setShouldResetImage={setShouldResetImage}
+        />
         <FormInputs />
         <FormButtons />
       </Wrapper>

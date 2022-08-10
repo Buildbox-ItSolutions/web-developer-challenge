@@ -2,6 +2,7 @@ import { useFormikContext } from "formik";
 import React, {
   ChangeEvent,
   Dispatch,
+  SetStateAction,
   useCallback,
   useEffect,
   useState,
@@ -23,10 +24,6 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Input = styled.input`
-  display: none;
-`;
-
 const Image = styled("img")<{ primary: boolean }>`
   object-fit: contain;
   width: 100%;
@@ -41,20 +38,23 @@ const DeleteImage = styled.img`
 `;
 
 type FormImageProps = {
-  resetImage: boolean;
-  setResetImage: Dispatch<React.SetStateAction<boolean>>;
+  shouldResetImage: boolean;
+  setShouldResetImage: Dispatch<SetStateAction<boolean>>;
 };
 
 const INITIAL_IMG = "/image-upload.svg";
 
-const FormImage = ({ resetImage, setResetImage }: FormImageProps) => {
+const FormImage = ({
+  shouldResetImage,
+  setShouldResetImage,
+}: FormImageProps) => {
   const { setFieldValue } = useFormikContext<PostType>();
 
   const [image, setImage] = useState<FileList | null>(null);
   const [imageURL, setImageURL] = useState<string>(INITIAL_IMG);
 
   useEffect(() => {
-    if (!image) return;
+    if (image === null) return;
     const newImageURL = URL.createObjectURL(image[0]);
     setImageURL(newImageURL);
   }, [image]);
@@ -63,31 +63,52 @@ const FormImage = ({ resetImage, setResetImage }: FormImageProps) => {
     setFieldValue("imageURL", imageURL);
   }, [imageURL]);
 
-  useEffect(() => {
-    if (resetImage) {
-      setImageURL(INITIAL_IMG);
-      setResetImage(false);
+  const resetInputFile = useCallback(() => {
+    const wrapper = document.getElementById("image-wrapper");
+    if (wrapper) {
+      const oldInput = document.getElementById("file");
+      if (oldInput) wrapper.removeChild(oldInput);
+      const newInput = document.createElement("input");
+      newInput.id = "file";
+      newInput.type = "file";
+      newInput.accept = "image/*";
+      newInput.onchange = (e: any) => setImage(e.target.files);
+      newInput.style.display = "none";
+      wrapper.appendChild(newInput);
     }
-  }, [setResetImage, resetImage]);
+  }, []);
 
-  const onImageChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => setImage(e.target.files),
-    []
-  );
+  useEffect(() => {
+    if (shouldResetImage) {
+      setImageURL(INITIAL_IMG);
+      setShouldResetImage(false);
+      resetInputFile();
+    }
+  }, [setShouldResetImage, shouldResetImage]);
+
+  const onImageChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setImage(e.target.files);
+  }, []);
 
   const getImage = useCallback(() => {
     const input = document.getElementById("file");
     if (input) input.click();
   }, []);
 
+  const deleteImage = useCallback(() => {
+    setImageURL(INITIAL_IMG);
+    resetInputFile();
+  }, [setImageURL, INITIAL_IMG]);
+
   return (
     <>
-      <Wrapper onClick={getImage}>
-        <Input
+      <Wrapper id="image-wrapper" onClick={getImage}>
+        <input
           id="file"
           type="file"
           accept="image/*"
           onChange={onImageChange}
+          style={{ display: "none" }}
         />
         <Image
           id="image"
@@ -97,11 +118,7 @@ const FormImage = ({ resetImage, setResetImage }: FormImageProps) => {
         />
       </Wrapper>
       {imageURL !== INITIAL_IMG && (
-        <DeleteImage
-          src="/trash.svg"
-          alt="delete"
-          onClick={() => setImageURL(INITIAL_IMG)}
-        />
+        <DeleteImage src="/trash.svg" alt="delete" onClick={deleteImage} />
       )}
     </>
   );

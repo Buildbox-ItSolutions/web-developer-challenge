@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components";
 import { PostType } from "../types/PostType";
 import PostCard from "./PostCard";
@@ -18,7 +18,7 @@ const FeedHeader = styled.span`
   color: #7a7a7a;
 `;
 
-const PostsContainer = ({ posts }: { posts: PostType[] }) => {
+const PostsContainer = memo(({ posts }: { posts: PostType[] }) => {
   const renderCards = useCallback(() => {
     const cards = posts.map((post, index) => {
       const { name, imageURL, message } = post;
@@ -41,6 +41,8 @@ const PostsContainer = ({ posts }: { posts: PostType[] }) => {
       {renderCards()}
     </Wrapper>
   );
-};
+});
+
+PostsContainer.displayName = "PostsContainer";
 
 export default PostsContainer;

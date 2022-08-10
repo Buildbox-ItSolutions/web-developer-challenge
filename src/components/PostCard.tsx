@@ -1,5 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
+import { PostType } from "../types/PostType";
 import PostImage from "./PostImage";
 
 const Wrapper = styled.div`
@@ -10,12 +11,10 @@ const Wrapper = styled.div`
   border: solid 1px #3b3b3b;
   background-color: #313131;
   display: grid;
-  grid-template-columns: 120px 340px;
+  grid-template-columns: 120px 348px;
   box-sizing: border-box;
   position: relative;
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
 `;
 
 const FeedMessage = styled.div`
@@ -29,8 +28,6 @@ const FeedMessage = styled.div`
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
 `;
 
 const OwnerHeader = styled.span`
@@ -58,29 +55,21 @@ const FeedOwner = styled.div`
   color: #7a7a7a;
   width: 100%;
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
 `;
 
-const PostInfo = styled.div``;
-
-type PostCardType = {
-  imageURL: string;
-  name: string;
-  message: string;
-};
-
-const PostCard = ({ imageURL, name, message }: PostCardType) => {
+const PostCard = memo(({ imageURL, name, message }: PostType) => {
   return (
     <Wrapper>
       <PostImage src={imageURL} />
-      <PostInfo>
+      <div>
         <FeedMessage>{message}</FeedMessage>
         <OwnerHeader>Enviado por</OwnerHeader>
         <FeedOwner>{name}</FeedOwner>
-      </PostInfo>
+      </div>
     </Wrapper>
   );
-};
+});
+
+PostCard.displayName = "PostCard";
 
 export default PostCard;
