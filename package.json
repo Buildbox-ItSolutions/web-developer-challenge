@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/Buildbox-ItSolutions/web-developer-challenge#readme",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest"
