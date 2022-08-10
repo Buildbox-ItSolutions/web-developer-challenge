@@ -13,25 +13,26 @@ type Props = {
 export function FeedItemPost({ item, onClickDelete }: Props) {
   return (
     <S.Container>
-      <S.ButtonFeedItemDelete>
+      <S.ButtonDeletePost>
         <DeleteIconButton
           label="Remover"
           onClick={() => {
             onClickDelete(item.id);
           }}
         />
-      </S.ButtonFeedItemDelete>
+      </S.ButtonDeletePost>
 
-      <>
+      <S.ImagePost>
         <ImagePost image={item.image} />
-      </>
-      <>
-        <>{item.message}</>
-        <>
-          Enviado por
-          {item.name}
-        </>
-      </>
+      </S.ImagePost>
+      
+      <S.PostContent>
+        <S.PostMessage>{item.message}</S.PostMessage>
+        <S.PostAuthor>
+          <span>Enviado por</span>
+          <S.PostName>{item.name}</S.PostName>
+        </S.PostAuthor>
+      </S.PostContent>
     </S.Container>
   );
 }
