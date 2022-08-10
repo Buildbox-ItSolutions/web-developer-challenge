@@ -1,0 +1,157 @@
+.imageCardFeed {
+  width: 90px;
+  min-width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  margin: 20px auto 0px 20px;
+  background-color: #313131;
+  border: 2px solid #4b4b4b ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.imageCardBorderlessFeed {
+  width: 90px;
+  min-width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  margin: 24px auto 0px 20px;
+  background-color: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.indivCard {
+  max-width: 600px;
+  min-width: 600px;
+  /* height: 360px; */
+  margin: 0px auto 20px auto;
+  border-radius: 5px;
+  background-color: #313131;
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  border: 2px solid #3b3b3b ;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  transition: all 0.2s;
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+.bodyCard {
+  width: 80%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  /* background-color: white; */
+}
+
+.textCard {
+  margin: 24px 20px 0px 20px;
+  color: #9f9f9f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nameCard {
+  bottom: 0px;
+  width: 75%;
+  position: absolute;
+  margin-bottom: 20px;
+}
+
+.enviadoPor {
+  margin: 0px 20px;
+  color: #5f5f5f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.nomeEnviado {
+  margin: 0px 20px;
+  color: #7a7a7a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+/* .deleteButton {
+  
+} */
+
+.deleteButtonIcon{
+  margin: 5px 5px 0px 0px;
+  color: red;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.imagelogo {
+  color: white;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

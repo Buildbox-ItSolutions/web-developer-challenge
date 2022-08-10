@@ -1,0 +1,164 @@
+.mainbody {
+  background-image: linear-gradient(135deg, #343434 25%, #404040 25%, #404040 50%, #343434 50%, #343434 75%, #404040 75%, #404040 100%);
+  background-size: 14px 14px;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mainbody::-webkit-scrollbar {display:none;}
+
+.writecard {
+  max-width: 600px;
+  min-width: 600px;
+  height: 360px;
+  margin: 120px auto 60px auto;
+  border-radius: 5px;
+  padding-bottom: 30px;
+  background-color: #313131;
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  border: 2px solid #3b3b3b ;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageCard {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  margin: 20px auto 0px auto;
+  background-color: #313131;
+  border: 2px solid #4b4b4b ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.imageCardBorderless {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  margin: 24px auto 0px auto;
+  background-color: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+.imageCard img{
+  transition: all 0.3s linear;
+}
+
+.imageDiv{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputName{
+  background-color: #494949;
+  width: 75%;
+  height: 60px;
+  border-radius: 10px;
+  margin: 10px auto 0px auto;
+  border: 0px;
+  color: #9c9c9c;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.inputName:focus{
+  outline: none;
+}
+
+.inputText{
+  width: 75%;
+  height: 80px;
+  border: 0px;
+  border-radius: 10px;
+  margin: 10px auto 0px auto;
+  padding: 10px 20px 10px 20px;
+  background-color: #494949;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #9c9c9c;
+  resize: none;
+  overflow: hidden;
+}
+.inputText:focus{
+  outline: none;
+}
+
+.imagelogo {
+  color: white;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s linear;
+}
+
+.discardIcon {
+  color: red;
+  width: 20px;
+  height: 20px;
+  right: 220px;
+  top: 55px;
+  margin: auto 0px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+}
+
+.buttonDiv {
+  margin: 0px 0px auto 45%;
+}
+
+.discardButton {
+  background-color: #5f5f5f;
+  color: white;
+  /* background-color: #5f5f5f;
+  color: #363636; */
+  width: 100px;
+  height: 50px;
+  margin: 10px 5px;
+  border-radius: 10px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.publishButtonNotActive {
+  background-color: #5f5f5f;
+  color: #313131;
+  width: 100px;
+  height: 50px;
+  margin: 10px 5px;
+  border-radius: 10px;
+  border: 0px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.publishButtonActive {
+  background-color: #71bb00;
+  color: white;
+  width: 100px;
+  height: 50px;
+  margin: 10px 5px;
+  border-radius: 10px;
+  border: 0px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
