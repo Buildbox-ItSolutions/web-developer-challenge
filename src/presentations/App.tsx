@@ -13,12 +13,7 @@ function Layout() {
       <Router>
         <Routes>
           <Route path="/" element={<Version1Page />} />
-          {/* <Route path="/version1">
-            <Version1Page />
-          </Route>
-          <Route path="/version2">
-            <Version2Page />
-          </Route> */}
+          <Route path="/version1" element={<Version1Page />} />
         </Routes>
       </Router>
     </>

@@ -43,4 +43,5 @@ export const PostName = styled.div`
   color: #7a7a7a;
   font-size: 14px;
   line-height: 18px;
+  text-transform: capitalize;
 `;

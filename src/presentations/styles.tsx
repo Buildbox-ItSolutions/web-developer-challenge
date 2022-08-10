@@ -1,6 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    height: 100%;
+    background-color: #343434;
+  }
+
   body {
     margin: 0;
     box-sizing: border-box;

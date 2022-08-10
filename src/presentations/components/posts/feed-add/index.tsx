@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { IPostAdd } from "../../../../infra/entities/post";
 import { convertFileToBase64 } from "../../../../utils/base64";
 
@@ -47,21 +47,25 @@ export function FeedAddPost() {
     setPost(initialPost);
   };
 
+  const addPublish = useCallback(
+    async (post: IPostAdd) => {
+      postContext?.setLoading(true);
+      await postContext?.addPost(post);
+      handleOnDiscard();
+      postContext?.setLoading(false);
+    },
+    [postContext]
+  );
+
   const handleOnPublish = () => {
-    console.log(post);
     addPublish(post);
   };
 
-  const addPublish = async (post: IPostAdd) => {
-    try {
-      await postContext?.addPost(post);
-      handleOnDiscard();
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const isValidPost = useMemo(() => !!post.message && !!post.name, [post]);
+  const isValidPost = useMemo(
+    () =>
+      !!post.image && !!post.message && !!post.name && !postContext?.loading,
+    [post, postContext?.loading]
+  );
 
   return (
     <CustomGrid>

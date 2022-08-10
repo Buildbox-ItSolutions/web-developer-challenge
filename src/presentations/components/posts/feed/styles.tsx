@@ -13,6 +13,10 @@ export const FeedItems = styled.div`
   height: auto;
   width: 100%;
   max-width: 516px;
+
+  > div:last-child {
+    margin-bottom: 170px;
+  }
 `;
 
 export const Title = styled.span`

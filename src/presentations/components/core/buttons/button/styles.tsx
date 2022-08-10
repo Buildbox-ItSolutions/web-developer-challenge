@@ -23,4 +23,8 @@ export const Button = styled.button<ButtonProps>`
   color: ${(props) => props.color ?? "#5f5f5f"};
   border: none;
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
