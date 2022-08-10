@@ -1,5 +1,11 @@
 import { useFormikContext } from "formik";
-import React, { useCallback, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { PostType } from "../types/PostType";
 
@@ -62,7 +68,11 @@ const DiscardButton = styled.button`
   }
 `;
 
-const FormButtons = () => {
+type FormButtonsProps = {
+  setShouldResetImage: Dispatch<SetStateAction<boolean>>;
+};
+
+const FormButtons = ({ setShouldResetImage }: FormButtonsProps) => {
   const { values, setFieldValue } = useFormikContext<PostType>();
 
   const [isPostEnabled, setIsPostEnabled] = useState<boolean>(true);
@@ -74,7 +84,8 @@ const FormButtons = () => {
   const clearFields = useCallback(() => {
     setFieldValue("name", "");
     setFieldValue("message", "");
-  }, [setFieldValue]);
+    setShouldResetImage(true);
+  }, [setFieldValue, setShouldResetImage]);
 
   return (
     <ButtonsWrapper>

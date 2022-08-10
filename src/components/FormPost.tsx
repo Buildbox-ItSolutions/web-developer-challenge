@@ -89,7 +89,7 @@ const FormPost = ({ setPosts }: FormPostProps) => {
           setShouldResetImage={setShouldResetImage}
         />
         <FormInputs />
-        <FormButtons />
+        <FormButtons setShouldResetImage={setShouldResetImage} />
       </Wrapper>
     </Formik>
   );
