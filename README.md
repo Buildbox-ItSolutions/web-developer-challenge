@@ -6,7 +6,6 @@ Informações de contato:
 
 * Daniel Akio Chen
 * LinkedIn: <a href="https://www.linkedin.com/in/daniel-akio-chen-149a2a1a4/" target="_blank">Aqui</a>
-* Telefone: 55(92)99475-1689
 * Email: danielakio23@gmail.com
 
 Feito tudo nos dias 09/08/2022 e 10/08/2022
