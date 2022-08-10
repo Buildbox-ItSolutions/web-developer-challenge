@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { FaFileImage, FaTrash } from "react-icons/fa";
 
-import Feed from "./Feed";
+import Feed from "../components/Feed";
 import './MainBody.css';
 
 class Mainbody extends Component {
