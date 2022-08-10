@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { FormPost } from "../../components/FormPost";
 import { Header } from "../../components/Header";
+import { ListPosts } from "../../components/ListPosts";
 import { Container } from "./styles";
 
 export interface IPost {
@@ -17,6 +18,7 @@ export const Dashboard = () => {
     <Container>
       <Header />
       <FormPost data={{ posts, setPosts }} />
+      <ListPosts data={{ posts, setPosts }} />
     </Container>
   );
 };
