@@ -3,11 +3,7 @@ import image from 'assets/image.svg';
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { InPost } from "pages/Main";
 
-interface IContent {
-    isActive: boolean;
-  }
-
-const Content = styled.div<IContent>`
+const Content = styled.form<IContent>`
     display:flex;
     flex-direction:column;
     width: 516px;
@@ -31,27 +27,28 @@ const ImgPost = styled.img`
     border-radius: 36px;
     border: solid 1px #4b4b4b;
     background-color: rgba(75, 75, 75, 0);
+    margin-left:21vw;
 `;
 const NameInput = styled.input`
     width: 468px;
     height: 40px;
     margin: 16px 0 8px;
-    padding: 12px 351px 11px 16px;
+    padding: 12px 10px 11px 16px;
     border-radius: 8px;
     border:none;
     background-color: #494949;
     outline:none;
     color: #9f9f9f;
     ::placeholder{
-        width: 101px;
+        width: 300px;
         height: 17px;
         font-family: Roboto, sans-serif;
         font-size: 14px;
         font-weight: normal;
-        font-stretch: normal;
+        // font-stretch: normal;
         font-style: normal;
         line-height: 1.29;
-        letter-spacing: normal;
+        // letter-spacing: normal;
         text-align: left;
         color: #9f9f9f;
     }
@@ -95,7 +92,7 @@ const ButtonDiscard = styled.button`
     text-decoration: underline;
     
 `;
-const ButtonPublish = styled.button`
+const ButtonPublish = styled.button<IContent>`
     width: 98px;
     height: 41px;
     margin: 0 0 0 24px;
@@ -113,7 +110,31 @@ const ButtonPublish = styled.button`
     letter-spacing: normal;
     text-align: center;
     color: #313131;
+    ${({ isActive }) =>
+        isActive === true
+          ? `background-color:green; color:white;` : `background-color:gray; color:darkgray;`
+    }
+    
 `;
+
+const LabelPost = styled.label`
+    width: 90px;
+    height: 90px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1.5px solid var(--gray-600);
+    cursor: pointer;
+    input {
+        display: none;
+    }
+`;
+
+interface IContent {
+  isActive: boolean;
+}
 
 interface InFormPost {
     posts: InPost[];
@@ -174,48 +195,23 @@ export const PostMake = ({ data }: IPostsCreate) => {
         isActive={isActive}
         onSubmit={(event) => handleCreatePost(event)}
       >
-        <label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(event) => handleSelectImage(event)}
-          />
+        <LabelPost>
+          <input type="file" accept="image/*" onChange={(event) => handleSelectImage(event)}/>
           {photo !== "" ? (
             <ImgPost src={photo} />
           ) : (
-            <ImgPost src={ImageSvg} />
+            <ImgPost src={image} />
           )}
-        </label>
-        <NameInput
-          placeholder="Digite seu nome"
-          onChange={(event) => setName(event.target.value)}
-          value={name}
-        />
-        <AreaInput
-          placeholder="Mensagem"
-          onChange={(event) => setMessage(event.target.value)}
-          value={message}
-        />
+        </LabelPost>
+        <NameInput placeholder="Digite seu nome" onChange={(event) => setName(event.target.value)} value={name}/>
+        <AreaInput placeholder="Mensagem" onChange={(event) => setMessage(event.target.value)} value={message}/>
         <WrapButtons>
           <ButtonDiscard  onClick={handleClearForm}>
             Descartar
           </ButtonDiscard>
-          <ButtonPublish >Publicar</ButtonPublish>
+          <ButtonPublish isActive={isActive} type="submit">Publicar</ButtonPublish>
         </WrapButtons>
       </Content>
     );
   };
 
-// export default function PostMake() {
-//     return (
-//         <Content>
-//             <ImgPost src={image} />
-//             <NameInput placeholder='Digite seu nome'/>
-//             <AreaInput placeholder='Mensagem'/>
-//             <WrapButtons>
-//                 <ButtonDiscard>Descartar</ButtonDiscard>
-//                 <ButtonPublish>Publicar</ButtonPublish>
-//             </WrapButtons>
-//         </Content>
-//     );
-// }

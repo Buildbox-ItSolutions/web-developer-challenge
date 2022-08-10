@@ -20,11 +20,11 @@ const Content = styled.div`
 `;
 const Text = styled.h1`
     color:white;
-    margin-left:-26vw;
+    margin-left:-25.5vw;
     margin-top:56px;
-    margin-bottom: -20px;
+    margin-bottom:10px;
 `;
-export const ListPosts = ({ data }: IList) => {
+export const Feed = ({ data }: IList) => {
     const { posts, setPosts } = data;
     const deletePost = (post: InPost) => {
       const filterPosts = posts.filter(

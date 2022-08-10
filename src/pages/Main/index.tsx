@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-import PostMake from 'components/PostMake';
-import Feed from 'components/Feed';
+import {PostMake} from 'components/PostMake';
+import {Feed} from 'components/Feed';
 import React, { useState } from 'react';
 
 const MainStyled = styled.main`
@@ -43,7 +43,7 @@ export default function Main() {
             <Conteudo>
                 <Header />
                 <PostMake data={{posts,setPosts}}/>
-                <Feed/>
+                <Feed data={{posts,setPosts}}/>
                 <Footer/>
             </Conteudo>
         </MainStyled>
