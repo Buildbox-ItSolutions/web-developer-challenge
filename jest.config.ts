@@ -9,5 +9,8 @@ const config: Config.InitialOptions = {
   setupFilesAfterEnv: [
     "<rootDir>/setupTests.ts",
   ],
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png)$": "<rootDir>/assetsTransformer.js"
+  },
 };
 export default config;
