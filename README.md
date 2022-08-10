@@ -9,4 +9,4 @@ grato,
 
 Luiz Fernando 
 https://www.linkedin.com/in/luiz-fernando-9612031b3/
-luiz_Fernando-br2015@hotmail.com.br
+luiz_Fernando-br2015@hotmail.com
