@@ -9,8 +9,4 @@ export const Container = styled.header`
   justify-content: center;
   align-items: center;
   position: fixed;
-
-  h1 {
-    color: var(--green-600);
-  }
 `;

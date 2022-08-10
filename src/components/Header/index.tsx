@@ -1,10 +1,10 @@
+import Logo from "../../assets/bx-logo.png";
 import { Container } from "./styles";
 
 export const Header = () => {
   return (
     <Container>
-      <h1>buildbox</h1>
-      <p>WEB CHALLENGE</p>
+      <img src={Logo} />
     </Container>
   );
 };
