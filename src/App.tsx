@@ -26,7 +26,9 @@ const App = () => {
         <Logo />
       </Header>
       <FormPost setPosts={setPosts} />
-      {posts && <PostsContainer posts={posts} />}
+      {posts && posts.length ? (
+        <PostsContainer posts={posts} setPosts={setPosts} />
+      ) : null}
     </Wrapper>
   );
 };

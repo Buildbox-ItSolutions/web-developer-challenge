@@ -32,6 +32,13 @@ const PublishButton = styled("button")<{ isPostEnabled: boolean }>`
   text-align: center;
   color: ${({ isPostEnabled }) => (isPostEnabled ? "#fff" : "#313131")};
   cursor: ${({ isPostEnabled }) => (isPostEnabled ? "pointer" : "auto")};
+
+  &:hover {
+    background: ${({ isPostEnabled }) =>
+      isPostEnabled ? "#82cc00" : "#5f5f5f"};
+    box-shadow: ${({ isPostEnabled }) =>
+      isPostEnabled ? "2px 2px 2px #111" : "none"};
+  }
 `;
 
 const DiscardButton = styled.button`
@@ -49,6 +56,10 @@ const DiscardButton = styled.button`
   color: #5f5f5f;
   text-decoration: underline;
   cursor: pointer;
+
+  &:hover {
+    color: #7f7f7f;
+  }
 `;
 
 const FormButtons = () => {

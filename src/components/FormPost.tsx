@@ -21,11 +21,29 @@ const Wrapper = styled(Form)`
   justify-content: center;
   box-sizing: border-box;
   position: relative;
+
+  @media (max-width: 769px) {
+    width: 400px;
+  }
+
+  @media (max-width: 481px) {
+    width: 300px;
+    margin: 113px 0 36px;
+  }
+
+  @media (max-width: 320px) {
+    width: 270px;
+  }
 `;
 
 const INITIAL_IMG = "/image-upload.svg";
 
-const INITIAL: PostType = { name: "", message: "", imageURL: INITIAL_IMG };
+const INITIAL: PostType = {
+  id: 0,
+  name: "",
+  message: "",
+  imageURL: INITIAL_IMG,
+};
 
 const schema = yup.object({
   name: yup.string(),
@@ -42,11 +60,15 @@ const FormPost = ({ setPosts }: FormPostProps) => {
 
   const onSubmit = useCallback(
     (values: PostType, actions: FormikHelpers<PostType>) => {
-      const valuesArray = [values];
       setPosts((currentPosts: PostType[] | null) => {
-        return Array.isArray(currentPosts)
-          ? [...currentPosts, ...valuesArray]
-          : valuesArray;
+        if (Array.isArray(currentPosts)) {
+          const newId = currentPosts.length;
+          const valuesArray = [{ ...values, id: newId }];
+
+          return [...currentPosts, ...valuesArray];
+        }
+
+        return [{ ...values, id: 0 }];
       });
 
       actions.resetForm();

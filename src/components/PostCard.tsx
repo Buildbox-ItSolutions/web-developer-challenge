@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import styled from "styled-components";
-import { PostType } from "../types/PostType";
 import PostImage from "./PostImage";
 
 const Wrapper = styled.div`
@@ -15,6 +14,22 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   overflow-wrap: break-word;
+
+  @media (max-width: 769px) {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 481px) {
+    width: 300px;
+  }
+
+  @media (max-width: 320px) {
+    width: 270px;
+  }
 `;
 
 const FeedMessage = styled.div`
@@ -28,6 +43,11 @@ const FeedMessage = styled.div`
   text-align: left;
   width: 100%;
   overflow-wrap: break-word;
+
+  @media (max-width: 769px) {
+    text-align: center;
+    margin-top: 24px;
+  }
 `;
 
 const OwnerHeader = styled.span`
@@ -57,18 +77,39 @@ const FeedOwner = styled.div`
   overflow-wrap: break-word;
 `;
 
-const PostCard = memo(({ imageURL, name, message }: PostType) => {
-  return (
-    <Wrapper>
-      <PostImage src={imageURL} />
-      <div>
-        <FeedMessage>{message}</FeedMessage>
-        <OwnerHeader>Enviado por</OwnerHeader>
-        <FeedOwner>{name}</FeedOwner>
-      </div>
-    </Wrapper>
-  );
-});
+const DeletePost = styled.img`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`;
+
+type PostCardProps = {
+  id: number | undefined;
+  imageURL: string;
+  name: string;
+  message: string;
+  deletePost: Function;
+};
+
+const PostCard = memo(
+  ({ id, imageURL, name, message, deletePost }: PostCardProps) => {
+    return (
+      <Wrapper aria-label={`post-${id}`}>
+        <DeletePost
+          src="/delete.svg"
+          alt="delete-post"
+          onClick={() => deletePost(id)}
+        />
+        <PostImage src={imageURL} />
+        <div style={{ width: "100%" }}>
+          <FeedMessage>{message}</FeedMessage>
+          <OwnerHeader>Enviado por</OwnerHeader>
+          <FeedOwner>{name}</FeedOwner>
+        </div>
+      </Wrapper>
+    );
+  }
+);
 
 PostCard.displayName = "PostCard";
 

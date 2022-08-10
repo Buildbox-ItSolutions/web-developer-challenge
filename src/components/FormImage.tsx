@@ -34,7 +34,7 @@ const Image = styled("img")<{ primary: boolean }>`
 const DeleteImage = styled.img`
   position: absolute;
   top: 56px;
-  right: 174px;
+  left: calc(50% + 60px);
 `;
 
 type FormImageProps = {
@@ -118,7 +118,11 @@ const FormImage = ({
         />
       </Wrapper>
       {imageURL !== INITIAL_IMG && (
-        <DeleteImage src="/trash.svg" alt="delete" onClick={deleteImage} />
+        <DeleteImage
+          src="/trash.svg"
+          alt="delete-photo"
+          onClick={deleteImage}
+        />
       )}
     </>
   );
