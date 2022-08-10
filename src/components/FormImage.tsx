@@ -86,9 +86,12 @@ const FormImage = ({
     }
   }, [setShouldResetImage, shouldResetImage]);
 
-  const onImageChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setImage(e.target.files);
-  }, []);
+  const onImageChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setImage(e.target.files);
+    },
+    [setImage]
+  );
 
   const getImage = useCallback(() => {
     const input = document.getElementById("file");

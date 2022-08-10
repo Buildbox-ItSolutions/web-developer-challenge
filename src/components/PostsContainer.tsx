@@ -46,7 +46,7 @@ const PostsContainer = memo(({ posts, setPosts }: PostContainerProps) => {
         }));
         setPosts(postWithNewIds);
       }
-      setPosts(newPosts);
+      setPosts(null);
     },
     [posts]
   );
