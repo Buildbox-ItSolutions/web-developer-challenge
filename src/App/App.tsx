@@ -3,6 +3,7 @@ import { theme } from "../theme";
 import GlobalStyle from "../theme/GlobalStyle";
 
 import { Header } from "../components";
+import Blog from "../pages/Blog/Blog";
 
 import { Container } from "./styles";
 
@@ -12,7 +13,7 @@ export default function App() {
       <GlobalStyle />
       <Container>
         <Header />
-        Challenge
+        <Blog />
       </Container>
     </ThemeProvider> 
   );
