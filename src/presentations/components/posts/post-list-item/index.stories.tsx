@@ -1,13 +1,13 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { FeedItemPost } from ".";
-import { Container } from "../feed/styles";
+import { PostListItem } from ".";
+import { Container } from "../post-list/styles";
 
 const Content = (props: any) => {
   return (
     <Container style={{ position: "relative" }}>
-      <FeedItemPost {...props} />
+      <PostListItem {...props} />
     </Container>
   );
 };
@@ -32,5 +32,5 @@ Feed.args = {
     message: "",
     name: "",
   },
-  onClickDelete: async (id: number) => {},
+  onClickDelete: (id: number) => {},
 };

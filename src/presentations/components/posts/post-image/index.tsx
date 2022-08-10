@@ -7,7 +7,7 @@ type Props = {
   image?: string;
 };
 
-export default function ImagePost({ image }: Props) {
+export default function PostImage({ image }: Props) {
   return (
     <>
       {image ? (

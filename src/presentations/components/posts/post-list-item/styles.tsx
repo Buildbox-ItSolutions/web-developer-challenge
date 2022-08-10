@@ -13,13 +13,13 @@ export const Container = styled.div`
   border: solid 1px #3b3b3b;
 `;
 
-export const ButtonDeletePost = styled.div`
+export const PostButtonDelete = styled.div`
   position: absolute;
   top: 12px;
   right: 12px;
 `;
 
-export const ImagePost = styled.div``;
+export const PostImage = styled.div``;
 
 export const PostMessage = styled.div`
   color: #9f9f9f;

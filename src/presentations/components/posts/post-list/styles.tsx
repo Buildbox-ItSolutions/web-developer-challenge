@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const FeedItems = styled.div`
+export const ContentItems = styled.div`
   height: auto;
   width: 100%;
   max-width: 516px;
