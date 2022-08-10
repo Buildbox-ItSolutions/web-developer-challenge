@@ -18,9 +18,11 @@ export const Container = styled.form<IContainer>`
 
   @media (max-width: 500px) {
     width: 300px;
+    min-height: 250px;
   }
   @media (max-width: 400px) {
     width: 250px;
+    min-height: 200px;
     justify-content: space-between;
   }
 

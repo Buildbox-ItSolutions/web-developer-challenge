@@ -23,9 +23,13 @@ export const Container = styled.div`
 
   @media (max-width: 500px) {
     width: 300px;
+    height: 150px;
+    min-height: 150px;
   }
   @media (max-width: 400px) {
     width: 250px;
+    height: 130px;
+    min-height: 130px;
     justify-content: space-between;
   }
 
