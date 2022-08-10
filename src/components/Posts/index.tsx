@@ -13,7 +13,7 @@ const Content = styled.div`
 export default function Posts() {
     return (
         <Content>
-            
+            a
         </Content>
     );
 }

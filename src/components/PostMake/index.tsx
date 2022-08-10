@@ -34,7 +34,7 @@ const NameInput = styled.input`
     border:none;
     background-color: #494949;
     outline:none;
-    color:white;
+    color: #9f9f9f;
     ::placeholder{
         width: 101px;
         height: 17px;
@@ -52,13 +52,60 @@ const NameInput = styled.input`
 const AreaInput = styled.input`
     width: 468px;
     height: 80px;
-    margin: 8px 0 32px;
+    margin: 8px 0 22px;
     padding: 12px 382px 51px 16px;
     border-radius: 8px;
     border:none;
     background-color: #494949;
     outline:none;
-    color:white;
+    color: #9f9f9f;
+`;
+const WrapButtons = styled.div`
+    display: flex;
+    flex-direction:row;
+    margin-left:12.3vw;
+    width:192px;
+    margin-bottom:30px;
+`;
+const ButtonDiscard = styled.button`
+    width: 98px;
+    height: 41px;
+    margin: 0 0 0 24px;
+    padding: 12px 24px;
+    object-fit: contain;
+    border-radius: 8px;
+    border:none;
+    background-color: #313131;
+
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: #5f5f5f;
+    text-decoration: underline;
+    
+`;
+const ButtonPublish = styled.button`
+    width: 98px;
+    height: 41px;
+    margin: 0 0 0 24px;
+    padding: 12px 24px;
+    object-fit: contain;
+    border-radius: 8px;
+    border:none;
+    background-color: #5f5f5f;
+
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: #313131;
 `;
 
 export default function PostMake() {
@@ -67,6 +114,10 @@ export default function PostMake() {
             <ImgPost src={image} />
             <NameInput placeholder='Digite seu nome'/>
             <AreaInput placeholder='Mensagem'/>
+            <WrapButtons>
+                <ButtonDiscard>Descartar</ButtonDiscard>
+                <ButtonPublish>Publicar</ButtonPublish>
+            </WrapButtons>
         </Content>
     );
 }

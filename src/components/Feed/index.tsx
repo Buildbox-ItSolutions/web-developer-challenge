@@ -1,5 +1,7 @@
 import Posts from "components/Posts";
 import styled  from "styled-components";
+import { Dispatch, SetStateAction } from "react";
+import { InPost } from "pages/Main";
 
 const Content = styled.div`
     display: flex;
@@ -9,8 +11,9 @@ const Content = styled.div`
 `;
 const Text = styled.h1`
     color:white;
-    margin-left:-35vw;
+    margin-left:-26vw;
     margin-top:56px;
+    margin-bottom: -20px;
 `;
 
 export default function Feed() {
