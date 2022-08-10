@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { v4 } from "uuid";
 
 import ImageSvg from "../../assets/Image.svg";
 import { IPost } from "../../pages/Dashboard";
@@ -54,8 +55,9 @@ export const FormPost = ({ data }: IPostsCreate) => {
       photo,
       name,
       message,
+      id: v4(),
     };
-    setPosts([...posts, newPost]);
+    setPosts([newPost, ...posts]);
     return handleClearForm();
   };
 

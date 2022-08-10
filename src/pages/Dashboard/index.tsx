@@ -6,6 +6,7 @@ import { ListPosts } from "../../components/ListPosts";
 import { Container } from "./styles";
 
 export interface IPost {
+  id?: string;
   photo: string;
   name: string;
   message: string;

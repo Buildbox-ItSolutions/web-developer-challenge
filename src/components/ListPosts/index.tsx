@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 
 import { IPost } from "../../pages/Dashboard";
@@ -15,19 +16,22 @@ interface IList {
 
 export const ListPosts = ({ data }: IList) => {
   const { posts, setPosts } = data;
+
+  const removePost = (post: IPost) => {
+    const filterPosts = posts.filter(
+      (selectedpost) => selectedpost.id !== post.id
+    );
+    setPosts(filterPosts);
+  };
+
   return (
     <Container>
       <h1>Feed</h1>
-      <ul>
-        {posts.map((post, index) => (
-          <Post
-            key={index}
-            name={post.name}
-            message={post.message}
-            photo={post.photo}
-          />
+      <AnimatePresence>
+        {posts.map((post) => (
+          <Post key={post.id} data={post} removePost={removePost} />
         ))}
-      </ul>
+      </AnimatePresence>
     </Container>
   );
 };
