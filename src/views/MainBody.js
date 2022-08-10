@@ -1,8 +1,7 @@
 import React, {Component} from "react";
-
 import { FaFileImage, FaTrash } from "react-icons/fa";
-import Feed from "./Feed";
 
+import Feed from "./Feed";
 import './MainBody.css';
 
 class Mainbody extends Component {
@@ -33,7 +32,7 @@ class Mainbody extends Component {
     imageload: false,
   }
 
-
+  // Pegar imagem
   getRandomImage = () =>{
     if (!this.state.imageload){
       this.setState({
@@ -43,13 +42,33 @@ class Mainbody extends Component {
     }
   }
 
+  // Apagar imagem
   discardImage = () =>{
     this.setState({
       imageload: false,
       imageurl: ""
     });
   }
+  
+  // Enviar Form aos dados
+  sendForm = () => {
+    let post = {
+      img: this.state.imageurl,
+      imageload: this.state.imageload,
+      nome: this.state.nameform ? this.state.nameform : "Desconhecido",
+      text: this.state.textform ? this.state.textform : "Nenhuma mensagem foi enviada"
+    }
+    // Apagar form e atualizar dados
+    this.setState(previousState => ({
+      postData: [...previousState.postData, post],
+      nameform: "",
+      textform: "",
+      imageload: !this.state.imageload,
+      imageurl: ""
+    }));
+  }
 
+  // Apagar Form
   cleanForm = () => {
     this.setState({
       nameform: "", 
@@ -59,21 +78,6 @@ class Mainbody extends Component {
     });
   }
 
-  sendForm = () => {
-    let post = {
-      img: this.state.imageurl,
-      imageload: this.state.imageload,
-      nome: this.state.nameform ? this.state.nameform : "Desconhecido",
-      text: this.state.textform ? this.state.textform : "Nenhuma mensagem foi enviada"
-    }
-    this.setState(previousState => ({
-      postData: [...previousState.postData, post],
-      nameform: "",
-      textform: "",
-      imageload: !this.state.imageload,
-      imageurl: ""
-    }));
-  }
 
   render(){
   return(
