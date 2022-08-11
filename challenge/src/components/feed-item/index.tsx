@@ -1,6 +1,5 @@
 import React from 'react'
-import { useContext } from 'react'
-import { ProviderContext } from '../../context/app-provider/provider'
+import usePosts from '../../hooks/usePosts'
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 
@@ -8,7 +7,7 @@ import { FeedItemProps } from './types'
 import { CancelIcon, Card, Container, MessageContainer, NameContainer, SendByContainer } from './styles'
 
 const FeedItem = ({ post }: FeedItemProps) => {
-    const { removePost } = useContext(ProviderContext)
+    const { removePost } = usePosts()
     const handleRemovePost = () => {
         removePost(post)
     }

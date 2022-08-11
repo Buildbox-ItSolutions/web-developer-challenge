@@ -1,11 +1,10 @@
-import { useContext } from 'react'
-import { ProviderContext } from '../../context/app-provider/provider'
+import usePosts from '../../hooks/usePosts'
 import Header from '../../components/header'
 import Post from '../../components/post'
 import Feed from '../../components/feed'
 
 const MainScreen = () => {
-    const { posts } = useContext(ProviderContext)
+    const { posts } = usePosts()
     return (
         <>  
             <Header />

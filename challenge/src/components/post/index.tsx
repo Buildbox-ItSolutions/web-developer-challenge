@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import { useContext } from 'react'
-import { ProviderContext } from '../../context/app-provider/provider'
-import { SnackbarContext } from '../../context/snackbar-provider/snackbar-provider';
+import usePosts from '../../hooks/usePosts'
+import useSnackbar from '../../hooks/useSnackbar'
 import { Post as PostType } from '../../types/post'
 import { ButtonOutlinedStyled, ButtonTextStyled, CardContainer, Container, InputImage, TextFieldStyled } from './styles'
 
 const Post = () => {
+    const { addPost } = usePosts()
+    const { showMessage } = useSnackbar()
+    
     const [name, setName] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [image, setImage] = useState<any>()
-    const { addPost } = useContext(ProviderContext)
-    const { showMessage } = useContext(SnackbarContext)
+    
 
     const handleClean = () => {
         setMessage('')
