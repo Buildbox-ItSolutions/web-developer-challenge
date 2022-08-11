@@ -18,7 +18,9 @@ import {
   Content,
   CreatePost,
   CreatePostFooter,
+  CreatePostWrapper,
   Feed,
+  FeedWrapper,
   MessageTextArea,
   NameInput,
 } from "./styles";
@@ -39,7 +41,9 @@ export const Home: React.FC = () => {
       },
       ...oldState,
     ]);
-    reset();
+    resetValues();
+    setName("");
+    setMessage("");
   };
 
   const removePost = (id: number) => {
@@ -65,54 +69,56 @@ export const Home: React.FC = () => {
       <Header />
 
       <Content>
-        <CreatePost onSubmit={handleSubmit(onSubmit as any)}>
-          <ImageUploader
-            register={register}
-            setValue={setValue}
-            imageUrl={imageUrl}
-            setImageUrl={setImageUrl}
-          />
-
-          <NameInput>
-            <Input
-              required
-              name="name"
+        <CreatePostWrapper onSubmit={handleSubmit(onSubmit as any)}>
+          <CreatePost>
+            <ImageUploader
               register={register}
-              placeholder="Digite seu nome"
-              onChange={(e) => setName(e.target.value)}
+              setValue={setValue}
+              imageUrl={imageUrl}
+              setImageUrl={setImageUrl}
             />
-          </NameInput>
 
-          <MessageTextArea>
-            <TextArea
-              required
-              name="message"
-              register={register}
-              placeholder="Mensagem"
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </MessageTextArea>
-
-          <CreatePostFooter>
-            <Cancel onClick={resetValues}>Descartar</Cancel>
-
-            <ButtonContainer>
-              <Button
-                title="Publicar"
-                type={name && message ? "submit" : "button"}
-                isValid={!!(name && message)}
+            <NameInput>
+              <Input
+                required
+                name="name"
+                register={register}
+                placeholder="Digite seu nome"
+                onChange={(e) => setName(e.target.value)}
               />
-            </ButtonContainer>
-          </CreatePostFooter>
-        </CreatePost>
+            </NameInput>
+
+            <MessageTextArea>
+              <TextArea
+                required
+                name="message"
+                register={register}
+                placeholder="Mensagem"
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </MessageTextArea>
+
+            <CreatePostFooter>
+              <Cancel onClick={resetValues}>Descartar</Cancel>
+
+              <ButtonContainer>
+                <Button
+                  title="Publicar"
+                  type={!!name && !!message ? "submit" : "button"}
+                  isValid={!!name && !!message}
+                />
+              </ButtonContainer>
+            </CreatePostFooter>
+          </CreatePost>
+        </CreatePostWrapper>
 
         {posts.length ? (
-          <>
+          <FeedWrapper>
             <Feed>Feed</Feed>
             {posts.map((post) => (
               <PostCard key={post.id} post={post} removePost={removePost} />
             ))}
-          </>
+          </FeedWrapper>
         ) : (
           <></>
         )}

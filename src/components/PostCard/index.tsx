@@ -4,6 +4,7 @@ import { Post } from "../../models/Post.model";
 
 import {
   Container,
+  ContainerWrapper,
   Content,
   Image,
   Message,
@@ -19,14 +20,16 @@ type Props = {
 
 export const PostCard: React.FC<Props> = ({ post, removePost }) => {
   return (
-    <Container>
-      <RemoveIcon onClick={() => removePost(post.id)} />
-      <Image src={post.image || "assets/images/image.svg"} alt="logo" />
-      <Content>
-        <Message>{post.message}</Message>
-        <SendBy>Enviado por</SendBy>
-        <Name>{post.name}</Name>
-      </Content>
-    </Container>
+    <ContainerWrapper>
+      <Container>
+        <RemoveIcon onClick={() => removePost(post.id)} />
+        <Image src={post.image || "assets/images/image.svg"} alt="logo" />
+        <Content>
+          <Message>{post.message}</Message>
+          <SendBy>Enviado por</SendBy>
+          <Name>{post.name}</Name>
+        </Content>
+      </Container>
+    </ContainerWrapper>
   );
 };

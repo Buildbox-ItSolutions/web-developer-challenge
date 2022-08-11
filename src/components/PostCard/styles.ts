@@ -5,7 +5,11 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 export const Container = styled.div`
   height: 225px;
   width: 100%;
+`;
+
+export const ContainerWrapper = styled.div`
   padding: 24px;
+
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;

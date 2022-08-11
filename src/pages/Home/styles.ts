@@ -8,6 +8,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 516px;
+  max-width: 90vw;
 
   margin: 0 auto;
 
@@ -15,11 +16,14 @@ export const Content = styled.div`
   flex-direction: column;
 `;
 
-export const CreatePost = styled.form`
+export const CreatePostWrapper = styled.div`
   width: 100%;
   height: 353px;
+`;
 
+export const CreatePost = styled.form`
   padding: 24px;
+
   border: solid 1px #3b3b3b;
   border-radius: 3px;
   margin: auto;
@@ -60,16 +64,20 @@ export const CreatePostFooter = styled.div`
   align-items: center;
   justify-content: end;
   gap: 24px;
-
-  margin-top: auto;
+  margin-top: 24px;
 `;
 
 export const ButtonContainer = styled.div`
   width: 98px;
 `;
 
+export const FeedWrapper = styled.div`
+  margin-top: 128px;
+
+  width: 100%;
+`;
+
 export const Feed = styled.div`
   color: #7a7a7a;
-  margin-top: 48px;
   margin-bottom: 16px;
 `;
