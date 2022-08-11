@@ -16,6 +16,6 @@
 **To do**
 - Melhorar input de imagem
 
-[Recording_1660186784578.webm](https://user-images.githubusercontent.com/22479116/184058616-02097cb5-a742-4506-b383-3a2dc3901352.webm)
 
 
+[Recording_1660186784578 (1).webm](https://user-images.githubusercontent.com/22479116/184059027-e330d323-33e7-44cc-82af-775676943fdf.webm)
