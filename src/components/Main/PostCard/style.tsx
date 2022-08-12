@@ -1,13 +1,40 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const show = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
 
 export const PostCardContainer = styled.div`
+  position: relative;
   width: 100%;
   max-width: 516px;
-  min-height: 225px;
+  min-height: 200px;
   background-color: var(--black-50);
   border: 1px solid var(--border);
   border-radius: 3px;
   margin-bottom: 16px;
+
+  animation: ${show} 0.7s linear;
+
+  .closeButtonArea {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    cursor: pointer;
+
+    transition: filter 0.2s;
+
+    :hover {
+      filter: brightness(0.8);
+    }
+  }
 
   .cardArea {
     display: flex;
@@ -17,10 +44,14 @@ export const PostCardContainer = styled.div`
     margin-top: 32px;
 
     .imagePost {
+      object-fit: cover;
       border-radius: 36px;
     }
 
     .textArea {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 185px;
       margin-left: 32px;
 

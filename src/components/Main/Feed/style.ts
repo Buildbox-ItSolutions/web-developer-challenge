@@ -16,9 +16,15 @@ export const FeedContainer = styled.div`
     max-width: 516px;
     margin-bottom: 8px;
 
-    h1 {
+    .title {
       color: var(--gray-100);
       font-size: 14px;
     }
+  }
+
+  .noContent {
+    margin: 2rem 0;
+    color: var(--gray-200);
+    font-size: 14px;
   }
 `
