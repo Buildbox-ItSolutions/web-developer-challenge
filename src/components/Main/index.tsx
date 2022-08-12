@@ -1,3 +1,10 @@
+import Header from '../Header'
+import { MainContainer } from './style'
+
 export default function Main() {
-  return <>Hello World</>
+  return (
+    <MainContainer>
+      <Header />
+    </MainContainer>
+  )
 }
