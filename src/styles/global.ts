@@ -48,6 +48,28 @@ const GlobalStyles = createGlobalStyle`
         color: inherit;
         text-decoration: none;
     }
+
+    /* width */
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 4px;
+
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-200);
+    }
 `
 
 export default GlobalStyles

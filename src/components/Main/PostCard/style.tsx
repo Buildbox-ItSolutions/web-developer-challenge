@@ -61,6 +61,7 @@ export const PostCardContainer = styled.div`
         line-height: 1.25;
         color: var(--gray-50);
         margin-bottom: 24px;
+        word-break: break-word;
       }
 
       h6 {
@@ -75,6 +76,7 @@ export const PostCardContainer = styled.div`
         font-weight: normal;
         line-height: 1.29;
         color: var(--gray-100);
+        word-break: break-word;
       }
 
       @media (min-width: 720px) {
