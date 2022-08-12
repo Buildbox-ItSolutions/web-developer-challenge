@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import Header from '../components/Header'
 
 import GlobalStyles from '../styles/global'
 
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Challenge Buildbox-ItSolutions" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <Component {...pageProps} />
       <GlobalStyles />
     </>
