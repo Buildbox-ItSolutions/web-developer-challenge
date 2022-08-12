@@ -5,6 +5,6 @@ export const HeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 93px;
+  height: 93px;
   background-color: var(--black-100);
 `
