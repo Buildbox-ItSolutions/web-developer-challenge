@@ -1,5 +1,5 @@
 import { ImageContainer } from "./styles";
-import placeholder from "../../assets/images/image-placeholder.png";
+import placeholder from "src/assets/images/image-placeholder.png";
 
 interface PostImageProps {
   image?: string;

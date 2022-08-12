@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { PostForm } from "../../components";
+import { PostForm } from "src/components";
 import mockedPosts from "./posts";
-import { Post as IPost } from "../../models/Post";
+import { Post as IPost } from "src/models/Post";
 
 import Post from "./components/Post/Post";
 import { Content, Feed, FeedTitle } from "./styles";

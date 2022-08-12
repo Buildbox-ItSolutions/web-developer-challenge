@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import logo from '../../assets/images/bx-logo.png';
+import logo from 'src/assets/images/bx-logo.png';
 
 const Header = () => {
   return (

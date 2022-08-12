@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import placeholder from "../../../assets/images/image-placeholder.png";
-import trash from "../../../assets/images/trash.png";
-import { Button } from "../../../components";
+import placeholder from "src/assets/images/image-placeholder.png";
+import trash from "src/assets/images/trash.png";
+import { Button } from "src/components";
 
 import {
   InputLabel,

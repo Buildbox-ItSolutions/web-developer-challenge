@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Post } from "../../models/Post";
+import { Post } from "src/models/Post";
 import {
   Card,
   InputText,
   TextArea,
   Button,
   InputImageFile,
-} from '../../components';
+} from 'src/components';
 
 import { Fields, Buttons, ImageField } from "./styles";
 

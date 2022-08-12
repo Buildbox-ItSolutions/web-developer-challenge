@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
-import { theme } from "../theme";
-import GlobalStyle from "../theme/GlobalStyle";
+import { theme } from "src/theme";
+import GlobalStyle from "src/theme/GlobalStyle";
 
-import { Header } from "../components";
-import Blog from "../pages/Blog/Blog";
+import { Header } from "src/components";
+import Blog from "src/pages/Blog/Blog";
 
 import { Container } from "./styles";
 

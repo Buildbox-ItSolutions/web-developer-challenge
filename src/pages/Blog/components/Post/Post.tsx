@@ -1,6 +1,6 @@
-import { Post as IPost } from "../../../../models/Post";
-import { Card, PostImage, Button } from "../../../../components";
-import deleteIcon from "../../../../assets/images/delete.png";
+import { Post as IPost } from "src/models/Post";
+import { Card, PostImage, Button } from "src/components";
+import deleteIcon from "src/assets/images/delete.png";
 
 import {
   Container,
