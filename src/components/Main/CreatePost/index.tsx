@@ -18,6 +18,14 @@ export default function CreatePost() {
   const inputNameRef = useRef<HTMLInputElement>(null)
   const inputMessageRef = useRef<HTMLTextAreaElement>(null)
 
+  function cleanForm() {
+    if (inputNameRef.current && inputMessageRef.current) {
+      setBase64('')
+      inputNameRef.current.value = ''
+      inputMessageRef.current.value = ''
+    }
+  }
+
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
 
@@ -37,14 +45,12 @@ export default function CreatePost() {
 
       setPosts([...posts, newPost])
 
+      cleanForm()
+
       toast.success('Publicação enviada com sucesso!', {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
       })
-
-      setBase64('')
-      inputNameRef.current.value = ''
-      inputMessageRef.current.value = ''
     } else {
       if (base64 === '') {
         toast.error('Adicione uma imagem à publicação!', {
@@ -127,7 +133,9 @@ export default function CreatePost() {
           />
           <textarea ref={inputMessageRef} placeholder="Mensagem" />
           <div className="buttonsArea">
-            <button className="descartar">Descartar</button>
+            <button className="descartar" onClick={cleanForm} type="button">
+              Descartar
+            </button>
             <button className="publicar" type="submit">
               Publicar
             </button>
