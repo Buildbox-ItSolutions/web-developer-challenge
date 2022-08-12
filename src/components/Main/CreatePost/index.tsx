@@ -3,6 +3,8 @@
 
 import { useContext, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import PostsContext from '../../../shared/contexts/posts'
 import { getBase64 } from '../../../shared/utils/getBase64'
@@ -35,11 +37,34 @@ export default function CreatePost() {
 
       setPosts([...posts, newPost])
 
+      toast.success('Publicação enviada com sucesso!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      })
+
       setBase64('')
       inputNameRef.current.value = ''
       inputMessageRef.current.value = ''
     } else {
-      alert('OOPS')
+      if (base64 === '') {
+        toast.error('Adicione uma imagem à publicação!', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        })
+      }
+      if (inputNameRef.current && inputNameRef.current.value === '') {
+        toast.error('Preencha seu nome na publicação!', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        })
+      }
+
+      if (inputMessageRef.current && inputMessageRef.current.value === '') {
+        toast.error('Escreva uma mensagem na publicação!', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        })
+      }
     }
   }
 
@@ -109,6 +134,7 @@ export default function CreatePost() {
           </div>
         </form>
       </div>
+      <ToastContainer limit={3} />
     </CreatePostContainer>
   )
 }
