@@ -28,6 +28,7 @@ export const CreatePostContainer = styled.div`
       width: 100%;
 
       .selectImage {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -36,7 +37,6 @@ export const CreatePostContainer = styled.div`
         height: 88px;
         border: 1px solid var(--border);
         border-radius: 36px;
-        cursor: pointer;
 
         transition: 0.4s;
 
@@ -44,8 +44,38 @@ export const CreatePostContainer = styled.div`
           border: 1px solid var(--gray-200);
         }
 
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+        }
+
+        .selectedImage {
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 36px;
+        }
+
         input {
           display: none;
+        }
+
+        .trashIcon {
+          position: absolute;
+          top: 32px;
+          right: -36px;
+          cursor: pointer;
+
+          transition: filter 0.2s;
+
+          :hover {
+            filter: brightness(0.8);
+          }
         }
       }
 

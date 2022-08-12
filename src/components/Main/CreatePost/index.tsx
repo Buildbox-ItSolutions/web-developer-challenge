@@ -1,38 +1,111 @@
-import Image from 'next/image'
-import { useRef } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
 
+import { useContext, useRef, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
+import PostsContext from '../../../shared/contexts/posts'
+import { getBase64 } from '../../../shared/utils/getBase64'
 import { CreatePostContainer } from './style'
 
 export default function CreatePost() {
-  const inputFileRef = useRef<HTMLInputElement>(null)
+  const { posts, setPosts } = useContext(PostsContext)
 
-  const onImageClick = () => {
-    if (inputFileRef.current) inputFileRef.current.click()
+  const [base64, setBase64] = useState<string>('')
+
+  const inputNameRef = useRef<HTMLInputElement>(null)
+  const inputMessageRef = useRef<HTMLTextAreaElement>(null)
+
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault()
+
+    if (
+      inputNameRef.current &&
+      inputMessageRef.current &&
+      inputNameRef.current.value !== '' &&
+      inputMessageRef.current.value !== '' &&
+      base64 !== ''
+    ) {
+      const newPost = {
+        id: uuidv4(),
+        image: base64,
+        name: inputNameRef.current.value,
+        message: inputMessageRef.current.value,
+      }
+
+      setPosts([...posts, newPost])
+
+      setBase64('')
+      inputNameRef.current.value = ''
+      inputMessageRef.current.value = ''
+    } else {
+      alert('OOPS')
+    }
+  }
+
+  async function onChangeFileInput(file: File) {
+    const newBase64 = await getBase64(file)
+
+    setBase64(newBase64 as string)
   }
 
   return (
     <CreatePostContainer>
       <div className="card">
-        <form>
-          <div className="selectImage" onClick={onImageClick}>
-            <Image
-              src="/image.png"
-              alt="image icon"
-              width="24px"
-              height="24px"
+        <form
+          onSubmit={(event) => {
+            handleSubmit(event)
+          }}
+        >
+          <div className="selectImage">
+            {base64 === '' ? (
+              <label htmlFor="imageFileInput">
+                <img src="/image.png" alt="image icon" />
+              </label>
+            ) : (
+              <label htmlFor="imageFileInput">
+                <img
+                  src={base64}
+                  alt="selected image"
+                  className="selectedImage"
+                />
+              </label>
+            )}
+            <input
+              id="imageFileInput"
+              type="file"
+              onClick={(e) => ((e.target as HTMLInputElement).value = '')}
+              onChange={(e) => {
+                if (e.target.files) {
+                  onChangeFileInput(e.target.files[0])
+                }
+              }}
+              accept=".png, .jpg, .jpeg"
             />
-            <input type="file" ref={inputFileRef} accept=".png, .jpg, .jpeg" />
+            {base64 !== '' ? (
+              <img
+                src="/trash.png"
+                alt="trash icon"
+                className="trashIcon"
+                onClick={() => setBase64('')}
+              />
+            ) : (
+              ''
+            )}
           </div>
           <input
             className="inputName"
+            ref={inputNameRef}
             type="text"
             name="name"
             placeholder="Digite seu nome"
           />
-          <textarea placeholder="Mensagem" />
+          <textarea ref={inputMessageRef} placeholder="Mensagem" />
           <div className="buttonsArea">
             <button className="descartar">Descartar</button>
-            <button className="publicar">Publicar</button>
+            <button className="publicar" type="submit">
+              Publicar
+            </button>
           </div>
         </form>
       </div>
