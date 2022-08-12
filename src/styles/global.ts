@@ -4,11 +4,13 @@ const GlobalStyles = createGlobalStyle`
     :root{
         --background: #343434;
         --border: #3b3b3b;
+        --white: #FFFFFF;
         --black-50: #313131;
         --black-100: #2b2b2b;
         --gray-50: #9f9f9f;
         --gray-100: #7a7a7a;
         --gray-200: #5f5f5f;
+        --gray-300: #494949;
         --green: #71BB00;
         --red: #B95125;
     }
@@ -24,8 +26,8 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    body, input, button {
-        font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    body, input, button, textarea {
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         @media (max-width: 1080px){
             font-size: 93.5%;
         }
