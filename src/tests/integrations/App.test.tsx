@@ -1,5 +1,5 @@
-import { render, screen, waitFor } from '../../tests/test-utils';
-import App from "../../App/App";
+import { render, screen, waitFor } from 'src/tests/test-utils';
+import App from "src/App/App";
 import userEvent from "@testing-library/user-event";
 
 describe("App", () => {

@@ -1,7 +1,7 @@
-import { render, screen } from '../../tests/test-utils';
-import { Header } from '../../components';
+import { render, screen } from 'src/tests/test-utils';
+import { Header } from 'src/components';
 
-jest.mock('../../assets/images/bx-logo.png', () => 'image.png');
+jest.mock('src/assets/images/bx-logo.png', () => 'image.png');
 
 describe('Header Component', () => {
   it('should render logo image', () => {
