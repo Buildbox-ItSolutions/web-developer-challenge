@@ -1,0 +1,14 @@
+.AppStyle {
+  display: grid;
+  grid-template-columns: 1fr clamp(280px, 60rem, 80vw) 1fr;
+  grid-template-rows: clamp(60px, 10rem, 15vh) min-content auto;
+  grid-template-areas:
+    'header header header'
+    '. new-post .'
+    '. feed .';
+  row-gap: 40px;
+  width: 100%;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  background-color: #343434;
+}
