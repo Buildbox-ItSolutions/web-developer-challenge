@@ -3,7 +3,7 @@ import * as Icons from '@/assets/icons'
 
 export type IconsKeys = keyof typeof Icons
 
-export type Props = {
+type Props = {
   height?: string
   width?: string
   size?: string
