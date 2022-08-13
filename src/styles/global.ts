@@ -18,15 +18,14 @@ export const GlobalStyles: GlobalStyleComponent<GlobalStyleProps, DefaultTheme> 
   }
 
   body {
-    ${({ theme }) => css`
-      font-family: 'Roboto' ${theme.typography.fonts};
+      font-family: 'Roboto' ${({ theme }) => theme.typography.fonts};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
       height: 100%;
       overflow: initial;
-      color: ${theme.colors.primary.gray300};
-    `}
+      color: ${({ theme }) => theme.colors.primary.gray300};
+      background-color: ${({ theme }) => theme.colors.primary.gray400};;
   }
 
   a {
