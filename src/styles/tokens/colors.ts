@@ -8,6 +8,7 @@ export const colors = {
     gray250: '#494949',
     gray200: '#5f5f5f',
     gray150: '#7a7a7a',
+    gray120: '#4b4b4b',
     gray100: '#9f9f9f'
   },
   secondary: {
