@@ -25,7 +25,7 @@ export const GlobalStyles: GlobalStyleComponent<GlobalStyleProps, DefaultTheme> 
       height: 100%;
       overflow: initial;
       color: ${({ theme }) => theme.colors.primary.gray300};
-      background-color: ${({ theme }) => theme.colors.primary.gray400};;
+      background-color: ${({ theme }) => theme.colors.primary.gray400};
   }
 
   a {
