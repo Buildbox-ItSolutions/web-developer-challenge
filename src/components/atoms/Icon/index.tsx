@@ -15,7 +15,7 @@ export type Props = {
 export const Icon = styled.svg.attrs<Props>(({ icon = 'IcLogo' }) => ({
   as: Icons[icon]
 }))<Props>`
-  ${({ width, height, size, color, cursor }) => css`
+  ${({ width, height, size = '30px', color, cursor }) => css`
     width: ${width ?? size};
     height: ${height ?? size};
     cursor: ${cursor ?? 'default'};
