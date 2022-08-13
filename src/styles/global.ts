@@ -18,7 +18,7 @@ export const GlobalStyles: GlobalStyleComponent<GlobalStyleProps, DefaultTheme> 
   }
 
   body {
-      font-family: 'Roboto' ${({ theme }) => theme.typography.fonts};
+      font-family: 'Roboto', ${({ theme }) => theme.typography.fonts};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-overflow-scrolling: touch;
