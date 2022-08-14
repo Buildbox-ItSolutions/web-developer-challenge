@@ -15,7 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "vite-plugin-checker": "^0.4.9"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
