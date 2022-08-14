@@ -1,16 +1,16 @@
-import { Icon } from '@/components/atoms'
+import { forwardRef } from 'react'
 
 import * as S from './styles'
 
 type Props = {
-  picture?: string
-  onClick?: () => void
+  pic?: string
 }
 
-export const Avatar = ({ picture, onClick }: Props) => {
+export const Avatar = forwardRef<HTMLInputElement, Props>(({ pic, ...props }, ref) => {
   return (
-    <S.Container onClick={onClick} picture={picture}>
-      <Icon icon='IcPhoto' size='24px' />
+    <S.Container picture={pic}>
+      {!!pic || <S.Picture icon='IcPhoto' size='24px' />}
+      <S.Input {...props} ref={ref} type='file' accept='image/gif, image/jpeg, image/png'></S.Input>
     </S.Container>
   )
-}
+})
