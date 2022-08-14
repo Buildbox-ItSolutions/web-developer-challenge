@@ -8,7 +8,9 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>`
   width: 83px;
+  min-width: 83px;
   height: 83px;
+  min-height: 83px;
 
   display: flex;
   align-items: center;
