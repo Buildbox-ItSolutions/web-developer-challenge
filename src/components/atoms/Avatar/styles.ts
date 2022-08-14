@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { Icon } from '@/components/atoms'
+import { Icon } from 'components/atoms'
 
 type ContainerProps = {
   picture?: string

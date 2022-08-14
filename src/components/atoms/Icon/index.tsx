@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import * as Icons from '@/assets/icons'
+import * as Icons from 'assets/icons'
 
 export type IconsKeys = keyof typeof Icons
 

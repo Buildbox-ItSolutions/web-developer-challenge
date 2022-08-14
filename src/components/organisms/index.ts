@@ -1,1 +1,2 @@
-export * from './InputPost'
+export * from './CreatePost'
+export * from './Post'

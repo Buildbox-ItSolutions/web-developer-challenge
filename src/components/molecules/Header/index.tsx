@@ -1,4 +1,4 @@
-import { Icon } from '@/components/atoms'
+import { Icon } from 'components/atoms'
 
 import * as S from './styles'
 

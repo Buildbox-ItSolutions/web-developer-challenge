@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 
 import { ThemeProvider } from 'styled-components'
-
-import { theme } from '@/styles'
+import { PostProvider } from '.'
+import { theme } from 'styles'
 
 type Props = {
   children: ReactNode
@@ -11,7 +11,9 @@ type Props = {
 export const AppProvider = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme}>
-      <>{children}</>
+      <PostProvider>
+        <>{children}</>
+      </PostProvider>
     </ThemeProvider>
   )
 }
