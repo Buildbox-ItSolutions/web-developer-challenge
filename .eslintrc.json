@@ -1,0 +1,37 @@
+{
+  "settings": { "react": { "version": "detect" } },
+  "plugins": ["react", "import-helpers", "prettier"],
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "eslint-config-prettier"
+  ],
+  "parserOptions": { "project": "./tsconfig.json" },
+  "env": { "browser": true, "es2021": true },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "tabWidth": 2,
+        "semi": false,
+        "jsxSingleQuote": true,
+        "arrowParens": "always",
+        "printWidth": 100
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-floating-promises": "warn",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off",
+    "no-unused-vars": "off",
+    "react/jsx-key": "warn"
+  }
+}
