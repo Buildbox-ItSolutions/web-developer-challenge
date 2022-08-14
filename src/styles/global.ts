@@ -1,4 +1,4 @@
-import { createGlobalStyle, css, DefaultTheme, GlobalStyleComponent } from 'styled-components'
+import { createGlobalStyle, DefaultTheme, GlobalStyleComponent } from 'styled-components'
 
 type GlobalStyleProps = {}
 
@@ -42,5 +42,12 @@ export const GlobalStyles: GlobalStyleComponent<GlobalStyleProps, DefaultTheme> 
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
     line-height: normal;
+  }
+
+  input, textarea {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    font-family: 'Roboto', ${({ theme }) => theme.typography.fonts};
   }
 `
