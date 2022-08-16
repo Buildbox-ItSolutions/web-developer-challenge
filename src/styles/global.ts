@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -8,20 +8,23 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        background: #f0f0f5;
+        ${({ theme }) => css`
+            background: ${theme['gray-700']};
+            color: ${theme['gray-300']};
+        `}
         -webkit-font-smoothing: antialiased;
-        color: #000;
     }
     body, input, button, textarea {
-        font-family: 'Roboto', sans-serif;
+        font-family: Roboto, sans-serif;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 16px;
+        border: 0;
     }
 
     #root {
-        max-width: 960px;
+        max-width: 516px;
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 93px 16px 32px;
     }
     button {
         cursor: pointer;
