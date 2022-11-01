@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DashContext } from "../../context/DashboardContext";
+import Button from "../Button";
 import { PropCardMessage } from "./interface";
-import { CardContainer, UserContainer, UserInfos } from "./styles";
+import {
+  CardContainer,
+  UserContainer,
+  ImageUser,
+  DescriptionInfos,
+} from "./styles";
+import { PropsDashContext } from "../../context/interfaces";
+import { ContainerCardBox } from "./styles";
 
 function CardMessage({ description, image, name, id }: PropCardMessage) {
+  const { messages, setMessages } = useContext(DashContext) as PropsDashContext;
+
+  const deleteMessage = () => {
+    const messageDeleted = messages.filter((message) => message.id !== id);
+    console.log(messageDeleted);
+    setMessages(messageDeleted);
+    localStorage.setItem("messagesBox", JSON.stringify(messageDeleted));
+  };
+
   return (
-    <CardContainer onClick={() => id}>
-      <UserContainer>
-        <div>
-          <img src={image} alt="user" />
-        </div>
-        <div>
-          <p>{description}</p>
-          <UserInfos>
+    <ContainerCardBox>
+      <Button text="X" typeBtn="discart" onClick={deleteMessage} />
+      <CardContainer>
+        <UserContainer>
+          <ImageUser src={image} alt="user" />
+          <DescriptionInfos>
+            <p>{description}</p>
             <p>Enviado por</p>
             <strong>{name}</strong>
-          </UserInfos>
-        </div>
-      </UserContainer>
-    </CardContainer>
+          </DescriptionInfos>
+        </UserContainer>
+      </CardContainer>
+    </ContainerCardBox>
   );
 }
 

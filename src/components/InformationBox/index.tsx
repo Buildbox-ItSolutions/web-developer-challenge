@@ -26,6 +26,10 @@ function InformationBox() {
     const messageBody = { ...message, image: profileImage, id: uniqid() };
     setMessages([...messages, messageBody]);
     setMessage({ ...message, description: "" });
+    localStorage.setItem(
+      "messagesBox",
+      JSON.stringify([...messages, messageBody]),
+    );
   };
 
   return (
@@ -38,8 +42,8 @@ function InformationBox() {
         value={message?.name}
       />
       <TextField
-        rows={5}
-        cols={10}
+        rows={20}
+        cols={40}
         name="description"
         onChange={handleInputs}
         value={message?.description}
