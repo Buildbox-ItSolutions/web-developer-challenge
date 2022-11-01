@@ -1,10 +1,10 @@
 import { useState } from "react";
 import ImageComponent from "../Image";
 import { UploadContainer } from "./styles";
+import { PropUploadImage } from "./interface";
 
-function UploadImage() {
+function UploadImage({ setProfileImage }: PropUploadImage) {
   const [image, setImage] = useState<string | null>(null);
-
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
       console.error("Select a file");
@@ -23,6 +23,7 @@ function UploadImage() {
 
     const file = await response.json();
     setImage(file.secure_url);
+    setProfileImage(file.secure_url);
   };
 
   return (
