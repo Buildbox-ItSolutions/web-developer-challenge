@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BtnContainer = styled.button`
-  background-color: #5f5f5f;
+  background-color: ${({ theme }) => theme.grey100};
   border-radius: 8px;
   border: none;
   font-weight: bold;
