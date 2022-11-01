@@ -8,11 +8,10 @@ export const CardContainer = styled.div`
   color: ${({ theme }) => theme.fontColor};
   display: flex;
   flex-direction: column;
-  gap: 20px;
   max-height: 500px;
   justify-content: center;
-  margin-bottom: 30px;
-  padding: 12px 12px 32px 24px;
+  margin-bottom: 5px;
+  padding: 10px 12px 32px 24px;
   width: 516px;
 `;
 
