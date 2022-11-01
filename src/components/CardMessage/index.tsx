@@ -1,16 +1,23 @@
 import React from "react";
 import { PropCardMessage } from "./interface";
+import { CardContainer, UserContainer, UserInfos } from "./styles";
 
 function CardMessage({ description, image, name, id }: PropCardMessage) {
   return (
-    <div onClick={() => id}>
-      <img src={image} alt="user" />
-      <p>{description}</p>
-      <div>
-        <p>Enviado por</p>
-        <strong>{name}</strong>
-      </div>
-    </div>
+    <CardContainer onClick={() => id}>
+      <UserContainer>
+        <div>
+          <img src={image} alt="user" />
+        </div>
+        <div>
+          <p>{description}</p>
+          <UserInfos>
+            <p>Enviado por</p>
+            <strong>{name}</strong>
+          </UserInfos>
+        </div>
+      </UserContainer>
+    </CardContainer>
   );
 }
 

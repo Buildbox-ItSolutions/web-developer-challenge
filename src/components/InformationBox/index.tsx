@@ -21,6 +21,8 @@ function InformationBox() {
   };
 
   const handleSendMessage = () => {
+    if (!message?.name || !message?.description) return;
+
     const messageBody = { ...message, image: profileImage, id: uniqid() };
     setMessages([...messages, messageBody]);
     setMessage({ ...message, description: "" });
@@ -43,8 +45,8 @@ function InformationBox() {
         value={message?.description}
       />
       <ButtonsContainer>
-        <Button text="Descartar" />
-        <Button text="Publicar" onClick={handleSendMessage} />
+        <Button text="Descartar" typeBtn="discard" />
+        <Button text="Publicar" onClick={handleSendMessage} typeBtn="submit" />
       </ButtonsContainer>
     </BoxContainer>
   );

@@ -5,4 +5,6 @@ export const COLORS = {
   grey400: "#313131",
   white: "#FFFF",
   black: "#343434",
+  fontColor: "#9f9f9f",
+  red300: "#ab2e46",
 };
