@@ -2,12 +2,19 @@ import styled from "styled-components";
 
 export const BoxContainer = styled.div`
   align-items: center;
+  background-color: ${({ theme }) => theme.grey400};
+  border-radius: 3px;
+  border: solid 1px ${({ theme }) => theme.greyBorder};
   display: flex;
   flex-direction: column;
+  height: 353px;
   justify-content: center;
-  max-width: 100%;
+  margin: 40px 425px 56px;
+  padding: 24px;
+  width: 516px;
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
+  justify-content: flex-end;
 `;
