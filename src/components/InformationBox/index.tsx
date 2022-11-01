@@ -12,7 +12,10 @@ import { DashContext } from "../../context/DashboardContext";
 function InformationBox() {
   const { setMessages, messages } = useContext(DashContext) as PropsDashContext;
   const [profileImage, setProfileImage] = useState<string | null>(null);
-  const [message, setMessage] = useState<Message>();
+  const [message, setMessage] = useState<Message>({
+    name: "",
+    description: "",
+  });
 
   const handleInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

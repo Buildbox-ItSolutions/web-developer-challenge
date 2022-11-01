@@ -16,6 +16,7 @@ function FeedComponent() {
             image={image ?? ImageDesconhecido}
             name={name}
             id={id}
+            key={id}
           />
         ))}
     </div>
