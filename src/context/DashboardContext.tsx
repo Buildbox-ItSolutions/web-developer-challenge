@@ -6,7 +6,7 @@ export const DashContext = React.createContext<PropsDashContext | null>(null);
 const DashContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [messages, setMessages] = React.useState<Message[] | any>();
+  const [messages, setMessages] = React.useState<Message[] | any>([]);
   const stateGlobal = React.useMemo(
     () => ({
       messages,

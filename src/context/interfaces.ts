@@ -1,6 +1,6 @@
 export interface PropsDashContext {
   messages: Message[];
-  setMessages: (valeu: Message) => void;
+  setMessages: (value: Message[]) => void;
 }
 
 export interface Message {

@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
-import { Message } from "../../context/interfaces";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useState } from "react";
+import { Message, PropsDashContext } from "../../context/interfaces";
 import Button from "../Button";
 import Input from "../Input";
 import TextField from "../TextField";
 import UploadImage from "../UploadImage";
 import { BoxContainer, ButtonsContainer } from "./styles";
 import uniqid from "uniqid";
+import { DashContext } from "../../context/DashboardContext";
 
 function InformationBox() {
+  const { setMessages, messages } = useContext(DashContext) as PropsDashContext;
   const [profileImage, setProfileImage] = useState<string | null>(null);
-  const [message, setMessage] = useState<Message>({ id: uniqid() });
+  const [message, setMessage] = useState<Message>();
 
   const handleInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -17,9 +20,11 @@ function InformationBox() {
     setMessage({ ...message, [name]: value });
   };
 
-  useEffect(() => {
-    setMessage({ ...message, image: profileImage });
-  }, [profileImage]);
+  const handleSendMessage = () => {
+    const messageBody = { ...message, image: profileImage, id: uniqid() };
+    setMessages([...messages, messageBody]);
+    setMessage({ ...message, description: "" });
+  };
 
   return (
     <BoxContainer>
@@ -28,16 +33,18 @@ function InformationBox() {
         placeholder="Digite seu nome"
         name="name"
         onChange={handleInputs}
+        value={message?.name}
       />
       <TextField
         rows={5}
         cols={10}
         name="description"
         onChange={handleInputs}
+        value={message?.description}
       />
       <ButtonsContainer>
         <Button text="Descartar" />
-        <Button text="Publicar" />
+        <Button text="Publicar" onClick={handleSendMessage} />
       </ButtonsContainer>
     </BoxContainer>
   );
