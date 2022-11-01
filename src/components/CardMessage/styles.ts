@@ -13,6 +13,10 @@ export const CardContainer = styled.div`
   margin-bottom: 5px;
   padding: 10px 12px 32px 24px;
   width: 516px;
+
+  @media (max-width: 660px) {
+    width: 312px;
+  }
 `;
 
 export const UserContainer = styled.div`

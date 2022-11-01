@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const BoxContainer = styled.div`
+  @media (max-width: 660px) {
+    width: 212px;
+  }
+
   align-items: center;
   background-color: ${({ theme }) => theme.grey400};
   border-radius: 3px;
@@ -17,4 +21,12 @@ export const BoxContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  @media (max-width: 660px) {
+    gap: 10px;
+    button {
+      width: 100px;
+      margin: 0 auto;
+    }
+  }
 `;
