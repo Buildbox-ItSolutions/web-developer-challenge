@@ -22,6 +22,7 @@ export const apiSlice = createApi({
         url: `post/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Posts"],
     }),
   }),
 });

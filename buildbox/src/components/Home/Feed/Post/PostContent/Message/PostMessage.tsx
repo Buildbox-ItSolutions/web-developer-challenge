@@ -12,7 +12,7 @@ export const PostMessage = () => {
   return (
     <>
       <Container>
-        <TextSection>{post.text}</TextSection>
+        <TextSection>{post.userMessage}</TextSection>
         <SentBySection>
           <SentByLabel>Enviado por</SentByLabel>
           <SentByUserName>{post.userName}</SentByUserName>

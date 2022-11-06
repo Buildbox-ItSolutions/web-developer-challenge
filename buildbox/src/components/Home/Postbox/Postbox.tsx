@@ -1,6 +1,6 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, useField, useFormikContext } from "formik";
 import { Container } from "./Styles/Container.styled";
-import { ImgContainer } from "../Styles/ImgContainer.styled";
+import { ImgContainer as UserImageContainer } from "../Styles/ImgContainer.styled";
 import { PublishButton } from "./Styles/Buttons/PublishBtn/PublishBtn";
 import { PublishBtnText } from "./Styles/Buttons/PublishBtn/Text";
 
@@ -14,11 +14,13 @@ import emptyImage from "./../../../img/image.png";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../../slices/posts/posts.slice";
+import { RemoveUserImgButton } from "./Styles/Buttons/RemoveImgBtn/RemoveUserImgBtn.styled";
+import { UserImageSection } from "./Styles/Sections/UserImageSection.styled";
 
 const initialValues = {
   userName: "",
   userMessage: "",
-  userImage: emptyImage,
+  userImage: "",
 };
 
 export default function Postbox() {
@@ -38,23 +40,25 @@ export default function Postbox() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedUserImage]);
 
-  const publishMessage = (values: any) => {
-    dispatch(addPost(values));
+  const publishMessage = (values: any, previewImage: any) => {
+    dispatch(addPost({ ...values, userImage: previewImage }));
   };
 
   function imageChanged(e: any) {
     if (!e.target.files || e.target.files.length === 0) {
-      setUserImage(undefined);
       return;
     }
 
     setUserImage(e.target.files[0]);
   }
 
+  function removeUserImage() {
+    setUserImage(undefined);
+  }
+
   return (
     <>
       <Container>
-        {/* <ImgContainer type="file" name="postImg" filePath={emptyImage}></ImgContainer> */}
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => {
@@ -62,17 +66,26 @@ export default function Postbox() {
           }}
           validationSchema={validationSchema}
         >
-          {({ handleReset, values }) => {
+          {({ handleReset, values, handleChange }) => {
             return (
               <>
                 <Form>
-                  <ImgContainer filePath={previewImage}>
-                    <Field
-                      type="file"
-                      name="postImg"
-                      onChange={imageChanged}
-                    ></Field>
-                  </ImgContainer>
+                  <UserImageSection>
+                    <UserImageContainer filePath={previewImage}>
+                      <Field
+                        type="file"
+                        name="userImage"
+                        onChange={(e: any) => {
+                          handleChange(e);
+                          imageChanged(e);
+                        }}
+                      ></Field>
+                    </UserImageContainer>
+                    <RemoveUserImgButton
+                      type="button"
+                      onClick={removeUserImage}
+                    ></RemoveUserImgButton>
+                  </UserImageSection>
 
                   <FieldContainer>
                     <Field
@@ -92,12 +105,18 @@ export default function Postbox() {
                   </FieldContainer>
 
                   <ButtonsContainer>
-                    <DiscardButton type="button" onClick={handleReset}>
+                    <DiscardButton
+                      type="button"
+                      onClick={(e: any) => {
+                        handleReset(e);
+                        removeUserImage();
+                      }}
+                    >
                       <DiscardBtnText>Descartar</DiscardBtnText>
                     </DiscardButton>
                     <PublishButton
                       type="button"
-                      onClick={() => publishMessage(values)}
+                      onClick={() => publishMessage(values, previewImage)}
                     >
                       <PublishBtnText>Publicar</PublishBtnText>
                     </PublishButton>

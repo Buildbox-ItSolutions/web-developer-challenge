@@ -1,13 +1,15 @@
-import { ImgContainer as UserImage } from "../../../Styles/ImgContainer.styled";
+import { useContext } from "react";
+import { PostContext } from "../../Feed";
 import { PostMessage } from "./Message/PostMessage";
 import { Container } from "./Styles/Container.styled";
+import { UserImage } from "./Styles/UserImage.styled";
 
 export const PostContent = () => {
-  const imagePath = "";
+  const { userImage }: any = useContext(PostContext);
   return (
     <>
       <Container>
-        <UserImage filePath={imagePath}></UserImage>
+        <UserImage filePath={userImage}></UserImage>
         <PostMessage></PostMessage>
       </Container>
     </>
