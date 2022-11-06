@@ -24,13 +24,16 @@ export const Feed = () => {
   } else if (isError) {
     postContent = (
       <>
-        {mockPosts && mockPosts.map((post: any) => {
-          return (
-            <PostContext.Provider value={post}>
-              <Post key={post.id}></Post>;
-            </PostContext.Provider>
-          );
-        })}
+        {mockPosts &&
+          mockPosts.map((post: any) => {
+            return (
+              <div key={post.id}>
+                <PostContext.Provider value={post}>
+                  <Post></Post>;
+                </PostContext.Provider>
+              </div>
+            );
+          })}
       </>
     );
   } else if (isSuccess) {
@@ -38,9 +41,11 @@ export const Feed = () => {
       <>
         {posts.map((post: any) => {
           return (
-            <PostContext.Provider value={post}>
-              <Post key={post.id}></Post>;
-            </PostContext.Provider>
+            <div key={post.id}>
+              <PostContext.Provider value={post}>
+                <Post></Post>;
+              </PostContext.Provider>
+            </div>
           );
         })}
       </>
