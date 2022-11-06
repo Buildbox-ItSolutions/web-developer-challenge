@@ -7,5 +7,6 @@ export const DeleteBtn = styled.div`
   height: 20px;
   background-image: url(${deleteImg});
   float: right;
+  margin: 11px;
   cursor: pointer;
 `;

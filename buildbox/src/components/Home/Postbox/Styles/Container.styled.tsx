@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 516px;
   height: fit-content;
   margin-top: 40px;
   padding: 24px;
