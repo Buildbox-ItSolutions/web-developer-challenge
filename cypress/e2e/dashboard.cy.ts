@@ -17,6 +17,8 @@ describe("Dashboard InfoBox Test", () => {
   it("Test upload image", () => {
     const filePath = "../../src/shared/assets/Messi.png";
     cy.get('input[type="file"]').attachFile(filePath);
+
+    cy.wait(2000);
   });
 
   it("Test discard message", () => {
