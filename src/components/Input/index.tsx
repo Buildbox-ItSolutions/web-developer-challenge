@@ -1,7 +1,7 @@
 import { PropInput } from "./interface";
 import { InputContainer } from "./styles";
 
-function Input({ placeholder, name, onChange, value }: PropInput) {
+function Input({ placeholder, name, onChange, value, cy }: PropInput) {
   return (
     <InputContainer
       type="text"
@@ -9,6 +9,7 @@ function Input({ placeholder, name, onChange, value }: PropInput) {
       name={name}
       onChange={onChange}
       value={value}
+      data-cy={cy}
     />
   );
 }

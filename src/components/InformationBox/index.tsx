@@ -43,6 +43,7 @@ function InformationBox() {
         name="name"
         onChange={handleInputs}
         value={message?.name}
+        cy="input-name"
       />
       <TextField
         rows={20}

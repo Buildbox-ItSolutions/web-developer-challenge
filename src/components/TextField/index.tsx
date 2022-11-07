@@ -9,6 +9,7 @@ function TextField({ rows, cols, name, onChange, value }: PropTextField) {
       name={name}
       onChange={onChange}
       value={value}
+      data-cy="input-textfield"
     />
   );
 }

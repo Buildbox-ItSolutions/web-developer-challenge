@@ -3,4 +3,5 @@ export interface PropInput {
   name: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string | undefined;
+  cy: string;
 }
