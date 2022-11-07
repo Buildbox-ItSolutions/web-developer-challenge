@@ -22,15 +22,15 @@ function CardMessage({ description, image, name, id }: PropCardMessage) {
   };
 
   return (
-    <ContainerCardBox>
+    <ContainerCardBox data-cy="box-message">
       <Button text="X" typeBtn="discart" onClick={deleteMessage} />
       <CardContainer>
         <UserContainer>
           <ImageUser src={image} alt="user" />
           <DescriptionInfos>
-            <p>{description}</p>
+            <p data-cy="message-desc">{description}</p>
             <p>Enviado por</p>
-            <strong>{name}</strong>
+            <strong data-cy="name-user">{name}</strong>
           </DescriptionInfos>
         </UserContainer>
       </CardContainer>
