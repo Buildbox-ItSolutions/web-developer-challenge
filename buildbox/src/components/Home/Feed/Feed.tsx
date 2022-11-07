@@ -29,7 +29,7 @@ export const Feed = () => {
             return (
               <div key={post.id}>
                 <PostContext.Provider value={post}>
-                  <Post></Post>;
+                  <Post></Post>
                 </PostContext.Provider>
               </div>
             );

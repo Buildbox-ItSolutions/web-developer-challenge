@@ -8,7 +8,6 @@ export const UserImage = styled.div`
   height: 88px;
   min-width: 88px;
   max-height: 88px;
-  margin: auto;
   margin-top: 0px;
   display: block;
   border-radius: 36px;

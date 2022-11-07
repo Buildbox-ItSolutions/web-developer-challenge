@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const TextSection = styled.section`
-  font-family: Roboto;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.25;

@@ -6,6 +6,8 @@ export const FieldContainer = styled.div`
     border-radius: 8px;
     background-color: #494949;
     width: 100%;
+    font-size: 14px;
+    font-family: Helvetica;
     margin: 16px 0 8px;
     padding: 12px 16px 11px 16px;
     max-width: -webkit-fill-available;
@@ -17,8 +19,8 @@ export const FieldContainer = styled.div`
     &::placeholder {
       width: 101px;
       height: 17px;
-      font-family: Roboto;
       font-size: 14px;
+      font-family: Helvetica;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;

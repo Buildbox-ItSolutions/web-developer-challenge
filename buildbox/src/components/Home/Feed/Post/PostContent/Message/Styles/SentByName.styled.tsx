@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const SentByUserName = styled.div`
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

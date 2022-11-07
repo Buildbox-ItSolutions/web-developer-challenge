@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const SentByLabel = styled.div`
-  font-family: Roboto;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;

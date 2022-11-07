@@ -20,12 +20,14 @@ const postsSlice = createSlice({
 
     removePost: {
       reducer: (state, action) => {
-        state.splice(action.payload, 1);
+        const postId = action.payload;
+        const indexTorRemove = state.findIndex((post) => post.id === postId);
+        state.splice(indexTorRemove, 1);
         return state;
       },
-      prepare: (postIndex) => {
+      prepare: (postId) => {
         return {
-          payload: postIndex,
+          payload: postId,
         };
       },
     },

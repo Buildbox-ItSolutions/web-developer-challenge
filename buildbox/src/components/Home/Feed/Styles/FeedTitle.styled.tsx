@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const FeedTitle = styled.span`
-  width: 30px;
-  height: 17px;
-  font-family: Roboto;
+  display: block;
+  margin-bottom: 8px;
   font-size: 14px;
   font-weight: 500;
   font-stretch: normal;

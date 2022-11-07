@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const imageAnimation = (
+  isEmptyImage: boolean,
+  filePath: string,
+  emptyImage: string
+) => keyframes`
+  from {background-image: url(${isEmptyImage ? emptyImage : filePath})}
+  to {background-image: url(${isEmptyImage ? filePath : emptyImage})}
+`;
 
 export const ImgContainer = styled.div`
   & input {
@@ -15,10 +24,21 @@ export const ImgContainer = styled.div`
     border-radius: 36px;
     border: solid 1px #4b4b4b;
     background-color: rgba(75, 75, 75, 0);
-    background-image: url(${(props: { filePath: string }) => props.filePath});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: ${(props: {
+      filePath: string;
+      isEmptyImage: boolean;
+      emptyImage: string;
+    }) => (props.isEmptyImage ? "cover" : "auto")};
     outline: none;
+    cursor: pointer;
+    animation-name: ${(props: {
+      filePath: string;
+      isEmptyImage: boolean;
+      emptyImage: string;
+    }) => imageAnimation(props.isEmptyImage, props.filePath, props.emptyImage)};
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards
   }
 `;

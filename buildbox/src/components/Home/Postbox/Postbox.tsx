@@ -26,6 +26,7 @@ const initialValues = {
 export default function Postbox() {
   const [selectedUserImage, setUserImage] = useState();
   const [previewImage, setPreviewImage] = useState(emptyImage);
+  const [fileFormatIsValid, setFileFormatIsValid] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,8 +41,10 @@ export default function Postbox() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedUserImage]);
 
-  const publishMessage = (values: any, previewImage: any) => {
-    dispatch(addPost({ ...values, userImage: previewImage }));
+  const publishMessage = (values: any, previewImage: any, isValid: any) => {
+    if (isValid) {
+      dispatch(addPost({ ...values, userImage: previewImage }));
+    }
   };
 
   function imageChanged(e: any) {
@@ -49,11 +52,19 @@ export default function Postbox() {
       return;
     }
 
-    setUserImage(e.target.files[0]);
+    if (validatesFileType(e.target.files[0].type)) {
+      setFileFormatIsValid(true);
+      setUserImage(e.target.files[0]);
+    }
   }
 
   function removeUserImage() {
+    setFileFormatIsValid(false);
     setUserImage(undefined);
+  }
+
+  function validatesFileType(fileFormat: string) {
+    return ["image/png", "image/svg", "image/jpeg"].includes(fileFormat);
   }
 
   return (
@@ -66,23 +77,30 @@ export default function Postbox() {
           }}
           validationSchema={validationSchema}
         >
-          {({ handleReset, values, handleChange }) => {
+          {({ handleReset, values, isValid, dirty }) => {
             return (
               <>
                 <Form>
                   <UserImageSection>
-                    <UserImageContainer filePath={previewImage}>
+                    <UserImageContainer
+                      filePath={previewImage}
+                      isEmptyImage={!!selectedUserImage}
+                      emptyImage={emptyImage}
+                    >
                       <Field
                         type="file"
                         name="userImage"
+                        title="Clique para alterar a imagem do usuário"
+                        aria-label="Clique para alterar a imagem do usuário"
                         onChange={(e: any) => {
-                          handleChange(e);
                           imageChanged(e);
                         }}
                       ></Field>
                     </UserImageContainer>
                     <RemoveUserImgButton
                       type="button"
+                      title="Clique para alterar a imagem do usuário"
+                      aria-label="Clique para remover a imagem do usuário"
                       onClick={removeUserImage}
                     ></RemoveUserImgButton>
                   </UserImageSection>
@@ -116,7 +134,15 @@ export default function Postbox() {
                     </DiscardButton>
                     <PublishButton
                       type="button"
-                      onClick={() => publishMessage(values, previewImage)}
+                      onClick={() =>
+                        publishMessage(values, previewImage, isValid)
+                      }
+                      disabled={
+                        !isValid ||
+                        !dirty ||
+                        !selectedUserImage ||
+                        !fileFormatIsValid
+                      }
                     >
                       <PublishBtnText>Publicar</PublishBtnText>
                     </PublishButton>
