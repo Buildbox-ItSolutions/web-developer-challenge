@@ -1,0 +1,19 @@
+{
+  "name": "buildbox-web-developer-challenge",
+  "version": "1.0.0",
+  "description": "Buildbox - Web Developer Challenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newerton/buildbox-web-developer-challenge.git"
+  },
+  "author": "Newerton Vargas de Araujo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newerton/buildbox-web-developer-challenge/issues"
+  },
+  "homepage": "https://github.com/newerton/buildbox-web-developer-challenge#readme"
+}
