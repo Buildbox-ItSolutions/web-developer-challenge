@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress open",
+    "test": "cypress run --record false cypress/e2e/dashoard.cy.ts",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
