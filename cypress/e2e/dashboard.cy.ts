@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-file-upload" />
 
-describe("empty spec", () => {
+describe("Dashboard Test", () => {
   before(() => cy.visit("http://localhost:3000/"));
 
   it("Test type in input name", () => {
@@ -17,5 +17,12 @@ describe("empty spec", () => {
   it("Test upload image", () => {
     const filePath = "../../src/shared/assets/Messi.png";
     cy.get('input[type="file"]').attachFile(filePath);
+  });
+
+  it("Test discard message", () => {
+    cy.get('[data-cy="btn-discard"]').click();
+
+    cy.get('[data-cy="input-name"]').should("have.value", "");
+    cy.get('[data-cy="input-textfield"]').should("have.value", "");
   });
 });

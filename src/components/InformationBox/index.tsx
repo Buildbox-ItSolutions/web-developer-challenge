@@ -35,6 +35,10 @@ function InformationBox() {
     );
   };
 
+  const deleteMessage = () => {
+    setMessage({ description: "", name: "" });
+  };
+
   return (
     <BoxContainer>
       <UploadImage setProfileImage={setProfileImage} />
@@ -53,7 +57,7 @@ function InformationBox() {
         value={message?.description}
       />
       <ButtonsContainer>
-        <Button text="Descartar" typeBtn="discard" />
+        <Button text="Descartar" typeBtn="discard" onClick={deleteMessage} />
         <Button text="Publicar" onClick={handleSendMessage} typeBtn="submit" />
       </ButtonsContainer>
     </BoxContainer>
