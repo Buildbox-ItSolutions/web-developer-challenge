@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.scss'
 import Container from 'react-bootstrap/Container'
 import HeaderBar from '../components/HeaderBar'
+import Retangulo from '../components/Retangulo'
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderBar />
+      <Retangulo />
     </Container>
   )
 }
