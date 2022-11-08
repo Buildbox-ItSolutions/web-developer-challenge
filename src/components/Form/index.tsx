@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import Button from '@components/Button';
 import Input from '@components/Input';
 import TextArea from '@components/TextArea';
+import UploadImage from '@components/UploadImage';
 import { Message } from '@contexts/MessageContext';
 import { useMessage } from '@hooks/message';
 
@@ -15,6 +16,7 @@ export const Form = memo(() => {
     name: '',
     description: '',
   });
+  const uploadImageRef = useRef<any>();
 
   useEffect(() => {
     setFormValidated(false);
@@ -35,9 +37,11 @@ export const Form = memo(() => {
 
     const body = {
       ...message,
+      image: uploadImageRef.current.getFile(),
     };
     addMessage(body);
     setMessage({ name: '', description: '' });
+    uploadImageRef.current.setFile(null);
   };
 
   const deleteMessage = () => {
@@ -46,6 +50,7 @@ export const Form = memo(() => {
 
   return (
     <S.Container>
+      <UploadImage ref={uploadImageRef} />
       <Input
         name="name"
         value={message?.name}
