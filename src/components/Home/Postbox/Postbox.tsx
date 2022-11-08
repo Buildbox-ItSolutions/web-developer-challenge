@@ -1,16 +1,17 @@
 import { Formik, Form, Field } from "formik";
 import { Container } from "./Styles/Container.styled";
 import { ImgContainer as UserImageContainer } from "../Styles/ImgContainer.styled";
-import { PublishButton } from "./Styles/Buttons/PublishBtn/PublishBtn";
-import { PublishBtnText } from "./Styles/Buttons/PublishBtn/Text";
+import { PublishButton } from "./Styles/Buttons/PublishBtn/PublishBtn.styled";
+import { PublishBtnText } from "./Styles/Buttons/PublishBtn/Text.styled";
 
 import validationSchema from "./Validation/validation.schema";
-import { ButtonsContainer } from "./Styles/Buttons/BtnContainer";
-import { DiscardButton } from "./Styles/Buttons/DiscardBtn/DiscardBtn";
-import { DiscardBtnText } from "./Styles/Buttons/DiscardBtn/Text";
+import { ButtonsContainer } from "./Styles/Buttons/BtnContainer.styled";
+import { DiscardButton } from "./Styles/Buttons/DiscardBtn/DiscardBtn.styled";
+import { DiscardBtnText } from "./Styles/Buttons/DiscardBtn/Text.styled";
 import { FieldContainer } from "./Styles/Fields/FieldContainer.styled";
 
-import emptyImage from "./../../../img/image.png";
+import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
+
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../../slices/posts/posts.slice";
@@ -18,6 +19,11 @@ import { RemoveUserImgButton } from "./Styles/Buttons/RemoveImgBtn/RemoveUserImg
 import { UserImageSection } from "./Styles/Sections/UserImageSection.styled";
 import { CharacterCountMsg } from "./Styles/Fields/CharacterCountMsg.styled";
 import { EmptyImage } from "../Styles/EmptyImage.styled";
+import { Alert } from "@mui/material";
+
+export interface State extends SnackbarOrigin {
+  open: boolean;
+}
 
 const initialValues = {
   userName: "",
@@ -33,6 +39,12 @@ export default function Postbox() {
   const [selectedUserImageCopy, setUserImageCopy] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [fileFormatIsValid, setFileFormatIsValid] = useState(false);
+  const [snackbarState, setSnackbarState] = useState<State>({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = snackbarState;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,7 +60,7 @@ export default function Postbox() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedUserImage]);
 
-  const publishMessage = (values: any, previewImage: any, isValid: any) => {
+  const publishMessage = (values: any, previewImage: any, isValid: boolean) => {
     if (isValid) {
       dispatch(addPost({ ...values, userImage: previewImage }));
     }
@@ -62,6 +74,8 @@ export default function Postbox() {
     if (validatesFileType(e.target.files[0].type)) {
       setFileFormatIsValid(true);
       setUserImage(e.target.files[0]);
+    } else {
+      handleOpenSnackbar();
     }
   }
 
@@ -82,6 +96,14 @@ export default function Postbox() {
     );
   }
 
+  const handleCloseSnackbar = () => {
+    setSnackbarState({ ...snackbarState, open: false });
+  };
+
+  const handleOpenSnackbar = () => {
+    setSnackbarState({ ...snackbarState, open: true });
+  };
+
   return (
     <>
       <Container>
@@ -97,7 +119,10 @@ export default function Postbox() {
               <>
                 <Form>
                   <UserImageSection>
-                    <UserImageContainer filePath={previewImage} filePathCopy={selectedUserImageCopy}>
+                    <UserImageContainer
+                      filePath={previewImage}
+                      filePathCopy={selectedUserImageCopy}
+                    >
                       <EmptyImage></EmptyImage>
                       {selectedUserImage && (
                         <RemoveUserImgButton
@@ -174,6 +199,15 @@ export default function Postbox() {
           }}
         </Formik>
       </Container>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleCloseSnackbar}
+        key={vertical + horizontal}
+      >
+        <Alert severity="error">Formato de arquivo não é suportado.</Alert>
+      </Snackbar>
     </>
   );
 }

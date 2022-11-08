@@ -1,17 +1,17 @@
 import { Feed } from "./Feed/Feed";
 import Postbox from "./Postbox/Postbox";
-import { GridContainer } from "./Styles/Grid.styled";
+import { GridColumn, GridContainer } from "./Styles/Grid.styled";
 
 export const Home = () => {
   return (
     <>
       <GridContainer>
-        <div></div>
-        <div>
+        <GridColumn></GridColumn>
+        <GridColumn>
           <Postbox></Postbox>
           <Feed></Feed>
-        </div>
-        <div></div>
+        </GridColumn>
+        <GridColumn></GridColumn>
       </GridContainer>
     </>
   );

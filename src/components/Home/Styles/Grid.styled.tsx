@@ -11,3 +11,5 @@ export const GridContainer = styled.div`
   background-color: ${black};
   min-height: 100vh;
 `;
+
+export const GridColumn = styled.div``;

@@ -4,6 +4,8 @@ import { useGetPostsQuery } from "../../../api/apiSlice";
 import { postsSelector } from "../../../slices/posts/posts.slice";
 import { Post } from "./Post/Post";
 import { FeedTitle } from "./Styles/FeedTitle.styled";
+import { PostContainer } from "./Styles/PostContainer.styled";
+import { SearchingPostsMsg } from "./Styles/SearchingPostsMsg.styled";
 
 export const PostContext = React.createContext({});
 
@@ -17,34 +19,35 @@ export const Feed = () => {
     isSuccess,
   } = useGetPostsQuery(undefined);
 
-  let postContent = <></>;
+  let feedContent = <></>;
   if (isFetching || isLoading) {
-    postContent = <div>Buscando posts...</div>;
+    feedContent = <SearchingPostsMsg>Buscando posts...</SearchingPostsMsg>;
   } else if (isError) {
-    postContent = (
+    // Solução temporária com mocks devido à ausência de endpoints
+    feedContent = (
       <>
         {mockPosts &&
           mockPosts.map((post: any) => {
             return (
-              <div key={post.id}>
+              <PostContainer key={post.id}>
                 <PostContext.Provider value={post}>
                   <Post></Post>
                 </PostContext.Provider>
-              </div>
+              </PostContainer>
             );
           })}
       </>
     );
   } else if (isSuccess) {
-    postContent = (
+    feedContent = (
       <>
         {posts.map((post: any) => {
           return (
-            <div key={post.id}>
+            <PostContainer key={post.id}>
               <PostContext.Provider value={post}>
                 <Post></Post>;
               </PostContext.Provider>
-            </div>
+            </PostContainer>
           );
         })}
       </>
@@ -54,7 +57,7 @@ export const Feed = () => {
   return (
     <>
       {mockPosts.length > 0 && <FeedTitle>Feed</FeedTitle>}
-      {postContent}
+      {feedContent}
     </>
   );
 };
