@@ -206,7 +206,7 @@ export default function Postbox() {
         onClose={handleCloseSnackbar}
         key={vertical + horizontal}
       >
-        <Alert severity="error">Formato de arquivo não é suportado.</Alert>
+        <Alert severity="error">Formato de arquivo não é suportado. Use png, svg ou jpeg</Alert>
       </Snackbar>
     </>
   );
