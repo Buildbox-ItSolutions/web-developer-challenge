@@ -23,6 +23,12 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100vh;
   }
+
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 `;
 
 export default GlobalStyle;
