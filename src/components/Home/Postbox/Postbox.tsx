@@ -85,7 +85,7 @@ export default function Postbox() {
   }
 
   function validatesFileType(fileFormat: string) {
-    return ["image/png", "image/svg", "image/jpeg"].includes(fileFormat);
+    return ["image/png", "image/jpg", "image/jpeg"].includes(fileFormat);
   }
 
   function getCharactersCountMessage(message: string) {
@@ -206,7 +206,9 @@ export default function Postbox() {
         onClose={handleCloseSnackbar}
         key={vertical + horizontal}
       >
-        <Alert severity="error">Formato de arquivo não é suportado. Use png, svg ou jpeg</Alert>
+        <Alert severity="error">
+          Formato de arquivo não é suportado. Use png, jpg ou jpeg
+        </Alert>
       </Snackbar>
     </>
   );
