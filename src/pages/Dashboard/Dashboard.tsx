@@ -1,11 +1,14 @@
 import React from 'react'
 import Card from '../../components/Card'
-import { Container } from './Dashboard.styles'
+import { Container } from '.'
+import UploadImage from '../../components/UploadImage'
 
 const Dashboard = () => {
   return (
     <Container>
-      <Card />
+      <Card mt="40px">
+        <UploadImage />
+      </Card>
       <Card />
     </Container>
   )
