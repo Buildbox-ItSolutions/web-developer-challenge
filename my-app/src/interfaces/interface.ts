@@ -1,6 +1,7 @@
-export interface Posts{
-    nome:string;
-    menssage:string;
-    urlimg:string;
+export interface Posts {
+    nome: string;
+    menssage: string;
+    urlimg: string;
+
 }
 

@@ -4,8 +4,11 @@ import { BiTrashAlt } from 'react-icons/bi'
 import styles from './styles.module.scss';
 import logo from '../../../public/photo-upload@3x.png';
 import icon from '../../../public/image.png';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, SetStateAction, useEffect, useState } from 'react';
 import { Posts } from '../../interfaces/interface';
+import PostsFeed from '../Post/indext';
+import { Prev } from 'react-bootstrap/esm/PageItem';
+
 
 
 
@@ -21,7 +24,7 @@ export default function Retangulo() {
 
     const [nome, setNome] = useState<string>("");
     const [menssage, setMenssage] = useState<string>("");
-    const [posts, setPosts] = useState<Posts[]>([])
+    const [posts, setPosts] = useState<Posts[] >([])
 
 
     useEffect(() => {
@@ -52,13 +55,14 @@ export default function Retangulo() {
 
 
     const handlesave = async () => {
-        const data: Posts = {
+        const data = 
+            {
             nome: nome,
             menssage: menssage,
             urlimg: avatarUrl
         }
-
-        setPosts([data])
+    
+        setPosts(Prev => [...Prev, data])
 
     }
 
@@ -76,24 +80,18 @@ export default function Retangulo() {
     }
 
     return (
-        <Container>
-
+        <><Container>
             <Row className={styles.container}>
-
-
-
                 <Col className={styles.containerForm} sm={12} md={6} lg={6}>
                     <Row>
                         <Col>
                             <Form.Label>
-                            <Image 
-                            src={icon} 
-                            className={styles.icon}
-                            alt="icon"
-                            />
+                                <Image
+                                    src={icon}
+                                    className={styles.icon}
+                                    alt="icon" />
                                 <Form.Control type="file"
-                                    onChange={handleFile}
-                                />
+                                    onChange={handleFile} />
 
                                 <Image
                                     src={avatarUrl}
@@ -106,10 +104,10 @@ export default function Retangulo() {
                                 color='#FF5858'
                                 size={25}
                                 onClick={removeImg}
-                                style={{marginLeft:5}} />
+                                style={{ marginLeft: 5 }} />
                         </Col>
                     </Row>
-                    
+
                     <Form.Control
                         type="text"
                         value={nome}
@@ -120,21 +118,22 @@ export default function Retangulo() {
                         as="textarea"
                         placeholder="Menssagem"
                         value={menssage}
-                        onChange={(e) => setMenssage(e.target.value)}
-                    />
+                        onChange={(e) => setMenssage(e.target.value)} />
                     <Col className={styles.containerbutton} sm={12} md={12} lg={12}>
                         <a onClick={reset}>Descartar</a>
 
                         <Button
                             variant={secondary}
                             disabled={disabled}
-                            style={{color:btcolor}}
+                            style={{ color: btcolor }}
                             onClick={handlesave}
                         >Publicar</Button>
                     </Col>
                 </Col>
             </Row>
         </Container>
+        <PostsFeed  {...posts}/>
+        </>
 
     )
 }
