@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "cypress run --record false cypress/e2e/project.cy.ts",
+    "test": "react-app-rewired test",
+    "test:e2e": "cypress run --record false cypress/e2e/project.cy.ts",
     "eject": "react-app-rewired eject",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "prepare": "husky install"
@@ -62,5 +63,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+      "^@components/(.*)$": "<rootDir>/src/components/$1",
+      "^@contexts/(.*)$": "<rootDir>/src/contexts/$1",
+      "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "^@pages/(.*)$": "<rootDir>/src/pages/$1",
+      "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+      "^@theme/(.*)$": "<rootDir>/src/theme/$1",
+      "^@utils/(.*)$": "<rootDir>/src/components/$1"
+    }
   }
 }
