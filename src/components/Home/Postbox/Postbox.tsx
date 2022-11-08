@@ -30,18 +30,20 @@ export default function Postbox() {
   const maxUserNameSize: string = "50";
 
   const [selectedUserImage, setUserImage] = useState();
-  const [previewImage, setPreviewImage] = useState(emptyImage);
+  const [selectedUserImageCopy, setUserImageCopy] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
   const [fileFormatIsValid, setFileFormatIsValid] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!selectedUserImage) {
-      setPreviewImage(emptyImage);
+      setPreviewImage("");
       return;
     }
 
     const objectUrl = URL.createObjectURL(selectedUserImage);
     setPreviewImage(objectUrl);
+    setUserImageCopy(objectUrl);
 
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedUserImage]);
@@ -95,10 +97,7 @@ export default function Postbox() {
               <>
                 <Form>
                   <UserImageSection>
-                    <UserImageContainer
-                      filePath={previewImage}
-                      isEmptyImage={!!selectedUserImage}
-                    >
+                    <UserImageContainer filePath={previewImage} filePathCopy={selectedUserImageCopy}>
                       <EmptyImage></EmptyImage>
                       {selectedUserImage && (
                         <RemoveUserImgButton

@@ -12,7 +12,9 @@ const entranceAnimation = () => keyframes`
 
 export const ImgContainer = styled.div`
   position: relative;
-
+  border-radius: 36px;
+  border: solid 1px #4b4b4b;
+  
   & input {
     box-sizing: border-box;
     padding: 86px 0px 0px 0px;
@@ -26,20 +28,15 @@ export const ImgContainer = styled.div`
     display: block;
     border-radius: 36px;
     border: solid 1px #4b4b4b;
-    background-color: rgba(75, 75, 75, 0);
+    background-color: #313131;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     outline: none;
     cursor: pointer;
-    background-image: url(${(props: {
-      filePath: string;
-      isEmptyImage: boolean;
-    }) => props.filePath});
-    animation-name: ${(props: {
-      filePath: string;
-      isEmptyImage: boolean;
-    }) => (props.isEmptyImage ? leaveAnimation() : entranceAnimation())};
+    background-image: url(${(props: { filePath: string, filePathCopy: string }) => props.filePathCopy});
+    animation-name: ${(props: { filePath: string, filePathCopy: string }) =>
+      props.filePath ? entranceAnimation() : leaveAnimation()};
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
   }
