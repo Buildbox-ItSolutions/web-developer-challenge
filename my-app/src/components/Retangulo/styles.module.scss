@@ -56,38 +56,57 @@
 
     input[type='file'] {
         display: none;
-        visibility: visible;
+        visibility: hidden;
+    }
+
+    img {
+        border-radius: 36px;
     }
 }
 
 
-.containerForm .containerbutton{
-   display: flex;
-   justify-content: flex-end;
-   align-items: flex-end;
+.containerForm .containerbutton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 
-   a{
-    width: 60px;
-    height: 17px;
-    margin: 12px 24px 12px 0;
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.29;
-    letter-spacing: normal;
-    text-align: center;
-    color: #5f5f5f;
-    border-bottom: #313131;
-   }
+    a {
+        width: 60px;
+        height: 17px;
+        margin: 12px 24px 12px 0;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        text-align: center;
+        color: #6b6a6a;
+        border-bottom: #313131;
+    }
 
-   a:hover{
-    color: #5f5f5f;
-   }
+    a:hover {
+        color: #5f5f5f;
+    }
 
-   button{
-    font-size: 14px;
-    padding: 12px 24px;
-   }
+    button {
+        font-size: 14px;
+        padding: 12px 24px;
+        color: #313131;
+    }
+}
+
+.feed {
+    margin: 1rem 0.5rem 0rem -0.9rem;
+    color: #9f9f9f;
+   
+}
+
+.containerForm .icon{
+    display: block;
+    position: absolute;
+    margin-left: 33px;
+    margin-top: 33px;
+    z-index: 1;
 }

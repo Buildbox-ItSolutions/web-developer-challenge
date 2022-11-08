@@ -11,5 +11,10 @@
     margin: 0;
 }
 
+$theme-colors: (
+    "success":#71bb00,
+    "secondary": #5f5f5f
+);
+
 
 @import "~bootstrap/scss/bootstrap";
