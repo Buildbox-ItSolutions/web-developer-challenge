@@ -8,6 +8,8 @@ export default function Inputs(props: InputsProps){
         <Form.Control
         type={props.file}
         placeholder={props.placeholder}
+        onChange={props.handleFile}
+       
     />
     )
 }
