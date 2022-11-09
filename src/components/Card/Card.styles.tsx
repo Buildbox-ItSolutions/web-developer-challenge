@@ -10,5 +10,5 @@ export const Container = styled.div`
   margin-top: ${(p: Props) => p.mt};
   position: relative;
 
-  width: 516px;
+  width: ${(p: Props) => p.width};
 `

@@ -21,7 +21,11 @@ const Feed: React.FC<FeedProps> = ({ posts, deletePost }) => {
 
       <SectionPost>
         {posts.map((post, index) => (
-          <Card key={index} mt={index !== 0 ? '16px' : '0'}>
+          <Card
+            key={index}
+            width="calc(100% - 50px)"
+            mt={index !== 0 ? '16px' : '0'}
+          >
             <Delete
               src="/imgs/delete.png"
               onClick={() => deletePost(post.uuid)}

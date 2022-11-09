@@ -6,11 +6,15 @@ export const Imagem = styled.img`
   height: 88px;
   border-radius: 33px;
   object-fit: cover;
+
+  cursor: pointer;
 `
 
 export const EmptyImage = styled.img`
   width: 24px;
   height: 24px;
+
+  cursor: pointer;
 `
 
 export const TrashImage = styled.img`

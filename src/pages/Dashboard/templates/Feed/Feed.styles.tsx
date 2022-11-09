@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { COLORS } from '../../../../core/constants'
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -75,6 +76,11 @@ export const Signature = styled.section`
   display: flex;
   flex-direction: column;
   margin-left: 32px;
+
+  @media (max-width: 578px) {
+    margin-left: 0;
+    margin-top: 18px;
+  }
 `
 
 export const Delete = styled.img`
@@ -86,4 +92,10 @@ export const WrapperBody = styled.section`
   display: flex;
   margin-top: 32px;
   margin-bottom: 8px;
+
+  @media (max-width: 578px) {
+    align-items: center;
+
+    flex-direction: column;
+  }
 `

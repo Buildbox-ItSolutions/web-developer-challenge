@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Card from '../../components/Card'
-import { Container, PostParams } from '.'
+import { Container, PostParams, Wrapper } from '.'
 import Form from './templates/Form'
 import Feed from './templates/Feed'
 
@@ -17,15 +17,17 @@ const Dashboard = () => {
   }
 
   return (
-    <Container>
-      <Card mt="40px">
-        <Form addPost={handleAddPost} />
-      </Card>
+    <Wrapper>
+      <Container>
+        <Card mt="40px" width="calc(100% - 48px)">
+          <Form addPost={handleAddPost} />
+        </Card>
 
-      {posts.length >= 1 && (
-        <Feed posts={posts} deletePost={handleDeletePost} />
-      )}
-    </Container>
+        {posts.length >= 1 && (
+          <Feed posts={posts} deletePost={handleDeletePost} />
+        )}
+      </Container>
+    </Wrapper>
   )
 }
 
