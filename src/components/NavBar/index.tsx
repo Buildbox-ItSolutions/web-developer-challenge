@@ -25,7 +25,7 @@ const ElevationScroll = (props: Props) => {
   });
 };
 
-export const NavBarComponent = ({ props }: Props) => {
+export const NavBarComponent = ({ props }: { props: Props }) => {
   return (
     <React.Fragment>
       <CssBaseline />
