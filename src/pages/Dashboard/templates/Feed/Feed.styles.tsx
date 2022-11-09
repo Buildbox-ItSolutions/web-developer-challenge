@@ -3,21 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #313131;
-    border-radius: 20px;
-    border: 3px solid #343434;
-  }
+  overflow: auto;
 `
 
 export const Caption = styled.p`
@@ -25,6 +11,8 @@ export const Caption = styled.p`
   font-weight: 600;
   line-height: 1.29;
   color: #7a7a7a;
+  margin-top: 56px;
+  margin-bottom: 8px;
 `
 
 export const Imagem = styled.img`
@@ -60,4 +48,41 @@ export const Name = styled.span`
   line-height: 1.29;
   color: #7a7a7a;
   margin-top: 2px;
+`
+
+export const SectionPost = styled.section`
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #313131;
+    border-radius: 20px;
+    border: 3px solid #343434;
+  }
+`
+
+export const Signature = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+`
+
+export const Delete = styled.img`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`
+export const WrapperBody = styled.section`
+  display: flex;
+  margin-top: 32pxflex;
+  margin-bottom: 8px;
 `

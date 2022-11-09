@@ -10,8 +10,10 @@ import {
 import Input from '../../../../components/Input'
 import TextArea from '../../../../components/TextArea'
 import UploadImage from '../../../../components/UploadImage'
+import uuid from 'react-uuid'
 
 const INITIAL_VALUES: PostParams = {
+  uuid: '',
   image: '',
   message: '',
   name: ''
@@ -32,6 +34,7 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
   }
 
   const handleSubmitForm = () => {
+    form.uuid = uuid()
     addPost(form)
     setForm(INITIAL_VALUES)
   }
@@ -72,7 +75,9 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
         />
       </SectionForm>
       <SectionActions>
-        <DiscardButton onClick={handleDiscardForm}>Descartar</DiscardButton>
+        <DiscardButton type="reset" onClick={handleDiscardForm}>
+          Descartar
+        </DiscardButton>
         <PublishButton
           onClick={handleSubmitForm}
           disabled={!active}

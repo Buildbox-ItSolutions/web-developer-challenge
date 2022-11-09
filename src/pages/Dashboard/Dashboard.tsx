@@ -8,7 +8,12 @@ const Dashboard = () => {
   const [posts, setPosts] = useState<PostParams[]>([])
 
   const handleAddPost = (post: PostParams) => {
-    setPosts((prevState) => [...prevState, post])
+    setPosts((prevState) => [post, ...prevState])
+  }
+
+  const handleDeletePost = (uuid: string) => {
+    const postsFiltered = posts.filter((post) => post.uuid !== uuid)
+    setPosts(postsFiltered)
   }
 
   return (
@@ -17,7 +22,9 @@ const Dashboard = () => {
         <Form addPost={handleAddPost} />
       </Card>
 
-      <Feed posts={posts} />
+      {posts.length >= 1 && (
+        <Feed posts={posts} deletePost={handleDeletePost} />
+      )}
     </Container>
   )
 }
