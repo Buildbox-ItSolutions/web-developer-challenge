@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLORS } from '../../../../core/constants'
 
 export const SectionForm = styled.section`
   display: flex;
@@ -20,7 +21,7 @@ export const DiscardButton = styled.button`
   background-color: transparent;
   border: none;
 
-  color: #5f5f5f;
+  color: ${COLORS.mediumDarkShadeOfGray};
   font-size: 14px;
   text-decoration: underline;
 `
@@ -31,7 +32,8 @@ export const PublishButton = styled.button<{ active?: boolean }>`
   margin: 0 0 0 24px;
   padding: 12px 24px;
   border-radius: 8px;
-  background-color: ${(props) => (props.active ? '#71bb00' : '#5f5f5f')};
+  background-color: ${(props) =>
+    props.active ? COLORS.green : COLORS.mediumDarkShadeOfGray};
   border: none;
-  color: ${(props) => (props.active ? '#ffffff' : '#313131')};
+  color: ${(props) => (props.active ? COLORS.white : COLORS.darkShadeOfGrey)};
 `

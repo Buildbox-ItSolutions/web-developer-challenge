@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLORS } from '../../core/constants'
 
 export const Imagem = styled.img`
   width: 88px;
@@ -44,7 +45,7 @@ export const Button = styled.button`
   width: 88px;
   height: 88px;
   border-radius: 36px;
-  border: solid 1px #4b4b4b;
+  border: solid 1px ${COLORS.darkShadeOfGray};
   background-color: rgba(75, 75, 75, 0);
   padding: 0;
   cursor: pointer;

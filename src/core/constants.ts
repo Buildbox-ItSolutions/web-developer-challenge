@@ -6,5 +6,9 @@ export const COLORS = {
   lightColor: '#9f9f9f',
   mediumDarkShadeOfGray: '#5f5f5f',
   shadeOfGray: '#7a7a7a',
-  nero: '#232323'
+  nero: '#232323',
+  charcoal: '#494949',
+  darkShadeOfGray: '#4b4b4b',
+  white: '#FFFFFF',
+  green: '#71bb00'
 }

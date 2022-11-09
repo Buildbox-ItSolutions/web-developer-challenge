@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLORS } from '../../../../core/constants'
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const Caption = styled.p`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.29;
-  color: #7a7a7a;
+  color: ${COLORS.shadeOfGray};
   margin-top: 56px;
   margin-bottom: 8px;
 `
@@ -27,7 +28,7 @@ export const Message = styled.span`
 
   font-size: 16px;
   line-height: 1.25;
-  color: #9f9f9f;
+  color: ${COLORS.lightColor};
   word-break: break-all;
 `
 
@@ -35,7 +36,7 @@ export const SendBy = styled.span`
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
-  color: #5f5f5f;
+  color: ${COLORS.mediumDarkShadeOfGray};
 
   margin-top: 24px;
 `
@@ -46,7 +47,7 @@ export const Name = styled.span`
 
   font-size: 14px;
   line-height: 1.29;
-  color: #7a7a7a;
+  color: ${COLORS.shadeOfGray};
   margin-top: 2px;
 `
 
@@ -64,9 +65,9 @@ export const SectionPost = styled.section`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #313131;
+    background-color: ${COLORS.darkShadeOfGrey};
     border-radius: 20px;
-    border: 3px solid #343434;
+    border: 3px solid ${COLORS.darkGray};
   }
 `
 
@@ -83,6 +84,6 @@ export const Delete = styled.img`
 `
 export const WrapperBody = styled.section`
   display: flex;
-  margin-top: 32pxflex;
+  margin-top: 32px;
   margin-bottom: 8px;
 `

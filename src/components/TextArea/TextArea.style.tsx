@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLORS } from '../../core/constants'
 
 export const Textarea = styled.textarea`
   font-size: 14px;
@@ -8,7 +9,7 @@ export const Textarea = styled.textarea`
   width: calc(100% - 32px);
   height: 80px;
   resize: none;
-  background-color: #494949;
+  background-color: ${COLORS.charcoal};
   border: none;
   border-radius: 8px;
   padding: 6px 16px;
@@ -20,7 +21,7 @@ export const Textarea = styled.textarea`
   ::placeholder {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-    color: #9f9f9f;
+    color: ${COLORS.lightColor};
     line-height: 1.29;
   }
   ::-webkit-scrollbar {
@@ -32,8 +33,8 @@ export const Textarea = styled.textarea`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #313131;
+    background-color: ${COLORS.darkShadeOfGrey};
     border-radius: 20px;
-    border: 3px solid #494949;
+    border: 3px solid ${COLORS.charcoal};
   }
 `

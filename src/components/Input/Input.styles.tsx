@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { Props } from '.'
+import { COLORS } from '../../core/constants'
 
 export const InputStyled = styled.input`
   width: calc(100% - 32px);
   height: 40px;
-  background-color: #494949;
+  background-color: ${COLORS.charcoal};
   border-radius: 8px;
   border: none;
   padding: 6px 16px;
@@ -21,7 +22,7 @@ export const InputStyled = styled.input`
   ::placeholder {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-    color: #9f9f9f;
+    color: ${COLORS.lightColor};
     line-height: 1.29;
   }
 `
