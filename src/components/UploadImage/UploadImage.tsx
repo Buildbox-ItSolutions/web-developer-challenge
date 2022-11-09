@@ -1,12 +1,12 @@
 import {
-  Props,
+  Button,
   Container,
+  EmptyImage,
   Imagem,
   InputFile,
-  Button,
-  EmptyImage,
-  WrapperImage,
-  TrashImage
+  Props,
+  TrashImage,
+  WrapperImage
 } from '.'
 
 const UploadImage = ({ name, onChange, value }: Props) => {

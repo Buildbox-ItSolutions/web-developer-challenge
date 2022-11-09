@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+
 import Card from '../../components/Card'
 import { Container, PostParams, Wrapper } from '.'
-import Form from './templates/Form'
 import Feed from './templates/Feed'
+import Form from './templates/Form'
 
 const Dashboard = () => {
   const [posts, setPosts] = useState<PostParams[]>([])

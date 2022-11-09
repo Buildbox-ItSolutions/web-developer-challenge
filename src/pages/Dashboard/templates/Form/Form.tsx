@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import {
-  DiscardButton,
-  PublishButton,
-  SectionActions,
-  SectionForm,
-  PostParams,
-  FormProps
-} from '.'
+import uuid from 'react-uuid'
+
 import Input from '../../../../components/Input'
 import TextArea from '../../../../components/TextArea'
 import UploadImage from '../../../../components/UploadImage'
-import uuid from 'react-uuid'
+import {
+  DiscardButton,
+  FormProps,
+  PostParams,
+  PublishButton,
+  SectionActions,
+  SectionForm
+} from '.'
 
 const INITIAL_VALUES: PostParams = {
   uuid: '',

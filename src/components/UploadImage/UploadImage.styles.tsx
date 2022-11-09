@@ -1,36 +1,35 @@
 import styled from 'styled-components'
+
 import { COLORS } from '../../core/constants'
 
 export const Imagem = styled.img`
-  width: 88px;
-  height: 88px;
   border-radius: 33px;
-  object-fit: cover;
-
   cursor: pointer;
+  height: 88px;
+  object-fit: cover;
+  width: 88px;
 `
 
 export const EmptyImage = styled.img`
-  width: 24px;
-  height: 24px;
-
   cursor: pointer;
+  height: 24px;
+  width: 24px;
 `
 
 export const TrashImage = styled.img`
+  left: 98px;
   position: absolute;
   top: 30px;
-  left: 98px;
 `
 
 export const Container = styled.div`
-  width: 250;
-  height: 90;
-  position: relative;
-  margin: 0 auto;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 90;
   justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  width: 250;
 
   img: {
     object-fit: cover;
@@ -42,17 +41,17 @@ export const InputFile = styled.input`
 `
 
 export const Button = styled.button`
-  display: flex;
-  justify-content: center;
   align-items: center;
-
-  width: 88px;
-  height: 88px;
-  border-radius: 36px;
-  border: solid 1px ${COLORS.darkShadeOfGray};
   background-color: rgba(75, 75, 75, 0);
-  padding: 0;
+  border: solid 1px ${COLORS.darkShadeOfGray};
+
+  border-radius: 36px;
   cursor: pointer;
+  display: flex;
+  height: 88px;
+  justify-content: center;
+  padding: 0;
+  width: 88px;
   label: {
     cursor: 'pointer';
   }

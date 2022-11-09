@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Card from '../../../../components/Card'
 import {
   Caption,
   Container,
@@ -12,7 +14,6 @@ import {
   Signature,
   WrapperBody
 } from '.'
-import Card from '../../../../components/Card'
 
 const Feed: React.FC<FeedProps> = ({ posts, deletePost }) => {
   return (
