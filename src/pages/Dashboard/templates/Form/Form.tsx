@@ -43,7 +43,7 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
   const active = form.image.length > 0 && !!form.message && !!form.name
 
   return (
-    <form autoComplete="off">
+    <>
       <UploadImage
         name="image"
         value={form.image}
@@ -62,6 +62,7 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
             } = event
             handleUpdateForm(name, value)
           }}
+          data-cy="cy-name"
         />
         <TextArea
           placeholder="Mensagem"
@@ -76,10 +77,15 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
         />
       </SectionForm>
       <SectionActions>
-        <DiscardButton type="reset" onClick={handleDiscardForm}>
+        <DiscardButton
+          data-cy="button-reset"
+          type="reset"
+          onClick={handleDiscardForm}
+        >
           Descartar
         </DiscardButton>
         <PublishButton
+          data-cy="button-send"
           onClick={handleSubmitForm}
           disabled={!active}
           active={active}
@@ -87,7 +93,7 @@ const Form: React.FC<FormProps> = ({ addPost }) => {
           Publicar
         </PublishButton>
       </SectionActions>
-    </form>
+    </>
   )
 }
 

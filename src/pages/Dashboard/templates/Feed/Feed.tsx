@@ -26,6 +26,7 @@ const Feed: React.FC<FeedProps> = ({ posts, deletePost }) => {
             key={index}
             width="calc(100% - 50px)"
             mt={index !== 0 ? '16px' : '0'}
+            data-cy="cy-feed"
           >
             <Delete
               src="/imgs/delete.png"
@@ -35,9 +36,9 @@ const Feed: React.FC<FeedProps> = ({ posts, deletePost }) => {
               <Imagem src={post.image} />
 
               <Signature>
-                <Message>{post.message}</Message>
+                <Message data-cy="cy-feed-message">{post.message}</Message>
                 <SendBy>Enviado por:</SendBy>
-                <Name>{post.name}</Name>
+                <Name data-cy="cy-feed-name">{post.name}</Name>
               </Signature>
             </WrapperBody>
           </Card>

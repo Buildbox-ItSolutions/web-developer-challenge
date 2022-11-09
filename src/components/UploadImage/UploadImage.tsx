@@ -41,7 +41,11 @@ const UploadImage = ({ name, onChange, value }: Props) => {
           </label>
         </Button>
         {value && (
-          <TrashImage src="/imgs/trash.png" onClick={handleDeleteImage} />
+          <TrashImage
+            src="/imgs/trash.png"
+            onClick={handleDeleteImage}
+            data-cy="button-delete-img"
+          />
         )}
       </WrapperImage>
     </Container>
