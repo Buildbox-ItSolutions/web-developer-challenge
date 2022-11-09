@@ -60,9 +60,17 @@ export default function Postbox() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedUserImage]);
 
-  const publishMessage = (values: any, previewImage: any, isValid: boolean) => {
+  const publishMessage = (
+    values: any,
+    previewImage: any,
+    isValid: boolean,
+    handleReset: any,
+    e: any
+  ) => {
     if (isValid) {
       dispatch(addPost({ ...values, userImage: previewImage }));
+      removeUserImage();
+      handleReset(e);
     }
   };
 
@@ -180,9 +188,15 @@ export default function Postbox() {
                     </DiscardButton>
                     <PublishButton
                       type="button"
-                      onClick={() =>
-                        publishMessage(values, previewImage, isValid)
-                      }
+                      onClick={(e) => {
+                        publishMessage(
+                          values,
+                          previewImage,
+                          isValid,
+                          handleReset,
+                          e
+                        );
+                      }}
                       disabled={
                         !isValid ||
                         !dirty ||
