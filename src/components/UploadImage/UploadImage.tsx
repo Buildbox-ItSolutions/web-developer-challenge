@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   Props,
   Container,
@@ -10,20 +9,18 @@ import {
   TrashImage
 } from '.'
 
-const UploadImage: React.FC<Props> = () => {
-  const [image, setImage] = useState<string | null>(null)
-
+const UploadImage = ({ name, onChange, value }: Props) => {
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currFile = e.target.files
     if (currFile == null || currFile?.length === 0) return
 
     const imgURL = URL.createObjectURL(currFile[0])
 
-    setImage(imgURL)
+    onChange(name, imgURL)
   }
 
   const handleDeleteImage = () => {
-    setImage(null)
+    onChange(name, '')
   }
 
   return (
@@ -31,8 +28,8 @@ const UploadImage: React.FC<Props> = () => {
       <WrapperImage>
         <Button type="button">
           <label htmlFor="input-file">
-            {image ? (
-              <Imagem src={image} />
+            {value ? (
+              <Imagem src={value} />
             ) : (
               <EmptyImage src="/imgs/empty-photo.png" />
             )}
@@ -43,7 +40,7 @@ const UploadImage: React.FC<Props> = () => {
             />
           </label>
         </Button>
-        {image && (
+        {value && (
           <TrashImage src="/imgs/trash.png" onClick={handleDeleteImage} />
         )}
       </WrapperImage>

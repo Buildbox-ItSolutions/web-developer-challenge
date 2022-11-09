@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../../components/Card'
-import { Container } from '.'
-import UploadImage from '../../components/UploadImage'
-import Input from '../../components/Input'
+import { Container, PostParams } from '.'
+import Form from './templates/Form'
+import Feed from './templates/Feed'
 
 const Dashboard = () => {
+  const [posts, setPosts] = useState<PostParams[]>([])
+
+  const handleAddPost = (post: PostParams) => {
+    setPosts((prevState) => [...prevState, post])
+  }
+
   return (
     <Container>
       <Card mt="40px">
-        <UploadImage />
-        <Input placeholder="Digite seu nome" />
+        <Form addPost={handleAddPost} />
       </Card>
-      <Card />
+
+      <Feed posts={posts} />
     </Container>
   )
 }

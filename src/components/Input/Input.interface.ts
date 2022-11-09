@@ -1,3 +1,6 @@
 import { InputHTMLAttributes } from 'react'
 
-export type Props = InputHTMLAttributes<HTMLInputElement>
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  mt?: string
+  mb?: string
+}

@@ -8,6 +8,7 @@ export const Container = styled.div`
   border: 1px solid ${COLORS.darkEclipsi};
   border-radius: 3px;
   margin-top: ${(p: Props) => p.mt};
+  position: relative;
 
   width: 516px;
 `
