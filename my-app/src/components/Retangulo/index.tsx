@@ -130,9 +130,9 @@ export default function Retangulo() {
                         >Publicar</Button>
                     </Col>
                 </Col>
+        <PostsFeed  {...posts}/>
             </Row>
         </Container>
-        <PostsFeed  {...posts}/>
         </>
 
     )

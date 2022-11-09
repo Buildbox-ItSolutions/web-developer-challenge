@@ -1,3 +1,27 @@
 .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    padding: 6px;
+}
+
+.feed {
+    margin-top: 32px;
+    color: #7a7a7a;
+    p{
+        margin-left:-15px;
+    }
+}
+
+.img{
+    background-color: aqua;
+}
+
+.message{
+    background-color: chocolate;
+}
+
+.close{
+    background-color: crimson;
 }
