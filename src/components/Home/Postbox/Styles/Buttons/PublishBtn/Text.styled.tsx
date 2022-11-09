@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_400 } from "../../../../../../styles/colors/colors";
 
 export const PublishBtnText = styled.span`
   width: 50px;
@@ -10,5 +11,5 @@ export const PublishBtnText = styled.span`
   line-height: 1.29;
   letter-spacing: normal;
   text-align: center;
-  color: #313131;
+  color: ${gray_400};
 `;

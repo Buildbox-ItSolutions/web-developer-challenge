@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { gray_200, gray_400 } from "../../../styles/colors/colors";
 
 const leaveAnimation = () => keyframes`
   from {opacity: 1;}
@@ -13,7 +14,7 @@ const entranceAnimation = () => keyframes`
 export const ImgContainer = styled.div`
   position: relative;
   border-radius: 36px;
-  border: solid 1px #4b4b4b;
+  border: solid 1px ${gray_200};
   
   & input {
     box-sizing: border-box;
@@ -27,8 +28,8 @@ export const ImgContainer = styled.div`
     margin-top: 0px;
     display: block;
     border-radius: 36px;
-    border: solid 1px #4b4b4b;
-    background-color: #313131;
+    border: solid 1px ${gray_200};
+    background-color: ${gray_400};
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

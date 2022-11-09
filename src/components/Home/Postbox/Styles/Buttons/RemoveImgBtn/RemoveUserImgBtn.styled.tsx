@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_400 } from "../../../../../../styles/colors/colors";
 import deleteImg from "./../../../../../../img/trash.png";
 
 export const RemoveUserImgButton = styled.button`
@@ -7,7 +8,7 @@ export const RemoveUserImgButton = styled.button`
   height: 24px;
   background-image: url(${deleteImg});
   cursor: pointer;
-  background-color: #313131;
+  background-color: ${gray_400};
   border: none;
   background-repeat: no-repeat;
   margin-left: 16px;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
+import { gray_50 } from "../../../../styles/colors/colors";
 
 export const SearchingPostsMsg = styled.p`
-  color: #9f9f9f;
+  color: ${gray_50};
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_100 } from "../../../../../../styles/colors/colors";
 
 export const DiscardBtnText = styled.span`
   @media (max-width: 905px) {
@@ -17,7 +18,7 @@ export const DiscardBtnText = styled.span`
   line-height: 1.29;
   letter-spacing: normal;
   text-align: center;
-  color: #5f5f5f;
+  color: ${gray_100};
   text-decoration-line: underline;
   cursor: pointer;
 `;

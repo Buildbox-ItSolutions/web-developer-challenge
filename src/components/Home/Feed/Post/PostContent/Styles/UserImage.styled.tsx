@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_200 } from "../../../../../../styles/colors/colors";
 
 export const UserImage = styled.div`
   @media (max-width: 905px) {
@@ -15,7 +16,7 @@ export const UserImage = styled.div`
   margin-top: 0px;
   display: block;
   border-radius: 36px;
-  border: solid 1px #4b4b4b;
+  border: solid 1px ${gray_200};
   background-color: rgba(75, 75, 75, 0);
   background-image: url(${(props: { filePath: string }) => props.filePath});
   background-repeat: no-repeat;

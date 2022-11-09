@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { gray_400 } from "../../../../../styles/colors/colors";
 
 const leaveAnimation = () => keyframes`
   from { max-height: 600px; margin-bottom:13px}
@@ -14,7 +15,7 @@ export const PostContainer = styled.section`
   position: relative;
   border-radius: 3px;
   border: solid 1px #3b3b3b;
-  background-color: #313131;
+  background-color: ${gray_400};
   overflow: hidden;
   animation-name: ${(props: { expanded: boolean }) =>
     props.expanded ? entranceAnimation() : leaveAnimation()};

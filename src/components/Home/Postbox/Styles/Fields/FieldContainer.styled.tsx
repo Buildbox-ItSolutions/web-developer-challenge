@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { gray_300, gray_50 } from "../../../../../styles/colors/colors";
 
 export const FieldContainer = styled.div`
   & input,
   & textarea {
     border-radius: 8px;
-    background-color: #494949;
+    background-color: ${gray_300};
     width: 100%;
     font-size: 14px;
     font-family: Helvetica;
@@ -27,7 +28,7 @@ export const FieldContainer = styled.div`
       line-height: 1.29;
       letter-spacing: normal;
       text-align: left;
-      color: #9f9f9f;
+      color: ${gray_50};
     }
   }
 

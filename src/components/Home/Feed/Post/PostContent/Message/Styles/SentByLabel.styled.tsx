@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_100 } from "../../../../../../../styles/colors/colors";
 
 export const SentByLabel = styled.div`
   font-size: 13px;
@@ -8,5 +9,5 @@ export const SentByLabel = styled.div`
   line-height: 1.33;
   letter-spacing: 0.29px;
   text-align: left;
-  color: #5f5f5f;
+  color: ${gray_100};
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { gray_50 } from "../../../../../../../styles/colors/colors";
 
 export const TextSection = styled.section`
   text-align: justify !important;
@@ -9,5 +10,5 @@ export const TextSection = styled.section`
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  color: #9f9f9f;
+  color: ${gray_50};
 `;
