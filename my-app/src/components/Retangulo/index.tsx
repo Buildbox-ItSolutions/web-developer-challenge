@@ -4,16 +4,14 @@ import { BiTrashAlt } from 'react-icons/bi'
 import styles from './styles.module.scss';
 import logo from '../../../public/photo-upload@3x.png';
 import icon from '../../../public/image.png';
-import { ChangeEvent, SetStateAction, useEffect, useState } from 'react';
-import { Posts } from '../../interfaces/interface';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
+
 import PostsFeed from '../Post/indext';
-import { Prev } from 'react-bootstrap/esm/PageItem';
-
-
-
-
+import { AuthContext } from '../../Context/AuthContext';
 
 export default function Retangulo() {
+    const {handlesave}  = useContext(AuthContext)
+    
     const LOGO = logo.src.toString()
     const [secondary, setSecondary] = useState<string>("secondary");
     const [disabled, setDisable] = useState(true);
@@ -24,7 +22,6 @@ export default function Retangulo() {
 
     const [nome, setNome] = useState<string>("");
     const [menssage, setMenssage] = useState<string>("");
-    const [posts, setPosts] = useState<Posts[] >([])
 
 
     useEffect(() => {
@@ -53,17 +50,13 @@ export default function Retangulo() {
 
     }
 
-
-    const handlesave = async () => {
-        const data = 
-            {
+    const save = async () => {
+        const data:any = {
             nome: nome,
             menssage: menssage,
             urlimg: avatarUrl
         }
-    
-        setPosts(Prev => [...Prev, data])
-
+        handlesave(data)
     }
 
     function reset() {
@@ -78,6 +71,8 @@ export default function Retangulo() {
     function removeImg(){
         setavatarUrl(LOGO)
     }
+
+   
 
     return (
         <><Container>
@@ -126,11 +121,13 @@ export default function Retangulo() {
                             variant={secondary}
                             disabled={disabled}
                             style={{ color: btcolor }}
-                            onClick={handlesave}
+                            onClick={save}
                         >Publicar</Button>
                     </Col>
                 </Col>
-        <PostsFeed  {...posts}/>
+                    <PostsFeed 
+                      
+                     />
             </Row>
         </Container>
         </>
