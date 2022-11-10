@@ -17,7 +17,7 @@ export default function PostsFeed() {
 
         <>
             <Row className={styles.container}>
-                <Col className={styles.feed} sm={12} md={6} lg={6}>
+                <Col className={styles.feed} xs={12} sm={12} md={6} lg={6}>
                     <p>Feed</p>
                 </Col>
             </Row>
@@ -37,11 +37,11 @@ export default function PostsFeed() {
                                     className="img-fluid" />
                             </Col>
                             <Col className={styles.message} xs={7} sm={7} md={3} lg={3}>
-                                {item.menssage}1987
+                                {item.menssage}
                                 <span className={styles.span1}>Enviado por</span>
                                 <span className={styles.span2}>{item.nome}</span>
                             </Col>
-                            <Col className={styles.close} xs={1} sm={1} md={1} lg={1}>
+                            <Col className={styles.close} xs={2} sm={1} md={1} lg={1}>
                                 <Image
                                     src={icondelete}
                                     alt="logo"

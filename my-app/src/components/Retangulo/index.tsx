@@ -116,7 +116,7 @@ export default function Retangulo() {
                         onChange={(e) => setMenssage(e.target.value)} 
                         style={{maxHeight:80}}/>
                     <Col className={styles.containerbutton} xs={12} sm={12} md={12} lg={12}>
-                        <a onClick={reset}>Descartar</a>
+                        <a href='#' onClick={reset}>Descartar</a>
 
                         <Button
                             variant={secondary}
@@ -126,9 +126,7 @@ export default function Retangulo() {
                         >Publicar</Button>
                     </Col>
                 </Col>
-                    <PostsFeed 
-                      
-                     />
+                    <PostsFeed />
             </Row>
         </Container>
         </>

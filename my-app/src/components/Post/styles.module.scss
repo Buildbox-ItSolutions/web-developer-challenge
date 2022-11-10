@@ -3,14 +3,16 @@
     justify-content: center;
     align-items: center;
 
-    padding: 6px;
+    margin-top: 8px;
+    
 }
+
 
 .feed {
     margin-top: 32px;
     color: #7a7a7a;
     p{
-        margin-left:-15px;
+        margin-left:-12px;
     }
 }
 
@@ -108,28 +110,7 @@
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
-    .close{
-        img{
-            margin-bottom: 20px;
-        }
-       
-    }
- }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { 
+   
     
  }
-
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) { 
-    .container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 6px;
-    }
- }
-
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {  }
