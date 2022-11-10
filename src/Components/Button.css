@@ -1,0 +1,27 @@
+#descartar {
+    font-size: 1.4rem;
+    line-break: 1.29;
+    text-align: center;
+    text-decoration: underline;
+
+    border: none;
+    background: none;
+    color: #5f5f5f;
+
+    cursor: pointer;
+}
+
+#publicar {
+    padding: 1.2rem 2.4rem;
+
+    font-size: 1.4rem;
+    line-break: 1.29;
+    text-align: center;
+    color: #fff;
+
+    border: none;
+    border-radius: .8rem;
+    background-color: #71bb00;
+
+    cursor: pointer;
+}
