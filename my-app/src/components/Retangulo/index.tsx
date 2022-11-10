@@ -77,7 +77,7 @@ export default function Retangulo() {
     return (
         <><Container>
             <Row className={styles.container}>
-                <Col className={styles.containerForm} sm={12} md={6} lg={6}>
+                <Col className={styles.containerForm} xs={12} sm={12} md={6} lg={6}>
                     <Row>
                         <Col>
                             <Form.Label>
@@ -113,8 +113,9 @@ export default function Retangulo() {
                         as="textarea"
                         placeholder="Menssagem"
                         value={menssage}
-                        onChange={(e) => setMenssage(e.target.value)} />
-                    <Col className={styles.containerbutton} sm={12} md={12} lg={12}>
+                        onChange={(e) => setMenssage(e.target.value)} 
+                        style={{maxHeight:80}}/>
+                    <Col className={styles.containerbutton} xs={12} sm={12} md={12} lg={12}>
                         <a onClick={reset}>Descartar</a>
 
                         <Button

@@ -109,39 +109,10 @@
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { 
     .close{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        height: 25px;
-
-        letter-spacing: normal;
-        border-radius: 3px;
-        border-right: solid 1px #3b3b3b;
-        border-top: solid 0px;
-        border-left: solid 1px #3b3b3b;
-        background-color: #313131;
-
         img{
-            
             margin-bottom: 20px;
         }
        
-    }
-
-    .message{
-        border-right: solid 1px #3b3b3b;
-        border-left: solid 1px #3b3b3b;
-        border-bottom: solid 0px;
-        border-top: solid 0px;
-        background-color: #313131;
-    }
-
-    .img{
-        border-right: solid 1px #3b3b3b;
-        border-left: solid 1px #3b3b3b;
-        border-bottom: solid 0px;
-        border-top: solid 1px #3b3b3b;
-        background-color: #313131; 
     }
  }
 
