@@ -12,6 +12,7 @@ export default defineConfig({
     setupFiles: ["./src/setupTest.ts"],
     coverage: {
       provider: "c8",
+      exclude: ["src/styledComponents"],
     },
   },
 });
