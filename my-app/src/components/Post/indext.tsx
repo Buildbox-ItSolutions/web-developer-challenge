@@ -34,7 +34,7 @@ export default function PostsFeed() {
                                     alt="logo"
                                     height={88}
                                     width={88} 
-                                    className="img-fluid" />
+                                   />
                             </Col>
                             <Col className={styles.message} xs={7} sm={7} md={3} lg={3}>
                                 {item.menssage}

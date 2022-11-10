@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import {toast, ToastContainer}  from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Row, Col, Form, Container, Button } from 'react-bootstrap';
 import { BiTrashAlt } from 'react-icons/bi'
 import styles from './styles.module.scss';
 import logo from '../../../public/photo-upload@3x.png';
-import icon from '../../../public/image.png';
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
-
+import icondeletePost from '../../../public/image.png';
 
 import PostsFeed from '../Post/indext';
 import { AuthContext } from '../../Context/AuthContext';
@@ -14,13 +15,12 @@ export default function Retangulo() {
     const {handlesave}  = useContext(AuthContext)
     
     const LOGO = logo.src.toString()
+    const [icontrash, seticonTrash] = useState<boolean>(false)
     const [secondary, setSecondary] = useState<string>("secondary");
     const [disabled, setDisable] = useState(true);
     const [btcolor, setBtcolor] = useState("#313131")
 
     const [avatarUrl, setavatarUrl] = useState<string>(LOGO)
-
-
     const [nome, setNome] = useState<string>("");
     const [menssage, setMenssage] = useState<string>("");
 
@@ -50,8 +50,11 @@ export default function Retangulo() {
         }
 
         if (image.type === 'image/jpeg' || image.type === 'image/png') {
+            seticonTrash(true)
             let imageurl = URL.createObjectURL(e.target.files[0])
             setavatarUrl(imageurl)
+        }else{
+            notifcationToast()
         }
 
     }
@@ -72,10 +75,20 @@ export default function Retangulo() {
         setMenssage("")
         setBtcolor("313131")
         setavatarUrl(LOGO)
+        seticonTrash(false)
     }
 
     function removeImg(){
         setavatarUrl(LOGO)
+        seticonTrash(false)
+    }
+
+
+    const notifcationToast = async () => {
+      return  toast.error('Imagens png / jpeg',{
+        theme:"colored",
+        position:'top-center'
+      })
     }
 
 
@@ -87,7 +100,8 @@ export default function Retangulo() {
                         <Col>
                             <Form.Label>
                                 <Image
-                                    src={icon}
+                                    src={icondeletePost}
+                                    hidden={icontrash}
                                     className={styles.icon}
                                     alt="icon" />
                                 <Form.Control type="file"
@@ -134,7 +148,7 @@ export default function Retangulo() {
                     <PostsFeed />
             </Row>
         </Container>
-       
+        <ToastContainer /> 
         </>
 
     )
