@@ -1,0 +1,110 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8px;
+    
+}
+
+
+.feed {
+    margin-top: 32px;
+    color: #7a7a7a;
+    p{
+        margin-left:-12px;
+    }
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 225px;
+    
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #9f9f9f;
+    border-radius: 3px;
+    border-top: solid 1px #3b3b3b;
+    border-bottom: solid 1px #3b3b3b;
+    border-left: solid 1px #3b3b3b;
+    background-color: #313131;
+
+    img{
+        border-radius: 36px;
+    }
+}
+
+.message{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 225px;
+    
+
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9f9f9f;
+    border-radius: 3px;
+    border-top: solid 1px #3b3b3b;
+    border-bottom: solid 1px #3b3b3b;
+    background-color: #313131;
+
+    .span1{
+        
+        font-family: Roboto;
+        font-size: 12px;
+        margin-top: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 0.29px;
+        text-align: left;
+        color: #5f5f5f;
+    }
+
+    .span2{
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        text-align: left;
+        color: #7a7a7a; 
+    }
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 225px;
+   
+    letter-spacing: normal;
+    border-radius: 3px;
+    border-top: solid 1px #3b3b3b;
+    border-right: solid 1px #3b3b3b;
+    border-bottom: solid 1px #3b3b3b;
+    background-color: #313131;
+
+    img{
+        margin-top: 10px;
+    }
+}
+
