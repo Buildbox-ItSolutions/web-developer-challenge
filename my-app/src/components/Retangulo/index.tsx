@@ -6,6 +6,7 @@ import logo from '../../../public/photo-upload@3x.png';
 import icon from '../../../public/image.png';
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 
+
 import PostsFeed from '../Post/indext';
 import { AuthContext } from '../../Context/AuthContext';
 
@@ -18,19 +19,25 @@ export default function Retangulo() {
     const [btcolor, setBtcolor] = useState("#313131")
 
     const [avatarUrl, setavatarUrl] = useState<string>(LOGO)
-    const [imgavatar, setimgavatar] = useState(null)
+
 
     const [nome, setNome] = useState<string>("");
     const [menssage, setMenssage] = useState<string>("");
 
 
     useEffect(() => {
-        if (nome !== "" && menssage !== "") {
+        if (nome !== "" && menssage !== "" && avatarUrl !== LOGO) {
             setSecondary("success")
             setDisable(false)
             setBtcolor("#fff")
         }
-    }, [nome, menssage])
+
+        if (nome === "" || menssage === "" || avatarUrl === LOGO) {
+            setSecondary("secondary")
+            setDisable(true)
+            setBtcolor("#fff")
+        }
+    }, [nome, menssage, avatarUrl])
 
     function handleFile(e: ChangeEvent<HTMLInputElement>) {
         if (!e.target.files) {
@@ -43,7 +50,6 @@ export default function Retangulo() {
         }
 
         if (image.type === 'image/jpeg' || image.type === 'image/png') {
-            setimgavatar(image);
             let imageurl = URL.createObjectURL(e.target.files[0])
             setavatarUrl(imageurl)
         }
@@ -72,7 +78,6 @@ export default function Retangulo() {
         setavatarUrl(LOGO)
     }
 
-   
 
     return (
         <><Container>
@@ -129,6 +134,7 @@ export default function Retangulo() {
                     <PostsFeed />
             </Row>
         </Container>
+       
         </>
 
     )
