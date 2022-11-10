@@ -94,7 +94,7 @@ export default function Retangulo() {
 
 
     const notifcationToast = async () => {
-      return  toast.error('Imagens png / jpeg',{
+      return  toast.error('Imagens png/jpeg',{
         theme:"colored",
         position:'top-center'
       })
