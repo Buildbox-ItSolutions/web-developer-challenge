@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Row, Col, Form, Container, Button } from 'react-bootstrap';
 import { BiTrashAlt } from 'react-icons/bi'
 import styles from './styles.module.scss';
-import logo from '../../../public/photo-upload@3x.png';
+import photo from '../../../public/photo-upload@3x.png';
 import icondeletePost from '../../../public/image.png';
 
 import PostsFeed from '../Post/indext';
@@ -14,25 +14,26 @@ import { AuthContext } from '../../Context/AuthContext';
 export default function Retangulo() {
     const {handlesave}  = useContext(AuthContext)
     
-    const LOGO = logo.src.toString()
-    const [icontrash, seticonTrash] = useState<boolean>(false)
+    const PHOTO = photo.src.toString()
+    const [iconupload, seticonUpload] = useState<boolean>(false)
+    const [icontrash, setIcontrash] = useState<string>("hidden")
     const [secondary, setSecondary] = useState<string>("secondary");
     const [disabled, setDisable] = useState(true);
     const [btcolor, setBtcolor] = useState("#313131")
 
-    const [avatarUrl, setavatarUrl] = useState<string>(LOGO)
+    const [avatarUrl, setavatarUrl] = useState<string>(PHOTO)
     const [nome, setNome] = useState<string>("");
     const [menssage, setMenssage] = useState<string>("");
 
 
     useEffect(() => {
-        if (nome !== "" && menssage !== "" && avatarUrl !== LOGO) {
+        if (nome !== "" && menssage !== "" && avatarUrl !== PHOTO) {
             setSecondary("success")
             setDisable(false)
             setBtcolor("#fff")
         }
 
-        if (nome === "" || menssage === "" || avatarUrl === LOGO) {
+        if (nome === "" || menssage === "" || avatarUrl === PHOTO) {
             setSecondary("secondary")
             setDisable(true)
             setBtcolor("#fff")
@@ -50,7 +51,8 @@ export default function Retangulo() {
         }
 
         if (image.type === 'image/jpeg' || image.type === 'image/png') {
-            seticonTrash(true)
+            seticonUpload(true)
+            setIcontrash("visible")
             let imageurl = URL.createObjectURL(e.target.files[0])
             setavatarUrl(imageurl)
         }else{
@@ -66,6 +68,11 @@ export default function Retangulo() {
             urlimg: avatarUrl
         }
         handlesave(data)
+        setNome("")
+        setMenssage("")
+        setavatarUrl(PHOTO)
+        seticonUpload(false)
+        setIcontrash("hidden")
     }
 
     function reset() {
@@ -74,13 +81,15 @@ export default function Retangulo() {
         setNome("")
         setMenssage("")
         setBtcolor("313131")
-        setavatarUrl(LOGO)
-        seticonTrash(false)
+        setavatarUrl(PHOTO)
+        seticonUpload(false)
+        setIcontrash("hidden")
     }
 
     function removeImg(){
-        setavatarUrl(LOGO)
-        seticonTrash(false)
+        setavatarUrl(PHOTO)
+        seticonUpload(false)
+        setIcontrash("hidden")
     }
 
 
@@ -101,9 +110,10 @@ export default function Retangulo() {
                             <Form.Label>
                                 <Image
                                     src={icondeletePost}
-                                    hidden={icontrash}
+                                    hidden={iconupload}
                                     className={styles.icon}
                                     alt="icon" />
+
                                 <Form.Control type="file"
                                     onChange={handleFile} />
 
@@ -118,7 +128,8 @@ export default function Retangulo() {
                                 color='#FF5858'
                                 size={25}
                                 onClick={removeImg}
-                                style={{ marginLeft: 5 }} />
+                                visibility={icontrash}
+                                 />
                         </Col>
                     </Row>
 

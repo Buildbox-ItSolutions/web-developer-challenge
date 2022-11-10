@@ -28,20 +28,20 @@ export default function PostsFeed() {
                     return (
 
                         <Row className={styles.container} key={i}>
-                            <Col className={styles.img} xs={3} sm={4} md={2} lg={2}>
+                            <Col className={styles.img} xs={2} sm={4} md={2} lg={2}>
                                 <Image
                                     src={item.urlimg}
                                     alt="logo"
                                     height={88}
                                     width={88} 
-                                   />
+                                    className="img-fluid" />
                             </Col>
-                            <Col className={styles.message} xs={7} sm={7} md={3} lg={3}>
+                            <Col className={styles.message} xs={8} sm={7} md={3} lg={3}>
                                 {item.menssage}
                                 <span className={styles.span1}>Enviado por</span>
                                 <span className={styles.span2}>{item.nome}</span>
                             </Col>
-                            <Col className={styles.close} xs={2} sm={1} md={1} lg={1}>
+                            <Col className={styles.close} xs={1} sm={1} md={1} lg={1}>
                                 <Image
                                     src={icondelete}
                                     alt="logo"
