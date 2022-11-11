@@ -1,8 +1,7 @@
-.container {
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .containerForm {
@@ -13,8 +12,8 @@
 
     margin-top: 2rem;
     height: 353px;
-    border-radius: 3px;
-    border: solid 1px #3b3b3b;
+   
+   
     background-color: #313131;
 
     input {
@@ -64,10 +63,12 @@
 }
 
 
-.containerForm .containerbutton {
+.containerbutton {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+
+    background-color: #313131;
 
     a {
         width: 60px;
@@ -105,4 +106,12 @@
     margin-top: 33px;
    
     
+}
+
+.feed {
+    margin-top: 32px;
+    color: #7a7a7a;
+    p{
+        margin-left:-12px;
+    }
 }

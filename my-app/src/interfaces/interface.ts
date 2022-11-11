@@ -1,5 +1,3 @@
-import { SetStateAction } from "react";
-
 
 export interface Posts {
     nome: string;
