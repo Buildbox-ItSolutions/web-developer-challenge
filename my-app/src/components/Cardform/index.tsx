@@ -104,7 +104,7 @@ export default function Cardform() {
 
     return (
             <Row>
-                <Col className={styles.containerForm} xs={12} sm={12} md={12} lg={12}>
+                <Col className={styles.containerUpload} xs={12} sm={12} md={12} lg={12}>
                     <Form.Label>
                         <Image
                             src={icondeletePost}
@@ -126,7 +126,10 @@ export default function Cardform() {
                         color='#FF5858'
                         size={25}
                         onClick={removeImg}
-                        visibility={icontrash} />
+                        visibility={icontrash} 
+                        className={styles.iconTrash} />
+                </Col>
+                <Col className={styles.containerForm} xs={12} sm={12} md={12} lg={12}>
 
                     <Form.Control
                         type="text"

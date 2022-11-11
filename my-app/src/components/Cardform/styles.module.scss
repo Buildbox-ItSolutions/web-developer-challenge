@@ -4,17 +4,33 @@
     align-items: center;
 }
 
+.containerUpload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313131;
+    margin-top: 1rem;
+
+    input[type='file'] {
+        display: none;
+        visibility: hidden;
+    }
+
+    img {
+        border-radius: 36px;
+        margin-top: 1rem;
+       
+    }
+}
+
 .containerForm {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    margin-top: 2rem;
-    height: 353px;
-   
-   
+    height: 253px;
     background-color: #313131;
+    
 
     input {
         font-family: Roboto;
@@ -50,15 +66,6 @@
         border-radius: 8px;
         background-color: #494949;
         overflow: hidden;
-    }
-
-    input[type='file'] {
-        display: none;
-        visibility: hidden;
-    }
-
-    img {
-        border-radius: 36px;
     }
 }
 
@@ -99,13 +106,11 @@
 
 
 
-.containerForm .icon{
+.containerUpload .icon{
     display: block;
     position: absolute;
     margin-left: 33px;
-    margin-top: 33px;
-   
-    
+    margin-top: 50px; 
 }
 
 .feed {
