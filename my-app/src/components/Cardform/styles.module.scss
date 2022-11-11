@@ -1,0 +1,122 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerUpload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313131;
+    margin-top: 1rem;
+
+    input[type='file'] {
+        display: none;
+        visibility: hidden;
+    }
+
+    img {
+        border-radius: 36px;
+        margin-top: 1rem;
+       
+    }
+}
+
+.containerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 253px;
+    background-color: #313131;
+    
+
+    input {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        height: 40px;
+        line-height: 1.29;
+        letter-spacing: normal;
+        color: #9f9f9f;
+
+        height: 40px;
+        margin: 0px 0 8px;
+        border-radius: 8px;
+        background-color: #494949;
+    }
+
+    textarea {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        color: #9f9f9f;
+
+        margin: 8px 0 32px;
+        padding: 12px 16px;
+        height: 80px;
+        margin: 8px 0 32px;
+        border-radius: 8px;
+        background-color: #494949;
+        overflow: hidden;
+    }
+}
+
+
+.containerbutton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+    background-color: #313131;
+
+    a {
+        width: 60px;
+        height: 17px;
+        margin: 12px 24px 12px 0;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        text-align: center;
+        color: #6b6a6a;
+        border-bottom: #313131;
+    }
+
+    a:hover {
+        color: #5f5f5f;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 12px 24px;
+        color: #313131;
+    }
+}
+
+
+
+.containerUpload .icon{
+    display: block;
+    position: absolute;
+    margin-left: 33px;
+    margin-top: 50px; 
+}
+
+.feed {
+    margin-top: 32px;
+    color: #7a7a7a;
+    p{
+        margin-left:-12px;
+    }
+}
