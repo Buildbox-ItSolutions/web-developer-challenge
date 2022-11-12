@@ -1,4 +1,4 @@
-import { Server, Model, Factory, Response, belongsTo, hasMany } from "miragejs";
+import { Model, Response, belongsTo, hasMany } from "miragejs";
 import user from "./routes/user";
 import * as post from "./routes/post";
 import { createServer } from "miragejs";
@@ -21,18 +21,6 @@ createServer({
       post: hasMany(),
     }),
   },
-
-  // factories: {
-  //   user: Factory.extend({
-  //     username: "test",
-  //     password: "password",
-  //     email: "test@email.com",
-  //   }),
-  // },
-
-  // seeds: (server): any => {
-  //   server.create("user");
-  // },
 
   routes(): void {
     this.namespace = "api.buildbox.itsolutions.test";
