@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { Response, Request } from "miragejs";
 import { handleErrors } from "../server";
 import { User } from "../../../interfaces/user.interface";
