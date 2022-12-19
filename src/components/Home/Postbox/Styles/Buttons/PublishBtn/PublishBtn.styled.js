@@ -17,6 +17,7 @@ export const PublishButton = styled.button`
   color: white;
   transition: background-color 0.2s;
   &:disabled {
+    cursor: not-allowed;
     background-color: ${gray_100};
     & span {
       color: ${gray_400};
