@@ -17,7 +17,7 @@ export const PostContainer = styled.section`
   border: solid 1px #3b3b3b;
   background-color: ${gray_400};
   overflow: hidden;
-  animation-name: ${(props: { expanded: boolean }) =>
+  animation-name: ${(props) =>
     props.expanded ? entranceAnimation() : leaveAnimation()};
   animation-duration: 0.7s;
   animation-fill-mode: forwards;

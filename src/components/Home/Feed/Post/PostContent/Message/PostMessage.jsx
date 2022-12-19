@@ -7,7 +7,7 @@ import { SentBySection } from "./Styles/SentBySection.styled";
 import { TextSection } from "./Styles/TextSection.styled";
 
 export const PostMessage = () => {
-  const post: any = useContext(PostContext);
+  const post = useContext(PostContext);
 
   return (
     <>

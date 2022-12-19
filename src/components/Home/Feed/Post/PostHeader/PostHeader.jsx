@@ -5,9 +5,9 @@ import { removePost } from "../../../../../slices/posts/posts.slice";
 import { PostContext } from "../../Feed";
 import { DeleteBtn } from "./Styles/DeleteBtn.styled";
 
-export const PostHeader = (props: any) => {
+export const PostHeader = (props) => {
   const { setExpanded } = props;
-  const post: any = useContext(PostContext);
+  const post = useContext(PostContext);
   // const [deletePostApi] = useDeletePostApiMutation();
   const dispatch = useDispatch();
 

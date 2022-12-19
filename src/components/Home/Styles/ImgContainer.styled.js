@@ -35,9 +35,9 @@ export const ImgContainer = styled.div`
     background-size: cover;
     outline: none;
     cursor: pointer;
-    background-image: url(${(props: { filePath: string, filePathCopy: string }) => props.filePathCopy});
-    animation-name: ${(props: { filePath: string, filePathCopy: string }) =>
-      props.filePath ? entranceAnimation() : leaveAnimation()};
+    background-image: url(${(props) => props.filePathCopy});
+    animation-name: ${(props) =>
+    props.filePath ? entranceAnimation() : leaveAnimation()};
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
   }

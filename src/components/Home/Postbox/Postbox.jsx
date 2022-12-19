@@ -21,10 +21,6 @@ import { CharacterCountMsg } from "./Styles/Fields/CharacterCountMsg.styled";
 import { EmptyImage } from "../Styles/EmptyImage.styled";
 import { Alert } from "@mui/material";
 
-export interface State extends SnackbarOrigin {
-  open: boolean;
-}
-
 const initialValues = {
   userName: "",
   userMessage: "",
@@ -32,14 +28,14 @@ const initialValues = {
 };
 
 export default function Postbox() {
-  const maxMessageSize: string = "250";
-  const maxUserNameSize: string = "50";
+  const maxMessageSize = "250";
+  const maxUserNameSize = "50";
 
   const [selectedUserImage, setUserImage] = useState();
   const [selectedUserImageCopy, setUserImageCopy] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [fileFormatIsValid, setFileFormatIsValid] = useState(false);
-  const [snackbarState, setSnackbarState] = useState<State>({
+  const [snackbarState, setSnackbarState] = useState({
     open: false,
     vertical: "top",
     horizontal: "center",
@@ -61,11 +57,11 @@ export default function Postbox() {
   }, [selectedUserImage]);
 
   const publishMessage = (
-    values: any,
-    previewImage: any,
-    isValid: boolean,
-    handleReset: any,
-    e: any
+    values,
+    previewImage,
+    isValid,
+    handleReset,
+    e
   ) => {
     if (isValid) {
       dispatch(addPost({ ...values, userImage: previewImage }));
@@ -74,7 +70,7 @@ export default function Postbox() {
     }
   };
 
-  function imageChanged(e: any) {
+  function imageChanged(e) {
     if (!e.target.files || e.target.files.length === 0) {
       return;
     }
@@ -92,11 +88,11 @@ export default function Postbox() {
     setUserImage(undefined);
   }
 
-  function validatesFileType(fileFormat: string) {
+  function validatesFileType(fileFormat) {
     return ["image/png", "image/jpg", "image/jpeg"].includes(fileFormat);
   }
 
-  function getCharactersCountMessage(message: string) {
+  function getCharactersCountMessage(message) {
     return (
       <CharacterCountMsg>
         {message.length} de {maxMessageSize} caracteres
@@ -145,7 +141,7 @@ export default function Postbox() {
                         name="userImage"
                         title="Clique para alterar a imagem do usuário"
                         aria-label="Clique para alterar a imagem do usuário"
-                        onChange={(e: any) => {
+                        onChange={(e) => {
                           imageChanged(e);
                         }}
                       ></Field>
@@ -179,7 +175,7 @@ export default function Postbox() {
                   <ButtonsContainer>
                     <DiscardButton
                       type="button"
-                      onClick={(e: any) => {
+                      onClick={(e) => {
                         handleReset(e);
                         removeUserImage();
                       }}

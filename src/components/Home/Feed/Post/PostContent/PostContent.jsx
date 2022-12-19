@@ -5,7 +5,7 @@ import { Container } from "./Styles/Container.styled";
 import { UserImage } from "./Styles/UserImage.styled";
 
 export const PostContent = () => {
-  const { userImage }: any = useContext(PostContext);
+  const { userImage } = useContext(PostContext);
   return (
     <>
       <Container>

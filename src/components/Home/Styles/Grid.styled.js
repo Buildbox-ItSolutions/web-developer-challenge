@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { black } from "./../../../styles/colors/colors";
+import { black } from "../../../styles/colors/colors";
 
 export const GridContainer = styled.div`
   @media (max-width: 1010px) {
