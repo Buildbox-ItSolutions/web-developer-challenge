@@ -1,12 +1,16 @@
 import { useState } from 'react'
-
-
+import Header from './components/header'
+import * as C from './style'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
+      <Header />
+      <C.ContainerMain>
+        <C.ContainerForm>
 
+        </C.ContainerForm>
+      </C.ContainerMain>
     </div>
   )
 }
