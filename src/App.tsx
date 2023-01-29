@@ -1,18 +1,22 @@
-import React, { HTMLProps, ImgHTMLAttributes, useState } from 'react'
+import React from 'react'
 import Header from './components/header'
 import * as C from './style'
 import ImageIcon from './assets/image.svg'
 import Image from './components/image'
 import Feed from './components/feed'
+import useValidationForm from './hooks/useValidationForm'
+import { IUpdateValue } from './types/form'
+import postServices from './services/posts'
+import { useQuery, useMutation, useQueryClient } from 'react-query'
 
 interface IInputFile {
-  setImage: React.Dispatch<React.SetStateAction<File | null>>
+  updateValueFormState: IUpdateValue
 }
-const InputFile = ({ setImage }: IInputFile) => {
+
+const InputFile = ({ updateValueFormState }: IInputFile) => {
   const uploadHandler = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('chamei')
     const img = event.target.files![0]
-    setImage(img)
+    updateValueFormState('image', img)
   }
   return (
     <>
@@ -24,19 +28,42 @@ const InputFile = ({ setImage }: IInputFile) => {
   )
 }
 function App() {
-  const [image, setImage] = useState<File | null>(null)
+  const { formState, updateValueFormState, completedForm, resetForm } = useValidationForm()
+  const { image, name, message } = formState
+  const client = useQueryClient()
+
+  const mutation = useMutation((formData: FormData) => postServices.create(formData), {
+    onSuccess: () => {
+      resetForm()
+      client.invalidateQueries(['posts'])
+    }
+  })
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+    const formData = new FormData();
+    formData.append("image", image as File);
+    formData.append("name", name);
+    formData.append("message", message);
+    mutation.mutate(formData)
+
+  }
   return (
     <div>
       <Header />
       <C.ContainerMain>
-        <C.ContainerForm>
+        <C.ContainerForm onSubmit={handleSubmit}>
           <C.ContainerPhoto>
-            {image ? <Image src={image} setImage={setImage} /> : <InputFile setImage={setImage} />}
+            {image ? <Image src={image} updateValueFormState={updateValueFormState} /> : <InputFile updateValueFormState={updateValueFormState} />}
           </C.ContainerPhoto>
           <C.ContainerInputs>
-            <C.InputName placeholder='Digite seu nome' />
-            <C.InputMessage placeholder='Mensagem' />
+            <C.InputName value={name} placeholder='Digite seu nome' onChange={(event) => updateValueFormState('name', event.target.value)} />
+            <C.InputMessage value={message} placeholder='Mensagem' onChange={(event) => updateValueFormState('message', event.target.value)} />
           </C.ContainerInputs>
+          <C.ConteinerButtons>
+            <C.ButtonReset> Descartar </C.ButtonReset>
+            <C.ButtonSubmit disabled={!completedForm && true} type='submit' completedForm={completedForm}> Publicar </C.ButtonSubmit>
+          </C.ConteinerButtons>
         </C.ContainerForm>
 
         <Feed />

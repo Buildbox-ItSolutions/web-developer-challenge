@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { createGlobalStyle } from 'styled-components'
 import App from './App'
 
@@ -10,10 +11,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 `
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>,
 )
