@@ -61,7 +61,7 @@ function App() {
             <C.InputMessage value={message} placeholder='Mensagem' onChange={(event) => updateValueFormState('message', event.target.value)} />
           </C.ContainerInputs>
           <C.ConteinerButtons>
-            <C.ButtonReset> Descartar </C.ButtonReset>
+            <C.ButtonReset onClick={() => resetForm()}> Descartar </C.ButtonReset>
             <C.ButtonSubmit disabled={!completedForm && true} type='submit' completedForm={completedForm}> Publicar </C.ButtonSubmit>
           </C.ConteinerButtons>
         </C.ContainerForm>
