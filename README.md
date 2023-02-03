@@ -1,3 +1,7 @@
+## Instruções para os avaliadores
+- Executar npm install para que as bibliotecas de RTK, Styled Components, Yup, Material UI e etc. sejam usadas.
+
+
 # web-developer-challenge
 
 Olá!
