@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 
 interface IButton {
-  background: string,
+  background?: string,
   color: string,
   padding: string,
   textDecoration?: string
@@ -16,6 +16,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[400]};
   margin: 5rem auto;
   padding: 2.4rem;
+  @media (max-width: 640px){
+    border: none;
+  }
 `;
 
 export const Header = styled.header`
@@ -46,17 +49,34 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
   gap: 2rem;
   padding-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 1rem;
+  }
 `
 
 
 export const Button = styled.button<IButton>`
   ${({ background, color, padding, textDecoration, bRadius }) => css`
-    background: ${background};
+    background: ${background || 'transparent'};
     width: 12rem;
     color: ${color};
     padding: ${padding};
     cursor: pointer;
     text-decoration: ${textDecoration};
     border-radius: ${bRadius};
+
+    &:disabled {
+      &.discard {
+        background-color: transparent;
+        cursor: no-drop;
+      }
+      &.publish {
+      background-color: ${({ theme }) => theme.colors.gray[350]} ;
+      cursor: no-drop;
+      color: ${({ theme }) => theme.colors.gray[400]};
+      }
+    }
   `}
 `

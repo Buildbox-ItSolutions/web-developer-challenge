@@ -1,14 +1,23 @@
 import { XCircle } from 'phosphor-react';
-import React from 'react'
+import { useContext } from 'react'
+import { PostContext } from '../../../context/PostContext';
+import { IPostData } from '../../../interfaces';
 import * as P from './styles'
 import postPhoto from '/src/assets/photo-base.png'
 
 
-const Post: React.FC = () => {
+
+
+const Post = ({ id, name, post }: IPostData) => {
+
+  const { deletingPost } = useContext(PostContext)
+
+  const deletePost = () => deletingPost(id)
+
   return (
     <P.Container>
       <P.Header>
-        <XCircle size={26} weight="light" />
+        <XCircle size={26} weight="light" onClick={deletePost} />
       </P.Header>
       <P.ControlContainer>
         <P.LeftCol>
@@ -16,13 +25,16 @@ const Post: React.FC = () => {
         </P.LeftCol>
         <P.RightCol>
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.
+            {post}
           </span>
           <div className="author">
-            <small>
-              Enviado por
-            </small>
-            <p>Manuela Oliveira</p>
+            <img className='img-corner' src={postPhoto} alt="" />
+            <div className="author-info">
+              <small>
+                Enviado por
+              </small>
+              <p>{name}</p>
+            </div>
           </div>
         </P.RightCol>
       </P.ControlContainer>
