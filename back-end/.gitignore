@@ -1,0 +1,10 @@
+.husky/
+.vscode/
+node_modules/
+temp/
+.env
+dist/
+build/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
