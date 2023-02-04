@@ -1,0 +1,64 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "env": {
+    "es2019": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "no-var": "warn",
+    "camelcase": 0,
+    "no-empty": 0,
+    "no-useless-constructor": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/ban-ts-ignore": ["off"],
+    "@typescript-eslint/camelcase": ["off"],
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/interface-name-prefix": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-unused-expressions": ["off"],
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "no-async-promise-executor": ["off"],
+    "no-empty-pattern": ["off"],
+    "no-undef": ["error"],
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "semi": 0,
+    "spaced-comment": ["off"],
+    "no-prototype-builtins": ["off"],
+    "sort-keys": ["off"],
+    "space-before-function-paren": ["off"],
+    "indent": ["off"],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "lines-between-class-members": ["error", "never"],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/comma-spacing": "off",
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "import/export": "off",
+    "brace-style": "off"
+  }
+}

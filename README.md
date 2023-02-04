@@ -1,30 +1,25 @@
-# web-developer-challenge
+#### Para rodar a aplicação completa é necessário fazer o clone do repositório
 
-Olá!
+### git clone https://github.com/WallaceLeonhard/web-developer-challenge.git
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## A aplicação está dividida em duas pastas: front-end e back-end
 
-O Desafio é o seguinte:
+#### Para abrir a aplicação precisa está com o node instalado, em um terminal digite cd back-end e siga os seguintes comandos:
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## yarn - para instalação de dependências
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+## yarn migrate - para inicializar o banco de dados com o prisma
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+## yarn dev - para rodar localmente (url: http://localhost:5000)
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+#### Para o front-end:
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+#### cd front-end
 
+#### yarn or yarn install para instalar dependências
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+## Em seguida, para rodar a aplicação localmente(para ser aberta é recomendado que a aplicação do back-end esteja rodando):
 
-## Design - Zeplin
-https://app.zeplin.io/login
+### yarn dev
 
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+### irá ser aberta na url: http://localhost:5173
