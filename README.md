@@ -14,6 +14,8 @@
 
 #### Para o front-end:
 
+#### cd front-end
+
 #### yarn or yarn install para instalar dependências
 
 ## Em seguida, para rodar a aplicação localmente(para ser aberta é recomendado que a aplicação do back-end esteja rodando):
