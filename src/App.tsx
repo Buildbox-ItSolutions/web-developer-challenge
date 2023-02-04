@@ -1,7 +1,6 @@
 import Home from "./components/templates/Home"
 
 function App() {
-
   return (
     <Home />
   )
