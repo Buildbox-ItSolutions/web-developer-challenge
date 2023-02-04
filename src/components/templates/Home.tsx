@@ -1,14 +1,15 @@
-import React from 'react'
 import Header from '../molecules/Header'
-import Post from '../organisms/Post'
 import PostForm from '../organisms/PostForm'
+import PublishedPosts from '../organisms/PublishedPosts'
 
 const Home = () => {
+
+
   return (
     <>
       <Header />
       <PostForm />
-      <Post />
+      <PublishedPosts />
     </>
   )
 }
