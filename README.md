@@ -1,30 +1,56 @@
 # web-developer-challenge
+## Meus dados
 
-Olá!
+**Nome:** Pedro Monteiro
+**E-mail:** pedrohm95@hotmail.com
+**Telefone:** (35) 99755-1565
+**LinkedIn:** linkedin.com/in/pemonter
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## Tecnologias utilizadas
 
-O Desafio é o seguinte:
+* Axios
+* JSON Server
+* React
+* Styled Components
+* TypeScript
+* Vite
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## Procedimentos para execução deste projeto
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+Inicialmente é necessário clonar esse repositório para sua máquina, utilizando o seguinte comando: 
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+```
+git clone https://github.com/pemonter/web-developer-challenge.git
+```
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+Após terminado o clone do projeto, siga os seguintes passos no terminal:
+```
+cd web-developer-challenge
+npm i
+```
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+Dessa forma os pacotes necessários para execução do projeto estarão instalados via npm.
 
+Para realizar o upload de fotos no site [imgbb](imgbb.com), é necessário gerar uma **API_KEY** no seguinte link: https://api.imgbb.com/.
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+Após gerar a key, crie um arquivo ```.env.local``` na raiz do projeto, contendo o seguinte:
 
-## Design - Zeplin
-https://app.zeplin.io/login
+```
+VITE_IMGBB_KEY=SUA_CHAVE_AQUI
+```
 
-E-mail - buildbox.guest@gmail.com
+Feito isso é hora de iniciar o JSON-Server, basta executar:
 
-Senha - JhZ5dAPG
+```
+npm run dev:server
+```
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+Após a iniciar o server, é hora de executar o projeto:
+
+``` 
+npm run dev
+```
+
+Então será apresentado o endereço localhost para acesso ao projeto:
+
+http://localhost:5173/
