@@ -1,6 +1,6 @@
-## Para rodar a aplicação completa é necessário fazer o clone do repositório
+#### Para rodar a aplicação completa é necessário fazer o clone do repositório
 
-# git clone https://github.com/WallaceLeonhard/web-developer-challenge.git
+### git clone https://github.com/WallaceLeonhard/web-developer-challenge.git
 
 ## A aplicação está dividida em duas pastas: front-end e back-end
 
@@ -14,7 +14,7 @@
 
 #### Para o front-end:
 
-### yarn or yarn install para instalar dependências
+#### yarn or yarn install para instalar dependências
 
 ## Em seguida, para rodar a aplicação localmente(para ser aberta é recomendado que a aplicação do back-end esteja rodando):
 
