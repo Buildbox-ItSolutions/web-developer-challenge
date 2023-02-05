@@ -17,8 +17,6 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
     outline: none;
     font-size: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
     font-family: ${({ theme }) => theme.primaryFontFamily}, sans-serif;
   }
 

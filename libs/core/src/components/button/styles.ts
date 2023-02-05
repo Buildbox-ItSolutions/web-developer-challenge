@@ -1,4 +1,3 @@
-import { color } from '@/utils';
 import styled from 'styled-components';
 
 import { ButtonStyledProps } from './model';
@@ -11,7 +10,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   gap: 4px;
 
   border: none;
-  padding: 8px 20px;
+  padding: 12px 24px;
   height: 40px;
   border-radius: 10px;
   font-size: 0.875rem;
@@ -21,7 +20,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   pointer-events: ${({ disable }) => (disable ? 'none' : 'all')};
   opacity: ${({ disable }) => (disable ? 0.4 : 1)};
   background: ${({ theme }) => theme.primaryColorUp};
-  color: ${({ theme }) => color(theme, theme.primaryColorDown)};
+  color: ${({ theme }) => theme.lightColorPure};
 
   &:hover {
     background: ${({ theme }) => theme.primaryColorDown};

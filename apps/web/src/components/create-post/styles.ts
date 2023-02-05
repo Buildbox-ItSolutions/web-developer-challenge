@@ -13,12 +13,17 @@ export const CreatePostStyled = styled(BixCard)`
   margin-top: 42px;
 
   &,
-  > div:nth-child(1) {
+  > div:nth-child(1),
+  > div:last-child {
     display: flex;
     flex-direction: column;
   }
 
-  > div:nth-child(1) { 
+  > div:nth-child(1) {
     gap: 8px;
+  }
+
+  > div:last-child {
+    margin-top: 32px;
   }
 `;
