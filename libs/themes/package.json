@@ -1,0 +1,23 @@
+{
+  "name": "@bix/themes",
+  "description": "Bix Themes",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "styled-media-query": "^2.1.2"
+  },
+  "devDependencies": {
+    "@bix/tsconfig": "*",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^5.3.6"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "@bix/tsconfig/react.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

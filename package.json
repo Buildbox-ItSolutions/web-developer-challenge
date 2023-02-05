@@ -1,0 +1,39 @@
+{
+  "name": "bix",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ]
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "commit": "git-cz",
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.33.0",
+    "husky": "^8.0.2",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.19"
+}
