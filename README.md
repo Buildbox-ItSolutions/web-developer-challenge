@@ -1,30 +1,60 @@
 # web-developer-challenge
+## Meus dados
 
-Olá!
+**Nome:** Pedro Monteiro  
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+**E-mail:** pedrohm95@hotmail.com  
 
-O Desafio é o seguinte:
+**Telefone:** (35) 99755-1565  
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
-
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
-
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
-
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
-
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+**LinkedIn:** linkedin.com/in/pemonter  
 
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+## Tecnologias utilizadas
 
-## Design - Zeplin
-https://app.zeplin.io/login
+* Axios
+* JSON Server
+* React
+* Styled Components
+* TypeScript
+* Vite
 
-E-mail - buildbox.guest@gmail.com
+## Procedimentos para execução deste projeto
 
-Senha - JhZ5dAPG
+Inicialmente é necessário clonar esse repositório para sua máquina, utilizando o seguinte comando: 
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+```
+git clone https://github.com/pemonter/web-developer-challenge.git
+```
+
+Após terminado o clone do projeto, siga os seguintes passos no terminal:
+```
+cd web-developer-challenge
+npm i
+```
+
+Dessa forma os pacotes necessários para execução do projeto estarão instalados via npm.
+
+Para realizar o upload de fotos no site [imgbb](imgbb.com), é necessário gerar uma **API_KEY** no seguinte link: https://api.imgbb.com/.
+
+Após gerar a key, crie um arquivo ```.env.local``` na raiz do projeto, contendo o seguinte:
+
+```
+VITE_IMGBB_KEY=SUA_CHAVE_AQUI
+```
+
+Feito isso é hora de iniciar o JSON-Server, basta executar:
+
+```
+npm run dev:server
+```
+
+Após a iniciar o server, é hora de executar o projeto:
+
+``` 
+npm run dev
+```
+
+Então será apresentado o endereço localhost para acesso ao projeto:
+
+http://localhost:5173/
