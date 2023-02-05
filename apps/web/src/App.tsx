@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { router } from '@/routes';
 import { AppState } from '@/store';
 
-import GlobalStyle, { Fonts } from '@/global';
+import GlobalStyle from '@/global';
 
 const App = () => {
   const state = useSelector((state: AppState) => state);
@@ -17,7 +17,6 @@ const App = () => {
     <BixThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         <RouterProvider router={router} />
-        <Fonts />
         <GlobalStyle />
       </ThemeProvider>
     </BixThemeProvider>

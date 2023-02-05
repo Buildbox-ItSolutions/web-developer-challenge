@@ -1,19 +1,21 @@
 import { color } from '@/utils';
 import styled from 'styled-components';
 
-import { InputStyledProps } from './model';
+import { TextAreaStyledProps } from './model';
 
-export const InputStyled = styled.div<InputStyledProps>`
+export const InputStyled = styled.div<TextAreaStyledProps>`
   width: ${({ block }) => (block ? '100%' : 'fit-content')};
 
-  input {
+  textarea {
     width: 100%;
-    height: 40px;
+    height: ${({ height }) => `${height || 80}`}px;
     padding: 12px 16px;
     font-size: 0.875rem;
+    overflow: hidden;
     border-radius: 8px;
+    box-sizing: border-box;
+    resize: none;
     color: ${({ theme }) => color(theme, theme.fieldColorUp)};
-    line-height: 1.29px;
     border: 1px solid ${({ invalid, theme }) => (invalid ? theme.tertiaryColorUp : 'transparent')};
     transition: all 0.3s;
     letter-spacing: 0.03rem;

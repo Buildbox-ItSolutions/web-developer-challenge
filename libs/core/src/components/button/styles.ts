@@ -1,10 +1,7 @@
-import { Theme } from '@bix/themes';
-import { readableColor } from 'polished';
+import { color } from '@/utils';
 import styled from 'styled-components';
 
 import { ButtonStyledProps } from './model';
-
-const color = (theme: Theme, color: string) => readableColor(color, theme.darkColorPure, theme.lightColorPure);
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
   display: flex;

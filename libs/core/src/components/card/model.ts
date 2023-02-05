@@ -1,11 +1,5 @@
-export type NavbarLogo = {
-  src: string;
-  alt: string;
-};
+export type CardStyledProps = {};
 
-export type NavbarStyledProps = {};
-
-export type NavbarProps = NavbarStyledProps & {
-  logo: NavbarLogo;
-  onRedirect: (path?: string) => void;
+export type CardProps = CardStyledProps & {
+  className?: string;
 };

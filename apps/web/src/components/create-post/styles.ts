@@ -1,3 +1,24 @@
 import styled from 'styled-components';
 
-export const CreatePostStyled = styled.div``;
+import { BixCard } from '@bix/core';
+
+export const CreatePostStyled = styled(BixCard)`
+  width: 90%;
+  max-width: 516px;
+  height: 353px;
+  margin: auto;
+  padding: 24px;
+  border-radius: 3px;
+
+  margin-top: 42px;
+
+  &,
+  > div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > div:nth-child(1) { 
+    gap: 8px;
+  }
+`;

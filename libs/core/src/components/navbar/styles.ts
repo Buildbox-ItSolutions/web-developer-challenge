@@ -13,6 +13,9 @@ export const NavbarStyled = styled.header`
   padding: 10px 20px;
   position: fixed;
 
+  top: 0px;
+  right: 0px;
+
   > img {
     width: 103px;
     cursor: pointer;
