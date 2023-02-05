@@ -20,4 +20,18 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         min-width: 320px;
     }
+
+    body::-webkit-scrollbar {
+        width: 10px;              
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #494949;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #2b2b2b;
+        border-radius: 26px;
+        border: solid 2px #494949;
+    }
 `
