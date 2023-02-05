@@ -1,10 +1,14 @@
 # web-developer-challenge
 ## Meus dados
 
-**Nome:** Pedro Monteiro
-**E-mail:** pedrohm95@hotmail.com
-**Telefone:** (35) 99755-1565
-**LinkedIn:** linkedin.com/in/pemonter
+**Nome:** Pedro Monteiro  
+
+**E-mail:** pedrohm95@hotmail.com  
+
+**Telefone:** (35) 99755-1565  
+
+**LinkedIn:** linkedin.com/in/pemonter  
+
 
 ## Tecnologias utilizadas
 
