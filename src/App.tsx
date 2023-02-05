@@ -1,3 +1,5 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify"
 import { GlobalStyle } from "./global/globalStyle"
 import { PostPage } from "./page/postList"
 
@@ -6,6 +8,8 @@ function App() {
     <>
       <GlobalStyle />
       <PostPage />
+
+      <ToastContainer />
     </>
   )
 }

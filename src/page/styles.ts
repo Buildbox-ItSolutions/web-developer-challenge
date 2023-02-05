@@ -146,7 +146,6 @@ export const InputFile = styled.input`
   display: none;
 `
 
-export const PostFormImage = styled.img.attrs(({src}) => {src === "profileImage"}) `
-  width: 4px;
-  height: 4px;
+export const PostFormImage = styled.img `
+  
 `
