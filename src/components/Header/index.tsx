@@ -3,7 +3,7 @@ import React from 'react'
 /* stlye */
 import * as S from './style'
 
-const Header = (): React.ReactElement => {
+const Header = () => {
   return (
     <S.Header>
       <S.HeaderLogo src="assets/images/bx-logo.svg" />
