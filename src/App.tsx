@@ -1,7 +1,14 @@
 import React from 'react'
 
+/* components */
+import Header from './components/Header'
+
 function App() {
-  return <div className="App">My app challange</div>
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
 
 export default App
