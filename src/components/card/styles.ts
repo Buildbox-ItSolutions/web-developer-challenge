@@ -5,7 +5,7 @@ export const CardContainer = styled.li`
   border-radius: 3px;
   max-width: 100%;
   list-style: none;
-
+  background: #313131;
   padding: 12px 12px 32px 24px;
 
   > div {

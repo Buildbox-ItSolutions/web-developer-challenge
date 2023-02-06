@@ -1,10 +1,21 @@
 import { Card } from "../components/card";
 import { Header } from "../components/header";
+import trashIcon from '../assets/trash.svg'
 import profileBackgroundImage from '../assets/image.svg'
 import uuid from 'react-uuid'
 import { toast } from 'react-toastify'
-import { Container, ListCard, ButtonDeleteData, ButtonPublicData, FormContainer, InputFile, PostFormImage } from "./styles";
 import { useState, FormEvent } from 'react'
+import {
+    Container,
+    ListCard,
+    ButtonDeleteData,
+    ButtonPublicData,
+    FormContainer,
+    InputFile,
+    PostFormImage,
+    ImageContainer
+} from "./styles";
+
 
 interface ListPostsProps {
     id: string,
@@ -39,7 +50,7 @@ export function PostPage() {
             setName("")
             setImage("")
             setDescription("")
-            
+
             toast.success("Dados postado com sucesso!")
         }
     }
@@ -56,13 +67,12 @@ export function PostPage() {
         setDescription("")
     }
 
-    const { profileImage } = {
-        profileImage: profileBackgroundImage
+    function removeImageForm() {
+        setImage("")
     }
 
-    const newBackgroundButton = {
-        background: "#8bbb27",
-        color: "#fff"
+    const { profileImage } = {
+        profileImage: profileBackgroundImage
     }
 
     return (
@@ -71,19 +81,51 @@ export function PostPage() {
 
             <section>
                 <FormContainer onSubmit={AddNewPost}>
-                    <InputFile
-                        id="image"
-                        type="file"
-                        onChange={
-                            (event: any) => setImage(URL.createObjectURL(event.target.files[0]))
-                        }
-                    />
-                    <label htmlFor="image">
-                        <PostFormImage
-                            src={!image ? profileImage : image}
-                            alt="Image user"
+                    <ImageContainer>
+                        <InputFile
+                            id="image"
+                            type="file"
+                            onChange={
+                                (event: any) => setImage(URL.createObjectURL(event.target.files[0]))
+                            }
                         />
-                    </label>
+
+
+                        {
+                            !image ? (
+                                <label
+                                    htmlFor="image"
+                                    style={{ 'border': 'solid 1px #4b4b4b' }}
+                                >
+                                    <PostFormImage
+                                        src={profileImage}
+                                        alt="Image user"
+                                        style={{
+                                            'width': '24px',
+                                            'height': '24px',
+                                            'borderRadius': '0px'
+                                        }}
+                                    />
+
+                                </label>
+                            ) : (
+                                <label>
+                                    <PostFormImage
+                                        src={image}
+                                        alt="Image user"
+                                    />
+                                </label>
+                            )
+                        }
+
+                        {
+                            !image ? null : (
+                                <button onClick={removeImageForm} type="button">
+                                    <img src={trashIcon} alt="DeleteImage" />
+                                </button>
+                            )
+                        }
+                    </ImageContainer>
 
                     <input
                         value={name}
@@ -104,12 +146,33 @@ export function PostPage() {
                             Descartar
                         </ButtonDeleteData>
 
-                        <ButtonPublicData
-                            type="submit"
-                            style={newBackgroundButton}
-                        >
-                            Publicar
-                        </ButtonPublicData>
+                        {
+                            (!name || !image || !description) ? (
+                                <ButtonPublicData
+                                    type="submit"
+                                    style={
+                                        {
+                                            'background': '#5f5f5f',
+                                            'color': '#313131'
+                                        }
+                                    }
+                                >
+                                    Publicar
+                                </ButtonPublicData>
+                            ) : (
+                                <ButtonPublicData
+                                    type="submit"
+                                    style={
+                                        {
+                                            'background': '#8bbb27',
+                                            'color': '#fff'
+                                        }
+                                    }
+                                >
+                                    Publicar
+                                </ButtonPublicData>
+                            )
+                        }
                     </div>
                 </FormContainer>
 

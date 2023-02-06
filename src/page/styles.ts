@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import log from '../assets/banner3.jpg'
 
 export const Container = styled.section`
   display: flex;
@@ -55,12 +54,10 @@ export const FormContainer = styled.form`
     object-fit: cover;
     width: 88px;
     height: 88px;
-    margin: 0 auto;
   }
 
   label {
     margin-bottom: 16px;
-    border: solid 1px #4b4b4b;
 
     display: flex;
     align-items: center;
@@ -118,9 +115,6 @@ export const FormContainer = styled.form`
 export const ButtonPublicData = styled.button`
   padding: 12px 24px;
   border-radius: 8px;
-  background: #5f5f5f;
-
-  color: #313131;
   border: none;
 
   :hover {
@@ -146,6 +140,38 @@ export const InputFile = styled.input`
   display: none;
 `
 
-export const PostFormImage = styled.img `
-  
+export const PostFormImage = styled.img`
+  &[src='profileImage'] {
+    width: 8px;
+    height: 8px;
+  }
+`
+export const ImageContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  > button {
+    background: none;
+    padding: 0;
+    border: none;
+    position: absolute;
+    left: 286px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 606px) {
+    position: static;
+
+    button {
+      margin-left: 16px;
+      position: static;
+    }
+  }
 `
