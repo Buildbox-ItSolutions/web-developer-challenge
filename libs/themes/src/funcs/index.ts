@@ -7,7 +7,12 @@ export const parseCssTheme = (theme: Theme) =>
   Object.keys(theme)
     .map(
       value =>
-        `${['--', ...value.split('').map(el => (el.toUpperCase() == el ? '-' + el.toLocaleLowerCase() : el))].join('')}:${(theme as any)[value]};`
+        `${[
+          '--',
+          ...value
+            .split('')
+            .map(el => (el.toUpperCase() == el ? '-' + el.toLocaleLowerCase() : el)),
+        ].join('')}:${(theme as any)[value]};`
     )
     .join('');
 

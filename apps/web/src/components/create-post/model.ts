@@ -1,3 +1,1 @@
-export type CreatePostProps = {
-
-}
+export type CreatePostProps = {};

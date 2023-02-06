@@ -1,5 +1,5 @@
-export type CardStyledProps = {};
+import { BixChildren } from '@/types';
 
-export type CardProps = CardStyledProps & {
+export type CardProps = {
   className?: string;
-};
+} & BixChildren;

@@ -1,14 +1,16 @@
 import { ThemeProvider } from 'styled-components';
 
-export * from '@/components/button';
-export * from '@/components/button/model';
-export * from '@/components/input';
-export * from '@/components/input/model';
-export * from '@/components/navbar';
-export * from '@/components/navbar/model';
-export * from '@/components/card';
-export * from '@/components/card/model';
-export * from '@/components/textarea';
-export * from '@/components/textarea/model';
+export * from './src/components/button';
+export * from './src/components/button/model';
+export * from './src/components/input';
+export * from './src/components/input/model';
+export * from './src/components/navbar';
+export * from './src/components/navbar/model';
+export * from './src/components/card';
+export * from './src/components/card/model';
+export * from './src/components/textarea';
+export * from './src/components/textarea/model';
+export * from './src/components/upload';
+export * from './src/components/upload/model';
 
 export const BixThemeProvider = ThemeProvider;

@@ -24,4 +24,3 @@ export default createGlobalStyle`
     ${({ theme }) => parseCssTheme(theme)}
   }
 `;
-

@@ -3,9 +3,7 @@ export type NavbarLogo = {
   alt: string;
 };
 
-export type NavbarStyledProps = {};
-
-export type NavbarProps = NavbarStyledProps & {
+export type NavbarProps = {
   logo: NavbarLogo;
   onRedirect: (path?: string) => void;
 };

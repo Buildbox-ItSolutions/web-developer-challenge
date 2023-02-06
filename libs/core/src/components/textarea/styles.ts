@@ -1,9 +1,9 @@
 import { color } from '@/utils';
 import styled from 'styled-components';
 
-import { TextAreaStyledProps } from './model';
+import { TextAreaProps } from './model';
 
-export const InputStyled = styled.div<TextAreaStyledProps>`
+export const InputStyled = styled.div<TextAreaProps>`
   width: ${({ block }) => (block ? '100%' : 'fit-content')};
 
   textarea {
@@ -16,13 +16,15 @@ export const InputStyled = styled.div<TextAreaStyledProps>`
     box-sizing: border-box;
     resize: none;
     color: ${({ theme }) => color(theme, theme.fieldColorUp)};
-    border: 1px solid ${({ invalid, theme }) => (invalid ? theme.tertiaryColorUp : 'transparent')};
+    border: 1px solid
+      ${({ invalid, theme }) => (invalid ? theme.tertiaryColorUp : 'transparent')};
     transition: all 0.3s;
     letter-spacing: 0.03rem;
     background: ${({ theme }) => theme.fieldColorUp};
 
     &:focus {
-      border-color: ${({ theme, invalid }) => (invalid ? theme.tertiaryColorUp : theme.primaryColorUp)};
+      border-color: ${({ theme, invalid }) =>
+        invalid ? theme.tertiaryColorUp : theme.primaryColorUp};
     }
   }
 

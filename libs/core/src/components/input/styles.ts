@@ -1,9 +1,9 @@
 import { color } from '@/utils';
 import styled from 'styled-components';
 
-import { InputStyledProps } from './model';
+import { InputProps } from './model';
 
-export const InputStyled = styled.div<InputStyledProps>`
+export const InputStyled = styled.div<InputProps>`
   width: ${({ block }) => (block ? '100%' : 'fit-content')};
 
   input {
@@ -14,13 +14,15 @@ export const InputStyled = styled.div<InputStyledProps>`
     border-radius: 8px;
     color: ${({ theme }) => color(theme, theme.fieldColorUp)};
     line-height: 1.29px;
-    border: 1px solid ${({ invalid, theme }) => (invalid ? theme.tertiaryColorUp : 'transparent')};
+    border: 1px solid
+      ${({ invalid, theme }) => (invalid ? theme.tertiaryColorUp : 'transparent')};
     transition: all 0.3s;
     letter-spacing: 0.03rem;
     background: ${({ theme }) => theme.fieldColorUp};
 
     &:focus {
-      border-color: ${({ theme, invalid }) => (invalid ? theme.tertiaryColorUp : theme.primaryColorUp)};
+      border-color: ${({ theme, invalid }) =>
+        invalid ? theme.tertiaryColorUp : theme.primaryColorUp};
     }
   }
 

@@ -1,13 +1,13 @@
-import { HTMLAttributes } from 'react';
-
-export type TextAreaStyledProps = {
+export type TextAreaProps = {
   label?: string;
   block?: boolean;
   invalid?: boolean;
   height?: boolean;
   message?: string;
+  cols?: number;
+  value?: string;
+  rols?: number;
+  maxLength?: number;
   placeholder?: string;
   onChange?: (value: string) => void;
 };
-
-export type TextAreaProps = TextAreaStyledProps & HTMLAttributes<HTMLElement>;

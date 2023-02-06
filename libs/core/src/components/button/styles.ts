@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import { ButtonStyledProps } from './model';
+import { ButtonProps } from './model';
 
-export const ButtonStyled = styled.button<ButtonStyledProps>`
+export const ButtonStyled = styled.button`
   display: flex;
   justify-content: center;
-  width: ${({ block }) => (block ? '100%' : 'fit-content')};
+  width: fit-content;
   align-items: center;
   gap: 4px;
 
@@ -17,8 +17,8 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   cursor: pointer;
   transition: all 0.3s;
   letter-spacing: 0.03rem;
-  pointer-events: ${({ disable }) => (disable ? 'none' : 'all')};
-  opacity: ${({ disable }) => (disable ? 0.4 : 1)};
+  pointer-events: all;
+  opacity: 1;
   background: ${({ theme }) => theme.primaryColorUp};
   color: ${({ theme }) => theme.lightColorPure};
 
@@ -32,5 +32,14 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
     &:hover {
       background: ${({ theme }) => theme.secondaryColorDown};
     }
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.disable {
+    opacity: 0.5;
+    pointer-events: none;
   }
 `;
