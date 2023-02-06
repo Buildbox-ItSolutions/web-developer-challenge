@@ -17,6 +17,11 @@ export const Container = styled.section`
     @media (max-width: 562px) {
       padding: 24px;
     }
+
+    @media(max-width: 414px) {
+      width: 300px;
+      padding: 0;
+    }
   }
 
   h1 {
