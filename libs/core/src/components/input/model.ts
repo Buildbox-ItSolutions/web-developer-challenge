@@ -4,6 +4,7 @@ export type InputProps = {
   value?: string;
   invalid?: boolean;
   message?: string;
+  defaultValue?: string;
   placeholder?: string;
   maxLength?: number;
   onChange?: (value: string) => void;

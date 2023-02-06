@@ -4,6 +4,7 @@ export type UploadIcons = {
 }
 
 export type UploadProps = {
+  uploaded: boolean;
   icons: UploadIcons;
   preview: string;
   onUpload: (value: Blob, preview: string) => void;

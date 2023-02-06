@@ -39,7 +39,8 @@ export const ButtonStyled = styled.button`
   }
 
   &.disable {
-    opacity: 0.5;
+    color: ${({ theme }) => theme.darkColorPure};
+    background: ${({ theme }) => theme.textColorDown};
     pointer-events: none;
   }
 `;

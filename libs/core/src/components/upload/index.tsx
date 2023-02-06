@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { UploadProps } from './model';
 import { UploadStyled } from './styles';
 
-export const BixUpload: FC<UploadProps> = ({ icons, onUpload, onClear, preview }) => {
+export const BixUpload: FC<UploadProps> = ({ icons, onUpload, onClear,uploaded ,preview }) => {
   const getFile = (files: FileList | []) => {
     if (files.length == 1) {
       const file = files[0];
@@ -19,7 +19,7 @@ export const BixUpload: FC<UploadProps> = ({ icons, onUpload, onClear, preview }
 
   return (
     <UploadStyled>
-      <label htmlFor="upload" className={classNames({ upload: !!preview })}>
+      <label htmlFor="upload" className={classNames({ uploaded })}>
         <img src={icons.upload} />
 
         <img src={preview} />
@@ -32,7 +32,7 @@ export const BixUpload: FC<UploadProps> = ({ icons, onUpload, onClear, preview }
         onChange={e => getFile(e.target.files || [])}
       />
 
-      {preview && <img onClick={() => onClear!()} src={icons.clear} />}
+      {uploaded && <img onClick={() => onClear!()} src={icons.clear} />}
     </UploadStyled>
   );
 };

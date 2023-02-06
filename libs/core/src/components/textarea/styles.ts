@@ -11,7 +11,6 @@ export const InputStyled = styled.div<TextAreaProps>`
     height: ${({ height }) => `${height || 80}`}px;
     padding: 12px 16px;
     font-size: 0.875rem;
-    overflow: hidden;
     border-radius: 8px;
     box-sizing: border-box;
     resize: none;

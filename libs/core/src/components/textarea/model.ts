@@ -4,6 +4,7 @@ export type TextAreaProps = {
   invalid?: boolean;
   height?: boolean;
   message?: string;
+  defaultValue?: string;
   cols?: number;
   value?: string;
   rols?: number;

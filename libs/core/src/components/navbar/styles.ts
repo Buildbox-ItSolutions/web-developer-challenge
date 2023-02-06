@@ -9,6 +9,7 @@ export const NavbarStyled = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 11;
 
   padding: 10px 20px;
   position: fixed;

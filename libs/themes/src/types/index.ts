@@ -14,9 +14,12 @@ export type Theme = {
   tertiaryColorDown: string;
   secondaryColorDown: string;
   secondaryColorUp: string;
-  borderColor: string;
+  borderColorDown: string;
+  borderColorUp: string;
   placeholderColor: string;
   fieldColorUp: string;
+  labelColorUp: string;
+  labelColorDown: string;
   fieldTextColor: string;
   fieldColorDown: string;
 };

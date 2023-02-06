@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -17,6 +17,9 @@ import { appErrors } from '@/utils/err';
 
 import icon from '@/assets/image.svg';
 import trash from '@/assets/trash.svg';
+import { useDispatch } from 'react-redux';
+import { Post } from '@/models/posts';
+import { addPostAction } from '@/store/actions/posts.actions';
 
 const schema = yup.object().shape({
   name: yup.string().required(appErrors.messages.required),
@@ -25,15 +28,22 @@ const schema = yup.object().shape({
 });
 
 export const CreatePost: FC<CreatePostProps> = () => {
+  const dispatch = useDispatch();
+  const [uploaded, setUploaded] = useState(false);
+
   const {
     register,
     setValue,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isDirty },
     watch,
     reset,
   } = useForm({
     mode: 'all',
-
+    defaultValues: {
+      name: '',
+      message: '',
+      preview: '',
+    },
     resolver: yupResolver(schema),
   });
 
@@ -42,13 +52,26 @@ export const CreatePost: FC<CreatePostProps> = () => {
   useEffect(() => {
     const fields = ['name', 'message', 'preview'];
 
-    fields.forEach(field => register(field));
+    fields.forEach((field: any) => register(field));
   }, [register, form]);
 
   const resetForm = () => {
-    setValue('name', '');
-    setValue('message', '');
-    setValue('preview', null);
+    reset();
+    setUploaded(false);
+  };
+
+  const onCreatePost = () => {
+    const newPost: Post = {
+      author: {
+        avatar: form.preview,
+        name: form.name,
+      },
+      message: form.message,
+      id: Math.random(),
+    };
+
+    dispatch(addPostAction(newPost));
+    resetForm();
   };
 
   const uploadIcons: UploadIcons = {
@@ -62,10 +85,15 @@ export const CreatePost: FC<CreatePostProps> = () => {
         <BixUpload
           preview={form.preview}
           icons={uploadIcons}
-          onUpload={(_, preview) =>
-            setValue('preview', preview, { shouldValidate: true })
-          }
-          onClear={() => setValue('preview', null, { shouldValidate: true })}
+          uploaded={uploaded}
+          onUpload={(_, preview) => {
+            setValue('preview', preview, { shouldValidate: true });
+            setUploaded(true);
+          }}
+          onClear={() => {
+            setValue('preview', '', { shouldValidate: true });
+            setUploaded(false);
+          }}
         />
 
         <div>
@@ -81,8 +109,8 @@ export const CreatePost: FC<CreatePostProps> = () => {
 
           <BixTextArea
             placeholder="Mensagem"
-            cols={20}
-            rols={20}
+            cols={3}
+            rols={3}
             maxLength={167}
             block
             value={form.message}
@@ -95,7 +123,9 @@ export const CreatePost: FC<CreatePostProps> = () => {
         <div>
           <a onClick={() => resetForm()}>Cancelar</a>
 
-          <BixButton disable={!isValid}>Publicar</BixButton>
+          <BixButton disable={!isValid} onClick={() => onCreatePost()}>
+            Publicar
+          </BixButton>
         </div>
       </BixCard>
     </CreatePostStyled>

@@ -18,7 +18,7 @@ export const UploadStyled = styled.div`
     width: 88px;
     height: 88px;
     border-radius: 36px;
-    border: solid 1px #4b4b4b;
+    border: solid 1px ${({ theme }) => theme.borderColorUp};
     overflow: hidden;
     position: relative;
 
@@ -38,7 +38,7 @@ export const UploadStyled = styled.div`
       }
     }
 
-    &.upload img:last-child {
+    &.uploaded img:last-child {
       opacity: 1;
     }
   }

@@ -11,8 +11,10 @@ export const BixButton: FC<ButtonProps> = ({
   color,
   disable,
   variant,
+  ...props
 }) => (
   <ButtonStyled
+    {...props}
     className={classNames({
       [className || 'button']: true,
       block: block,

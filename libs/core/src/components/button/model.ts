@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { BixChildren } from '@/types';
 
 export type ButtonProps = {
@@ -6,4 +7,5 @@ export type ButtonProps = {
   block?: boolean;
   disable?: boolean;
   className?: string;
-} & BixChildren;
+} & BixChildren &
+  HTMLAttributes<HTMLButtonElement>;

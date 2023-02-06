@@ -1,9 +1,3 @@
-export type NavbarLogo = {
-  src: string;
-  alt: string;
-};
+import { BixChildren } from '@/types';
 
-export type NavbarProps = {
-  logo: NavbarLogo;
-  onRedirect: (path?: string) => void;
-};
+export type NavbarProps = BixChildren;

@@ -18,6 +18,23 @@ export default createGlobalStyle`
     outline: none;
     font-size: 100%;
     font-family: ${({ theme }) => theme.primaryFontFamily}, sans-serif;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({theme}) => theme.fieldColorDown};
+      border-radius: 3px;
+    }
+  }
+
+  body {
+    overflow: hidden;
   }
 
   :root {
