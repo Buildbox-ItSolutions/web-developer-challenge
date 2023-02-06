@@ -5,23 +5,17 @@ import Logo from "../../public/assets/images/bx-logo.png";
 import photoUploadCircle from "../../public/assets/images/photo-upload-circle.png";
 import photoIcon from "../../public/assets/images/photo-icon.png";
 import { useState } from "react";
-import type { PostType } from "../types/post";
-import Post from "../components/Post";
+import PostCard from "../components/PostCard";
 import UserImage from "../components/UserImage";
+import Load from "../components/Load";
+import { usePosts } from "../contexts/posts";
 
 const Home: NextPage = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [photo, setPhoto] = useState<File | undefined>();
-  const [Posts, setPosts] = useState<PostType[]>([]);
 
-  function addNewPost() {
-    if (!name || !message || !photo) return;
-
-    const id = Math.floor(Math.random() * Date.now());
-    setPosts([{ id, photo, name, message }, ...Posts]);
-    clearPost();
-  }
+  const { Posts, loading, setLoading, addNewPost } = usePosts();
 
   function getPhoto() {
     const input = document.createElement("input");
@@ -109,7 +103,12 @@ const Home: NextPage = () => {
               className={`rounded-lg bg-primary-60 px-6 py-3 text-primary-80 hover:ring-2 hover:ring-primary-50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-50 disabled:ring-0 ${
                 photo && name && message ? "bg-green" : ""
               }`}
-              onClick={addNewPost}
+              onClick={() => {
+                addNewPost(name, message, photo).catch((err) =>
+                  console.log(err)
+                );
+                clearPost();
+              }}
               disabled={!(photo && name && message)}
             >
               Publicar
@@ -120,15 +119,15 @@ const Home: NextPage = () => {
           {Posts.length !== 0 && (
             <p className="w-full self-start text-primary-40">Feed</p>
           )}
-          {Posts?.map((post) => (
-            <Post
-              key={post.id}
-              value={post}
-              removePost={() => {
-                setPosts(Posts.filter((p) => p.id !== post.id));
-              }}
-            />
-          ))}
+          {loading ? (
+            <div className="flex items-center justify-center">
+              <Load />
+            </div>
+          ) : (
+            Posts?.map((post) => (
+              <PostCard key={post.id} value={post} setLoading={setLoading} />
+            ))
+          )}
         </div>
       </main>
     </>
