@@ -1,30 +1,24 @@
-# web-developer-challenge
+# Buildbox
 
-Olá!
+Hello!
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+This is my submission for the buildbox test.
+I had a lot of fun making this project and I hope you like!
 
-O Desafio é o seguinte:
+[This is the website so you can check it out](https://buildbox-test.netlify.app/)
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+### Technologies used 🧑🏼‍💻
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+React.js, Next.js, Prisma, Tailwind, Heroku, Postgres.
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+I decided to use Tailwind for styling because I can easily make the website responsive and style the components very fast. I was tempted to use Styled Components, but for small projects like that I prefer Tailwind.
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+I used Heroku and Postgres to create a database to store the posts, and for managing it in the frontend I used Prisma and Next.js. Prisma makes the process of working with databases really easy and I just love using it.
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+### Running locally
 
+To run the project locally you just need to do a clone of the repository, run 'yarn' and then 'yarn dev'.
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+Name: Gabriel Santana Oliveira de Paula
 
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+Phone: +55 (84) 99800-0565
