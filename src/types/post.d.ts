@@ -3,4 +3,6 @@ export type PostType = {
   photo?: File;
   name: string;
   message: string;
+  createdAt: string;
+  updatedAt: string;
 };
