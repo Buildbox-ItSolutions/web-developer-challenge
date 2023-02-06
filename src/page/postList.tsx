@@ -95,7 +95,7 @@ export function PostPage() {
                             !image ? (
                                 <label
                                     htmlFor="image"
-                                    style={{ 'border': 'solid 1px #4b4b4b' }}
+                                    style={{ 'border': 'solid 1px #4b4b4b', 'cursor': 'pointer' }}
                                 >
                                     <PostFormImage
                                         src={profileImage}
