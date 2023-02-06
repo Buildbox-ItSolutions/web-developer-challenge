@@ -23,6 +23,7 @@ export const CardContainer = styled.li`
   }
 
   section {
+    max-width: 100%;
     display: flex;
     gap: 32px;
 
@@ -42,11 +43,20 @@ export const CardContainer = styled.li`
 export const CardContent = styled.div`
   p {
     margin: 0;
-    width: 348px;
+    margin-right: none;
+
     font-size: 16px;
     color: #9f9f9f;
     text-align: left;
     margin-bottom: 24px;
+
+
+
+    width: 348px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: unset;
+    direction: initial;
 
     @media (max-width: 542px) {
       width: 100%;
@@ -59,11 +69,19 @@ export const CardContent = styled.div`
     font-weight: 500;
     letter-spacing: 0.29px;
     display: block;
+    width: 100px;
   }
 
   span {
     color: #7a7a7a;
     font-size: 14px;
     line-height: 1.29;
+    text-align: left;
+
+    width: 348px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: unset;
+    direction: initial;
   }
 `
