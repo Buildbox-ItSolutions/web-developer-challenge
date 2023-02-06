@@ -106,7 +106,7 @@ const Home: NextPage = () => {
               Descartar
             </p>
             <button
-              className={`rounded-lg bg-primary-60 px-6 py-3 text-primary-80 hover:ring-2 hover:ring-primary-50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-50 ${
+              className={`rounded-lg bg-primary-60 px-6 py-3 text-primary-80 hover:ring-2 hover:ring-primary-50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-50 disabled:ring-0 ${
                 photo && name && message ? "bg-green" : ""
               }`}
               onClick={addNewPost}
@@ -116,10 +116,10 @@ const Home: NextPage = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="w-[512px]">
+        <div className="flex w-[512px] flex-col gap-4">
+          {Posts.length !== 0 && (
             <p className="w-full self-start text-primary-40">Feed</p>
-          </div>
+          )}
           {Posts?.map((post) => (
             <Post
               key={post.id}
