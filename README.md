@@ -5,9 +5,12 @@ Hello!
 This is my submission for the buildbox test.
 I had a lot of fun making this project and I hope you like!
 
-![image](https://user-images.githubusercontent.com/50323251/217043340-f980fdb2-a5ce-49b5-a2df-0a7de43f28ea.png)
-
 [This is the website so you can check it out](https://buildbox-test.netlify.app/)
+
+## Images
+
+![image](https://user-images.githubusercontent.com/50323251/217043340-f980fdb2-a5ce-49b5-a2df-0a7de43f28ea.png)
+![image](https://user-images.githubusercontent.com/50323251/217043772-5cd29e70-76cc-43cf-bf73-f276036b5b0c.png)
 
 ### Technologies used 🧑🏼‍💻
 
