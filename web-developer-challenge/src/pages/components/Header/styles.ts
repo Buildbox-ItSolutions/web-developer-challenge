@@ -7,7 +7,7 @@ export const Container = styled(Header)`
   height: 6.25rem !important;
 `;
 
-export const Content = styled(Col)`
+export const Column = styled(Col)`
   max-width: 1120px;
   margin: 0 auto;
   display: flex;

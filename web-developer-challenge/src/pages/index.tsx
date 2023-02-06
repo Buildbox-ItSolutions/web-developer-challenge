@@ -1,10 +1,13 @@
 import Head from "next/head";
-import { Layout, Card, Row, Col, Typography, Button, Input, Form } from "antd";
+import { Layout, Card, Row, Col, Typography, Button, Input } from "antd";
 
 const { Text, Paragraph } = Typography;
 const { Content } = Layout;
 
 import Header from "./components/Header";
+import Form from "./components/Form";
+
+import { ContentContainer } from "@/styles/home";
 
 export default function Home() {
   return (
@@ -17,7 +20,9 @@ export default function Home() {
       </Head>
       <Layout>
         <Header />
-        <Content></Content>
+        <ContentContainer>
+          <Form />
+        </ContentContainer>
       </Layout>
     </>
   );

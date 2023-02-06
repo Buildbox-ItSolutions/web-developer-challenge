@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         --backgroundInput: #494949;
         --lightgrey: #9f9f9f;
         --background-500: #2b2b2b;
+        --background--400: #313131;
 
     }
     *{
