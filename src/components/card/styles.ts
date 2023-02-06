@@ -31,6 +31,11 @@ export const CardContainer = styled.li`
       height: 88px;
       border-radius: 36px;
       object-fit: cover;
+
+      @media (max-width: 414px) {
+        width: 60px;
+        height: 60px;
+      }
     }
   }
 `
