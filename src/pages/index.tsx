@@ -116,7 +116,7 @@ const Home: NextPage = () => {
             </button>
           </div>
         </div>
-        <div className="flex w-[512px] flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {Posts.length !== 0 && (
             <p className="w-full self-start text-primary-40">Feed</p>
           )}

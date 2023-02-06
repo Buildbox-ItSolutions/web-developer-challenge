@@ -18,7 +18,9 @@ export default function Post({ key, value, removePost }: Props) {
     >
       <UserImage photo={value.photo ?? new File([], "file.png")} />
       <div className="flex flex-col gap-8">
-        <p className="text-base leading-5 text-primary-30">{value.message}</p>
+        <p className="break-normal text-base leading-5 text-primary-30">
+          {value.message}
+        </p>
         <div>
           <p className="text-xs leading-3 text-primary-50">Enviado por</p>
           <p className="text-sm leading-5 text-primary-40">{value.name}</p>
