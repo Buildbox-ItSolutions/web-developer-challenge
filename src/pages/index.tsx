@@ -56,8 +56,8 @@ const Home: NextPage = () => {
           alt="buildbox Web Challenge"
         />
       </nav>
-      <main className="flex min-h-screen flex-col items-center justify-start gap-14 bg-primary px-3 py-10">
-        <div className="container flex max-w-lg flex-col items-center gap-2 rounded-sm border border-primary-70 bg-primary-80 p-6">
+      <main className="flex min-h-screen flex-col justify-start gap-14 bg-primary px-3 py-10">
+        <div className="container mx-auto flex max-w-lg flex-col items-center gap-2 rounded-sm border border-primary-70 bg-primary-80 p-6">
           <div className="relative cursor-pointer">
             {photo ? (
               <UserImage
@@ -116,7 +116,7 @@ const Home: NextPage = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="container mx-auto flex max-w-lg flex-col gap-4">
           {Posts.length !== 0 && (
             <p className="w-full self-start text-primary-40">Feed</p>
           )}
