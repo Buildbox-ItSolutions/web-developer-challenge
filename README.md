@@ -23,7 +23,3 @@ I used Heroku and Postgres to create a database to store the posts, and for mana
 ### Running locally
 
 To run the project locally you just need to do a clone of the repository, run 'yarn' and then 'yarn dev'.
-
-Name: Gabriel Santana Oliveira de Paula
-
-Phone: +55 (84) 99800-0565
