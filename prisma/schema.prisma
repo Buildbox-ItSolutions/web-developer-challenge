@@ -10,8 +10,10 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
+model posts {
     id        String   @id @default(cuid())
+    name      String
+    message   String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
