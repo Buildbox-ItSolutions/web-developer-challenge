@@ -61,6 +61,14 @@ export const CardContent = styled.div`
     @media (max-width: 542px) {
       width: 100%;
     }
+
+    @media(max-width: 544px) {
+      width: 300px;
+    }
+
+    @media(max-width: 464px) {
+      width: 130px;
+    }
   }
 
   small {
@@ -83,5 +91,13 @@ export const CardContent = styled.div`
     overflow: hidden;
     text-overflow: unset;
     direction: initial;
+
+    @media(max-width: 544px) {
+      width: 300px;
+    }
+
+    @media(max-width: 464px) {
+      width: 130px;
+    }
   }
 `
