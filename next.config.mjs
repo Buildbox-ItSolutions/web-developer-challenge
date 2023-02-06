@@ -20,9 +20,6 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-};
-export default config;
-
-module.exports = {
   target: "serverless",
 };
+export default config;
