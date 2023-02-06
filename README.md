@@ -1,30 +1,18 @@
-# web-developer-challenge
+# Buildbox
 
-Olá!
+Plataforma para criação e visualização de posts. Compartilhe suas ideias e pensamentos com o mundo de forma fácil e intuitiva. Mantenha todos os seus posts organizados em uma única página.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## Instalação
 
-O Desafio é o seguinte:
+1. Clone este repositório
+2. Instale as dependências usando `npm install` ou `yarn install`
+3. Inicie o aplicativo usando `npm start` ou `yarn start`
+4. O projeto irá rodar em `http://localhost:3000`
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## Tecnologias
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+Este projeto foi construído com as seguintes tecnologias:
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
-
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
-
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
-
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
