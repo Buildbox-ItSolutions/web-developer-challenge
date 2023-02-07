@@ -9,8 +9,10 @@ specifiers:
   eslint: 8.33.0
   eslint-config-next: 13.1.6
   next: 13.1.6
+  phosphor-react: ^1.4.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-images-uploading: ^3.1.7
   react-is: 16.8.0
   styled-components: ^5.3.6
   typescript: 4.9.5
@@ -24,8 +26,10 @@ dependencies:
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+  phosphor-react: 1.4.1_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-images-uploading: 3.1.7_biqbaboplfbrettd7655fr4n2y
   react-is: 16.8.0
   styled-components: 5.3.6_ioqvsn6irm33o3eeiglthc2j6q
   typescript: 4.9.5
@@ -2033,6 +2037,15 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /phosphor-react/1.4.1_react@18.2.0:
+    resolution: {integrity: sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: false
@@ -2085,6 +2098,17 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-images-uploading/3.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-woET50eCezm645iIeP4gCoN7HjdR3T64UXC5l53yd+2vHFp+pwABH8Z/aAO5IXDeC1aP6doQ+K738L701zswAw==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-is/16.13.1:

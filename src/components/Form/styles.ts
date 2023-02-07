@@ -5,6 +5,8 @@ export const FormContainer = styled.div`
   width: 32rem;
   border-radius: 0.3rem;
 
+  margin: 2.5rem auto;
+
   padding: 1.5rem;
 
   background: var(--color-gray-350);
@@ -15,5 +17,7 @@ export const FormContainer = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
+    gap: 0.8rem;
   }
 `;
