@@ -6,7 +6,7 @@ import { PostsProvider } from "../contexts/posts";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <PostsProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </PostsProvider>
   );
 };
