@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
-import { IPreviewImage } from '../../@types/IPreviewImage';
 
-import imageIcon from '../../assets/images/image.svg';
+import { IPreviewImage } from '../../models/IPreviewImage';
+import imageIcon from '../../assets/icons/image.svg';
 
 import { StyledImageInput } from './styles';
 

@@ -2,17 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidV4 } from 'uuid';
 
 import type { AppState } from '../../app/store';
-
-interface Post {
-  id?: string;
-  name: string;
-  message: string;
-  previewImage?: { name: string; url: string };
-  image?: File;
-}
+import { IPost } from '../../models/IPost';
 
 export interface IInitialState {
-  posts: Post[];
+  posts: IPost[];
 }
 
 const initialState: IInitialState = {

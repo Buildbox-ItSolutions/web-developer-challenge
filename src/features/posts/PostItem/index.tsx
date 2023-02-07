@@ -1,7 +1,7 @@
 import { deletePost } from '../postsSlice';
 import { useAppDispatch } from '../../../app/hooks';
 
-import defaultImage from '../../../assets/images/user.svg';
+import defaultImage from '../../../assets/icons/user.svg';
 import deleteIcon from '../../../assets/icons/delete.svg';
 
 import { Container } from './styles';
