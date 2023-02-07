@@ -8,6 +8,7 @@ type Props = {
 export const usePost = ({ posts = [] }: Props) => {
 	const [data, setData] = useState<Post[]>(posts)
 
+	console.log(data)
 	const createPost = (newPost: Post) => {
 		setData([newPost, ...data])
 	}

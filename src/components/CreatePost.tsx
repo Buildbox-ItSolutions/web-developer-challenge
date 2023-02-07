@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Post } from '../types'
 
 type Props = {
@@ -8,9 +8,16 @@ type Props = {
 function CreatePost({ createPost }: Props) {
 	const [name, setName] = useState<string>()
 	const [post, setPost] = useState<string>()
+
+	const clear = useCallback(() => {
+		setName("")
+		setPost("")
+	}, [])
+
 	return (
 		<div>
 			<form onSubmit={e => {
+				e.preventDefault()
 				if (name && post) {
 					createPost({
 						author: {
@@ -19,9 +26,10 @@ function CreatePost({ createPost }: Props) {
 							},
 							name
 						},
-						id: "teste",
+						id: `${new Date().getTime()}`,
 						text: post
 					})
+					clear()
 				}
 			}}>
 				<input type="text" placeholder='Digite seu nome'
@@ -30,15 +38,16 @@ function CreatePost({ createPost }: Props) {
 					onChange={(e) => setName(e.target.value)}
 				/>
 				<textarea
+					placeholder='Mensagem'
+					value={post}
 					required
 					onChange={e => {
 						setPost(e.target.value)
 					}}>
-
 				</textarea>
-				<button onClick={() => {
-					setName("")
-					setPost("")
+				<button onClick={(e) => {
+					e.preventDefault()
+					clear()
 				}}>Descartar</button>
 				<button type='submit'>Publicar</button>
 			</form>
