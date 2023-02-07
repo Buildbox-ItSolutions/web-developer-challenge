@@ -1,0 +1,117 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+      "react-app"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "react-hooks/exhaustive-deps": "off",
+        "prefer-const": "off",
+        "class-methods-use-this": "off",
+        "no-param-reassign": "off",
+        "key-spacing": ["error", { "mode": "minimum" }],
+        // "eqeqeq": ["error", "smart" ],
+        "no-plusplus": "off",
+        "padded-blocks": ["error", { "classes": "always" }],
+
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/return-await": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variableLike",
+                "format": ["camelCase", "UPPER_CASE", "snake_case", "PascalCase"]
+            }
+        ],        
+        "@typescript-eslint/lines-between-class-members": [
+          "error", 
+          "always", 
+          { 
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "builtin",
+                "position": "before"
+              },
+              {
+                "pattern": "components/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "hooks/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "interfaces/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "pages/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "routes/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "services/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "utils/**",
+                "group": "internal",
+                "position": "after"
+              },
+              {
+                "pattern": "styles/**",
+                "group": "internal",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin", "object"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "sort-imports": [
+          "error",
+          {
+            "allowSeparatedGroups" : true,
+            "ignoreDeclarationSort": true,
+            "ignoreCase": false
+          }
+        ] 
+    }
+}
