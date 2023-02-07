@@ -25,3 +25,9 @@ export const PostAreaInputs = styled.div`
 export const PostAreaInput = styled.div`
   margin-bottom: 8px;
 `
+export const PostAreaButton = styled.div`
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  justify-content: end;
+`

@@ -10,6 +10,7 @@ import { RxImage } from 'react-icons/rx'
 import PostContainer from '../PostContainer'
 import Input from '../Input'
 import InputTextArea from '../InputTextArea'
+import Button from '../Button'
 
 const AddPost = (): React.ReactElement => {
   return (
@@ -26,6 +27,10 @@ const AddPost = (): React.ReactElement => {
             <InputTextArea placeholder="Mensagem" />
           </S.PostAreaInput>
         </S.PostAreaInputs>
+        <S.PostAreaButton>
+          <Button label="Descartar" isLink />
+          <Button label="Publicar" isEnable={false} />
+        </S.PostAreaButton>
       </S.PostAreaAddFigure>
     </PostContainer>
   )

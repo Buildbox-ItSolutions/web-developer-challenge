@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
    --black: #343434;
    --black-two: #313131;
    --black-three: #494949;
+   --black-four: #5f5f5f;
+   --button-enable: #71bb00;
  }
 
   * {
