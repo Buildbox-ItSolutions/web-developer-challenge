@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
 
  :root {
+   --black: #343434;
    --black-two: #313131;
    --black-three: #494949;
  }

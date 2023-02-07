@@ -11,4 +11,19 @@ export const InputTextArea = styled.textarea`
   resize: none;
   outline: 0;
   background: #494949;
+
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--black-three);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 40px;
+    cursor: pointer;
+  }
 `
