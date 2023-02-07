@@ -19,5 +19,15 @@ export const FormContainer = styled.div`
     justify-content: center;
 
     gap: 0.8rem;
+
+    .buttonContainer {
+      height: fit-content;
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-end;
+
+      margin-top: 1rem;
+    }
   }
 `;
