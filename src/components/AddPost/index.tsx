@@ -9,6 +9,7 @@ import { RxImage } from 'react-icons/rx'
 /* components */
 import PostContainer from '../PostContainer'
 import Input from '../Input'
+import InputTextArea from '../InputTextArea'
 
 const AddPost = (): React.ReactElement => {
   return (
@@ -18,7 +19,12 @@ const AddPost = (): React.ReactElement => {
           <RxImage size={24} />
         </S.PostAreaSelectFigure>
         <S.PostAreaInputs>
-          <Input placeholder="Digite seu nome" />
+          <S.PostAreaInput>
+            <Input placeholder="Digite seu nome" />
+          </S.PostAreaInput>
+          <S.PostAreaInput>
+            <InputTextArea placeholder="Mensagem" />
+          </S.PostAreaInput>
         </S.PostAreaInputs>
       </S.PostAreaAddFigure>
     </PostContainer>
