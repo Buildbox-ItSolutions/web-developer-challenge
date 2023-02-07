@@ -8,6 +8,10 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  img {
+    width: 130px;
+  }
   
   @media (max-height: 1024px) {
     min-height: 90px;

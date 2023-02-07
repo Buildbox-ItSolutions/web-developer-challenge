@@ -16,7 +16,7 @@ export function ImageInput({ onChange, getPreviewImage, ...props }: ImageInputPr
       <label htmlFor="image">
         {
           !getPreviewImage ? (
-            <img src={imageIcon} className="icon"  alt="Adicionar imagem" />
+            <img src={imageIcon} className="icon" alt="Adicionar imagem" />
           ) : (
               <img src={getPreviewImage.url} className="user-image" alt="Imagem do usuário" />
             )

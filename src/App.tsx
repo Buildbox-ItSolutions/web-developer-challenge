@@ -1,5 +1,7 @@
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import store from './app/store';
 import { Main } from './pages/Main';
@@ -13,6 +15,13 @@ export function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Main />
+        <ToastContainer
+          autoClose={3000}
+          className="react-toastfy-container"
+          toastClassName="react-toastfy-content"
+          position="top-center"
+          icon={false}
+        />
       </ThemeProvider>
     </Provider>
   );

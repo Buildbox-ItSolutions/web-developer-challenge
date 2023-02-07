@@ -12,6 +12,8 @@ export const Container = styled.div`
     align-items: center;
 
     .posts-list {
+      min-width: 516px;
+      
       strong {
         display: inline-block;
         font-weight: bolder;

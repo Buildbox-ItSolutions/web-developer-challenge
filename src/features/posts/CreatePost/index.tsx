@@ -1,4 +1,5 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Button } from '../../../components/Button';
 import { TextArea } from '../../../components/TextArea';
@@ -12,6 +13,7 @@ import deleteIcon from '../../../assets/icons/trash.svg';
 
 import { Container } from './styles';
 import { createPost } from '../postsSlice';
+import { Toast } from '../../../components/Toast';
 
 export function CreatePost() {
   const dispatch = useAppDispatch();
@@ -21,11 +23,9 @@ export function CreatePost() {
   const [image, setImage] = useState<File>();
   const [previewImage, setPreviewImage] = useState<IPreviewImage>();
 
-  const [getTypeButton, setTypeButton] = useState<'disabled' | 'primary'>(
+  const [typeButton, setTypeButton] = useState<'disabled' | 'primary'>(
     'disabled',
   );
-  const [getMsgNameField, setMsgNameField] = useState<boolean>(false);
-  const [getMsgMessageField, setMsgMessageField] = useState<boolean>(false);
 
   function handleSelectImage(event: ChangeEvent<HTMLInputElement>) {
     if (event.target.files) {
@@ -49,47 +49,19 @@ export function CreatePost() {
     setPreviewImage(undefined);
   }
 
-  function verifyInputValue(field: string, value: string) {
-    if (field === 'name') {
-      setName(value);
-    } else if (field === 'message') {
-      setMessage(value);
-    }
-  }
-
   useEffect(() => {
-    if (name.length > 0 && message.length > 0) {
+    if (name && message) {
       setTypeButton('primary');
-
-      setMsgMessageField(false);
-      setMsgNameField(false);
     } else {
       setTypeButton('disabled');
-
-      if (name.length > 0) {
-        setMsgNameField(false);
-      }
-      if (message.length > 0) {
-        setMsgMessageField(false);
-      }
     }
   }, [name, message]);
 
-  function verifyOnBlur(field: string) {
-    if (field === 'name') {
-      if (name.length <= 0) {
-        setMsgNameField(true);
-      } else {
-        setMsgNameField(false);
-      }
-    }
-    if (field === 'message') {
-      if (message.length <= 0) {
-        setMsgMessageField(true);
-      } else {
-        setMsgMessageField(false);
-      }
-    }
+  function dischargeData() {
+    setName('');
+    setMessage('');
+    setPreviewImage(undefined);
+    setImage(undefined);
   }
 
   function handleSubmit() {
@@ -102,48 +74,46 @@ export function CreatePost() {
 
     dispatch(createPost(post));
 
-    setName('');
-    setMessage('');
-    setPreviewImage(undefined);
-    setImage(undefined);
-  }
+    dischargeData();
 
-  function dischargeData() {
-    setName('');
-    setMessage('');
-    setPreviewImage(undefined);
-    setImage(undefined);
+    toast.success(
+      <Toast
+        type="success" 
+        title="Poste Criado" 
+        message="Sua postagem foi realizada com sucesso, continue enviando mais postagens!" 
+      />
+    );
   }
 
   return (
     <>
       <Container>
         <div className="preview-image">
-          <ImageInput
-            onChange={handleSelectImage}
-            getPreviewImage={previewImage}
-          />
-          <button type="button" onClick={() => removeImage()}>
-            <img src={deleteIcon} alt="Excluir Imagem" />
-          </button>
+          <>
+            <ImageInput
+              onChange={handleSelectImage}
+              getPreviewImage={previewImage}
+            />
+            
+            {image || previewImage ? 
+              <button type="button" onClick={() => removeImage()}>
+                <img src={deleteIcon} alt="Excluir Imagem" />
+              </button> 
+              : null
+            }
+          </>
         </div>
 
         <Input
           placeholder="Digite seu nome"
-          id="name"
           value={name}
-          getMsgNameField={getMsgNameField}
-          onChange={e => verifyInputValue(e.target.id, e.target.value)}
-          onBlur={e => verifyOnBlur(e.target.id)}
+          onChange={e => setName(e.target.value)}
         />
 
         <TextArea
           placeholder="Mensagem"
-          id="message"
           value={message}
-          getMsgMessageField={getMsgMessageField}
-          onChange={e => verifyInputValue(e.target.id, e.target.value)}
-          onBlur={e => verifyOnBlur(e.target.id)}
+          onChange={e => setMessage(e.target.value)}
         />
 
         <div className="buttons">
@@ -151,7 +121,7 @@ export function CreatePost() {
             Descartar
           </Button>
 
-          <Button typeButton={getTypeButton} onClick={handleSubmit}>
+          <Button typeButton={typeButton} onClick={handleSubmit}>
             Publicar
           </Button>
         </div>

@@ -4,12 +4,14 @@ import { v4 as uuidV4 } from 'uuid';
 import type { AppState } from '../../app/store';
 import { IPost } from '../../models/IPost';
 
+import postSeed from "./postSeed.json"
+
 export interface IInitialState {
   posts: IPost[];
 }
 
 const initialState: IInitialState = {
-  posts: [],
+  posts: [postSeed],
 };
 
 export const postsSlice = createSlice({
@@ -21,6 +23,9 @@ export const postsSlice = createSlice({
         id: uuidV4(),
         ...action.payload
       };
+
+      console.log(post);
+      
 
       state.posts.push(post);
     },
