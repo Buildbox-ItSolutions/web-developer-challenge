@@ -5,11 +5,23 @@ export const Container = styled.div`
   animation: transitionIn 1s;
   
   main {
-    padding: 10vh 10vw;
+    padding: 4vh 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .posts-list {
+      strong {
+        display: inline-block;
+        font-weight: bolder;
+        margin-bottom: 1rem;
+      }
+
+      & div + div {
+        margin-top: 1rem;
+      }
+    }
   }
 
   @keyframes transitionIn {

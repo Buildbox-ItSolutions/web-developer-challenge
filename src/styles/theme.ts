@@ -8,6 +8,7 @@ const theme = {
     button: '#71bb00',
     disabled: '#5f5f5f',
     input: '#494949',
+    border: '#3b3b3b',
   },
 };
 

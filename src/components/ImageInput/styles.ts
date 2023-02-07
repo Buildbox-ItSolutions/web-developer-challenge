@@ -19,6 +19,9 @@ export const StyledImageInput = styled.div`
   label > img {
     width: 88px;
     height: 88px;
+  }
+
+  label > img.user-image {
     border-radius: 36px;
   }
 

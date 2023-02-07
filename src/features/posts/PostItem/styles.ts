@@ -5,13 +5,12 @@ export const Container = styled.div`
   animation: transitionIn 4s;
   background-color: ${props => props.theme.colors.card};
   width: 516px;
-  margin-top: 10vh;
   padding: 1rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  border: 0.1px solid ${props => props.theme.colors.input};
-  border-radius: 8px;
-  box-shadow: 0.1rem 0.1rem ${props => shade(0.2, props.theme.colors.card)};
+  border-radius: 3px;
+  border: 1px solid ${props => props.theme.colors.border};
 
   button {
     background-color: ${props => props.theme.colors.card};

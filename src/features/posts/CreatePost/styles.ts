@@ -6,11 +6,12 @@ export const Container = styled.div`
   background-color: ${props => props.theme.colors.card};
   width: 516px;
   padding: 0 1rem 1rem;
-  border-radius: 8px;
+  margin-bottom: 3rem;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0.1rem 0.1rem ${props => shade(0.2, props.theme.colors.card)};
+  border: 1px solid ${props => props.theme.colors.border};
 
   .preview-image {
     display: flex;

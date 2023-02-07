@@ -16,12 +16,13 @@ export function ImageInput({ onChange, getPreviewImage, ...props }: ImageInputPr
       <label htmlFor="image">
         {
           !getPreviewImage ? (
-            <img src={imageIcon} className="icon" alt="Adicionar foto" />
+            <img src={imageIcon} className="icon"  alt="Adicionar imagem" />
           ) : (
-              <img src={getPreviewImage.url} alt="Foto do usuário" />
+              <img src={getPreviewImage.url} className="user-image" alt="Imagem do usuário" />
             )
         }
       </label>
+      
       <input
         type="file"
         id="image"

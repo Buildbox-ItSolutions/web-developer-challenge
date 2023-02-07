@@ -16,9 +16,14 @@ export function Main() {
         <Header />
         <main>
           <CreatePost />
-          {posts.map(post => (
-            <PostItem postData={post} key={post.id} />
-          ))}
+          
+          <div className="posts-list">
+            <strong>Feed</strong>
+
+            {posts.map(post => (
+              <PostItem postData={post} key={post.id} />
+            ))}
+          </div>
         </main>
       </Container>
     </>
