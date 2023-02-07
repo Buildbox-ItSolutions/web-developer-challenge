@@ -8,6 +8,7 @@ type Props = {
 function CreatePost({ createPost }: Props) {
 	const [name, setName] = useState<string>()
 	const [post, setPost] = useState<string>()
+	const [photo, setPhoto] = useState<File>()
 
 	const clear = useCallback(() => {
 		setName("")
@@ -32,11 +33,17 @@ function CreatePost({ createPost }: Props) {
 					clear()
 				}
 			}}>
+				<input type='file' onChange={e => {
+					setPhoto(e.target.files[0])
+				}} accept=".jpg, .jpeg, .png"
+				/>
+				<img src={photo ? URL.createObjectURL(photo) : undefined}></img>
 				<input type="text" placeholder='Digite seu nome'
 					value={name}
 					required
 					onChange={(e) => setName(e.target.value)}
 				/>
+
 				<textarea
 					placeholder='Mensagem'
 					value={post}
