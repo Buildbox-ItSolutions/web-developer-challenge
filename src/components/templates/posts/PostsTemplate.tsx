@@ -1,7 +1,7 @@
 import { Box, ButtonProps, TextFieldProps } from "@mui/material/"
 import { useTheme } from "@mui/material/styles"
 import AvatarPhoto from "../../atoms/avatar-photo/AvatarPhoto"
-import ButtonsDiscardPublish from "../../molecules/buttons-new-post/ButtonsDiscardPublish"
+import ButtonsDiscardPublish from "../../molecules/buttons-discard-publish/ButtonsDiscardPublish"
 import NewPostForm from "../../molecules/new-post-form/NewPostForm"
 import GlobalTemplate from "../global/GlobalTemplate"
 
