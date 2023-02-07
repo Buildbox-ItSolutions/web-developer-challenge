@@ -7,6 +7,11 @@ I had a lot of fun making this project and I hope you like!
 
 [This is the website so you can check it out](https://buildbox-test.netlify.app/)
 
+## Images
+
+![image](https://user-images.githubusercontent.com/50323251/217043340-f980fdb2-a5ce-49b5-a2df-0a7de43f28ea.png)
+![image](https://user-images.githubusercontent.com/50323251/217043772-5cd29e70-76cc-43cf-bf73-f276036b5b0c.png)
+
 ### Technologies used 🧑🏼‍💻
 
 React.js, Next.js, Prisma, Tailwind, Heroku, Postgres.
@@ -18,7 +23,3 @@ I used Heroku and Postgres to create a database to store the posts, and for mana
 ### Running locally
 
 To run the project locally you just need to do a clone of the repository, run 'yarn' and then 'yarn dev'.
-
-Name: Gabriel Santana Oliveira de Paula
-
-Phone: +55 (84) 99800-0565
