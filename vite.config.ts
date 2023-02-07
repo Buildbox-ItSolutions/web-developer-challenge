@@ -5,8 +5,8 @@ console.log(import.meta)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: import.meta?.env?.VITE_PORT || 3000
-  }
+	plugins: [react()],
+	server: {
+		port: import.meta?.env?.VITE_PORT || 3000
+	}
 })

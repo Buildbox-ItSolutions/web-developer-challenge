@@ -1,34 +1,39 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+import { usePost } from './hooks/post'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	const { data, createPost, removePost } = usePost([])
+	return (
+		<div className="App">
+			<body>
+				<nav>
+					<div></div>
+				</nav>
+				<main>
+					<div>
+						<input type="text" placeholder='Digite seu nome' />
+						<input type="Mensagem" />
+						<button>Descartar</button>
+						<button>Publicar</button>
+					</div>
+				</main>
+				<section>
+					<h1>Feed</h1>
+					<article>
+						<image></image>
+						<div>
+							<p></p>
+						</div>
+						<div>
+							<p></p>
+							<p></p>
+						</div>
+					</article>
+				</section>
+			</body>
+		</div>
+	)
 }
 
 export default App
