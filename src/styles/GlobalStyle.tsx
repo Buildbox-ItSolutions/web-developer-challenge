@@ -6,12 +6,16 @@ const GlobalStyle = createGlobalStyle`
    --black-two: #313131;
  }
 
-  body {
+  * {
     margin: 0;
     padding: 0;
-    background: #343434;
     color: #9f9f9f;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    background: #343434;
   }
 `
 export default GlobalStyle
