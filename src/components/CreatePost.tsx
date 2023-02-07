@@ -22,9 +22,7 @@ function CreatePost({ createPost }: Props) {
 				if (name && post) {
 					createPost({
 						author: {
-							image: {
-								url: "teste"
-							},
+							image: photo ? URL.createObjectURL(photo) : undefined,
 							name
 						},
 						id: `${new Date().getTime()}`,

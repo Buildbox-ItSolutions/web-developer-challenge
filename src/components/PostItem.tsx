@@ -12,7 +12,10 @@ function PostItem({
 }: Props) {
 	return (
 		<div>
-			<image></image>
+			{author.image && (
+
+				<img src={author.image} />
+			)}
 			<article>
 				<p>{text}</p>
 			</article>

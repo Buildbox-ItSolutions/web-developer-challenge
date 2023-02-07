@@ -1,8 +1,6 @@
 type Author = {
 	name: string
-	image: {
-		url: string
-	}
+	image?: string
 }
 
 export type Post = {
