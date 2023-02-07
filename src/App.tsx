@@ -4,17 +4,15 @@ import React from 'react'
 
 /* components */
 import Header from './components/Header'
-import PostContainer from './components/PostContainer'
 import Container from './components/Container'
+import AddPost from './components/AddPost'
 
 function App() {
   return (
     <>
       <Header />
       <Container>
-        <PostContainer>
-          <p>Hellow orld</p>
-        </PostContainer>
+        <AddPost></AddPost>
       </Container>
     </>
   )

@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
  :root {
    --black-two: #313131;
+   --black-three: #494949;
  }
 
   * {
