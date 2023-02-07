@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+
+ :root {
+   --black-two: #313131;
+ }
+
   body {
     margin: 0;
     padding: 0;

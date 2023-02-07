@@ -1,16 +1,21 @@
 import React from 'react'
 
 /** components */
-import Container from './components/Container'
 
 /* components */
 import Header from './components/Header'
+import PostContainer from './components/PostContainer'
+import Container from './components/Container'
 
 function App() {
   return (
     <>
       <Header />
-      <Container></Container>
+      <Container>
+        <PostContainer>
+          <p>Hellow orld</p>
+        </PostContainer>
+      </Container>
     </>
   )
 }
