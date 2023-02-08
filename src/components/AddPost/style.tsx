@@ -1,12 +1,26 @@
 import styled from 'styled-components'
 
-export const PostAreaAddFigure = styled.div`
+export const PostAreaAddPost = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
+
+export const PostAreaAddFigure = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const PostAreaRemoveFigure = styled.div`
+  position: absolute;
+  right: 33%;
+`
+
 export const PostAreaSelectFigure = styled.div`
   width: 88px;
   height: 88px;

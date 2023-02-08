@@ -5,6 +5,7 @@ import * as S from './style'
 
 /* icons */
 import { RxImage } from 'react-icons/rx'
+import { BiTrashAlt } from 'react-icons/bi'
 
 /* components */
 import PostContainer from '../PostContainer'
@@ -16,7 +17,7 @@ const AddPost = (): React.ReactElement => {
   /* ref */
   const inputUploadImage = useRef<HTMLInputElement>(null)
 
-  const [photoOfPost, setPhotoOfPost] = useState<string | null>(null)
+  const [figureOfPost, setFigureOfPost] = useState<string | null>(null)
 
   const openWindowToSelectImage = () => {
     inputUploadImage?.current?.click()
@@ -27,25 +28,41 @@ const AddPost = (): React.ReactElement => {
       const profileLoad = window.URL.createObjectURL(
         inputUploadImage?.current?.files[0]
       )
-      setPhotoOfPost(profileLoad)
+      setFigureOfPost(profileLoad)
     }
+  }
+
+  const removeFigure = () => {
+    setFigureOfPost(null)
   }
 
   return (
     <PostContainer>
-      <S.PostAreaAddFigure>
-        <S.PostAreaSelectFigure onClick={openWindowToSelectImage}>
-          {photoOfPost ? (
-            <S.PostAreaImage src={photoOfPost} />
-          ) : (
-            <RxImage size={24} />
+      <S.PostAreaAddPost>
+        <S.PostAreaAddFigure>
+          <S.PostAreaSelectFigure onClick={openWindowToSelectImage}>
+            {figureOfPost ? (
+              <S.PostAreaImage src={figureOfPost} />
+            ) : (
+              <RxImage size={24} />
+            )}
+          </S.PostAreaSelectFigure>
+          {figureOfPost && (
+            <S.PostAreaRemoveFigure>
+              <BiTrashAlt
+                fill="#d65923"
+                size={24}
+                onClick={removeFigure}
+                cursor="pointer"
+              />
+            </S.PostAreaRemoveFigure>
           )}
-        </S.PostAreaSelectFigure>
-        <S.InputFile
-          type="file"
-          ref={inputUploadImage}
-          onChange={selectToImage}
-        />
+          <S.InputFile
+            type="file"
+            ref={inputUploadImage}
+            onChange={selectToImage}
+          />
+        </S.PostAreaAddFigure>
         <S.PostAreaInputs>
           <S.PostAreaInput>
             <Input placeholder="Digite seu nome" />
@@ -58,7 +75,7 @@ const AddPost = (): React.ReactElement => {
           <Button label="Descartar" isLink />
           <Button label="Publicar" isEnable={false} />
         </S.PostAreaButton>
-      </S.PostAreaAddFigure>
+      </S.PostAreaAddPost>
     </PostContainer>
   )
 }
