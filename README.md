@@ -1,30 +1,25 @@
-# web-developer-challenge
+# Buildbox
 
-Olá!
+Hello!
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+This is my submission for the buildbox test.
+I had a lot of fun making this project and I hope you like!
 
-O Desafio é o seguinte:
+[This is the website so you can check it out](https://buildbox-test.netlify.app/)
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## Images
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+![image](https://user-images.githubusercontent.com/50323251/217043340-f980fdb2-a5ce-49b5-a2df-0a7de43f28ea.png)
+![image](https://user-images.githubusercontent.com/50323251/217043772-5cd29e70-76cc-43cf-bf73-f276036b5b0c.png)
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+### Technologies used 🧑🏼‍💻
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+React.js, Next.js, Prisma, Tailwind, Heroku, Postgres.
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+I decided to use Tailwind for styling because I can easily make the website responsive and style the components very fast. I was tempted to use Styled Components, but for small projects like that I prefer Tailwind.
 
+I used Heroku and Postgres to create a database to store the posts, and for managing it in the frontend I used Prisma and Next.js. Prisma makes the process of working with databases really easy and I just love using it.
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+### Running locally
 
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+To run the project locally you just need to do a clone of the repository, run 'yarn' and then 'yarn dev'.
