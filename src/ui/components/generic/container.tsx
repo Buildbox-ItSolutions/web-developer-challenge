@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { containerType } from "../../../@types/ui/genericUiTypes";
+import { containerType } from "../../../@types/home/ui/genericUiTypes";
 
 export const Container = styled.div<containerType>`
   ${(props) => props.font}
@@ -20,31 +20,30 @@ export const Container = styled.div<containerType>`
     props.background ? props.background : "transparent"};
   border: ${(props) => (props.border ? `1px solid ${props.border}` : "none")};
 
-  &#deleteImageContainer{
+  &#deleteImageContainer {
     @media screen and (max-width: 516px) {
-    width:100%;
-  }
+      width: 100%;
+    }
   }
 
-  &#trashImageContainer{
+  &#trashImageContainer {
     @media screen and (max-width: 516px) {
-    left:auto;
-    right:25%;
-  }
-  @media screen and (max-width: 400px) {
-    left:auto;
-    right:20%;
-  }
+      left: auto;
+      right: 25%;
+    }
+    @media screen and (max-width: 400px) {
+      left: auto;
+      right: 20%;
+    }
     @media screen and (max-width: 260px) {
-    left:auto;
-    right:8%;
-  }
+      left: auto;
+      right: 8%;
+    }
   }
 
-  &#containerFeed{
+  &#containerFeed {
     @media screen and (max-width: 516px) {
-    margin-left:5%;
+      margin-left: 5%;
+    }
   }
-  }
-
 `;

@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import { ColorTheme, TextTheme } from "../../../ui/styles/themes";
-import { ButtonPublish, ElementType} from "../../../@types/ui/homeUiTypes";
+import { ColorTheme, TextTheme } from "../../../styles/themes";
+import {
+  ButtonPublish,
+  ElementType,
+} from "../../../../@types/home/ui/homeUiTypes";
 
 export const HomeLayout = styled.div`
   display: grid;
@@ -32,13 +35,13 @@ export const ImageContainer = styled.img.attrs((props) => ({
   object-fit: ${(props) => (props.fit ? props.fit : "fill")};
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
 
-  &#PulishedImage{
+  &#PulishedImage {
     @media screen and (max-width: 300px) {
-      width:60px;
-      height:60px;
-      radius:18.33px;
-      margin:auto
-  }
+      width: 60px;
+      height: 60px;
+      radius: 18.33px;
+      margin: auto;
+    }
   }
 `;
 
@@ -60,10 +63,10 @@ export const InputBox = styled.div`
   border: 1px solid ${ColorTheme.HomeInputBorder};
 
   @media screen and (max-width: 516px) {
-    width:90%;
+    width: 90%;
     min-width: 150px;
     display: flex;
-    margin-left:5%;
+    margin-left: 5%;
   }
 `;
 export const InputLayout = styled.div`
@@ -111,7 +114,7 @@ export const InputName = styled.input.attrs({
   }
 
   @media screen and (max-width: 516px) {
-    width:90%;
+    width: 90%;
     min-width: 150px;
     display: flex;
   }
@@ -133,25 +136,33 @@ export const InputPost = styled.textarea<ElementType>`
   }
 
   @media screen and (max-width: 516px) {
-    width:90%;
+    width: 90%;
     min-width: 150px;
     display: flex;
   }
-
 `;
 
 export const InputPostButton = styled.button<ButtonPublish>`
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: ${props=>props.choosed?"pointer" : "default"};
+  cursor: ${(props) => (props.choosed ? "pointer" : "default")};
   width: 98px;
   height: 41px;
   border-radius: 8px;
-  border: 1px solid ${props=>props.choosed?ColorTheme.HomePublishButtonTrue : ColorTheme.HomePublishButtonFalse};
-  background-color: ${props=>props.choosed?ColorTheme.HomePublishButtonTrue : ColorTheme.HomePublishButtonFalse};
-  ${props=>props.choosed?TextTheme.InputFontFamilyTrue : TextTheme.InputFontFamilyFalse};
-
+  border: 1px solid
+    ${(props) =>
+      props.choosed
+        ? ColorTheme.HomePublishButtonTrue
+        : ColorTheme.HomePublishButtonFalse};
+  background-color: ${(props) =>
+    props.choosed
+      ? ColorTheme.HomePublishButtonTrue
+      : ColorTheme.HomePublishButtonFalse};
+  ${(props) =>
+    props.choosed
+      ? TextTheme.InputFontFamilyTrue
+      : TextTheme.InputFontFamilyFalse};
 `;
 
 export const ClearOption = styled.div`
@@ -181,17 +192,17 @@ export const BottomBar = styled.div`
 
   @media screen and (max-width: 516px) {
     grid-template-columns: 1fr 0.6fr;
-    max-width:90%;
+    max-width: 90%;
   }
 
   @media screen and (max-width: 330px) {
     grid-template-columns: 0.8fr 1fr;
-    max-width:90%;
+    max-width: 90%;
   }
 
   @media screen and (max-width: 250px) {
     grid-template-columns: 0.6fr 1fr;
-    max-width:90%;
+    max-width: 90%;
   }
 `;
 
@@ -203,14 +214,15 @@ export const FeedTitleText = styled.p`
 `;
 
 export const PostedBox = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: max-content;
 
   @media screen and (max-width: 516px) {
-    width:90%;
+    width: 90%;
     min-width: 150px;
-    display: flex;
-    margin-left:5%;
+    margin-left: 5%;
   }
 `;
 
@@ -221,11 +233,10 @@ export const LayoutPosted = styled.div`
   height: max-content;
   background-color: ${ColorTheme.HomeInputBox};
   grid-template-columns: 144px 370px;
-  border:1px solid ${ColorTheme.HomeInputBorder};
+  border: 1px solid ${ColorTheme.HomeInputBorder};
   @media screen and (max-width: 516px) {
     grid-template-columns: 40% 1fr;
-    }
-
+  }
 `;
 
 export const LayoutPostedBody = styled.div`
@@ -234,5 +245,3 @@ export const LayoutPostedBody = styled.div`
   width: 100%;
   height: 100%;
 `;
-
-

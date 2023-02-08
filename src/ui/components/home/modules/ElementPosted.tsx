@@ -1,11 +1,11 @@
-import { ElementPostedType } from "../../../@types/ui/homeUiTypes";
-import { Container } from "../../partials/generic/container";
+import { ElementPostedType } from "../../../../@types/home/ui/homeUiTypes";
+import { Container } from "../../generic/container";
 import {
   ImageContainer,
   LayoutPosted,
   LayoutPostedBody,
-} from "../../partials/home/HomeLayout";
-import { TextTheme } from "../../styles/themes";
+} from "../partials/HomeLayout";
+import { TextTheme } from "../../../styles/themes";
 
 export const ElementPosted = ({
   message,
@@ -19,10 +19,10 @@ export const ElementPosted = ({
 }: ElementPostedType) => {
   return (
     <LayoutPosted>
-      <Container width="100%" height="100%" hAlign="center" >
+      <Container width="100%" height="100%" hAlign="center">
         <ImageContainer
-         margin="56px auto auto 24px "
-         id="PulishedImage"
+          margin="56px auto auto 24px "
+          id="PulishedImage"
           width="88px"
           height="88px"
           radius="36px"
@@ -35,13 +35,13 @@ export const ElementPosted = ({
       </Container>
       <LayoutPostedBody>
         <Container
-        id="deleteImageContainer"
+          id="deleteImageContainer"
           width="100%"
           height="100%"
           vAlign="flex-end"
           padding="12px 12px 0 0"
         >
-          <ImageContainer 
+          <ImageContainer
             cursor="pointer"
             width="20px"
             height="20px"
@@ -67,7 +67,7 @@ export const ElementPosted = ({
           >
             Enviado por <br />
           </Container>
-          <Container width="100%" height="100%" font={TextTheme.MessageAsigned} >
+          <Container width="100%" height="100%" font={TextTheme.MessageAsigned}>
             {assigned}
           </Container>
         </Container>

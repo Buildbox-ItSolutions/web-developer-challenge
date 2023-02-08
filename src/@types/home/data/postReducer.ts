@@ -1,7 +1,7 @@
 export type postTypeExport = {
     assigned: string;
     message: string;
-    image:string;
+    image: string;
 }
 
 export interface postType extends postTypeExport {
@@ -13,7 +13,7 @@ export type actionType = {
     payload: {
         assigned?: string;
         message?: string;
-        image?:string;
+        image?: string;
         id?: string;
     }
 }

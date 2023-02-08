@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { HomeBody, HomeLayout } from "../ui/partials/home/HomeLayout";
+import { HomeBody, HomeLayout } from "../ui/components/home/partials/HomeLayout";
 import avatar1x from "../ui/assets/photo-base.png";
-import { usePosts } from "../reducers/posts";
+import { usePosts } from "../reducers/usePosts";
 import { TopBar } from "../ui/components/home/TopBar";
 import { InputElement } from "../ui/components/home/InputElement";
 import { FeedTitle } from "../ui/components/home/FeedTitle";

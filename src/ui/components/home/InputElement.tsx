@@ -1,5 +1,5 @@
-import { Container } from "../../partials/generic/container";
-import { Avatar } from "../modules/AvatarModule";
+import { Container } from "../generic/container";
+import { Avatar } from "./modules/AvatarModule";
 import {
   BottomBar,
   ClearOption,
@@ -9,8 +9,8 @@ import {
   InputName,
   InputPost,
   InputPostButton,
-} from "../../partials/home/HomeLayout";
-import { inputElementType } from "../../../@types/data/homeDataTypes";
+} from "./partials/HomeLayout";
+import { inputElementType } from "../../../@types/home/data/homeDataTypes";
 
 import avatar1x from "../../assets/photo-base.png";
 import avatar2x from "../../assets/photo-base@2x.png";
@@ -77,18 +77,18 @@ export const InputElement = (element: inputElementType) => {
             onChange={element.postChange}
           />
         </Container>
-        <Container
-          width="100%"
-          height="100%"
-          hAlign="center"
-          vAlign="center"
-        >
+        <Container width="100%" height="100%" hAlign="center" vAlign="center">
           <BottomBar>
-             <Container width="100%" height="100%" vAlign="flex-end" hAlign="center">
+            <Container
+              width="100%"
+              height="100%"
+              vAlign="flex-end"
+              hAlign="center"
+            >
               <ClearOption onClick={element.discart}>Descartar</ClearOption>
             </Container>
             <Container width="100%" height="100%" vAlign="end" hAlign="center">
-              {element.name && element.post && element.avatar !== avatar1x? (
+              {element.name && element.post && element.avatar !== avatar1x ? (
                 <InputPostButton onClick={element.addPost} choosed={true}>
                   Publicar
                 </InputPostButton>
@@ -97,7 +97,7 @@ export const InputElement = (element: inputElementType) => {
                   Publicar
                 </InputPostButton>
               )}
-            </Container> 
+            </Container>
           </BottomBar>
         </Container>
       </InputLayout>
