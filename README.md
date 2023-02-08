@@ -11,22 +11,7 @@ Projeto desenvolvido com base no desafio apresentado em: https://github.com/Buil
 
 Estrutura:
 ----------
-src: Fonte do projeto.
-@types: Tipagem organizada por páginas. 
-        home: Tipagem de componentes e dados utilizados na página home.
-            data: Tipagem de dados utilizados em lógica.
-            ui: Tipagem utilizada em componentes gráficos.
-pages: Páginas para exibição.
-reducers: reducers utilizados na manipulação de dados de páginas.
-routes: rotas de acesso às páginas.
-ui: Elementos visuais utilizados nas páginas.
-    assets: Imagens utilizada em componentes.
-    components: Componentes utilizados no desenvolvimento de páginas.
-                generic: Componente de uso geral utilizado no positionamento de itens em componentes de maior complexidade.
-                home: Componentes da página home.
-                    modules: Componentes de maior complexidade que são utilizados para a criação de componentes finais da página home.
-                    partials: Componentes utilizados no desenvolvimento dos componentes módulo.
-styles: Estilos de formatação de cores e fontes.
+![This is an image](/src/ui/assets/organizacao.svg)
 
 Observações:
 ------------
