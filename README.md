@@ -1,7 +1,7 @@
 Web Challenge
 -------------
 
-![This is an image](/public/logo512.png)
+![This is an image](/public/logo192.png | width=100x100)
 
 Data de Criação:
 ----------------
