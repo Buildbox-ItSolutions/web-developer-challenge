@@ -38,7 +38,7 @@ export const HomePage = () => {
   };
 
   const handleAddPost = () => {
-    if (messageName && messagePost) {
+    if (messageName && messagePost && avatar!==avatar1x) {
       dispatch({
         type: "ADD",
         payload: {

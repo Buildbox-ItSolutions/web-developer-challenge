@@ -89,7 +89,7 @@ export const InputElement = (element: inputElementType) => {
               <ClearOption onClick={element.discart}>Descartar</ClearOption>
             </Container>
             <Container width="100%" height="100%" vAlign="end" hAlign="center">
-              {element.name && element.post ? (
+              {element.name && element.post && element.avatar !== avatar1x? (
                 <InputPostButton onClick={element.addPost} choosed={true}>
                   Publicar
                 </InputPostButton>
