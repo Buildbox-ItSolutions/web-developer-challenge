@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 // Components
 import { Input } from "../Input";
@@ -39,12 +39,17 @@ export function useForm() {
   const handleFormData = (event: FormEvent) => {
     event.preventDefault();
 
+    setFormData((prev) => ({
+      ...prev,
+      id: uuid(),
+    }));
+
     const isEmpty = isSomeDataEmpty();
 
     if (isEmpty) return;
 
     setError("");
-    createPost({ ...formData, id: uuid() });
+    createPost(formData);
   };
 
   const handleEditFormData = ({ key, event, image }: EditFormDataDTO) => {
@@ -68,6 +73,10 @@ export function useForm() {
 
     return isEmpty;
   };
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return {
     error,

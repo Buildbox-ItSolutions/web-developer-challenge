@@ -12,6 +12,8 @@ export const ListContainer = styled.div`
   margin-top: 1rem;
   margin: 0 auto;
 
+  padding-bottom: 2rem;
+
   > span {
     font-size: 0.8rem;
     color: var(--color-gray-125);
@@ -27,5 +29,9 @@ export const ListContainer = styled.div`
 
     height: 100%;
     width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    width: 90%;
   }
 `;

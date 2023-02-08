@@ -37,4 +37,8 @@ export const FormContainer = styled.form`
       }
     }
   }
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 `;

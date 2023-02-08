@@ -19,6 +19,7 @@ specifiers:
   react-hook-form: ^7.43.1
   react-images-uploading: ^3.1.7
   react-is: 16.8.0
+  react-paginate: ^8.1.4
   styled-components: ^5
   typescript: 4.9.5
   uuid: ^9.0.0
@@ -38,6 +39,7 @@ dependencies:
   react-hook-form: 7.43.1_react@18.2.0
   react-images-uploading: 3.1.7_biqbaboplfbrettd7655fr4n2y
   react-is: 16.8.0
+  react-paginate: 8.1.4_react@18.2.0
   styled-components: 5.3.6_ioqvsn6irm33o3eeiglthc2j6q
   typescript: 4.9.5
   uuid: 9.0.0
@@ -2138,6 +2140,15 @@ packages:
 
   /react-is/16.8.0:
     resolution: {integrity: sha512-LOy+3La39aduxaPfuj+lCXC5RQ8ukjVPAAsFJ3yQ+DIOLf4eR9OMKeWKF0IzjRyE95xMj5QELwiXGgfQsIJguA==}
+    dev: false
+
+  /react-paginate/8.1.4_react@18.2.0:
+    resolution: {integrity: sha512-c3rxjcTEqeDQa6LqXifxLeFguY2qy2CHGRphVjHLFFMGfIHyaJ+v3bOvIlLYEeohwQ1q+cQpknjsqBVrkc/SNA==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

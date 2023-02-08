@@ -25,7 +25,7 @@ export function Image({ value, onChange }: Props) {
       onChange={onChange}
       dataURLKey="image_url"
     >
-      {({ imageList, onImageUpload, onImageRemove, dragProps, errors }) => (
+      {({ onImageUpload, onImageRemove, dragProps, errors }) => (
         <S.ImageContainer key={0}>
           <div className="imageContent">
             <button onClick={onImageUpload} {...dragProps}>
@@ -34,7 +34,7 @@ export function Image({ value, onChange }: Props) {
             {value.map((image) => (
               <div className="preview" key={image.dataURL}>
                 <NextImage
-                  src={image["image_url"]}
+                  src={image["image_url"] ?? ""}
                   alt="Photo"
                   fill
                   quality={100}

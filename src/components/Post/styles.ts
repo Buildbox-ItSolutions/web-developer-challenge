@@ -49,6 +49,12 @@ export const PostContainer = styled.div`
       width: 12rem;
 
       word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
 
       margin-bottom: 0.5rem;
 
@@ -105,5 +111,9 @@ export const PostContainer = styled.div`
     &:hover {
       transform: scale(1.1);
     }
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem 3rem;
   }
 `;

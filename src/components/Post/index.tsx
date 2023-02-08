@@ -18,7 +18,7 @@ export function Post({ id, name, message, photo }: Props) {
   return (
     <PostContainer>
       <div className="imageContainer">
-        <Image src={photo} alt="Photo" fill quality={100} priority />
+        <Image src={photo ?? ""} alt="Photo" fill quality={100} priority />
       </div>
       <div className="informationContainer">
         <div className="informationMessage">
