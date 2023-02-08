@@ -7,6 +7,7 @@ const BoxForm = styled.div`
     padding: 24px;
     margin-top: 40px;
     border-radius: 3px;
+    margin-bottom: 65px;
     border: solid 1px #3b3b3b;
     background-color: #313131;
 `;
