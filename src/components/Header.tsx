@@ -4,7 +4,7 @@ const HeaderContainer = styles.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 5.8em;
   padding: 24px 0px;
   background-color: #2b2b2b;
