@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import CreatePost from './components/CreatePost'
+import Header from './components/Header'
 import PostItem from './components/PostItem'
 import { usePost } from './hooks/post'
 
@@ -9,9 +10,7 @@ function App() {
 	console.log(data)
 	return (
 		<div className="App">
-			<nav>
-				<div></div>
-			</nav>
+			<Header />
 			<main>
 				<CreatePost createPost={createPost} />
 			</main>
