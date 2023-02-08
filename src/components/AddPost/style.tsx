@@ -17,11 +17,16 @@ export const PostAreaSelectFigure = styled.div`
   cursor: pointer;
   border: 2px solid var(--black-three);
 `
+export const PostAreaImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  object-fit: cover;
+`
 export const PostAreaInputs = styled.div`
   width: 100%;
   margin-top: 16px;
 `
-
 export const PostAreaInput = styled.div`
   margin-bottom: 8px;
 `
@@ -30,4 +35,7 @@ export const PostAreaButton = styled.div`
   margin-top: 24px;
   display: flex;
   justify-content: end;
+`
+export const InputFile = styled.input`
+  display: none;
 `
