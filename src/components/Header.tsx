@@ -1,21 +1,24 @@
 import styles from 'styled-components'
-
+import imageUrl from '../assets/bx-logo.png'
 const HeaderContainer = styles.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
   width: 100vw;
-  height: 93px;
-  padding: 24px 631px 24px 632px;
+  height: 5.8em;
+  padding: 24px 0px;
   background-color: #2b2b2b;
 `
 const HeaderImageSVG = styles.img`
-width: 103px;
-height: 45px;
-object-fit: contain;
+	width: auto;
+	height: 2.8em;
+	object-fit: contain;
 `
 
 function Header() {
 	return (
 		<HeaderContainer>
-			<HeaderImageSVG src="/assets/bg-logo.png" />
+			<HeaderImageSVG src={imageUrl} />
 		</HeaderContainer>
 	)
 }
