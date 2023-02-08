@@ -1,21 +1,27 @@
 lockfileVersion: 5.4
 
+overrides:
+  styled-components: ^5
+
 specifiers:
   '@next/font': 13.1.6
   '@types/node': 18.11.19
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@types/styled-components': ^5.1.26
+  '@types/uuid': ^9.0.0
   eslint: 8.33.0
   eslint-config-next: 13.1.6
   next: 13.1.6
   phosphor-react: ^1.4.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.43.1
   react-images-uploading: ^3.1.7
   react-is: 16.8.0
-  styled-components: ^5.3.6
+  styled-components: ^5
   typescript: 4.9.5
+  uuid: ^9.0.0
   zustand: ^4.3.2
 
 dependencies:
@@ -29,14 +35,17 @@ dependencies:
   phosphor-react: 1.4.1_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.43.1_react@18.2.0
   react-images-uploading: 3.1.7_biqbaboplfbrettd7655fr4n2y
   react-is: 16.8.0
   styled-components: 5.3.6_ioqvsn6irm33o3eeiglthc2j6q
   typescript: 4.9.5
+  uuid: 9.0.0
   zustand: 4.3.2_react@18.2.0
 
 devDependencies:
   '@types/styled-components': 5.1.26
+  '@types/uuid': 9.0.0
 
 packages:
 
@@ -466,6 +475,10 @@ packages:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.27
       csstype: 3.1.1
+    dev: true
+
+  /@types/uuid/9.0.0:
+    resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
     dev: true
 
   /@typescript-eslint/parser/5.50.0_4vsywjlpuriuw3tl5oq6zy5a64:
@@ -2100,6 +2113,15 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-hook-form/7.43.1_react@18.2.0:
+    resolution: {integrity: sha512-+s3+s8LLytRMriwwuSqeLStVjRXFGxgjjx2jED7Z+wz1J/88vpxieRQGvJVvzrzVxshZ0BRuocFERb779m2kNg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-images-uploading/3.1.7_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-woET50eCezm645iIeP4gCoN7HjdR3T64UXC5l53yd+2vHFp+pwABH8Z/aAO5IXDeC1aP6doQ+K738L701zswAw==}
     engines: {node: '>=8', npm: '>=5'}
@@ -2473,6 +2495,11 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
     dev: false
 
   /which-boxed-primitive/1.0.2:

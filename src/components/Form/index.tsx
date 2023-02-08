@@ -1,19 +1,121 @@
+import { ChangeEvent, FormEvent, useState } from "react";
+
+// Components
+import { Input } from "../Input";
 import { Button } from "../Button";
 import { Image } from "../ImageUploading";
-import { Input } from "../Input";
+
+// Styles
 import { FormContainer } from "./styles";
 
+// React Hook Form
+import { ImageListType } from "react-images-uploading";
+
+import { v4 as uuid } from "uuid";
+
+import { Post } from "@/models/Post";
+import { usePostStore } from "@/store/posts";
+
+interface EditFormDataDTO {
+  key: keyof Post;
+  event?: ChangeEvent<HTMLInputElement>;
+  image?: ImageListType;
+}
+
+const initialFormData: Post = {
+  id: uuid(),
+  photo: [],
+  name: "",
+  description: "",
+};
+
+export function useForm() {
+  const [formData, setFormData] = useState<Post>(initialFormData);
+
+  const [error, setError] = useState<string>("");
+
+  const createPost = usePostStore((state) => state.createPost);
+
+  const handleFormData = (event: FormEvent) => {
+    event.preventDefault();
+
+    const isEmpty = isSomeDataEmpty();
+
+    if (isEmpty) return;
+
+    setError("");
+    createPost(formData);
+  };
+
+  const handleEditFormData = ({ key, event, image }: EditFormDataDTO) => {
+    const value = event ? event.target.value : image;
+
+    setFormData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const isSomeDataEmpty = (): boolean => {
+    const keys = Object.keys(formData);
+
+    const isEmpty =
+      keys.some((key) => {
+        return !formData[key as keyof Post].length;
+      }) ?? "";
+
+    setError("Preencha todos os campos.");
+
+    return isEmpty;
+  };
+
+  return {
+    error,
+    formData,
+    handleFormData,
+    handleEditFormData,
+  };
+}
+
 export function Form() {
+  const { error, formData, handleEditFormData, handleFormData } = useForm();
+
+  const onChange = (value: ImageListType) => {
+    handleEditFormData({
+      key: "photo",
+      image: value,
+    });
+  };
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleFormData}>
       <div className="formContent">
-        <Image value={[]} onChange={() => {}} />
-        <Input height={2.5} placeholder="Digite seu nome" maxLength={45} />
-        <Input height={5} placeholder="Mensagem" />
+        <Image value={formData.photo} onChange={onChange} />
+        <Input
+          height={2.5}
+          placeholder="Digite seu nome"
+          onChange={(event) =>
+            handleEditFormData({
+              key: "name",
+              event: event,
+            })
+          }
+        />
+        <Input
+          height={5}
+          placeholder="Mensagem"
+          onChange={(event) =>
+            handleEditFormData({
+              key: "description",
+              event: event,
+            })
+          }
+        />
 
         <div className="buttonContainer">
-          <Button text="Descartar" className="secondary" />
-          <Button text="Publicar" className="primary" />
+          {error && <span>{error}</span>}
+          <Button type="button" text="Descartar" className="secondary" />
+          <Button type="submit" text="Publicar" className="primary" />
         </div>
       </div>
     </FormContainer>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   height: 22rem;
   width: 32rem;
   border-radius: 0.3rem;
@@ -25,9 +25,16 @@ export const FormContainer = styled.div`
       width: 100%;
 
       display: flex;
+      align-items: center;
       justify-content: flex-end;
 
       margin-top: 1rem;
+
+      > span {
+        margin-right: auto;
+
+        color: var(--color-orange);
+      }
     }
   }
 `;

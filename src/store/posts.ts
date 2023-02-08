@@ -7,7 +7,7 @@ interface PostState {
   deletePost: (postId: string) => void;
 }
 
-const usePostStore = create<PostState>()((set) => ({
+export const usePostStore = create<PostState>()((set) => ({
   posts: [],
   createPost: (post) =>
     set((state) => ({
