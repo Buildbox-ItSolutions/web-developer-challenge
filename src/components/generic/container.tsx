@@ -1,7 +1,9 @@
+import { Key } from "react";
 import styled from "styled-components";
 
 type containerType = {
   margin?: string;
+  font?: any;
   padding?: string;
   width: string;
   height: string;
@@ -15,7 +17,10 @@ type containerType = {
 };
 
 export const Container = styled.div<containerType>`
+  ${props=>props.font}
   display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
   position:${props=>props.position? props.position:"static"};
   top:${props=>props.top? props.top:"0"};
   left:${props=>props.left? props.left:"0"};

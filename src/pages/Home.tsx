@@ -13,6 +13,7 @@ import {
   ClearOption,
   InputPostButton,
   FeedTitle,
+  ElementPosted,
 } from "../components/home/HomeLayout";
 import logo1x from "../assets/bx-logo.png";
 import logo2x from "../assets/bx-logo@2x.png";
@@ -23,16 +24,23 @@ import avatar3x from "../assets/photo-base@3x.png";
 import trash1x from "../assets/trash.png";
 import trash2x from "../assets/trash@2x.png";
 import trash3x from "../assets/trash@3x.png";
+import delete1x from "../assets/delete.png";
+import delete2x from "../assets/delete@2x.png";
+import delete3x from "../assets/delete@3x.png";
 import { ColorTheme } from "../styles/themes";
+import { usePosts } from "../reducers/posts";
 
 export const HomePage = () => {
   const logoSrcSet: string = `${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`;
   const avatarSrcSet: string = `${avatar1x} 1x, ${avatar2x} 2x, ${avatar3x} 3x`;
   const trashSrcSet: string = `${trash1x} 1x, ${trash2x} 2x, ${trash3x} 3x`;
+  const deleteSrcSet: string = `${delete1x} 1x, ${delete2x} 2x, ${delete3x} 3x`;
 
   const [avatar, setAvatar] = useState<string>(avatar1x);
   const [messageName, setNameMessage] = useState<string>("");
   const [messagePost, setPostMessage] = useState<string>("");
+
+  const [posts, dispatch] = usePosts();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -56,6 +64,29 @@ export const HomePage = () => {
     setNameMessage("");
     setPostMessage("");
   };
+
+  const handleAddPost = () => {
+    if (messageName && messagePost) {
+      dispatch({
+        type: "ADD",
+        payload: {
+          assigned: messageName,
+          message: messagePost,
+          image: avatar
+        },
+      });
+      handleDiscart();
+    }
+  };
+
+  const handleDeletePost =(id:string)=>{
+    dispatch({
+      type:"DEL",
+    payload:{
+      id
+    }
+    })
+  }
 
   return (
     <HomeLayout>
@@ -158,17 +189,48 @@ export const HomePage = () => {
                   vAlign="center"
                   hAlign="end"
                 >
-                  <InputPostButton>Publicar</InputPostButton>
+                  <InputPostButton onClick={handleAddPost}>
+                    Publicar
+                  </InputPostButton>
                 </Container>
               </BottomBar>
             </Container>
           </InputLayout>
         </Container>
-        <Container width="30px" height="100%" vAlign="flex-end" padding="0 0 8px 0" hAlign="center" >
-         <FeedTitle>Feed</FeedTitle>
+        <Container
+          width="30px"
+          height="100%"
+          vAlign="flex-end"
+          padding="0 0 8px 0"
+          hAlign="center"
+        >
+          <FeedTitle>Feed</FeedTitle>
         </Container>
-        <Container width="100%" height="100%" border="red">
-
+        <Container width="100%" height="max-content">
+          {posts.map((item, index) =>
+            avatar !== avatar1x ? (
+              <ElementPosted
+                message={item.message}
+                assigned={item.assigned}
+                srcImage={item.image}
+                choose={false}
+                srcDelete={delete1x}
+                srcSetDelete={deleteSrcSet}
+                delPost={()=>handleDeletePost(item.id)}
+              />
+            ) : (
+              <ElementPosted
+                message={item.message}
+                assigned={item.assigned}
+                srcImage={ item.image}
+                choose={true}
+                srcSetImage={avatar1x}
+                srcDelete={delete1x}
+                srcSetDelete={deleteSrcSet}
+                delPost={()=>handleDeletePost(item.id)}
+              />
+            )
+          )}
         </Container>
       </HomeBody>
     </HomeLayout>

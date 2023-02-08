@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ColorTheme, TextTheme } from "../../styles/themes";
+import { Container } from "../generic/container";
 
 type ElementType = {
   width: string;
@@ -7,6 +8,7 @@ type ElementType = {
   radius?: string;
   fit?: string;
   choosed?: boolean;
+  cursor?: string;
 };
 
 type AvatarType = {
@@ -16,11 +18,22 @@ type AvatarType = {
   choose: boolean;
 };
 
+type ElementPostedType = {
+  choose?:boolean;
+  srcImage?: string;
+  srcSetImage?: string;
+  srcDelete?: string;
+  srcSetDelete?: string;
+  message?: string;
+  delPost?:()=>void;
+  assigned?: string;
+};
+
 export const HomeLayout = styled.div`
   display: grid;
   grid-template-rows: 93px 1fr;
   width: 1366px;
-  height: 1164px;
+  min-height: 1164px;
   background-color: ${ColorTheme.HomeBackground};
 `;
 
@@ -43,7 +56,7 @@ export const ImageContainer = styled.img.attrs((props) => ({
     props.choosed ? `1px solid ${ColorTheme.HomeLogoBorder}` : "none"};
   border-radius: ${(props) => (props.radius ? props.radius : "none")};
   object-fit: ${(props) => (props.fit ? props.fit : "fill")};
-  cursor: pointer;
+  cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
 `;
 
 export const HomeBody = styled.div`
@@ -185,3 +198,98 @@ export const FeedTitle = styled.p`
   justify-content: center;
   ${TextTheme.FeedTextTitle};
 `;
+
+const LayoutPosted = styled.div`
+  display: grid;
+  width: 516px;
+  margin-bottom: 16px;
+  height: max-content;
+  background-color: ${ColorTheme.HomeInputBox};
+  border: 1px solid ${ColorTheme.HomeInputBox};
+  grid-template-columns: 144px 372px;
+`;
+
+const LayoutPostedBody = styled.div`
+  display: grid;
+  grid-template-rows: 56px max-content 81px;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ElementPosted = ({
+  message,
+  assigned,
+  srcImage,
+  srcSetImage,
+  srcDelete,
+  srcSetDelete,
+  choose,
+  delPost
+}: ElementPostedType) => {
+  return (
+    <LayoutPosted>
+      <Container
+        width="88px"
+        height="88px"
+        margin="56px 32px 81px 24px"
+      >
+        <ImageContainer
+          width="100%"
+          height="100%"
+          radius="36px"
+          cursor="default"
+          src={srcImage}
+          srcSet={srcSetImage}
+          choosed={choose}
+          fit={choose?"scale-down":"cover"}
+        />
+      </Container>
+      <LayoutPostedBody>
+        <Container
+          width="100%"
+          height="1000%"
+          vAlign="flex-end"
+          padding="12px 12px 0 0"
+        >
+          <ImageContainer
+            width="20px"
+            height="20px"
+            radius="36px"
+            cursor="default"
+            src={srcDelete}
+            srcSet={srcSetDelete}
+            onClick={delPost}
+          />
+        </Container>
+        <Container
+          width="100%"
+          height="max-content"
+          padding="0 24px 0 0"
+          font={TextTheme.MessagePosted}
+        >
+          {message}
+        </Container>
+        <Container
+          width="100%"
+          height="100%"
+          padding="16px 0 0 0"
+        >
+            <Container
+          width="100%"
+          height="30px"
+          font={TextTheme.MessageAsignedTitle}
+        >
+          Enviado por <br />
+          </Container>
+          <Container
+          width="100%"
+          height="100%"
+          font={TextTheme.MessageAsigned}
+        >
+          {assigned}
+          </Container>
+        </Container>
+      </LayoutPostedBody>
+    </LayoutPosted>
+  );
+};

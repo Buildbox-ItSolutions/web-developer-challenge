@@ -5,8 +5,15 @@
   overflow: hidden;
 }
 html{
+  overflow-y: scroll !important;
   width: 100vw;
   min-height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+html::-webkit-scrollbar {
+  width: 0px;
 }
 
 body, #root {
