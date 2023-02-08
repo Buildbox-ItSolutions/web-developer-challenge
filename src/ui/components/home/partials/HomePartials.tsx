@@ -77,6 +77,7 @@ export const InputName = styled.input.attrs({
   type: "text",
   id: "inputText",
   name: "inputText",
+  maxLength:53
 })<ElementType>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
