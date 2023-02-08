@@ -5,7 +5,7 @@ Web Challenge
 Lingua:
 ----------------
 
-[Português](/README.md) / [English](/READMEN.md)
+[Portuguese](/README.md) / [English](/READMEN.md)
 
 Data de Criação:
 ----------------
