@@ -13,11 +13,21 @@ import Input from '../Input'
 import InputTextArea from '../InputTextArea'
 import Button from '../Button'
 
+type Post = {
+  figureOfPost: string | null
+  nameOfPost: string
+  messageOfPost: string
+}
+
 const AddPost = (): React.ReactElement => {
   /* ref */
   const inputUploadImage = useRef<HTMLInputElement>(null)
 
   const [figureOfPost, setFigureOfPost] = useState<string | null>(null)
+  const [nameOfPost, setNameOfPost] = useState('')
+  const [messageOfPost, setMessageOfPost] = useState('')
+
+  const [postsSaved, setPostsSaved] = useState<Array<Post>>([])
 
   const openWindowToSelectImage = () => {
     inputUploadImage?.current?.click()
@@ -35,6 +45,19 @@ const AddPost = (): React.ReactElement => {
   const removeFigure = () => {
     setFigureOfPost(null)
   }
+
+  const clearedPost = () => {
+    setFigureOfPost(null)
+    setNameOfPost('')
+    setMessageOfPost('')
+  }
+
+  const savedPost = () => {
+    setPostsSaved([...postsSaved, { figureOfPost, nameOfPost, messageOfPost }])
+    clearedPost()
+  }
+
+  console.log(postsSaved)
 
   return (
     <PostContainer>
@@ -65,15 +88,27 @@ const AddPost = (): React.ReactElement => {
         </S.PostAreaAddFigure>
         <S.PostAreaInputs>
           <S.PostAreaInput>
-            <Input placeholder="Digite seu nome" />
+            <Input
+              placeholder="Digite seu nome"
+              value={nameOfPost}
+              onChange={(e) => setNameOfPost(e.currentTarget.value)}
+            />
           </S.PostAreaInput>
           <S.PostAreaInput>
-            <InputTextArea placeholder="Mensagem" />
+            <InputTextArea
+              placeholder="Mensagem"
+              value={messageOfPost}
+              onChange={(e) => setMessageOfPost(e.currentTarget.value)}
+            />
           </S.PostAreaInput>
         </S.PostAreaInputs>
         <S.PostAreaButton>
-          <Button label="Descartar" isLink />
-          <Button label="Publicar" isEnable={false} />
+          <Button label="Descartar" isLink onClick={clearedPost} />
+          <Button
+            label="Publicar"
+            isEnable={messageOfPost != '' && messageOfPost != ''}
+            onClick={savedPost}
+          />
         </S.PostAreaButton>
       </S.PostAreaAddPost>
     </PostContainer>

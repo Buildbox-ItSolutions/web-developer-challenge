@@ -17,4 +17,5 @@ export const Button = styled.button<{ isLink: boolean; isEnable: boolean }>`
     props.isLink ? 'transparent' : 'var(--black-four)'};
   background-color: ${(props) => props.isEnable && 'var(--button-enable)'};
   color: ${(props) => props.isEnable && '#ffffff'};
+  transition: background 0.3s ease-in-out;
 `

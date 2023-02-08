@@ -7,15 +7,17 @@ interface InputProps extends InputHTMLAttributes<HTMLButtonElement> {
   label?: string
   isLink?: boolean
   isEnable?: boolean
+  type?: 'button' | 'submit' | 'reset'
 }
 
 const Button: React.FC<InputProps> = ({
   label,
   isLink = false,
-  isEnable = false
+  isEnable = false,
+  ...props
 }): React.ReactElement => {
   return (
-    <S.Button isLink={isLink} isEnable={isEnable}>
+    <S.Button isLink={isLink} isEnable={isEnable} {...props}>
       {label}
     </S.Button>
   )
