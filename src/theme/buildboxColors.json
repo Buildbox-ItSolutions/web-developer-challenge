@@ -19,7 +19,8 @@
         },
         "greys":{
             "grey1":"#9f9f9f",
-            "grey2":"#5f5f5f"
+            "grey2":"#5f5f5f",
+            "grey3":"#7a7a7a"
         }
     }
 }

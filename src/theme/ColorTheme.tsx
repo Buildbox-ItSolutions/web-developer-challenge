@@ -28,6 +28,11 @@ const ColorTheme: ThemeOptions = {
                 main: palette.greys.grey2,
             },
         }),
+        grey3: customPalette.augmentColor({
+            color: {
+                main: palette.greys.grey3,
+            },
+        }),
         black: customPalette.augmentColor({
             color: {
                 main: palette.blacks['black'],

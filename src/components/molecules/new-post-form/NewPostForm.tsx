@@ -1,4 +1,5 @@
 import { Box, TextFieldProps, TextField } from "@mui/material/"
+import React from "react"
 
 type NewPostFormType = {
     fieldName?: TextFieldProps
@@ -26,4 +27,4 @@ const NewPostForm = ({ fieldName, fieldMessage }: NewPostFormType): JSX.Element 
     )
 }
 
-export default NewPostForm
+export default React.memo(NewPostForm)

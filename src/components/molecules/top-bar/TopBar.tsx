@@ -11,6 +11,8 @@ const TopBar = () => {
             display='flex'
             alignItems='center'
             justifyContent='center'
+            position='fixed'
+            zIndex={1}
             sx={{ backgroundColor: theme.palette.black4.main }}
         >
             <Box sx={{

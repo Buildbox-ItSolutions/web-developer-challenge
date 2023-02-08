@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid"
 import { useTheme } from "@mui/material/styles"
 
@@ -13,10 +14,13 @@ const GlobalTemplate = ({ children }: GlobalTemplateType) => {
             display="flex"
             flexDirection='column'
             alignItems="center"
-            height='calc(100vh - 93px)'
+            minHeight='100vh'
+            height='auto'
             sx={{ backgroundColor: theme.palette.background.default }}
         >
+            <Box mt='93px'>
             {children}
+            </Box>
 
         </Grid>
     )
