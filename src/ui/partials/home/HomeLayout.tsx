@@ -69,7 +69,7 @@ export const InputBox = styled.div`
 export const InputLayout = styled.div`
   display: grid;
   position: relative;
-  grid-template-rows: 128px 48px 80px 97px;
+  grid-template-rows: 128px 48px 80px 1fr;
   width: 100%;
   height: 100%;
 `;
@@ -103,7 +103,7 @@ export const InputName = styled.input.attrs({
   padding: 12px 16px 11px 16px;
   background-color: ${ColorTheme.HomeInputBackground};
   border: 1px solid ${ColorTheme.HomeInputBackground};
-  ${TextTheme.InputFontFamily};
+  ${TextTheme.InputFontFamilyTrue};
 
   &:focus,
   input:focus {
@@ -125,7 +125,7 @@ export const InputPost = styled.textarea<ElementType>`
   padding: 12px 16px 12px 16px;
   border: 1px solid ${ColorTheme.HomeInputBackground};
   background-color: ${ColorTheme.HomeInputBackground};
-  ${TextTheme.InputFontFamily};
+  ${TextTheme.InputFontFamilyTrue};
 
   &:focus,
   input:focus {
@@ -148,9 +148,9 @@ export const InputPostButton = styled.button<ButtonPublish>`
   width: 98px;
   height: 41px;
   border-radius: 8px;
-  border: 1px solid ${props=>props.choosed?ColorTheme.HomePublishButton : ColorTheme.HomeInputBorder};
-  background-color: ${props=>props.choosed?ColorTheme.HomePublishButton : ColorTheme.HomeInputBorder};
-  ${TextTheme.InputFontFamily}
+  border: 1px solid ${props=>props.choosed?ColorTheme.HomePublishButtonTrue : ColorTheme.HomePublishButtonFalse};
+  background-color: ${props=>props.choosed?ColorTheme.HomePublishButtonTrue : ColorTheme.HomePublishButtonFalse};
+  ${props=>props.choosed?TextTheme.InputFontFamilyTrue : TextTheme.InputFontFamilyFalse};
 
 `;
 
@@ -159,7 +159,7 @@ export const ClearOption = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 10px !important;
+  margin: 12px 24px 12px 0;
   width: 60px;
   height: 17px;
   background-color: transparent;

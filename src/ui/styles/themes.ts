@@ -4,12 +4,13 @@ export const ColorTheme = {
   HomeInputBorder: "#3b3b3b",
   HomeTopBarBackground: "#2b2b2b",
   HomeInputBackground: "#494949",
-  HomePublishButton: "#71bb00",
+  HomePublishButtonTrue: "#71bb00",
+  HomePublishButtonFalse: "#5f5f5f",
   HomeLogoBorder: "#4b4b4b"
 };
 
 export const TextTheme = {
-  InputFontFamily: {
+  InputFontFamilyTrue: {
     "font-family": "Roboto",
     "font-size": "14px",
     "font-weight": "normal",
@@ -20,10 +21,18 @@ export const TextTheme = {
     "text-align": "left",
     "color": "#FFF"
   },
+  InputFontFamilyFalse:{
+    "font-family": "Roboto",
+    "font-size": "14px",
+    "font-weight": "normal",
+    "font-stretch": "normal",
+    "font-style": "normal",
+    "line-height": "1.29",
+    "letter-spacing": "normal",
+    "text-align": "center",
+    "color": "#313131",
+  },
   CLearFontFamily: {
-    "width": "60px",
-    "height": "17px",
-    "margin": "12px 24px 12px 0",
     "font-family": "Roboto",
     "font-size": "14px",
     "font-weight": "normal",

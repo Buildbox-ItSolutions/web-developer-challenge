@@ -79,13 +79,12 @@ export const InputElement = (element: inputElementType) => {
         </Container>
         <Container
           width="100%"
-          margin="32px 0 24px 0"
-          height="max-content"
+          height="100%"
           hAlign="center"
           vAlign="center"
         >
           <BottomBar>
-            <Container width="100%" height="100%" vAlign="flex-end" hAlign="center">
+             <Container width="100%" height="100%" vAlign="flex-end" hAlign="center">
               <ClearOption onClick={element.discart}>Descartar</ClearOption>
             </Container>
             <Container width="100%" height="100%" vAlign="end" hAlign="center">
@@ -98,7 +97,7 @@ export const InputElement = (element: inputElementType) => {
                   Publicar
                 </InputPostButton>
               )}
-            </Container>
+            </Container> 
           </BottomBar>
         </Container>
       </InputLayout>
