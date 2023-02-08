@@ -1,6 +1,5 @@
 
 import { useCallback, useState } from 'react'
-import imageIcon from '../assets/image.svg'
 import styled from 'styled-components'
 import { Post } from '../types'
 import { AvatarContainer } from './AvatarContainer'
@@ -10,12 +9,12 @@ type Props = {
 }
 
 const Container = styled.form`
-	max-width: 516px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 	justify-content: center;
-	padding: 32px 24px;
+	padding: 32px 12px;
+	margin-top: 41px;
 	background-color: #313131;
 `
 
@@ -67,18 +66,7 @@ const TextInput = styled.textarea`
 	color: #fff;
 `
 
-const ImageUploadContainer = styled.label`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 88px;
-	height: 88px;
-	border-radius: 36px;
-	border-color: #494949;
-	border-style: solid;
-	border-width: 1px;
-	margin-bottom: 16px;
-`
+
 
 
 function CreatePost({ createPost }: Props) {
@@ -106,9 +94,9 @@ function CreatePost({ createPost }: Props) {
 				clear()
 			}
 		}}>
-			<ImageUploadContainer htmlFor="upload-button">
-				<AvatarContainer default={!photo} src={photo ? URL.createObjectURL(photo) : imageIcon} />
-			</ImageUploadContainer>
+			<label htmlFor="upload-button">
+				<AvatarContainer src={photo ? URL.createObjectURL(photo) : undefined} />
+			</label>
 			<input style={{ display: 'none' }} type='file' id="upload-button" onChange={e => {
 				setPhoto(e.target.files[0])
 			}} accept=".jpg, .jpeg, .png"

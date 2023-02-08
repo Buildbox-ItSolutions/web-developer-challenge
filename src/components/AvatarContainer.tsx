@@ -1,19 +1,40 @@
 import { ImgHTMLAttributes } from "react"
 import styled from "styled-components"
+import imageIcon from '../assets/image.svg'
 
-export const AvatarContainer = styled.img`
-	${(props: ImgHTMLAttributes & {
-	default: boolean
-}) => props.default ? `
+type AvatarContainerProps = ImgHTMLAttributes & {
+	default?: boolean
+}
+
+const Container = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 88px;
+	height: 88px;
+	border-radius: 36px;
+	border-color: #494949;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 16px;
+`
+const ImageItem = styled.img`
+	${(props: AvatarContainerProps) => props.default ? `
 	width: 1.5em;
 	height: 1.5em;
 	`: `
 	display: block;
-  max-width:88px;
-  max-height:88px;
-  width: auto;
-  height: 88px;
+  height: auto;
+  width: 88px;
 	`}
   object-fit: cover;
 	border-radius: 36px;
 ;`
+
+export function AvatarContainer(props: AvatarContainerProps) {
+	return (
+		<Container>
+			<ImageItem default={!props?.src} src={props?.src ?? imageIcon} />
+		</Container>
+	)
+}
