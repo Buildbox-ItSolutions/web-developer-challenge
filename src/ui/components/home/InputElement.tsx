@@ -85,7 +85,7 @@ export const InputElement = (element: inputElementType) => {
           vAlign="center"
         >
           <BottomBar>
-            <Container width="100%" height="100%" vAlign="center" hAlign="end">
+            <Container width="100%" height="100%" vAlign="flex-end" hAlign="center">
               <ClearOption onClick={element.discart}>Descartar</ClearOption>
             </Container>
             <Container width="100%" height="100%" vAlign="end" hAlign="center">

@@ -165,6 +165,11 @@ export const ClearOption = styled.div`
   background-color: transparent;
   text-decoration: underline;
   ${TextTheme.CLearFontFamily}
+
+  @media screen and (max-width: 516px) {
+    margin-left: auto;
+    margin-right: 0%;
+  }
 `;
 
 export const BottomBar = styled.div`
@@ -175,7 +180,17 @@ export const BottomBar = styled.div`
   height: 100%;
 
   @media screen and (max-width: 516px) {
+    grid-template-columns: 1fr 0.6fr;
+    max-width:90%;
+  }
+
+  @media screen and (max-width: 330px) {
     grid-template-columns: 0.8fr 1fr;
+    max-width:90%;
+  }
+
+  @media screen and (max-width: 250px) {
+    grid-template-columns: 0.6fr 1fr;
     max-width:90%;
   }
 `;
