@@ -77,7 +77,7 @@ export const InputName = styled.input.attrs({
   type: "text",
   id: "inputText",
   name: "inputText",
-  maxLength:53
+  maxLength:30
 })<ElementType>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -99,7 +99,9 @@ export const InputName = styled.input.attrs({
   }
 `;
 
-export const InputPost = styled.textarea<ElementType>`
+export const InputPost = styled.textarea.attrs({
+  maxLength:500
+})<ElementType>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: ${(props) => (props.radius ? props.radius : "none")};
