@@ -1,8 +1,12 @@
 import { Container } from "../generic/container";
-import { HomeTopBar, ImageContainer } from "./partials/HomeLayout";
+import { HomeTopBar } from "./HomeTopBar";
+import { ImageContainer } from "./partials/HomePartials";
 import logo1x from "../../assets/bx-logo.png";
 import logo2x from "../../assets/bx-logo@2x.png";
 import logo3x from "../../assets/bx-logo@3x.png";
+
+//Elemento cabeçalho da página.
+//Page header element.
 
 export const TopBar = () => {
   const logo: string = `${logo1x}`;

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { containerType } from "../../../@types/home/ui/genericUiTypes";
 
+//Container genérico para usos gerais.
+//General purpose generic container.
+
 export const Container = styled.div<containerType>`
   ${(props) => props.font}
   display: flex;
@@ -20,11 +23,17 @@ export const Container = styled.div<containerType>`
     props.background ? props.background : "transparent"};
   border: ${(props) => (props.border ? `1px solid ${props.border}` : "none")};
 
+  //Responsividade para o conteiner da imagem deletar post.
+  //Responsiveness to image container delete post.
+
   &#deleteImageContainer {
     @media screen and (max-width: 516px) {
       width: 100%;
     }
   }
+
+  //Responsividade da imagem da lixeira.
+  //Trash image responsiveness.
 
   &#trashImageContainer {
     @media screen and (max-width: 516px) {
@@ -40,6 +49,9 @@ export const Container = styled.div<containerType>`
       right: 8%;
     }
   }
+
+  //Responsividade do título Feed.
+  //Feed title responsiveness.
 
   &#containerFeed {
     @media screen and (max-width: 516px) {

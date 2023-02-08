@@ -9,7 +9,7 @@ import {
   InputName,
   InputPost,
   InputPostButton,
-} from "./partials/HomeLayout";
+} from "./partials/HomePartials";
 import { inputElementType } from "../../../@types/home/data/homeDataTypes";
 
 import avatar1x from "../../assets/photo-base.png";
@@ -18,6 +18,9 @@ import avatar3x from "../../assets/photo-base@3x.png";
 import trash1x from "../../assets/trash.png";
 import trash2x from "../../assets/trash@2x.png";
 import trash3x from "../../assets/trash@3x.png";
+
+//Módulo de entrada de dados. Organizado de forma a se obter o box de entrada de dados.
+//Data input module. Organized in order to obtain the data input box.
 
 export const InputElement = (element: inputElementType) => {
   const avatarSrcSet: string = `${avatar1x} 1x, ${avatar2x} 2x, ${avatar3x} 3x`;

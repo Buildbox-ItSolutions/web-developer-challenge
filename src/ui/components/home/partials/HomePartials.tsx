@@ -5,22 +5,8 @@ import {
   ElementType,
 } from "../../../../@types/home/ui/homeUiTypes";
 
-export const HomeLayout = styled.div`
-  display: grid;
-  grid-template-rows: 93px 1fr;
-  width: 1366px;
-  min-height: 1164px;
-  background-color: ${ColorTheme.HomeBackground};
-`;
-
-export const HomeTopBar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 93px;
-  background-color: ${ColorTheme.HomeTopBarBackground};
-`;
+//Componentes parciais utilizados para a criação dos módulos e componentes finais.
+//Partial components used to create modules and final components.
 
 export const ImageContainer = styled.img.attrs((props) => ({
   src: props.src,
@@ -36,7 +22,7 @@ export const ImageContainer = styled.img.attrs((props) => ({
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
 
   &#PulishedImage {
-    @media screen and (max-width: 300px) {
+    @media screen and (max-width: 370px) {
       width: 60px;
       height: 60px;
       radius: 18.33px;
@@ -45,14 +31,6 @@ export const ImageContainer = styled.img.attrs((props) => ({
   }
 `;
 
-export const HomeBody = styled.div`
-  display: grid;
-  grid-template-rows: 393px 73px 1fr;
-  justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  background-color: ${ColorTheme.HomeBackground};
-`;
 export const InputBox = styled.div`
   display: flex;
   width: 516px;

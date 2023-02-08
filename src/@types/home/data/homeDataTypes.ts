@@ -12,7 +12,7 @@ export type inputElementType = {
     addPost: () => void;
 }
 
-export type publishEkementType = {
+export type publishElementType = {
     posts: postType[];
     deletePost: (id: string) => void;
 }

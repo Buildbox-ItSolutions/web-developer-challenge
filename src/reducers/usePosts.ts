@@ -2,6 +2,8 @@ import { useReducer } from "react";
 import { v4 as uuidRandom } from "uuid";
 import { actionType, postType } from "../@types/home/data/postReducer";
 
+//Reducer padrão para inserção e remoção de posts.
+//Default reducer for inserting and removing posts.
 
 const initialState: postType[] = [];
 

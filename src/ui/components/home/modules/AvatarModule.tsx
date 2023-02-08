@@ -3,7 +3,10 @@ import {
   AvatarChooseImage,
   AvatarContainer,
   ImageContainer,
-} from "../partials/HomeLayout";
+} from "../partials/HomePartials";
+
+//Módulo usado para a escolha de imagem.
+//Module used for image choice.
 
 export const Avatar = ({ src, srcSet, handle, choose }: AvatarType) => {
   return (

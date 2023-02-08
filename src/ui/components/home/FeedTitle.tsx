@@ -1,5 +1,8 @@
 import { Container } from "../generic/container";
-import { FeedTitleText } from "./partials/HomeLayout";
+import { FeedTitleText } from "./partials/HomePartials";
+
+//Título de Feed. Usado para o positionamento do título.
+//Feed Title. Used for title positioning.
 
 export const FeedTitle = () => {
   return (

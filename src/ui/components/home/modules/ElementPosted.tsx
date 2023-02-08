@@ -4,8 +4,11 @@ import {
   ImageContainer,
   LayoutPosted,
   LayoutPostedBody,
-} from "../partials/HomeLayout";
+} from "../partials/HomePartials";
 import { TextTheme } from "../../../styles/themes";
+
+//Módulo de saída de dados. Organizado de forma a se obter o box de saída de dados.
+//Data output module. Organized in order to obtain the data output box.
 
 export const ElementPosted = ({
   message,
