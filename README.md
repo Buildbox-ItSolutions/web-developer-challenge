@@ -2,6 +2,11 @@ Web Challenge
 -------------
 ![This is an image](/src/ui/assets/techs.png)
 
+Lingua:
+----------------
+
+[Português](/README.md) / [English] ((/READMEN.md))
+
 Data de Criação:
 ----------------
 08/02/2023
