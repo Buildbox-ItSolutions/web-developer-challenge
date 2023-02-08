@@ -1,25 +1,7 @@
 import { useReducer } from "react";
 import { v4 as uuidRandom } from "uuid";
+import { actionType, postType } from "../@types/data/postReducer";
 
-export type postTypeExport = {
-    assigned: string;
-    message: string;
-    image:string;
-}
-
-interface postType extends postTypeExport {
-    id: string;
-}
-
-type actionType = {
-    type: string;
-    payload: {
-        assigned?: string;
-        message?: string;
-        image?:string;
-        id?: string;
-    }
-}
 
 const initialState: postType[] = [];
 
