@@ -23,10 +23,10 @@ interface EditFormDataDTO {
 }
 
 const initialFormData: Post = {
-  id: uuid(),
+  id: "",
   photo: [],
   name: "",
-  description: "",
+  message: "",
 };
 
 export function useForm() {
@@ -44,7 +44,7 @@ export function useForm() {
     if (isEmpty) return;
 
     setError("");
-    createPost(formData);
+    createPost({ ...formData, id: uuid() });
   };
 
   const handleEditFormData = ({ key, event, image }: EditFormDataDTO) => {
@@ -106,7 +106,7 @@ export function Form() {
           placeholder="Mensagem"
           onChange={(event) =>
             handleEditFormData({
-              key: "description",
+              key: "message",
               event: event,
             })
           }
