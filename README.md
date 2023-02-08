@@ -1,7 +1,6 @@
 Web Challenge
 -------------
-
-![This is an image](/public/logo192.png | width=100x100)
+![This is an image](/src/ui/assets/techs.png)
 
 Data de Criação:
 ----------------
