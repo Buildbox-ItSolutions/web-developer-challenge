@@ -1,30 +1,44 @@
-# web-developer-challenge
+## Teste em React, TypeScript, Styled Components e Context API
 
-Olá!
+### Este é um exemplo de aplicação em React que utiliza TypeScript, Styled Components e Context API para criar uma aplicação de gerenciamento de galerias.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+### Requisitos
 
-O Desafio é o seguinte:
+Node.js
+npm ou yarn
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+### Instalação
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+Clone o repositório: git clone https://github.com/alex-s1s/web-developer-challenge/edit/buildbox/toDoList/
+Entre na pasta do projeto: cd projectGallery\client\buildbox
+Instale as dependências: npm install ou yarn install
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+### Iniciando a aplicação
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+Inicie o servidor de desenvolvimento: npm start ou yarn start
+Abra o seu navegador e acesse: http://localhost:3000
+Estrutura do projeto
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+```
+├── src
+│   ├── components
+│   │   └── CardDescription.tsx
+│   ├── context
+│   │   └── GlobalContext.tsx
+│   ├── pages
+│   │   └── Home.tsx
+│   └── styles
+│       └── GlobalStyles.tsx
+├── package.json
+└── README.md
+```
 
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+-   A pasta src/components contém todos os componentes reutilizáveis da aplicação.
+-   A pasta src/context contém o arquivo do contexto GlobalContext.tsx.
+-   A pasta src/pages contém a página principal da aplicação, Home.tsx.
+-   A pasta src/styles contém o arquivo de estilos globais, GlobalStyles.tsx.
+    Características
+-   Uso do React para criação da interface da aplicação.
+-   Uso do TypeScript para tipagem e melhor organização do código.
+-   Uso do Styled Components para estilização dos componentes.
+-   Uso do Context API para compartilhar estado entre componentes sem precisar passar props manualmente.

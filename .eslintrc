@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["prettier", "plugin:react/recommended"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "plugins": ["react", "prettier", "unused-imports"],
+    "ignorePatterns": ["/build", "**/*.scss", "**/*.css"],
+    "rules": {
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "no-console": 1,
+        "react/no-array-index-key": "error",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "after-used"
+            }
+        ]
+    }
+}
