@@ -1,6 +1,8 @@
 Web Challenge
 -------------
 
+![This is an image](/public/logo512.png)
+
 Data de Criação:
 ----------------
 08/02/2023
