@@ -12,7 +12,7 @@ Projeto desenvolvido com base no desafio apresentado em: https://github.com/Buil
 
 Estrutura:
 ----------
-![This is an image](/src/ui/assets/organizacao.svg)
+![This is an image](/src/ui/assets/hierarchy.svg)
 
 Observações:
 ------------
