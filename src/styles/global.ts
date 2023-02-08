@@ -8,6 +8,7 @@ export default createGlobalStyle`
       --grey-200: #3b3b3b;
       --black: #2b2b2b;
       --black-200: #313131;
+      --green: #71bb00;
   }
 
   * {
@@ -35,11 +36,22 @@ export default createGlobalStyle`
     color: var(--white);
   }
 
-  .main{
+  .main-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+  }
+
+  .main-content {
+    width: 516px;
     padding: 2rem 1rem;
+  }
+
+  @media (max-width: 550px) {
+    .main-content {
+      width: 100%;
+    }
   }
 
   button{
