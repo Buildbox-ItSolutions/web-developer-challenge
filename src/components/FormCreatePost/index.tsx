@@ -5,7 +5,7 @@ import {
   ContainerFormPost,
   GridFormPost,
   InputPost,
-  ImgPostForm,
+  ImgPublishPost,
   FormPost,
   GridButtonsPost,
   ButtonsPost,
@@ -14,6 +14,7 @@ import {
   InputFilePost,
   InputLabelPost,
   ButtonRemoveImgPost,
+  GridInput,
 } from "../../styles";
 export default function FormCreatePost() {
   return (
@@ -21,10 +22,10 @@ export default function FormCreatePost() {
       <GridFormPost>
         <GridImgPost>
           <InputLabelPost htmlFor="file-selection" />
-          <ImgPostForm src={Img} alt={Img} />
+          <ImgPublishPost src={Img} alt={Img} />
           <InputFilePost type="file" id="file-selection" />
           <ButtonRemoveImgPost>
-            <ImgPostForm src={trash} alt={trash} />
+            <ImgPublishPost src={trash} alt={trash} />
           </ButtonRemoveImgPost>
         </GridImgPost>
 
@@ -33,8 +34,12 @@ export default function FormCreatePost() {
             e.preventDefault()
           }
         >
-          <InputPost placeholder="Digite seu nome" />
-          <TextareaPost placeholder="Mensagem" />
+          <GridInput>
+            <InputPost placeholder="Digite seu nome" />
+          </GridInput>
+          <GridInput>
+            <TextareaPost placeholder="Mensagem" />
+          </GridInput>
           <GridButtonsPost>
             <ButtonsPost
               backgroundColor={"transparent"}

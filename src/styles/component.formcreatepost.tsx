@@ -10,7 +10,9 @@ interface PropsButton {
 export const ContainerFormPost = styled.section`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100%; 
+  padding-left: 30px; 
+  padding-right: 30px;
 `;
 
 export const GridFormPost = styled.div`
@@ -35,7 +37,7 @@ export const FormPost = styled.form`
 `;
 
 export const TextareaPost = styled.textarea`
-  width: 468px;
+  width: 100%;
   height: 80px;
   border-radius: 8px;
   background-color: #494949;
@@ -57,12 +59,12 @@ export const TextareaPost = styled.textarea`
     width: 4px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #494949;
+    background-color: transparent;
   }
 `;
 
 export const InputPost = styled.input`
-  width: 468px;
+  width: 100%;
   height: 40px;
   border-radius: 8px;
   background-color: #494949;
@@ -82,7 +84,9 @@ export const InputPost = styled.input`
 `;
 
 export const ImgPostForm = styled.img`
-  object-fit: cover;
+  object-fit: cover; 
+
+
 `;
 
 export const GridButtonsPost = styled.div`
@@ -104,7 +108,7 @@ export const ButtonsPost = styled.button<PropsButton>`
   background-color: ${(props: PropsButton) => props.backgroundColor};
   color: ${(props: PropsButton) => props.color};
   text-decoration: ${(props: PropsButton) =>
-    props.textDecoration ? props.textDecoration : "none"}; 
+    props.textDecoration ? props.textDecoration : "none"};
 `;
 
 export const GridImgPost = styled.div`
@@ -117,7 +121,7 @@ export const GridImgPost = styled.div`
   border-radius: 36px;
   border: solid 1px #4b4b4b;
   background: #343434;
-  margin-bottom: 16px;
+  margin-bottom: 16px;  
 `;
 
 export const InputFilePost = styled.input``;
@@ -145,4 +149,22 @@ export const ButtonRemoveImgPost = styled.button`
   outline: none;
   border: none;
   background-color: transparent;
+`;
+
+export const GridInput = styled.div`
+  width: 468px;
+
+  @media (max-width: 767px) {
+    width: 300px;
+    padding-left: 20px; 
+    padding-right: 20px;
+  } 
+
+  @media (max-width: 280px) {
+    width: 100%;
+  } 
+
+  @media (min-width: 530px) and (max-width: 540px){
+    width: 400px;
+  }
 `;

@@ -11,7 +11,8 @@ import {
   GridImgPost,
   InputFilePost,
   InputLabelPost,
-  ButtonRemoveImgPost,
+  ButtonRemoveImgPost, 
+  GridInput
 } from "./component.formcreatepost";
 
 import {
@@ -57,5 +58,6 @@ export {
   GridTextsPost, 
   TextNamePost,
   TextSenderPost, 
-  GridPusblishByWhom
+  GridPusblishByWhom, 
+  GridInput
 };

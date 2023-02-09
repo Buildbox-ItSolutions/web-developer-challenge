@@ -9,6 +9,8 @@ export const ContainerPost = styled.section`
   width: 100%;
   height: 100%;
   margin-top: 56px;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 
 export const GridPost = styled.div`
@@ -19,6 +21,10 @@ export const GridPost = styled.div`
   width: 100%;
   height: auto;
   margin-bottom: 16px;
+  @media (max-width: 767px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 export const TextFeedPost = styled.span`
@@ -60,6 +66,12 @@ export const GridPostInfo = styled.div`
   display: flex;
   justify-content: center;
   background-color: transparent;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 export const TextoPublishPost = styled.p`
@@ -71,7 +83,8 @@ export const TextoPublishPost = styled.p`
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  width: 348px;
+  max-width: 348px;
+  width: 100%;
   color: #9f9f9f;
   margin-bottom: 24px;
 `;
@@ -87,6 +100,10 @@ export const GridImgPublish = styled.div`
   border-radius: 36px;
   border: solid 1px #4b4b4b;
   background: #343434;
+  @media (max-width: 767px) {
+    margin-left: 30px;
+    margin-bottom: 8px;
+  }
 `;
 
 export const GridTextsPost = styled.div`
