@@ -21,7 +21,7 @@ export function Main() {
             <strong>Feed</strong>
 
             {posts.map(post => (
-              <PostItem postData={post} key={post.id} />
+              <PostItem key={post.id} post={post} />
             ))}
           </div>
         </main>

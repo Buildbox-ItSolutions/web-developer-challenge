@@ -24,15 +24,14 @@ export const postsSlice = createSlice({
         ...action.payload
       };
 
-      console.log(post);
-      
-
       state.posts.push(post);
     },
     deletePost: (state, action) => {
-      const id = action.payload;
+      const id = action.payload; 
 
-      state.posts = state.posts.filter(post => post.id === id);
+      state.posts = state.posts.filter(post => post.id !== id);
+
+      console.log(state.posts)
     },
   },
 });

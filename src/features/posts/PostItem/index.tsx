@@ -5,25 +5,17 @@ import defaultImage from '../../../assets/icons/user.svg';
 import deleteIcon from '../../../assets/icons/delete.svg';
 
 import { Container } from './styles';
+import { IPost } from '../../../models/IPost';
 
 interface PostItemProps {
-  postData: {
-    id?: string;
-    name: string;
-    message: string;
-    previewImage?: {
-      name: string;
-      url: string;
-    };
-    image?: File;
-  };
+  post: IPost
 }
 
-export function PostItem({ postData }: PostItemProps) {
+export function PostItem({ post }: PostItemProps) {
   const dispatch = useAppDispatch();
 
-  function removeItem(id?: string) {
-    id && dispatch(deletePost(id));
+  function removeItem(id: string) {
+    dispatch(deletePost(id));
   }
 
   return (
@@ -31,25 +23,25 @@ export function PostItem({ postData }: PostItemProps) {
       <button
         type="button"
         id="delete-item"
-        onClick={() => removeItem(postData.id)}
+        onClick={() => removeItem(post.id as string)}
       >
         <img src={deleteIcon} alt="Excluir" />
       </button>
 
       <div className="post-data">
         {
-          postData.previewImage?.url ? (
-            <img src={postData.previewImage.url} alt="" />
+          post.previewImage?.url ? (
+            <img src={post.previewImage.url} alt="" />
           ) : (
             <img src={defaultImage} alt="" />
           )
         }
 
         <div className="message-and-author">
-          <p>{postData.message}</p>
+          <p>{post.message}</p>
           <span className="sent-by">Enviado por</span>
           <br />
-          <span className="author">{postData.name}</span>
+          <span className="author">{post.name}</span>
         </div>
       </div>
     </Container>
