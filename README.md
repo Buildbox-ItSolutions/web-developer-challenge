@@ -28,3 +28,14 @@ E-mail - buildbox.guest@gmail.com
 Senha - JhZ5dAPG
 
 ![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+
+# Para iniciar o projeto em modo dev
+1. Baixar as dependências
+```bash
+npm install --save
+```
+2. Executar em modo de desenvolvimento
+
+```bash
+npm start
+```
