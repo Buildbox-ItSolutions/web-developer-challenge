@@ -1,7 +1,3 @@
-function App() {
-  return (
-    <div className="App" />
-  );
-}
+import { PostPage } from "./page";
 
-export default App;
+export default  () => <PostPage /> 

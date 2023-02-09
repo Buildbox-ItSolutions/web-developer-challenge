@@ -1,3 +1,10 @@
+import logo from "../../assets/img/bx-logo.png"
+import {HeaderPost, ImgPost} from "../../styles"
+
 export default function Header() {
-  return <div />;
+  return (
+    <HeaderPost>
+        <ImgPost src={logo}  alt={logo}/>
+    </HeaderPost>
+  );
 }
