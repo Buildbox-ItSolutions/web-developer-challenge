@@ -8,14 +8,19 @@ import Container from './components/Container'
 import AddPost from './components/AddPost'
 import FeedArea from './components/FeedArea'
 
+/* context */
+import { PostProvider } from './context/PostContext'
+
 function App() {
   return (
     <>
-      <Header />
-      <Container>
-        <AddPost></AddPost>
-        <FeedArea />
-      </Container>
+      <PostProvider>
+        <Header />
+        <Container>
+          <AddPost></AddPost>
+          <FeedArea />
+        </Container>
+      </PostProvider>
     </>
   )
 }

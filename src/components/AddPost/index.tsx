@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 
 /* styles */
 import * as S from './style'
@@ -15,6 +15,9 @@ import Button from '../Button'
 import Post from '../Post'
 import PostAreaSelectFigure from '../PostAreaSelectFigure'
 
+/* context  */
+import { PostContext } from '../../context/PostContext'
+
 type Post = {
   figureOfPost: string | null
   nameOfPost: string
@@ -22,6 +25,8 @@ type Post = {
 }
 
 const AddPost = (): React.ReactElement => {
+  const { posts, setPosts } = useContext(PostContext)
+
   /* ref */
   const inputUploadImage = useRef<HTMLInputElement>(null)
 
