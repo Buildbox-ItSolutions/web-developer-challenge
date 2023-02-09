@@ -11,7 +11,7 @@ type Props = {
 function CreatePost({ createPost }: Props) {
 	const [name, setName] = useState<string>()
 	const [post, setPost] = useState<string>()
-	const [photo, setPhoto] = useState<File>()
+	const [photo, setPhoto] = useState<File | null>()
 
 	const clear = useCallback(() => {
 		setName("")
@@ -37,7 +37,7 @@ function CreatePost({ createPost }: Props) {
 				<AvatarContainer src={photo ? URL.createObjectURL(photo) : undefined} />
 			</label>
 			<input style={{ display: 'none' }} type='file' id="upload-button" onChange={e => {
-				setPhoto(e.target.files[0])
+				setPhoto(e.target.files?.[0])
 			}} accept=".jpg, .jpeg, .png"
 			>
 			</input>
@@ -61,7 +61,7 @@ function CreatePost({ createPost }: Props) {
 					e.preventDefault()
 					clear()
 				}}>Descartar</Button>
-				<Button primary={true} disabled={(!name?.length && !post?.length)} type='submit'>Publicar</Button>
+				<Button primary disabled={(!name?.length && !post?.length)} type='submit'>Publicar</Button>
 			</ButtonContainer>
 		</Container>
 	)
@@ -93,9 +93,10 @@ const Button = styled.button`
 	background-color: #5f5f5f;
 	color: #313131;
 	border: none;
-	${(props: HTMLButtonElement & {
-	primary: boolean
-}) => props.disabled && props.primary ? `
+	${(props: {
+	primary?: boolean
+	disabled?: boolean
+}) => props?.disabled && props?.primary ? `
 		background-color: #5f5f5f;
 		color: #313131;`:
 			props.primary ? `

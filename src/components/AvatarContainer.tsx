@@ -2,11 +2,11 @@ import { ImgHTMLAttributes } from "react"
 import styled from "styled-components"
 import imageIcon from '../assets/image.svg'
 
-type AvatarContainerProps = ImgHTMLAttributes & {
+type AvatarContainerProps = {
 	default?: boolean
 }
 
-export function AvatarContainer(props: AvatarContainerProps) {
+export function AvatarContainer(props: ImgHTMLAttributes<AvatarContainerProps>) {
 	return (
 		<Container>
 			<ImageItem default={!props?.src} src={props?.src ?? imageIcon} />

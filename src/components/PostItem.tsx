@@ -8,8 +8,6 @@ type Props = Post & {
 	removePost: (post: Post) => void
 }
 
-
-
 function PostItem({
 	author,
 	id,

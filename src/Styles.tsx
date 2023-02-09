@@ -1,8 +1,8 @@
 import { css, createGlobalStyle } from "styled-components";
 import Roboto from './assets/Roboto.woff'
-export const tabblet = (data: string) => css`
+export const tabblet = (...values:any) => css`
 	@media (min-width: 720px) {
-		${data}
+		${values}
 	}
 `
 
