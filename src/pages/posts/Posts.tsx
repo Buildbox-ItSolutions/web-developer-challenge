@@ -1,8 +1,9 @@
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 import validator from 'validator'
 import PostsTemplate from '../../components/templates/posts/PostsTemplate'
 import { CardInfo } from '../../components/molecules/card-post/CardPost'
 import { v4 } from 'uuid'
+import { useSnackbar } from 'notistack'
 
 type Fields = {
 	fieldImage: string
@@ -11,6 +12,7 @@ type Fields = {
 }
 
 export default function Posts() {
+	const { enqueueSnackbar } = useSnackbar();
 	const [disableButton, setDisableButtons] = useState<boolean>(true)
 	const [posts, setPosts] = useState<CardInfo[]>([])
 	const [fields, setFields] = useState<Fields>(
@@ -35,7 +37,7 @@ export default function Posts() {
 		setDisableButtons(true)
 	}, [fields])
 
-	
+
 
 	const handleCleanFields = () => {
 		setFields({
@@ -60,7 +62,8 @@ export default function Posts() {
 	}
 
 	const handleSavePost = () => {
-		setPosts([{ id: v4(), image: fields.fieldImage, message: fields.fieldMessage, user: fields.fieldName },...posts])
+		setPosts([{ id: v4(), image: fields.fieldImage, message: fields.fieldMessage, user: fields.fieldName }, ...posts])
+		enqueueSnackbar('Post adicionado com sucesso!', { variant: 'success' })
 		handleCleanFields()
 	}
 
@@ -88,15 +91,9 @@ export default function Posts() {
 		}
 	}
 
-
 	useEffect(() => {
 		handleFieldsIsEmpty()
 	}, [fields])
-
-	useEffect(() => {
-		console.log(posts)
-	}, [posts])
-
 
 	return (
 		<PostsTemplate

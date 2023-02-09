@@ -1,11 +1,13 @@
 import { Box, ButtonProps, TextFieldProps, Typography } from "@mui/material/"
 import { useTheme } from "@mui/material/styles"
+import {useMediaQuery} from "@mui/material"
 import AvatarPhoto from "../../atoms/avatar/Avatar"
 import TrashIcon from "../../atoms/trash-icon/TrashIcon"
 import ButtonsDiscardPublish from "../../molecules/buttons-discard-publish/ButtonsDiscardPublish"
 import CardPost, { CardInfo } from "../../molecules/card-post/CardPost"
 import NewPostForm from "../../molecules/new-post-form/NewPostForm"
 import GlobalTemplate from "../global/GlobalTemplate"
+
 
 type PostsTemplateType = {
     fieldImage: string
@@ -21,10 +23,12 @@ type PostsTemplateType = {
 
 const PostsTemplate = ({ fieldImage, fieldName, fieldMessage, buttonDiscard, buttonPublish, onUploadAvatar, removeImageOnclick,onClickDeleteIcon,posts }: PostsTemplateType) => {
     const theme = useTheme()
+    const windowBelowSmall = useMediaQuery(theme.breakpoints.down('sm'))
+   
     return (
         <GlobalTemplate>
             <>
-                <Box width='516px' height='353px'
+                <Box width={windowBelowSmall?'80vw':'516px'} height={windowBelowSmall?'400px':'353px'}
                     borderRadius='3px'
                     sx={{ backgroundColor: theme.palette.black2.main }}
                     padding='24px'
@@ -63,10 +67,21 @@ const PostsTemplate = ({ fieldImage, fieldName, fieldMessage, buttonDiscard, but
                         <ButtonsDiscardPublish
                             buttonDiscard={buttonDiscard}
                             buttonPublish={buttonPublish}
+                            sx={{
+                                flexDirection:windowBelowSmall?'column':'row',
+                                width:windowBelowSmall?'100%':undefined,
+                                height:'50px',
+                                alignItems:'center',
+                                justifyContent:'center'
+                            }}
+                            sxButtons={{
+                                width:windowBelowSmall?'100%':undefined,
+                                margin:'5px'
+                            }}
                         />
                     </Box>
                 </Box>
-                <Box width='560px' display='flex' alignItems='flex-start' justifyContent='flex-start' mt='56px' flexDirection='column'>
+                <Box display='flex' alignItems='flex-start' justifyContent='flex-start' mt='56px' flexDirection='column'>
                     <Typography color={theme.palette.grey3.main}>
                         Feed
                     </Typography>

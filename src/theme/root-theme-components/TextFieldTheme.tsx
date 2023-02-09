@@ -14,7 +14,7 @@ const TextFieldTheme: Components<Omit<Theme, 'components'>> = {
                 input: {
                     color: palette.whites.white,
                     '&::placeholder': {
-                        color: palette.greys.grey1,
+                        color: palette.whites.white,
                     }
                 },
 
@@ -25,7 +25,7 @@ const TextFieldTheme: Components<Omit<Theme, 'components'>> = {
                     }
                 },
                 '& .MuiOutlinedInput-root': {
-                    color: palette.greys.grey1,
+                    color: palette.whites.white,
                     background: palette.secondary.value,
                     fontSize: '14px',
                     borderRadius: '8px',

@@ -1,5 +1,6 @@
-import { Box, TextFieldProps, TextField } from "@mui/material/"
 import React from "react"
+import { Box, TextFieldProps, TextField } from "@mui/material/"
+import { useTheme } from "@mui/material/styles"
 
 type NewPostFormType = {
     fieldName?: TextFieldProps
@@ -7,7 +8,7 @@ type NewPostFormType = {
 }
 
 const NewPostForm = ({ fieldName, fieldMessage }: NewPostFormType): JSX.Element => {
-
+    const theme = useTheme()
     return (
         <>
             <TextField

@@ -6,22 +6,19 @@ type TextFieldVariantsType = {
     style: Interpolation<{ theme: Theme }>;
 }[]
 
-const {palette} = buildbox;
- const TextFieldThemeVariants: TextFieldVariantsType = [
-{
-    props: {className:'inputReadOnly'},
-    style: {
-        backgroundColor:'#fff',
-        borderBottom:`none`,
-        WebkitTextFillColor:palette.primary.value,
-        color:'#000',
-        '& .MuiInputBase-input.Mui-disabled' :{
-            borderBottom:`solid 1px #000`,
-            color:'#000',
-            WebkitTextFillColor:'#000',
+const { palette } = buildbox;
+const TextFieldThemeVariants: TextFieldVariantsType = [
+    {
+        props: { className: 'textArea' },
+        style: {
+            input: {
+                color: palette.whites.white,
+                '&::placeholder': {
+                    color: palette.greys.grey1,
+                }
+            },
         }
-    }
-}
+    },
 ]
 
 export default TextFieldThemeVariants
