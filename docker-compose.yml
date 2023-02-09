@@ -1,0 +1,11 @@
+version: "3" ## especifica a versão do docker-compose file
+
+services: ## Define um serviço
+  app: ## nome do serviço
+    build: ./ ## localização do dockerfile
+    container_name: web-challenge-buildbox
+    ports:
+      - "5173:5173" ## redirecionamento de porta quando chegar alguma requisição na porta 3000 chama o container na porta 3000
+    volumes:
+      - .:/usr/app/ ## monitoro a pasta atual . e envio as alterações para /usr/app
+      - .:/usr/app/node_modules ## monitoro a pasta atual . e envio as alterações para /usr/app

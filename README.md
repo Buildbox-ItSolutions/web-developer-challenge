@@ -1,30 +1,46 @@
-# web-developer-challenge
+# :muscle: Web Challenge Buildbox
 
-Olá!
+## [Acesse a aplicação online clicando aqui](https://web-developer-challenge-bay.vercel.app/) :earth_americas:
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+Use a seguinte url para clonar o repositório 
+```
+https://github.com/rafaelpereiradev/web-developer-challenge.git
+```
 
-O Desafio é o seguinte:
+## Tecnologias utilizadas
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+Nome |Versão
+------------- | --------
+react  | 18.2.0
+material-ui | 5.11.2
+mui/icons-material | 5.11.0
+emotion/styled|11.10.5
+emotion/react | 11.10.5
+typescript | 4.9.4
+react-router-dom | 6.6.1
+notistack | 2.0.8
+validator | 13.7.0
+nodejs|18.14.0 
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+## Instalação Front-End
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+### Executando a aplicação em um container :whale2:
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+#### Dependências
+Nome  |Links úteis
+----- |-----------
+Docker|[Instalação](https://docs.docker.com/get-docker/)
+
+Após clonar o repositório, acesse a pasta raiz do projeto e execute ```docker-compose up```, após a criação do container acesse `http://localhost:5173` no navegador de sua preferência. 
 
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+--------
 
-## Design - Zeplin
-https://app.zeplin.io/login
+### Executando a aplicação localmente :computer:
 
-E-mail - buildbox.guest@gmail.com
+*Obs: Antes de iniciar confirme se a versão do nodejs é >= 18.14.0*
 
-Senha - JhZ5dAPG
+Após clonar o repositório execute  ```npm install``` para instalar as dependências e  ```npm run dev``` para iniciar,  e aguarde o carregamento.
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+O servidor de front-end irá utilizar o endereço `http://localhost:5173` portando certifique-se que não há outro serviço sendo executado nesta porta.
