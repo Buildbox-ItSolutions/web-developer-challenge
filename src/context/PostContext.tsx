@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState } from 'react'
 
 export type Post = {
   figureOfPost: string | null
@@ -19,13 +19,7 @@ export const PostContext = createContext<ContextType>({
 type Props = { children: React.ReactNode }
 
 export const PostProvider: React.FC<Props> = ({ children }) => {
-  const localStatePost = JSON.parse(localStorage.getItem('posts') || '[]')
-
-  const [posts, setPosts] = useState<Array<Post>>(localStatePost)
-
-  useEffect(() => {
-    localStorage.setItem('posts', JSON.stringify(posts))
-  }, [posts])
+  const [posts, setPosts] = useState<Array<Post>>([])
 
   return (
     <PostContext.Provider value={{ posts, setPosts }}>

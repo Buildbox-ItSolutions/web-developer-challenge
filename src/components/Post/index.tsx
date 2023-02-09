@@ -5,12 +5,19 @@ import * as S from './style'
 
 /* icons */
 import { SlClose } from 'react-icons/sl'
+import { RxImage } from 'react-icons/rx'
 
 /* components */
 import PostContainer from '../PostContainer'
 import PostAreaSelectFigure from '../PostAreaSelectFigure'
 
-const Post = () => {
+type PropsPost = {
+  figure: string | null
+  message: string
+  name: string
+}
+
+const Post: React.FC<PropsPost> = ({ figure, message, name }) => {
   return (
     <PostContainer>
       <S.PostHeader>
@@ -20,17 +27,16 @@ const Post = () => {
       </S.PostHeader>
       <S.PostHeaderAreaContent>
         <S.PostAreaFigure>
-          <PostAreaSelectFigure />
+          <PostAreaSelectFigure>
+            {figure ? <S.PostAreaImage src={figure} /> : <RxImage size={24} />}
+          </PostAreaSelectFigure>
         </S.PostAreaFigure>
         <S.PostAreaMessage>
           <S.PostAreaParagraph>
-            <S.PostParagraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              mattis ligula vel velit scelerisque iaculis.
-            </S.PostParagraph>
+            <S.PostParagraph>{message}</S.PostParagraph>
             <S.PostAuthor>
               <span className="post__author-invited">Enviado por:</span>
-              <span className="post__author-name">Manoela Oliveira</span>
+              <span className="post__author-name">{name}</span>
             </S.PostAuthor>
           </S.PostAreaParagraph>
         </S.PostAreaMessage>

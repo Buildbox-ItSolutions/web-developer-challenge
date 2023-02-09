@@ -12,20 +12,15 @@ import PostContainer from '../PostContainer'
 import Input from '../Input'
 import InputTextArea from '../InputTextArea'
 import Button from '../Button'
-import Post from '../Post'
 import PostAreaSelectFigure from '../PostAreaSelectFigure'
 
 /* context  */
 import { PostContext } from '../../context/PostContext'
 
-type Post = {
-  figureOfPost: string | null
-  nameOfPost: string
-  messageOfPost: string
-}
-
 const AddPost = (): React.ReactElement => {
   const { posts, setPosts } = useContext(PostContext)
+
+  console.log('shermon', posts)
 
   /* ref */
   const inputUploadImage = useRef<HTMLInputElement>(null)

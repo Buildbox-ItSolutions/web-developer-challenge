@@ -1,22 +1,19 @@
-import React from 'react'
-
-/* components */
-import Post from '../Post'
+import React, { ReactNode } from 'react'
 
 /* style */
 import * as S from './style'
 
-const FeedArea = () => {
+type PropsFeed = {
+  children: ReactNode
+}
+
+const FeedArea: React.FC<PropsFeed> = ({ children }) => {
   return (
     <S.FeedArea>
       <S.FeedTitleArea>
         <S.FeedTitle>Feed</S.FeedTitle>
       </S.FeedTitleArea>
-      <S.FeedPost>
-        <Post />
-        <Post />
-        <Post />
-      </S.FeedPost>
+      <S.FeedPost>{children}</S.FeedPost>
     </S.FeedArea>
   )
 }

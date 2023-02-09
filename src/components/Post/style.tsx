@@ -23,12 +23,20 @@ export const PostAreaFigure = styled.div`
   margin-right: 32px;
 `
 
+export const PostAreaImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  object-fit: cover;
+`
+
 export const PostAreaMessage = styled.div`
   flex: 1;
 `
 export const PostParagraph = styled.p`
   color: #9f9f9f;
   font-size: 16px;
+  word-break: break-all;
 `
 export const PostAreaParagraph = styled.div`
   display: flex;
