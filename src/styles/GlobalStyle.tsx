@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
    --black-three: #494949;
    --black-four: #5f5f5f;
    --button-enable: #71bb00;
+   --icons: #d65923;
  }
 
   * {

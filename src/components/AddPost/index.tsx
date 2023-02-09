@@ -12,6 +12,8 @@ import PostContainer from '../PostContainer'
 import Input from '../Input'
 import InputTextArea from '../InputTextArea'
 import Button from '../Button'
+import Post from '../Post'
+import PostAreaSelectFigure from '../PostAreaSelectFigure'
 
 type Post = {
   figureOfPost: string | null
@@ -64,13 +66,14 @@ const AddPost = (): React.ReactElement => {
     <PostContainer>
       <S.PostAreaAddPost>
         <S.PostAreaAddFigure>
-          <S.PostAreaSelectFigure onClick={openWindowToSelectImage}>
+          <PostAreaSelectFigure onClick={openWindowToSelectImage}>
             {figureOfPost ? (
               <S.PostAreaImage src={figureOfPost} />
             ) : (
               <RxImage size={24} />
             )}
-          </S.PostAreaSelectFigure>
+          </PostAreaSelectFigure>
+
           {figureOfPost && (
             <S.PostAreaRemoveFigure>
               <BiTrashAlt
@@ -107,7 +110,8 @@ const AddPost = (): React.ReactElement => {
           <Button label="Descartar" isLink onClick={clearedPost} />
           <Button
             label="Publicar"
-            isEnable={messageOfPost != '' && messageOfPost != ''}
+            isEnable={nameOfPost != '' && messageOfPost != ''}
+            disabled={nameOfPost === '' && messageOfPost === ''}
             onClick={savedPost}
           />
         </S.PostAreaButton>
