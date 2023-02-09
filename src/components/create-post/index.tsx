@@ -47,9 +47,12 @@ const CreatePost = (props: any) => {
                         : <img src={selectedImage.url} style={{borderRadius: '36px'}} width="88px" height="88px" alt={selectedImage.name} />
                     }
                 </CircularImage>
-                <DeleteDiv>
-                    <DeleteImage src="/trash.svg" alt="Deletar imagem" onClick={deleteImage}/>
-                </DeleteDiv>
+                {
+                    selectedImage.url && 
+                    <DeleteDiv>
+                        <DeleteImage src="/trash.svg" alt="Deletar imagem" onClick={deleteImage}/>
+                    </DeleteDiv>
+                }
                 
             </ContentImage>
             <Autor ref={autorInput} placeholder="Digite seu nome"/>
