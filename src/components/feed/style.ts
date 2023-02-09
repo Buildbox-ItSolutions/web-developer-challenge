@@ -11,11 +11,15 @@ const BoxForm = styled.div`
     background-color: #313131;
 `;
 
-const DeleteButton = styled.div`
+const DeleteDiv = styled.div`
     width: 100%;
     display: flex;
     justify-content: end;
     margin-bottom: 24px;
+`;
+
+const DeleteButton = styled.div`
+    cursor: pointer;
 `;
 
 const ContentContainer = styled.div`
@@ -80,4 +84,4 @@ const CircularImage = styled.div`
     align-items: center;
 `;
 
-export {BoxForm, CircularImage, DeleteButton, Content, ContentContainer, MessageBox, MessageText, MadeBy, AuthorBox, AuthorText};
+export {BoxForm, CircularImage, DeleteDiv, DeleteButton, Content, ContentContainer, MessageBox, MessageText, MadeBy, AuthorBox, AuthorText};

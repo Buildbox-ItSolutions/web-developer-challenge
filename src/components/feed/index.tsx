@@ -1,4 +1,4 @@
-import { AuthorBox, AuthorText, BoxForm, CircularImage, Content, ContentContainer, DeleteButton, MadeBy, MessageBox, MessageText } from "./style";
+import { AuthorBox, AuthorText, BoxForm, CircularImage, Content, ContentContainer, DeleteButton, DeleteDiv, MadeBy, MessageBox, MessageText } from "./style";
 
 interface Feed {
     autor: string,
@@ -8,15 +8,20 @@ interface Feed {
 }
 
 interface IProps {
-    feed: Feed
+    feed: Feed,
+    deleteFeed: any,
+    index: number
 }
 
-const FeedList = ({feed}: IProps) => {
+const FeedList = ({feed, deleteFeed, index}: IProps) => {
+
     return (
         <BoxForm>
-            <DeleteButton>
-                <img src="/delete.svg" alt="Delete" />
-            </DeleteButton>
+            <DeleteDiv>
+                <DeleteButton onClick={() => deleteFeed(index)}>
+                    <img src="/delete.svg" alt="Delete" />
+                </DeleteButton>
+            </DeleteDiv>
             
             <ContentContainer>
                 <CircularImage>
