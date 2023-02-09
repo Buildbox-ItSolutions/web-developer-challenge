@@ -34,8 +34,6 @@ const AddPost = (): React.ReactElement => {
   const [nameOfPost, setNameOfPost] = useState('')
   const [messageOfPost, setMessageOfPost] = useState('')
 
-  const [postsSaved, setPostsSaved] = useState<Array<Post>>([])
-
   const openWindowToSelectImage = () => {
     inputUploadImage?.current?.click()
   }
@@ -61,7 +59,7 @@ const AddPost = (): React.ReactElement => {
   }
 
   const savedPost = () => {
-    setPostsSaved([...postsSaved, { figureOfPost, nameOfPost, messageOfPost }])
+    setPosts([...posts, { figureOfPost, nameOfPost, messageOfPost }])
     clearedPost()
   }
 
