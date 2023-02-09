@@ -25,6 +25,7 @@ const Home = () => {
                 name={item.nameOfPost}
                 message={item.messageOfPost}
                 figure={item.figureOfPost}
+                id={indice}
                 key={indice}
               />
             )

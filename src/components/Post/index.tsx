@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 /* style */
 import * as S from './style'
@@ -10,19 +10,33 @@ import { RxImage } from 'react-icons/rx'
 /* components */
 import PostContainer from '../PostContainer'
 import PostAreaSelectFigure from '../PostAreaSelectFigure'
+import { PostContext } from '../../context/PostContext'
 
 type PropsPost = {
+  id: number
   figure: string | null
   message: string
   name: string
 }
 
-const Post: React.FC<PropsPost> = ({ figure, message, name }) => {
+const Post: React.FC<PropsPost> = ({ figure, message, name, id }) => {
+  const { posts, setPosts } = useContext(PostContext)
+
+  const removePost = (id: number) => {
+    const postFiltered = posts.filter((_, indice) => indice != id)
+    setPosts(postFiltered)
+  }
+
   return (
     <PostContainer>
       <S.PostHeader>
         <S.PostHeaderClose>
-          <SlClose size={20} fill="#d65923" cursor="pointer" />
+          <SlClose
+            size={20}
+            fill="#d65923"
+            cursor="pointer"
+            onClick={() => removePost(id)}
+          />
         </S.PostHeaderClose>
       </S.PostHeader>
       <S.PostHeaderAreaContent>
