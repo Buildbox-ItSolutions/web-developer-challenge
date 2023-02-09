@@ -38,6 +38,7 @@ const AddPost = (): React.ReactElement => {
       const profileLoad = window.URL.createObjectURL(
         inputUploadImage?.current?.files[0]
       )
+      inputUploadImage.current.value = ''
       setFigureOfPost(profileLoad)
     }
   }
