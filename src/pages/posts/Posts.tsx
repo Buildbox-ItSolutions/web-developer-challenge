@@ -58,6 +58,7 @@ export default function Posts() {
 				return post
 			}
 		})
+		enqueueSnackbar('Post removido com sucesso!', { variant: 'info' })
 		setPosts(postsFiltered)
 	}
 
