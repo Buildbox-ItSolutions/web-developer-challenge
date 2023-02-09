@@ -15,12 +15,10 @@ import Button from '../Button'
 import PostAreaSelectFigure from '../PostAreaSelectFigure'
 
 /* context  */
-import { PostContext } from '../../context/PostContext'
+import { Post, PostContext } from '../../context/PostContext'
 
 const AddPost = (): React.ReactElement => {
   const { posts, setPosts } = useContext(PostContext)
-
-  console.log('shermon', posts)
 
   /* ref */
   const inputUploadImage = useRef<HTMLInputElement>(null)
@@ -54,7 +52,11 @@ const AddPost = (): React.ReactElement => {
   }
 
   const savedPost = () => {
-    setPosts([...posts, { figureOfPost, nameOfPost, messageOfPost }])
+    const postsArray: Post[] = [...posts]
+
+    postsArray.unshift({ figureOfPost, nameOfPost, messageOfPost })
+
+    setPosts(postsArray)
     clearedPost()
   }
 
