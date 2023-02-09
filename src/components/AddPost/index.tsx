@@ -61,7 +61,7 @@ const AddPost = (): React.ReactElement => {
   }
 
   return (
-    <PostContainer style={{ marginTop: 40 }}>
+    <PostContainer>
       <S.PostAreaAddPost>
         <S.PostAreaAddFigure>
           <PostAreaSelectFigure onClick={openWindowToSelectImage}>

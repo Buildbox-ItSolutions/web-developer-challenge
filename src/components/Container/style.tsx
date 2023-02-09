@@ -5,6 +5,7 @@ export const Container = styled.main`
   height: 100%;
   display: flex;
   justify-content: center;
+  padding: 40px 20px 0 20px;
 `
 export const ContainerPost = styled.div`
   width: 100%;
