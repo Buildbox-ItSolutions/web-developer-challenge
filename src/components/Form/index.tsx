@@ -11,10 +11,10 @@ import { FormContainer } from "./styles";
 // React Hook Form
 import { ImageListType } from "react-images-uploading";
 
-import { v4 as uuid } from "uuid";
-
 import { Post } from "@/models/Post";
 import { usePostStore } from "@/store/posts";
+
+import { v4 as uuid } from "uuid";
 
 interface EditFormDataDTO {
   key: keyof Post;
@@ -23,7 +23,7 @@ interface EditFormDataDTO {
 }
 
 const initialFormData: Post = {
-  id: "",
+  id: uuid(),
   photo: [],
   name: "",
   message: "",
@@ -39,17 +39,15 @@ export function useForm() {
   const handleFormData = (event: FormEvent) => {
     event.preventDefault();
 
-    setFormData((prev) => ({
-      ...prev,
-      id: uuid(),
-    }));
-
-    const isEmpty = isSomeDataEmpty();
-
-    if (isEmpty) return;
+    if (error) return;
 
     setError("");
     createPost(formData);
+    setFormData({ ...initialFormData, id: uuid() });
+  };
+
+  const handleDiscardFormData = () => {
+    setFormData(initialFormData);
   };
 
   const handleEditFormData = ({ key, event, image }: EditFormDataDTO) => {
@@ -61,7 +59,7 @@ export function useForm() {
     }));
   };
 
-  const isSomeDataEmpty = (): boolean => {
+  useEffect(() => {
     const keys = Object.keys(formData);
 
     const isEmpty =
@@ -69,13 +67,14 @@ export function useForm() {
         return !formData[key as keyof Post].length;
       }) ?? "";
 
+    console.log(isEmpty);
+
+    if (!isEmpty) {
+      setError("");
+      return;
+    }
+
     setError("Preencha todos os campos.");
-
-    return isEmpty;
-  };
-
-  useEffect(() => {
-    console.log(formData);
   }, [formData]);
 
   return {
@@ -83,11 +82,18 @@ export function useForm() {
     formData,
     handleFormData,
     handleEditFormData,
+    handleDiscardFormData,
   };
 }
 
 export function Form() {
-  const { error, formData, handleEditFormData, handleFormData } = useForm();
+  const {
+    error,
+    formData,
+    handleEditFormData,
+    handleDiscardFormData,
+    handleFormData,
+  } = useForm();
 
   const onChange = (value: ImageListType) => {
     handleEditFormData({
@@ -103,6 +109,7 @@ export function Form() {
         <Input
           height={2.5}
           placeholder="Digite seu nome"
+          value={formData.name}
           onChange={(event) =>
             handleEditFormData({
               key: "name",
@@ -112,6 +119,7 @@ export function Form() {
         />
         <Input
           height={5}
+          value={formData.message}
           placeholder="Mensagem"
           onChange={(event) =>
             handleEditFormData({
@@ -123,8 +131,19 @@ export function Form() {
 
         <div className="buttonContainer">
           {error && <span>{error}</span>}
-          <Button type="button" text="Descartar" className="secondary" />
-          <Button type="submit" text="Publicar" className="primary" />
+
+          <Button
+            type="button"
+            text="Descartar"
+            className="secondary"
+            onClick={handleDiscardFormData}
+          />
+          <Button
+            type="submit"
+            text="Publicar"
+            className="primary"
+            disabled={!!error.length}
+          />
         </div>
       </div>
     </FormContainer>

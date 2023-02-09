@@ -28,7 +28,7 @@ export function Image({ value, onChange }: Props) {
       {({ onImageUpload, onImageRemove, dragProps, errors }) => (
         <S.ImageContainer key={0}>
           <div className="imageContent">
-            <button onClick={onImageUpload} {...dragProps}>
+            <button type="button" onClick={onImageUpload} {...dragProps}>
               <ImageSquare />
             </button>
             {value.map((image) => (
@@ -45,7 +45,11 @@ export function Image({ value, onChange }: Props) {
           </div>
 
           {value && (
-            <button className="buttonTrash" onClick={() => onImageRemove(0)}>
+            <button
+              type="button"
+              className="buttonTrash"
+              onClick={() => onImageRemove(0)}
+            >
               <TrashSimple />
             </button>
           )}

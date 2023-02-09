@@ -35,3 +35,28 @@ export const ListContainer = styled.div`
     width: 90%;
   }
 `;
+
+export const PaginatedListContainer = styled.div`
+  .paginated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    list-style: none;
+    margin: 0 auto;
+
+    color: var(--color-gray-125);
+
+    .button {
+      cursor: pointer;
+
+      padding: 0.5rem;
+    }
+
+    .active {
+      color: var(--color-gray-100);
+    }
+  }
+`;
