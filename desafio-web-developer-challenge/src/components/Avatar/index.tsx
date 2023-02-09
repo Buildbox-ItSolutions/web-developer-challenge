@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import avatarIcon from '../../assets/image.svg';
 import { AvatarContainer, LoadingAvatar, UploadAvatar } from './styles';
 
-interface DropzoneProps {
+interface AvatarProps {
   onFileUploaded: (file: File) => void;
   description?: string;
   multiple?: boolean;
@@ -15,7 +15,7 @@ interface DropzoneProps {
 export function Avatar({ onFileUploaded,
   name,
   avatar,
-  multiple = false,}: DropzoneProps) {
+  multiple = false,}: AvatarProps) {
     const onDrop = useCallback((acceptedFiles: File[]) => {
       onFileUploaded(acceptedFiles[0]);
     }, [onFileUploaded]);

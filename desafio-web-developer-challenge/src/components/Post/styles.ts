@@ -1,10 +1,21 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+`
+
 export const IconButton = styled.div`
-   display: flex;
-    margin: 0;
-    justify-content: flex-end;
-    align-items: flex-end;
+    position: absolute;
+    top: 0.75rem;
+    right: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     button {
       display: flex;
       justify-content: center;
@@ -24,23 +35,30 @@ export const IconButton = styled.div`
     }
 `;
 
-export const PostContent =  styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-    gap: 2rem;
+export const ImageContainer = styled.div`
+  margin-top: 2rem;
+  img {
+    width: 5.5rem;
+    height: 5.5rem;
+
+    border-radius: 36px;
+  }
 `;
 
-
-export const PostFoooter = styled.div`
-   display: flex;
+export const PostContent =  styled.div`
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2rem;
+`;
 
-    margin-top: 1.5rem;
-    margin-left: 7.4rem;
+export const PostContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 
     strong {
+      margin-top: 1.5rem;
       font-size: 0.75rem;
       color: ${(props) => props.theme["--gray-400"]};
     }

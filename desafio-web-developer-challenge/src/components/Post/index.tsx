@@ -1,4 +1,4 @@
-import { IconButton, PostFoooter, PostContent } from "./styles";
+import { IconButton, PostContainer, PostContent, ImageContainer, Container } from "./styles";
 import { X } from 'phosphor-react'
 import { BoxContainer } from "../BoxContainer";
 import { IPosts } from "../../interface/IPosts";
@@ -11,22 +11,28 @@ export interface PostProps {
 export function Post({post, handleRemovePost}: PostProps) {
   return (
     <BoxContainer>
-      <IconButton>
-        <button type="submit" onClick={() => handleRemovePost(post.id)}>
-          <X />
-        </button>
-      </IconButton>
-   
-      <PostContent>
-        <img src={post.avatar} alt="" />
-        <p>
-          {post.message}
-        </p>
-      </PostContent>
-      <PostFoooter>
-        <strong>Enviado por</strong>
-        <span>{post.name}</span>
-      </PostFoooter>
+      <Container>
+        
+        <PostContainer>
+          <ImageContainer>
+            <img src={post.avatar} alt="" />
+          </ImageContainer>
+
+          <PostContent>
+            <p>
+              {post.message}
+            </p>
+            <strong>Enviado por</strong>
+            <span>{post.name}</span>
+          </PostContent>
+        </PostContainer>
+
+        <IconButton>
+          <button type="submit" onClick={() => handleRemovePost(post.id)}>
+            <X />
+          </button>
+        </IconButton>
+      </Container>
     </BoxContainer>
   )
 }

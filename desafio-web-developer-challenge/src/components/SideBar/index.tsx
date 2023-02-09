@@ -16,8 +16,10 @@ export function Sidebar({ setNewPosts }: SidebarProps) {
   const [avatar, setAvatar]  = useState<File>();
   const [isButtonEnbled, setIsButtonEnbled] = useState(false);
 
+
   function handleNewName(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value)
+    setAvatar(event.target.files![0]);
     setIsButtonEnbled(event.target.value.length > 0 && message.length > 0); 
   }
 
@@ -25,6 +27,7 @@ export function Sidebar({ setNewPosts }: SidebarProps) {
     setMessage(event.target.value)
     setIsButtonEnbled(event.target.value.length > 0 && name.length > 0); 
   }
+
 
   const handleCleaer = useCallback(() => {
     setName("");

@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     background: ${(props) => props.theme["--gray-700"]};
     color: ${(props) => props.theme["--gray-300"]};
     -webkit-font-smoothing: antialiased;
-
     font-family: 'Roboto', sans-serif;
     font-size: 400;
     font-size: 1rem;
