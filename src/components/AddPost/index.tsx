@@ -60,10 +60,8 @@ const AddPost = (): React.ReactElement => {
     clearedPost()
   }
 
-  console.log(postsSaved)
-
   return (
-    <PostContainer>
+    <PostContainer style={{ marginTop: 40 }}>
       <S.PostAreaAddPost>
         <S.PostAreaAddFigure>
           <PostAreaSelectFigure onClick={openWindowToSelectImage}>

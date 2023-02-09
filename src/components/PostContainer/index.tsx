@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
 
 /* style */
 import * as S from './style'
 
-type PropsPostContainer = {
+interface PropsPostContainer extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
 const PostContainer: React.FC<PropsPostContainer> = ({
-  children
+  children,
+  ...props
 }): React.ReactElement => {
-  return <S.PostContainer>{children}</S.PostContainer>
+  return <S.PostContainer {...props}>{children}</S.PostContainer>
 }
 
 export default PostContainer
