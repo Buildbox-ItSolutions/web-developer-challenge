@@ -6,6 +6,7 @@ import React from 'react'
 import Header from './components/Header'
 import Container from './components/Container'
 import AddPost from './components/AddPost'
+import FeedArea from './components/FeedArea'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Container>
         <AddPost></AddPost>
+        <FeedArea />
       </Container>
     </>
   )
