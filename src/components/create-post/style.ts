@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+const ContentImage = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const DeleteDiv = styled.div`
+    position: relative;
+`;
+
+const DeleteImage = styled.img`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    cursor: pointer;
+`;
+
 const BoxForm = styled.div`
     width: 100%;
     max-width: 516px;
@@ -81,4 +101,4 @@ const Publicar = styled.button`
     cursor: pointer;
 `;
 
-export {BoxForm, CircularImage, CircularInput, Autor, Mensagem, RightContent ,Descartar, Publicar};
+export {ContentImage, DeleteDiv, DeleteImage, BoxForm, CircularImage, CircularInput, Autor, Mensagem, RightContent ,Descartar, Publicar};
