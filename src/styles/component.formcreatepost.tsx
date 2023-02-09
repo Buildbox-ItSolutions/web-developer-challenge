@@ -94,7 +94,6 @@ export const GridButtonsPost = styled.div`
 export const ButtonsPost = styled.button<PropsButton>`
   width: 98px;
   height: 41px;
-  margin: 0 0 0 24px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -105,7 +104,7 @@ export const ButtonsPost = styled.button<PropsButton>`
   background-color: ${(props: PropsButton) => props.backgroundColor};
   color: ${(props: PropsButton) => props.color};
   text-decoration: ${(props: PropsButton) =>
-    props.textDecoration ? props.textDecoration : "none"};
+    props.textDecoration ? props.textDecoration : "none"}; 
 `;
 
 export const GridImgPost = styled.div`
