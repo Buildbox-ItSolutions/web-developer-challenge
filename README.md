@@ -1,30 +1,32 @@
-# web-developer-challenge
+# :muscle: Web Challenge Buildbox
 
-Olá!
+Use a seguinte url para clonar o repositório 
+```
+https://github.com/rafaelpereiradev/web-developer-challenge.git
+```
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+# Front-End - [Documentação](https://github.com/rafaelpereiradev/desafio-sharenergy-2023-01/tree/rafael-de-souza-pereira/frontend/desafio-shareenergy-frontend)
+## Tecnologias utilizadas
 
-O Desafio é o seguinte:
+Nome |Versão
+------------- | --------
+react  | 18.2.0
+material-ui | 5.11.2
+mui/x-data-grid | 5.17.17
+mui/lab | 5.0.0-alpha.114
+mui/icons-material | 5.11.0
+emotion/styled|11.10.5
+emotion/react | 11.10.5
+typescript | 4.9.4
+react-router-dom | 6.6.1
+axios | 1.2.1
+notistack | 2.0.8
+validator | 13.7.0
+nodejs    | 18.12.1
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+## Instalação Front-End
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+Após a instalação execute o comando ```npm start``` para iniciar,  e aguarde até que o navegador carregue a aplicação
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
-
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
-
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+O servidor de front-end irá utilizar o endereço `http://localhost:3000 ` portando certifique-se que não há outro serviço sendo executado nesta porta.
