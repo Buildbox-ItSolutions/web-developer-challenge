@@ -113,8 +113,8 @@ const AddPost = (): React.ReactElement => {
           <Button label="Descartar" isLink onClick={clearedPost} />
           <Button
             label="Publicar"
-            isEnable={nameOfPost != '' && messageOfPost != ''}
-            disabled={nameOfPost === '' && messageOfPost === ''}
+            isEnable={nameOfPost.length > 0 && messageOfPost.length > 0}
+            disabled={nameOfPost.length <= 0 || messageOfPost.length <= 0}
             onClick={savedPost}
           />
         </S.PostAreaButton>
