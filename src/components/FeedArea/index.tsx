@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 /* style */
 import * as S from './style'
 
 type PropsFeed = {
-  children: ReactNode
+  children: JSX.Element | JSX.Element[]
 }
 
 const FeedArea: React.FC<PropsFeed> = ({ children }) => {

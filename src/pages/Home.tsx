@@ -1,5 +1,9 @@
 import React, { useContext } from 'react'
 
+/* frame-motion */
+import { motion } from 'framer-motion'
+import { parent, stat } from '../animation/motion'
+
 /* components */
 import AddPost from '../components/AddPost'
 import Container from '../components/Container'
@@ -19,17 +23,25 @@ const Home = () => {
       <Container>
         <AddPost />
         <FeedArea>
-          {posts.map((item, indice) => {
-            return (
-              <Post
-                name={item.nameOfPost}
-                message={item.messageOfPost}
-                figure={item.figureOfPost}
-                id={indice}
-                key={indice}
-              />
-            )
-          })}
+          <motion.div variants={parent} initial="hidden" animate="show">
+            {posts.map((item, indice) => {
+              return (
+                <motion.div
+                  variants={stat}
+                  key={indice}
+                  transition={{ duration: 0.3, delay: indice * 0.1 }}
+                >
+                  <Post
+                    name={item.nameOfPost}
+                    message={item.messageOfPost}
+                    figure={item.figureOfPost}
+                    id={indice}
+                    key={indice}
+                  />
+                </motion.div>
+              )
+            })}
+          </motion.div>
         </FeedArea>
       </Container>
     </>
