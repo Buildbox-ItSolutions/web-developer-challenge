@@ -1,5 +1,8 @@
 import React, { useRef, useState, useContext } from 'react'
 
+/* frame-motion */
+import { motion } from 'framer-motion'
+
 /* styles */
 import * as S from './style'
 
@@ -73,14 +76,16 @@ const AddPost = (): React.ReactElement => {
           </PostAreaSelectFigure>
 
           {figureOfPost && (
-            <S.PostAreaRemoveFigure>
-              <BiTrashAlt
-                fill="#d65923"
-                size={24}
-                onClick={removeFigure}
-                cursor="pointer"
-              />
-            </S.PostAreaRemoveFigure>
+            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+              <S.PostAreaRemoveFigure>
+                <BiTrashAlt
+                  fill="#d65923"
+                  size={24}
+                  onClick={removeFigure}
+                  cursor="pointer"
+                />
+              </S.PostAreaRemoveFigure>
+            </motion.div>
           )}
           <S.InputFile
             type="file"

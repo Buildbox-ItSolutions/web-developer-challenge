@@ -19,6 +19,7 @@ export const PostAreaAddFigure = styled.div`
 export const PostAreaRemoveFigure = styled.div`
   position: absolute;
   right: 33%;
+  top: 33%;
 `
 
 export const PostAreaImage = styled.img`
