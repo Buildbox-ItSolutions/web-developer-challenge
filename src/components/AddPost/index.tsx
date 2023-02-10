@@ -73,20 +73,20 @@ const AddPost = (): React.ReactElement => {
             ) : (
               <RxImage size={24} />
             )}
+            {figureOfPost && (
+              <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                <S.PostAreaRemoveFigure>
+                  <BiTrashAlt
+                    fill="#d65923"
+                    size={24}
+                    onClick={removeFigure}
+                    cursor="pointer"
+                  />
+                </S.PostAreaRemoveFigure>
+              </motion.div>
+            )}
           </PostAreaSelectFigure>
 
-          {figureOfPost && (
-            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-              <S.PostAreaRemoveFigure>
-                <BiTrashAlt
-                  fill="#d65923"
-                  size={24}
-                  onClick={removeFigure}
-                  cursor="pointer"
-                />
-              </S.PostAreaRemoveFigure>
-            </motion.div>
-          )}
           <S.InputFile
             type="file"
             ref={inputUploadImage}

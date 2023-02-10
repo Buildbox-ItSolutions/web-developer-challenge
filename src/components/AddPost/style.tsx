@@ -9,7 +9,6 @@ export const PostAreaAddPost = styled.div`
 `
 
 export const PostAreaAddFigure = styled.div`
-  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -18,7 +17,7 @@ export const PostAreaAddFigure = styled.div`
 
 export const PostAreaRemoveFigure = styled.div`
   position: absolute;
-  right: 33%;
+  right: -40px;
   top: 33%;
 `
 

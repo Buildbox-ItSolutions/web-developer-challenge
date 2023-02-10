@@ -9,4 +9,5 @@ export const PostAreaSelectFigure = styled.div`
   justify-content: center;
   cursor: pointer;
   border: 2px solid var(--black-three);
+  position: relative;
 `
