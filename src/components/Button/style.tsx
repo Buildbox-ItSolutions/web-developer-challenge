@@ -18,4 +18,11 @@ export const Button = styled.button<{ isLink: boolean; isEnable: boolean }>`
   background-color: ${(props) => props.isEnable && 'var(--button-enable)'};
   color: ${(props) => props.isEnable && '#ffffff'};
   transition: background 0.3s ease-in-out;
+
+  @media only screen and (max-width: 400px) {
+    & {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 `

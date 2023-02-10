@@ -21,6 +21,15 @@ export const PostAreaFigure = styled.div`
   width: 88px;
   height: 88px;
   margin-right: 32px;
+
+  @media only screen and (max-width: 400px) {
+    & {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+  }
 `
 
 export const PostAreaImage = styled.img`

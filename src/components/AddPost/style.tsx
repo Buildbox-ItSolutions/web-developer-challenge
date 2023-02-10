@@ -39,6 +39,13 @@ export const PostAreaButton = styled.div`
   margin-top: 24px;
   display: flex;
   justify-content: end;
+
+  @media only screen and (max-width: 400px) {
+    & {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  }
 `
 export const InputFile = styled.input`
   display: none;
