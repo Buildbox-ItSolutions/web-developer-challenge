@@ -28,4 +28,11 @@ describe('Add post', () => {
     const button = cy.get('button')
     expect(button.eq(1).should('not.have.a.property', 'disabled'))
   })
+  it('should add the post correctly', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('input[name="name"]').type(postFaker.name)
+    cy.get('textarea[name="message"]').type(postFaker.message)
+    cy.get('button').eq(1).click()
+    expect(cy.get('#post'))
+  })
 })

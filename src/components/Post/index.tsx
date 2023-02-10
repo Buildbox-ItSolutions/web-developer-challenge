@@ -28,7 +28,7 @@ const Post: React.FC<PropsPost> = ({ figure, message, name, id }) => {
   }
 
   return (
-    <PostContainer>
+    <PostContainer id="post">
       <S.PostHeader>
         <S.PostHeaderClose>
           <SlClose
