@@ -20,5 +20,7 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "jest/valid-expect": 0
+  }
 }

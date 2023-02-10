@@ -97,6 +97,7 @@ const AddPost = (): React.ReactElement => {
           <S.PostAreaInput>
             <Input
               placeholder="Digite seu nome"
+              name="name"
               value={nameOfPost}
               onChange={(e) => setNameOfPost(e.currentTarget.value)}
             />
@@ -104,6 +105,7 @@ const AddPost = (): React.ReactElement => {
           <S.PostAreaInput>
             <InputTextArea
               placeholder="Mensagem"
+              name="message"
               value={messageOfPost}
               onChange={(e) => setMessageOfPost(e.currentTarget.value)}
             />
