@@ -1,15 +1,19 @@
-import Head from "next/head";
-import { Layout, Card, Row, Col, Typography, Button, Input } from "antd";
+import { useState, useEffect } from "react";
 
-const { Text, Paragraph } = Typography;
-const { Content } = Layout;
+import Head from "next/head";
+import { Layout } from "antd";
 
 import Header from "./components/Header";
 import Form from "./components/Form";
+import Feed from "./components/Feed";
 
-import { ContentContainer } from "@/styles/home";
+import { ContentContainer, SpinContainer } from "@/styles/home";
+
+import { useFeed } from "@/services/hooks/useFeed";
 
 export default function Home() {
+  const { isLoading } = useFeed();
+
   return (
     <>
       <Head>
@@ -22,6 +26,7 @@ export default function Home() {
         <Header />
         <ContentContainer>
           <Form />
+          {isLoading ? <SpinContainer size="large" /> : <Feed />}
         </ContentContainer>
       </Layout>
     </>
