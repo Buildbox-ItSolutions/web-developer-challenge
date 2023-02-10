@@ -15,4 +15,10 @@ describe('Add post', () => {
     const button = cy.get('button')
     expect(button.eq(1).should('have.attr', 'disabled'))
   })
+  it('Should disable the button if the message is not filled in', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('input[name="name"]').type(postFaker.name)
+    const button = cy.get('button')
+    expect(button.eq(1).should('have.attr', 'disabled'))
+  })
 })
