@@ -1,5 +1,4 @@
-function Notes() {
-    return null;
+function Posts() {
 }
 
-export default Notes;
+export default Posts;
