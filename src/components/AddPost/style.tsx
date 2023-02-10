@@ -26,7 +26,7 @@ export const PostAreaImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 38px;
-  object-fit: cover;
+  object-fit: contain;
 `
 export const PostAreaInputs = styled.div`
   width: 100%;
