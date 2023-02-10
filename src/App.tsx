@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './GlobalStyles';
+import BaseLayout from './layouts/BaseLayout';
+import Notes from './pages/Posts';
+import theme from './theme';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App"></div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <BaseLayout>
+        <Notes />
+      </BaseLayout>
+    </ThemeProvider>
+  );
 }
 
 export default App;
