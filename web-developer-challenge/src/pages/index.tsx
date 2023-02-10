@@ -12,7 +12,13 @@ import { ContentContainer, SpinContainer } from "@/styles/home";
 import { useFeed } from "@/services/hooks/useFeed";
 
 export default function Home() {
-  const { isLoading } = useFeed();
+  const { isLoading, data } = useFeed();
+  const [feedData, setfeedData] = useState({ data });
+
+  useEffect(() => {
+    setfeedData(data);
+    console.log(data);
+  }, [data]);
 
   return (
     <>

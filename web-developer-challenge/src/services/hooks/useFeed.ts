@@ -1,13 +1,6 @@
-import { useQuery } from "react-query";
-import { createContext } from "vm";
-import { api } from "../api";
+import { useQuery, useQueryClient, useMutation } from "react-query";
 
-interface Feed {
-  id: number;
-  name: string;
-  comment: string;
-  image: File;
-}
+import { api } from "../api";
 
 export function useFeed() {
   return useQuery("userFeeds", async () => {

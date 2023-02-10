@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { Row, Form } from "antd";
 import { QueryClient } from "react-query";
+import { faker } from "@faker-js/faker";
 
 import {
   CardContainer,
@@ -26,11 +27,14 @@ const index = () => {
   const createFeed = useMutation(async () => {
     const response = await api.post("/feeds", {
       feed: {
+        id: faker.datatype.uuid,
         name: name,
         comment: comment,
         image: image,
       },
+
       onSuccess: () => {
+        queryClient.cancelQueries("feeds");
         queryClient.invalidateQueries("feeds");
       },
     });
@@ -41,7 +45,9 @@ const index = () => {
   };
 
   const handleSubmit = async (e: any) => {
-    await createFeed.mutate();
+    e.preventDefault;
+
+    createFeed.mutate();
 
     setName("");
     setComment("");
