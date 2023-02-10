@@ -83,13 +83,26 @@ export const TextoPublishPost = styled.p`
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  max-width: 348px;
-  width: 100%;
+  width: 348px;
   color: #9f9f9f;
-  margin-bottom: 24px;
+  margin-bottom: 24px; 
+  word-wrap: break-word;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
-export const ImgPublishPost = styled.img``;
+export const ImgPublishPost = styled.img`
+  object-fit: cover;
+  height: 88px;
+  width: 88px;
+  border-radius: 36px;
+`;
+
+export const RemoveImgPublishPost = styled.img`
+  object-fit: cover;
+`;
 
 export const GridImgPublish = styled.div`
   height: 88px;

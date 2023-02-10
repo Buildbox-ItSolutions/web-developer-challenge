@@ -84,10 +84,14 @@ export const InputPost = styled.input`
 `;
 
 export const ImgPostForm = styled.img`
-  object-fit: cover; 
+  object-fit: cover;  
+  height: 88px; 
+  width:  88px; 
+  border-radius: 36px;
+`; 
 
 
-`;
+export const RemoveImgForm = styled.img``;
 
 export const GridButtonsPost = styled.div`
   width: 100%;
