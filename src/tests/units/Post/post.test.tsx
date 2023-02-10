@@ -1,7 +1,7 @@
 import React from 'react'
 
 /* testing-library */
-import { getByAltText, getByRole, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 /*components */
 import Post from '../../../components/Post'
