@@ -42,7 +42,11 @@ const Post: React.FC<PropsPost> = ({ figure, message, name, id }) => {
       <S.PostHeaderAreaContent>
         <S.PostAreaFigure>
           <PostAreaSelectFigure>
-            {figure ? <S.PostAreaImage src={figure} /> : <RxImage size={24} />}
+            {figure ? (
+              <S.PostAreaImage src={figure} alt={name} />
+            ) : (
+              <RxImage size={24} />
+            )}
           </PostAreaSelectFigure>
         </S.PostAreaFigure>
         <S.PostAreaMessage>
