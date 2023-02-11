@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import BaseLayout from '../../layouts/BaseLayout';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';

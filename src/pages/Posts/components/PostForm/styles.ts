@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
+import { unstyledButton } from '../../../../shared/styles';
 
 export const Form = styled.form`
-  margin: 0 auto;
+  margin: 0 auto 56px;
   width: min-content;
   font-size: 14px;
   padding: 24px;
@@ -58,20 +59,6 @@ export const TextArea = styled.textarea`
 export const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: end;
-`;
-
-const unstyledButton = css`
-  padding: 0;
-  border: none;
-  outline: none;
-  font: inherit;
-  color: inherit;
-  background: none;
-  cursor: pointer;
-
-  :disabled {
-    cursor: default;
-  }
 `;
 
 export const TrashButton = styled.button`

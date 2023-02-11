@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: gray;
   }
 
+  p {
+    margin: 0;
+  }
+
   #root {
     height: 100%;
   }

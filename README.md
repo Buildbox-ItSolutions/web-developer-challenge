@@ -29,3 +29,22 @@ E-mail - buildbox.guest@gmail.com
 Senha - JhZ5dAPG
 
 ![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+
+## Notas do candidato
+
+Olá, sou Renan e fiquei muito interessado na buildbox. Segue algumas instruções para rodar o projeto.
+
+### Desenvolvimento:
+Vá para o diretório raiz do projeto e digite na linha de comando.
+```
+npm install && npm start
+```
+
+### Teste:
+Vá para o diretório raiz do projeto e digite na linha de comando.
+```
+npm test
+```
+
+### Versão utilizada para criação do projeto:
+Node v16.16.0, NPM v8.11.0

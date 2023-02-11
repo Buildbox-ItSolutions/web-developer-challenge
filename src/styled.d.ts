@@ -10,6 +10,8 @@ declare module 'styled-components' {
       greyishBrownTwo: string;
       brownishGrey: string;
       darkLimeGreen: string;
+      warmGreyTwo: string;
+      warmGreyThree: string;
     };
   }
 }

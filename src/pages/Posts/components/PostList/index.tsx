@@ -1,6 +1,15 @@
-import React from 'react';
 import deleteIcon from '../../../../assets/delete-icon.svg';
 import { IPost } from '../../Post.types';
+import {
+  Card,
+  CardBody,
+  CardImage,
+  CreatedBy,
+  CreatedByTitle,
+  DeleteButton,
+  ListTitle,
+  ListWrapper,
+} from './styles';
 
 type Props = {
   posts: IPost[];
@@ -12,27 +21,27 @@ function PostList({ posts, deletePost }: Props) {
     const handleClick = () => deletePost(post.id);
 
     return (
-      <div key={post.id}>
-        <button type="button" aria-label="deletar post" onClick={handleClick}>
+      <Card key={post.id}>
+        <DeleteButton type="button" aria-label="deletar post" onClick={handleClick}>
           <img src={deleteIcon} />
-        </button>
-        <div>
-          <img src={post.image} />
+        </DeleteButton>
+        <CardBody>
+          <CardImage src={post.image} />
           <div>
             <p>{post.message}</p>
-            <p>Enviado por</p>
-            <p>{post.createdBy}</p>
+            <CreatedByTitle>Enviado por</CreatedByTitle>
+            <CreatedBy>{post.createdBy}</CreatedBy>
           </div>
-        </div>
-      </div>
+        </CardBody>
+      </Card>
     );
   });
 
   return (
-    <div>
-      <p>feed</p>
+    <ListWrapper>
+      <ListTitle>Feed</ListTitle>
       {posts.length > 0 ? list : <p>Publique um post para o ver aqui</p>}
-    </div>
+    </ListWrapper>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { uid } from 'uid';
 import imagePlaceholder from '../../../../assets/image-placeholder.png';
 import trashIcon from '../../../../assets/trash-icon.svg';
@@ -43,7 +43,7 @@ function PostForm({ addPost }: Props) {
 
   const removeImage = () => setValue('image', null);
 
-  const onChangeText = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const onChangeText = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setValue(e.target.name as keyof IForm, e.target.value);
 
   const onChangeFiles = async (e: React.ChangeEvent<HTMLInputElement>) =>
