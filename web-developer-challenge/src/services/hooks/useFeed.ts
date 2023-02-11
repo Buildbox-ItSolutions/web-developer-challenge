@@ -1,3 +1,4 @@
+// custom hook para fetch dos dados da api gerada pelo miragejs
 import { useQuery } from "react-query";
 
 import { api } from "../api";

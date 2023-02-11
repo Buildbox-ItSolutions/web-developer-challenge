@@ -1,24 +1,22 @@
-import { useState, useEffect } from "react";
-
+//import nextjs head
 import Head from "next/head";
+
+//importação de componentes do antd
 import { Layout } from "antd";
 
+//importação de componentes
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Feed from "./components/Feed";
 
+//importação de estilos do styled-components
 import { ContentContainer, SpinContainer } from "@/styles/home";
 
+//importação de hooks
 import { useFeed } from "@/services/hooks/useFeed";
 
 export default function Home() {
-  const { isLoading, data } = useFeed();
-  const [feedData, setfeedData] = useState({ data });
-
-  useEffect(() => {
-    setfeedData(data);
-    console.log(data);
-  }, [data]);
+  const { isLoading } = useFeed();
 
   return (
     <>

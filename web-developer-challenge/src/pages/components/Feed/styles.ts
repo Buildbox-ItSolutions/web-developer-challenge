@@ -12,6 +12,10 @@ export const Column = styled(Col)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 export const CardContainer = styled(Card)`
   background-color: var(--background--400) !important;
@@ -24,11 +28,16 @@ export const CardContainer = styled(Card)`
   }
 `;
 
-export const ImageContainer = styled(Col)``;
+export const ImageContainer = styled(Col)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 36px;
+`;
 
 export const ImageStyle = styled(Image)`
   border-radius: 36px;
-  object-fit: contain;
+  object-fit: fill;
 `;
 
 export const TitleContainer = styled(Col)`
@@ -37,15 +46,29 @@ export const TitleContainer = styled(Col)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 export const FeedTitle = styled(Title)`
   font-size: 0.875rem !important;
   color: #7a7a7a !important;
   width: 32rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+  }
 `;
 
 export const ParagraphContainer = styled(Col)`
   margin-left: 2rem;
+
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+  }
 `;
 export const ParagraphData = styled(Paragraph)`
   font-size: 1rem;

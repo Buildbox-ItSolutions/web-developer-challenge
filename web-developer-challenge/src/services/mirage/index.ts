@@ -1,3 +1,5 @@
+//Arquivo de configuração do miragejs para simular um back-end e as rotas de uma api
+
 import { createServer, Factory, Model, ActiveModelSerializer } from "miragejs";
 import { faker } from "@faker-js/faker";
 

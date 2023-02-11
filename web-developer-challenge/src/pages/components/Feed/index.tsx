@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+//importação components do antd
+import { Row } from "antd";
 
-import { Row, Image } from "antd";
+//importação hooks do react-query
 import { useMutation, useQueryClient } from "react-query";
 
+//importação dos estilos com o styled-components
 import {
   CardContainer,
   Column,
@@ -18,7 +20,10 @@ import {
   ImageStyle,
 } from "./styles";
 
+//importação de hooks
 import { useFeed } from "../../../services/hooks/useFeed";
+
+//importação de services da api ficcticia
 import { api } from "@/services/api";
 
 export default function index() {
@@ -45,6 +50,9 @@ export default function index() {
         </TitleContainer>
         <Column xs={24} xl={24}>
           {data.map((feed: any, i: number) => {
+            if (feed.image === "") {
+              feed.image = "/img_avatar.png";
+            }
             return (
               <CardContainer key={i}>
                 <CloseIconContainer>
