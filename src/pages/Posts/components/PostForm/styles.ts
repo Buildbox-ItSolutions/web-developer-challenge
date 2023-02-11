@@ -3,7 +3,8 @@ import { unstyledButton } from '../../../../shared/styles';
 
 export const Form = styled.form`
   margin: 0 auto 56px;
-  width: min-content;
+  max-width: 512px;
+  width: 100%;
   font-size: 14px;
   padding: 24px;
   border: 1px solid ${({ theme }) => theme.colors.greyishBrownTwo};
@@ -34,7 +35,8 @@ export const FileInputImage = styled.img<{ hasImage: boolean }>`
 export const Input = styled.input`
   font-family: inherit;
   font-size: inherit;
-  width: 468px;
+  max-width: 468px;
+  width: 100%;
   margin-bottom: 8px;
   padding: 12px 16px;
   border-radius: 8px;
@@ -46,7 +48,8 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   font-family: inherit;
   font-size: inherit;
-  width: 468px;
+  max-width: 468px;
+  width: 100%;
   height: 80px;
   padding: 12px 16px;
   border-radius: 8px;

@@ -3,13 +3,14 @@ import { unstyledButton } from '../../../../shared/styles';
 
 export const ListWrapper = styled.div`
   margin: 0 auto;
-  width: min-content;
+  max-width: 512px;
+  width: 100%;
   font-size: 16px;
 `;
 
 export const ListTitle = styled.p`
   margin-bottom: 8px;
-  width: 512px;
+  width: 100%;
   color: ${({ theme }) => theme.colors.warmGreyTwo};
   font-size: 17px;
   font-weight: semibold;
@@ -17,7 +18,7 @@ export const ListTitle = styled.p`
 
 export const Card = styled.div`
   position: relative;
-  width: 512px;
+  width: 100%;
   padding: 56px 24px 32px;
   border: 1px solid ${({ theme }) => theme.colors.greyishBrownTwo};
   background-color: ${({ theme }) => theme.colors.blackTwo};
