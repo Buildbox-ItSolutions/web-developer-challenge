@@ -2,7 +2,7 @@ import { createServer, Factory, Model, ActiveModelSerializer } from "miragejs";
 import { faker } from "@faker-js/faker";
 
 type Feed = {
-  id: number;
+  id: string;
   name: string;
   comment: string;
   image: File;
@@ -44,7 +44,7 @@ export function makeServer() {
       this.timing = 750;
       this.get("/feeds");
       this.post("/feeds");
-      this.delete("/feeds");
+      this.delete("/feeds/:id");
       this.namespace = "";
       this.passthrough();
     },

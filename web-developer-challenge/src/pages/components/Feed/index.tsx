@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Row, Image } from "antd";
-import { api } from "@/services/api";
+import { useMutation, useQueryClient } from "react-query";
 
 import {
   CardContainer,
@@ -15,16 +15,27 @@ import {
   CloseIconContainer,
   ImageContainer,
   ParagraphContainer,
+  ImageStyle,
 } from "./styles";
 
 import { useFeed } from "../../../services/hooks/useFeed";
+import { api } from "@/services/api";
 
 export default function index() {
   const { data } = useFeed();
+  const queryClient = useQueryClient();
 
-  const handleDelete = async () => {
-    console.log("delete");
-  };
+  const deletePost = useMutation(
+    async (id) => {
+      const response = await api.delete(`/feeds/${id}`);
+      return response.data.feed;
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("feeds");
+      },
+    }
+  );
 
   return (
     <>
@@ -33,15 +44,18 @@ export default function index() {
           <FeedTitle level={4}>Feed</FeedTitle>
         </TitleContainer>
         <Column xs={24} xl={24}>
-          {data.feeds.map((feed: any) => {
+          {data.map((feed: any, i: number) => {
             return (
-              <CardContainer key={feed.id}>
+              <CardContainer key={i}>
                 <CloseIconContainer>
-                  <CloseIcon size={20} onClick={handleDelete} />
+                  <CloseIcon
+                    size={20}
+                    onClick={() => deletePost.mutate(feed.id)}
+                  />
                 </CloseIconContainer>
                 <Row>
                   <ImageContainer xl={6} xs={6}>
-                    <Image src={feed.image} preview={false} />
+                    <ImageStyle src={feed.image} preview={false} />
                   </ImageContainer>
                   <ParagraphContainer xl={16} xs={16}>
                     <ParagraphData>{feed.comment}</ParagraphData>

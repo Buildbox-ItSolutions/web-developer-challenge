@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { Row, Form } from "antd";
-import { QueryClient } from "react-query";
 import { faker } from "@faker-js/faker";
 
 import {
@@ -16,33 +15,44 @@ import {
 } from "./styles";
 
 import { api } from "@/services/api";
-
-const queryClient = new QueryClient();
+import { useFeed } from "@/services/hooks/useFeed";
 
 const index = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
-  const [image, setImage] = useState(null);
+  const [imgBase64, setImgBase64] = useState("");
 
-  const createFeed = useMutation(async () => {
-    const response = await api.post("/feeds", {
-      feed: {
-        id: faker.datatype.uuid,
-        name: name,
-        comment: comment,
-        image: image,
-      },
-
-      onSuccess: () => {
-        queryClient.cancelQueries("feeds");
-        queryClient.invalidateQueries("feeds");
-      },
-    });
-  });
+  const { data } = useFeed();
+  const queryClient = useQueryClient();
 
   const handleInputChange = (e: any) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setImgBase64(reader.result as string);
+    };
   };
+
+  const createFeed = useMutation(
+    async () => {
+      const response = await api.post("/feeds", {
+        feed: {
+          ...data,
+          id: faker.datatype.uuid(),
+          name: name,
+          comment: comment,
+          image: imgBase64,
+        },
+      });
+      return response.data.feed;
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("feeds");
+      },
+    }
+  );
 
   const handleSubmit = async (e: any) => {
     e.preventDefault;
@@ -51,13 +61,13 @@ const index = () => {
 
     setName("");
     setComment("");
-    setImage(null);
+    setImgBase64("");
   };
 
   const resetForm = () => {
     setName("");
     setComment("");
-    setImage(null);
+    setImgBase64("");
   };
   return (
     <>

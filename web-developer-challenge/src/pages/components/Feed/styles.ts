@@ -24,14 +24,11 @@ export const CardContainer = styled(Card)`
   }
 `;
 
-export const ImageContainer = styled(Col)`
-  border-radius: 50%;
-  width: 88px;
-  height: 88px;
-`;
+export const ImageContainer = styled(Col)``;
 
 export const ImageStyle = styled(Image)`
-  object-fit: cover;
+  border-radius: 36px;
+  object-fit: contain;
 `;
 
 export const TitleContainer = styled(Col)`
