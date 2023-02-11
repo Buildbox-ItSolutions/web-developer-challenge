@@ -1,0 +1,68 @@
+import styled from 'styled-components'
+
+export const PostHeader = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const PostHeaderClose = styled.div`
+  position: absolute;
+  top: -12px;
+  right: -12px;
+`
+export const PostHeaderAreaContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+`
+export const PostAreaFigure = styled.div`
+  width: 88px;
+  height: 88px;
+  margin-right: 32px;
+
+  @media only screen and (max-width: 400px) {
+    & {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+  }
+`
+
+export const PostAreaImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  object-fit: contain;
+`
+
+export const PostAreaMessage = styled.div`
+  flex: 1;
+`
+export const PostParagraph = styled.p`
+  color: #9f9f9f;
+  font-size: 16px;
+  word-break: break-all;
+`
+export const PostAreaParagraph = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+export const PostAuthor = styled.div`
+  display: flex;
+  margin-top: 24px;
+  flex-direction: column;
+
+  & > .post__author-invited {
+    font-size: 12px;
+    color: var(--black-four);
+  }
+  & > .post__author-name {
+    color: #7a7a7a;
+    font-size: 14px;
+  }
+`
