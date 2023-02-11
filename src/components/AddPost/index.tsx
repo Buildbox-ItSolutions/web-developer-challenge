@@ -8,7 +8,6 @@ import * as S from './style'
 
 /* icons */
 import { RxImage } from 'react-icons/rx'
-import { BiTrashAlt } from 'react-icons/bi'
 
 /* components */
 import PostContainer from '../PostContainer'
@@ -44,7 +43,10 @@ const AddPost = (): React.ReactElement => {
     }
   }
 
-  const removeFigure = () => {
+  const removeFigure = (
+    event: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    event.stopPropagation()
     setFigureOfPost(null)
   }
 
@@ -76,11 +78,10 @@ const AddPost = (): React.ReactElement => {
             {figureOfPost && (
               <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
                 <S.PostAreaRemoveFigure>
-                  <BiTrashAlt
-                    fill="#d65923"
-                    size={24}
-                    onClick={removeFigure}
-                    cursor="pointer"
+                  <img
+                    src="/assets/images/trash.svg"
+                    alt="trash"
+                    onClick={(e) => removeFigure(e)}
                   />
                 </S.PostAreaRemoveFigure>
               </motion.div>
