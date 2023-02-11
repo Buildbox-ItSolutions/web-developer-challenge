@@ -5,6 +5,11 @@ declare module 'styled-components' {
     colors: {
       blackTwo: string;
       black: string;
+      white: string;
+      greyishBrown: string;
+      greyishBrownTwo: string;
+      brownishGrey: string;
+      darkLimeGreen: string;
     };
   }
 }
