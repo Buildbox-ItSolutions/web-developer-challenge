@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 
-import preview from '../assets/preview.png';
 import PostContext from '../context/PostContext';
 import FormFields from './FormFields';
 
@@ -14,7 +13,6 @@ const CreatePost = () => {
     form,
     setForm,
   } = useContext(PostContext);
-  const fileInputRef = useRef();
 
   useEffect(() => {
     if (loadedImage) {
@@ -65,17 +63,18 @@ const CreatePost = () => {
       postText: '',
       image: null,
     });
+    setIsDisabled(true)
   };
 
   return (
-    <section className='flex justify-center'>
+    <div className='flex justify-center'>
       <FormFields
         imageHandler={imageHandler}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         clearForm={clearForm}
       />
-    </section>
+    </div>
   );
 };
 

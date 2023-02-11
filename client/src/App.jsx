@@ -29,7 +29,7 @@ const App = () => {
     >
       <BrowserRouter>
         <Header />
-        <main className='sm:p-8 px-4 py-8 w-full h-screen bg-[#343434] min-h-[calc(100vh-73px)'>
+        <main className='w-full h-screen bg-[#343434] bg-cover min-h-fit'>
           <Routes>
             <Route path='/' element={<Home />} />
           </Routes>

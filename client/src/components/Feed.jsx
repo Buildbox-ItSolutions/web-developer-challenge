@@ -11,14 +11,17 @@ const Feed = () => {
     setPosts(updatedItems);
   };
   return (
-    <section>
+    <section className=''>
+      <div className=''>
+        <p>Feed</p>
+      </div>
       {posts &&
         posts.map((post, i) => (
-          <div key={i}>
+          <div key={i} className='bg-[#313131] p-4 items-center flex-col rounded-md' style={{ width: '516px', height: '225px' }}>
             <button type='button' onClick={() => handleRemove(post.name)}>
               X
             </button>
-            <img src={post.image} alt={post.name} width='24'/>
+            <img src={post.image} alt={post.name} width='24' />
             <p>{post.postText}</p>
             <p>Enviado por</p>
             <p>{post.name}</p>

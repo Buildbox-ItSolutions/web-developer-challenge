@@ -3,7 +3,6 @@ import preview from '../assets/preview.png';
 import PostContext from '../context/PostContext';
 
 const FormFields = ({
-  // refButtonHandler,
   imageHandler,
   handleChange,
   handleSubmit,
@@ -20,11 +19,12 @@ const FormFields = ({
 
   return (
     <form
-      className='w-2/5 bg-[#313131] p-4 items-center flex-col'
+      style={{ width: '516px', height: '353px' }}
+      className='bg-[#313131] p-4 items-center flex-col rounded-md'
       onSubmit={handleSubmit}
     >
       <input
-        className='justify-center'
+        className=''
         type='file'
         style={{ display: 'none' }}
         ref={fileInputRef}
@@ -34,20 +34,24 @@ const FormFields = ({
 
       {form.image ? (
         <div className='flex justify-center'>
-          <img
-            src={form.image}
-            className='rounded-lg w-24 justify-center'
-            alt='user image'
-          />
+          <div className='w-32 h-24 object-contain'>
+            <img
+              src={form.image}
+              className='rounded-xl'
+              alt='user image'
+            />
+          </div>
         </div>
       ) : (
         <div className='flex justify-center'>
-          <img
-            src={preview}
-            className='cursor-pointer rounded-lg w-24'
-            alt='default image'
-            onClick={refButtonHandler}
-          />
+          <div className='flex justify-center w-32 h-24 object-contain'>
+            <img
+              src={preview}
+              className='cursor-pointer rounded'
+              alt='default image'
+              onClick={refButtonHandler}
+            />
+          </div>
         </div>
       )}
 
@@ -58,10 +62,10 @@ const FormFields = ({
           name='name'
           className='form-control
           block
-          w-96
           px-2
           py-2
           text-sm
+          w-full
           font-normal
           bg-[#494949] bg-clip-padding
           border border-solid border-[#494949]
@@ -76,7 +80,7 @@ const FormFields = ({
           id='message'
           name='postText'
           rows='4'
-          className='bg-[#494949] placeholder-[#9f9f9f] mt-3 block p-2.5 w-96 shadow-sm border-slate-300 focus:outline-none block rounded-md sm:text-sm focus:ring-2'
+          className='bg-[#494949] placeholder-[#9f9f9f] mt-3 block p-2.5 w-full shadow-sm border-slate-300 focus:outline-none block rounded-md sm:text-sm focus:ring-2'
           placeholder='Mensagem'
           onChange={handleChange}
         ></textarea>
