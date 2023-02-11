@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import delele from "../../assets/img/delete.png";
-import logo from "../../assets/img/img.png";
 import {
   ContainerPost,
   GridPost,
@@ -19,10 +18,10 @@ import {
 } from "../../styles";
 
 import { createContextGlobal } from "../../context/GlobalContext";
-
+import { Type } from "../../helpers";
+import usePublishPost from "../../hooks/usePublishPost";
 export default function PublishPost() {
-  const { handleClickRemovePost, posts } = useContext(createContextGlobal);
-
+  const { posts, handleClickRemovePost } = usePublishPost();
   return (
     <ContainerPost>
       {posts.length > 1 && <TextFeedPost>Feed</TextFeedPost>}

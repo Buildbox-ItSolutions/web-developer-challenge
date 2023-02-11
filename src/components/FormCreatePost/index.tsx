@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import React, { ChangeEvent, useContext } from "react";
 import Img from "../../assets/img/img.png";
 import trash from "../../assets/img/trash.png";
 import { createContextGlobal } from "../../context/GlobalContext";
-
+import { Type } from "../../helpers";
+import useFormCreate from "../../hooks/useFormCreate";
 import {
   ContainerFormPost,
   GridFormPost,
@@ -22,20 +23,23 @@ import {
 export default function FormCreatePost() {
   const {
     handleChangeFiledPost,
-    stateFileds,
-    valueImg,
-    fileImg,
-    handleOploadImg,
-    removeFileImg,
     handleSubmitPost,
-  } = useContext(createContextGlobal);
+    discardPorts,
+    removeFileImg,
+    state,
+  } = useFormCreate();
 
   return (
     <ContainerFormPost>
       <GridFormPost>
         <GridImgPost>
-          {valueImg ? (
-            <ImgPostForm width={88} height={88} src={fileImg} alt={fileImg} />
+          {state.fields.valueImg ? (
+            <ImgPostForm
+              width={88}
+              height={88}
+              src={state.fileImg}
+              alt={state.fileImg}
+            />
           ) : (
             <RemoveImgForm src={Img} alt={Img} />
           )}
@@ -44,12 +48,13 @@ export default function FormCreatePost() {
             <InputFilePost
               type="file"
               id="file-selection"
-              value={valueImg}
-              onChange={handleOploadImg}
+              name="valueImg"
+              value={state.fields.valueImg}
+              onChange={handleChangeFiledPost}
             />
           </InputLabelPost>
 
-          {valueImg && (
+          {state.fields.valueImg && (
             <ButtonRemoveImgPost onClick={removeFileImg}>
               <RemoveImgForm src={trash} alt={trash} />
             </ButtonRemoveImgPost>
@@ -60,7 +65,7 @@ export default function FormCreatePost() {
             <InputPost
               placeholder="Digite seu nome"
               name="author"
-              value={stateFileds.author}
+              value={state.fields.author}
               onChange={handleChangeFiledPost}
             />
           </GridInput>
@@ -68,12 +73,14 @@ export default function FormCreatePost() {
             <TextareaPost
               placeholder="Mensagem"
               name="message"
-              value={stateFileds.message}
+              value={state.fields.message}
               onChange={handleChangeFiledPost}
             />
           </GridInput>
           <GridButtonsPost>
             <ButtonsPost
+              onClick={discardPorts}
+              type="button"
               backgroundColor={"transparent"}
               color={"#5f5f5f"}
               textDecoration={"underline"}
@@ -82,12 +89,26 @@ export default function FormCreatePost() {
             </ButtonsPost>
             <ButtonsPost
               disabled={
-                fileImg && stateFileds.message && stateFileds.author
+                state.fields.valueImg &&
+                state.fields.message &&
+                state.fields.author
                   ? false
                   : true
               }
-              backgroundColor={"#5f5f5f"}
-              color={"#313131"}
+              backgroundColor={
+                state.fields.valueImg &&
+                state.fields.message &&
+                state.fields.author
+                  ? "#71bb00"
+                  : "#5f5f5f"
+              }
+              color={
+                state.fields.valueImg &&
+                state.fields.message &&
+                state.fields.author
+                  ? "#ffffff"
+                  : "#313131"
+              }
               type="submit"
             >
               Publicar
