@@ -16,12 +16,12 @@ const InitialState: State = {
   },
 };
 
-interface GlobalContext {
+interface GlobalContextState {
   dispatch: React.Dispatch<Action>;
   state: State;
 }
 
-export const createContextGlobal = createContext<GlobalContext>({
+export const createContextGlobal = createContext<GlobalContextState>({
   dispatch: () => null,
   state: InitialState
 });

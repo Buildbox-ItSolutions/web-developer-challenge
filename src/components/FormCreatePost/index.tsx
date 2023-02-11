@@ -1,8 +1,5 @@
-import React, { ChangeEvent, useContext } from "react";
 import Img from "../../assets/img/img.png";
 import trash from "../../assets/img/trash.png";
-import { createContextGlobal } from "../../context/GlobalContext";
-import { Type } from "../../helpers";
 import useFormCreate from "../../hooks/useFormCreate";
 import {
   ContainerFormPost,

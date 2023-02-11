@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import delele from "../../assets/img/delete.png";
 import {
   ContainerPost,
@@ -16,10 +15,9 @@ import {
   GridPusblishByWhom,
   RemoveImgPublishPost,
 } from "../../styles";
-
-import { createContextGlobal } from "../../context/GlobalContext";
-import { Type } from "../../helpers";
 import usePublishPost from "../../hooks/usePublishPost";
+
+
 export default function PublishPost() {
   const { posts, handleClickRemovePost } = usePublishPost();
   return (
