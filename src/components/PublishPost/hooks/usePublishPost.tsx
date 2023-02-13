@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { createContextGlobal } from "../context/GlobalContext";
-import { Type } from "../helpers";
+import { createContextGlobal } from "../../../context/GlobalContext";
+import { Type } from "../../../helpers/types";
 export default function usePublishPost() {
   const { dispatch, state } = useContext(createContextGlobal);
   

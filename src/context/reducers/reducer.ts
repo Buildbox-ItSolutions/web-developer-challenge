@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { State, Type, Action } from "../helpers";
+import { State, Type, Action } from "../../helpers/types";
 
 export function reducer(state: State, action: Action) {
   switch (action.type) {

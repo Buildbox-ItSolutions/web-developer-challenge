@@ -1,6 +1,6 @@
 import { useContext, ChangeEvent } from "react";
-import { createContextGlobal } from "../context/GlobalContext";
-import { Type } from "../helpers";
+import { createContextGlobal } from "../../../context/GlobalContext";
+import { Type } from "../../../helpers/types";
 export default function useFormCreate() {
   const { dispatch, state } = useContext(createContextGlobal);
 

@@ -1,7 +1,7 @@
 import { ReactNode, useReducer } from "react";
 import { createContext } from "react";
-import { reducer } from "./reducer";
-import { Action, State } from "../helpers";
+import { reducer } from "./reducers/reducer";
+import { Action, State } from "../helpers/types";
 
 interface ElementsChildren {
   children?: ReactNode;
