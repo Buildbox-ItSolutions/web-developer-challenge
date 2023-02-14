@@ -5,7 +5,3 @@ export default () => (
     <PostPage />
   </GlobalContext>
 );
-
-
-//implementar regra de imagem add e remove 
-//adionar post e remover post
