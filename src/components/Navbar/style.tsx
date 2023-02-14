@@ -4,7 +4,6 @@ import styled from "styled-components";
 // TODO variaveis de cores
 
 export const Container = styled.nav`
-  width: 100vw;
   position: sticky;
   height: 93px;
   background-color: #2b2b2b;
@@ -13,6 +12,9 @@ export const Container = styled.nav`
   a {
     text-decoration: none;
   }
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `;
 
 export const LogoWrapper = styled.div`

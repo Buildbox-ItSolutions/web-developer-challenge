@@ -67,7 +67,6 @@ export const FileInput = styled.input`
   width: 88px;
   height: 88px;
   cursor: pointer;
-  z-index: 99;
 `;
 
 export const UploadedImg = styled.img`
@@ -84,11 +83,14 @@ export const NameInput = styled.input`
   padding: 12px;
   outline: none;
   background-color: #494949;
-  color: #9f9f9f;
+  color: #ffffff;
   outline: none;
   margin-bottom: 8px;
   border: none;
   font-family: "Roboto";
+  ::placeholder {
+    color: #9f9f9f;
+  }
 `;
 
 export const MessageInput = styled.textarea`
@@ -98,13 +100,16 @@ export const MessageInput = styled.textarea`
   padding: 12px;
   outline: none;
   background-color: #494949;
-  color: #9f9f9f;
+  color: #ffffff;
   outline: none;
   margin-bottom: 8px;
   border: none;
   font-family: "Roboto";
   min-height: 80px;
   resize: none;
+  ::placeholder {
+    color: #9f9f9f;
+  }
 `;
 
 export const DiscardButton = styled.button`

@@ -3,11 +3,14 @@ import placeHolderImg from "../../assets/imgs/image.svg";
 import trashImg from "../../assets/imgs/trash.svg";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addPosts } from "../../redux/slicePosts";
 
 type UserSubmitForm = {
   name: string;
   message: string;
   image: string;
+  id: string;
 };
 
 export const Form = () => {
@@ -18,6 +21,8 @@ export const Form = () => {
     trigger,
     formState: { isValid, errors },
   } = useForm<UserSubmitForm>({ mode: "all" });
+
+  const dispatch = useDispatch();
 
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -39,7 +44,9 @@ export const Form = () => {
   const onSubmit = (data: UserSubmitForm) => {
     // TODO redux dispatch para a lista do feed
     resetForm();
-    console.log({ ...data, image: selectedImage });
+    const id = (+new Date()).toString(36);
+    const body = { ...data, image: selectedImage, id: id };
+    dispatch(addPosts(body));
   };
 
   const resetForm = () => {
