@@ -1,15 +1,27 @@
 import * as S from "./style";
 import placeHolderImg from "../../assets/imgs/image.svg";
+import trashImg from "../../assets/imgs/trash.svg";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type UserSubmitForm = {
+  name: string;
+  message: string;
+  image: string;
+};
 
 export const Form = () => {
-  const [selectedImage, setSelectedImage] = useState("");
-  const [formState, setFormState] = useState({
-    name: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    trigger,
+    formState: { isValid, errors },
+  } = useForm<UserSubmitForm>({ mode: "all" });
 
-  const onSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const onSelectFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target?.files?.length) {
       return;
     }
@@ -19,69 +31,84 @@ export const Form = () => {
       return URL.createObjectURL(file);
     })[0];
 
+    await trigger(["image"]);
+
     setSelectedImage(imageUrl);
   };
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { value, name } = event.target;
-    setFormState({ ...formState, [name]: value });
-  };
-
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    // TODO redux here
-
-    const body = { ...formState, img: selectedImage };
-    console.log(body);
+  const onSubmit = (data: UserSubmitForm) => {
+    // TODO redux dispatch para a lista do feed
+    resetForm();
+    console.log({ ...data, image: selectedImage });
   };
 
   const resetForm = () => {
-    setFormState({ name: "", message: "" });
-    setSelectedImage('')
+    reset({
+      name: "",
+      message: "",
+      image: "",
+    });
+    resetImage();
   };
 
   const resetImage = () => {
-    setSelectedImage('');
-  }
+    setSelectedImage("");
+  };
+
+  const handleTrash = async () => {
+    resetImage();
+    reset({
+      image: "",
+    });
+  };
 
   return (
-    <S.Container onSubmit={handleSubmit}>
+    <S.Container onSubmit={handleSubmit(onSubmit)}>
       <S.ImgWrapper>
         <S.FileInput
+          {...register("image", { required: true })}
+          onChange={onSelectFile}
           type="file"
           name="image"
-          onChange={onSelectFile}
           accept="image/png, image/jpeg, image/webp"
         />
         {!selectedImage ? (
-          <img src={placeHolderImg} alt="placeholder img symbol" />
+          <img src={placeHolderImg} alt="placeholder img icon" />
         ) : (
-          <S.UploadedImg src={selectedImage} alt="uploaded img" />
+          <>
+            <S.UploadedImg src={selectedImage} alt="uploaded img" />
+            <S.TrashImg
+              onClick={handleTrash}
+              src={trashImg}
+              alt="trashcan icon"
+            />
+          </>
         )}
+        <div className="invalid-feedback">{errors.image?.message}</div>
       </S.ImgWrapper>
       <S.InputWrapper>
         <S.NameInput
+          {...register("name", { required: true })}
           name="name"
           placeholder="Digite seu nome"
           type="text"
-          value={formState.name}
-          onChange={handleChange}
         />
+        <div className="invalid-feedback">{errors.name?.message}</div>
         <S.MessageInput
+          {...register("message", { required: true })}
           name="message"
           placeholder="Mensagem"
-          value={formState.message}
-          onChange={handleChange}
           draggable={false}
         />
+        <div className="invalid-feedback">{errors.message?.message}</div>
       </S.InputWrapper>
       <S.ButtonWrapper>
-        <button type="button" onClick={resetForm}>
+        <S.DiscardButton type="button" onClick={resetForm}>
           Descartar
-        </button>
-        <button type="submit">Publicar</button>
+        </S.DiscardButton>
+        <S.PublishButton disabled={!isValid} type="submit">
+          Publicar
+        </S.PublishButton>
       </S.ButtonWrapper>
     </S.Container>
   );

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+// TODO refatoração criar variaveis de cores
+
 export const Container = styled.form`
   display: flex;
   flex-direction: column;
@@ -7,10 +9,12 @@ export const Container = styled.form`
   color: white;
   width: 37vw;
   max-width: 550px;
-  background-color: #3b3b3b;
+  background-color: #313131;
   padding: 24px;
   gap: 40px;
   margin: 40px auto 0;
+  border-radius: 3px;
+  border: solid 1px #3b3b3b;
 `;
 
 export const InputWrapper = styled.div`
@@ -101,4 +105,34 @@ export const MessageInput = styled.textarea`
   font-family: "Roboto";
   min-height: 80px;
   resize: none;
+`;
+
+export const DiscardButton = styled.button`
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-family: Roboto;
+  font-size: 14px;
+  color: #5f5f5f;
+  text-decoration: underline;
+  font-size: 14px;
+`;
+
+export const PublishButton = styled.button`
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: ${(props) => (props.disabled ? "#5f5f5f" : "#71bb00")};
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: ${(props) => (props.disabled ? "#313131" : "#ffffff")};
+  font-size: 14px;
+`;
+
+export const TrashImg = styled.img`
+  position: absolute;
+  left: 100px;
 `;
