@@ -1,7 +1,7 @@
 import * as S from "./style";
 import placeHolderImg from "../../assets/imgs/image.svg";
 import trashImg from "../../assets/imgs/trash.svg";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addPosts } from "../../redux/slicePosts";
@@ -14,39 +14,45 @@ type UserSubmitForm = {
 };
 
 export const Form = () => {
+  const [selectedImage, setSelectedImage] = useState("");
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     reset,
     trigger,
-    formState: { isValid, errors },
-  } = useForm<UserSubmitForm>({ mode: "all" });
-
-  const dispatch = useDispatch();
-
-  const [selectedImage, setSelectedImage] = useState("");
+    formState: { isValid },
+  } = useForm<UserSubmitForm>();
 
   const onSelectFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target?.files?.length) {
       return;
     }
+
+    // creating an ObjectURL so we can display the img preview. This can be escalated to accept more imgs in the future.
     const selectedFiles = event.target.files;
     const selectedFilesArray = Array.from(selectedFiles);
     const imageUrl = selectedFilesArray.map((file) => {
       return URL.createObjectURL(file);
     })[0];
 
+    // triggering validation for 'image' field
     await trigger(["image"]);
 
     setSelectedImage(imageUrl);
   };
 
   const onSubmit = (data: UserSubmitForm) => {
-    // TODO redux dispatch para a lista do feed
     resetForm();
+    // creating a unique ID for the body
     const id = (+new Date()).toString(36);
     const body = { ...data, image: selectedImage, id: id };
     dispatch(addPosts(body));
+  };
+
+  const resetImage = () => {
+    setSelectedImage("");
   };
 
   const resetForm = () => {
@@ -58,11 +64,7 @@ export const Form = () => {
     resetImage();
   };
 
-  const resetImage = () => {
-    setSelectedImage("");
-  };
-
-  const handleTrash = async () => {
+  const handleTrash = () => {
     resetImage();
     reset({
       image: "",
@@ -91,7 +93,6 @@ export const Form = () => {
             />
           </>
         )}
-        <div className="invalid-feedback">{errors.image?.message}</div>
       </S.ImgWrapper>
       <S.InputWrapper>
         <S.NameInput
@@ -100,14 +101,12 @@ export const Form = () => {
           placeholder="Digite seu nome"
           type="text"
         />
-        <div className="invalid-feedback">{errors.name?.message}</div>
         <S.MessageInput
           {...register("message", { required: true })}
           name="message"
           placeholder="Mensagem"
           draggable={false}
         />
-        <div className="invalid-feedback">{errors.message?.message}</div>
       </S.InputWrapper>
       <S.ButtonWrapper>
         <S.DiscardButton type="button" onClick={resetForm}>

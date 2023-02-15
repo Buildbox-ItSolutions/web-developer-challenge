@@ -1,4 +1,4 @@
-import React, { FC, useId } from "react";
+import { FC } from "react";
 import * as S from "./style";
 import deleteImg from "../../assets/imgs/delete.svg";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,13 +15,16 @@ export const Feed = () => {
   const posts = useSelector(usePosts);
 
   return (
-    <div>
-      {posts.length ? (
-        posts.map((eachItem) => <FeedItem {...eachItem} />)
-      ) : (
-        <span>Nenhum item a ser mostrado</span>
-      )}
-    </div>
+    <S.Container>
+      <S.FeedText>Feed</S.FeedText>
+      <S.FeedItemsList>
+        {posts.length ? (
+          posts.map((eachItem) => <FeedItem {...eachItem} />)
+        ) : (
+          <S.NoItemsText>Nenhum item a ser mostrado</S.NoItemsText>
+        )}
+      </S.FeedItemsList>
+    </S.Container>
   );
 };
 
@@ -33,7 +36,7 @@ const FeedItem: FC<FeedItemProps> = ({ name, message, image, id }) => {
   };
 
   return (
-    <S.Container>
+    <S.FeedItemWrapper>
       <S.DeleteIcon src={deleteImg} alt="x icon" onClick={handleDelete} />
       <S.ImageWrapper>
         <S.PostImage alt="uploaded img from user" src={image} />
@@ -45,6 +48,6 @@ const FeedItem: FC<FeedItemProps> = ({ name, message, image, id }) => {
         </S.SentByText>
         <S.AuthorText>{name}</S.AuthorText>
       </S.TextWrapper>
-    </S.Container>
+    </S.FeedItemWrapper>
   );
 };

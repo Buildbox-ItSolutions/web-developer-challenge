@@ -20,12 +20,14 @@ export const Container = styled.nav`
 export const LogoWrapper = styled.div`
   width: 103px;
   height: 45px;
-  object-fit: cover;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   text-align: center;
 `;
+
+export const LogoLink = styled.a`
+  display: flex;
+  flex-direction: column;
+`
 
 export const Logo = styled.span`
   font-family: 'SFProDisplay';

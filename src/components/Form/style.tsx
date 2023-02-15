@@ -7,7 +7,7 @@ export const Container = styled.form`
   flex-direction: column;
   align-items: center;
   color: white;
-  width: 37vw;
+  width: 80vw;
   max-width: 550px;
   background-color: #313131;
   padding: 24px;
@@ -18,6 +18,7 @@ export const Container = styled.form`
 `;
 
 export const InputWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -77,7 +78,7 @@ export const UploadedImg = styled.img`
 `;
 
 export const NameInput = styled.input`
-  width: 34vw;
+  width: 100%;
   max-width: 470px;
   border-radius: 8px;
   padding: 12px;
@@ -94,7 +95,7 @@ export const NameInput = styled.input`
 `;
 
 export const MessageInput = styled.textarea`
-  width: 34vw;
+  width: 100%;
   max-width: 470px;
   border-radius: 8px;
   padding: 12px;
@@ -124,6 +125,7 @@ export const DiscardButton = styled.button`
   color: #5f5f5f;
   text-decoration: underline;
   font-size: 14px;
+  cursor: pointer;
 `;
 
 export const PublishButton = styled.button`
@@ -135,6 +137,9 @@ export const PublishButton = styled.button`
   border: none;
   color: ${(props) => (props.disabled ? "#313131" : "#ffffff")};
   font-size: 14px;
+  :disabled {
+    cursor: not-allowed;
+  }
 `;
 
 export const TrashImg = styled.img`
