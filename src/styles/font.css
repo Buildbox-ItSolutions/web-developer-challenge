@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../assets/fonts/SFProDisplay-Black.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay-Light';
+    src: url('../assets/fonts/SFProDisplay-Light.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf');
+    font-display: swap;
+}
