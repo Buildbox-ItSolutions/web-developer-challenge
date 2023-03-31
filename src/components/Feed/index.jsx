@@ -22,7 +22,7 @@ function Feed() {
     <style.FeedContainer>
       <style.FeedContent>
         <span className='title-feed'>Feed</span>
-        { listPosts.reverse().map((item, index) =>
+        { listPosts.map((item, index) =>
           <Post
             key={item.name}
             index={index}
