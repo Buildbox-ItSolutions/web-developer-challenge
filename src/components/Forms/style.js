@@ -64,7 +64,7 @@ export const Forms = styled.div`
     gap: 10px;
 
     .input {
-      padding: 12px 8px;
+      padding: 18px 12px;
       
       outline: 0;
       border: solid 1px #3b3b3b;
@@ -72,10 +72,12 @@ export const Forms = styled.div`
       border-radius: 8px;
       color: white;
       font-family: Roboto;
+      font-size: 1rem;
     }
 
     .input-message {
       height: 80px;
+      resize: none;
     }
   }
 

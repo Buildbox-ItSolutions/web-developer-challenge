@@ -57,9 +57,11 @@ function Index() {
               onChange={handleImageUpload} 
             />
           </button>
-          <button onClick={deleteImage} className='delete-image'>
-            <SlTrash/>
-          </button>
+          {postInfos.image === '' || 
+            <button onClick={deleteImage} className='delete-image'>
+              <SlTrash/>
+            </button>
+          }
         </div>
 
         <div className='inputs-texts'>

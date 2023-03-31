@@ -33,6 +33,7 @@ export const PostContainer = styled.div`
   .post-infos {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     padding-left: 20px;
     p {
       font-size: 1.2rem;
@@ -41,10 +42,10 @@ export const PostContainer = styled.div`
     span {
       font-size: .8rem;
       color: #5f5f5f;
-      margin: 15px 0 4px 0;
     }
     h4 {
       color: #7a7a7a;
+      margin-top: 5px;
     }
   }
 

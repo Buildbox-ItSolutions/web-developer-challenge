@@ -10,8 +10,10 @@ function Post({...props}) {
         <div className='user-image'/>
         <div className='post-infos'>
           <p>{props.message}</p>
-          <span>Enviado por</span>
-          <h4>{props.name}</h4>
+          <div>
+            <span>Enviado por</span>
+            <h4>{props.name}</h4>
+          </div>
         </div>
         <button onClick={() => props.handleDeletePost(props.index)}>
           <AiOutlineCloseCircle/>
