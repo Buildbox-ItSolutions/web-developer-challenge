@@ -1,3 +1,4 @@
+import Header from './components/Header'
 import { GlobalStyle } from './styles/GlobalStyle'
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
   return (
     <>
     <main>
-      <h1>BuildBox | Desafio Web Developer</h1>
+     <Header/>
     </main>
   <GlobalStyle/>
     </>

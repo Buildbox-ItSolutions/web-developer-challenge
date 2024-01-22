@@ -32,8 +32,8 @@ const Theme = {
   },
 
   header: {
-    maxHeight: "93px",
-    padding: "24px 0 24px 0",
+    maxHeight: "10vh",
+    padding: "24px 0",
     marginBottom: "40px",
   }
 
