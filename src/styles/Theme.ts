@@ -31,8 +31,7 @@ const Theme = {
   },
 
   avatar: {
-    maxWidth: "88px",
-    maxHeight: "88px",
+    size: "88px",
     objectFit: "contain",
     borderRadius: "36px"
   },
