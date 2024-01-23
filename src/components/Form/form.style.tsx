@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,14 +36,14 @@ export const AvatarLabel = styled.label`
   }
 `;
 
-export const AvatarWrapper = styled.img<{ hasImage: boolean }>`
-  border: ${({ theme, hasImage }) => (hasImage ? "none" : theme.card.border)};
+export const AvatarWrapper = styled.img<{ $hasImage: boolean }>`
+  border: ${({ theme, $hasImage }) => ($hasImage ? "none" : theme.card.border)};
   object-fit: cover;
   border-radius: ${({ theme }) => theme.avatar.borderRadius};
 
   width: ${({ theme }) => theme.avatar.size};
   height: ${({ theme }) => theme.avatar.size};
-  padding: ${({ hasImage }) => (hasImage ? "0" : "24px")};
+  padding: ${({ $hasImage }) => ($hasImage ? "0" : "24px")};
 `;
 
 export const Input = styled.input`

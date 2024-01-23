@@ -22,7 +22,8 @@ const Forms: React.FunctionComponent = () => {
       <Form.Container>
         <Form.AvatarLabel htmlFor="avatar-field">
           <Form.AvatarWrapper
-            hasImage={!!selectedImage}
+          
+            $hasImage={!!selectedImage}
             src={selectedImage || PlaceholderImage}
           />
           {!!selectedImage && <TrashIcon onClick={resetAvatar} />}
