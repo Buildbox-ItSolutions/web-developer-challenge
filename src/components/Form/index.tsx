@@ -2,6 +2,10 @@ import Image from 'next/image'
 import { ChangeEvent, FormEvent, useState } from "react"
 import { Actions, FormContainer } from './style'
 
+/** TO-DO
+ * Validação de formulário usando Reack-hook-form e Zod
+ */
+
 interface FormProps {
   onSubmit: (data: any) => void
 }
