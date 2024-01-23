@@ -6,6 +6,7 @@ export const FormContainer = styled.div`
   border: 1px solid var(--gray-500);
 
   padding: 24px;
+  margin-bottom: 8rem;
 
   form {
     display: flex;
@@ -40,7 +41,7 @@ export const FormContainer = styled.div`
     padding: 16px;
     border: none;
     border-radius: 8px;
-    color: var(--white);
+    color: var(--gray-100);
     background: var(--gray-400);
   }
 `
@@ -62,7 +63,7 @@ export const Actions = styled.div`
   }
 
   button.sub {
-    color: var(--white);
+    color: var(--gray-100);
     background: var(--green);
   }
 

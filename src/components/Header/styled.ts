@@ -7,6 +7,7 @@ export const HeaderContainer = styled.div`
 
   width: 100%;
   height: 9rem;
+  margin-bottom: 4rem;
 
   background: var(--gray-900);
 `

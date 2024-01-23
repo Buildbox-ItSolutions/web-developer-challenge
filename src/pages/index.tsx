@@ -1,14 +1,26 @@
 import Form from "@/components/Form"
 import Header from "@/components/Header"
+import Post from "@/components/Post"
+import { useState } from "react"
 import { Container } from "./home.style"
 
-export default function Home() {
-  async function handleFormSubmit(data: any) {
-    console.log(data)
+interface PostsProps {
+  id: string // Geralmente UUID
+  image: string
+  name: string
+  comment: string
+}
 
-    await new Promise((resolve) => {
-      setTimeout(() => resolve(true), 1000)
-    })
+export default function Home() {
+  const [posts, setPosts] = useState<PostsProps[]>([])
+
+  async function handleFormSubmit(data: any) {
+    const newPost = {
+      id: new Date().getTime().toString(),
+      ...data,
+    }
+
+    setPosts(state => [...state, newPost])
   }
 
   return (
@@ -16,7 +28,7 @@ export default function Home() {
       <Header />
       <Container>
         <Form onSubmit={handleFormSubmit} />
-        <h1>Hello World</h1>
+        <Post />
       </Container>
     </main>
   )
