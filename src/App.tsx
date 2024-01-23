@@ -1,3 +1,4 @@
+import Forms from './components/Form'
 import Header from './components/Header'
 import { GlobalStyle } from './styles/GlobalStyle'
 
@@ -7,6 +8,7 @@ function App() {
     <>
     <main>
      <Header/>
+     <Forms/>
     </main>
   <GlobalStyle/>
     </>

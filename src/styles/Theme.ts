@@ -9,17 +9,23 @@ const Theme = {
     bgCards: "#313131",
   },
 
+  inputs:{
+    border: `solid 1px #3b3b3b`,
+    padding: "12px 16px",
+    borderRadius: "8px",
+  },
+
   button: {
     actived: "#71bb00",
     disabled: "#5f5f5f",
-    margin: "0 0 0 24px",
     padding: "12px 24px",
     borderRadius: "8px",
   },
 
   card: {
-    margin: "8px 425px 16px",
-    padding: "12px 12px 32px 24px",
+    maxWidth: "720px",
+    padding: "12px 24px",
+    margin: "16px",
     borderRadius: "3px",
     border: `solid 1px #3b3b3b`
   },
