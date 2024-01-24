@@ -24,8 +24,10 @@ export const Title = styled.span`
 
 export const CardList = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-grow: 1;
   gap: 16px;
   margin-bottom: 170px;
@@ -33,4 +35,5 @@ export const CardList = styled.div`
 
 export const EmptyCards = styled(Title)`
   margin: 32px 0;
+  text-align: center;
 `;
