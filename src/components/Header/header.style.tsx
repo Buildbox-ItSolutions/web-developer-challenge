@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,3 +15,7 @@ export const HeaderContainer = styled.header`
   max-height: ${(props) => props.theme.header.maxHeight};
   padding: ${(props) => props.theme.header.padding};
 `;
+
+export const Image = styled.img`
+padding: 24px 0;
+`

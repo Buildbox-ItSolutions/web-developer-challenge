@@ -1,12 +1,12 @@
 import * as React from "react";
-import { HeaderContainer } from "./header.style";
-import Logo from "../../assets/bx-logo.svg?react";
+import * as Head from "./header.style";
+import Logo from "../../assets/bx-logo.svg";
 
 const Header: React.FunctionComponent = () => {
   return (
-    <HeaderContainer>
-      <Logo />
-    </HeaderContainer>
+    <Head.Container>
+      <Head.Image src={Logo} alt="Buildbox web challenge"/>
+    </Head.Container>
   );
 };
 
