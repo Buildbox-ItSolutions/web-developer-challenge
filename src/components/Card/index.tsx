@@ -2,16 +2,22 @@ import { IPost } from "../../types/post.types";
 import * as Post from "./card.styles";
 import PlaceholderImage from "../../assets/image.svg";
 import DeleteIcon from "../../assets/delete.svg";
+import { usePosts } from "../../hooks/usePosts";
 const Card: React.FunctionComponent<IPost> = ({
   id,
   image,
   createdBy,
   message,
 }) => {
+  const { deletePost } = usePosts();
+ function handleDelete(){
+   
+     deletePost(id)
+  }
   return (
     <>
       <Post.Wrapper id={id}>
-        <Post.Delete src={DeleteIcon}/>
+        <Post.Delete src={DeleteIcon} onClick={handleDelete} />
         <Post.AvatarWrapper
           $hasImage={!!image}
           src={image || PlaceholderImage}

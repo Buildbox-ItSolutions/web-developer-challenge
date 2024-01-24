@@ -16,9 +16,7 @@ const PostsProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const deletePost = (id: string) => {
-    const updatedPosts = [...posts];
-    updatedPosts.filter((eachItem) => eachItem.id !== id);
-    setPost(updatedPosts);
+    setPost((postData) => postData.filter((item) => item.id !== id));
   };
   return (
     <PostContext.Provider value={{ posts, savePost, deletePost }}>
