@@ -23,6 +23,8 @@ const Forms: React.FunctionComponent = () => {
     const id = (+new Date()).toString(36);
     const body = { ...data, id: id };
     savePost(body)
+
+    resetForm()
   };
 
   async function handleAvatar(e: React.ChangeEvent<HTMLInputElement>) {
@@ -43,7 +45,6 @@ const Forms: React.FunctionComponent = () => {
   function resetForm(){
     resetAvatar()
     reset()
-
   }
   return (
     <>
