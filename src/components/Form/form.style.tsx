@@ -10,7 +10,7 @@ export const Container = styled.form`
   border-radius: ${(props) => props.theme.card.borderRadius};
   border: ${(props) => props.theme.card.border};
 
-  padding: ${(props) => props.theme.card.padding};
+  padding: 24px;
   margin: ${(props) => props.theme.card.margin};
   background: ${(props) => props.theme.color.bgCards};
 
