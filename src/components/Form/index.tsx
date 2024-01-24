@@ -4,9 +4,12 @@ import PlaceholderImage from "../../assets/image.svg";
 import TrashIcon from "../../assets/trash.svg?react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IPost } from "../../types/post.types";
+import { usePosts } from "../../hooks/usePosts";
 
 const Forms: React.FunctionComponent = () => {
   const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
+
+  const {savePost}=usePosts()
 
   const {
     reset,
@@ -19,7 +22,7 @@ const Forms: React.FunctionComponent = () => {
   const onSubmit: SubmitHandler<IPost> = (data) => {
     const id = (+new Date()).toString(36);
     const body = { ...data, id: id };
-    alert(JSON.stringify(body))
+    savePost(body)
   };
 
   async function handleAvatar(e: React.ChangeEvent<HTMLInputElement>) {
