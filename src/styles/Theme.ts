@@ -23,8 +23,9 @@ const Theme = {
   },
 
   card: {
+    gap:"32px",
     maxWidth: "720px",
-    padding: "12px 24px",
+    padding: "56px 24px 32px",
     margin: "16px",
     borderRadius: "3px",
     border: `solid 1px #3b3b3b`
