@@ -8,23 +8,37 @@ O Desafio é o seguinte:
 
 Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+## O que foi utilizado
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+ - TypeScript
+ - ReactJS (v. 18.2.0)
+ - Redux
+ - Styled Components
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+## Como executar
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+**Importante** Usar a versão 16.* do NodeJS
 
+1. Para executar o teste, é necessário baixar o projeto e dentro do diretório dele é necessário executar o seguinte comando para instalar as dependências:
+```
+ $ npm i
+```
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+2. Agora vamos rodar a versão para debug (versão de desenvolvimento):
+```
+ $ npm start
+```
+ Após a execução do comando, uma página do seu navegador irá abrir automaticamente com a aplicação, caso isso não aconteça, você deve entrar em [http://localhost:3000](http://localhost:3000)
 
-## Design - Zeplin
-https://app.zeplin.io/login
+3. Caso criar uma versão de produção, é necessário executar o comando
+```
+ $ npm run-build
+```
+ Após a conclusão do build, um diretório será criado com o nome `/build`, nele estará contido o build com os arquivos estáticos para serem enviados a um servidor ou abrí-los localmente usando o [Serve](https://www.npmjs.com/package/serve), por exemplo.
 
-E-mail - buildbox.guest@gmail.com
+ ## Imagens do projeto
 
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+![Tela inicial](./screenshots/screenshot-1.png)
+![Tela inicial com imagem pronta para ser enviada](./screenshots/screenshot-2.png)
+![Tela inicial com imagem enviada](./screenshots/screenshot-3.png)
+![Tela inicial responsiva com imagem enviada](./screenshots/screenshot-4.png)
