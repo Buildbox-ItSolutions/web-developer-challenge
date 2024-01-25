@@ -17,6 +17,8 @@ Monte uma página utilizando React.js que contenha uma lista de posts com a poss
 
 ## Como executar
 
+**Importante** Usar a versão 16.* do NodeJS
+
 1. Para executar o teste, é necessário baixar o projeto e dentro do diretório dele é necessário executar o seguinte comando para instalar as dependências:
 ```
  $ npm i
