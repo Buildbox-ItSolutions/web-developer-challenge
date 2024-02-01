@@ -9,9 +9,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #343434;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+header {
+  height: 93px;
+  padding: 24px 631px 24px 632px;
+  background-color: #2B2B2B;
+}
+
+.bx-logo {
+  width: 103px;
+  height: 45px;
+  margin: 0 auto;
+}
+
+.box-main {
+  width: 516px;
+  height: 353px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 3px;
+  border: solid 1px #494949;
+  background-color: #313131;
+}
+
+.box-feed {
+  width: 516px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 3px;
+  border: solid 1px #494949;
+  background-color: #313131;
+}
+
+.input {
+  width: 468px;
+  height: 40px;
+  margin: 16px 0 8px;
+  padding: 12px 351px 11px 16px;
+  border-radius: 8px;
+  background-color: #494949;
+  border: 0px;
+  color: aliceblue;
+}
+
+.input-text {
+  margin: 8px 0 32px;
+  padding: 12px 382px 51px 16px;
+  border-radius: 8px;
+  background-color: #494949;
+  height: 80px;
+  color: aliceblue;
+}
+
+.btn-submit {
+
+}
+.btn-delete {
+background-color: transparent;
+color: #494949;
 }

@@ -5,7 +5,7 @@ interface ListMessage {
     messages: [],
 }
 
-const ListMessages: React.FC = (props:ListMessage) => {
+/*const ListMessages: React.FC = (props:ListMessage) => {
     return (
             <>
             {props.messages.length > 0 && (
@@ -30,4 +30,4 @@ const ListMessages: React.FC = (props:ListMessage) => {
     )
 }
 
-export default ListMessages;
+export default ListMessages;*/
