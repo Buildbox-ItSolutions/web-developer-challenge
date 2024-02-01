@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Logo from '../../../public/img/bx-logo.png';
+import React from 'react';
 
 const Header: React.FC = () => {
     return (
