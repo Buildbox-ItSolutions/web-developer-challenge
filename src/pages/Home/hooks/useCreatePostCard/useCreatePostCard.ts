@@ -1,3 +1,4 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useAtom } from 'jotai'
 import { ChangeEvent, useRef, useState } from 'react'
 import { postsAtom } from '..'
@@ -7,13 +8,14 @@ function useCreatePostCard() {
   const [userName, setUserName] = useState('')
   const [postText, setPostText] = useState('')
 
+  const [parent] = useAutoAnimate()
+
   const [actualPosts, setPosts] = useAtom(postsAtom)
 
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   function handleSubmit() {
     setPosts([
-      ...actualPosts,
       {
         id: crypto.randomUUID(),
         text: postText,
@@ -23,6 +25,7 @@ function useCreatePostCard() {
           photo: userPhoto,
         },
       },
+      ...actualPosts,
     ])
 
     handleDiscard()
@@ -32,6 +35,10 @@ function useCreatePostCard() {
     setUserPhoto('')
     setUserName('')
     setPostText('')
+
+    if (!fileInputRef.current?.files?.length) return
+
+    fileInputRef.current.value = ''
   }
 
   function handleClickOnImage() {
@@ -53,6 +60,7 @@ function useCreatePostCard() {
   }
 
   return {
+    parent,
     userName,
     userPhoto,
     postText,

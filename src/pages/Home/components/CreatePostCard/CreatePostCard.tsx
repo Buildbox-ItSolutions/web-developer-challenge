@@ -3,6 +3,7 @@ import { useCreatePostCard } from '../../hooks/useCreatePostCard'
 
 function CreatePostCard() {
   const {
+    parent,
     userName,
     userPhoto,
     postText,
@@ -18,18 +19,20 @@ function CreatePostCard() {
   } = useCreatePostCard()
 
   return (
-    <article className="flex w-full flex-col gap-4 rounded-sm border border-greyish-brown-two bg-[#313131] p-6">
+    <article className="flex w-full flex-col gap-4 rounded-sm border border-gray-300 p-6 dark:border-greyish-brown-two dark:bg-[#313131]">
       <div className="flex w-full items-center justify-center">
         <button
+          ref={parent}
           onClick={handleClickOnImage}
-          className="flex h-[88px] w-[88px] items-center justify-center rounded-[36px] border border-greyish-brown-three"
+          className="flex h-[88px] w-[88px] items-center justify-center rounded-[36px] border border-gray-300 dark:border-greyish-brown-three"
         >
           {/* TODO: when image is uploaded, show the remove action on hover */}
           {userPhoto ? (
             <img
               src={userPhoto}
               alt="user photo"
-              className="h-[88px] w-[88px] rounded-[36px] border border-greyish-brown-three"
+              className="h-[88px] w-[88px] rounded-[36px] transition-opacity hover:opacity-70"
+              title="Trocar de foto"
             />
           ) : (
             <Image
@@ -54,13 +57,13 @@ function CreatePostCard() {
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Seu nome"
-          className="w-full rounded-lg bg-greyish-brown px-4 py-3 text-sm capitalize text-white outline-none placeholder:text-warm-grey-three"
+          className="w-full rounded-lg bg-gray-100 px-4 py-3 text-sm capitalize text-black-two outline-none placeholder:text-warm-grey-three dark:bg-greyish-brown dark:text-white"
         />
         <textarea
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
           placeholder="O que você está pensando?"
-          className="h-20 w-full resize-none rounded-lg bg-greyish-brown px-4 py-3 text-sm text-white outline-none placeholder:text-warm-grey-three"
+          className="h-20 w-full resize-none rounded-lg bg-gray-100 px-4 py-3 text-sm text-black-two outline-none placeholder:text-warm-grey-three dark:bg-greyish-brown dark:text-white"
         ></textarea>
       </div>
 
@@ -68,14 +71,16 @@ function CreatePostCard() {
         <button
           onClick={handleDiscard}
           disabled={!canDiscard}
-          className="text-sm text-warm-grey-three underline disabled:text-brownish-grey"
+          className="text-sm text-black-two underline disabled:text-gray-300 dark:text-warm-grey-three dark:disabled:text-brownish-grey"
+          title="Descartar post"
         >
-          Descartar
+          Limpar tudo
         </button>
         <button
           onClick={handleSubmit}
           disabled={!canPublish}
-          className="rounded-lg bg-primary px-6 py-3 text-sm text-white transition-colors hover:bg-primary/80 disabled:bg-brownish-grey disabled:text-[#313131]"
+          className="rounded-lg bg-primary px-6 py-3 text-sm text-white transition-colors hover:bg-primary/80 disabled:bg-gray-300 dark:disabled:bg-brownish-grey dark:disabled:text-[#313131]"
+          title="Publicar post"
         >
           Publicar
         </button>
