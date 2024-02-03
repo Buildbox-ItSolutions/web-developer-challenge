@@ -9,10 +9,7 @@ function Home() {
   return (
     <div className="flex w-full flex-1 flex-col items-center justify-center transition-colors dark:bg-black">
       <header className="flex w-full flex-1 items-center bg-black-two py-6">
-        <div
-          className="flex w-full flex-1"
-          style={{ marginLeft: 'scree' }}
-        >
+        <div className="flex w-full flex-1">
           <img
             src={BXLogo}
             alt="bx logo"
