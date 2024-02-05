@@ -1,28 +1,25 @@
-import { Moon, Sun } from 'lucide-react'
 import BXLogo from '../../assets/bx-logo@3x.png'
 import { CreatePostCard, FeedCard } from './components'
 import { useHome } from './hooks'
 
 function Home() {
-  const { posts, darkMode, parent, handleSwitchTheme } = useHome()
+  const { posts, parent } = useHome()
 
   return (
     <div className="flex w-full flex-1 flex-col items-center justify-center transition-colors dark:bg-black">
-      <header className="flex w-full flex-1 items-center bg-black-two py-6">
-        <div className="flex w-full flex-1">
-          <img
-            src={BXLogo}
-            alt="bx logo"
-            className="h-[45px] w-[103px]"
-          />
-        </div>
+      <header className="flex w-full flex-1 items-center justify-center bg-black-two py-6">
+        <img
+          src={BXLogo}
+          alt="bx logo"
+          className="h-[45px] w-[103px]"
+        />
 
-        <button
+        {/* <button
           onClick={handleSwitchTheme}
           className="mr-4 text-white"
         >
           {darkMode ? <Sun /> : <Moon />}
-        </button>
+        </button> */}
       </header>
 
       <main className="flex h-full w-full flex-1 flex-col items-center justify-center gap-14 px-4 py-10 md:w-[516px] md:px-0">
