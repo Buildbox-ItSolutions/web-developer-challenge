@@ -1,12 +1,12 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { useAtom } from 'jotai'
-import { ChangeEvent, useRef, useState } from 'react'
-import { postsAtom } from '..'
+import { useAutoAnimate } from "@formkit/auto-animate/react"
+import { useAtom } from "jotai"
+import { ChangeEvent, useRef, useState } from "react"
+import { postsAtom } from ".."
 
 function useCreatePostCard() {
-  const [userPhoto, setUserPhoto] = useState('')
-  const [userName, setUserName] = useState('')
-  const [postText, setPostText] = useState('')
+  const [userPhoto, setUserPhoto] = useState("")
+  const [userName, setUserName] = useState("")
+  const [postText, setPostText] = useState("")
 
   const [parent] = useAutoAnimate()
 
@@ -32,13 +32,13 @@ function useCreatePostCard() {
   }
 
   function handleDiscard() {
-    setUserPhoto('')
-    setUserName('')
-    setPostText('')
+    setUserPhoto("")
+    setUserName("")
+    setPostText("")
 
     if (!fileInputRef.current?.files?.length) return
 
-    fileInputRef.current.value = ''
+    fileInputRef.current.value = ""
   }
 
   function handleClickOnImage() {
@@ -67,6 +67,7 @@ function useCreatePostCard() {
     canPublish: !!userName && !!postText,
     canDiscard: !!userName || !!postText || !!userPhoto,
     fileInputRef,
+    setUserPhoto,
     setUserName,
     setPostText,
     handleFileChange,

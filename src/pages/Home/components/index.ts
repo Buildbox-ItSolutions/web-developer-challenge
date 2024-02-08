@@ -1,2 +1,2 @@
-export * from './CreatePostCard'
-export * from './FeedCard'
+export * from "./CreatePostCard"
+export * from "./FeedCard"

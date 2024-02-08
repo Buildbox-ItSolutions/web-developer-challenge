@@ -1,1 +1,1 @@
-export * from './useFeedCard'
+export * from "./useFeedCard"

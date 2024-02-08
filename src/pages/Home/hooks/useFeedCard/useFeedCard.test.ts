@@ -4,8 +4,6 @@ import { describe, test } from 'vitest'
 
 import { useFeedCard } from '.'
 
-const useAtomMock = vi.hoisted(() => vi.fn(() => ({ ...useAtom })))
-
 vi.mock('@formkit/auto-animate/react', () => ({
   useAutoAnimate: () => [vi.fn()],
 }))
@@ -13,6 +11,8 @@ vi.mock('@formkit/auto-animate/react', () => ({
 vi.mock('jotai', () => ({
   useAtom: useAtomMock,
 }))
+
+const useAtomMock = vi.hoisted(() => vi.fn(() => ({ ...useAtom })))
 
 const mockPosts = [
   { id: '1', user: { id: '1', name: 'user 1' }, text: '' },
@@ -29,11 +29,8 @@ describe('Feed Card Hook', () => {
 
     useAtomMock.mockReturnValue([mockPosts, setPostsMock])
 
-    const {
-      result: {
-        current: { handleDeletePost },
-      },
-    } = renderHook(useFeedCard)
+    const { result } = renderHook(useFeedCard)
+    const { handleDeletePost } = result.current
 
     act(() => handleDeletePost('1'))
 
