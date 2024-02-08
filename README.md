@@ -1,31 +1,34 @@
-# web-developer-challenge
+<div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 40px;">
+<img src="src/assets/bx-logo@3x.png">
+</div>
 
-Olá!
+<img src="public/demo.png">
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+Este é um teste técnico feito para a empresa buildbox. A seguir, listei as tecnologias utilizadas para este desafio:
 
-O Desafio é o seguinte:
+### TECNOLOGIAS E FRAMEWORKS
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+- **Typescript**: um _supertset_ do Javascript que facilita a DX (developer experience) e manutenabilidade do código.
+- **Tailwind CSS**: um framework de estilos que permite utilizar classes pré-definidas para estilizar a UI.
+- **Jotai**: uma biblioteca _lightweight_, orientada a Typescript que gerencia estados globais da aplicação utilizando a abordagem atômica.
+- **Vite + Vitest**: Vite é um framework que agiliza a configuração do projeto, oferecendo mais rapidez no desenvolvimento. O Vitest é um poderoso framework de testes nativo do Vite.
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+### COMO EXECUTAR O PROJETO
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+Clone o projeto da maneira que preferir, e com o _Yarn_ instalado, rode o seguinte comando na pasta raiz do projeto:
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+```bash
+yarn install
+```
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+Em seguida, inicie o projeto com o comando:
 
-## Interface XD
+```bash
+yarn dev
+```
 
-https://adobe.ly/2BVcy5C
+Para executar os testes, basta executar:
 
-## Design - Zeplin
-
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+```bash
+yarn test
+```
