@@ -20,18 +20,16 @@ function useHome() {
     document.documentElement.classList.toggle('dark')
   }, [darkMode])
 
-  // TODO: handle user's preferences system change
-
   function handleSwitchTheme() {
     setDarkMode(!darkMode)
   }
 
   return {
-    posts,
     darkMode,
-    parent,
     handleSwitchTheme,
+    posts,
+    parent,
   }
 }
 
-export { darkModeAtom, postsAtom, useHome }
+export { postsAtom, useHome }

@@ -1,1 +1,1 @@
-export * from './CreatePostCard.tsx';
+export * from './CreatePostCard'

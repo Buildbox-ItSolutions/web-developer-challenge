@@ -7,7 +7,7 @@ function useFeedCard() {
 
   function handleDeletePost(id: Post['id']) {
     const newPosts = [...actualPosts].filter((post) => post.id !== id)
-
+    
     setPosts(newPosts)
   }
 

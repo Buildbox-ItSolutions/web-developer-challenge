@@ -26,7 +26,6 @@ function CreatePostCard() {
           onClick={handleClickOnImage}
           className="flex h-[88px] w-[88px] items-center justify-center rounded-[36px] border border-gray-300 dark:border-greyish-brown-three"
         >
-          {/* TODO: when image is uploaded, show the remove action on hover */}
           {userPhoto ? (
             <img
               src={userPhoto}
