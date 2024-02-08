@@ -1,6 +1,4 @@
-<div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 40px;">
-<img src="src/assets/bx-logo@3x.png">
-</div>
+<img align="center" src="src/assets/bx-logo@3x.png">
 
 <img src="public/demo.png">
 
