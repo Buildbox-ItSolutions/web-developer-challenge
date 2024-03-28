@@ -1,6 +1,6 @@
 # Buildbox - Web Challenge 🚀
 
-![Project GIF]()
+![Project GIF](./.github/readme.gif)
 
 Este projeto é uma aplicação de lista de posts que oferece aos usuários a capacidade de adicionar e remover posts de forma interativa. Desenvolvido com TypeScript, Styled Components e React.
 
