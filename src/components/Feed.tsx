@@ -59,7 +59,9 @@ const Feed: React.FC = () => {
   return (
     <>
       <PostForm addPost={addPost} />
-      <StyledH3>Feed</StyledH3>
+      <StyledDiv>
+        <StyledH3>Feed</StyledH3>
+      </StyledDiv>
       {posts.map((post) => (
         <PostCard
           key={post.id}
@@ -78,7 +80,16 @@ const StyledH3 = styled.h3`
   color: var(--warm-gray-two);
   font-weight: 500;
   font-size: 1.4rem;
-  margin: 5.6rem 91.1rem 0.8rem 42.5rem;
+`;
+
+const StyledDiv = styled.div`
+  width: 51.6rem;
+  margin: 5.6rem 0 0.8rem 0;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 1.6rem;
+  }
 `;
 
 export { Feed };
