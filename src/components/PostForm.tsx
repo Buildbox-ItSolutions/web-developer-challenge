@@ -125,7 +125,7 @@ const StyledDiv = styled.div`
 
 const StyledImageTrash = styled.img`
   position: absolute;
-  right: 55.3rem;
+  right: -3.7rem
 `;
 
 const StyledLabel = styled.label<{ hasImage: boolean }>`
@@ -136,6 +136,7 @@ const StyledLabel = styled.label<{ hasImage: boolean }>`
   display: block;
   padding: 3.2rem;
   cursor: pointer;
+  position: relative;
 
   background-position: center;
   background-size: contain;
