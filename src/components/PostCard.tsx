@@ -1,15 +1,28 @@
 import styled from "styled-components";
-interface PostCardProps {
+
+interface IPostCard {
+  id: number;
   name: string;
   message: string;
   image: string;
+  onRemove: (id: number) => void;
 }
 
-const PostCard: React.FC<PostCardProps> = ({ name, message, image }) => {
+const PostCard: React.FC<IPostCard> = ({
+  id,
+  name,
+  message,
+  image,
+  onRemove,
+}) => {
+  const handleRemove = () => {
+    onRemove(id);
+  };
+
   return (
     <StyledDiv>
       <StyledDivContainerIcon>
-        <StyledA>X</StyledA>
+        <StyledA onClick={handleRemove}>X</StyledA>
       </StyledDivContainerIcon>
 
       <StyledDivContainer>
