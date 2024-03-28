@@ -1,5 +1,6 @@
-import Header from './components/header/Header.tsx'
 import GlobalStyles from './global-styles.ts'
+import Header from './components/header/Header.tsx'
+import NewPost from './components/newPost/NewPost.tsx'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <GlobalStyles />
       <Header />
+      <NewPost />
     </>
   )
 }
