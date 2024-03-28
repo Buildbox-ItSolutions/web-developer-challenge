@@ -1,23 +1,74 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "./Button";
 import styled from "styled-components";
 import EmptyImage from "../assets/empty-image-icon.svg";
+import Trash from "../assets/trash.svg";
 
-const PostForm = () => {
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
-  
-  const isFormEmpty = name.trim() === '' || message.trim() === '';
+interface INewPost {
+  id: number;
+  name: string;
+  message: string;
+  image?: string;
+}
+interface PostFormProps {
+  addPost: (newPost: INewPost) => void;
+}
+
+const PostForm: React.FC<PostFormProps> = ({ addPost }) => {
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [image, setImage] = useState<string | undefined>(undefined);
+
+  const isFormEmpty = name.trim() === "" || message.trim() === "";
+
+  const ClearForm = () => {
+    setName("");
+    setMessage("");
+    setImage(undefined);
+  };
+
+  const removeImage = () => {
+    setImage(undefined);
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
+
+  const handlePublish = () => {
+    const newPost: INewPost = {
+      id: Date.now(),
+      name,
+      message,
+      image,
+    };
+    addPost(newPost);
+    ClearForm();
+  };
 
   return (
     <StyledDiv>
-      <StyledLabel>
-        <img src={EmptyImage} alt="" />
+      <StyledLabel
+        hasImage={!!image}
+        style={{ backgroundImage: `url(${image ? image : ""})` }}
+      >
+        {!image && <img src={EmptyImage} alt="" />}
+        {image && (
+          <StyledImageTrash
+            src={Trash}
+            onClick={removeImage}
+          ></StyledImageTrash>
+        )}
         <StyledInputFile
           type="file"
           name="image"
           id="image"
           accept="image/png, image/gif, image/jpeg"
+          onChange={handleImageChange}
         />
       </StyledLabel>
 
@@ -39,9 +90,12 @@ const PostForm = () => {
       />
 
       <StyledDivContainer>
-        <StyledP>Descartar</StyledP>
-
-        <Button content="Publicar" className={isFormEmpty ? "inactive-button" : ""} />
+        <StyledP onClick={ClearForm}>Descartar</StyledP>
+        <Button
+          content="Publicar"
+          className={isFormEmpty ? "inactive-button" : ""}
+          onClick={handlePublish}
+        />
       </StyledDivContainer>
     </StyledDiv>
   );
@@ -63,21 +117,28 @@ const StyledDiv = styled.div`
     cursor: not-allowed;
   }
 
-  
   @media (max-width: 480px) {
     width: 100%;
     padding: 1.6rem;
   }
-
 `;
 
-const StyledLabel = styled.label`
+const StyledImageTrash = styled.img`
+  position: absolute;
+  right: 55.3rem;
+`;
+
+const StyledLabel = styled.label<{ hasImage: boolean }>`
   width: 8.8rem;
+  height: 8.8rem;
   border: 0.1rem solid #4b4b4b;
   border-radius: 3.6rem;
   display: block;
   padding: 3.2rem;
   cursor: pointer;
+
+  background-position: center;
+  background-size: contain;
 `;
 
 const StyledInputFile = styled.input`
