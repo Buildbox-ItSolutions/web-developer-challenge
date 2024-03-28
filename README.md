@@ -8,6 +8,18 @@ O Desafio é o seguinte:
 
 Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
 
+# Rodar o projeto
+
+ - Primeiro instale todas as depedencias do projeto com:
+ ```
+    npm install
+ ```
+
+ - Após isso é só rodar o app:
+ ```
+    npm run start
+ ```
+
 **Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
 
 Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
