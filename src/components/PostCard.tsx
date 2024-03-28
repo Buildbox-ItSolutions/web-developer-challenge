@@ -1,6 +1,11 @@
 import styled from "styled-components";
+interface PostCardProps {
+  name: string;
+  message: string;
+  image: string;
+}
 
-const PostCard = (props) => {
+const PostCard: React.FC<PostCardProps> = ({ name, message, image }) => {
   return (
     <StyledDiv>
       <StyledDivContainerIcon>
@@ -9,13 +14,13 @@ const PostCard = (props) => {
 
       <StyledDivContainer>
         <div>
-          <StyledImg src={props.image} alt="" />
+          <StyledImg src={image} alt="" />
         </div>
         <StyledDivContainerText>
-          <StyledPMessage>{props.message}</StyledPMessage>
+          <StyledPMessage>{message}</StyledPMessage>
 
           <p className="submittedby">Enviado por</p>
-          <p className="username">{props.name}</p>
+          <p className="username">{name}</p>
         </StyledDivContainerText>
       </StyledDivContainer>
     </StyledDiv>
