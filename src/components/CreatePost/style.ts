@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 
-export const LabelFileS = styled.div`
+export const ShowImageS = styled.div`
     
-    width: 88px;
+    min-width: 88px;
+    max-width: 88px;
     height: 88px;
     border: #4b4b4b 1px solid;
     border-radius: 36px;
@@ -17,7 +18,7 @@ export const FileInputS = styled.input`
     display: none;
 `
 
-export const SelectImageS = styled.img`
+export const ImageS = styled.img`
     max-width: 100%;
     max-height: 100%;
 `
@@ -91,5 +92,6 @@ export const TrashImgS = styled.img`
 
    position: relative;
    left: 16px;
+   cursor: pointer;
     
 `

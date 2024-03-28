@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "../Card";
-import { ContainerButtonS, ContainerInputS, CreateButtonS, FileInputS, InputS, LabelFileS, ResetButtonS, SelectImageS, TextareaS, TrashImgS } from "./style";
+import { ContainerButtonS, ContainerInputS, CreateButtonS, FileInputS, InputS, ShowImageS, ResetButtonS, ImageS, TextareaS, TrashImgS } from "./style";
 
 
 export default function CreatePost() {
@@ -38,15 +38,15 @@ export default function CreatePost() {
             <form onChange={verifyIfCanPost}>
                 <div style={{display:"flex", flexDirection:"row", justifyContent:"center" }}>
                     <label htmlFor="fileInput">
-                        <LabelFileS>
+                        <ShowImageS>
                             {
                                 imagePath ?
-                                    <SelectImageS src={imagePath} alt="" />
+                                    <ImageS src={imagePath} alt="" />
                                     :
-                                    <SelectImageS src="/image.svg" alt="" />
+                                    <ImageS src="/image.svg" alt="" />
                             }
 
-                        </LabelFileS>
+                        </ShowImageS>
                     </label>
                     {imagePath && <TrashImgS src="/trash.svg" alt="" onClick={deleteImage} />}
                     <FileInputS onChange={handleChange} id="fileInput" type="file" accept="image/png, image/jpeg" />

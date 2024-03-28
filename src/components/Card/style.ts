@@ -5,7 +5,7 @@ export const CardS = styled.div`
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;
-  width: 516px;
+  width: 100%;
   height: fit-content;
   padding: 24px;
 `

@@ -1,13 +1,20 @@
 import CreatePost from "../../components/CreatePost";
-import { MainS } from "./style";
+import Post from "../../components/Post";
+import { MainS, ContainerS, H1S } from "./style";
 
 
-export default function MainPage(){
+export default function MainPage() {
 
     return (
         <MainS>
-           <CreatePost/>
+            <ContainerS>
 
+                <CreatePost />
+
+                <H1S>Feed</H1S>
+
+                <Post/>
+            </ContainerS>
         </MainS>
     )
 }
