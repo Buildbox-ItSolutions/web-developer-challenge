@@ -3,10 +3,15 @@ import styled from "styled-components";
 interface IButton {
   content: string;
   className?: string;
+  onClick?: () => void;
 }
 
-const Button = ({ content = "Button", className }: IButton) => {
-  return <StyledButton className={className}>{content}</StyledButton>;
+const Button = ({ content = "Button", className, onClick }: IButton) => {
+  return (
+    <StyledButton className={className} onClick={onClick}>
+      {content}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button`
