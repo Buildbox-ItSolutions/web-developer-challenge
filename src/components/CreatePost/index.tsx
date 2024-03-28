@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Card from "../Card";
 import { ContainerButtonS, ContainerInputS, CreateButtonS, FileInputS, InputS, ShowImageS, ResetButtonS, ImageS, TextareaS, TrashImgS } from "./style";
+import useStore from "../../store/posts";
 
 
 export default function CreatePost() {
+
+    const {addPost} = useStore()
 
     const [imagePath, setImagePath] = useState('')
     const [name, setName] = useState<string>('')
@@ -11,14 +14,12 @@ export default function CreatePost() {
     const [canpost, setCanpost] = useState<boolean>(false)
 
     function handleChange(event: any) {
-        console.log(event)
         if (!event.target.files[0]) setImagePath("")
         else setImagePath(URL.createObjectURL(event.target.files[0]))
         verifyIfCanPost()
     }
 
     function verifyIfCanPost() {
-        console.log(name, message, imagePath)
         if (name.length > 2 && message.length > 4 && imagePath.length > 5) {
             setCanpost(true)
         } else {
@@ -26,16 +27,32 @@ export default function CreatePost() {
         }
     }
 
-    function deleteImage(){
+    function cleanForm(){
         setCanpost(false)
         setImagePath("")
         setName("")
         setMessage("")
     }
 
+    function cleanImage(){
+        setCanpost(false)
+        setImagePath("")
+    }
+
+    function handleSubmit(e:FormEvent<HTMLFormElement>){
+        e.preventDefault()
+
+        addPost({
+            image: imagePath,
+            message,
+            owner: name
+        })
+        cleanForm()
+    }
+
     return (
         <Card>
-            <form onChange={verifyIfCanPost}>
+            <form onChange={verifyIfCanPost} onSubmit={handleSubmit}>
                 <div style={{display:"flex", flexDirection:"row", justifyContent:"center" }}>
                     <label htmlFor="fileInput">
                         <ShowImageS>
@@ -48,18 +65,18 @@ export default function CreatePost() {
 
                         </ShowImageS>
                     </label>
-                    {imagePath && <TrashImgS src="/trash.svg" alt="" onClick={deleteImage} />}
+                    {imagePath && <TrashImgS src="/trash.svg" alt="" onClick={cleanImage} />}
                     <FileInputS onChange={handleChange} id="fileInput" type="file" accept="image/png, image/jpeg" />
                 </div>
 
                 <ContainerInputS>
-                    <InputS type="text" placeholder="Digite seu nome" required onChange={(e) => setName(e.target.value)} />
-                    <TextareaS placeholder="Mensagem" required onChange={(e) => setMessage(e.target.value)} />
+                    <InputS type="text" placeholder="Digite seu nome" required onChange={(e) => setName(e.target.value)} value={name}/>
+                    <TextareaS placeholder="Mensagem"  required onChange={(e) => setMessage(e.target.value)} value={message} />
                 </ContainerInputS>
 
                 <ContainerButtonS>
-                    <ResetButtonS type="reset" onClick={()=>setCanpost(false)}>Descartar</ResetButtonS>
-                    <CreateButtonS canpost={canpost} disabled type="submit">Publicar</CreateButtonS>
+                    <ResetButtonS type="reset" onClick={cleanForm}>Descartar</ResetButtonS>
+                    <CreateButtonS canpost={canpost} disabled={!canpost}  type="submit">Publicar</CreateButtonS>
                 </ContainerButtonS>
             </form>
         </Card>

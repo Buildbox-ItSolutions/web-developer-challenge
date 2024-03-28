@@ -9,6 +9,7 @@ export const ContainerPostS = styled.div`
     gap: 32px;
     padding-top: 46px;
     position: relative;
+    
 
     @media screen and (max-width:300px){
         flex-direction: column;
@@ -26,7 +27,7 @@ export const DeletePostS = styled.img`
 
 export const TextS = styled.span`
 
-
+    
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -61,3 +62,11 @@ export const OwnerPostS = styled.h4`
   color: #7a7a7a;
 `
 
+export const TextContainersS = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+
+`

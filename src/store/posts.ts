@@ -14,7 +14,7 @@ const useStore = create<PostsState>()((set)=>({
     deletePost:(index) => set((state) => ({posts: state.posts.filter((post, i) => i !== index)})),
     addPost: (post) => set((state) => {
         const listPost = state.posts
-        listPost.push(post)
+        listPost.unshift(post)
         return { posts:listPost}
     })
 }))

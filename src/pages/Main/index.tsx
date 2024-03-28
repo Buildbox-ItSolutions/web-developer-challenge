@@ -6,9 +6,7 @@ import { MainS, ContainerS, H1S } from "./style";
 
 export default function MainPage() {
 
-    const {posts} = useStore()
-
-    console.log(posts)
+    const { posts, deletePost } = useStore()
 
     return (
         <MainS>
@@ -17,8 +15,12 @@ export default function MainPage() {
                 <CreatePost />
 
                 <H1S>Feed</H1S>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                    {
+                        posts.reverse().map((post, index) => <Post postData={post} key={index} deleteFunction={deletePost} index={index} />)
+                    }
+                </div>
 
-                <Post/>
             </ContainerS>
         </MainS>
     )
