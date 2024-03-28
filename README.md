@@ -1,21 +1,24 @@
-# web-developer-challenge
+# Buildbox - Web Challenge 🚀
 
-Olá!
+![Project GIF](./.github/readme.gif)
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+Este projeto é uma aplicação de lista de posts que oferece aos usuários a capacidade de adicionar e remover posts de forma interativa. Desenvolvido com TypeScript, Styled Components e React.
 
-O Desafio é o seguinte:
+Com uma combinação de elementos dinâmicos e estilos personalizados, esta aplicação oferece uma interface atraente e funcional para os usuários interagirem e compartilharem conteúdo de maneira eficiente e visualmente agradável.
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## Tecnologias e Ferramentas 🛠️
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+[![My Skills](https://skillicons.dev/icons?i=js,ts,react,styledcomponents,vite)](https://skillicons.dev)
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+## Principais Recursos ✨
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+- Adicionar novos posts, com campos para inserir nome, mensagem e até mesmo uma imagem opcional. 
+ 
+- Remover posts facilmente com apenas um clique, garantindo uma experiência de gerenciamento de conteúdo intuitiva.
+
+## Protótipo 🎨
 
 Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
-
 
 ## Interface XD
 https://adobe.ly/2BVcy5C
