@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 *{
+	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;
 }
 html, body, div, span, applet, object, iframe,
