@@ -1,6 +1,6 @@
 import { createGlobalStyle, styled } from "styled-components";
 
-import { Header, PostForm, Feed } from "./components";
+import { Header, Feed } from "./components";
 
 function App() {
   return (
@@ -8,7 +8,6 @@ function App() {
       <GlobalStyle />
       <Header />
       <StyledSection>
-        <PostForm />
         <Feed />
       </StyledSection>
     </>
@@ -22,6 +21,7 @@ const StyledSection = styled.section`
 `;
 
 const GlobalStyle = createGlobalStyle`
+
 * {
   margin: 0;
   padding: 0;
@@ -72,6 +72,7 @@ html {
   --auxiliar-text-color: #9f9f9f;
   --icons-color: #d65923;
 }
+
 `;
 
 export default App;
