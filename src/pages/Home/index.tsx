@@ -11,9 +11,13 @@ import {
   CreatePostImageAndTrashIconContainer,
   CreatePostImageContainer,
   DiscardText,
+  FeedText,
   InputName,
   InputNameContainer,
+  NoPostsText,
   PlaceholderImageContainer,
+  PostsList,
+  PostsListContainer,
   PreviewImageContainer,
   TextAreaContent,
   TextAreaContentContainer,
@@ -22,15 +26,24 @@ import UploadImage from "../../components/UploadImage";
 import { object, string } from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Post from "../../components/Post";
 
 interface FormData {
   name: string;
   content: string;
 }
 
+interface PostProps {
+  id: number;
+  authorName: string;
+  previewImage: string | null;
+  content: string;
+}
+
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [posts, setPosts] = useState<PostProps[]>([]);
 
   const validationSchema = object().shape({
     name: string().required(),
@@ -52,8 +65,26 @@ export default function Home() {
   };
 
   const publishPost = ({ name, content }: FormData) => {
-    console.log("Publicado!", name, content);
+    setPosts((state) => [
+      ...state,
+      {
+        id: Math.random() * Math.random(),
+        authorName: name,
+        content,
+        previewImage,
+      },
+    ]);
+
+    reset();
+    setImage(null);
+    setPreviewImage(null);
   };
+
+  const deletePost = (id: number) => {
+    const newPosts = posts.filter((post) => post.id !== id)
+
+    setPosts(newPosts)
+  }
 
   const disabelDiscardButton =
     watch("name").length === 0 &&
@@ -70,7 +101,13 @@ export default function Home() {
           <CreatePostImageAndTrashIconContainer>
             <PreviewImageContainer src={previewImage} />
 
-            <ButtonIcon style={{ marginTop: -20 }}>
+            <ButtonIcon 
+              style={{ marginTop: -20 }}
+              onClick={() => {
+                setPreviewImage(null)
+                setImage(null)
+              }}
+            >
               <img src={TrashIcon} />
             </ButtonIcon>
           </CreatePostImageAndTrashIconContainer>
@@ -152,6 +189,28 @@ export default function Home() {
             </ButtonPublish>
           </ButtonsContainer>
         </CreatePostContainer>
+
+        <PostsListContainer>
+          <FeedText style={{ marginBottom: posts.length === 0 ? 40 : 0 }}>Feed</FeedText>
+
+          <PostsList style={{ alignItems: posts.length === 0 ? "center" : "normal" }}>
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <Post 
+                key={post.id}
+                authorName={post.authorName}
+                content={post.content}
+                imgSrc={post.previewImage}
+                onDelete={() => deletePost(post.id)}
+              />
+            ))
+          ) : (
+            <NoPostsText>
+              Nenhum post no seu Feed, que tal publicar um?
+            </NoPostsText>
+          )}
+          </PostsList>
+        </PostsListContainer>
       </BodyContainer>
     </>
   );

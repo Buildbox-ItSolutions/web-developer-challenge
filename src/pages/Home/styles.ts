@@ -7,6 +7,7 @@ export const BodyContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 56px;
 `;
 
 export const CreatePostContainer = styled.div`
@@ -16,6 +17,10 @@ export const CreatePostContainer = styled.div`
   width: 516px;
   min-height: 353px;
   border: solid 1px #3b3b3b;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CreatePostImageContainer = styled.div`
@@ -158,7 +163,7 @@ export const ButtonPublish = styled.button`
   transition: 0.4s;
   background-color: #71bb00;
   color: #ffffff;
-  
+
   &:hover {
     cursor: pointer;
     transition: 0.2s;
@@ -174,6 +179,36 @@ export const ButtonPublish = styled.button`
 
 `;
 
-export const PublishText = styled.p`
-  
+export const PostsListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 516px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`
+
+export const FeedText = styled.p`
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #7a7a7a;
+`
+
+export const PostsList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`
+
+export const NoPostsText = styled.p`
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 18px;
+  color: #ffffff;
 `

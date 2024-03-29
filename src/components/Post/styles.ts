@@ -68,6 +68,8 @@ export const BodyContainer = styled.div`
   @media (max-width: 500px) {
     flex-direction: column;
     gap: 16px;
+    justify-content: center;
+    align-items: center;
   }
 `
 
@@ -101,3 +103,13 @@ export const AuthorName = styled.p`
   font-family: "Roboto", sans-serif;
   color: #7a7a7a;
 `
+
+export const PlaceholderImageContainer = styled.div`
+  width: 88px;
+  height: 88px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #4b4b4b;
+`;
