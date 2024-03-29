@@ -84,7 +84,7 @@ const Form = ({ ...props }: FormProps) => {
                     )}
 
                 </label>
-                {post.imageUrl && (
+                {post.imageUrl ? (
                     <ButtonRemoveImage onClick={handleRemoveImage}>
                         <Image
                             src="/trash.svg"
@@ -93,21 +93,18 @@ const Form = ({ ...props }: FormProps) => {
                             alt="Trash icon"
                         />
                     </ButtonRemoveImage>
+                ): (
+                        <InputPrimary
+                            type="file"
+                            id="photo"
+                            onChange={handleImageUpload}
+                        />
                 )}
-                <InputPrimary
-                    type="file"
-                    id="photo"
-                    onChange={handleImageUpload}
-                />
+
+  
 
             </FormContainerImage>
 
-            {post.imageUrl && (
-                <button onClick={handleRemoveImage}>
-
-                </button>
-            )
-            }
 
             <Input
                 placeholder="Digite seu nome"
