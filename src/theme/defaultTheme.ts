@@ -8,5 +8,6 @@ export default {
         red: '#d65923',
         blackOne: '#232323',
         blackTwo: '#343434',
+        blackThree: '#2B2B2B',
     }
   }

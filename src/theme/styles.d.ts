@@ -11,6 +11,7 @@ declare module 'styled-components' {
         red: string
         blackOne: string
         blackTwo: string
+        blackThree: string
     }
   }
 }
