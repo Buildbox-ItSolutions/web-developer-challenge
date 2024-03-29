@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BreakPoint from "../../styles/BreakPoints"
 
 export const Container = styled.div`
   display: flex;
@@ -11,12 +12,18 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30vw;
+  justify-content: space-around;
+  width: 516px;
+  height: 353px;
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 0.1875rem;
   border: solid 1px #3b3b3b;
   background-color: #313131;
+
+  @media ${BreakPoint.tablet} {
+    width: 80vw;
+  }
 `;
 
 export const Image = styled.img<{ $objectfit?: string }>`

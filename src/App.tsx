@@ -1,4 +1,4 @@
-import GlobalStyles from './global-styles.ts'
+import GlobalStyles from './styles/GlobalStyles.ts'
 import Header from './components/header/Header.tsx'
 import NewPost from './components/newPost/NewPost.tsx'
 import Feed from './components/feed/Feed.tsx'

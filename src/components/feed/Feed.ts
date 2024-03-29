@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BreakPoint from "../../styles/BreakPoints"
 
 export const FeedContainer = styled.div`
   display: flex;
@@ -12,6 +13,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 516px;
+
+  @media ${BreakPoint.tablet} {
+    width: 80vw;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -35,6 +41,10 @@ export const Card = styled.div`
   border: solid 1px #3b3b3b;
   background-color: #313131;
   min-width: 516px;
+
+  @media ${BreakPoint.tablet} {
+    width: 80vw;
+  }
 `;
 
 export const Image = styled.img`
@@ -47,6 +57,7 @@ export const Image = styled.img`
 export const ContainerMessage = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-around;
   margin-top: 24px;
@@ -101,5 +112,10 @@ export const Delete = styled.button`
     width: 20px;
     height: 20px;
     object-fit: contain;
+  }
+
+  @media ${BreakPoint.tablet} {
+    top: 10px;
+    right: 10px;
   }
 `;
