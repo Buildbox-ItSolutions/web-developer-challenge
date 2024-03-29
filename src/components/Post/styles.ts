@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ContainerDeleteIcon = styled.div`
+export const DeleteIconContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 24px;
@@ -58,7 +58,7 @@ export const TextsContainer = styled.div`
   }
 `;
 
-export const ContainerBody = styled.div`
+export const BodyContainer = styled.div`
   display: flex;
   gap: 32px;
   align-items: flex-start;

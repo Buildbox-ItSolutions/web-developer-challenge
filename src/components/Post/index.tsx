@@ -1,12 +1,12 @@
 import {
   AuthorName,
+  BodyContainer,
   ButtonIcon,
   Container,
-  ContainerBody,
-  ContainerDeleteIcon,
   Content,
   CreatedBy,
   CreditsContainer,
+  DeleteIconContainer,
   PostImage,
   TextsContainer,
 } from "./styles";
@@ -22,13 +22,13 @@ interface Props {
 export default function Post({ authorName, imgSrc, content, onDelete }: Props) {
   return (
     <Container>
-      <ContainerDeleteIcon>
+      <DeleteIconContainer>
         <ButtonIcon onClick={onDelete}>
           <img src={DeleteIcon} />
         </ButtonIcon>
-      </ContainerDeleteIcon>
+      </DeleteIconContainer>
 
-      <ContainerBody>
+      <BodyContainer>
         <PostImage src={imgSrc} />
         <TextsContainer>
           <Content>{content}</Content>
@@ -39,7 +39,7 @@ export default function Post({ authorName, imgSrc, content, onDelete }: Props) {
             <AuthorName>{authorName}</AuthorName>
           </CreditsContainer>
         </TextsContainer>
-      </ContainerBody>
+      </BodyContainer>
     </Container>
   );
 }
