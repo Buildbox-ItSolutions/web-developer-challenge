@@ -26,16 +26,16 @@ export default function Post({ authorName, imgSrc, content, onDelete }: Props) {
     <Container>
       <DeleteIconContainer>
         <ButtonIcon onClick={onDelete}>
-          <img src={DeleteIcon} />
+          <img src={DeleteIcon} alt="Delete icon" />
         </ButtonIcon>
       </DeleteIconContainer>
 
       <BodyContainer>
         {imgSrc ? (
-          <PostImage src={imgSrc} />
+          <PostImage src={imgSrc} alt="Post image" />
         ) : (
           <PlaceholderImageContainer>
-            <img src={PlaceholderImage} />
+            <img src={PlaceholderImage} alt="Post without image" />
           </PlaceholderImageContainer>
         )}
         <TextsContainer>

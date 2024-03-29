@@ -99,7 +99,7 @@ export default function Home() {
       <UploadImage
         triggerComponent={
           <CreatePostImageAndTrashIconContainer>
-            <PreviewImageContainer src={previewImage} />
+            <PreviewImageContainer src={previewImage} alt="Preview of post image" />
 
             <ButtonIcon
               style={{ marginTop: -20 }}
@@ -108,7 +108,7 @@ export default function Home() {
                 setImage(null);
               }}
             >
-              <img src={TrashIcon} />
+              <img src={TrashIcon} alt="Trash icon" />
             </ButtonIcon>
           </CreatePostImageAndTrashIconContainer>
         }
@@ -118,7 +118,7 @@ export default function Home() {
       <UploadImage
         triggerComponent={
           <PlaceholderImageContainer>
-            <img src={PlaceholderImageIcon} />
+            <img src={PlaceholderImageIcon} alt="Placeholder image" />
           </PlaceholderImageContainer>
         }
         setImage={setImage}

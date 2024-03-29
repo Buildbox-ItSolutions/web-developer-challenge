@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
+    box-shadow: 0 0 0 2px;
   }  
 
   body {
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-  width: 4px; 
+  width: 6px; 
   background-color: #ffffff;
   border-radius: 5px
 }
