@@ -1,0 +1,231 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 32.25rem;
+    height: auto;
+    margin-top: 2.563rem;
+    margin-bottom: 10.625rem;
+    gap: 3.5rem;
+
+    .formContainer {
+        width: 100%;
+        min-height: 22.063rem;
+        height: auto;
+        padding: 1.5rem;
+        border-radius: 0.188rem;
+        border: solid 1px var(--color-form-border);
+        background-color: var(--color-form-bg);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+
+        form {
+            width: 90.7%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+
+            .imgInput {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                flex-wrap: wrap;
+                width: 95%;
+                gap: clamp(0.6rem, 2.5vw, 1.19rem);
+
+                .imgButton {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 0.5rem;
+
+                    input {
+                        display: none;
+                    }
+
+                    label {
+                        .iconSystem {
+                            width: 5.5rem;
+                            height: 5.5rem;
+                            object-fit: contain;
+                            border-radius: 2.25rem;
+                            border: solid 1px var(--color-img-border);
+                            background-color: var(--color-img-border-0);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+
+                            .iconImg {
+                                width: auto;
+                                height: 1.5rem;
+                                object-fit: contain;
+                            }
+                        }
+
+
+                        .iconImport {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 1rem;
+
+                            .userImg {
+                                width: 5.5rem;
+                                height: 5.5rem;
+                                object-fit: contain;
+                                border-radius: 2.25rem;
+                                border: solid 1px var(--color-img-border);
+                                object-fit: contain;
+                            }
+
+                            .trash {
+                                border: none;
+                                background: none;
+
+                                img {
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                p {
+                    font-family: var(--font-type);
+                    font-size: 0.875rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.29;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: var(--color-button);
+                }
+            }
+
+            .buttonsContainer {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+
+                .descartButton {
+                    background: none;
+                    border: none;
+
+                    font-family: var(--font-type);
+                    font-size: 0.875rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.29;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: var(--color-button);
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .publishButton {
+                    width: 6.125rem;
+                    height: 2.563rem;
+                    padding: 0.75rem 1.5rem;
+                    object-fit: contain;
+                    border-radius: 8px;
+                    background-color: var(--color-button);
+                    border: none;
+
+                    font-family: var(--font-type);
+                    font-size: 0.875rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.29;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: var(--color-form-bg);
+
+                    &:hover {
+                        background-color: var(--color-primary);
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+
+    .feedContainer {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.5rem;
+
+        .feedList {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            .feedEmpty {
+                width: 100%;
+                height: auto;
+
+                margin: 1rem 0rem;
+                font-family: var(--font-type);
+                font-size: 1.2rem;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                text-align: center;
+                color: var(--color-post);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        width: 100%;
+        min-width: 24.375rem;
+
+        .formContainer {
+            width: 91%;
+            min-width: 22.125rem;
+        }
+
+        .feedContainer {
+            width: 91%;
+            min-width: 22.125rem;
+        }
+    }
+}

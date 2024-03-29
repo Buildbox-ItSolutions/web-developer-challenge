@@ -1,0 +1,26 @@
+header {
+    width: 100%;
+    height: 5.813rem;
+    background-color: var(--color-header);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: auto;
+        height: 2.813rem;
+        object-fit: contain;
+      }
+}
+
+@media (max-width: 768px) {
+    header {
+        min-width: 24.375rem;
+    
+        img {
+            height: 2.413rem;
+          }
+    }
+}
