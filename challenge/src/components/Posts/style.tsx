@@ -28,7 +28,6 @@ export const DeleteIcon = styled.div`
 export const PostContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 1rem;
 
   img {
