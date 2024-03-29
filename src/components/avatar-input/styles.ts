@@ -28,7 +28,7 @@ export const AvatarInputContainer = styled.div`
     width: 24px;
     height: 24px;
     object-fit: contain;
-    margin: 2rem;
+    margin: ${({ theme }) => theme.spacing[8]};
   }
 
   & input {

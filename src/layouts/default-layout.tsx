@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const MainContainer = styled.main`
-  padding: 0 1rem;
+  padding: 0 ${({theme}) => theme.spacing[4]};
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 516px;
+  max-width: calc(516px + ${({theme}) => theme.spacing[8]});
   margin: 0 auto;
 `;
 
@@ -13,7 +13,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1rem;
+  padding: ${({ theme }) => theme.spacing[6]} ${({ theme }) => theme.spacing[4]};
 
   background-color: ${({ theme }) => theme.colors.gray[800]};
 
