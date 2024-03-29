@@ -8,6 +8,8 @@ export const HeaderBox = styled.header`
   
   background-color: #2B2B2B;
 
+  margin-bottom: 2.5rem;
+
   img {
     max-width: 6.438rem;
     max-height: 2.813rem;

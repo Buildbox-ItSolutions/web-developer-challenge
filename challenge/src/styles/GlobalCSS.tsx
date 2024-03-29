@@ -10,9 +10,13 @@ h5,
 h6,
 a,
 span,
-div {
+div,
+input,
+button,
+textarea,
+select {
   font-family: "Roboto", sans-serif;
-  color: black;
+  color: white;
 }
 
 html,
