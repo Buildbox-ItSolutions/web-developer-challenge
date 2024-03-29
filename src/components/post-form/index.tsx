@@ -6,6 +6,7 @@ import { Textarea } from "../textarea";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useStore } from "@/store";
 
 const postFormSchema = z.object({
   name: z.string().min(1, { message: "Nome é obrigatório" }),
@@ -16,10 +17,14 @@ type PostFormSchema = z.infer<typeof postFormSchema>;
 
 export function PostForm() {
   const [avatarSrc, setAvatarSrc] = useState<string | null>(null);
+
+  const addPost = useStore((state) => state.addPost);
+
   const {
     register,
     handleSubmit,
     trigger,
+    reset,
     formState: { errors },
   } = useForm<PostFormSchema>({
     resolver: zodResolver(postFormSchema),
@@ -37,7 +42,18 @@ export function PostForm() {
   }
 
   function onSubmit(data: PostFormSchema) {
-    console.log(data);
+    addPost({
+      id: new Date().toISOString(),
+      avatarImg: avatarSrc,
+      name: data.name,
+      message: data.message,
+    });
+    reset();
+  }
+
+  function handleDiscard() {
+    setAvatarSrc(null);
+    reset();
   }
 
   return (
@@ -55,11 +71,14 @@ export function PostForm() {
       <Textarea placeholder="Mensagem" {...register("message")} />
 
       <div className="buttons">
-        <button className="cancel-btn">Descartar</button>
+        <button type="button" className="cancel-btn" onClick={handleDiscard}>
+          Descartar
+        </button>
         <button
           onClick={handleSubmit(onSubmit)}
           className="submit-btn"
           disabled={!isValid}
+          type="submit"
         >
           Publicar
         </button>

@@ -25,6 +25,8 @@ export const PostsList = styled.ul`
 export const PostContainer = styled.li`
   position: relative;
 
+  border: 1px solid ${({ theme }) => theme.colors.gray[550]};
+
   padding-top: ${({ theme }) => theme.spacing[14]};
   padding-bottom: ${({ theme }) => theme.spacing[8]};
   padding-left: ${({ theme }) => theme.spacing[6]};
@@ -80,4 +82,16 @@ export const PostContainer = styled.li`
       font-size: 0.875rem;
     }
   }
+`;
+
+export const EmptyFeed = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing[2]};
+
+  color: ${({ theme }) => theme.colors.gray[300]};
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: ${({ theme }) => theme.spacing[14]};
 `;

@@ -1,34 +1,45 @@
-import { FeedContainer, PostContainer, PostsList } from "./styles";
+import { useStore } from "@/store";
+import { EmptyFeed, FeedContainer, PostContainer, PostsList } from "./styles";
 import deleteIcon from "@/assets/icons/delete.svg";
+import unknownAvatarImg from "@/assets/images/unknown-avatar.jpeg";
+import smileySadIcon from "@/assets/icons/smiley-sad.svg";
 
 export function Feed() {
+  const posts = useStore((state) => state.posts);
+  const deletePost = useStore((state) => state.deletePost);
+
+  if (!posts.length)
+    return (
+      <EmptyFeed>
+        <img src={smileySadIcon} alt="" />
+        <span>Sem posts por enquanto...</span>
+      </EmptyFeed>
+    );
+
   return (
     <FeedContainer>
       <h2>Feed</h2>
       <PostsList>
-        <PostContainer>
-          <button className="delete-btn">
-            <img src={deleteIcon} alt="" className="delete-icon" />
-          </button>
-          <img
-            src="https://avatars.githubusercontent.com/u/77457083?v=4"
-            alt=""
-            className="avatar-img"
-          />
-          <div className="texts-container">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              natus doloremque dicta odit eius tempora dignissimos aspernatur
-              voluptate, consequatur modi ducimus exercitationem repellat iste
-              odio reiciendis perspiciatis quaerat eveniet hic?
-            </p>
+        {posts.map((post) => (
+          <PostContainer key={post.id}>
+            <button className="delete-btn" onClick={() => deletePost(post.id)}>
+              <img src={deleteIcon} alt="" className="delete-icon" />
+            </button>
+            <img
+              src={post.avatarImg || unknownAvatarImg}
+              alt=""
+              className="avatar-img"
+            />
+            <div className="texts-container">
+              <p>{post.message}</p>
 
-            <div>
-              <span>Enviado por</span>
-              <strong>Manuela Oliveira</strong>
+              <div>
+                <span>Enviado por</span>
+                <strong>{post.name}</strong>
+              </div>
             </div>
-          </div>
-        </PostContainer>
+          </PostContainer>
+        ))}
       </PostsList>
     </FeedContainer>
   );
