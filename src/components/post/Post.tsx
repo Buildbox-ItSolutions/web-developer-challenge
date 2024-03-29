@@ -1,8 +1,17 @@
-import PostProps from '../interface/postProps';
+import PostProps from '../../interface/postProps';
+import './post.css';
 
-function Post({ userInputs: { name, message, imageUrl } }: PostProps) {
+function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProps) {
+  const deletePostBtn = (postId: string) => {
+    setFeed((prevState) => prevState.filter((post) => post.props.id != postId));
+  };
+
   return (
-    <div className="flex items-start w-[516px] mt-[8px] mb-[16px] bg-mainColor-dark  border border-mainColor-lightGrey">
+    <div className="flex items-start w-[516px] mt-[8px] mb-[16px] bg-mainColor-dark  border border-mainColor-lightGrey relative">
+      <button
+        className="w-[20px] h-[20px] absolute rounded-full top-[12px] right-[12px] delete-button-box"
+        onClick={() => deletePostBtn(id)}
+      ></button>
       <div className="flex mt-[56px]">
         <div className="w-[88px] h-[88px] ml-[24px] flex items-center justify-center bg-cover bg-center mb-[16px] rounded-[36px] border border-mainColor-lightGrey">
           <img src={imageUrl == '' ? 'src/assets/image.png' : imageUrl} />

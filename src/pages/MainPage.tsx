@@ -9,7 +9,7 @@ function MainPage() {
   return (
     <div className="w-full flex flex-col items-center">
       <Header />
-      <PostCreation setFeed={setFeed} />
+      <PostCreation feed={feed} setFeed={setFeed} />
       <Feed children={feed} />
     </div>
   );

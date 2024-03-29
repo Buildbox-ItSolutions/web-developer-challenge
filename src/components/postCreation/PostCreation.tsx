@@ -1,10 +1,11 @@
 import { PostCreationProps } from '../../interface/postCreationProps';
 import { ChangeEvent, useState } from 'react';
 import userInputs from '../../interface/userInputs';
-import Post from '../Post';
+import { v4 as uuidv4 } from 'uuid';
+import Post from '../post/Post';
 import './postCreation.css';
 
-function PostCreation({ setFeed }: PostCreationProps) {
+function PostCreation({ feed, setFeed }: PostCreationProps) {
   const [userInputs, setUserInputs] = useState<userInputs>({
     name: '',
     message: '',
@@ -25,7 +26,10 @@ function PostCreation({ setFeed }: PostCreationProps) {
   const sendButton = (e: React.MouseEvent): void => {
     e.preventDefault();
 
-    setFeed((prevState) => [<Post userInputs={userInputs} />, ...prevState]);
+    setFeed((prevState) => [
+      <Post id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />,
+      ...prevState,
+    ]);
   };
 
   const discardButton = (e: React.MouseEvent) => {
