@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     background-color: #313131;
     padding: 24px;
@@ -33,3 +32,9 @@ export const ButtonContainer = styled.div`
     margin-bottom: -90px;
 `
 
+export const PicContainer = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
