@@ -28,7 +28,7 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header>
-        <img src="/bx-logo.svg" alt="Buildbox Web Challenge" />
+        <img src="/web-developer-challenge/bx-logo.svg" alt="Buildbox Web Challenge" />
       </Header>
       <MainContainer>{children}</MainContainer>
     </>
