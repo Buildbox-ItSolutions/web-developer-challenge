@@ -19,14 +19,45 @@ export const FormContainer = styled.form`
   background-color: #313131;
 `;
 
-export const Image = styled.img`
-  width: 88px;
-  height: 88px;
-  padding: 32px;
-  object-fit: contain;
+export const Image = styled.img<{ $objectfit?: string }>`
+  width: 100%;
+  height: 100%;
+  object-fit: ${(props) => props.$objectfit || "cover"};
   border-radius: 36px;
   border: solid 1px var(--greyish-brown-three);
   background-color: var(--greyish-brown-three-0);
+  cursor: pointer;
+`;
+export const Label = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 88px;
+  height: 88px;
+`;
+export const Add = styled.span`
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  ${Label}&:hover {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+export const ImageInput = styled.input`
+  display: none;
 `;
 
 export const Input = styled.input`
@@ -89,6 +120,10 @@ export const ClearButton = styled.a`
   letter-spacing: normal;
   text-align: center;
   color: #5f5f5f;
+  cursor: pointer;
+  &:hover {
+    color: var(--white);
+  }
 `;
 
 export const Button = styled.button`

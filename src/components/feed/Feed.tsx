@@ -9,16 +9,21 @@ function Feed() {
   const { allPosts } = useContext(Context);
   // const [feed, setFeed] = useState(allPosts);
 
+  const createImageUrl = (file: File) => {
+    return URL.createObjectURL(file);
+  };
   console.log(allPosts);
-  
+
   return (
     <FeedContainer>
       <Container>
         <H3>Feed</H3>
-
         {allPosts?.map((post) => (
           <Card key={post.id}>
-            <Image src={post.image ? post.image : imageNone} alt="imagem do post" />
+            <Image
+              src={post.image ? (typeof post.image === "string" ? post.image : createImageUrl(post.image)) : imageNone}
+              alt="imagem do post"
+            />
             <ContainerMessage>
               <Message>{post.message}</Message>
               <div>

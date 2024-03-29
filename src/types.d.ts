@@ -2,7 +2,7 @@ export type PostProps = {
   id: string,
   name: string;
   message: string;
-  image?: string;
+  image?: File | string | undefined;
 };
 
 export type ContextType = {
