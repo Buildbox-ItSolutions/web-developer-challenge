@@ -5,6 +5,7 @@ export const PostCreationBox = styled.div`
   max-height: fit-content;
 
   margin-inline: auto;
+  margin-bottom: 3.5rem;
   padding: 1.5rem;
 
   border-radius: 3px;
