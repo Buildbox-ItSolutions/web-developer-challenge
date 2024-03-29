@@ -49,6 +49,7 @@ export function PostForm() {
       message: data.message,
     });
     reset();
+    setAvatarSrc(null);
   }
 
   function handleDiscard() {
