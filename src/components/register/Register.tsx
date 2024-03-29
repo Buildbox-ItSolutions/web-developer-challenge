@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { IRegister } from "../../../src/assets/interfaces/Register";
+import { IRegister } from "../../interfaces/Register";
 import Photo from "../photo/Photo";
 import { ButtonsWrapper, FieldsWrapper, Wrapper } from "./styles";
 import InputField from "../input/InputField";
@@ -54,9 +54,9 @@ const Register = ({
   };
 
   return (
-    <form onSubmit={addRegisterHandler} onReset={resetRegisterHandler}>
-      <Wrapper>
-        <div>
+    <>
+      <form onSubmit={addRegisterHandler} onReset={resetRegisterHandler}>
+        <Wrapper>
           <Photo />
           <FieldsWrapper>
             <InputField
@@ -78,9 +78,9 @@ const Register = ({
             <button type="reset">{btnDiscard}</button>
             <button type="submit">{btnPublic}</button>
           </ButtonsWrapper>
-        </div>
-      </Wrapper>
-    </form>
+        </Wrapper>
+      </form>
+    </>
   );
 };
 

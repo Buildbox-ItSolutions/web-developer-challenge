@@ -3,9 +3,15 @@ import theme from '../../Theme';
 
 export const Wrapper  = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 41px;
-  width: 564px;
-  height: 353px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+  width: 480px;
+  height: 305px;
   border-radius: 3px;
   background-color: ${theme.colors.box};
   border:1px solid  ${theme.colors.border};
@@ -16,7 +22,7 @@ export const FieldsWrapper  = styled.div`
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  margin-bottom: 32px;
+  margin: 20px 0 32px 0;
 `;
 
 export const ButtonsWrapper  = styled.div`
@@ -33,6 +39,7 @@ export const ButtonsWrapper  = styled.div`
     text-decoration: underline;
     text-weigth: bold;
     margin: 0 24px 0 0;
+    cursor: pointer;
   }
 
   > button[type=submit] {
@@ -43,5 +50,11 @@ export const ButtonsWrapper  = styled.div`
     border-radius: 8px;
     border: none;
     margin: 0;
+    cursor: pointer;
+    
   }
+`;
+
+export const Feed = styled.div`
+  
 `;

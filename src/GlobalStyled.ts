@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
 * {
-  margin:auto;
+  
 }
 
 .card {
@@ -12,9 +12,9 @@ export const GlobalStyled = createGlobalStyle`
 :root {
   font-family: Roboto;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
 
-  color: rgba(255, 255, 255, 0.87) !important;
+  color: #9f9f9f !important;
 }
 
 @media (prefers-color-scheme: light) {

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 // import theme from '../../Theme';
 
 export const InputStyled = styled.input`
-  width: 468px;
+  width: 444px;
   height: 18px;
   border-radius: 8px;
   border: none;
@@ -15,7 +15,7 @@ export const InputStyled = styled.input`
 `;
 
 export const TextAreaStyled = styled.textarea`
-  width: 468px;
+  width: 444px;
   height: 56px;
   border: none;
   border-radius: 8px;
