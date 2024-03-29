@@ -18,7 +18,6 @@ export default function UploadImage({ triggerComponent, setImage }: Props) {
       <input 
         type="file"
         accept="image/*"
-        className="select-image"
         id="select-image"
         style={{ display: "none" }}
         onChange={handleFileChange}
