@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+const MainContainer = styled.main`
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 516px;
+  margin: 0 auto;
+`;
+
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -21,7 +30,7 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
       <Header>
         <img src="/bx-logo.svg" alt="Buildbox Web Challenge" />
       </Header>
-      {children}
+      <MainContainer>{children}</MainContainer>
     </>
   );
 }

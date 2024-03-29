@@ -1,3 +1,5 @@
+import { PostForm } from "../components/post-form";
+
 export function HomePage() {
-  return <div></div>;
+  return <PostForm />;
 }
