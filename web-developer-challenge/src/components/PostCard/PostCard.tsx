@@ -1,10 +1,16 @@
-import {Container} from "../PostCard/PostStyles"
+"use client"
+import Input from "../Input/Input";
+import {Container, InputContainer} from "../PostCard/PostStyles"
 import React from 'react'
+import TextArea from "../TextArea/TextArea";
 
 function PostCard() {
   return (
     <Container>
-        PostCard
+        <InputContainer>
+            <Input placeholder="Digite seu nome"></Input>
+            <TextArea placeholder="Mensagem"></TextArea>
+        </InputContainer>
     </Container>
   )
 }
