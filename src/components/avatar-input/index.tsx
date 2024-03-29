@@ -27,9 +27,9 @@ export function AvatarInput({ imageSrc, onImageChange }: ImageInputProps) {
     <AvatarInputContainer>
       <label htmlFor="image-upload">
         {imageSrc ? (
-          <img src={imageSrc} alt="Selected" className="avatar" />
+          <img src={imageSrc} alt="" className="avatar" />
         ) : (
-          <img src={pictureIcon} alt="No Image" className="picture-icon" />
+          <img src={pictureIcon} alt="Selecionar imagem" className="picture-icon" />
         )}
       </label>
       <input
