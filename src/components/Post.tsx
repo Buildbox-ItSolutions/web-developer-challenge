@@ -8,6 +8,8 @@ type PostProps = {
     avatar: string;
     name: string;
     content: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDelete: (post: any) => void;
 }
 export const Img = styled('img', {
     position: 'absolute',
@@ -28,12 +30,12 @@ export const Container = styled('div', {
     }
 })
 
-export function Post({ avatar, name, content }: PostProps) {
+export function Post({ avatar, name, content, onDelete }: PostProps) {
     return (
         <Box>
             <Container>
-                <Img className="iconDelete" src={deleteSvg} />
-                <Avatar src={`${avatar}`} alt="imagem gerada de forma random" />
+                <Img className="iconDelete" src={deleteSvg} onClick={onDelete} />
+                <Avatar src={`./src/assets/${avatar}`} alt="imagem gerada de forma random" />
                 <div>
                     <p>
                         {content}

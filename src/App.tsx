@@ -49,9 +49,11 @@ export function App() {
     setPosts((pre) => {
       return [...pre, date]
     })
-
   }
 
+  function handleDiscard(postToRemove: { avatar: string; name: string; content: string; }) {
+    setPosts((prev) => prev.filter(post => post !== postToRemove));
+  }
   return (
     <>
       <Header>
@@ -60,7 +62,7 @@ export function App() {
       <Container>
         <FormPost onPosts={handleSubmitPost} />
         {posts && posts.map((post, index) => (
-          <Post avatar={post.avatar} content={post.content} name={post.name} key={index} />
+          <Post avatar={post.avatar} content={post.content} name={post.name} key={index} onDelete={() => handleDiscard(post)} />
         ))}
       </Container>
 
