@@ -8,4 +8,5 @@ export type PostProps = {
 export type ContextType = {
   allPosts: PostProps[];
   addPost: (post: PostProps) => void;
+  deletePost: (id: string) => void;
 };

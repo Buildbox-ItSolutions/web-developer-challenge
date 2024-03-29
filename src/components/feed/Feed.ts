@@ -27,6 +27,7 @@ export const H3 = styled.h3`
 
 export const Card = styled.div`
   display: flex;
+  position: relative;
   gap: 1rem;
   min-height: 215px;
   padding: 1.5rem;
@@ -86,4 +87,19 @@ export const Name = styled.p`
   letter-spacing: normal;
   text-align: left;
   color: var(--warm-grey-two);
+`;
+
+export const Delete = styled.button`
+  cursor: pointer;
+  border: none;
+  right: auto;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;  
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
 `;

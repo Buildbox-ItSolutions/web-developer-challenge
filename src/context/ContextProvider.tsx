@@ -37,10 +37,17 @@ function ContextProvider({ children }: ContextProviderProps) {
     setAllPosts(sortedPosts)
   }
 
+  const deletePost = (id: string) => {
+    const updatedPosts = allPosts.filter(post => post.id !== id)
+    setAllPosts(updatedPosts)
+  }
+
   const values = {
     allPosts,
-    addPost
+    addPost,
+    deletePost
   }
+
   return (
     <Context.Provider value={values}>
       {children}
