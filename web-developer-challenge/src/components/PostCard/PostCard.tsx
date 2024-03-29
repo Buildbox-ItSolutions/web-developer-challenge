@@ -1,8 +1,9 @@
 "use client"
 import Input from "../Input/Input";
-import {Container, InputContainer} from "../PostCard/PostStyles"
+import {ButtonContainer, Container, InputContainer} from "../PostCard/PostStyles"
 import React from 'react'
 import TextArea from "../TextArea/TextArea";
+import Button from "../Button/Button"
 
 function PostCard() {
   return (
@@ -11,6 +12,10 @@ function PostCard() {
             <Input placeholder="Digite seu nome"></Input>
             <TextArea placeholder="Mensagem"></TextArea>
         </InputContainer>
+        <ButtonContainer>
+          <Button variant="outline">Descartar</Button>
+          <Button>Publicar</Button>
+        </ButtonContainer>
     </Container>
   )
 }

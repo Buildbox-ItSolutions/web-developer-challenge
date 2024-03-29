@@ -12,6 +12,7 @@ export const Container = styled.div`
     height: 353px;
     border: solid 1px #3b3b3b;
     border-radius: 3px;
+    gap: 10px;
 `
 
 export const InputContainer = styled.div`
@@ -22,3 +23,13 @@ export const InputContainer = styled.div`
     gap: 10px;
     flex-direction: column;
 `
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: -90px;
+`
+
