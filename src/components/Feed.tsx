@@ -6,12 +6,7 @@ function Feed({ children }: FeedProps) {
     <div>
       <p>Feed</p>
       {children.map((post) => (
-        <div
-          key={uuidv4()}
-          className="w-[516px] mt-[8px] mb-[16px] bg-mainColor-dark  border border-mainColor-lightGrey px-[24px]"
-        >
-          {post}
-        </div>
+        <div key={uuidv4()}>{post}</div>
       ))}
     </div>
   );

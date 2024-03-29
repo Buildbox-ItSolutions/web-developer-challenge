@@ -1,6 +1,8 @@
-import { PostCreationProps } from '../interface/postCreationProps';
+import { PostCreationProps } from '../../interface/postCreationProps';
 import { ChangeEvent, useState } from 'react';
-import userInputs from '../interface/userInputs';
+import userInputs from '../../interface/userInputs';
+import Post from '../Post';
+import './postCreation.css';
 
 function PostCreation({ setFeed }: PostCreationProps) {
   const [userInputs, setUserInputs] = useState<userInputs>({
@@ -9,7 +11,9 @@ function PostCreation({ setFeed }: PostCreationProps) {
     imageUrl: '',
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setUserInputs({ ...userInputs, [name]: value });
   };
@@ -21,7 +25,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
   const sendButton = (e: React.MouseEvent): void => {
     e.preventDefault();
 
-    setFeed((prevState) => [...prevState, <h1>{userInputs.name}</h1>]);
+    setFeed((prevState) => [<Post userInputs={userInputs} />, ...prevState]);
   };
 
   const discardButton = (e: React.MouseEvent) => {
@@ -35,7 +39,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
       </div>
       <form className="flex flex-col items-center justify-between">
         <input
-          className="w-[468px] h-[40px] bg-mainColor-lightGrey rounded-[8px] mb-[8px] pl-[16px] text-[14px]"
+          className="w-[468px] h-[40px] rounded-[8px] mb-[8px] pl-[16px] text-[14px] input"
           placeholder="Digite seu nome"
           type="text"
           name="name"
@@ -43,7 +47,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
           onChange={(e) => handleInputChange(e)}
         ></input>
         <textarea
-          className="w-[468px] h-[80px] bg-mainColor-lightGrey rounded-[8px] resize-none pt-[12px] pl-[16px] text-[14px]"
+          className="w-[468px] h-[80px] rounded-[8px] resize-none pt-[12px] pl-[16px] text-[14px] input"
           placeholder="Menssagem"
           name="message"
           value={userInputs.message}

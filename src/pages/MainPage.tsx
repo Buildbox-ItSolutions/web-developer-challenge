@@ -1,6 +1,6 @@
 import { ReactElement, useState } from 'react';
 import Header from '../components/Header';
-import PostCreation from '../components/PostCreation';
+import PostCreation from '../components/postCreation/PostCreation';
 import Feed from '../components/Feed';
 
 function MainPage() {
