@@ -1,0 +1,50 @@
+.inputContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 95%;
+    gap: clamp(0.6rem, 2.5vw, 1.19rem);
+
+    p {
+        font-family: var(--font-type);
+        font-size: 0.875rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--color-button);
+    }
+
+    input {
+        display: flex;
+        width: 100%;
+        height: 2.5rem;
+        padding-left: 1rem;
+        align-items: center;
+        flex-shrink: 0;
+        
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--color-input);
+
+        color: var(--color-post);
+        font-family: var(--font-type);
+        font-size: 0.875rem;
+        font-style: var(--font-style);
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        text-align: left;
+
+        &:focus {
+            border: 0.076rem solid var(--color-form-border);
+            color: var(--color-post);
+        }
+    }
+}
