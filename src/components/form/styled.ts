@@ -1,33 +1,4 @@
 import styled from 'styled-components'
-import { Button } from '@material-ui/core'
-
-export const SPreview = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0px auto;
-`
-
-export const SButton = styled(Button)`
-  background-color: #473f57 !important;
-  color: white !important;
-  width: 100px;
-  padding: 20px;
-  color: white;
-  font-weight: 500;
-  border: none;
-  padding: 10px;
-  height: 50px !important;
-  cursor: pointer;
-  @media (max-width: 555px) {
-    padding-left: 0px;
-  }
-  :hover {
-    background-color: #716589 !important;
-  }
-  :disabled {
-    background-color: #716589 !important;
-  }
-`
 
 export const SContainer = styled.div`
   width: 516px;
@@ -40,16 +11,17 @@ export const SContainer = styled.div`
   margin: 0 auto;
 `
 
-export const SContainerImage = styled.div`
-  width: 100%;
+export const SImage = styled.img`
+  width: 88px;
+  height: 88px;
+  margin: 0 8px 16px 190px;
+  object-fit: cover;
+  border-radius: 70%;
 `
-
-export const SImage = styled.img``
 
 export const SImgTrash = styled.img`
   width: 24px;
   height: 24px;
-  margin: 32px 150px 48px 16px;
   object-fit: contain;
 `
 
@@ -57,16 +29,17 @@ export const SInputName = styled.input`
   width: 436px;
   height: 40px;
   margin: 16px 0 8px;
-  padding: 12px 349px 11px 16px;
+  padding: 12px 5px 11px 5px;
   border-radius: 8px;
   background-color: #494949;
   color: white;
 `
 
-export const SInputDescription = styled.input`
+export const SInputDescription = styled.textarea`
   width: 436px;
   height: 56px;
-  padding: 12px 349px 11px 16px;
+  overflow-y: hidden;
+  padding: 12px 5px 11px 5px;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -90,7 +63,7 @@ export const SButtonPublish = styled.button`
   margin: 0 0 0 24px;
   padding: 10px auto;
   background-color: #71bb00;
-  color: white;  
+  color: white;
   border-radius: 8px;
 `
 
