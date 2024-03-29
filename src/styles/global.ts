@@ -20,4 +20,14 @@ export const GlobalStyle = createGlobalStyle`
     font: 400, 1rem, 'Roboto', sans-serif;
   }
 
+  ::-webkit-scrollbar {
+  width: 4px; 
+  background-color: #ffffff;
+  border-radius: 5px
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9f9f9f; 
+  border-radius: 5px; 
+}
 `

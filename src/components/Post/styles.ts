@@ -4,7 +4,6 @@ export const Container = styled.div`
   background-color: #313131;
   border: 1px solid #3b3b3b;
   width: 516px;
-  min-height: 225px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -44,7 +43,7 @@ export const ButtonIcon = styled.button`
 export const PostImage = styled.img`
   width: 88px;
   height: 88px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 36px;
 `;
 
@@ -102,6 +101,8 @@ export const AuthorName = styled.p`
   line-height: 18px;
   font-family: "Roboto", sans-serif;
   color: #7a7a7a;
+  max-width: 348px;
+  word-break: break-all;
 `
 
 export const PlaceholderImageContainer = styled.div`

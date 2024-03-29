@@ -193,7 +193,10 @@ export default function Home() {
         <PostsListContainer>
           <FeedText style={{ marginBottom: posts.length === 0 ? 40 : 0 }}>Feed</FeedText>
 
-          <PostsList style={{ alignItems: posts.length === 0 ? "center" : "normal" }}>
+          <PostsList style={{ 
+            alignItems: posts.length === 0 ? "center" : "normal",
+            justifyContent: posts.length === 0 ? "center" : "normal"
+          }}>
           {posts.length > 0 ? (
             posts.map((post) => (
               <Post 

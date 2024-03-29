@@ -39,7 +39,7 @@ export const CreatePostImageAndTrashIconContainer = styled.div`
 export const PreviewImageContainer = styled.img`
   width: 88px;
   height: 88px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 36px;
 
   &:hover {
@@ -93,7 +93,7 @@ export const InputName = styled.input`
   border-radius: 8px;
   border: none;
   width: 100%;
-  color: #9f9f9f;
+  color: #ffffff;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 12px;
@@ -102,6 +102,10 @@ export const InputName = styled.input`
   font-size: 14px;
   line-height: 18px;
   text-align: left;
+
+  &::placeholder {
+    color: #9f9f9f;
+  }
 `;
 
 export const TextAreaContentContainer = styled.div`
@@ -124,7 +128,7 @@ export const TextAreaContent = styled.textarea`
   border: none;
   width: 100%;
   min-height: 80px;
-  color: #9f9f9f;
+  color: #ffffff;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 12px;
@@ -133,6 +137,10 @@ export const TextAreaContent = styled.textarea`
   font-size: 14px;
   line-height: 18px;
   text-align: left;
+
+  &::placeholder {
+    color: #9f9f9f;
+  }
 `;
 
 export const DiscardText = styled.p`
