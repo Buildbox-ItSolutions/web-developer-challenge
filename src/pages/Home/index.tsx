@@ -92,7 +92,7 @@ export default function Home() {
     !previewImage;
 
   const disablePublishButton =
-    watch("name").length === 0 || watch("content").length === 0;
+    watch("name").length === 0 || watch("content").length === 0 || !previewImage;
 
   const UploadImageComponent = () => {
     return image && previewImage ? (
