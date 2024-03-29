@@ -4,3 +4,8 @@ export type PostProps = {
   message: string;
   image?: string;
 };
+
+export type ContextType = {
+  allPosts: PostProps[];
+  addPost: (post: PostProps) => void;
+};
