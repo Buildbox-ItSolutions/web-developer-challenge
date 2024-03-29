@@ -36,5 +36,6 @@ no projeto.
 ```
 
 Desenvolvedor: Wictor Hiago Souza Conceicao
+Telefone: 92982892832
 
 Github: https://github.com/WictorHiago
