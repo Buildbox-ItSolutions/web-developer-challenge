@@ -1,12 +1,12 @@
 "use client"
-import PostCard from "@/components/PostCard/PostCard";
+import CreatePost from "@/components/CreatePost/CreatePost";
 import { styled } from "styled-components";
 
 export default function Home() {
   return (
     <main className="min-h-screen min-w-screen">
       <MainContent>
-        <PostCard></PostCard>
+        <CreatePost></CreatePost>
       </MainContent>
     </main>
   );

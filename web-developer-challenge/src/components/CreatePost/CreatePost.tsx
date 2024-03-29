@@ -1,12 +1,12 @@
 "use client"
 import Input from "../Input/Input";
-import {ButtonContainer, Container, InputContainer, PicContainer} from "../PostCard/PostStyles"
+import {ButtonContainer, Container, InputContainer, PicContainer} from "./CreateStyles"
 import React from 'react'
 import TextArea from "../TextArea/TextArea";
 import Button from "../Button/Button"
 import Avatar from "../Avatar/Avatar";
 
-function PostCard() {
+function CreatePost() {
   return (
     <Container>
       <PicContainer>
@@ -24,4 +24,4 @@ function PostCard() {
   )
 }
 
-export default PostCard;
+export default CreatePost;
