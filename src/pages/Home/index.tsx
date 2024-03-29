@@ -102,7 +102,6 @@ export default function Home() {
             <PreviewImageContainer src={previewImage} alt="Preview of post image" />
 
             <ButtonIcon
-              style={{ marginTop: -20 }}
               onClick={() => {
                 setPreviewImage(null);
                 setImage(null);
