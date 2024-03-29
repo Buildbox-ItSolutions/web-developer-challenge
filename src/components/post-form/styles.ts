@@ -8,12 +8,11 @@ export const PostFormContainer = styled.form`
   align-items: center;
 
   background-color: ${({ theme }) => theme.colors.gray[600]};
-
   border: solid 1px ${({ theme }) => theme.colors.gray[550]};
   width: 100%;
   padding: ${({ theme }) => theme.spacing[8]};
+  border-radius: 3px;
 
-  /* select input with type = file */
   & #avatar-input {
     margin-bottom: ${({ theme }) => theme.spacing[4]};
   }
@@ -31,16 +30,25 @@ export const PostFormContainer = styled.form`
     font-size: 0.875rem;
 
     & .cancel-btn {
-      /* underline */
       text-decoration: underline;
       color: ${({ theme }) => theme.colors.gray[400]};
     }
 
     & .submit-btn {
-      background-color: ${({ theme }) => theme.colors.gray[400]};
-      color: ${({ theme }) => theme.colors.gray[600]};
+      background-color: ${({ theme }) => theme.colors.green[500]};
+      font-weight: 500;
+      color: ${({ theme }) => theme.colors.gray[700]};
       padding: ${({ theme }) => theme.spacing[3]} ${({ theme }) => theme.spacing[6]};
       border-radius: 8px;
+
+      transition: background-color 0.3s;
+
+      cursor: pointer;
+      &:disabled {
+        cursor: not-allowed;
+        color: ${({ theme }) => theme.colors.gray[600]};
+        background-color: ${({ theme }) => theme.colors.gray[400]};
+      }
     }
   }
 `;

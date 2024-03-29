@@ -8,6 +8,10 @@ export const TextareaContainer = styled.label`
   border-radius: 8px;
   height: 80px;
 
+  &:focus-within {
+    box-shadow: 0 0 0 1.5px ${({ theme }) => theme.colors.green[500]};
+  }
+
   & textarea {
     font-size: 0.875rem;
     background: transparent;
@@ -15,6 +19,7 @@ export const TextareaContainer = styled.label`
     border: none;
     color: ${({ theme }) => theme.colors.gray[200]};
     resize: none;
+    height: 100%;
 
     ::placeholder {
       color: ${({ theme }) => theme.colors.gray[200]};

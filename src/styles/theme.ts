@@ -13,6 +13,9 @@ export const theme = {
     red: {
       500: "#D65924",
     },
+    green: {
+      500: "#71BC00",
+    },
   },
   spacing: {
     0: "0px",

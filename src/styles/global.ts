@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 
+  *:focus {
+    outline: none;
+  }
+
   body {
     background: ${({ theme }) => theme.colors.gray[700]};
     --webkit-font-smoothing: antialiased;
