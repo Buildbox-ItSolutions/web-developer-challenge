@@ -1,14 +1,17 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import { GlobalStyle } from "./styles/global";
+import { DefaultLayout } from "./layouts/default-layout";
+import { HomePage } from "./pages/home";
 
-function App() {
+export function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <h1>Setup app</h1>
+      <DefaultLayout>
+        <HomePage />
+      </DefaultLayout>
     </ThemeProvider>
   );
 }
 
-export default App;
