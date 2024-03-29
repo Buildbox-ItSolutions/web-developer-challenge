@@ -1,0 +1,14 @@
+header {
+  width: 100vw;
+  height: 93px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b2b;
+}
+
+.logo {
+  background-image: url("../../assets/bx-logo.svg");
+  width: 103px;
+  height: 45px;
+}
