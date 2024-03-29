@@ -184,7 +184,6 @@ export const ButtonPublish = styled.button`
     cursor: not-allowed;
     transition: 0.2s;
   }
-
 `;
 
 export const PostsListContainer = styled.div`
@@ -196,7 +195,7 @@ export const PostsListContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`
+`;
 
 export const FeedText = styled.p`
   font-weight: 500;
@@ -204,13 +203,13 @@ export const FeedText = styled.p`
   font-size: 14px;
   line-height: 18px;
   color: #7a7a7a;
-`
+`;
 
 export const PostsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-`
+`;
 
 export const NoPostsText = styled.p`
   font-weight: 500;
@@ -219,4 +218,4 @@ export const NoPostsText = styled.p`
   text-align: center;
   line-height: 18px;
   color: #ffffff;
-`
+`;

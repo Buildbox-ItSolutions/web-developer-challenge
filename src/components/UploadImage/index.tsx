@@ -2,7 +2,7 @@ import { ChangeEvent, ReactNode } from "react";
 
 interface Props {
   triggerComponent: ReactNode;
-  setImage: (file: File) => void
+  setImage: (file: File) => void;
 }
 
 export default function UploadImage({ triggerComponent, setImage }: Props) {
@@ -15,7 +15,7 @@ export default function UploadImage({ triggerComponent, setImage }: Props) {
 
   return (
     <>
-      <input 
+      <input
         type="file"
         accept="image/*"
         id="select-image"
@@ -23,9 +23,7 @@ export default function UploadImage({ triggerComponent, setImage }: Props) {
         onChange={handleFileChange}
       />
 
-      <label htmlFor="select-image">
-        {triggerComponent}
-      </label>
+      <label htmlFor="select-image">{triggerComponent}</label>
     </>
-  )
+  );
 }

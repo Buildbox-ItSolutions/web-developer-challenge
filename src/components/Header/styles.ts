@@ -6,6 +6,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
-export const Logo = styled.img``
+export const Logo = styled.img``;

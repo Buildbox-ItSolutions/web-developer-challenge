@@ -12,7 +12,7 @@ import {
   TextsContainer,
 } from "./styles";
 import DeleteIcon from "../../assets/delete.svg";
-import PlaceholderImage from '../../assets/image.svg'
+import PlaceholderImage from "../../assets/image.svg";
 
 interface Props {
   authorName: string;

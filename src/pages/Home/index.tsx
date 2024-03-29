@@ -81,10 +81,10 @@ export default function Home() {
   };
 
   const deletePost = (id: number) => {
-    const newPosts = posts.filter((post) => post.id !== id)
+    const newPosts = posts.filter((post) => post.id !== id);
 
-    setPosts(newPosts)
-  }
+    setPosts(newPosts);
+  };
 
   const disabelDiscardButton =
     watch("name").length === 0 &&
@@ -101,11 +101,11 @@ export default function Home() {
           <CreatePostImageAndTrashIconContainer>
             <PreviewImageContainer src={previewImage} />
 
-            <ButtonIcon 
+            <ButtonIcon
               style={{ marginTop: -20 }}
               onClick={() => {
-                setPreviewImage(null)
-                setImage(null)
+                setPreviewImage(null);
+                setImage(null);
               }}
             >
               <img src={TrashIcon} />
@@ -191,27 +191,31 @@ export default function Home() {
         </CreatePostContainer>
 
         <PostsListContainer>
-          <FeedText style={{ marginBottom: posts.length === 0 ? 40 : 0 }}>Feed</FeedText>
+          <FeedText style={{ marginBottom: posts.length === 0 ? 40 : 0 }}>
+            Feed
+          </FeedText>
 
-          <PostsList style={{ 
-            alignItems: posts.length === 0 ? "center" : "normal",
-            justifyContent: posts.length === 0 ? "center" : "normal"
-          }}>
-          {posts.length > 0 ? (
-            posts.map((post) => (
-              <Post 
-                key={post.id}
-                authorName={post.authorName}
-                content={post.content}
-                imgSrc={post.previewImage}
-                onDelete={() => deletePost(post.id)}
-              />
-            ))
-          ) : (
-            <NoPostsText>
-              Nenhum post no seu Feed, que tal publicar um?
-            </NoPostsText>
-          )}
+          <PostsList
+            style={{
+              alignItems: posts.length === 0 ? "center" : "normal",
+              justifyContent: posts.length === 0 ? "center" : "normal",
+            }}
+          >
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <Post
+                  key={post.id}
+                  authorName={post.authorName}
+                  content={post.content}
+                  imgSrc={post.previewImage}
+                  onDelete={() => deletePost(post.id)}
+                />
+              ))
+            ) : (
+              <NoPostsText>
+                Nenhum post no seu Feed, que tal publicar um?
+              </NoPostsText>
+            )}
           </PostsList>
         </PostsListContainer>
       </BodyContainer>

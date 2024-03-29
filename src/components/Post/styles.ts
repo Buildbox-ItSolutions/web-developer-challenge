@@ -20,7 +20,7 @@ export const DeleteIconContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 24px;
-`
+`;
 
 export const ButtonIcon = styled.button`
   cursor: pointer;
@@ -38,7 +38,7 @@ export const ButtonIcon = styled.button`
     opacity: 0.7;
     cursor: not-allowed;
   }
-`
+`;
 
 export const PostImage = styled.img`
   width: 88px;
@@ -63,14 +63,13 @@ export const BodyContainer = styled.div`
   align-items: flex-start;
   padding-right: 24px;
 
-
   @media (max-width: 500px) {
     flex-direction: column;
     gap: 16px;
     justify-content: center;
     align-items: center;
   }
-`
+`;
 
 export const Content = styled.p`
   font-size: 16px;
@@ -85,7 +84,7 @@ export const CreditsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-`
+`;
 
 export const CreatedBy = styled.p`
   font-size: 12px;
@@ -103,7 +102,7 @@ export const AuthorName = styled.p`
   color: #7a7a7a;
   max-width: 348px;
   word-break: break-all;
-`
+`;
 
 export const PlaceholderImageContainer = styled.div`
   width: 88px;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -30,4 +30,4 @@ export const GlobalStyle = createGlobalStyle`
   background-color: #9f9f9f; 
   border-radius: 5px; 
 }
-`
+`;
