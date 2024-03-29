@@ -1,20 +1,22 @@
 import { FeedContainer, H3, Card, Container, Image, ContainerMessage, Message, SendBy, Name } from "./Feed"
-import { PostProps } from "../../types";
+import Context from "../../context/Context"
 import imageNone from "../../assets/image.svg"
+import { useContext } from "react";
 
 
-type FeedProps = {
-  props: PostProps[]
-}
 
-function Feed({ props }: FeedProps) {
+function Feed() {
+  const { allPosts } = useContext(Context);
+  // const [feed, setFeed] = useState(allPosts);
 
+  console.log(allPosts);
+  
   return (
     <FeedContainer>
       <Container>
         <H3>Feed</H3>
 
-        {props?.map((post) => (
+        {allPosts?.map((post) => (
           <Card key={post.id}>
             <Image src={post.image ? post.image : imageNone} alt="imagem do post" />
             <ContainerMessage>
