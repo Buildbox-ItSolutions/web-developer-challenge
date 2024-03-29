@@ -1,0 +1,6 @@
+{
+    "posts": [
+      { "id": "1","avatar":"photo-base1.png", "name": "Manuela Oliveira", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus." },
+      { "id": "2","avatar":"photo-base2.png", "name": "Manuela Oliveira", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis." }
+    ]
+  }
