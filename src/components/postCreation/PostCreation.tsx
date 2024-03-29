@@ -30,6 +30,11 @@ function PostCreation({ setFeed }: PostCreationProps) {
 
   const discardButton = (e: React.MouseEvent) => {
     e.preventDefault();
+    setUserInputs({
+      name: '',
+      message: '',
+      imageUrl: '',
+    });
   };
 
   return (
