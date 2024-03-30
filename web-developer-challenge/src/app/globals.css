@@ -28,6 +28,7 @@ body {
   }
 }
 
-.roboto{
-  font-family: var("--font-roboto");
+html{
+  font-family: var(--font-roboto), sans-serif;
 }
+

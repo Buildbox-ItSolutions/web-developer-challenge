@@ -4,7 +4,6 @@ export const Container = styled.div`
     display: flex;
     align-items: start;
     justify-content: start;
-    font-family: Roboto;
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -24,7 +23,6 @@ export const PostedByContainer = styled.div`
 `
 
 export const PostedBy = styled.span`
-    font-family: Roboto;
     font-size: 12px;
     font-weight: 500;
     font-stretch: normal;
@@ -36,7 +34,6 @@ export const PostedBy = styled.span`
 `
 
 export const PostCreator = styled.span`
-    font-family: Roboto;
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;

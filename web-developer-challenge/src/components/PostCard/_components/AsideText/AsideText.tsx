@@ -8,8 +8,8 @@ interface Props {
 
 function AsideText( { message, createdBy} : Props) {
   return (
-    <Container className='roboto'>
-        {message}
+    <Container>
+          {message}
         <PostedByContainer>
             <PostedBy>Enviado por</PostedBy>
             <PostCreator>{createdBy}</PostCreator>
