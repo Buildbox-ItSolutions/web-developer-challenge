@@ -1,6 +1,5 @@
+import { create } from "zustand"
 import {v4 as uuidv4 } from 'uuid'
-import photobase from "../../public/photo-base@2x.png"
-import photobase2 from "../../public/photo-base2.png"
 
 export interface Post {
     id: string;
@@ -9,7 +8,13 @@ export interface Post {
     message: string;
 }
 
-let posts: Post[] = []
+type PostsStore = {
+    posts: Post[];
+    addPost: (item: Post) => void;
+    removePost: (id: string) => void;
+}
+
+let initialPosts: Post[] = []
 
 let toCreate = [{
         photo: "https://img.freepik.com/fotos-premium/uma-ilustracao-redonda-de-uma-paisagem-montanhosa-com-um-lago-e-montanhas-ao-fundo_902639-24791.jpg?w=826",
@@ -30,22 +35,13 @@ for (let index = 0; index < toCreate.length; index++) {
         createdBy: toCreate[index].createdBy,
         message: toCreate[index].message
     };
-    posts.push(newPost); 
+    initialPosts.push(newPost); 
 }
 
-export const getPosts = () => {
-    return posts.reverse();
-}
-
-export const createPost = (post: Post) => {
-    posts.push(post)
-}
-
-export const deletePost = (id: string) => {
-    const index = posts.findIndex(post => post.id == id);
-    if (index !== -1) {
-        posts.splice(index, 1);
-        return true; 
+export const usePostStore = create<PostsStore>((set) => {
+    return {
+        posts: initialPosts,
+        addPost: (item) => set((state) => ({posts: [...state.posts, item] })),
+        removePost: (id) => set((state) => ({posts: state.posts.filter((item) => item.id !== id)}))
     }
-    return false; 
-}
+})

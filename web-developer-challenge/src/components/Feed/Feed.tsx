@@ -1,13 +1,14 @@
 import React from 'react'
 import { FeedContainer } from './FeedStyles'
 import PostCard from '../PostCard/PostCard'
-import { Post } from '@/db/db'
+import { Post } from '@/db/dbZustand'
 
 interface Props {
     posts: Post[]
+
 }
 
-function Feed( {posts} : Props) {
+function Feed( { posts } : Props) {
     
   return (
     <FeedContainer>

@@ -5,14 +5,14 @@ import React, { useState } from 'react'
 import TextArea from "../TextArea/TextArea";
 import Button from "../Button/Button"
 import Avatar from "../Avatar/Avatar";
-import { Post, createPost } from "@/db/db";
+import { Post } from "@/db/dbZustand";
 import {v4 as uuidv4 } from 'uuid'
 
 interface Props {
-  reRender: () => void;
+  createPost: (item: Post) => void;
 }
 
-function CreatePost( { reRender } : Props ) {
+function CreatePost( { createPost } : Props) {
   const [name, setName] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [photo, setPhoto] = useState<string | null>(null)
@@ -24,10 +24,9 @@ function CreatePost( { reRender } : Props ) {
       message: message ?? "",
       photo: photo ?? ""
     }
-
+    
     createPost(obj)
     resetForm()
-    reRender()
   }
 
   const resetForm = () => {

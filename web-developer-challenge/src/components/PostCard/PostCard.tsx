@@ -3,17 +3,19 @@ import { Container, DeleteButtonContainer, MainContentContainer, PhotoContainer,
 import Avatar from './_components/Avatar/Avatar'
 import deleteItem from '../../../public/delete.svg'
 import AsideText from './_components/AsideText/AsideText'
-import { Post } from '@/db/db'
+import { Post, usePostStore } from '@/db/dbZustand'
 
 interface Props {
     post: Post;
 }
 
 function PostCard( { post } : Props) {
+
+    const { removePost } = usePostStore()
   
   return (
     <Container>
-        <DeleteButtonContainer>
+        <DeleteButtonContainer onClick={() => removePost(post.id)}>
             <img src={deleteItem.src} alt='delete icon'></img>
         </DeleteButtonContainer>
         <MainContentContainer>
