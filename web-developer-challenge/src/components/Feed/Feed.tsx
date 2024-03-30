@@ -9,13 +9,15 @@ interface Props {
 }
 
 function Feed( { posts } : Props) {
+
+    const postsOrdered = [...posts].reverse()
     
   return (
     <FeedContainer>
         {
             posts.length > 0 ?
 
-            posts.map((item, index) => {
+            postsOrdered.map((item, index) => {
                 return (
                     <PostCard post={item} key={index}></PostCard>
                 )
