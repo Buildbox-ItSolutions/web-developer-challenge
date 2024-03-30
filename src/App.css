@@ -1,0 +1,28 @@
+:root {
+  --primary: #71BB00;
+  --base-light: #343434;
+  --base: #3b3b3b;
+  --base-dark: #313131
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+p, span {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+button, a {
+  cursor: pointer;
+}
