@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #9f0303 ;
+    /* border: 2px solid rgb(17, 163, 12); */
+    box-shadow: 2px 2px 5px 2px #9f0303 ;
+    height: 130px;
+}
