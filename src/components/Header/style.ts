@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { ThemeProps } from "../../interface";
 
-
-export const Wrapper = styled.header<ThemeProps>`
+export const Wrapper = styled.header`
   width: 100%;
   padding: 2.4rem 0;
   
@@ -10,6 +8,6 @@ export const Wrapper = styled.header<ThemeProps>`
   justify-content: center;
   align-items: center;
   
-  background-color: ${({theme}) => theme.colors.blackThree};
-  border-bottom: 1px solid ${({theme}) => theme.colors.blackOne};
+  background-color: ${({theme}) => theme.colors.blackDark};
+  border-bottom: 1px solid ${({theme}) => theme.colors.borderColor};
 `;
