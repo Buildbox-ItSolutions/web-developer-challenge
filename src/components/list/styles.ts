@@ -53,7 +53,7 @@ export const WrapperContent = styled.div`
     line-height: 1.25;
     letter-spacing: normal;
     text-align: left;
-    color: #9f9f9f;
+    color: ${theme.colors.text};
   }
 
   > div > div {
@@ -69,7 +69,7 @@ export const WrapperContent = styled.div`
     line-height: 1.33;
     letter-spacing: 0.29px;
     text-align: left;
-    color: #5f5f5f;
+    color: ${theme.colors.text_light};
   }
 
   > div > div > p:last-child {

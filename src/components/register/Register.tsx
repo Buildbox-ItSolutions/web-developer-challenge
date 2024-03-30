@@ -1,8 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { IRegister } from "../../interfaces/Register";
-import Photo from "../photo/Photo";
-import { ButtonsWrapper, FieldsWrapper, Wrapper } from "./styles";
+import { ButtonsWrapper, FieldsWrapper, styleUpload, Wrapper } from "./styles";
 import InputField from "../input/InputField";
+import ImageUpload, { FileObjectType } from "../imageUpload";
+import EditIcon from "../../assets/img/image.png";
+import TrashIcon from "../../assets/img/trash.png";
 
 interface Props {
   btnDiscard: string;
@@ -16,32 +18,38 @@ const Register = ({
   registerList,
   setRegisterList,
 }: Props) => {
-  //const [id, setId] = useState<number>(0);
+  const [image, setImage] = useState<string>();
   const [name, setName] = useState<string>("Manuela Oliveira");
   const [message, setMessage] = useState<string>(
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus."
   );
+  const ImageUploadClearEvent = new CustomEvent("imagem-upload-clear-event");
+
+  const resetRegisterHandler = () => {
+    setImage("");
+    setName("");
+    setMessage("");
+    window.dispatchEvent(ImageUploadClearEvent);
+  };
 
   const addRegisterHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name && name.length > 0 && message && message.length > 0) {
+    if (
+      image &&
+      image.length > 0 &&
+      name &&
+      name.length > 0 &&
+      message &&
+      message.length > 0
+    ) {
       const id = Math.floor(Math.random() * 100);
 
-      const newRegister: IRegister = { id, name, message };
+      const newRegister: IRegister = { id, image, name, message };
 
       setRegisterList!([...registerList, newRegister]);
-
-      setName("");
-      setMessage("");
+      resetRegisterHandler();
     }
-
-    console.log(registerList);
-  };
-
-  const resetRegisterHandler = () => {
-    setName("");
-    setMessage("");
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,14 +58,27 @@ const Register = ({
     } else {
       setMessage(e.target.value);
     }
-    console.log(registerList);
+  };
+
+  const onAddImage = (img: string) => {
+    setImage(img);
+  };
+
+  const onDeleteImage = () => {
+    setImage("");
   };
 
   return (
     <>
       <form onSubmit={addRegisterHandler} onReset={resetRegisterHandler}>
         <Wrapper>
-          <Photo />
+          <ImageUpload
+            style={styleUpload}
+            deleteIcon={image ? <img src={TrashIcon} /> : <></>}
+            uploadIcon={!image ? <img src={EditIcon} /> : <></>}
+            onFileAdded={({ dataUrl }: FileObjectType) => onAddImage(dataUrl)}
+            onFileRemoved={() => onDeleteImage()}
+          />
           <FieldsWrapper>
             <InputField
               type="text"

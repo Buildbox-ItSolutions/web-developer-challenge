@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CSSProperties } from "react";
 import theme from '../../Theme';
 
 export const Wrapper  = styled.div`
@@ -51,10 +52,24 @@ export const ButtonsWrapper  = styled.div`
     border: none;
     margin: 0;
     cursor: pointer;
-    
+
   }
 `;
 
 export const Feed = styled.div`
   
 `;
+
+export const styleUpload: CSSProperties = {
+  minWidth: 88,
+  minHeight: 88,
+  maxWidth: 88,
+  maxHeight: 88,
+  margin: 0,
+  objectFit: "contain",
+  backgroundColor: "transparent",
+  borderRadius: 36,
+  border: `1px solid ${theme.colors.greyish_brown_three0}`,
+  display: "flex",
+  alignItems: "center",
+}
