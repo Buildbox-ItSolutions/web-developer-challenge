@@ -1,1 +1,1 @@
-export * from './ThemeProps'
+export * from './Posts'
