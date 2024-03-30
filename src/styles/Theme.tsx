@@ -9,4 +9,5 @@ export const theme = {
 	tertiaryGray: '#7a7a7a',
 	buttonReady: '#71bb00',
 	white: '#ffffff',
+	error: '#CF6679',
 }
