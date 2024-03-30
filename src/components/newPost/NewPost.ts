@@ -98,6 +98,7 @@ export const TextArea = styled.textarea`
   color: var(--white);
   font-size: 14px;
   width: 100%;
+  resize: none;
 
   &::placeholder {
   font-size: 14px;
