@@ -12,6 +12,16 @@ export const Container = styled.div`
     border: solid 1px #3b3b3b;
     border-radius: 3px;
     gap: 10px;
+
+    @media (max-width: 729px) {
+        width: 416px;
+        margin-right: 50px;
+    }
+
+    @media (max-width: 496px) {
+        width: 316px;
+        margin-right: 50px;
+    }
 `
 
 export const InputContainer = styled.div`

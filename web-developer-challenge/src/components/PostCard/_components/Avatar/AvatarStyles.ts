@@ -6,7 +6,6 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     margin-left: 16px;
-    margin-top: -60px;
 `
 
 export const PicWrapper = styled.div`

@@ -27,9 +27,7 @@ export const MainContentContainer = styled.div`
 
 export const PhotoContainer = styled.div`
     width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-right: 16px;
 `
 
 export const TextContainer = styled.div`
