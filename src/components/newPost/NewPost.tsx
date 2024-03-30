@@ -41,7 +41,7 @@ function NewPost() {
           }
         </Label>
           <Add>Adicionar imagem</Add>
-        <ImageInput type="file" name="imagem" id="imagem" onChange={ (e) => setImage(e.target.files?.[0])} required />
+        <ImageInput type="file" name="imagem" id="imagem" accept=".jpg, .jpeg, .png" onChange={ (e) => setImage(e.target.files?.[0])} required />
 
         <Input type="text" placeholder="Digite seu nome" value={name} onChange={(e) => setName(e.target.value)} required />
         <TextArea placeholder="Mensagem" value={message} onChange={(e) => setMessage(e.target.value)} required />
