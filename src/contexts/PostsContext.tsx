@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useEffect, useState } from "react";
 import { Posts } from "../interface";
 
 interface IContext {
   posts: Posts[];
   setPosts: React.Dispatch<React.SetStateAction<Posts[]>>;
+  deletePost: (position: number) => void
 }
 
 interface IProvider {
@@ -25,9 +27,18 @@ export const PostProvider = ({children}: IProvider) => {
     }
   }, [])
 
+  const deletePost = (position: number) => {
+    const filteredPosts = posts.filter((post, index) => index !== position);
+
+    setPosts(filteredPosts);
+
+    localStorage.setItem('posts', JSON.stringify(filteredPosts));
+  };
+
   const contextValue: IContext = {
     posts,
     setPosts,
+    deletePost,
   }
   
   return (
