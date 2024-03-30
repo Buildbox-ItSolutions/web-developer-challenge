@@ -1,0 +1,38 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Oswald:wght@500&family=Pangolin&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Lumanosimo&family=Oswald:wght@500&family=Pangolin&display=swap');
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* font-family: 'Lumanosimo', cursive;
+  font-family: 'Oswald', sans-serif; */
+  font-family: 'Alkatra', cursive;
+}
+
+.dark-mode,
+.light-mode {
+  overflow-x: hidden;
+  transition: background-color 0.5s ease;
+  width: 100%;
+  height: 100vh;
+}
+
+.dark-mode {
+  background-color: #0e0e0e;
+  color: white;
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
