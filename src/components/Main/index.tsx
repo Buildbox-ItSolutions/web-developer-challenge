@@ -1,12 +1,14 @@
+import { Feed } from "../Feed"
 import { Header } from "../Header"
-import { Post } from "../Post"
+import { PostForm } from "../PostForm"
 import { Wrapper } from "./style"
 
 export const Main = () => {
   return (
     <Wrapper>
       <Header />
-      <Post />
+      <PostForm />
+      <Feed/>
     </Wrapper>
   )
 }
