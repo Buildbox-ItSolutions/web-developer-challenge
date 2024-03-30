@@ -1,13 +1,13 @@
 import { PostCreationProps } from '../../interface/postCreationProps';
 import { ChangeEvent, useState } from 'react';
-import userInputs from '../../interface/userInputs';
+import UserInputs from '../../interface/userInputs';
 import { v4 as uuidv4 } from 'uuid';
 import Post from '../post/Post';
 import './postCreation.css';
 import ImageInput from '../ImageInput';
 
 function PostCreation({ setFeed }: PostCreationProps) {
-  const [userInputs, setUserInputs] = useState<userInputs>({
+  const [userInputs, setUserInputs] = useState<UserInputs>({
     name: '',
     message: '',
     imageUrl: '',
@@ -61,8 +61,12 @@ function PostCreation({ setFeed }: PostCreationProps) {
 
   return (
     <div className="w-[516px] h-[353px] bg-mainColor-dark m-[40px] flex flex-col items-center p-[24px] border border-mainColor-lightGrey">
-      <ImageInput imageUrl={userInputs.imageUrl} handleImageChanger={handleImageChanger} />
-      <form className="flex flex-col items-center justify-between">
+      <ImageInput
+        imageUrl={userInputs.imageUrl}
+        setUserInputs={setUserInputs}
+        handleImageChanger={handleImageChanger}
+      />
+      <form className="flex flex-col items-center justify-between mt-[16px]">
         <input
           className="w-[468px] h-[40px] rounded-[8px] mb-[8px] pl-[16px] text-[14px] input"
           placeholder="Digite seu nome"
@@ -79,18 +83,20 @@ function PostCreation({ setFeed }: PostCreationProps) {
           onChange={(e) => handleInputChange(e)}
         />
         <div className="flex w-full justify-end relative bottom-[-32px]">
-          <button
-            className="w-[98px] h-[41px] text-mainColor-subtitle mr-[12px]"
-            onClick={(e) => discardButton(e)}
-          >
-            Descartar
-          </button>
-          <button
-            className="w-[98px] h-[41px] bg-mainColor-lightGrey rounded-[8px] text-mainColor-textDark"
-            onClick={(e) => sendButton(e)}
-          >
-            Publicar
-          </button>
+          <div className="w-[190px] flex items-center justify-between">
+            <button
+              className="w-[98px] h-[41px] text-mainColor-subtitle text-[14px] underline"
+              onClick={(e) => discardButton(e)}
+            >
+              Descartar
+            </button>
+            <button
+              className="w-[98px] h-[41px] bg-mainColor-lightGrey rounded-[8px] text-mainColor-textDark text-[14px]"
+              onClick={(e) => sendButton(e)}
+            >
+              Publicar
+            </button>
+          </div>
         </div>
       </form>
     </div>

@@ -1,4 +1,4 @@
-export default interface userInputs {
+export default interface UserInputs {
   name: string;
   message: string;
   imageUrl: string;

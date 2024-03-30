@@ -3,7 +3,6 @@ import './post.css';
 
 function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProps) {
   const deletePostBtn = (postId: string) => {
-    console.log('deletou');
     setFeed((prevState) => prevState.filter((post) => post.props.id != postId));
   };
 
@@ -21,7 +20,9 @@ function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProp
             backgroundSize: 'contain',
             backgroundPosition: 'center',
           }}
-        ></label>
+        >
+          <img src={imageUrl == '' ? 'src/assets/image.png' : ' '} />
+        </label>
         <div className="w-[348px] text-[16px] ml-[32px] mb-[32px]">
           <p className="w-[348px] text-[16px] mb-[24px] leading-[1.25]">{message}</p>
           <p className="text-[12px]">Enviado por</p>
