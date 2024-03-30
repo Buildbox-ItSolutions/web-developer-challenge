@@ -1,5 +1,6 @@
 import React from 'react';
-import { Background, Upload, Image, Box, Box2,Input, TextArea, Button } from "./styles";
+import { Background, Image, Container, ContainerInputs,Input, TextArea } from "./styles";
+import { SharedImage } from '../../styles/sharedStyles';
 const imageUpload = require("../../assets/images/upload.png") as string;
 const image = require("../../assets/images/image.png") as string;
 
@@ -7,17 +8,18 @@ const image = require("../../assets/images/image.png") as string;
 function Form(): JSX.Element {
   return (
     <Background>
-      <Box>
-        <Upload src={imageUpload} alt="Imagem de upload"/>
+      <Container>
+        <SharedImage src={imageUpload} alt="Imagem de upload"/>
         <Image src={image} alt="Imagem de foto vazia"/>
-      </Box>
-      <Box2>
+      </Container>
+      <ContainerInputs>
         <Input placeholder='Digite seu nome'/>
         <TextArea placeholder='Mensagem'/>
-        <Box2>
-          <Button>Publicar</Button>
-        </Box2>
-      </Box2>
+        <div>
+          <p>Descartar</p>
+          <button>Publicar</button>
+        </div>
+      </ContainerInputs>
     </Background>
   );
 }

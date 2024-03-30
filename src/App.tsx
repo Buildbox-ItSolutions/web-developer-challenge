@@ -1,6 +1,7 @@
 import React from 'react';
-import { Header, GlobalStyle, Logo, Background } from "./styles";
-import Form from './components/Form/Form';
+import { Header, GlobalStyle, Logo, Background, Container } from "./styles";
+import Form from './components/Form';
+import Feed from './components/Feed';
 const imagemLogo = require("./assets/images/logo.png") as string;
 
 function App(): JSX.Element {
@@ -11,7 +12,10 @@ function App(): JSX.Element {
             <Header>
                 <Logo src={imagemLogo} alt="Logo Build Box" />
             </Header>
-            <Form/>
+            <Container>
+              <Form/>
+              <Feed/>
+            </Container>
         </Background>
     </>
   );

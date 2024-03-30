@@ -10,6 +10,19 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const Background = styled.div`
+    width: auto;
+    height: 100vh;
+    padding-bottom: 170px;
+    background-color: ${theme.colors.grey600};
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Header = styled.div`
     width: auto;
     height: 93px;
@@ -23,11 +36,4 @@ export const Logo = styled.img`
     width: 103px;
     height: 45px;
     object-fit: contain;
-`;
-
-export const Background = styled.div`
-    width: auto;
-    height: 100vh;
-    padding: 0 0 170px;
-    background-color: ${theme.colors.grey600};
 `;
