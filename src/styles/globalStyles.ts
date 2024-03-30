@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: ${({ theme }) => theme.colors.mediumGrey};
+    background-color: ${({ theme }) => theme.colors.blackLight};
   }
 
   a {
@@ -32,8 +32,9 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
   }
 
-  input {
+  input, textarea {
     border: none;
     outline: none;
+    resize: none;
   }
 `

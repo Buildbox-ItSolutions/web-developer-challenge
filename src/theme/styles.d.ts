@@ -4,14 +4,16 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
         white: string
-        limeGreen: string
-        greyDark: string
-        mediumGrey: string
-        lightGrey: string
-        red: string
-        blackOne: string
-        blackTwo: string
-        blackThree: string
+        blackDark: string
+        black: string
+        blackLight: string
+        borderColor: string
+        grayDark1: string
+        grayDark2: string
+        gray: string
+        grayLight: string
+        bgButton: string
+        errorColor: string
     }
   }
 }
