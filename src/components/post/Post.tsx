@@ -3,6 +3,7 @@ import './post.css';
 
 function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProps) {
   const deletePostBtn = (postId: string) => {
+    console.log('deletou');
     setFeed((prevState) => prevState.filter((post) => post.props.id != postId));
   };
 
@@ -13,9 +14,14 @@ function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProp
         onClick={() => deletePostBtn(id)}
       ></button>
       <div className="flex mt-[56px]">
-        <div className="w-[88px] h-[88px] ml-[24px] flex items-center justify-center bg-cover bg-center mb-[16px] rounded-[36px] border border-mainColor-lightGrey">
-          <img src={imageUrl == '' ? 'src/assets/image.png' : imageUrl} />
-        </div>
+        <label
+          className="w-[88px] h-[88px] ml-[24px] flex items-center justify-center bg-cover bg-center mb-[16px] rounded-[36px] border border-mainColor-lightGrey"
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+          }}
+        ></label>
         <div className="w-[348px] text-[16px] ml-[32px] mb-[32px]">
           <p className="w-[348px] text-[16px] mb-[24px] leading-[1.25]">{message}</p>
           <p className="text-[12px]">Enviado por</p>

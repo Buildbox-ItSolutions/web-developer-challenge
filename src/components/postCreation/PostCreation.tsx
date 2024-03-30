@@ -4,8 +4,9 @@ import userInputs from '../../interface/userInputs';
 import { v4 as uuidv4 } from 'uuid';
 import Post from '../post/Post';
 import './postCreation.css';
+import ImageInput from '../ImageInput';
 
-function PostCreation({ feed, setFeed }: PostCreationProps) {
+function PostCreation({ setFeed }: PostCreationProps) {
   const [userInputs, setUserInputs] = useState<userInputs>({
     name: '',
     message: '',
@@ -19,8 +20,19 @@ function PostCreation({ feed, setFeed }: PostCreationProps) {
     setUserInputs({ ...userInputs, [name]: value });
   };
 
-  const handleImageChanger = () => {
-    null;
+  const handleImageChanger = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const readerImageUrl = reader.result as string;
+        setUserInputs({
+          ...userInputs,
+          imageUrl: readerImageUrl,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const sendButton = (e: React.MouseEvent): void => {
@@ -30,6 +42,12 @@ function PostCreation({ feed, setFeed }: PostCreationProps) {
       <Post id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />,
       ...prevState,
     ]);
+
+    setUserInputs({
+      name: '',
+      message: '',
+      imageUrl: '',
+    });
   };
 
   const discardButton = (e: React.MouseEvent) => {
@@ -43,9 +61,7 @@ function PostCreation({ feed, setFeed }: PostCreationProps) {
 
   return (
     <div className="w-[516px] h-[353px] bg-mainColor-dark m-[40px] flex flex-col items-center p-[24px] border border-mainColor-lightGrey">
-      <div className="w-[88px] h-[88px] flex items-center justify-center bg-cover bg-center mb-[16px] rounded-[36px] border border-mainColor-lightGrey">
-        <img src={userInputs.imageUrl == '' ? 'src/assets/image.png' : userInputs.imageUrl} />
-      </div>
+      <ImageInput imageUrl={userInputs.imageUrl} handleImageChanger={handleImageChanger} />
       <form className="flex flex-col items-center justify-between">
         <input
           className="w-[468px] h-[40px] rounded-[8px] mb-[8px] pl-[16px] text-[14px] input"

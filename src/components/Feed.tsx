@@ -3,11 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Feed({ children }: FeedProps) {
   return (
-    <div>
+    <div className="w-[516px]">
       <p>Feed</p>
-      {children.map((post) => (
-        <div key={uuidv4()}>{post}</div>
-      ))}
+      {children.length <= 0 ? (
+        <p className="mt-[40px] text-mainColor-subtitle text-[30px]">Nenhuma postagem</p>
+      ) : (
+        children.map((post) => <div key={uuidv4()}>{post}</div>)
+      )}
     </div>
   );
 }
