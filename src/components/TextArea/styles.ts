@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TextAreaStyle = styled.textarea`
-  width: 468px;
+  width: 100%;
   height: 80px;
   padding: 12px;
   border-radius: 8px;
