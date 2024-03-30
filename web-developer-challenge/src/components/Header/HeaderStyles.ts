@@ -2,9 +2,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    position: fixed; /* torna o componente fixo */
-    top: 0; /* fixa o componente no topo */
-    left: 0; /* fixa o componente à esquerda */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
     display: flex;
     align-items: center;
     justify-content: center;

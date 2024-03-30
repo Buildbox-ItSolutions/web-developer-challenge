@@ -1,17 +1,32 @@
 "use client"
 import CreatePost from "@/components/CreatePost/CreatePost";
+import Feed from "@/components/Feed/Feed";
 import PostCard from "@/components/PostCard/PostCard";
+import { Post, getPosts } from "@/db/db";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 export default function Home() {
+
+  const [posts, setPosts] = useState<Post[]>([])
+  const [forceRender, setForceRender] = useState(false); 
+
+  const reRender = () => {
+    setForceRender(!forceRender);
+  }
+
+  
+  useEffect(() => {
+    let p = getPosts()
+    setPosts(p)
+
+  },[forceRender])
+
   return (
     <main className="min-h-screen min-w-screen">
       <MainContent>
-        <CreatePost></CreatePost>
-        <Feed>
-          Feed
-          <PostCard></PostCard>
-        </Feed>
+        <CreatePost reRender={reRender}></CreatePost>
+        <Feed posts={posts}></Feed>
       </MainContent>
     </main>
   );
@@ -28,11 +43,3 @@ const MainContent = styled.div`
   height: 100%;
   padding: 40px 100px;
 `
-
-const Feed = styled.div`
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
-  width: 516px;
-`
-

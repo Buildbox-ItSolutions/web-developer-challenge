@@ -1,13 +1,18 @@
 import React from 'react'
 import { Container, PostCreator, PostedBy, PostedByContainer } from './AsideTextStyles'
 
-function AsideText() {
+interface Props {
+  message: string;
+  createdBy: string;
+}
+
+function AsideText( { message, createdBy} : Props) {
   return (
-    <Container>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem esse ullam, illo vero fugit enim cumque perferendis illum temporibus maiores sit! Optio ab illo nisi praesentium tempora quis iste quasi.
+    <Container className='roboto'>
+        {message}
         <PostedByContainer>
             <PostedBy>Enviado por</PostedBy>
-            <PostCreator>Manuela Oliveira</PostCreator>
+            <PostCreator>{createdBy}</PostCreator>
         </PostedByContainer>
     </Container>
   )

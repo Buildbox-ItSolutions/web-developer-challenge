@@ -3,8 +3,14 @@ import { Container, DeleteButtonContainer, MainContentContainer, PhotoContainer,
 import Avatar from './_components/Avatar/Avatar'
 import deleteItem from '../../../public/delete.svg'
 import AsideText from './_components/AsideText/AsideText'
+import { Post } from '@/db/db'
 
-function PostCard() {
+interface Props {
+    post: Post;
+}
+
+function PostCard( { post } : Props) {
+  
   return (
     <Container>
         <DeleteButtonContainer>
@@ -12,10 +18,10 @@ function PostCard() {
         </DeleteButtonContainer>
         <MainContentContainer>
             <PhotoContainer>
-                <Avatar></Avatar>
+                <Avatar image={post.photo}></Avatar>
             </PhotoContainer>
             <TextContainer>
-                <AsideText></AsideText>
+                <AsideText message={post.message} createdBy={post.createdBy}></AsideText>
             </TextContainer>
         </MainContentContainer>
     </Container>
