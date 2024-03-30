@@ -1,4 +1,4 @@
-import { Dispatch, ReactElement, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 export default interface PostProps {
   id: string;
@@ -8,5 +8,5 @@ export default interface PostProps {
     imageUrl: string;
   };
 
-  setFeed: Dispatch<SetStateAction<ReactElement[]>>;
+  setFeed: Dispatch<SetStateAction<JSX.Element[]>>;
 }

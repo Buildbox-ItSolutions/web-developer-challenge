@@ -1,6 +1,6 @@
-import { Dispatch, ReactElement, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 export interface PostCreationProps {
-  feed: ReactElement[];
-  setFeed: Dispatch<SetStateAction<ReactElement[]>>;
+  feed: JSX.Element[];
+  setFeed: Dispatch<SetStateAction<JSX.Element[]>>;
 }

@@ -1,16 +1,30 @@
+import { useState, useEffect } from 'react';
 import PostProps from '../../interface/postProps';
+
 import './post.css';
 
 function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProps) {
-  const deletePostBtn = (postId: string) => {
-    setFeed((prevState) => prevState.filter((post) => post.props.id != postId));
+  const [isEntering, setIsEntering] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsEntering(false);
+    }, 300);
+  }, []);
+
+  const deletePostBtn = () => {
+    setFeed((prevState) => prevState.filter((post) => post.props.id !== id));
   };
 
   return (
-    <div className="flex items-start w-[516px] mt-[8px] mb-[16px] bg-mainColor-dark  border border-mainColor-lightGrey relative">
+    <div
+      className={`post flex items-start w-[516px] mt-[8px] mb-[16px] bg-mainColor-dark  border border-mainColor-lightGrey relative ${
+        isEntering ? 'entering' : ''
+      }`}
+    >
       <button
         className="w-[20px] h-[20px] absolute rounded-full top-[12px] right-[12px] delete-button-box"
-        onClick={() => deletePostBtn(id)}
+        onClick={deletePostBtn}
       ></button>
       <div className="flex mt-[56px]">
         <label
@@ -21,7 +35,7 @@ function Post({ userInputs: { name, message, imageUrl }, id, setFeed }: PostProp
             backgroundPosition: 'center',
           }}
         >
-          <img src={imageUrl == '' ? 'src/assets/image.png' : ' '} />
+          <img src={imageUrl === '' ? 'src/assets/image.png' : ''} alt="" />
         </label>
         <div className="w-[348px] text-[16px] ml-[32px] mb-[32px]">
           <p className="w-[348px] text-[16px] mb-[24px] leading-[1.25]">{message}</p>

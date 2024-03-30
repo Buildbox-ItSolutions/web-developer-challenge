@@ -10,7 +10,7 @@ export default {
           darkest: '#232323',
           dark: '#2B2B2B',
           grey: '343434',
-          lightGrey: '#494949',
+          lightGrey: '#424242',
           boxBorder: '#3b3b3b',
           textDark: '#313131',
         },

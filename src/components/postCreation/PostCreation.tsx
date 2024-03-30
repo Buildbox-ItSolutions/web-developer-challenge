@@ -1,10 +1,10 @@
 import { PostCreationProps } from '../../interface/postCreationProps';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import UserInputs from '../../interface/userInputs';
+import ImageInput from '../ImageInput';
 import { v4 as uuidv4 } from 'uuid';
 import Post from '../post/Post';
 import './postCreation.css';
-import ImageInput from '../ImageInput';
 
 function PostCreation({ setFeed }: PostCreationProps) {
   const [isValidated, setIsValidated] = useState<boolean>(false);
@@ -36,7 +36,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
     }
   };
 
-  const handleValidationForm = () => {
+  const handleValidationForm = useCallback(() => {
     if (
       userInputs.name.length > 0 &&
       userInputs.message.length > 0 &&
@@ -45,15 +45,16 @@ function PostCreation({ setFeed }: PostCreationProps) {
       return true;
     }
     return false;
-  };
+  }, [userInputs.name.length, userInputs.message.length, userInputs.imageUrl.length]);
 
-  const sendButton = (e: React.MouseEvent): void => {
+  const createPost = (e: React.MouseEvent): void => {
     e.preventDefault();
     if (handleValidationForm()) {
-      setFeed((prevState) => [
-        <Post id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />,
-        ...prevState,
-      ]);
+      const newPost = (
+        <Post key={uuidv4()} id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />
+      );
+
+      setFeed((prevState) => [newPost, ...prevState]);
 
       setUserInputs({
         name: '',
@@ -112,7 +113,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
               className={`w-[98px] h-[41px] ${
                 isValidated ? 'bg-mainColor-title' : 'bg-mainColor-lightGrey'
               } rounded-[8px] text-mainColor-textDark text-[14px]`}
-              onClick={(e) => sendButton(e)}
+              onClick={(e) => createPost(e)}
             >
               Publicar
             </button>

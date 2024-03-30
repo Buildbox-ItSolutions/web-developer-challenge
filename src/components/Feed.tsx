@@ -6,9 +6,15 @@ function Feed({ children }: FeedProps) {
     <div className="w-[516px]">
       <p>Feed</p>
       {children.length <= 0 ? (
-        <p className="mt-[40px] text-mainColor-subtitle text-[30px]">Nenhuma postagem</p>
+        <p className="mt-[40px] text-mainColor-subtitle text-[30px]">Não existem postagens</p>
       ) : (
-        children.map((post) => <div key={uuidv4()}>{post}</div>)
+        <div>
+          {children.map((post, index) => (
+            <div key={uuidv4()} className={index === children.length ? 'entering' : ''}>
+              {post}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
