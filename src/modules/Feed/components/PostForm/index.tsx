@@ -1,21 +1,29 @@
-import * as S from "../../styles";
-import { InputText } from "../../../../components/Input";
-import { TextArea } from "../../../../components/TextArea";
-import { Button } from "../../../../components/Button";
+import * as S from "./styles";
+import { InputText, TextArea, Button } from "../../../../components/index";
 import { ImagePost } from "../ImagePost";
+import { usePost } from "../../hooks/use-post";
 
 export const PostForm = () => {
+  const { register, handleSubmit, errors } = usePost();
+
   return (
-    <S.Form>
-      <ImagePost />
-      <form>
-        <InputText placeholder="Digite seu nome" />
-        <TextArea />
+    <form onSubmit={handleSubmit}>
+      <S.FormGroup>
+        <ImagePost />
+
+        <InputText
+          placeholder="Digite seu nome"
+          {...register("name")}
+          hasError={errors?.name?.message}
+        />
+        <TextArea {...register("messagePost")} hasError={errors?.messagePost?.message} />
         <S.Actions>
           <Button variant="transparent">Descartar</Button>
-          <Button variant="primary">Publicar</Button>
+          <Button variant="primary" type="submit">
+            Publicar
+          </Button>
         </S.Actions>
-      </form>
-    </S.Form>
+      </S.FormGroup>
+    </form>
   );
 };
