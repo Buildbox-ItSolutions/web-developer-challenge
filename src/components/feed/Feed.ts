@@ -12,11 +12,16 @@ export const FeedContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   width: 516px;
 
   @media ${BreakPoint.tablet} {
-    width: 80vw;
+    width: 60vw;
+  }
+
+  @media ${BreakPoint.mobile} {
+    width: 90vw;
   }
 `;
 
@@ -40,10 +45,17 @@ export const Card = styled.div`
   border-radius: 0.1875rem;
   border: solid 1px #3b3b3b;
   background-color: #313131;
-  min-width: 516px;
+  width: 516px;
 
   @media ${BreakPoint.tablet} {
-    width: 80vw;
+    width: 60vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @media ${BreakPoint.mobile} {
+    width: 90vw;
+    overflow: scroll;
   }
 `;
 
@@ -57,11 +69,16 @@ export const Image = styled.img`
 export const ContainerMessage = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-around;
   margin-top: 24px;
   max-width: 348px;
+  overflow: auto;
+
+  @media ${BreakPoint.mobile} {
+    margin-top: 0px;
+  }
+
 `;
 
 export const Message = styled.p`
@@ -74,10 +91,12 @@ export const Message = styled.p`
   letter-spacing: normal;
   text-align: left;
   color: var(--warm-grey-three);
+  word-wrap: break-word;
+  
 `;
 
 export const SendBy = styled.p`
-    font-family: Roboto;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: 500;
   font-stretch: normal;

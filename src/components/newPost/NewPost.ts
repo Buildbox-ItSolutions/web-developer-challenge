@@ -22,7 +22,10 @@ export const FormContainer = styled.form`
   background-color: #313131;
 
   @media ${BreakPoint.tablet} {
-    width: 80vw;
+    width: 60vw;
+  }
+  @media ${BreakPoint.mobile} {
+    width: 90vw;
   }
 `;
 
