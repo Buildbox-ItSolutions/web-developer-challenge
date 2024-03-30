@@ -1,6 +1,4 @@
-import { isAxiosError } from 'axios'
-import { Post } from '../../@types/post'
-import { api } from '../../lib/api'
+import { db } from '../../infra/db'
 
 type CreatePostBody = {
   author: string
@@ -13,21 +11,12 @@ export async function createPost({
   content,
   thumbnail,
 }: CreatePostBody) {
-  try {
-    const res = await api.post<Post>('/posts', {
-      author,
-      content,
-      thumbnail,
-    })
-    return res.data
-  } catch (error) {
-    if (isAxiosError(error)) {
-      console.error(error.message)
-      throw new Error(
-        'Something went wrong while creating a post :(, please try again later',
-      )
-    } else {
-      console.error(error)
-    }
+  const newPost = {
+    id: crypto.randomUUID(),
+    author,
+    content,
+    thumbnail,
   }
+  db.addPost(newPost)
+  return newPost
 }
