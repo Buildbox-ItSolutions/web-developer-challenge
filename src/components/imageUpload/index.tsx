@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 import { DeleteIcon, UploadIcon } from "./icons";
 import { FileUploaderProps, FileObjectType } from "./types";
 import {
@@ -12,51 +12,35 @@ import {
 } from "./styles";
 
 const ImageUpload = ({
+  image,
+  setImage,
   onFileAdded,
   onFileRemoved,
   uploadIcon,
   deleteIcon,
   style,
 }: FileUploaderProps): JSX.Element => {
-  const [currentImg, setCurrentImg] = useState<Partial<FileObjectType>>({
-    file: {} as File,
-    dataUrl: "",
-  });
-
   const handleFilePicker = (e: ChangeEvent<HTMLInputElement>): void => {
     const { files } = e.target;
 
     if (files != null && files.length > 0) {
-      const imageObject = {
+      const newImage = {
         file: files[0],
         dataUrl: URL.createObjectURL(files[0]),
       };
-      setCurrentImg((oldImage) => {
-        return { ...oldImage, ...imageObject };
-      });
+      setImage(newImage);
       if (onFileAdded) {
-        onFileAdded(imageObject);
+        onFileAdded(newImage);
       }
     }
   };
 
   const handleDeleteImage = (): void => {
-    if (onFileRemoved != null && Object.keys(currentImg).length > 0) {
-      const partialCurrentImg: Partial<FileObjectType> = currentImg;
-      const _currentImg: FileObjectType = partialCurrentImg as FileObjectType;
-      onFileRemoved(_currentImg);
+    if (onFileRemoved) {
+      onFileRemoved(image);
     }
-    setCurrentImg({});
+    setImage(undefined);
   };
-
-  useEffect(() => {
-    const handleClearEvent = () => handleDeleteImage();
-    window.addEventListener("imagem-upload-clear-event", handleClearEvent);
-
-    return () => {
-      window.removeEventListener("imagem-upload-clear-event", handleClearEvent);
-    };
-  }, []);
 
   return (
     <UploaderContainer>
@@ -69,25 +53,23 @@ const ImageUpload = ({
         </UploaderBtnWrapper>
 
         {/* upload Input Box */}
-        {currentImg && currentImg.dataUrl !== null && (
-          <UploaderFileInputLabel id="file_uploader">
-            <UploadIcon element={uploadIcon} />
-            {/* input element */}
-            <UploaderFileInput
-              key={currentImg.dataUrl}
-              type="file"
-              name="upload"
-              onChange={(e) => handleFilePicker(e)}
-              accept="image/*"
-              id="file_uploader"
-            />
-          </UploaderFileInputLabel>
-        )}
+        <UploaderFileInputLabel id="file_uploader">
+          <UploadIcon element={uploadIcon} />
+          {/* input element */}
+          <UploaderFileInput
+            key={image?.dataUrl ?? ""}
+            type="file"
+            name="upload"
+            onChange={(e) => handleFilePicker(e)}
+            accept="image/*"
+            id="file_uploader"
+          />
+        </UploaderFileInputLabel>
         {/* image */}
-        {currentImg.dataUrl && (
+        {image && image.dataUrl && (
           <UploaderFile
-            src={currentImg.dataUrl}
-            alt={currentImg.dataUrl}
+            src={image.dataUrl}
+            alt={image.dataUrl}
             loading="lazy"
           />
         )}

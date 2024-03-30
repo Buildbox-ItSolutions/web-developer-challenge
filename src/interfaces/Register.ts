@@ -1,6 +1,8 @@
+import { FileObjectType } from "../components/imageUpload";
+
 export interface IRegister {
   id: number,
-  image: string,
+  image: FileObjectType,
   name: string,
   message: string
 }

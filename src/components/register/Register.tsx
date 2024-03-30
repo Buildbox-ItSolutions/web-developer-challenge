@@ -18,18 +18,16 @@ const Register = ({
   registerList,
   setRegisterList,
 }: Props) => {
-  const [image, setImage] = useState<string>();
+  const [image, setImage] = useState<FileObjectType>();
   const [name, setName] = useState<string>("Manuela Oliveira");
   const [message, setMessage] = useState<string>(
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus."
   );
-  const ImageUploadClearEvent = new CustomEvent("imagem-upload-clear-event");
 
   const resetRegisterHandler = () => {
-    setImage("");
+    setImage(undefined);
     setName("");
     setMessage("");
-    window.dispatchEvent(ImageUploadClearEvent);
   };
 
   const addRegisterHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -37,7 +35,8 @@ const Register = ({
 
     if (
       image &&
-      image.length > 0 &&
+      image.dataUrl &&
+      image.dataUrl.length > 0 &&
       name &&
       name.length > 0 &&
       message &&
@@ -60,12 +59,16 @@ const Register = ({
     }
   };
 
-  const onAddImage = (img: string) => {
-    setImage(img);
+  const onAddImage = (img?: FileObjectType) => {
+    console.log("Selecionou imagem.", img);
   };
 
-  const onDeleteImage = () => {
-    setImage("");
+  const onDeleteImage = (img?: FileObjectType) => {
+    console.log("Apagou imagem.", img);
+  };
+
+  const handlerSetImage = (img?: FileObjectType) => {
+    setImage(img);
   };
 
   return (
@@ -73,11 +76,13 @@ const Register = ({
       <form onSubmit={addRegisterHandler} onReset={resetRegisterHandler}>
         <Wrapper>
           <ImageUpload
+            image={image}
+            setImage={handlerSetImage}
             style={styleUpload}
             deleteIcon={image ? <img src={TrashIcon} /> : <></>}
             uploadIcon={!image ? <img src={EditIcon} /> : <></>}
-            onFileAdded={({ dataUrl }: FileObjectType) => onAddImage(dataUrl)}
-            onFileRemoved={() => onDeleteImage()}
+            onFileAdded={onAddImage}
+            onFileRemoved={onDeleteImage}
           />
           <FieldsWrapper>
             <InputField

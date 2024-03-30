@@ -23,7 +23,7 @@ const List = ({ registerList, handleDelete }: Props) => {
                 <img src={DeleteIcon} />
               </WrapperDell>
               <WrapperContent>
-                <Photo image={register.image} />
+                <Photo image={register.image.dataUrl} />
                 <div>
                   <p>{register.message}</p>
                   <div>
