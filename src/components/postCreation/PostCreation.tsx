@@ -1,5 +1,5 @@
 import { PostCreationProps } from '../../interface/postCreationProps';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import UserInputs from '../../interface/userInputs';
 import { v4 as uuidv4 } from 'uuid';
 import Post from '../post/Post';
@@ -7,6 +7,7 @@ import './postCreation.css';
 import ImageInput from '../ImageInput';
 
 function PostCreation({ setFeed }: PostCreationProps) {
+  const [isValidated, setIsValidated] = useState<boolean>(false);
   const [userInputs, setUserInputs] = useState<UserInputs>({
     name: '',
     message: '',
@@ -35,19 +36,32 @@ function PostCreation({ setFeed }: PostCreationProps) {
     }
   };
 
+  const handleValidationForm = () => {
+    if (
+      userInputs.name.length > 0 &&
+      userInputs.message.length > 0 &&
+      userInputs.imageUrl.length > 0
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const sendButton = (e: React.MouseEvent): void => {
     e.preventDefault();
+    if (handleValidationForm()) {
+      setFeed((prevState) => [
+        <Post id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />,
+        ...prevState,
+      ]);
 
-    setFeed((prevState) => [
-      <Post id={uuidv4()} userInputs={userInputs} setFeed={setFeed} />,
-      ...prevState,
-    ]);
-
-    setUserInputs({
-      name: '',
-      message: '',
-      imageUrl: '',
-    });
+      setUserInputs({
+        name: '',
+        message: '',
+        imageUrl: '',
+      });
+    }
+    return;
   };
 
   const discardButton = (e: React.MouseEvent) => {
@@ -58,6 +72,10 @@ function PostCreation({ setFeed }: PostCreationProps) {
       imageUrl: '',
     });
   };
+
+  useEffect(() => {
+    handleValidationForm() ? setIsValidated(true) : setIsValidated(false);
+  }, [handleValidationForm]);
 
   return (
     <div className="w-[516px] h-[353px] bg-mainColor-dark m-[40px] flex flex-col items-center p-[24px] border border-mainColor-lightGrey">
@@ -91,7 +109,9 @@ function PostCreation({ setFeed }: PostCreationProps) {
               Descartar
             </button>
             <button
-              className="w-[98px] h-[41px] bg-mainColor-lightGrey rounded-[8px] text-mainColor-textDark text-[14px]"
+              className={`w-[98px] h-[41px] ${
+                isValidated ? 'bg-mainColor-title' : 'bg-mainColor-lightGrey'
+              } rounded-[8px] text-mainColor-textDark text-[14px]`}
               onClick={(e) => sendButton(e)}
             >
               Publicar
