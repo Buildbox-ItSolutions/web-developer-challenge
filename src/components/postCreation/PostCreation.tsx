@@ -79,7 +79,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
   }, [handleValidationForm]);
 
   return (
-    <div className="w-[516px] h-[353px] bg-mainColor-dark m-[40px] flex flex-col items-center p-[24px] border border-mainColor-lightGrey">
+    <div className="w-[516px] h-[353px] bg-mainColor-dark m-[40px] flex flex-col items-center p-[24px] border border-mainColor-textGrey">
       <ImageInput
         imageUrl={userInputs.imageUrl}
         setUserInputs={setUserInputs}
@@ -111,7 +111,7 @@ function PostCreation({ setFeed }: PostCreationProps) {
             </button>
             <button
               className={`w-[98px] h-[41px] ${
-                isValidated ? 'bg-mainColor-title' : 'bg-mainColor-lightGrey'
+                isValidated ? 'bg-mainColor-title' : 'bg-mainColor-subtitle'
               } rounded-[8px] text-mainColor-textDark text-[14px]`}
               onClick={(e) => createPost(e)}
             >

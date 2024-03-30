@@ -13,7 +13,7 @@ function ImageInput({ imageUrl, setUserInputs, handleImageChanger }: ImageInputP
       <div className="relative">
         <label
           htmlFor="imageInput"
-          className="inset-0 flex items-center justify-center w-[88px] h-[88px] bg-cover bg-center rounded-[36px] border border-mainColor-lightGrey absolute top-[-44px] left-[-28px]"
+          className="inset-0 flex items-center justify-center w-[88px] h-[88px] bg-cover bg-center rounded-[36px] border border-mainColor-textGrey absolute top-[-44px] left-[-28px]"
           style={{
             backgroundImage: `url(${imageUrl})`,
             backgroundSize: 'contain',

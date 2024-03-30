@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 function Feed({ children }: FeedProps) {
   return (
     <div className="w-[516px]">
-      <p>Feed</p>
+      <p className="text-mainColor-textLightGrey">Feed</p>
       {children.length <= 0 ? (
         <p className="mt-[40px] text-mainColor-subtitle text-[30px]">Não existem postagens</p>
       ) : (
