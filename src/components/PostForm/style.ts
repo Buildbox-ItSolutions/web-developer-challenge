@@ -37,6 +37,13 @@ export const PhotoUpload = styled.div`
   height: 10rem;
   border-radius: 3rem;
   cursor: pointer;
+  transition: all 0.25s;
+  
+  &:hover {
+    >svg {
+      color: ${({theme}) => theme.colors.white};
+    }
+  }
 
   >input {
     display: none;
