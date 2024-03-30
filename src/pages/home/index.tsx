@@ -2,16 +2,24 @@ import React from 'react'
 import Loading from '../../components/loading/index'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { Helmet } from 'react-helmet'
-import { PageTitle } from './types'
+import { IDataForm, PageTitle } from './types'
 import FormPost from '../../components/form'
 import { SContainerForm, TitleFeed } from './styled'
-import Feed from '../../components/feed'
+import FormFeed from '../../components/feed'
+import {
+  addMessage,
+  listAllMessages
+} from '../../store/message/message.reducer'
 
 const Home: React.FC<PageTitle> = ({ title }) => {
+  const message: IDataForm[] = useAppSelector((state) => state.message.all)
+  const loading: boolean = useAppSelector((state) => state.message.loading)
   const dispatch = useAppDispatch()
 
-  const message = useAppSelector((state) => state.message.all)
-  const loading: boolean = useAppSelector((state) => state.message.loading)
+  const handleSubmit = (data: any) => {
+    dispatch(addMessage(data))
+    dispatch(listAllMessages())
+  }
 
   if (loading) {
     return <Loading />
@@ -19,13 +27,15 @@ const Home: React.FC<PageTitle> = ({ title }) => {
 
   return (
     <>
-      <Helmet title={title} />
-      <SContainerForm>
-        <FormPost />
-        <TitleFeed>Feed</TitleFeed>
-        <Feed />
-      </SContainerForm>
-    </>
+    <Helmet title={title} />
+    <SContainerForm>
+      <FormPost submit={handleSubmit} />
+      <TitleFeed>Feed</TitleFeed>
+      {message.length !== 0 && message.map((item: IDataForm) => (
+        <FormFeed key={item._id} data={item} />
+      ))}
+    </SContainerForm>
+  </>
   )
 }
 export default Home

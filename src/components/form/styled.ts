@@ -40,7 +40,7 @@ export const SInputDescription = styled.textarea`
   height: 56px;
   overflow-y: hidden;
   padding: 12px 5px 11px 5px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

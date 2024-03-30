@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const SContainer = styled.div`
   width: 516px;
   height: 225px;
+  font-family: Roboto;
   margin: 8px 425px 16px;
   padding: 12px 12px 32px 24px;
   border-radius: 3px;
@@ -30,7 +31,7 @@ export const SImage = styled.img`
 
 export const SDescription = styled.h5`
   width: 348px;
-  height: 80px;
+  height: auto;
   margin: 24px 12px 0px 32px;
   font-size: 15px;
   font-weight: normal;
@@ -40,12 +41,12 @@ export const SDescription = styled.h5`
   letter-spacing: normal;
   text-align: left;
   color: #919191;
+  word-wrap: break-word;
 `
 
 export const SSend = styled.div`
   width: 100px;
   height: 14px;
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 500;
   font-stretch: normal;
@@ -59,7 +60,6 @@ export const SSend = styled.div`
 export const SAuthor = styled.div`
   width: 103px;
   height: 17px;
-  font-family: Roboto;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
