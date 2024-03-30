@@ -1,6 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react'
 
-export const  TrashCan = (props: ComponentProps<'svg'>) => {
+export const TrashCan = (props: ComponentProps<'svg'>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +25,5 @@ export const  TrashCan = (props: ComponentProps<'svg'>) => {
         ></path>
       </g>
     </svg>
-  );
+  )
 }
-

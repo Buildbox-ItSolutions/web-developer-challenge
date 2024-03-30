@@ -1,4 +1,4 @@
-import { PostSchema } from "../components/PostForm";
+import { PostSchema } from '../components/PostForm'
 
 export interface Posts {
   postData: PostSchema

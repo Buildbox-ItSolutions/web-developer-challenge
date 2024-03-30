@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const Wrapper = styled.main`
   display: flex;
@@ -8,8 +7,8 @@ export const Wrapper = styled.main`
   flex-direction: column;
   gap: 5rem;
   padding: 1rem;
-  
+
   @media (min-width: 540px) {
     padding: 0;
   }
-`;
+`

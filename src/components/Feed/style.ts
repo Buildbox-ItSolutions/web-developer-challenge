@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
   @media (min-width: 540px) {
     width: 50rem;
   }
-`;
+`
 
 export const Title = styled.h1`
-  color: ${({theme}) => theme.colors.grayDark2};
+  color: ${({ theme }) => theme.colors.grayDark2};
 `

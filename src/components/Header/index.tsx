@@ -1,4 +1,4 @@
-import { Wrapper } from "./style"
+import { Wrapper } from './style'
 import Logo from '../../assets/bx-logo.png'
 
 export const Header = () => {

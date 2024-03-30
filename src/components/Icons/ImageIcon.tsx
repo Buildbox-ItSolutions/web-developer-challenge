@@ -1,4 +1,3 @@
-
 export const ImageIcon = () => {
   return (
     <svg
@@ -17,6 +16,5 @@ export const ImageIcon = () => {
       <circle cx="9" cy="9" r="2"></circle>
       <path d="M21 15l-3.086-3.086a2 2 0 00-2.828 0L6 21"></path>
     </svg>
-  );
+  )
 }
-
