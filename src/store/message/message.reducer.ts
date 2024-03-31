@@ -12,10 +12,9 @@ export const slice = createSlice({
     },
     removeMessage(state, { payload }) {
       state.all = state.all.filter((item) => item._id !== payload);
-    },
-    listAllMessages(state) {}
+    }
   }
 })
 
-export const { addMessage, removeMessage, listAllMessages } = slice.actions
+export const { addMessage, removeMessage } = slice.actions
 export default slice.reducer

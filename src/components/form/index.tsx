@@ -9,10 +9,10 @@ import {
   SInputDescription,
   SButtonPublish,
   SButtonDiscard,
-  SContainerButton
+  SContainerButton,
+  SAlertMessage
 } from './styled'
 import { IDataForm, IProps } from './types'
-import { useAppSelector } from '../../hooks'
 import { Button } from '@material-ui/core'
 import { generateUniqueId } from '../../utils/post'
 import { fieldValidate, isNotValid } from '../../utils/validations/form-post'
@@ -20,7 +20,6 @@ import { fieldValidate, isNotValid } from '../../utils/validations/form-post'
 const FormPost: React.FC<IProps> = ({ submit }) => {
   const [preview, setPreview] = useState([])
   const [form, setForm] = useState({} as any)
-  const loading: boolean = useAppSelector((state) => state.message.loading)
   const inputFile = React.useRef<HTMLInputElement | null>(null)
   const [formValidate, setFormValidate] = useState({} as any)
 
@@ -48,13 +47,19 @@ const FormPost: React.FC<IProps> = ({ submit }) => {
   const clearForm = (): void => {
     setForm({})
     setPreview([])
+    if (inputFile.current) {
+      inputFile.current.value = ''
+    }
   }
 
   const removeImage = (): void => {
     setPreview([])
+    if (inputFile.current) {
+      inputFile.current.value = ''
+    }
   }
 
-  const previewImg = (event: ChangeEvent<HTMLInputElement>) => {
+  const previewImg = (event: ChangeEvent<HTMLInputElement>) => {    
     const picture = event.target.files && event.target.files[0]
     if (picture) {
       setPreview(Array(picture))
@@ -84,7 +89,6 @@ const FormPost: React.FC<IProps> = ({ submit }) => {
           hidden
           ref={inputFile}
           onChange={previewImg}
-          disabled={loading}
           style={{ display: 'none' }}
         />
 
@@ -96,9 +100,7 @@ const FormPost: React.FC<IProps> = ({ submit }) => {
             value={form.name || ''}
             onChange={handleChange}
           />
-          <div className="mt-1">
-            <p className="text-danger">{formValidate.name}</p>
-          </div>
+          <SAlertMessage>{formValidate.name}</SAlertMessage>
         </div>
 
         <div>
@@ -109,9 +111,7 @@ const FormPost: React.FC<IProps> = ({ submit }) => {
             rows={5}
             onChange={handleChange}
           />
-          <div className="mt-1">
-            <p className="text-danger">{formValidate.description}</p>
-          </div>
+          <SAlertMessage>{formValidate.description}</SAlertMessage>
         </div>
 
         <SContainerButton>

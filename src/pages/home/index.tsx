@@ -6,10 +6,7 @@ import { IDataForm, PageTitle } from './types'
 import FormPost from '../../components/form'
 import { SContainerForm, TitleFeed } from './styled'
 import FormFeed from '../../components/feed'
-import {
-  addMessage,
-  listAllMessages
-} from '../../store/message/message.reducer'
+import { addMessage } from '../../store/message/message.reducer'
 
 const Home: React.FC<PageTitle> = ({ title }) => {
   const message: IDataForm[] = useAppSelector((state) => state.message.all)
@@ -18,7 +15,6 @@ const Home: React.FC<PageTitle> = ({ title }) => {
 
   const handleSubmit = (data: any) => {
     dispatch(addMessage(data))
-    dispatch(listAllMessages())
   }
 
   if (loading) {
@@ -27,15 +23,16 @@ const Home: React.FC<PageTitle> = ({ title }) => {
 
   return (
     <>
-    <Helmet title={title} />
-    <SContainerForm>
-      <FormPost submit={handleSubmit} />
-      <TitleFeed>Feed</TitleFeed>
-      {message.length !== 0 && message.map((item: IDataForm) => (
-        <FormFeed key={item._id} data={item} />
-      ))}
-    </SContainerForm>
-  </>
+      <Helmet title={title} />
+      <SContainerForm>
+        <FormPost submit={handleSubmit} />
+        <TitleFeed>Feed</TitleFeed>
+        {message.length !== 0 &&
+          message.map((item: IDataForm) => (
+            <FormFeed key={item._id} data={item} />
+          ))}
+      </SContainerForm>
+    </>
   )
 }
 export default Home
