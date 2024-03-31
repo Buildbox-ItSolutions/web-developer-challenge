@@ -80,3 +80,7 @@ export const SButtonDiscard = styled.a`
   text-align: center;
   color: #5f5f5f;
 `
+
+export const SAlertMessage = styled.p`
+  color: #b25959;
+`

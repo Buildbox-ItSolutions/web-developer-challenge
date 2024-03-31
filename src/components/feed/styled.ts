@@ -9,7 +9,7 @@ export const SContainer = styled.div`
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #343434;
-  margin: 0 auto;
+  margin: 3% auto;
   display: block;
 `
 
