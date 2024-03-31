@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import {
   Button,
   Container,
+  DeleteIcon,
   ImageInputContainer,
   Input,
   Textarea,
@@ -42,7 +43,6 @@ export function NewPostInput() {
 
   function handlePostPublish() {
     if (!inputValue || !postMsg) {
-      alert("Preencha todos os campos antes de publicar");
       return;
     }
 
@@ -66,12 +66,12 @@ export function NewPostInput() {
           />
         </ImageInputContainer>
         {imageUrl && (
-          <span
+          <DeleteIcon
             style={{ color: "red", cursor: "pointer" }}
             onClick={clearPicture}
           >
             <i className="fa-regular fa-trash-can"></i>
-          </span>
+          </DeleteIcon>
         )}
       </div>
       <div className="input-group">

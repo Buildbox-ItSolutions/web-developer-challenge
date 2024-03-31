@@ -10,10 +10,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .uploader {
     margin-inline: auto;
+    position: relative;
   }
+
   .input-group {
     display: flex;
     flex-direction: column;
@@ -118,4 +121,12 @@ export const Button = styled.button`
     cursor: not-allowed;
     background-color: #5f5f5f;
   }
+`;
+
+export const DeleteIcon = styled.span`
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  right: -24px;
+  top: 32px;
 `;
