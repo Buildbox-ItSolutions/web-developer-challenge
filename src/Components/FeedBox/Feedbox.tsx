@@ -1,6 +1,15 @@
 import React from "react";
 import { Box, IconButton, Typography, Divider } from "@mui/material";
 import {
+  getContainerStyle,
+  getPerfilIconStyle,
+  getTextStyle,
+  getSubtitleStyle,
+  StyledImage,
+  StyledIconButton,
+  getMenuButtonStyle,
+} from "./Feedbox.styles.tsx";
+import {
   FaUser,
   FaRegComment,
   FaRegShareSquare,
@@ -12,54 +21,18 @@ import { GrLike } from "react-icons/gr";
 const Feedbox = () => {
   return (
     <Box>
-      <Box
-        sx={{
-          background: "#FFFFF7",
-          padding: "3%",
-          borderRadius: "20px",
-          boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.5)",
-          position: "relative",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <IconButton
-            sx={{
-              background: "lightBlue",
-              padding: "3%",
-              alignSelf: "start",
-              "> svg": { height: "32px", width: "32px" },
-            }}
-          >
+      <Box sx={getContainerStyle}>
+        <Box>
+          <IconButton sx={getPerfilIconStyle}>
             <FaUser />
           </IconButton>
-          <Typography
-            sx={{
-              fontWeight: "600",
-              fontFamily: "Kanit",
-              color: "#747474",
-            }}
-          >
-            Felipe Alves de Oliveira
-          </Typography>
-          <IconButton sx={{ position: "absolute", top: 10, right: 10 }}>
+          <Typography sx={getTextStyle}>Felipe Alves de Oliveira</Typography>
+          <IconButton sx={getMenuButtonStyle}>
             <RiMoreLine />
           </IconButton>
         </Box>
-        <Box
-          sx={{
-            marginTop: "3%",
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-          }}
-        >
-          <Typography
-            sx={{
-              fontWeight: "600",
-              fontFamily: "Kanit",
-              color: "#747474",
-            }}
-          >
+        <Box>
+          <Typography sx={getTextStyle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -68,94 +41,32 @@ const Feedbox = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
-          <Box
-            component="img"
-            sx={{
-              width: "100%",
-            }}
-            alt="The house from the offer."
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
-          />
+          <StyledImage src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" />
         </Box>
         <Box>
-          <Typography
-            sx={{
-              fontWeight: "400",
-              fontFamily: "Kanit",
-              color: "#747474",
-              fontSize: "14px",
-              textAlign: "right",
-              margin: "1% 0% 1% 0%",
-            }}
-          >
+          <Typography sx={getSubtitleStyle}>
             Tantos tantos comentarios, tantos tantos linkes e tantos tantos
             compartilhamentos
           </Typography>
         </Box>
         <Divider />
-        <Box
-          sx={{
-            padding: "3% 0% 1% 0%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <IconButton
-            sx={{
-              display: "flex",
-              gap: 1,
-              "> p": {
-                fontWeight: "600",
-                fontFamily: "Kanit",
-                color: "#747474",
-              },
-            }}
-          >
+        <Box>
+          <StyledIconButton>
             <GrLike />
             <Typography>Gostei</Typography>
-          </IconButton>
-          <IconButton
-            sx={{
-              display: "flex",
-              gap: 1,
-              "> p": {
-                fontWeight: "600",
-                fontFamily: "Kanit",
-                color: "#747474",
-              },
-            }}
-          >
+          </StyledIconButton>
+          <StyledIconButton>
             <FaRegComment />
             <Typography>Comentar</Typography>
-          </IconButton>
-          <IconButton
-            sx={{
-              display: "flex",
-              gap: 1,
-              "> p": {
-                fontWeight: "600",
-                fontFamily: "Kanit",
-                color: "#747474",
-              },
-            }}
-          >
+          </StyledIconButton>
+          <StyledIconButton>
             <FaRegBookmark />
             <Typography>Salvar</Typography>
-          </IconButton>
-          <IconButton
-            sx={{
-              display: "flex",
-              gap: 1,
-              "> p": {
-                fontWeight: "600",
-                fontFamily: "Kanit",
-                color: "#747474",
-              },
-            }}
-          >
+          </StyledIconButton>
+          <StyledIconButton>
             <FaRegShareSquare />
             <Typography>Compartilhar</Typography>
-          </IconButton>
+          </StyledIconButton>
         </Box>
       </Box>
     </Box>
