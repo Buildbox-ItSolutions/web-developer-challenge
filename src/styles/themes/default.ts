@@ -12,4 +12,5 @@ export const defaultTheme = {
   credits: '#5f5f5f',
   author: '#7a7a7a',
   imgBorder: '#4b4b4b',
+  delete: '#D65923',
 }
