@@ -23,6 +23,26 @@ export function CreatePost() {
     setTextAreaValue('')
   }
 
+  function handlePublishNewPost() {
+    const getLocalStorage = localStorage.getItem(
+      '@buildboxwebchallenge-pedrodecf',
+    )
+    const postsLocalStorage = getLocalStorage ? JSON.parse(getLocalStorage) : []
+
+    const newPost = {
+      texto: inputValue,
+      author: textAreaValue,
+    }
+    postsLocalStorage.push(newPost)
+    localStorage.setItem(
+      '@buildboxwebchallenge-pedrodecf',
+      JSON.stringify(postsLocalStorage),
+    )
+
+    setInputValue('')
+    setTextAreaValue('')
+  }
+
   return (
     <CreatePostContainer>
       <ImgLabel />
@@ -42,7 +62,11 @@ export function CreatePost() {
           onClick={handleDiscard}
           disabled={ifValuesAreEmpty()}
         />
-        <Button text="Publicar" disabled={ifValuesAreEmpty()} />
+        <Button
+          text="Publicar"
+          disabled={ifValuesAreEmpty()}
+          onClick={handlePublishNewPost}
+        />
       </ButtonsContainer>
     </CreatePostContainer>
   )
