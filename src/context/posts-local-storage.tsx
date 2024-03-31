@@ -7,6 +7,7 @@ interface PostProps {
 
 interface PostsLocalStorageContextType {
   publishNewPost: (text: string, author: string) => void
+  deletePost: (postToBeDeleted: PostProps) => void
   posts: PostProps[]
 }
 
@@ -43,6 +44,19 @@ export function PostsLocalStorageProvider({
     setNewPostState(newPost)
   }
 
+  function deletePost(postToBeDeleted: PostProps) {
+    const postsWithoutDeletedPost = posts.filter((post) => {
+      return post !== postToBeDeleted
+    })
+
+    localStorage.setItem(
+      '@buildboxwebchallenge-pedrodecf',
+      JSON.stringify(postsWithoutDeletedPost),
+    )
+
+    setPosts(postsWithoutDeletedPost)
+  }
+
   useEffect(() => {
     const getLocalStorage = localStorage.getItem(
       '@buildboxwebchallenge-pedrodecf',
@@ -52,7 +66,9 @@ export function PostsLocalStorageProvider({
   }, [newPostState])
 
   return (
-    <PostsLocalStorageContext.Provider value={{ publishNewPost, posts }}>
+    <PostsLocalStorageContext.Provider
+      value={{ publishNewPost, deletePost, posts }}
+    >
       {children}
     </PostsLocalStorageContext.Provider>
   )

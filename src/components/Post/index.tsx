@@ -5,12 +5,13 @@ interface PostProps {
   text: string
   author: string
   img: string
+  onDeletePost: () => void
 }
 
-export function Post({ text, author, img }: PostProps) {
+export function Post({ text, author, img, onDeletePost }: PostProps) {
   return (
     <PostContainer>
-      <TiDeleteOutline />
+      <TiDeleteOutline onClick={onDeletePost} />
       <img src={img} alt={`Imagem de perfil do usuário ${author}`} />
       <PostInfoContainer>
         <p>{text}</p>

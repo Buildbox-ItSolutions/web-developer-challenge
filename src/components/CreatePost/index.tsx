@@ -5,7 +5,7 @@ import { Input } from '../Input'
 import { TextArea } from '../TextArea'
 import { TextButton } from '../TextButton'
 import { ButtonsContainer, CreatePostContainer, InfoContainer } from './style'
-import { usePostsLocalStorageContext } from '../hooks/usePostsLocalStorage'
+import { usePostsLocalStorageContext } from '../../hooks/usePostsLocalStorage'
 
 export function CreatePost() {
   const { publishNewPost } = usePostsLocalStorageContext()
