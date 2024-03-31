@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import photoUploadSVG from '../assets/photo-upload.svg';
 import otherImage from '../assets/image.svg';
 
+// Estilos dos componentes usando styled-components
 const PostListContainer = styled.div`
   width: 516px;
   height: auto;
@@ -120,26 +121,38 @@ const ButtonDescartar = styled.button`
   line-height: 1.29;
   letter-spacing: normal;
   text-align: center;
-  font-size: 0.875rem;
 `;
 
-const ButtonPublicar = styled.button`
+const ButtonPublicar = styled.button<{ isFilled: boolean }>`
   width: 6.130rem;
   height: 2.563rem;
   margin-left: 1.5rem;
   padding: 0.79rem 1.5rem;
   border: none;
   border-radius: 8px;
-  background-color: #5f5f5f;
-  color: #313131;
-  cursor: pointer;
+  background-color: ${({ isFilled }) => (isFilled ? '#71bb00' : '#5f5f5f')};
+  color: ${({ isFilled }) => (isFilled ? '#ffffff' : '#313131')};
+  cursor: ${({ isFilled }) => (isFilled ? 'pointer' : 'not-allowed')};
   font-size: 0.875rem;
+  &:disabled {
+    background-color: #5f5f5f;
+    color: #313131;
+    cursor: not-allowed;
+  }
 `;
 
 const PostList: React.FC = () => {
   const [photoURL, setPhotoURL] = useState<string | null>(null);
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+
+  const buttonPublicarRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (buttonPublicarRef.current) {
+      buttonPublicarRef.current.disabled = !(name && message && photoURL);
+    }
+  }, [name, message, photoURL]);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -149,6 +162,15 @@ const PostList: React.FC = () => {
         setPhotoURL(reader.result as string);
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleDescartarClick = () => {
+    setPhotoURL(null);
+    setName('');
+    setMessage('');
+    if (buttonPublicarRef.current) {
+      buttonPublicarRef.current.disabled = true;
     }
   };
 
@@ -165,20 +187,22 @@ const PostList: React.FC = () => {
           <OtherImage src={otherImage} alt="Other Image" />
         </PhotoPreviewContainer>
       </PhotoUpload>
-      <InputField 
-        type="text" 
+      <InputField
+        type="text"
         placeholder="Digite seu nome"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <MessageField 
+      <MessageField
         placeholder="Mensagem"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
       <ButtonContainer>
-        <ButtonDescartar>Descartar</ButtonDescartar>
-        <ButtonPublicar>Publicar</ButtonPublicar>
+        <ButtonDescartar onClick={handleDescartarClick}>Descartar</ButtonDescartar>
+        <ButtonPublicar ref={buttonPublicarRef} isFilled={!!(name && message && photoURL)}>
+          Publicar
+        </ButtonPublicar>
       </ButtonContainer>
     </PostListContainer>
   );
