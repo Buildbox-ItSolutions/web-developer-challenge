@@ -4,13 +4,7 @@ import deleteIcon from '../assets/delete-icon/delete@3x.png';
 
 const StyledPost = styled.div` 
     width: 100%;
-    margin: auto;
-    padding: 0 16px; 
     box-sizing: border-box;
-    border-radius: 0.1rem;
-    border: solid 0.5rem #3b3b3b;
-    background-color: var(--black);
-    margin-top: 2rem;
 
     .post__image {
       width: 25%;
@@ -44,6 +38,13 @@ const StyledPost = styled.div`
       color: var(--warm-grey-two);
     }
 
+    .post__area {
+      padding: 1rem;
+      border-radius: 0.1rem;
+      border: solid 0.1rem #494949;
+      background-color: var(--black);
+    }
+
     .post__delete-button{
       width: 100%;
       display: flex;
@@ -60,7 +61,7 @@ const StyledPost = styled.div`
     .post__content {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
       margin: 2rem 0;
     }
@@ -74,16 +75,14 @@ const StyledPost = styled.div`
     }
 
     .post__send-content {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: start;
     }
 
     @media only screen and (min-width: 1200px) {
-        max-width: 45%;
-        margin: auto;
-
         .post__delete-icon {
           width: 4%;
         }
@@ -106,18 +105,20 @@ const Post: React.FC<IPostProps> = ({ id, name, message, imageUrl, onDelete }) =
 
   return (
     <StyledPost>
-      <button className="post__delete-button" onClick={handleClick}>
-        <img src={deleteIcon} alt="Delete" className="post__delete-icon" />
-      </button>
-      <div className="post__content">
-        {imageUrl && (
-            <img src={imageUrl} alt="Post" className="post__image" />
-        )}
-        <div className="post__text-content">
-          <p className="post__message-content">{message}</p>
-          <div className="post__send-content">
-            <p className="post__send-by">Enviado por: </p>
-            <p className="post__name-content">{name}</p>
+      <div className="post__area">
+        <button className="post__delete-button" onClick={handleClick}>
+          <img src={deleteIcon} alt="Delete" className="post__delete-icon" />
+        </button>
+        <div className="post__content">
+          {imageUrl && (
+              <img src={imageUrl} alt="Post" className="post__image" />
+          )}
+          <div className="post__text-content">
+            <p className="post__message-content">{message}</p>
+            <div className="post__send-content">
+              <p className="post__send-by">Enviado por: </p>
+              <p className="post__name-content">{name}</p>
+            </div>
           </div>
         </div>
       </div>

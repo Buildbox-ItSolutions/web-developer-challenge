@@ -6,9 +6,7 @@ import deleteIcon from '../assets/trash/trash@2x.png';
 const StyledCreatePost = styled.div` 
     width: 100%;
     margin: auto;
-    padding: 0 16px; 
     box-sizing: border-box;
-    margin-top: 9rem;
 
     textarea {
       resize: none;
@@ -106,9 +104,7 @@ const StyledCreatePost = styled.div`
     }
 
     @media only screen and (min-width: 1200px) {
-        max-width: 45%;
-        margin: auto;
-        margin-top: 7rem;
+        width: 100%;
 
         .create-post__upload-image {
           width: 15%;
@@ -167,6 +163,15 @@ const CreatePost: React.FC<ICreateAreaProps> = ({ onAdd }) => {
     event.preventDefault();
   };
 
+  const clearPost = (event: FormEvent) => {
+    setPost({
+      name: "",
+      message: "",
+      imageUrl: null,
+    });
+    event.preventDefault();
+  };
+
   return (
     <StyledCreatePost>
         <form className="create-post__form-post">
@@ -216,7 +221,7 @@ const CreatePost: React.FC<ICreateAreaProps> = ({ onAdd }) => {
             />
         </div>
         <div className="create-post__buttons">
-          <button onClick={submitPost} className="create-post__clearButton">
+          <button onClick={clearPost} className="create-post__clearButton">
             Descartar
           </button>
           <button onClick={submitPost} className="create-post__addButton">
