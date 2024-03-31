@@ -1,9 +1,12 @@
+import { InputHTMLAttributes } from 'react'
 import { InputContainer } from './style'
 
-export function Input() {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export function Input({ ...rest }: InputProps): JSX.Element {
   return (
     <InputContainer>
-      <input type="text" placeholder="Digite seu nome" />
+      <input type="text" placeholder="Digite seu nome" {...rest} />
     </InputContainer>
   )
 }
