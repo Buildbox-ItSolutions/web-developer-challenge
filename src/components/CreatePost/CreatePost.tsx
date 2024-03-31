@@ -2,43 +2,16 @@
 
 import { Controller, useForm } from 'react-hook-form'
 import { ReactNode, useEffect, useState } from 'react'
-import {
-	ButtonWrapper,
-	CreatePostSection,
-	DeleteIcon,
-	FileInputWrapper,
-	FormWrapper,
-	TextInputWrapper,
-} from './CreatePost.Styles/CreatePost.Styles'
+import { CreatePostSection, FormWrapper } from './CreatePost.Styles/CreatePost.Styles'
+import { DeleteIcon, FileInputWrapper, TextInputWrapper } from './CreatePost.Styles/CreatePostInputs.Styles'
 import Image from 'next/image'
 import imageIcon from '@/assets/icons/image-icon.svg'
 import trashIcon from '@/assets/icons/trash-icon.svg'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-
-const fileSize = 4e6
-const correctImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
-
-const createImageSchema = z
-	.any()
-	.refine((file) => file instanceof File, {
-		message: 'Por favor adicione uma imagem.',
-	})
-	.refine((file) => file && correctImageTypes.includes(file.type), {
-		message: 'Utilize apenas arquivos .jpg, .jpeg, .png and .webp',
-	})
-	.refine((file) => file && file.size <= fileSize, {
-		message: 'Tamanho máximo 4 MB.',
-	})
-
-const createPostSchema = z.object({
-	author: z
-		.string()
-		.min(1, { message: 'Favor inserir seu nome.' })
-		.max(30, { message: 'Use no máximo 30 caracteres.' }),
-	message: z.string().min(1, { message: 'Favor adicionar uma mensagem.' }),
-	image: createImageSchema,
-})
+import { createData } from '@/actions/createData'
+import { ButtonWrapper } from './CreatePost.Styles/CreatePostButton.Styles'
+import { createPostSchema } from '@/lib/formSchema'
 
 export const CreatePost = () => {
 	const [imagePreview, setImagePreview] = useState<string | null>(null)
@@ -60,18 +33,6 @@ export const CreatePost = () => {
 		}
 	}, [imagePreview])
 
-	function handleInputImageChange(e: React.ChangeEvent<HTMLInputElement>, newValue: Function) {
-		const image = e.target.files && e.target.files[0]
-
-		if (image) {
-			newValue(image)
-
-			setImagePreview(URL.createObjectURL(image))
-		} else {
-			setImagePreview(null)
-		}
-	}
-
 	const onSubmit = (data: z.infer<typeof createPostSchema>) => {
 		const reader = new FileReader()
 
@@ -84,28 +45,33 @@ export const CreatePost = () => {
 			if (imagePreview) {
 				URL.revokeObjectURL(imagePreview)
 			}
-			setImagePreview(null)
-			reset()
 
 			try {
-				const response = await fetch('/api/create', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(updatedData),
-				})
+				const response = await createData(updatedData)
 
-				if (response.ok) {
-					console.log('Post criado com sucesso!')
-				} else {
-					throw new Error('Problemas com o servidor.')
+				if (response.status !== 200) {
+					console.log(response.message)
 				}
+
+				setImagePreview(null)
+				reset()
 			} catch (error) {
-				console.error('Erro ao criar o post: ', error)
+				throw new Error('Erro ao criar o post: ' + error)
 			}
 		}
 		reader.readAsDataURL(data.image)
+	}
+
+	function handleInputImageChange(event: React.ChangeEvent<HTMLInputElement>, newValue: Function) {
+		const image = event.target.files && event.target.files[0]
+
+		if (image) {
+			newValue(image)
+
+			setImagePreview(URL.createObjectURL(image))
+		} else {
+			setImagePreview(null)
+		}
 	}
 
 	const handleRemoveImagePreview = () => {
@@ -128,7 +94,7 @@ export const CreatePost = () => {
 	return (
 		<CreatePostSection>
 			<FormWrapper>
-				<form method='post' onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<FileInputWrapper>
 						<div>
 							<label>
@@ -139,9 +105,9 @@ export const CreatePost = () => {
 										<input
 											type='file'
 											accept='image/*'
-											onChange={(e) =>
+											onChange={(event) =>
 												handleInputImageChange(
-													e,
+													event,
 													field.onChange
 												)
 											}
@@ -186,7 +152,7 @@ export const CreatePost = () => {
 								type='text'
 								placeholder='Digite seu nome'
 								maxLength={30}
-								size={52}
+								size={59}
 								{...register('author')}
 							/>
 							{errors.author && <p>{errors.author.message}</p>}
