@@ -8,6 +8,9 @@ export const CreatePostSection = styled.section`
     flex-direction: column;
     margin-top: 41px;
     margin-bottom: 56px;
+    @media (max-width: 600px) {
+            padding: 0 20px;
+    }
 `
 
 export const FormWrapper = styled.div`
@@ -16,5 +19,5 @@ export const FormWrapper = styled.div`
     justify-content: center;
     padding: 24px;
     background-color: var(--cardBg);        
-    border: 1px solid var(--border);
+    border: 1px solid var(--border);    
 `

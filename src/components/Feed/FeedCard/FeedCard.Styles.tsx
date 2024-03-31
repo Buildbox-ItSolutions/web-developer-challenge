@@ -50,15 +50,19 @@ export const PostInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 46px;
 
     > p {
-      &:first-child {
-        font-size: 1.6rem;
-        color: var(--primaryGray);
-        margin-bottom: 24px;
-        width: 310px;
-    }
+        &:first-child {
+            font-size: 1.6rem;
+            color: var(--primaryGray);
+            margin-bottom: 24px;
+            width: 310px;
+
+            @media (max-width: 600px) {               
+                min-width: 100px;
+                max-width: 150px;               
+            }
+        }
     }
 
     > div {

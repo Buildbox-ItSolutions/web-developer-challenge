@@ -3,10 +3,7 @@
 import styled from 'styled-components'
 
 export const FeedSection = styled.section`
-    width: 100%;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;    
     flex-direction: column;
     margin-top: 41px;
     margin-bottom: 56px;
@@ -17,6 +14,11 @@ export const FeedWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     max-width: 516px;
+    margin: 0 auto;
+
+    @media (max-width: 600px) {
+            padding: 0 20px;
+    }
 `
 
 export const TitleWrapper = styled.div`
