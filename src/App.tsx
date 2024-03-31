@@ -43,7 +43,7 @@ const App: React.FC = () => {
   return (
     <StyledApp>
       <CreateArea onAdd={addPost} />
-        <p className='color-warm-grey-two app__feed'>Feed</p>
+      {posts.length > 0 && <p className='color-warm-grey-two app__feed'>Feed</p>}
         <div className='app__list--posts'>
             {posts.map((postItem, index) => {
               return (
