@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/header";
+import GlobalStyles from "@/components/global-style";
 
 export const metadata: Metadata = {
   title: "BuildBox",
@@ -16,9 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+    <html lang="pt-br">
+      <body>
+        <StyledComponentsRegistry>
+          <GlobalStyles />
+          <Header />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
