@@ -15,7 +15,7 @@ import {
 import { IDataForm, IProps } from './types'
 import { Button } from '@material-ui/core'
 import { generateUniqueId } from '../../utils/post'
-import { fieldValidate, isNotValid } from '../../utils/validations/form-post'
+import { fieldValidate, isNotValid } from '../../validations/form-post'
 
 const FormPost: React.FC<IProps> = ({ submit }) => {
   const [preview, setPreview] = useState([])
@@ -71,7 +71,7 @@ const FormPost: React.FC<IProps> = ({ submit }) => {
       <SContainer>
         <SImage
           src={preview.length === 0 ? File : URL.createObjectURL(preview[0])}
-          onClick={() => inputFile.current.click()}
+          onClick={() => inputFile?.current?.click()}
         />
 
         {preview.length !== 0 ? (
