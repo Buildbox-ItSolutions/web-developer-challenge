@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import photoUploadSVG from '../assets/photo-upload.svg';
-import otherImage from '../assets/image.svg';
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import photoUploadSVG from "../assets/photo-upload.svg";
+import otherImage from "../assets/image.svg";
+import deleteIcon from "../assets/trash (1).svg";
 
 // Estilos dos componentes usando styled-components
 const PostListContainer = styled.div`
@@ -16,9 +17,26 @@ const PostListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    margin: 20px auto;
+    padding: 26px;
+  }
+`;
+
+const Button = styled.button`
+  width: auto;
+  height: auto;
+  margin-left: 1.5rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;
 
 const PhotoUpload = styled.label`
+  position: relative;
   width: 5.5rem;
   height: 5.5rem;
   margin-bottom: 20px;
@@ -26,7 +44,6 @@ const PhotoUpload = styled.label`
   overflow: hidden;
   border-radius: 36px;
   border: solid 1px #3b3b3b;
-  position: relative;
 `;
 
 const PhotoInput = styled.input`
@@ -34,9 +51,9 @@ const PhotoInput = styled.input`
 `;
 
 const PhotoPreviewContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 `;
 
 const PhotoPreview = styled.img`
@@ -50,13 +67,27 @@ const UploadIcon = styled.img`
   height: 100%;
 `;
 
-const OtherImage = styled.img`
+const OtherImage = styled.img<{ photoURL?: string | null }>`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 25%;
   height: auto;
+  display: ${({ photoURL }) => (photoURL ? "none" : "block")};
+`;
+
+const DeleteButton = styled(Button)<{ photoURL?: string | null }>`
+  position: absolute;
+  top: 22.5%;
+  right: 46.5%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: ${({ photoURL }) => (photoURL ? "block" : "none")};
 `;
 
 const InputField = styled.input`
@@ -69,11 +100,12 @@ const InputField = styled.input`
   border: none;
   font-size: 1rem;
   color: #ffffff;
-  ::placeholder {
-    color: #9f9f9f;
-  }
   &:focus {
     outline: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -88,11 +120,12 @@ const MessageField = styled.textarea`
   resize: none;
   font-size: 1rem;
   color: #ffffff;
-  ::placeholder {
-    color: #9f9f9f;
-  }
   &:focus {
     outline: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -103,36 +136,23 @@ const ButtonContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const ButtonDescartar = styled.button`
-  width: auto;
-  height: auto;
-  margin-left: 1.5rem;
-  padding: 0;
-  border: none;
-  background-color: transparent;
+const ButtonDescartar = styled(Button)`
   color: #5f5f5f;
-  cursor: pointer;
   text-decoration: underline;
   font-family: Roboto;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.29;
-  letter-spacing: normal;
+  font-size: 0.885rem;
+  letter-spacing: 1px;
   text-align: center;
 `;
 
-const ButtonPublicar = styled.button<{ isFilled: boolean }>`
-  width: 6.130rem;
+const ButtonPublicar = styled(Button)<{ isFilled: boolean }>`
+  width: 6.13rem;
   height: 2.563rem;
-  margin-left: 1.5rem;
   padding: 0.79rem 1.5rem;
-  border: none;
   border-radius: 8px;
-  background-color: ${({ isFilled }) => (isFilled ? '#71bb00' : '#5f5f5f')};
-  color: ${({ isFilled }) => (isFilled ? '#ffffff' : '#313131')};
-  cursor: ${({ isFilled }) => (isFilled ? 'pointer' : 'not-allowed')};
+  background-color: ${({ isFilled }) => (isFilled ? "#71bb00" : "#5f5f5f")};
+  color: ${({ isFilled }) => (isFilled ? "#ffffff" : "#313131")};
+  cursor: ${({ isFilled }) => (isFilled ? "pointer" : "not-allowed")};
   font-size: 0.875rem;
   &:disabled {
     background-color: #5f5f5f;
@@ -143,14 +163,15 @@ const ButtonPublicar = styled.button<{ isFilled: boolean }>`
 
 const PostList: React.FC = () => {
   const [photoURL, setPhotoURL] = useState<string | null>(null);
-  const [name, setName] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+  const [name, setName] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
-  const buttonPublicarRef = useRef<HTMLButtonElement>(null);
+  const publishButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (buttonPublicarRef.current) {
-      buttonPublicarRef.current.disabled = !(name && message && photoURL);
+    const isFilled = !!name && !!message && !!photoURL;
+    if (publishButtonRef.current) {
+      publishButtonRef.current.disabled = !isFilled;
     }
   }, [name, message, photoURL]);
 
@@ -165,17 +186,20 @@ const PostList: React.FC = () => {
     }
   };
 
-  const handleDescartarClick = () => {
+  const clearFields = () => {
     setPhotoURL(null);
-    setName('');
-    setMessage('');
-    if (buttonPublicarRef.current) {
-      buttonPublicarRef.current.disabled = true;
+    setName("");
+    setMessage("");
+    if (publishButtonRef.current) {
+      publishButtonRef.current.disabled = true;
     }
   };
 
   return (
     <PostListContainer>
+      <DeleteButton photoURL={photoURL} onClick={() => setPhotoURL(null)}>
+        <img src={deleteIcon} alt="Delete Icon" />
+      </DeleteButton>
       <PhotoUpload>
         <PhotoInput type="file" accept="image/*" onChange={handlePhotoChange} />
         <PhotoPreviewContainer>
@@ -184,7 +208,7 @@ const PostList: React.FC = () => {
           ) : (
             <UploadIcon src={photoUploadSVG} alt="Upload Icon" />
           )}
-          <OtherImage src={otherImage} alt="Other Image" />
+          <OtherImage photoURL={photoURL} src={otherImage} alt="Other Image" />
         </PhotoPreviewContainer>
       </PhotoUpload>
       <InputField
@@ -199,8 +223,12 @@ const PostList: React.FC = () => {
         onChange={(e) => setMessage(e.target.value)}
       />
       <ButtonContainer>
-        <ButtonDescartar onClick={handleDescartarClick}>Descartar</ButtonDescartar>
-        <ButtonPublicar ref={buttonPublicarRef} isFilled={!!(name && message && photoURL)}>
+        <ButtonDescartar onClick={clearFields}>Descartar</ButtonDescartar>
+        <ButtonPublicar
+          ref={publishButtonRef}
+          isFilled={!!name && !!message && !!photoURL}
+          disabled={!name || !message || !photoURL}
+        >
           Publicar
         </ButtonPublicar>
       </ButtonContainer>
