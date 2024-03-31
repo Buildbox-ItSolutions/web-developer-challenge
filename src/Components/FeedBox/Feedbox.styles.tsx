@@ -1,6 +1,12 @@
 import React from "react";
 import { Box, IconButton } from "@mui/material";
 
+export const getMainContainerStyle = () => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: 2,
+});
+
 export const getContainerStyle = () => ({
   background: "#FFFFF7",
   padding: "3%",
@@ -26,16 +32,26 @@ export const getContainerStyle = () => ({
 });
 
 export const getPerfilIconStyle = () => ({
-  background: "lightGray",
-  padding: "3%",
+  background: "coral",
   alignSelf: "start",
-  "> svg": { height: "32px", width: "32px" },
+  height: "80px",
+  width: "80px",
+  borderRadius: "50%",
+  overflow: "hidden",
+  "> img": { height: "100%", width: "100%" },
 });
 
 export const getTextStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
   color: "#747474",
+});
+
+export const getTitleStyle = () => ({
+  fontWeight: "600",
+  fontFamily: "Kanit",
+  color: "#747474",
+  fontSize: "28px",
 });
 
 export const getMenuButtonStyle = () => ({
