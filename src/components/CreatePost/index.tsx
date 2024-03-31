@@ -5,8 +5,11 @@ import { Input } from '../Input'
 import { TextArea } from '../TextArea'
 import { TextButton } from '../TextButton'
 import { ButtonsContainer, CreatePostContainer, InfoContainer } from './style'
+import { usePostsLocalStorageContext } from '../hooks/usePostsLocalStorage'
 
 export function CreatePost() {
+  const { publishNewPost } = usePostsLocalStorageContext()
+
   const [inputValue, setInputValue] = useState('')
   const [textAreaValue, setTextAreaValue] = useState('')
 
@@ -24,21 +27,7 @@ export function CreatePost() {
   }
 
   function handlePublishNewPost() {
-    const getLocalStorage = localStorage.getItem(
-      '@buildboxwebchallenge-pedrodecf',
-    )
-    const postsLocalStorage = getLocalStorage ? JSON.parse(getLocalStorage) : []
-
-    const newPost = {
-      texto: inputValue,
-      author: textAreaValue,
-    }
-    postsLocalStorage.push(newPost)
-    localStorage.setItem(
-      '@buildboxwebchallenge-pedrodecf',
-      JSON.stringify(postsLocalStorage),
-    )
-
+    publishNewPost(textAreaValue, inputValue)
     setInputValue('')
     setTextAreaValue('')
   }
