@@ -9,12 +9,22 @@ const MainRoutes: React.FC = () => {
     <Router>
       <Routes>
         <Route
-          path="/*"
+          path="/"
           element={
             <Layout>
               <Routes>
                 <Route index element={<Home title="Home" />} />
-              <Route path="error404" element={<Error404 title="Erro 404" />} />
+                <Route path="error404" element={<Error404 title="Erro 404" />} />
+              </Routes>
+            </Layout>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <Layout>
+              <Routes>
+                <Route path="/*" element={<Error404 title="Erro 404" />} />
               </Routes>
             </Layout>
           }
