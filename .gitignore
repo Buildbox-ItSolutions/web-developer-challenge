@@ -19,6 +19,7 @@
 # misc
 .DS_Store
 *.pem
+src/app/.old-api/create/route.ts
 
 # debug
 npm-debug.log*
@@ -38,3 +39,4 @@ next-env.d.ts
 
 # migrations
 /prisma/migrations
+
