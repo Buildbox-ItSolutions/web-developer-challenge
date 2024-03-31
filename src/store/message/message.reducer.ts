@@ -4,18 +4,17 @@ export const slice = createSlice({
   name: 'message',
   initialState: {
     loading: false,
-    all: [],
-    error: ''
+    all: []
   },
   reducers: {
-    createMessage(state, { payload }) {
-      return {
-        ...state,
-        all: payload
-      }
+    addMessage(state, { payload }) {
+      state.all.push(payload);
+    },
+    removeMessage(state, { payload }) {
+      state.all = state.all.filter((item) => item._id !== payload);
     }
-  },
-  
+  }
 })
 
+export const { addMessage, removeMessage } = slice.actions
 export default slice.reducer

@@ -2,7 +2,8 @@ import { Form } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export const SForm = styled(Form)`
-  background-color: #fafafa;
+  background-color: #2B2B2B;
+  color: #71BB00;
   box-shadow: 0px 2px 15px 6px rgba(0, 0, 0, 0.11);
   padding: 100px;
   margin: 115px 0px;

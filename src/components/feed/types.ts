@@ -1,5 +1,5 @@
-export type PageTitle = {
-  title: string
+export interface IProps {
+  data?: IDataForm
 }
 
 interface PreviewItem {
