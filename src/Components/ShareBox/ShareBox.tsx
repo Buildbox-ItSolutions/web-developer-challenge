@@ -74,7 +74,7 @@ const ShareBox = () => {
               color: "#747474",
             }}
           >
-            Midia
+            Links
           </Typography>
         </Box>
       </Box>
