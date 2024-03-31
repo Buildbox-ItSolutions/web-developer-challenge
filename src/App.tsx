@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import Header from './components/Header'
 import Post from "./components/Post";
 import CreateArea from "./components/CreatePost";
 import './App.css'
 
 interface Post {
-  title: string;
-  content: string;
+  name: string;
+  message: string;
+  imageUrl: string | null;
 }
 
 const App: React.FC = () => {
@@ -21,23 +21,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <>
-          <Header />
-          <CreateArea onAdd={addPost} />
+    <>
+      <CreateArea onAdd={addPost} />
+          <p>Feed</p>
           {posts.map((postItem, index) => {
             return (
               <Post
                 key={index}
                 id={index}
-                title={postItem.title}
-                content={postItem.content}
+                name={postItem.name}
+                message={postItem.message}
+                imageUrl={postItem.imageUrl}
                 onDelete={deletePost}
-        />
-        );
-      })}
+              />
+            );
+          })}
     </>
-    </div>
   );
 }
 
