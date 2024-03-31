@@ -17,8 +17,8 @@ export const FormWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background-color: ${({ theme }) => theme.cardBg};        
-    border: 1px solid ${({ theme }) => theme.border};
+    background-color: var(--cardBg);        
+    border: 1px solid var(--border);
 `
 
 export const FileInputWrapper = styled.div`
@@ -39,13 +39,13 @@ export const FileInputWrapper = styled.div`
         width: 88px;
         height: 88px;
         border-radius: 36px;
-        border: 1px solid ${({ theme }) => theme.border};
+        border: 1px solid var(--border);
         position: relative;
         overflow: hidden;
     }
 
     p {
-        color: ${({ theme }) => theme.error};
+        color: var(--error);
         margin: 5px 0;
     }
 `
@@ -62,7 +62,7 @@ export const TextInputWrapper = styled.div`
     margin-top: 16px;
 
     p {
-        color: ${({ theme }) => theme.error};
+        color: var(--error);
         margin: 5px 0;
     }
     
@@ -70,19 +70,19 @@ export const TextInputWrapper = styled.div`
     input, textarea {
         padding: 12px 16px 11px 16px;
         border-radius: 8px;
-        background-color: ${({ theme }) => theme.inputField};
+        background-color: var(--inputField);
         box-sizing: border-box;
-        color: ${({ theme }) => theme.white};
-        width    : 100%;     
+        color: var(--white);
+        width: 100%;     
 
         &::placeholder {
-            color: ${({ theme }) => theme.primaryGray};
+            color: var(--primaryGray);
             font-size: 1.4rem;
             font-family: 'Roboto', sans-serif;         
         }
 
         &:focus {
-            outline: 1px solid ${({ theme }) => theme.primaryGray}
+            outline: 1px solid var(--primaryGray)
         }
     }
     
@@ -106,21 +106,21 @@ export const ButtonWrapper = styled.div`
 
     :first-child {
         cursor: pointer;
-        color: ${({ theme }) => theme.secondaryGray};
+        color: var(--secondaryGray);
         text-decoration: underline;
     }
 
     :last-child {
         cursor: pointer;        
         padding: 12px 24px;
-        background-color: ${({ theme }) => theme.buttonReady}; 
-        color: ${({ theme }) => theme.white};
+        background-color: var(--buttonReady) ; 
+        color: var(--white);
         border-radius: 8px;
         
 
         &:disabled {
-            background-color: ${({ theme }) => theme.secondaryGray};
-            color: ${({ theme }) => theme.black}
+            background-color: var(--secondaryGray);
+            color: var(--black);
         }
     }
 `

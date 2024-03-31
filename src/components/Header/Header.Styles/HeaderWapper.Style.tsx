@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${({ theme }) => theme.headerBg};
+    background-color: var(--headerBg);
 
     div {
         position: relative;
