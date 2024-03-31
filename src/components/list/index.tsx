@@ -1,6 +1,6 @@
 import { IRegister } from "../../interfaces/Register";
 import Photo from "../photo/Photo";
-import { PostItem, Wrapper, WrapperContent, WrapperDell } from "./styles";
+import * as S from "./styles";
 import DeleteIcon from "../../assets/img/delete.svg";
 
 interface Props {
@@ -9,36 +9,32 @@ interface Props {
 }
 const List = ({ registerList, handleDelete }: Props) => {
   return (
-    <Wrapper>
+    <S.ListWrapper>
       {registerList.length > 0 ? (
         <>
           <p>Feed</p>
           {registerList.map((register) => (
-            <PostItem key={register.id}>
-              <WrapperDell
-                onClick={() => {
-                  handleDelete(register.id);
-                }}
-              >
+            <S.PostItem>
+              <S.Excluir onClick={() => handleDelete(register.id)}>
                 <img src={DeleteIcon} />
-              </WrapperDell>
-              <WrapperContent>
+              </S.Excluir>
+              <S.Conteudo>
                 <Photo image={register.image.dataUrl} />
                 <div>
-                  <p>{register.message}</p>
-                  <div>
-                    <p>Enviado por</p>
-                    <p>{register.name}</p>
-                  </div>
+                  <S.Mensagem>{register.message}</S.Mensagem>
+                  <S.NomeWrapper>
+                    <S.NomeLabel>Enviado por</S.NomeLabel>
+                    <S.Nome>{register.name}</S.Nome>
+                  </S.NomeWrapper>
                 </div>
-              </WrapperContent>
-            </PostItem>
+              </S.Conteudo>
+            </S.PostItem>
           ))}
         </>
       ) : (
         <p>Não há feed(s) registrado(s)!</p>
       )}
-    </Wrapper>
+    </S.ListWrapper>
   );
 };
 

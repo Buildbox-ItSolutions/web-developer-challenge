@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GlobalStyled } from "./GlobalStyled";
 import Header from "./components/header/Header";
-import List from "./components/list/List";
+import List from "./components/list";
 import Register from "./components/register/Register";
 
 import { IRegister } from "./interfaces/Register";

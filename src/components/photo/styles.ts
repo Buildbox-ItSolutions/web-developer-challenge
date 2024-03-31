@@ -14,6 +14,11 @@ export const Upload = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
+  
+  @media (max-width: 550px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   > img {
     min-width: 88px;

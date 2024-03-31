@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { IRegister } from "../../interfaces/Register";
-import { ButtonsWrapper, FieldsWrapper, styleUpload, Wrapper } from "./styles";
+import * as S from "./styles";
 import InputField from "../input/InputField";
 import ImageUpload, { FileObjectType } from "../imageUpload";
 import EditIcon from "../../assets/img/image.png";
@@ -74,17 +74,17 @@ const Register = ({
   return (
     <>
       <form onSubmit={addRegisterHandler} onReset={resetRegisterHandler}>
-        <Wrapper>
-          <ImageUpload
-            image={image}
-            setImage={handlerSetImage}
-            style={styleUpload}
-            deleteIcon={image ? <img src={TrashIcon} /> : <></>}
-            uploadIcon={!image ? <img src={EditIcon} /> : <></>}
-            onFileAdded={onAddImage}
-            onFileRemoved={onDeleteImage}
-          />
-          <FieldsWrapper>
+        <S.RegisterWrapper>
+          <div>
+            <ImageUpload
+              image={image}
+              setImage={handlerSetImage}
+              style={S.ImageUpload}
+              deleteIcon={image ? <img src={TrashIcon} /> : <></>}
+              uploadIcon={!image ? <img src={EditIcon} /> : <></>}
+              onFileAdded={onAddImage}
+              onFileRemoved={onDeleteImage}
+            />
             <InputField
               type="text"
               name="name"
@@ -99,12 +99,12 @@ const Register = ({
               placeholder="Mensagem"
               onChange={handleChange}
             />
-          </FieldsWrapper>
-          <ButtonsWrapper>
-            <button type="reset">{btnDiscard}</button>
-            <button type="submit">{btnPublic}</button>
-          </ButtonsWrapper>
-        </Wrapper>
+          </div>
+          <S.WrapperButtons>
+            <S.Button type="reset">{btnDiscard}</S.Button>
+            <S.Button type="submit">{btnPublic}</S.Button>
+          </S.WrapperButtons>
+        </S.RegisterWrapper>
       </form>
     </>
   );

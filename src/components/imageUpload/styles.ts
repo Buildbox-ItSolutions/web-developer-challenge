@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const UploaderContainer = styled.div`
+  margin: 0 auto 0 auto;
   width: fit-content;
 `;
 
