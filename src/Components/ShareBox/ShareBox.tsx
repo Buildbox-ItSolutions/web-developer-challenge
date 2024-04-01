@@ -10,7 +10,7 @@ const ShareBox = () => {
         padding: "2%",
         borderRadius: "20px",
         boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.5)",
-        marginBottom: "5%",
+        marginBottom: "2%",
         display: "grid",
         placeItems: "center",
       }}
@@ -74,7 +74,7 @@ const ShareBox = () => {
               color: "#747474",
             }}
           >
-            Midia
+            Links
           </Typography>
         </Box>
       </Box>

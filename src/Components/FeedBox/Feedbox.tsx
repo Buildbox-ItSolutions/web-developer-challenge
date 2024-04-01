@@ -1,18 +1,39 @@
 import React from "react";
 import { Box } from "@mui/material";
+import FeedboxItem from "./FeedboxItem.tsx";
+import { getMainContainerStyle } from "./Feedbox.styles.tsx";
+import { postData } from "../../assets/utils/postData.ts";
 
 const Feedbox = () => {
   return (
-    <Box
-      sx={{
-        background: "#FFFFF7",
-        padding: "2%",
-        borderRadius: "20px",
-        boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.5)",
-        height: "100%",
-      }}
-    >
-      Feedbox
+    <Box sx={getMainContainerStyle}>
+      <FeedboxItem
+        name={postData[0].nome}
+        text={postData[0].texto}
+        profileImage={postData[0].profileImage}
+        uploadedImage={postData[0].uploadedImage}
+      />
+      <FeedboxItem
+        name={postData[0].nome}
+        text={postData[0].texto}
+        profileImage={postData[0].profileImage}
+      />
+      <FeedboxItem
+        name={postData[0].nome}
+        text={postData[0].texto}
+        profileImage={postData[0].profileImage}
+        uploadedImage={postData[0].uploadedImage}
+      />
+      <FeedboxItem
+        name={postData[0].nome}
+        text={postData[0].texto}
+        profileImage={postData[0].profileImage}
+      />
+      <FeedboxItem
+        name={postData[0].nome}
+        text={postData[0].texto}
+        profileImage={postData[0].profileImage}
+      />
     </Box>
   );
 };
