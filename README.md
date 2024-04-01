@@ -46,37 +46,15 @@ git clone https://github.com/vitorbarros15/web-developer-challenge.git
 ### 📱 Inicializando Front-end
 ```bash
   # Instale as dependencias:
-  $ yarn
+  $ yarn install
   # Para rodar a aplicação em modo de desenvolvimento:
-  $ yarn dev
+  $ yarn start
 ```
 
 <div id="exemplos-de-uso"> </div>
 
 
 <div id="estrutura-de-arquivos"> </div>
-
-## 📁 Estrutura de arquivos
-
-Aqui, temos uma breve explicação da estrutura de arquivos
-
-```
-Raiz do projeto
-│   README.md
-│   Arquivos de configuração, como tsconfig.json e package.json
-│   
-│
-└───src
-    │   
-    └─── screen - Aqui esta nossa interface Feed.
-        └───components - Componentes usados nas telas
-        └───routes - Páginas da aplicação, onde define as rotas
-        └───services - Comunicação com a API
-        │
-        │ 
-        └─── App.tsx - Componente de entrada
-        
-```
 
 <div id="contribuindo"> </div>
 
@@ -96,11 +74,11 @@ Se você tem alguma sugestão que fará este app ficar melhor, por favor realize
 <!-- CONTACT -->
 ## ✉️ Contato
 
-E-mail: igordummer@outlook.com
+E-mail: vitorbarros15@hotmail.com
 
-Linkedin: https://www.linkedin.com/in/igor-dummer/
+Linkedin: https://www.linkedin.com/in/vitorbarrosdossantos/
 
-Link do projeto: https://github.com/IgorDummer/desafio-frontend
+Link do projeto: https://github.com/vitorbarros15/web-developer-challenge
 
 
 <p align="right">(<a href="#top">Voltar ao topo</a>)</p>
