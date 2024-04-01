@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import StyledComponentsRegistry from "@/lib/registry";
 import Header from "@/components/header";
-import GlobalStyles from "@/components/global-style";
+import GlobalStyles from "@/styles/global-styles";
 
 export const metadata: Metadata = {
   title: "BuildBox",
