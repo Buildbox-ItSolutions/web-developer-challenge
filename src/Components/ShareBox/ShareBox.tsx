@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, TextField } from "@mui/material";
 import { FaPhotoVideo } from "react-icons/fa";
 import { PiLinkSimpleBold } from "react-icons/pi";
-import { postData } from "../../assets/utils/postData.ts";
 import {
   getContainerStyle,
   StyledUserButton,
@@ -25,7 +24,7 @@ const ShareBox = ({ setPostList }) => {
 
     if (nome !== "" && texto !== "") {
       const newPost = {
-        id: postData.length + 1,
+        id: Date.now(),
         nome,
         texto,
         profileImage: "",

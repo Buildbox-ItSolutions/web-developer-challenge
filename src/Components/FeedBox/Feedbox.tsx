@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import FeedboxItem from "./FeedboxItem.tsx";
 import { getMainContainerStyle } from "./Feedbox.styles.tsx";
