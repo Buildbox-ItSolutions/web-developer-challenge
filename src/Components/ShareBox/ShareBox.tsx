@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, TextField } from "@mui/material";
 import { FaPhotoVideo } from "react-icons/fa";
 import { PiLinkSimpleBold } from "react-icons/pi";
@@ -8,9 +8,21 @@ import {
   getTextfieldStyle,
   StyledMenuButton,
   StyledSubmitButton,
+  StyledMidiaButton,
 } from "./ShareBox.styles.tsx";
 
 const ShareBox = ({ setPostList }) => {
+  const [file, setFile] = useState<string | undefined>(undefined);
+  const [fileName, setFileName] = useState<string | undefined>(undefined);
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files.length > 0) {
+      const selectedFile = e.target.files[0];
+      setFile(URL.createObjectURL(selectedFile));
+      setFileName(selectedFile.name);
+    }
+  }
+
   const handleButtonClick = () => {
     const nomeElement = document.getElementById(
       "nomeTextField"
@@ -28,7 +40,7 @@ const ShareBox = ({ setPostList }) => {
         nome,
         texto,
         profileImage: "",
-        uploadedImage: "",
+        uploadedImage: file,
       };
 
       setPostList((prevPosts) => [...prevPosts, newPost]);
@@ -51,7 +63,13 @@ const ShareBox = ({ setPostList }) => {
         </Box>
       </Box>
       <Box>
-        <StyledMenuButton label="Midia" icon={<FaPhotoVideo />} />
+        <StyledMidiaButton
+          type="file"
+          label="Midia"
+          icon={<FaPhotoVideo />}
+          onChange={handleChange}
+          fileName={fileName}
+        />
         <StyledMenuButton label="Links" icon={<PiLinkSimpleBold />} />
         <StyledSubmitButton onClick={handleButtonClick} />
       </Box>

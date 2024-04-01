@@ -1,5 +1,12 @@
 import React from "react";
-import { SxProps, IconButton, Box, Typography, Button } from "@mui/material";
+import {
+  SxProps,
+  IconButton,
+  Box,
+  Typography,
+  Button,
+  Tooltip,
+} from "@mui/material";
 import { FaUser } from "react-icons/fa";
 
 export const getContainerStyle = (): SxProps => ({
@@ -83,6 +90,45 @@ export const StyledMenuButton = (props) => {
         </Typography>
       </IconButton>
     </Box>
+  );
+};
+
+export const StyledMidiaButton = (props) => {
+  const { label, icon, onChange, fileName, ...rest } = props;
+  return (
+    <Tooltip placement="top" title={fileName}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          placeItems: "center",
+          position: "relative",
+        }}
+      >
+        <IconButton
+          component="label"
+          sx={{
+            borderRadius: "16px",
+            ">svg": { color: "#007aff" },
+          }}
+          onChange={onChange}
+          {...rest}
+        >
+          {icon}
+          <input type="file" hidden />
+          <Typography
+            sx={{
+              fontWeight: "600",
+              fontFamily: "Kanit",
+              color: "#747474",
+              marginLeft: "8px",
+            }}
+          >
+            {label}
+          </Typography>
+        </IconButton>
+      </Box>
+    </Tooltip>
   );
 };
 
