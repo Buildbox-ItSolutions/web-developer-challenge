@@ -1,11 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm, Controller } from 'react-hook-form';
-import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { QueryKeys } from '../../../constants/queryKeys';
-import { postService } from '../../../services/posts';
+import { useCreatePost } from '../../../hooks/controllers/useCreatePost';
 import { Button } from '../../common/Button';
 import { Input } from '../../common/Input';
 
@@ -30,8 +27,6 @@ const createPostSchema = z.object({
 type CreatePostData = z.infer<typeof createPostSchema>;
 
 export function CreatePostForm() {
-  const queryClient = useQueryClient();
-
   const {
     handleSubmit,
     register,
@@ -42,34 +37,14 @@ export function CreatePostForm() {
     resolver: zodResolver(createPostSchema),
   });
 
-  const { mutate: createPostRequest, isPending } = useMutation({
-    mutationFn: postService.createPost.bind(postService),
-  });
+  const { createPost, isCreatingPost } = useCreatePost();
 
-  function createPost(data: CreatePostData) {
-    const { name, message, image } = data;
-
-    createPostRequest(
-      { name, message, imageURL: URL.createObjectURL(image) },
-      {
-        async onSuccess() {
-          reset();
-
-          await queryClient.invalidateQueries({
-            predicate(query) {
-              return query.queryKey[0] === QueryKeys.posts()[0];
-            },
-          });
-        },
-        onError(error) {
-          toast.error(error.message);
-        },
-      },
-    );
-  }
+  const handleCreatePost = handleSubmit((data) =>
+    createPost({ ...data, imageURL: URL.createObjectURL(data.image) }),
+  );
 
   return (
-    <S.Form noValidate onSubmit={handleSubmit(createPost)}>
+    <S.Form noValidate onSubmit={handleCreatePost}>
       <Controller
         control={control}
         name="image"
@@ -104,7 +79,7 @@ export function CreatePostForm() {
           Descartar
         </Button>
 
-        <Button type="submit" disabled={!isValid} isLoading={isPending}>
+        <Button type="submit" disabled={!isValid} isLoading={isCreatingPost}>
           Publicar
         </Button>
       </S.FooterContainer>
