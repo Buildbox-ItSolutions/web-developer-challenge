@@ -11,6 +11,8 @@ import { randomString } from '../../../utils/randomString';
 import { wait } from '../../../utils/wait';
 import { IPostService } from '../IPostService';
 
+import { mockedPosts } from './mockedPosts';
+
 const USE_SIMULATION_DELAY = true;
 
 async function processDelay() {
@@ -20,7 +22,7 @@ async function processDelay() {
 }
 
 export class InMemoryPostService implements IPostService {
-  private posts: Post[] = [];
+  private posts: Post[] = [...mockedPosts];
 
   async getPosts(query: GetPostsQuery): Promise<Post[]> {
     const { limit, page } = getPostsQuery.parse(query);

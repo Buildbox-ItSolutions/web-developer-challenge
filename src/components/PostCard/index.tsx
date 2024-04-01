@@ -42,7 +42,12 @@ export function PostCard({ post }: PostCardProps) {
 
   return (
     <S.PostCardContainer>
-      <S.ImgStyled src={post.imageURL} alt={`${post.name} Post`} />
+      <S.ImgStyled
+        src={post.imageURL}
+        alt={`${post.name} Post`}
+        width={64}
+        height={64}
+      />
 
       <S.Content>
         <S.DeleteButton
