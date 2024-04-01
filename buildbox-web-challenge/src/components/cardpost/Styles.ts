@@ -30,6 +30,7 @@ export const Foto = styled.img`
 export const Campos = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 8px;
 `;
 
 export const Nome = styled.div`
