@@ -29,7 +29,7 @@ export class InMemoryPostService implements IPostService {
 
     await processDelay();
 
-    return this.posts.reverse().slice((page - 1) * limit, page * limit);
+    return this.posts.slice((page - 1) * limit, page * limit);
   }
 
   async createPost(dto: CreatePostRequest): Promise<Post> {
