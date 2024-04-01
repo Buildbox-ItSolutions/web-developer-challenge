@@ -111,3 +111,7 @@ export const ButtonsBox = styled.div`
     margin-left: 1.5rem;
   }
 `;
+
+export const PublishButtonGreen = styled.button`
+  background-color: #71bb00 !important;
+`;

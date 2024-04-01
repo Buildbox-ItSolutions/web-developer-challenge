@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import React, { MutableRefObject } from "react";
 import { PostsData } from "../../context/PostsContext";
 
 export const createPost = (
@@ -9,6 +9,7 @@ export const createPost = (
   posts: PostsData[],
   setPosts: React.Dispatch<React.SetStateAction<PostsData[]>>,
   setCreatedPost: React.Dispatch<React.SetStateAction<number | null>>,
+  setImage: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   event.preventDefault();
 
@@ -34,6 +35,7 @@ export const createPost = (
 
     name.current.value = ''
     text.current.value = ''
+    setImage(false)
   }
 
 }
@@ -45,5 +47,20 @@ export const discardPost = (
   if (name.current?.value && text.current?.value) {
     name.current.value = ''
     text.current.value = ''
+  }
+}
+
+export const handlePublishing = (
+  name: MutableRefObject<HTMLInputElement | null>,
+  text: MutableRefObject<HTMLTextAreaElement | null>,
+  image: boolean,
+  setPublish: React.Dispatch<React.SetStateAction<boolean>>,
+) => {
+  if (name.current?.value && text.current?.value) {
+    if (name.current.value.trim().length !== 0 || text.current.value.trim().length !== 0 || image) {
+      setPublish(true);
+    } else {
+      setPublish(false)
+    }
   }
 }
