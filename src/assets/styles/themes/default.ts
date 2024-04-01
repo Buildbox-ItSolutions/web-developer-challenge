@@ -24,6 +24,9 @@ export default {
         background: '#71bb00',
         text: '#fff',
       },
+      hovered: {
+        background: '#88c52d',
+      },
       disabled: {
         background: '#5f5f5f',
         text: '#313131',
@@ -36,6 +39,10 @@ export default {
         border: 'transparent',
         placeholder: '#9f9f9f',
         text: '#fff',
+      },
+      hovered: {
+        background: '#535353',
+        border: '#828282',
       },
     },
 
@@ -50,5 +57,12 @@ export default {
     uploadButton: {
       border: '#4b4b4b',
     },
+  },
+
+  borderRadius: {
+    card: '0.3rem',
+    field: '0.8rem',
+    button: '0.8rem',
+    uploadButton: '3.6rem',
   },
 } satisfies DefaultTheme;

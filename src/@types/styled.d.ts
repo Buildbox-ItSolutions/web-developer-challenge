@@ -25,6 +25,9 @@ declare module 'styled-components' {
           background: string;
           text: string;
         };
+        hovered: {
+          background: string;
+        };
         disabled: {
           background: string;
           text: string;
@@ -33,10 +36,14 @@ declare module 'styled-components' {
 
       field: {
         default: {
-          border: string;
           background: string;
+          border: string;
           text: string;
           placeholder: string;
+        };
+        hovered: {
+          background: string;
+          border: string;
         };
       };
 
@@ -51,6 +58,13 @@ declare module 'styled-components' {
       uploadButton: {
         border: string;
       };
+    };
+
+    borderRadius: {
+      card: string;
+      field: string;
+      button: string;
+      uploadButton: string;
     };
   }
 }

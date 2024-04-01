@@ -10,7 +10,7 @@ export default createGlobalStyle`
 
   html,
   body,
-  :root {
+  #root {
     height: 100%;
   }
 
@@ -29,4 +29,10 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  /* @media (max-width: 640px) {
+    html {
+      font-size: 50%;
+    }
+  } */
 `;
