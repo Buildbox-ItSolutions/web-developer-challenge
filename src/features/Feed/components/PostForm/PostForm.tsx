@@ -60,9 +60,9 @@ function PostForm({setPosts}: IPostForm) {
             renderUplodedImage():
         (
 
-            <div className='uploadImageContainer' onClick={() => document.getElementById('fileInput')?.click()} style={{cursor: 'pointer'}}>
+            <div className='uploadImageContainer cursorPointer' onClick={() => document.getElementById('fileInput')?.click()} >
                 <img src={uploadIcon} alt="" />
-                <input id="fileInput" type="file" name="image" onChange={handleImageUpload} style={{display: 'none'}} />
+                <input id="fileInput" type="file" name="image" onChange={handleImageUpload}  className='invisible'/>
             </div>
         )}
 

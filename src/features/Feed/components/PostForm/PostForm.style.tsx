@@ -85,6 +85,12 @@ export const PostFormStyled = styled.div`
         color: #5f5f5f;
         line-height: 18px;
     }
+    .cursorPointer:hover{
+        cursor: pointer;
+    }
+    .invisible{
+        display: none;
+    }
 `
 
 export const ImageContainerStyled = styled.div`
