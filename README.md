@@ -1,30 +1,38 @@
-# web-developer-challenge
+# BuildBox ItSolutions Web Challenge
 
-Olá!
+## Demonstração em produção
+Você pode acessar o projeto em produção pelo link: https://
+Caso opte rodar localmente, basta continuar a leitura.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## Funcionalidades e destaque
+- **Paginação Infinita:** Carregamento dos posts é feito de maneira eficiente através de scroll infinito.
+- **Responsividade:** Layout adaptável para tela menores.
+- **Camada de Serviço para consulta de Posts:** A camada para consulta de posts é abstraída para uma melhor manutenção e teste do projeto, podendo alterar a fonte de dados a qualquer momento de uma forma eficaz.
+- **CI/CD:** Implementação de integração Contínua com **GitHub Actions** para uma entrega do código com segurança e Entrega Contínua com **AWS CodeBuild** para deploy automatizado.
+- **Código estruturado e padronizado:** Foco em manter o código limpo, organizado e seguindo boas práticas.
+- **Tudo de melhor:** Foi utilizado TypeScript e Styled Components para um desenvolvimento moderno e seguro.
 
-O Desafio é o seguinte:
+## Rodando o projeto localmente
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+1. Clone o repositório:
+```bash
+git clone https://github.com/Felipstein/buildbox-itsolutions-web-developer-challenge.git
+```
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+2. Acesse o diretório do projeto clonado com `cd buildbox-itsolutions-web-developer-challenge` e instale as dependências:
+```bash
+npm install
+```
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+3. Execute o projeto:
+```bash
+npm run dev
+```
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+Isso será o suficiente para iniciar o servidor de desenvolvimento, basta agora acessar no seu navegador usando http://localhost:3000
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+## Sobre mim
 
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+[Acesse meu portfolio aqui](https://d1szikd9uvunff.cloudfront.net/) ou entre em contato comigo pelas redes sociais:
+- [GitHub (https://github.com/Felipstein)](https://github.com/Felipstein)
+- [LinkedIn (https://www.linkedin.com/in/felipstein)](https://www.linkedin.com/in/felipstein/)
