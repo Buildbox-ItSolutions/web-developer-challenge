@@ -33,15 +33,28 @@ export const PhotoUpload = styled.div`
   }
 `
 
-export const PhotoChoosed = styled.img`
-  max-width: 5.5rem;
-  max-height: 5.5rem;
-  
+export const PhotoChoosed = styled.div`
+  width: fit-content;
+
   margin-inline: auto;
   margin-bottom: 1rem;
 
-  border-radius: 2.25rem;
-  border: solid 1px #4b4b4b;
+  cursor: pointer;
+  
+  img {
+    max-width: 5.5rem;
+    max-height: 5.5rem;
+    
+    border-radius: 2.25rem;
+  }
+  
+  position: relative;
+`;
+
+export const TrashIcon = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: -2rem;
 `;
 
 export const FormBox = styled.form`

@@ -1,9 +1,10 @@
-import { ButtonsBox, FormBox, PhotoChoosed, PhotoUpload, PostCreationBox } from "./style"
+import { ButtonsBox, FormBox, PhotoChoosed, PhotoUpload, PostCreationBox, TrashIcon } from "./style"
 import Photo from '../../assets/image.svg'
-import { createPost } from "./service";
+import { createPost, discardPost } from "./service";
 import React, { useContext, useRef, useState } from "react";
 import { PostsContext } from "../../context/PostsContext";
 import Image from '../../assets/user-image.png'
+import Trash from '../../assets/trash.svg'
 
 const PostCreation = ({
   setCreatedPost,
@@ -18,7 +19,12 @@ const PostCreation = ({
   return (
     <PostCreationBox>
       {image ?
-        <PhotoChoosed onClick={() => setImage(false)} src={Image} alt="" />
+        <PhotoChoosed>
+          <img onClick={() => setImage(false)} src={Image} alt="" />
+          <TrashIcon onClick={() => setImage(false)}>
+            <img src={Trash} alt="" />
+          </TrashIcon>
+        </PhotoChoosed>
         :
         <PhotoUpload onClick={() => setImage(true)}>
           <img src={Photo} alt="" />
@@ -28,7 +34,10 @@ const PostCreation = ({
         <input ref={name} type="text" placeholder="Digite seu nome" required></input>
         <textarea ref={text} placeholder="Mensagem" required></textarea>
         <ButtonsBox>
-          <button>Descartar</button>
+          <button onClick={() => {
+            setImage(false)
+            discardPost(name, text)
+          }}>Descartar</button>
           <button type="submit">Publicar</button>
         </ButtonsBox>
       </FormBox>
