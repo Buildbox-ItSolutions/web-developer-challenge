@@ -1,5 +1,5 @@
 import CardPostButtons from "../cardpostbuttons/CardPostButtons"
-import { Container, ContainerFoto, Foto, Nome, TextoNome } from "./Styles"
+import { Campos, Container, ContainerFoto, Foto, Mensagem, Nome, TextoMensagem, TextoNome } from "./Styles"
 import PhotoUpload from "../../assets/image@3x.png";
 
 const CardPost = () => {
@@ -8,16 +8,18 @@ const CardPost = () => {
             <ContainerFoto>
                 <Foto src={PhotoUpload} alt="" />
             </ContainerFoto>
-            <Nome>
-                <TextoNome>
-                    Digite seu nome
-                </TextoNome>
-            </Nome>
-            {/* <Mensagem>
-                <TextoMensagem>
-                    Mensagem
-                </TextoMensagem>
-            </Mensagem> */}
+            <Campos>
+                <Nome>
+                    <TextoNome>
+                        Digite seu nome
+                    </TextoNome>
+                </Nome>
+                <Mensagem>
+                    <TextoMensagem>
+                        Mensagem
+                    </TextoMensagem>
+                </Mensagem>
+            </Campos>
             <CardPostButtons />
         </Container>
     )
