@@ -18,13 +18,13 @@ function ImageUploader() {
         <>
           <Preview src={URL.createObjectURL(currentImage[0])} />
           <TrashButton variant="icon" onClick={() => resetField("image")}>
-            <Trash size={20} />
+            <Trash size={20} strokeWidth={1} />
           </TrashButton>
         </>
       ) : (
         <>
           <AddImageLabel htmlFor="image">
-            <Image color="#9f9f9f" />
+            <Image color="#9f9f9f" strokeWidth={1} />
           </AddImageLabel>
           <AddImageInput
             id="image"
