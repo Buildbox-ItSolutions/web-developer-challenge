@@ -1,7 +1,9 @@
 # BuildBox ItSolutions Web Challenge
 
 ## Demonstração em produção
-Você pode acessar o projeto em produção pelo link: https://
+
+Você pode acessar o projeto em produção pelo link: https://db1nsdcihi72i.cloudfront.net
+
 Caso opte rodar localmente, basta continuar a leitura.
 
 ## Funcionalidades e destaque
