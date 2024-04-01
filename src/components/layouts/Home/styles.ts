@@ -13,6 +13,8 @@ export const HomeContent = styled.main`
   margin-top: 4rem;
   margin-inline: auto;
 
+  padding-bottom: 2.4rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +22,20 @@ export const HomeContent = styled.main`
   @media (max-width: 640px) {
     width: 95vw;
   }
+`;
+
+export const HomePostsListContainer = styled.div`
+  width: 100%;
+
+  margin-top: 5.6rem;
+`;
+
+export const HomePostsListHeading = styled.p`
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+
+  margin-bottom: 0.8rem;
+
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.text[600]};
 `;

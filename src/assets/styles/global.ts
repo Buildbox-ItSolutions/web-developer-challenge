@@ -30,6 +30,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  ul {
+    list-style: none;
+  }
+
   /* @media (max-width: 640px) {
     html {
       font-size: 50%;

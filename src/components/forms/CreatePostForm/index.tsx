@@ -1,20 +1,24 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm, Controller } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
+import { QueryKeys } from '../../../constants/queryKeys';
+import { postService } from '../../../services/posts';
 import { Button } from '../../common/Button';
 import { Input } from '../../common/Input';
 
 import * as S from './styles';
 
-const DESCRIPTION_LIMIT = 2000;
+const MESSAGE_LIMIT = 2000;
 
 const createPostSchema = z.object({
   name: z.string().min(1, 'O nome é obrigatório.'),
-  description: z
+  message: z
     .string()
-    .min(1, 'A descrição é obrigatória.')
-    .max(DESCRIPTION_LIMIT, 'Limite de 2000 caracteres.'),
+    .min(1, 'A mensagem é obrigatória.')
+    .max(MESSAGE_LIMIT, 'Limite de 2000 caracteres.'),
   image: z
     .instanceof(FileList)
     .refine((fileList) => fileList.length === 1, {
@@ -26,6 +30,8 @@ const createPostSchema = z.object({
 type CreatePostData = z.infer<typeof createPostSchema>;
 
 export function CreatePostForm() {
+  const queryClient = useQueryClient();
+
   const {
     handleSubmit,
     register,
@@ -36,8 +42,30 @@ export function CreatePostForm() {
     resolver: zodResolver(createPostSchema),
   });
 
+  const { mutate: createPostRequest, isPending } = useMutation({
+    mutationFn: postService.createPost,
+  });
+
   function createPost(data: CreatePostData) {
-    console.log(data);
+    const { name, message, image } = data;
+
+    createPostRequest(
+      { name, message, imageURL: URL.createObjectURL(image) },
+      {
+        async onSuccess() {
+          reset();
+
+          await queryClient.invalidateQueries({
+            predicate(query) {
+              return query.queryKey[0] === QueryKeys.posts()[0];
+            },
+          });
+        },
+        onError(error) {
+          toast.error(error.message);
+        },
+      },
+    );
   }
 
   return (
@@ -65,9 +93,9 @@ export function CreatePostForm() {
         <Input
           as="textarea"
           placeholder="Mensagem"
-          max={DESCRIPTION_LIMIT}
-          errorFeedback={errors.description?.message}
-          {...register('description')}
+          max={MESSAGE_LIMIT}
+          errorFeedback={errors.message?.message}
+          {...register('message')}
         />
       </div>
 
@@ -76,7 +104,7 @@ export function CreatePostForm() {
           Descartar
         </Button>
 
-        <Button type="submit" disabled={!isValid}>
+        <Button type="submit" disabled={!isValid} isLoading={isPending}>
           Publicar
         </Button>
       </S.FooterContainer>
