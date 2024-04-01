@@ -22,8 +22,10 @@ export const getContainerStyle = () => ({
     marginTop: "3%",
     display: "flex",
     flexDirection: "column",
-    placeItems: "center",
     gap: 3,
+    "> img": {
+      alignSelf: "center",
+    },
   },
   "> div:nth-of-type(4n)": {
     flexDirection: "row",
