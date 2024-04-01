@@ -1,30 +1,41 @@
-# web-developer-challenge
+# Desafio Buildbox
 
-Olá!
+Este projeto foi criado para o desafio de desenvolvimento Web da Buildbox. O objetivo é criar uma página utilizando React.js que contenha uma lista de posts com a possibilidade de adicionar e remover.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## Pré-requisitos
 
-O Desafio é o seguinte:
+- Node.js
+- npm
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+Este projeto foi criado usando React versão 18.2.0. Certifique-se de ter essa versão ou superior instalada em sua máquina antes de prosseguir.
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+## Instalação
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+Primeiro, clone este repositório para a sua máquina local usando `git clone`.
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+Navegue até o diretório do projeto e instale as dependências necessárias usando o comando:
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+```bash
+npm install
+```
+
+## Execução
+
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
+
+```bash
+npm run dev
+```
+
+Agora você pode abrir seu navegador e ver o projeto em execução.
+
+## Tecnologias Utilizadas
+
+- React.js
+- TypeScript
+- Styled Components
 
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+## Licença
 
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+[MIT](https://choosealicense.com/licenses/mit/)
