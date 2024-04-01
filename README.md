@@ -27,7 +27,7 @@ Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 npm run dev
 ```
 
-Agora você pode abrir seu navegador e visitar `http://localhost:3000` para ver o projeto em execução.
+Agora você pode abrir seu navegador e ver o projeto em execução.
 
 ## Tecnologias Utilizadas
 
