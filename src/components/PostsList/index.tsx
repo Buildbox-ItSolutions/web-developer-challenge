@@ -24,7 +24,7 @@ export function PostsList() {
       postService.getPosts({ limit: 6, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) =>
-      lastPage.length > 0 ? allPages.length + 1 : undefined,
+      lastPage.totalPages === allPages.length ? undefined : allPages.length + 1,
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function PostsList() {
     }
   }, [inView, hasNextPage, fetchNextPage]);
 
-  const posts = postsPagination?.pages.flat() || [];
+  const posts = postsPagination?.pages.flatMap((page) => page.posts) || [];
   const isEmptyList =
     !isLoadingPosts && !isFetchingNextPage && posts.length === 0;
 

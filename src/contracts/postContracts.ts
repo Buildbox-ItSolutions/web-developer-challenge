@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { Post } from '../@types/Post';
+
 // ## --------------------------------
 export const getPostsQuery = z.object({
   limit: z.number().default(6),
@@ -7,6 +9,12 @@ export const getPostsQuery = z.object({
 });
 
 export type GetPostsQuery = z.infer<typeof getPostsQuery>;
+
+// ## --------------------------------
+export type GetPostsResponse = {
+  posts: Post[];
+  totalPages: number;
+};
 
 // ## --------------------------------
 export const createPostRequest = z.object({

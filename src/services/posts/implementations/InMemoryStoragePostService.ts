@@ -6,6 +6,7 @@ import {
   DeletePostRequest,
   getPostsQuery,
   GetPostsQuery,
+  GetPostsResponse,
 } from '../../../contracts/postContracts';
 import { randomString } from '../../../utils/randomString';
 import { wait } from '../../../utils/wait';
@@ -24,12 +25,17 @@ async function processDelay() {
 export class InMemoryPostService implements IPostService {
   private posts: Post[] = [...mockedPosts];
 
-  async getPosts(query: GetPostsQuery): Promise<Post[]> {
+  async getPosts(query: GetPostsQuery): Promise<GetPostsResponse> {
     const { limit, page } = getPostsQuery.parse(query);
 
     await processDelay();
 
-    return this.posts.slice((page - 1) * limit, page * limit);
+    const posts = this.posts.reverse().slice((page - 1) * limit, page * limit);
+
+    return {
+      posts,
+      totalPages: Math.ceil(this.posts.length / limit),
+    };
   }
 
   async createPost(dto: CreatePostRequest): Promise<Post> {

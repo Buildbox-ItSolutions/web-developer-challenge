@@ -3,10 +3,11 @@ import type {
   CreatePostRequest,
   DeletePostRequest,
   GetPostsQuery,
+  GetPostsResponse,
 } from '../../contracts/postContracts';
 
 export interface IPostService {
-  getPosts(query: GetPostsQuery): Promise<Post[]>;
+  getPosts(query: GetPostsQuery): Promise<GetPostsResponse>;
 
   createPost(dto: CreatePostRequest): Promise<Post>;
 

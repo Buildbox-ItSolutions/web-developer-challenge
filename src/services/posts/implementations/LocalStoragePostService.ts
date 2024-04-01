@@ -6,6 +6,7 @@ import {
   DeletePostRequest,
   getPostsQuery,
   GetPostsQuery,
+  GetPostsResponse,
 } from '../../../contracts/postContracts';
 import { randomString } from '../../../utils/randomString';
 import { wait } from '../../../utils/wait';
@@ -21,14 +22,21 @@ async function processDelay() {
 }
 
 export class LocalStoragePostService implements IPostService {
-  async getPosts(query: GetPostsQuery): Promise<Post[]> {
+  async getPosts(query: GetPostsQuery): Promise<GetPostsResponse> {
     const { limit, page } = getPostsQuery.parse(query);
 
     await processDelay();
 
-    const posts: Post[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const postsLoaded: Post[] = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || '[]',
+    );
 
-    return posts.reverse().slice((page - 1) * limit, page * limit);
+    const posts = postsLoaded.reverse().slice((page - 1) * limit, page * limit);
+
+    return {
+      posts,
+      totalPages: Math.ceil(postsLoaded.length / limit),
+    };
   }
 
   async createPost(dto: CreatePostRequest): Promise<Post> {
