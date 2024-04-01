@@ -14,9 +14,10 @@ const Feedbox = () => {
         uploadedImage={postData[0].uploadedImage}
       />
       <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
+        name={postData[1].nome}
+        text={postData[1].texto}
+        profileImage={postData[1].profileImage}
+        uploadedImage={postData[1].uploadedImage}
       />
       <FeedboxItem
         name={postData[2].nome}
@@ -25,14 +26,10 @@ const Feedbox = () => {
         uploadedImage={postData[2].uploadedImage}
       />
       <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-      />
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
+        name={postData[3].nome}
+        text={postData[3].texto}
+        profileImage={postData[3].profileImage}
+        uploadedImage={postData[3].uploadedImage}
       />
     </Box>
   );
