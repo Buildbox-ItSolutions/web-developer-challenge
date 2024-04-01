@@ -2,8 +2,13 @@ import Image from "next/image";
 import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import ImageIcon from "../icons/image-icon";
+import TrashIcon from "../icons/trash-icon";
 
-export const BoxStyled = styled.label`
+interface BoxProps {
+  $variant?: "image" | "input" | "input-img";
+}
+
+export const BoxStyled = styled.label<BoxProps>`
   position: relative;
   align-self: center;
   box-sizing: border-box;
@@ -17,21 +22,45 @@ export const BoxStyled = styled.label`
 
   background-color: rgba(75, 75, 75, 0);
 
-  input {
-    display: none;
-  }
-  img {
-    object-fit: cover;
-    border-radius: 36px;
-  }
-  svg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
+  ${(props) => {
+    if (props.$variant === "image") {
+      return `
+        img {
+          object-fit: cover;
+          border-radius: 36px;
+        }`;
+    } else if (props.$variant === "input") {
+      return `
+      cursor: pointer;
+        input {
+          display: none;
+        }
+        svg {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        `;
+    } else if (props.$variant === "input-img") {
+      return `
+        img {
+          object-fit: cover;
+          border-radius: 36px;
+        }
+        svg {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          bottom: 0;
+          right: -30px;
+          margin: auto;
+        }
+        `;
+    }
+  }}
 `;
 
 export default function ImageInput() {
@@ -44,16 +73,18 @@ export default function ImageInput() {
     }
   };
 
+  const handleClick = () => setImage("");
+
   if (image === "") {
     return (
-      <BoxStyled>
+      <BoxStyled $variant="input">
         <input type="file" accept="image/*" onChange={handleImageChange} />
         <ImageIcon />
       </BoxStyled>
     );
   } else {
     return (
-      <BoxStyled>
+      <BoxStyled $variant="input-img">
         <Image
           alt="avatar"
           src={image}
@@ -61,6 +92,7 @@ export default function ImageInput() {
           priority
           sizes="max-inline-size: 100%"
         />
+        <TrashIcon onClick={handleClick} />
       </BoxStyled>
     );
   }

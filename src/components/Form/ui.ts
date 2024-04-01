@@ -6,7 +6,7 @@ const FormStyled = styled.form`
   gap: 8px;
 
   width: 516px;
-  height: 353px;
+  height: fit-content;
 
   padding: 24px;
   border-radius: 3px;
