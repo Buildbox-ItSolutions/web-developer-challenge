@@ -56,7 +56,7 @@ export const Paragraph = css`
 `;
 
 export const InputStyles = css`
-  width: 29.25rem;
+  width: 100%;
   height: auto; 
   margin: 0px;
   padding: 0px;

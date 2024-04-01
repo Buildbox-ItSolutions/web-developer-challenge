@@ -56,7 +56,7 @@ function Form({ feeds, setFeeds }: FormProps): JSX.Element {
             removeFeed()
           }}  
           />
-          {!imageClicked && <IllustrativePicture src={illustrativePicture} alt="Imagem de foto vazia" />}
+          {!imageClicked && <IllustrativePicture src={illustrativePicture} alt="Imagem de foto vazia" onClick={handleImageClick}/>}
       </ContainerImage>
       <ContainerInputs>
           <Input placeholder="Digite seu nome" value={imageClicked ? publishPost.name : ""}/>

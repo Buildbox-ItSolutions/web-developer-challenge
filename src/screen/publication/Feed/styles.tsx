@@ -1,6 +1,18 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {theme} from '../../../styles/theme';
 import { Image, Paragraph } from '../../../styles';
+
+const responsible = css`
+  width: 516px;
+
+  @media only screen and (max-width: 565px) {
+    width: 90%;
+    max-width: 100%;
+    min-width: 300px;
+    margin: 20px 24px auto;
+    height: auto;
+  }
+`;
 
 export const ContainerGroupFeeds = styled.div`
     width: 516px;
@@ -9,7 +21,7 @@ export const ContainerGroupFeeds = styled.div`
 
 export const Text = styled.p`
   ${Paragraph}
-  width: 516px; 
+  ${responsible}
   margin: 0 0 0.5rem 0; 
   font-size: ${theme.sizes.small};
   font-weight: 500;
@@ -18,12 +30,12 @@ export const Text = styled.p`
 `;
 
 export const ContainerPost = styled.div`
-  width: 516px;
-  height: 225px;
+  height: auto;
   margin: 8px 425px 16px;
   border-radius: 3px;
   border: solid 1px ${theme.colors.grey500};
   background-color: ${theme.colors.grey700};
+  ${responsible}
 `;
 
 export const ContainerDeleteButton = styled.div`
@@ -51,8 +63,8 @@ export const ImageProfile = styled.img`
 
 export const TextLorem = styled.p`
   ${Paragraph}
-  width: 348px; 
-  margin: 0 0 1.5rem 0;
+  width: auto; 
+  margin: 0 1.5rem 1.5rem 0;
 `;
 
 export const TextSend = styled.p`

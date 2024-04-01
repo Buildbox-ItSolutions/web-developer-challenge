@@ -10,13 +10,21 @@ const alignConteiners = css`
 
 export const ContainerForm = styled.div`
   ${alignConteiners}
-  width: 516px;
+  width: 32.25rem;
   max-height: 353px;
   margin: 40px auto 56px;
   padding: 0;
   border-radius: 3px;
   border: solid 1px ${theme.colors.grey500};
   background-color: ${theme.colors.grey700};
+
+  @media only screen and (max-width: 565px) {
+    width: 90%;
+    max-width: 100%;
+    min-width: 300px;
+    margin: 20px 24px auto;
+    max-height: none;
+  }
 `;
 
 export const ContainerImage = styled.div`
@@ -57,6 +65,7 @@ export const ContainerInputs = styled.div`
   flex-direction: column;
   align-items: flex-end;
   max-width: 29.25rem;
+  width: 90%;
 `;
 
 export const Input = styled.input`

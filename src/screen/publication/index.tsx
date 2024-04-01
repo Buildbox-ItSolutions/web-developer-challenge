@@ -21,7 +21,7 @@ function Publication(): JSX.Element {
     {
       photo: profile2,
       name: 'Manuela Oliveira',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit',
     },
   ]);
 
