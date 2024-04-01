@@ -1,7 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 
+import { Button } from '../../common/Button';
 import { Input } from '../../common/Input';
 
 import * as S from './styles';
@@ -14,7 +15,12 @@ const createPostSchema = z.object({
     .string()
     .min(1, 'A descrição é obrigatória.')
     .max(DESCRIPTION_LIMIT, 'Limite de 2000 caracteres.'),
-  image: z.string().url(),
+  image: z
+    .instanceof(FileList)
+    .refine((fileList) => fileList.length === 1, {
+      message: 'Selecione uma imagem',
+    })
+    .transform((fileList) => fileList[0]),
 });
 
 type CreatePostData = z.infer<typeof createPostSchema>;
@@ -23,7 +29,9 @@ export function CreatePostForm() {
   const {
     handleSubmit,
     register,
-    formState: { isValid, errors },
+    reset,
+    control,
+    formState: { isValid, errors, isDirty },
   } = useForm<CreatePostData>({
     resolver: zodResolver(createPostSchema),
   });
@@ -34,7 +42,17 @@ export function CreatePostForm() {
 
   return (
     <S.Form noValidate onSubmit={handleSubmit(createPost)}>
-      <S.UploadImageStyled />
+      <Controller
+        control={control}
+        name="image"
+        render={({ field: { name, value, onChange } }) => (
+          <S.UploadImageStyled
+            name={name}
+            value={(value as unknown as FileList)?.[0]}
+            onChange={onChange}
+          />
+        )}
+      />
 
       <div className="inputs-group">
         <Input
@@ -54,11 +72,13 @@ export function CreatePostForm() {
       </div>
 
       <S.FooterContainer>
-        <button type="button">Descartar</button>
+        <Button variant="ghost" onClick={() => reset()} disabled={!isDirty}>
+          Descartar
+        </Button>
 
-        <button type="submit" disabled={!isValid}>
+        <Button type="submit" disabled={!isValid}>
           Publicar
-        </button>
+        </Button>
       </S.FooterContainer>
     </S.Form>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { UploadImage } from '../../UploadImage';
+import { UploadImage } from '../../common/UploadImage';
 
 export const Form = styled.form`
   .inputs-group {
@@ -11,7 +11,8 @@ export const Form = styled.form`
 `;
 
 export const UploadImageStyled = styled(UploadImage)`
-  background-color: red;
+  margin-inline: auto;
+  margin-bottom: 1.6rem;
 `;
 
 export const FooterContainer = styled.footer`

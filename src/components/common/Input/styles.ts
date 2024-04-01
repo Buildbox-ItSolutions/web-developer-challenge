@@ -8,6 +8,8 @@ export const InputStyled = styled.input`
     },
   }) => css`
     width: 100%;
+    min-width: 100%;
+    max-width: 100%;
 
     font-size: 1.4rem;
     line-height: 1.8rem;
@@ -18,6 +20,8 @@ export const InputStyled = styled.input`
     border: 0.1rem solid ${field.default.border};
 
     border-radius: ${borderRadius.field};
+
+    transition: all 0.1s ease-in-out;
 
     &::placeholder {
       color: ${field.default.placeholder};
