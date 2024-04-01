@@ -23,6 +23,7 @@ export const PhotoUpload = styled.div`
   border: solid 1px #4b4b4b;
   
   padding: 2rem;
+  cursor: pointer;
 
   img {
     max-width: 1.5rem;
@@ -31,6 +32,17 @@ export const PhotoUpload = styled.div`
 
   }
 `
+
+export const PhotoChoosed = styled.img`
+  max-width: 5.5rem;
+  max-height: 5.5rem;
+  
+  margin-inline: auto;
+  margin-bottom: 1rem;
+
+  border-radius: 2.25rem;
+  border: solid 1px #4b4b4b;
+`;
 
 export const FormBox = styled.form`
   display: flex;
