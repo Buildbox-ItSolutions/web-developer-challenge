@@ -17,7 +17,7 @@ export function PostCard({ post }: PostCardProps) {
   const queryClient = useQueryClient();
 
   const { mutate: deletePostRequest, isPending: isDeletingPost } = useMutation({
-    mutationFn: postService.deletePost,
+    mutationFn: postService.deletePost.bind(postService),
   });
 
   function deletePost() {
