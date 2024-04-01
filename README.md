@@ -12,7 +12,7 @@ Caso opte rodar localmente, basta continuar a leitura.
 - **Camada de Serviço para consulta de Posts:** A camada para consulta de posts é abstraída para uma melhor manutenção e teste do projeto, podendo alterar a fonte de dados a qualquer momento de uma forma eficaz.
 - **CI/CD:** Implementação de integração Contínua com **GitHub Actions** para uma entrega do código com segurança e Entrega Contínua com **AWS CodeBuild** para deploy automatizado.
 - **Código estruturado e padronizado:** Foco em manter o código limpo, organizado e seguindo boas práticas.
-- **Tudo de melhor:** Foi utilizado TypeScript e Styled Components para um desenvolvimento moderno e seguro.
+- **Tudo de melhor:** Utilizado TypeScript, Styled Components e outras libs utilitárias com uma comunidade ativa e atualizada para o desenvolvimento do projeto.
 
 ## Rodando o projeto localmente
 
