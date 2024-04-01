@@ -1,6 +1,10 @@
+import { Container, Logo } from "./Styles"
+
 const Header = () => {
   return (
-    <div>Header</div>
+    <Container>
+        <Logo src="assets/bx-logo.png" />
+    </Container>
   )
 }
 
