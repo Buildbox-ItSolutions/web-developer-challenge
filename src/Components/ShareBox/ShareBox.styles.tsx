@@ -7,7 +7,8 @@ import {
   Button,
   Tooltip,
 } from "@mui/material";
-import { FaUser } from "react-icons/fa";
+// @ts-ignore
+import Avatar from "../../assets/images/Avatar.png";
 
 export const getContainerStyle = (): SxProps => ({
   background: "#FFFFF7",
@@ -38,7 +39,7 @@ export const getTextfieldStyle = (): SxProps => ({
   flexDirection: "column",
   gap: 1,
   "> div > div": {
-    borderRadius: "64px",
+    borderRadius: "32px",
     width: "550px",
     "@media(max-width: 1920px)": {
       width: "410px",
@@ -52,35 +53,41 @@ export const StyledUserButton = (props) => {
     <IconButton
       component="label"
       sx={{
-        background: profilePic ? "" : "lightGray",
-        padding: profilePic ? "" : "5%",
-        "> svg": {
-          height: "64px",
-          width: "64px",
+        transition: "ease 0.5s",
+        ":hover": {
+          transform: "scale(1.1, 1.1)",
+          transition: "ease 0.5s",
         },
       }}
       onChange={onChange}
       {...rest}
     >
-      {profilePic ? (
-        <Box
-          sx={{
-            alignSelf: "start",
-            height: "100px",
-            width: "100px",
-            borderRadius: "50%",
-            overflow: "hidden",
-            "> img": { height: "100%", width: "100%" },
-          }}
-          onChange={onChange}
-          {...rest}
-        >
-          <img alt="" src={`${profilePic}`} />
-        </Box>
-      ) : (
-        <FaUser />
-      )}
+      <Box
+        sx={{
+          alignSelf: "start",
+          height: "100px",
+          width: "100px",
+          borderRadius: "50%",
+          overflow: "hidden",
+          "> img": { height: "100%", width: "100%" },
+        }}
+        onChange={onChange}
+        {...rest}
+      >
+        <img alt="" src={profilePic ? `${profilePic}` : `${Avatar}`} />
+      </Box>
       <input type="file" hidden />
+      <Typography
+        sx={{
+          position: "absolute",
+          bottom: 25,
+          color: "#FFFFF7",
+          fontWeight: "600",
+          fontFamily: "Kanit",
+        }}
+      >
+        Foto
+      </Typography>
     </IconButton>
   );
 };
@@ -95,6 +102,12 @@ export const StyledMidiaButton = (props) => {
           flexDirection: "column",
           placeItems: "center",
           position: "relative",
+          animation: fileName?.length > 0 ? "floater 1.5s infinite" : "",
+          transform: fileName?.length > 0 ? "translateY(-3%)" : "",
+          "@keyframes floater": {
+            "0%": { transform: "translateY(-3%);transition: ease 0.5s" },
+            "50%": { transform: "translateY(3%);transition: ease 0.5s" },
+          },
         }}
       >
         <IconButton
@@ -112,8 +125,8 @@ export const StyledMidiaButton = (props) => {
             sx={{
               fontWeight: "600",
               fontFamily: "Kanit",
-              color: "#747474",
               marginLeft: "8px",
+              color: fileName?.length > 0 ? "#007aff" : "#747474",
             }}
           >
             {label}

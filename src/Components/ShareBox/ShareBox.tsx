@@ -70,6 +70,7 @@ const ShareBox = ({ setPostList }) => {
           <TextField
             id="publicacaoTextField"
             placeholder="Começar publicação"
+            multiline
           />
         </Box>
       </Box>
