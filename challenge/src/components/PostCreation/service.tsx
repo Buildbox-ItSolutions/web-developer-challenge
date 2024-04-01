@@ -37,3 +37,13 @@ export const createPost = (
   }
 
 }
+
+export const discardPost = (
+  name: MutableRefObject<HTMLInputElement | null>,
+  text: MutableRefObject<HTMLTextAreaElement | null>,
+) => {
+  if (name.current?.value && text.current?.value) {
+    name.current.value = ''
+    text.current.value = ''
+  }
+}
