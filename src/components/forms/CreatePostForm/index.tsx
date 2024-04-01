@@ -37,7 +37,7 @@ export function CreatePostForm() {
     resolver: zodResolver(createPostSchema),
   });
 
-  const { createPost, isCreatingPost } = useCreatePost();
+  const { createPost, isCreatingPost } = useCreatePost(reset);
 
   const handleCreatePost = handleSubmit((data) =>
     createPost({ ...data, imageURL: URL.createObjectURL(data.image) }),
