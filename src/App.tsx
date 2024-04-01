@@ -23,15 +23,19 @@ function App() {
 
       <FeedContainer>
         <AnimatePresence>
-          <Title>Feed</Title>
+          {!!posts.length && (
+            <>
+              <Title>Feed</Title>
 
-          {posts.map((post, i) => (
-            <FeedPost
-              key={i}
-              post={post}
-              onRemove={() => handleRemovePost(post.id)}
-            />
-          ))}
+              {posts.map((post, i) => (
+                <FeedPost
+                  key={i}
+                  post={post}
+                  onRemove={() => handleRemovePost(post.id)}
+                />
+              ))}
+            </>
+          )}
         </AnimatePresence>
       </FeedContainer>
     </>
