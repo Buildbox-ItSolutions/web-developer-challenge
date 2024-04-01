@@ -8,6 +8,8 @@ export default createGlobalStyle`
         --title-header: var(--dark-lime-green);
         --subtitle-header: var(--warm-grey);
         --bg-primary: var(--black);
+        --bg-input: var(--greyish-brown);
+        --bg-btn-disable: var(--black-two);
 
         --warm-grey: #707070;
         --dark-lime-green: #71bb00;
@@ -19,20 +21,21 @@ export default createGlobalStyle`
         --black: #343434;
         --greyish-brown: #494949;
         --black-two: #313131;
-    }
-
-    @font-face {
-        font-family: "SFProDisplay";
-        src: url("/fonts/SF-Pro-Display-Black.otf");
-    }
-
-    @font-face {
-        font-family: "SFProDisplayLight";
-        src: url("/fonts/SF-Pro-Display-Light.otf");
+        --brownish-grey:#5f5f5f;
     }
 
     * {
         margin: 0;
+    }
+    
+    input,button{
+        all: unset;
+    }
+    
+    textarea,textarea:focus-visible,textarea:focus-visible{
+        border:none;
+        outline: none;
+        resize:none;
     }
 
 `;

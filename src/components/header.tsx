@@ -1,5 +1,6 @@
 "use client";
 
+import { sf_pro_display, sf_pro_display_light } from "@/styles/fonts";
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
@@ -11,17 +12,13 @@ const HeaderStyled = styled.header`
 `;
 
 const TitleStyled = styled.span`
-  font-family: "SFProDisplay";
   font-size: 24px;
-  font-weight: 900;
   line-height: 29px;
   color: var(--title-header);
 `;
 
 const SubTitleStyled = styled.span`
-  font-family: "SFProDisplayLight";
   font-size: 12px;
-  font-weight: 300;
   line-height: 14px;
   letter-spacing: 0.29px;
   color: var(--subtitle-header);
@@ -37,8 +34,10 @@ export default function Header() {
   return (
     <HeaderStyled>
       <Box>
-        <TitleStyled>buildbox</TitleStyled>
-        <SubTitleStyled>WEB CHALLENGE</SubTitleStyled>
+        <TitleStyled className={sf_pro_display.className}>buildbox</TitleStyled>
+        <SubTitleStyled className={sf_pro_display_light.className}>
+          WEB CHALLENGE
+        </SubTitleStyled>
       </Box>
     </HeaderStyled>
   );
