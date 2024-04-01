@@ -47,49 +47,41 @@ export const getTextfieldStyle = (): SxProps => ({
 });
 
 export const StyledUserButton = (props) => {
+  const { onChange, profilePic, ...rest } = props;
   return (
     <IconButton
       component="label"
       sx={{
-        background: "lightGray",
-        padding: "5%",
+        background: profilePic ? "" : "lightGray",
+        padding: profilePic ? "" : "5%",
         "> svg": {
           height: "64px",
           width: "64px",
         },
       }}
-      {...props}
-    >
-      <FaUser />
-      <input type="file" hidden />
-    </IconButton>
-  );
-};
-
-export const StyledMenuButton = (props) => {
-  const { label, icon, ...rest } = props;
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-      }}
+      onChange={onChange}
       {...rest}
     >
-      <IconButton sx={{ borderRadius: "16px", ">svg": { color: "#007aff" } }}>
-        {icon}
-        <Typography
+      {profilePic ? (
+        <Box
           sx={{
-            fontWeight: "600",
-            fontFamily: "Kanit",
-            color: "#747474",
-            marginLeft: "4px",
+            alignSelf: "start",
+            height: "100px",
+            width: "100px",
+            borderRadius: "50%",
+            overflow: "hidden",
+            "> img": { height: "100%", width: "100%" },
           }}
+          onChange={onChange}
+          {...rest}
         >
-          {label}
-        </Typography>
-      </IconButton>
-    </Box>
+          <img alt="" src={`${profilePic}`} />
+        </Box>
+      ) : (
+        <FaUser />
+      )}
+      <input type="file" hidden />
+    </IconButton>
   );
 };
 
@@ -129,6 +121,33 @@ export const StyledMidiaButton = (props) => {
         </IconButton>
       </Box>
     </Tooltip>
+  );
+};
+
+export const StyledMenuButton = (props) => {
+  const { label, icon, ...rest } = props;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+      }}
+      {...rest}
+    >
+      <IconButton sx={{ borderRadius: "16px", ">svg": { color: "#007aff" } }}>
+        {icon}
+        <Typography
+          sx={{
+            fontWeight: "600",
+            fontFamily: "Kanit",
+            color: "#747474",
+            marginLeft: "4px",
+          }}
+        >
+          {label}
+        </Typography>
+      </IconButton>
+    </Box>
   );
 };
 

@@ -35,7 +35,6 @@ export const getContainerStyle = () => ({
 });
 
 export const getPerfilIconStyle = () => ({
-  background: "coral",
   alignSelf: "start",
   height: "80px",
   width: "80px",

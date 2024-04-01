@@ -14,6 +14,14 @@ import {
 const ShareBox = ({ setPostList }) => {
   const [file, setFile] = useState<string | undefined>(undefined);
   const [fileName, setFileName] = useState<string | undefined>(undefined);
+  const [profilePic, setProfilePic] = useState<string | undefined>(undefined);
+
+  function handleProfilePicChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files.length > 0) {
+      const selectedFile = e.target.files[0];
+      setProfilePic(URL.createObjectURL(selectedFile));
+    }
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files.length > 0) {
@@ -39,7 +47,7 @@ const ShareBox = ({ setPostList }) => {
         id: Date.now(),
         nome,
         texto,
-        profileImage: "",
+        profileImage: profilePic,
         uploadedImage: file,
       };
 
@@ -53,7 +61,10 @@ const ShareBox = ({ setPostList }) => {
   return (
     <Box sx={getContainerStyle()}>
       <Box>
-        <StyledUserButton />
+        <StyledUserButton
+          onChange={handleProfilePicChange}
+          profilePic={profilePic}
+        />
         <Box sx={getTextfieldStyle()}>
           <TextField id="nomeTextField" placeholder="Digite seu nome" />
           <TextField
