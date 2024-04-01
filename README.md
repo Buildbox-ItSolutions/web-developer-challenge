@@ -1,1 +1,0 @@
-# BuildBox ItSolutions Web Challenge
