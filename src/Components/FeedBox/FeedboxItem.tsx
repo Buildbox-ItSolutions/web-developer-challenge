@@ -14,6 +14,8 @@ import {
 import { FaRegComment, FaRegShareSquare, FaRegBookmark } from "react-icons/fa";
 import { RiMoreLine } from "react-icons/ri";
 import { GrLike } from "react-icons/gr";
+// @ts-ignore
+import Avatar from "../../assets/images/Avatar.png";
 
 const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
   ({ name, text, profileImage, uploadedImage, ...props }, ref) => {
@@ -21,7 +23,7 @@ const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
       <Box sx={getContainerStyle} {...props}>
         <Box>
           <Box sx={getPerfilIconStyle}>
-            <img alt="" src={`${profileImage}`} />
+            <img alt="" src={profileImage ? `${profileImage}` : `${Avatar}`} />
           </Box>
           <Typography sx={getTitleStyle}>{name}</Typography>
           <IconButton sx={getMenuButtonStyle}>

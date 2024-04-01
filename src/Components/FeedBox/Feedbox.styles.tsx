@@ -47,7 +47,6 @@ export const getTextStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
   color: "#747474",
-  whiteSpace: "pre-wrap",
 });
 
 export const getTitleStyle = () => ({
