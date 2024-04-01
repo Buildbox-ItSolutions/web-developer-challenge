@@ -48,6 +48,7 @@ declare module 'styled-components' {
       };
 
       card: {
+        skeletonBackground: string;
         background: string;
         border: string;
         content: string;

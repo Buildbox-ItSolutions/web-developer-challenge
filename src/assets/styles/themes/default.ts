@@ -47,6 +47,7 @@ export default {
     },
 
     card: {
+      skeletonBackground: '#4b4b4b',
       background: '#313131',
       border: '#3b3b3b',
       content: '#9f9f9f',

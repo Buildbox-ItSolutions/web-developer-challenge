@@ -39,7 +39,7 @@ export const ImgStyled = styled.img`
   }
 `;
 
-export const Content = styled.p`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
