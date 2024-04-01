@@ -29,6 +29,14 @@ http://localhost:5173/
 https://github.com/jucilenenunes/web-developer-challenge/assets/82344833/4b103d89-1b53-4bf0-a371-accd59742edc
 
 ##
+ ```diff
++ 👩‍💻 By Jucilene Nunes
++ Email jucilenenunes10@gmail.com
+```
+[Linkedin Pessoal](linkedin.com/in/jucilene-nunes/) <br/>
+
+[Whats](https://api.whatsapp.com/send?phone=5511967705101&text=Ol%C3%A1!)
+
 ##
 
 # Intruções para o teste
