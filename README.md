@@ -14,7 +14,7 @@ web-developer-challenge
 Web-developer-challenge se trata de um desafio proposto para a vaga de FULL STACK JAVASCRIPT da [BuildBox](https://buildbox.com.br/).
 
 
-É possível acessar a interface por meio do [Vercel](https://web-developer-challenge-zeta.vercel.app/).
+É possível acessar a interface por meio do [Vercel](https://buildbox-web-developer-challenge.vercel.app/).
 
 
 <div id="feito-com"> </div>
