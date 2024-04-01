@@ -4,9 +4,11 @@ import FeedboxItem from "./FeedboxItem.tsx";
 import { getMainContainerStyle } from "./Feedbox.styles.tsx";
 
 const Feedbox = ({ postList }) => {
+  const sortedPostList = postList.sort((a, b) => b.id - a.id);
+
   return (
     <Box sx={getMainContainerStyle()}>
-      {postList.map((item) => (
+      {sortedPostList.map((item) => (
         <FeedboxItem
           key={item.id}
           name={item.nome}
