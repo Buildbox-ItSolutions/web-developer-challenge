@@ -1,0 +1,23 @@
+.input,
+textarea {
+  background-color: #494949;
+}
+
+.input:-webkit-autofill:focus::selection,
+.input:-webkit-autofill:hover::selection,
+textarea:-webkit-autofill:focus::selection,
+textarea:-webkit-autofill:hover::selection {
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+.input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #dbdbdb;
+  box-shadow: 0 0 0px 1000px #494949 inset !important;
+}
+
+.input::selection,
+textarea::selection {
+  background-color: #2b2b2b;
+}
