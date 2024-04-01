@@ -1,10 +1,13 @@
+import CardPost from '../components/cardpost/CardPost'
 import Header from '../components/header/Header'
+import { Container } from './Styles'
 
 const Home = () => {
   return (
-    <div>
-        <Header />
-    </div>
+    <Container>
+      <Header />
+      <CardPost />
+    </Container>
   )
 }
 
