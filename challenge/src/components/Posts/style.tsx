@@ -10,6 +10,9 @@ export const PostBox = styled.div`
   border-radius: 3px;
   border: solid 1px #3b3b3b;
   background-color: #313131;
+
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
 `
 
 export const DeleteIcon = styled.div`

@@ -15,3 +15,8 @@ export const FeedContainer = styled.section`
     margin-bottom: .5rem;
   }
 `;
+
+export const PostsContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+`;
