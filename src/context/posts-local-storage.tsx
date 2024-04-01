@@ -3,10 +3,11 @@ import { createContext, ReactNode, useEffect, useState } from 'react'
 interface PostProps {
   text: string
   author: string
+  image: string
 }
 
 interface PostsLocalStorageContextType {
-  publishNewPost: (text: string, author: string) => void
+  publishNewPost: (text: string, author: string, image: string) => void
   deletePost: (postToBeDeleted: PostProps) => void
   posts: PostProps[]
 }
@@ -22,18 +23,19 @@ export function PostsLocalStorageProvider({
   children,
 }: PostsLocalStorageProviderProps) {
   const [posts, setPosts] = useState<PostProps[]>([])
-  const [newPostState, setNewPostState] = useState({
-    text: String(),
-    author: String(),
+  const [newPostState, setNewPostState] = useState<PostProps>({
+    text: '',
+    author: '',
+    image: '',
   })
 
-  function publishNewPost(text: string, author: string) {
+  function publishNewPost(text: string, author: string, image: string) {
     const getLocalStorage = localStorage.getItem(
       '@buildboxwebchallenge-pedrodecf',
     )
     const postsLocalStorage = getLocalStorage ? JSON.parse(getLocalStorage) : []
 
-    const newPost = { text, author }
+    const newPost = { text, author, image }
 
     postsLocalStorage.push(newPost)
     localStorage.setItem(

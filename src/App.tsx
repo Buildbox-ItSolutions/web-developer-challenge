@@ -20,7 +20,7 @@ export function App() {
           return (
             <Post
               key={index}
-              img="https://avatars.githubusercontent.com/u/43791636?v=4"
+              img={post.image}
               author={post.author}
               text={post.text}
               onDeletePost={() => deletePost(post)}

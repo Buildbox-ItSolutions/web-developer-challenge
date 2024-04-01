@@ -12,29 +12,35 @@ export function CreatePost() {
 
   const [inputValue, setInputValue] = useState('')
   const [textAreaValue, setTextAreaValue] = useState('')
+  const [img, setImg] = useState<string | null>(null)
 
   function ifValuesAreEmpty(): boolean {
-    return inputValue.trim() === '' || textAreaValue.trim() === ''
+    return (
+      inputValue.trim() === '' || textAreaValue.trim() === '' || img === null
+    )
+  }
+
+  function setValuesEmpty() {
+    setInputValue('')
+    setTextAreaValue('')
+    setImg(null)
   }
 
   function handleDiscard() {
     if (!confirm('Deseja descartar o post?')) {
       return
     }
-
-    setInputValue('')
-    setTextAreaValue('')
+    setValuesEmpty()
   }
 
   function handlePublishNewPost() {
-    publishNewPost(textAreaValue, inputValue)
-    setInputValue('')
-    setTextAreaValue('')
+    publishNewPost(textAreaValue, inputValue, img ?? '')
+    setValuesEmpty()
   }
 
   return (
     <CreatePostContainer>
-      <ImgLabel />
+      <ImgLabel img={img} setImg={setImg} />
       <InfoContainer>
         <Input
           value={inputValue}

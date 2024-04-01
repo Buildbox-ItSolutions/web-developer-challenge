@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const ImgLabelContainer = styled.div``
-
-export const ImgContainer = styled.div`
+export const ImgLabelContainer = styled.label`
   width: 88px;
   height: 88px;
   margin: 0 8px 16px 190px;
@@ -15,10 +13,22 @@ export const ImgContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  cursor: pointer;
 
   > svg {
     width: 24px;
     height: 24px;
     color: ${(props) => props.theme.text};
   }
+
+  > input {
+    display: none;
+  }
+`
+
+export const ImgContainer = styled.img`
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  border-radius: 36px;
 `
