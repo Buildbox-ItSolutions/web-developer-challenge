@@ -46,13 +46,18 @@ export const getTextStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
   color: "#747474",
+  whiteSpace: "pre-wrap",
 });
 
 export const getTitleStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
-  color: "#747474",
-  fontSize: "28px",
+  background: "linear-gradient(to right, #cccccc, #00D4D4, #999999)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  fontSize: "32px",
+  backgroundSize: "200% auto",
+  animation: "floaterLetters 3s linear infinite",
 });
 
 export const getMenuButtonStyle = () => ({
