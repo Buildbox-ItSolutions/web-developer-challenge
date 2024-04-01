@@ -1,30 +1,42 @@
-# web-developer-challenge
+# Aplicação React com Next.js, Styled Components e Redux
 
-Olá!
+Esta é uma aplicação simples desenvolvida com Next.js, React, Styled Components e Redux. A aplicação inclui um tema dark e utiliza localStorage para persistência dos dados.
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+# Acesso à Aplicação
 
-O Desafio é o seguinte:
+Você pode acessar a aplicação online [aqui](https://buildbox-web-challenge.vercel.app/)
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+## Instale as dependências
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+cd buildbox-web-challenge
+npm install
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+## Execute a aplicação
+npm run build
+npm run start
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+## Funcionalidades
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+- Exibição de uma lista de itens.
+- Adição de novos itens.
+- Remoção de itens existentes.
 
+## Tecnologias Utilizadas
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Redux](https://redux.js.org/)
 
-## Design - Zeplin
-https://app.zeplin.io/login
+## Estrutura do Projeto
 
-E-mail - buildbox.guest@gmail.com
+- `app/`: Contém as páginas da aplicação.
+- `components/`: Componentes reutilizáveis.
+- `lib/`: Configurações e definições do Redux.
+- `styles/`: Estilos globais e temas da aplicação.
+- `storage/`: Funções relacionadas à persistência de dados, como leitura e escrita no localStorage.
+- `providers/`: Configurações dos provedores utilizados na aplicação, como o provedor de tema (Styled Components) e o provedor de store (Redux).
 
-Senha - JhZ5dAPG
+## Persistência de Dados
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+A aplicação utiliza o `localStorage` para armazenar os dados localmente no navegador do usuário. Isso permite que os dados persistam mesmo após o fechamento do navegador.
