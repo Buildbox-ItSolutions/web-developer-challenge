@@ -1,6 +1,7 @@
 import { useRef } from 'react'
-import { ImgContainer, ImgLabelContainer } from './style'
+import { ImgContainer, ImgLabelContainer, ImgUploadContainer } from './style'
 import { CiImageOn } from 'react-icons/ci'
+import { PiTrashSimpleLight } from 'react-icons/pi'
 
 interface ImgLabelProps {
   img: string | null
@@ -23,14 +24,21 @@ export function ImgLabel({ img, setImg }: ImgLabelProps) {
   }
 
   return (
-    <ImgLabelContainer htmlFor="imgUpload">
-      {img ? <ImgContainer src={img} /> : <CiImageOn />}
-      <input
-        id="imgUpload"
-        ref={inputRef}
-        type="file"
-        onChange={handleChangeAvatar}
-      />
-    </ImgLabelContainer>
+    <ImgUploadContainer>
+      <ImgLabelContainer htmlFor="imgUpload">
+        {img ? <ImgContainer src={img} /> : <CiImageOn />}
+        <input
+          id="imgUpload"
+          ref={inputRef}
+          type="file"
+          onChange={handleChangeAvatar}
+        />
+      </ImgLabelContainer>
+      {img && (
+        <button>
+          <PiTrashSimpleLight onClick={() => setImg(null)} />
+        </button>
+      )}
+    </ImgUploadContainer>
   )
 }
