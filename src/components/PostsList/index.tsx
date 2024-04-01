@@ -26,6 +26,12 @@ export function PostsList() {
         </>
       )}
 
+      {!isLoadingPosts && posts.length === 0 && (
+        <S.EmptyPostsListFeedback>
+          Não há nenhum post cadastrado no momento.
+        </S.EmptyPostsListFeedback>
+      )}
+
       {!isLoadingPosts &&
         posts.map((post) => (
           <li key={post.id}>
