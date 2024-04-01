@@ -25,11 +25,13 @@ function PostPublisher({ handleAddPost }: Props) {
           <Input
             placeholder="Digite seu nome"
             {...form.register("name", { required: true })}
+            maxLength={100}
           />
 
           <TextArea
             placeholder="Mensagem"
             {...form.register("message", { required: true })}
+            maxLength={500}
           />
 
           <ButtonsContainer>
