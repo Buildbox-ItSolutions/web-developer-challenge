@@ -6,6 +6,6 @@ export const mockedPosts: Post[] = [
     id: randomString(),
     name: 'Felipe Oliveira',
     message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    imageURL: 'https://picsum.photos/id/237/200/300',
+    imageURL: 'https://picsum.photos/id/237/300/300',
   },
 ];
