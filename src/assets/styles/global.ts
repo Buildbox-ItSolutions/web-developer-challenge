@@ -6,6 +6,22 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.colors.text[700]} transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid transparent;
   }
 
   html,
