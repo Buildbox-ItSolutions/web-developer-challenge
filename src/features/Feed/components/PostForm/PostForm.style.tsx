@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const PostFormStyled = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: #3b3b3b;
+    background-color: #313131;
     padding: 24px;
     border-radius: 3px;
-    border: solid 1px #3b3b3b;
+    border: solid 1px #313131;
 
     input:focus, textarea:focus {
         outline: none;
