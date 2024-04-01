@@ -22,7 +22,7 @@ export const ContainerForm = styled.div`
     width: 90%;
     max-width: 100%;
     min-width: 300px;
-    margin: 20px 24px auto;
+    margin: 20px 24px 32px;
     max-height: none;
   }
 `;
