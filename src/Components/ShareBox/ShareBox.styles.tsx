@@ -1,5 +1,5 @@
 import React from "react";
-import { SxProps, IconButton, Box, Typography } from "@mui/material";
+import { SxProps, IconButton, Box, Typography, Button } from "@mui/material";
 import { FaUser } from "react-icons/fa";
 
 export const getContainerStyle = (): SxProps => ({
@@ -83,5 +83,23 @@ export const StyledMenuButton = (props) => {
         </Typography>
       </IconButton>
     </Box>
+  );
+};
+
+export const StyledSubmitButton = (props) => {
+  return (
+    <Button
+      variant="contained"
+      sx={{
+        fontFamily: "Kanit",
+        borderRadius: "20px",
+        textTransform: "none",
+        fontSize: "16px",
+        fontWeight: "600",
+      }}
+      {...props}
+    >
+      Publicar
+    </Button>
   );
 };

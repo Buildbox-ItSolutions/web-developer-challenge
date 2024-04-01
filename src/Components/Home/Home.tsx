@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ShareBox from "../../Components/ShareBox/ShareBox.tsx";
 import Feedbox from "../../Components/FeedBox/Feedbox.tsx";
 import SideMenu from "../../Components/SideMenu/SideMenu.tsx";
 import { Box } from "@mui/material";
 
 const Home = () => {
+  const [postList, setPostList] = useState([]);
   return (
     <Box
       sx={{
@@ -25,8 +26,8 @@ const Home = () => {
           },
         }}
       >
-        <ShareBox />
-        <Feedbox />
+        <ShareBox setPostList={setPostList} />
+        <Feedbox postList={postList} />
       </Box>
     </Box>
   );
