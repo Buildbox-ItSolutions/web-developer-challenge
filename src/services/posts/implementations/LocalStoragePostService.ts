@@ -7,6 +7,7 @@ import {
   getPostsQuery,
   GetPostsQuery,
 } from '../../../contracts/postContracts';
+import { randomString } from '../../../utils/randomString';
 import { wait } from '../../../utils/wait';
 import { IPostService } from '../IPostService';
 
@@ -38,7 +39,7 @@ export class LocalStoragePostService implements IPostService {
     const posts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 
     const post: Post = {
-      id: String(posts.length + 1),
+      id: randomString(),
       name,
       message,
       imageURL,

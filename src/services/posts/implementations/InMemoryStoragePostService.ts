@@ -7,6 +7,7 @@ import {
   getPostsQuery,
   GetPostsQuery,
 } from '../../../contracts/postContracts';
+import { randomString } from '../../../utils/randomString';
 import { wait } from '../../../utils/wait';
 import { IPostService } from '../IPostService';
 
@@ -35,7 +36,7 @@ export class InMemoryPostService implements IPostService {
     await processDelay();
 
     const post: Post = {
-      id: String(this.posts.length + 1),
+      id: randomString(),
       name,
       message,
       imageURL,
