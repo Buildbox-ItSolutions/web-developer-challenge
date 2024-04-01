@@ -52,11 +52,7 @@ export function CreatePost() {
         />
       </InfoContainer>
       <ButtonsContainer>
-        <TextButton
-          text="Descartar"
-          onClick={handleDiscard}
-          disabled={ifValuesAreEmpty()}
-        />
+        <TextButton text="Descartar" onClick={handleDiscard} />
         <Button
           text="Publicar"
           disabled={ifValuesAreEmpty()}
