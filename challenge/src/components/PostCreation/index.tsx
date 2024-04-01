@@ -47,6 +47,7 @@ const PostCreation = ({
           <button onClick={() => {
             setImage(false)
             discardPost(name, text)
+            setPublish(false)
           }}>Descartar</button>
           {publish ?
             <PublishButtonGreen type="submit">Publicar</PublishButtonGreen>
