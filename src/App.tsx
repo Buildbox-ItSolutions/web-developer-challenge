@@ -1,8 +1,7 @@
 import React from 'react';
-import { Header, GlobalStyle, Logo, Background, Container } from "./styles";
-import Form from './components/Form';
-import Feed from './components/Feed';
-const imagemLogo = require("./assets/images/logo.png") as string;
+import { Header, GlobalStyle, Background, ImageLogo } from "./styles";
+import Publication from './screen/publication';
+const logo = require("./assets/images/logo.png") as string;
 
 function App(): JSX.Element {
   return (
@@ -10,12 +9,9 @@ function App(): JSX.Element {
         <GlobalStyle/>
         <Background>
             <Header>
-                <Logo src={imagemLogo} alt="Logo Build Box" />
+                <ImageLogo width='6.438rem' height='2.813rem' src={logo} alt="Logo Build Box" />
             </Header>
-            <Container>
-              <Form/>
-              <Feed/>
-            </Container>
+            <Publication/>
         </Background>
     </>
   );

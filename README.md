@@ -1,79 +1,107 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+<div id="top"></div>
+<h1 align="center" style="color: black; font-weight: bold; font-size: 40px">
+web-developer-challenge
+</h1>
+<div style="display: row">
+  <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript">
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div id="sobre-o-projeto"> </div>
 
-## Available Scripts
+## 📝 Sobre o projeto
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# web-developer-challenge
-
-Olá!
-
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
-
-O Desafio é o seguinte:
-
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
-
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
-
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
-
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
-
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+Web-developer-challenge se trata de um desafio proposto para a vaga de FULL STACK JAVASCRIPT da [BuildBox](https://buildbox.com.br/).
 
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+É possível acessar a interface por meio do.
 
-## Design - Zeplin
-https://app.zeplin.io/login
 
-E-mail - buildbox.guest@gmail.com
+<div id="feito-com"> </div>
 
-Senha - JhZ5dAPG
+### 🔨 Feito com
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
->>>>>>> eb4b919998b9358de332eaa0ce387a314105c0d5
+Aqui estão algumas ferramentas que foram utilizadas:
+
+* [ReactJS](https://react.dev/)
+* [Typescript](https://www.typescriptlang.org/)
+* [Styled Components](https://styled-components.com/)
+
+<div id="comecando"> </div>
+
+<!-- GETTING STARTED -->
+## ⌨️ Começando
+
+Aqui estão algumas instruções sobre como configurar o projeto localmente. Para obter uma cópia local, siga os passos abaixo:
+
+<div id="instalacao"> </div>
+
+## 💻 Instalação
+
+Clone o repositório
+```sh
+git clone https://github.com/vitorbarros15/web-developer-challenge.git
+```
+
+### 📱 Inicializando Front-end
+```bash
+  # Instale as dependencias:
+  $ yarn
+  # Para rodar a aplicação em modo de desenvolvimento:
+  $ yarn dev
+```
+
+<div id="exemplos-de-uso"> </div>
+
+
+<div id="estrutura-de-arquivos"> </div>
+
+## 📁 Estrutura de arquivos
+
+Aqui, temos uma breve explicação da estrutura de arquivos
+
+```
+Raiz do projeto
+│   README.md
+│   Arquivos de configuração, como tsconfig.json e package.json
+│   
+│
+└───src
+    │   
+    └─── screen - Aqui esta nossa interface Feed.
+        └───components - Componentes usados nas telas
+        └───routes - Páginas da aplicação, onde define as rotas
+        └───services - Comunicação com a API
+        │
+        │ 
+        └─── App.tsx - Componente de entrada
+        
+```
+
+<div id="contribuindo"> </div>
+
+<!-- CONTRIBUTING -->
+## 🤝 Contribuindo
+
+Se você tem alguma sugestão que fará este app ficar melhor, por favor realize um fork e crie um Pull Request. Você pode também simplesmente abrir uma issue com a tag "enhancement" para sugestões e "error" para problemas enfrentados
+
+1. Faça um fork do Projeto
+2. Crie seu branch da Feature (`git checkout -b feature/AmazingFeature`)
+3. Faça commit das suas modificações (`git commit -m 'Add some AmazingFeature'`)
+4. Faça um push para o branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+<div id="contato"> </div>
+
+<!-- CONTACT -->
+## ✉️ Contato
+
+E-mail: igordummer@outlook.com
+
+Linkedin: https://www.linkedin.com/in/igor-dummer/
+
+Link do projeto: https://github.com/IgorDummer/desafio-frontend
+
+
+<p align="right">(<a href="#top">Voltar ao topo</a>)</p>
+
