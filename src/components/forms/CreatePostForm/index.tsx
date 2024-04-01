@@ -43,7 +43,7 @@ export function CreatePostForm() {
   });
 
   const { mutate: createPostRequest, isPending } = useMutation({
-    mutationFn: postService.createPost,
+    mutationFn: postService.createPost.bind(postService),
   });
 
   function createPost(data: CreatePostData) {

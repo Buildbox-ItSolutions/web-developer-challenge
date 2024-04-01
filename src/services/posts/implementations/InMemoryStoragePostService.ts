@@ -30,7 +30,7 @@ export class InMemoryPostService implements IPostService {
 
     await processDelay();
 
-    const posts = this.posts.reverse().slice((page - 1) * limit, page * limit);
+    const posts = this.posts.slice((page - 1) * limit, page * limit);
 
     return {
       posts,
@@ -50,7 +50,7 @@ export class InMemoryPostService implements IPostService {
       imageURL,
     };
 
-    this.posts.push(post);
+    this.posts.unshift(post);
 
     return post;
   }

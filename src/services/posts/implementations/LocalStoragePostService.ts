@@ -31,7 +31,7 @@ export class LocalStoragePostService implements IPostService {
       localStorage.getItem(STORAGE_KEY) || '[]',
     );
 
-    const posts = postsLoaded.reverse().slice((page - 1) * limit, page * limit);
+    const posts = postsLoaded.slice((page - 1) * limit, page * limit);
 
     return {
       posts,
@@ -44,7 +44,9 @@ export class LocalStoragePostService implements IPostService {
 
     await processDelay();
 
-    const posts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const posts = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || '[]',
+    ) as Post[];
 
     const post: Post = {
       id: randomString(),
@@ -53,7 +55,7 @@ export class LocalStoragePostService implements IPostService {
       imageURL,
     };
 
-    posts.push(post);
+    posts.unshift(post);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
 
     return post;
