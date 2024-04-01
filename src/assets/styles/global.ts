@@ -19,8 +19,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.backgroundColor};
-    color: white;
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text[500]};
     font-size: 1.6rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
