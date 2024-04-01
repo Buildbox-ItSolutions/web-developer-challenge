@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PostFormStyled } from './PostForm.style';
+import { PostFormStyled, ImageContainerStyled } from './PostForm.style';
 import uploadIcon from '../../../../assets/uploadIcon.svg'
 import trashIcon from '../../../../assets/trash.svg'
 import Button from '../../../General/Components/Button/Button';
@@ -22,12 +22,10 @@ function PostForm() {
 
     function renderUplodedImage(){
         return(
-            <PostFormStyled>
-                <div className='imageUploadedContainer'>
+            <ImageContainerStyled>
                     <img src={uploadedImage} alt="Uploaded" className='imageUplodedArea' />
-                    <img src={trashIcon} alt="delete image" className='deleteIcon' onClick={removeImage}/>
-                </div>
-            </PostFormStyled>
+                    <img src={trashIcon} alt="delete image" className='deleteIcon' onClick={removeImage}/>       
+            </ImageContainerStyled>
         )
     }
 

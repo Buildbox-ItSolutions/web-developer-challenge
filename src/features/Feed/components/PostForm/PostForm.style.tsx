@@ -8,7 +8,11 @@ export const PostFormStyled = styled.div`
     border-radius: 3px;
     border: solid 1px #3b3b3b;
 
-    .textInput{
+    input:focus, textarea:focus {
+        outline: none;
+    }
+
+    .textInput, .textInput:valid{
         font-family: "Roboto", sans-serif;
         color: white;
         background-color: #494949;
@@ -19,7 +23,7 @@ export const PostFormStyled = styled.div`
         border-radius: 8px;
     }
 
-    .messageInput{
+    .messageInput, .messageInput:valid{
         min-height: 80px;
         resize: none;
     }
@@ -56,13 +60,6 @@ export const PostFormStyled = styled.div`
         cursor: pointer;
     }
 
-    .imageUploadedContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-
     .buttonsArea{
         display: flex;
         align-items: center;
@@ -88,4 +85,11 @@ export const PostFormStyled = styled.div`
         color: #5f5f5f;
         line-height: 18px;
     }
+`
+
+export const ImageContainerStyled = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
 `
