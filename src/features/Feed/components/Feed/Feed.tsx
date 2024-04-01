@@ -11,11 +11,12 @@ interface IFeed{
 function Feed({posts, setPosts}: IFeed) {
   return (
     <FeedStyled>
-        {/* Fazer um skeleton bonitinho */}
-        {posts.map((post) =>(
-            <PostCard post={post} setPosts={setPosts}/>
-        ))}
         <h1 className='feedTitle'>Feed</h1>
+        <div className='postsContainer'>
+          {posts.map((post) =>(
+              <PostCard post={post} setPosts={setPosts}/>
+          ))}
+        </div>
     </FeedStyled>
   )
 }

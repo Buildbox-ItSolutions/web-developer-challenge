@@ -18,7 +18,7 @@ export const PostFormStyled = styled.div`
         background-color: #494949;
         height: 40px;
         margin: 16px 0 8px;
-        padding: 12px 349px 11px 16px;
+        padding: 12px 16px 11px 16px;
         border: none;
         border-radius: 8px;
     }

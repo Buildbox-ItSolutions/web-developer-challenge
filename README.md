@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# Desafio Buildbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi criado para o desafio de desenvolvimento Web da Buildbox. O objetivo é criar uma página utilizando React.js que contenha uma lista de posts com a possibilidade de adicionar e remover.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js
+- npm
 
-## Expanding the ESLint configuration
+Este projeto foi criado usando React versão 18.2.0. Certifique-se de ter essa versão ou superior instalada em sua máquina antes de prosseguir.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalação
 
-- Configure the top-level `parserOptions` property like this:
+Primeiro, clone este repositório para a sua máquina local usando `git clone`.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Navegue até o diretório do projeto e instale as dependências necessárias usando o comando:
+
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Execução
+
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
+
+```bash
+npm run dev
+```
+
+Agora você pode abrir seu navegador e visitar `http://localhost:3000` para ver o projeto em execução.
+
+## Tecnologias Utilizadas
+
+- React.js
+- TypeScript
+- Styled Components
+
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
