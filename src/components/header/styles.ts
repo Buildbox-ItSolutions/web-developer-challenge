@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: grid;
   place-content: center;
   height: 93px;
+  z-index: 10;
 
   img {
     height: 45px;
