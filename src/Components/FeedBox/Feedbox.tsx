@@ -19,10 +19,10 @@ const Feedbox = () => {
         profileImage={postData[0].profileImage}
       />
       <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-        uploadedImage={postData[0].uploadedImage}
+        name={postData[2].nome}
+        text={postData[2].texto}
+        profileImage={postData[2].profileImage}
+        uploadedImage={postData[2].uploadedImage}
       />
       <FeedboxItem
         name={postData[0].nome}

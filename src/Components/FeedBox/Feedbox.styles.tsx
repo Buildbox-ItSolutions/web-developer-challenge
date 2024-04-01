@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, IconButton } from "@mui/material";
 
 export const getMainContainerStyle = () => ({
@@ -22,6 +22,7 @@ export const getContainerStyle = () => ({
     marginTop: "3%",
     display: "flex",
     flexDirection: "column",
+    placeItems: "center",
     gap: 3,
   },
   "> div:nth-of-type(4n)": {
@@ -69,14 +70,27 @@ export const getSubtitleStyle = () => ({
   margin: "1% 0% 1% 0%",
 });
 
-export const StyledImage = (props) => {
+export const StyledImage = ({ src, alt }) => {
+  const [imageSize, setImageSize] = useState({ width: "100%", height: "100%" });
+
+  const handleImageLoaded = (event) => {
+    const img = event.target;
+    setImageSize({
+      width: img.width,
+      height: img.height > 600 ? "60%" : "100%",
+    });
+  };
+
   return (
     <Box
       component="img"
+      src={src}
+      alt={alt}
       sx={{
-        width: "100%",
+        width: imageSize.height,
+        height: imageSize.height,
       }}
-      {...props}
+      onLoad={handleImageLoaded}
     />
   );
 };

@@ -19,7 +19,10 @@ const Home = () => {
           display: "block",
           height: "100%",
           width: "100%",
-          margin: "0% 15% 0% 15%",
+          margin: "0% 22% 0% 22%",
+          "@media(max-width: 1920px)": {
+            margin: "0% 15% 0% 15%",
+          },
         }}
       >
         <ShareBox />
