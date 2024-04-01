@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, IconButton } from "@mui/material";
 
 export const getMainContainerStyle = () => ({
@@ -23,6 +23,9 @@ export const getContainerStyle = () => ({
     display: "flex",
     flexDirection: "column",
     gap: 3,
+    "> img": {
+      alignSelf: "center",
+    },
   },
   "> div:nth-of-type(4n)": {
     flexDirection: "row",
@@ -32,7 +35,6 @@ export const getContainerStyle = () => ({
 });
 
 export const getPerfilIconStyle = () => ({
-  background: "coral",
   alignSelf: "start",
   height: "80px",
   width: "80px",
@@ -45,13 +47,18 @@ export const getTextStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
   color: "#747474",
+  whiteSpace: "pre-wrap",
 });
 
 export const getTitleStyle = () => ({
   fontWeight: "600",
   fontFamily: "Kanit",
-  color: "#747474",
-  fontSize: "28px",
+  background: "linear-gradient(to right, #cccccc, #00D4D4, #999999)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  fontSize: "32px",
+  backgroundSize: "200% auto",
+  animation: "floaterLetters 3s linear infinite",
 });
 
 export const getMenuButtonStyle = () => ({
@@ -69,14 +76,27 @@ export const getSubtitleStyle = () => ({
   margin: "1% 0% 1% 0%",
 });
 
-export const StyledImage = (props) => {
+export const StyledImage = ({ src, alt }) => {
+  const [imageSize, setImageSize] = useState({ width: "100%", height: "100%" });
+
+  const handleImageLoaded = (event) => {
+    const img = event.target;
+    setImageSize({
+      width: img.width,
+      height: img.height > 600 ? "60%" : "100%",
+    });
+  };
+
   return (
     <Box
       component="img"
+      src={src}
+      alt={alt}
       sx={{
-        width: "100%",
+        width: imageSize.height,
+        height: imageSize.height,
       }}
-      {...props}
+      onLoad={handleImageLoaded}
     />
   );
 };

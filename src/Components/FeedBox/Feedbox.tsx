@@ -2,38 +2,21 @@ import React from "react";
 import { Box } from "@mui/material";
 import FeedboxItem from "./FeedboxItem.tsx";
 import { getMainContainerStyle } from "./Feedbox.styles.tsx";
-import { postData } from "../../assets/utils/postData.ts";
 
-const Feedbox = () => {
+const Feedbox = ({ postList }) => {
+  const sortedPostList = postList.sort((a, b) => b.id - a.id);
+
   return (
-    <Box sx={getMainContainerStyle}>
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-        uploadedImage={postData[0].uploadedImage}
-      />
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-      />
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-        uploadedImage={postData[0].uploadedImage}
-      />
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-      />
-      <FeedboxItem
-        name={postData[0].nome}
-        text={postData[0].texto}
-        profileImage={postData[0].profileImage}
-      />
+    <Box sx={getMainContainerStyle()}>
+      {sortedPostList.map((item) => (
+        <FeedboxItem
+          key={item.id}
+          name={item.nome}
+          text={item.texto}
+          profileImage={item.profileImage}
+          uploadedImage={item.uploadedImage}
+        />
+      ))}
     </Box>
   );
 };

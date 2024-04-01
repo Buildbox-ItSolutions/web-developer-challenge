@@ -30,7 +30,7 @@ const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
         </Box>
         <Box>
           <Typography sx={getTextStyle}>{text}</Typography>
-          {uploadedImage ? <StyledImage src={`${uploadedImage}`} /> : ""}
+          {uploadedImage ? <StyledImage alt="" src={`${uploadedImage}`} /> : ""}
         </Box>
         <Box>
           <Typography sx={getSubtitleStyle}>
