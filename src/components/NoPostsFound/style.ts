@@ -6,6 +6,10 @@ export const NoPostsFoundContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2.5rem;
+
+  @media (max-width: 516px) {
+    width: 90%;
+  }
 `
 
 export const NoPostsFoundText = styled.p`

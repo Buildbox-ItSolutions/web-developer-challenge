@@ -13,5 +13,9 @@ export const AppContainer = styled.div`
     text-align: left;
     color: ${(props) => props.theme.span};
     margin: 3.5rem 0 0.5rem;
+
+    @media (max-width: 516px) {
+      width: 90%;
+    }
   }
 `

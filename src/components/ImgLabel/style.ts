@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const ImgUploadContainer = styled.div`
-  width: 88px;
-  height: 88px;
-  margin: 0 8px 16px 190px;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto;
   padding: 32px;
   object-fit: contain;
   border-radius: 36px;
@@ -32,8 +32,8 @@ export const ImgUploadContainer = styled.div`
 `
 
 export const ImgLabelContainer = styled.label`
-  width: 88px;
-  height: 88px;
+  width: 5.5rem;
+  height: 5.5rem;
   padding: 32px;
   object-fit: contain;
   background-color: rgba(75, 75, 75, 0);
@@ -54,8 +54,8 @@ export const ImgLabelContainer = styled.label`
 `
 
 export const ImgContainer = styled.img`
-  width: 88px;
-  height: 88px;
+  width: 5.5rem;
+  height: 5.5rem;
   object-fit: contain;
   border-radius: 36px;
 `

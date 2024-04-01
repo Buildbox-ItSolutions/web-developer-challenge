@@ -10,6 +10,10 @@ export const PostContainer = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
+  @media (max-width: 516px) {
+    width: 90%;
+  }
+
   > img {
     width: 5.5rem;
     height: 5.5rem;
@@ -37,6 +41,8 @@ export const PostInfoContainer = styled.div`
     text-align: left;
     color: ${(props) => props.theme.text};
     margin: 1.5rem 0;
+    overflow-wrap: break-word;
+    word-break: break-all;
   }
 
   > h3 {
@@ -54,5 +60,7 @@ export const PostInfoContainer = styled.div`
     line-height: 1.29;
     text-align: left;
     color: ${(props) => props.theme.author};
+    overflow-wrap: break-word;
+    word-break: break-all;
   }
 `

@@ -9,6 +9,10 @@ export const CreatePostContainer = styled.div`
   border-radius: 3px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 516px) {
+    width: 90%;
+  }
 `
 
 export const InfoContainer = styled.div`
