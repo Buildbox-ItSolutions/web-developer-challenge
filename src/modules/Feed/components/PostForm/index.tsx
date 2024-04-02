@@ -3,15 +3,38 @@ import { InputText, TextArea, Button, ImagePost } from "../../../../components/i
 import { useCreatePost } from "../../hooks/use-post";
 
 import { useRef } from "react";
+import { ButtonTrash } from "../../../../components/ButtonTrash";
 
 export const PostForm = () => {
-  const { register, handleSubmit, errors, handleReset, imgUrl, handleFileChange } = useCreatePost();
-  const inputRef = useRef(null);
+  const {
+    register,
+    unregister,
+    handleSubmit,
+    errors,
+    handleReset,
+    imgUrl,
+    handleFileChange,
+    setImgUrl,
+  } = useCreatePost();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <form onSubmit={handleSubmit}>
       <S.FormGroup>
-        <ImagePost ref={inputRef} onChange={handleFileChange} $url={imgUrl} $isDisabled={false} />
+        <S.Header>
+          <ImagePost ref={inputRef} onChange={handleFileChange} $url={imgUrl} $isDisabled={false} />
+          {imgUrl && (
+            <ButtonTrash
+              onClick={() => {
+                setImgUrl("");
+                unregister("imgUrl");
+                if (inputRef.current) {
+                  inputRef.current.value = "";
+                }
+              }}
+            />
+          )}
+        </S.Header>
 
         <InputText
           placeholder="Digite seu nome"

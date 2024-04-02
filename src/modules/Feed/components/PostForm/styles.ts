@@ -7,7 +7,7 @@ export const FormGroup = styled.div`
   max-width: 570px;
   max-height: 380px;
   min-width: 400px;
-  min-height: 320px;
+  min-height: 380px;
   gap: 12px;
   margin: 40px 0;
   padding: 24px 45px;
@@ -23,6 +23,10 @@ export const FormGroup = styled.div`
     height: 50vh;
     padding: 12px;
   }
+`;
+
+export const Header = styled.div`
+  display: flex;
 `;
 
 export const Actions = styled.div`

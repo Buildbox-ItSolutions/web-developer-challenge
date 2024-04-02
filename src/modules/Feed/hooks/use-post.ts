@@ -10,6 +10,8 @@ export const useCreatePost = () => {
 
   const {
     register,
+    unregister,
+    setValue,
     handleSubmit,
     reset,
     formState: { errors },
@@ -19,7 +21,6 @@ export const useCreatePost = () => {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-
     if (selectedFile) {
       const reader = new FileReader();
 
@@ -44,6 +45,8 @@ export const useCreatePost = () => {
 
   return {
     register,
+    unregister,
+    setValue,
     handleSubmit: handleSubmit(onSubmit),
     handleReset: () => {
       reset();
@@ -51,7 +54,7 @@ export const useCreatePost = () => {
     },
     errors,
     imgUrl,
-
     handleFileChange,
+    setImgUrl,
   };
 };
