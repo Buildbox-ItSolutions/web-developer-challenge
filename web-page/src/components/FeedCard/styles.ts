@@ -56,8 +56,9 @@ export const ContainerBody = styled.div`
   gap: 1rem;
   border-radius: 0.5rem;
 
-  img{
-    width: 8rem;
+  .feed-img{
+    width: 10rem;
+    max-width: 8rem;
     height: 8rem;
     border-radius: 50%;
     border: 1px solid #494949;

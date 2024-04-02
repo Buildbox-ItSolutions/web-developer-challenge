@@ -33,7 +33,7 @@ const FeedCard: React.FC<Props> = () => {
               <XIcon />
             </button>
             <ContainerBody>
-              <img src={post?.urlSmall ? post?.urlSmall : logo} alt="post-image" />
+              <img src={post?.urlSmall ? post?.urlSmall : logo} className="feed-img" alt="post-image" />
               <TextContainer>
                 <p>
                   {post?.description ?? photoDescription.description}
