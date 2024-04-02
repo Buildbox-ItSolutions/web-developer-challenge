@@ -14,17 +14,25 @@ import {
 import { FaRegComment, FaRegShareSquare, FaRegBookmark } from "react-icons/fa";
 import { RiMoreLine } from "react-icons/ri";
 import { GrLike } from "react-icons/gr";
+// @ts-ignore
+import Avatar from "../../assets/images/Avatar.png";
 
 const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
-  ({ name, text, profileImage, uploadedImage, ...props }, ref) => {
+  (
+    { name, text, profileImage, uploadedImage, id, handleRemoveItem, ...props },
+    ref
+  ) => {
     return (
       <Box sx={getContainerStyle} {...props}>
         <Box>
           <Box sx={getPerfilIconStyle}>
-            <img alt="" src={`${profileImage}`} />
+            <img alt="" src={profileImage ? `${profileImage}` : `${Avatar}`} />
           </Box>
           <Typography sx={getTitleStyle}>{name}</Typography>
-          <IconButton sx={getMenuButtonStyle}>
+          <IconButton
+            sx={getMenuButtonStyle}
+            onClick={() => handleRemoveItem(id)}
+          >
             <RiMoreLine />
           </IconButton>
         </Box>

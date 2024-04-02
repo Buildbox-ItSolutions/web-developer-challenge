@@ -86,7 +86,7 @@ export const StyledUserButton = (props) => {
           fontFamily: "Kanit",
         }}
       >
-        Foto
+        {profilePic ? "" : "Foto"}
       </Typography>
     </IconButton>
   );

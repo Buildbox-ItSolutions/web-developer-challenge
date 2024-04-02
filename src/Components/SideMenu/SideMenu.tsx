@@ -1,20 +1,94 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Divider, Typography } from "@mui/material";
+import {
+  getContainerStyle,
+  StyledImage,
+  StyledTitle,
+  getSubtitleStyle,
+  StyledButton,
+} from "./SideMenu.styles.tsx";
+import { FaGithub, FaLinkedin, FaReact, FaFigma } from "react-icons/fa";
+import { TiDocument } from "react-icons/ti";
 
 const SideMenu = () => {
+  const headerPosition = document.querySelector("#header");
+  const [headIsOut, setHeaderIsOut] = useState(false);
+
+  function isHeaderVisible() {
+    const headerRect = headerPosition?.getBoundingClientRect();
+    if (!headerRect) return false;
+    return (
+      headerRect.top >= 0 &&
+      headerRect.left >= 0 &&
+      headerRect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      headerRect.right <=
+        (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  window.addEventListener("scroll", function () {
+    if (isHeaderVisible()) {
+      setHeaderIsOut(false);
+    } else {
+      setHeaderIsOut(true);
+    }
+  });
+
+  const [IsFullHd, setFullHd] = useState(false);
+
+  function detectWindowSize() {
+    window.innerWidth <= 1920 ? setFullHd(true) : setFullHd(false);
+  }
+
+  window.onresize = detectWindowSize;
+
   return (
-    <Box
-      sx={{
-        background: "#FFFFF7",
-        padding: "2%",
-        borderRadius: "32px",
-        boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.5)",
-        height: "100%",
-        width: "20%",
-        minWidth: "20%",
-      }}
-    >
-      <Box sx={{ background: "lightGreen" }}>test</Box>
+    <Box sx={getContainerStyle(headIsOut)}>
+      <Box>
+        <StyledImage />
+        <StyledTitle>Felipe Alves</StyledTitle>
+        <Typography sx={getSubtitleStyle()}>
+          Cloud AWS | Desenvolvedor Web | React | JavaScript | TypeScript |
+          Design System | Linux
+        </Typography>
+      </Box>
+      <Divider />
+      <StyledTitle variant={2}>De uma olhada nas minhas redes</StyledTitle>
+      <Box>
+        <StyledButton>
+          <FaGithub />
+          Github
+        </StyledButton>
+        <StyledButton>
+          <FaLinkedin />
+          Linkedin
+        </StyledButton>
+        <StyledButton>
+          <FaReact />
+          Portifólio
+        </StyledButton>
+        <StyledButton>
+          <TiDocument />
+          Curriculo
+        </StyledButton>
+        <StyledButton>
+          <FaFigma />
+          Figma
+        </StyledButton>
+      </Box>
+      {!IsFullHd && (
+        <Box>
+          <Divider />
+          <StyledTitle variant={2}>Dados de contato </StyledTitle>
+          <Box>
+            <Typography sx={getSubtitleStyle()}>(11) 98166-9996</Typography>
+            <Typography sx={getSubtitleStyle()}>
+              felipe.alv14@hotmail.com
+            </Typography>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 };

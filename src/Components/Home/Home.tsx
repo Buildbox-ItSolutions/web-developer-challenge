@@ -4,6 +4,7 @@ import Feedbox from "../../Components/FeedBox/Feedbox.tsx";
 import SideMenu from "../../Components/SideMenu/SideMenu.tsx";
 import { Box } from "@mui/material";
 import { postData } from "../../assets/utils/postData.ts";
+import { getContainerStyle } from "./Home.styles.ts";
 
 const Home = () => {
   const [postList, setPostList] = useState(() => {
@@ -22,28 +23,25 @@ const Home = () => {
     localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
 
+  // const handleRemoveItem = () => {
+  //   const updatedItems = [...postList];
+  //   updatedItems.pop();
+  //   setPostList(updatedItems);
+  // };
+
+  const handleRemoveItem = (idToRemove) => {
+    const updatedItems = postList.filter((item) => item.id !== idToRemove);
+    setPostList(updatedItems);
+  };
+
+  // console.log(postList);
+
   return (
-    <Box
-      sx={{
-        padding: "1%",
-        height: "100vh",
-        display: "flex",
-      }}
-    >
+    <Box sx={getContainerStyle()}>
       <SideMenu />
-      <Box
-        sx={{
-          display: "block",
-          height: "100%",
-          width: "100%",
-          margin: "0% 22% 0% 22%",
-          "@media(max-width: 1920px)": {
-            margin: "0% 15% 0% 15%",
-          },
-        }}
-      >
+      <Box>
         <ShareBox setPostList={setPostList} />
-        <Feedbox postList={postList} />
+        <Feedbox postList={postList} handleRemoveItem={handleRemoveItem} />
       </Box>
     </Box>
   );
