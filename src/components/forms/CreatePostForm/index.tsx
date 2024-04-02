@@ -23,8 +23,8 @@ const createPostSchema = z.object({
       message: 'Selecione uma imagem',
     })
     .transform((fileList) => fileList[0])
-    .refine((file) => /image\/(jpeg|jpg|png|gif|webp|avif)/.test(file.type), {
-      message: 'Selecione uma imagem do tipo: jpeg, jpg, png, gif, webp, avif',
+    .refine((file) => /image\/.+/.test(file.type), {
+      message: 'Selecione um arquivo do tipo imagem.',
     })
     .refine((file) => file.size <= MAX_FILE_SIZE, {
       message: 'Tamanho máximo permitido: 50MB',
