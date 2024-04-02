@@ -56,23 +56,32 @@ const SideMenu = () => {
       <Divider />
       <StyledTitle variant={2}>De uma olhada nas minhas redes</StyledTitle>
       <Box>
-        <StyledButton>
+        <StyledButton href="https://github.com/Felipe-alv-es" target="_blank">
           <FaGithub />
           Github
         </StyledButton>
-        <StyledButton>
+        <StyledButton
+          href="https://www.linkedin.com/in/felipe-alves-oliveira/"
+          target="_blank"
+        >
           <FaLinkedin />
           Linkedin
         </StyledButton>
-        <StyledButton>
+        <StyledButton href="https://felipe-alv-es.netlify.app/" target="_blank">
           <FaReact />
           Portifólio
         </StyledButton>
-        <StyledButton>
+        <StyledButton
+          href="https://drive.google.com/file/d/1XM6Z1OPGKh1HR_uWsjoHQCtMljY_z8nw/view?usp=sharing"
+          target="_blank"
+        >
           <TiDocument />
           Curriculo
         </StyledButton>
-        <StyledButton>
+        <StyledButton
+          href="https://www.figma.com/file/IckaEZtrblVM49Bn7rvVKi/Untitled?type=design&mode=design&t=AtWKJPXO6YYuvMgd-0"
+          target="_blank"
+        >
           <FaFigma />
           Figma
         </StyledButton>
