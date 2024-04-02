@@ -1,7 +1,19 @@
 import localFonts from "next/font/local";
-import { Roboto } from "next/font/google";
 
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
+const roboto = localFonts({
+  src: [
+    {
+      path: "Roboto-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "Roboto-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+});
 const sf_pro_display = localFonts({ src: "./SF-Pro-Display-Black.otf" });
 const sf_pro_display_light = localFonts({ src: "./SF-Pro-Display-Light.otf" });
 
