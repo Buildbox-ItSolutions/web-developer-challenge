@@ -5,26 +5,9 @@ import { useCreatePost } from "../../hooks/use-post";
 import { useRef } from "react";
 
 export const PostForm = () => {
-  const { register, handleSubmit, errors, handleReset, imgUrl, setImgUrl } = useCreatePost();
+  const { register, handleSubmit, errors, handleReset, imgUrl, handleFileChange } = useCreatePost();
   const inputRef = useRef(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files?.[0];
-
-    if (selectedFile) {
-      const reader = new FileReader();
-
-      reader.onload = event => {
-        if (event.target?.result) {
-          const url = event.target.result.toString();
-          setImgUrl(url);
-          register("imgUrl", { value: url });
-        }
-      };
-
-      reader.readAsDataURL(selectedFile);
-    }
-  };
   return (
     <form onSubmit={handleSubmit}>
       <S.FormGroup>

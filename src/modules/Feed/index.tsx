@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header";
 import { usePosts } from "../../providers/PostsContext";
 import { CardPost } from "./components/CardPost";
 import { PostForm } from "./components/PostForm";
@@ -9,7 +8,6 @@ export const Feed = () => {
 
   return (
     <S.Container>
-      <Header />
       <PostForm />
 
       <S.FeedArea>

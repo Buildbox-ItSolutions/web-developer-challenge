@@ -17,6 +17,24 @@ export const useCreatePost = () => {
     resolver: zodResolver(postSchema),
   });
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+
+    if (selectedFile) {
+      const reader = new FileReader();
+
+      reader.onload = event => {
+        if (event.target?.result) {
+          const url = event.target.result.toString();
+          setImgUrl(url);
+          register("imgUrl", { value: url });
+        }
+      };
+
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
   const onSubmit = (data: PostType) => {
     data.postId = Date.now();
     addPost(data);
@@ -33,6 +51,7 @@ export const useCreatePost = () => {
     },
     errors,
     imgUrl,
-    setImgUrl,
+
+    handleFileChange,
   };
 };
