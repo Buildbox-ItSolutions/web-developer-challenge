@@ -34,6 +34,7 @@ export const UploadImage = forwardRef<HTMLInputElement, UploadImageProps>(
             ref={ref}
             id="upload"
             type="file"
+            accept="image/*"
             name={name}
             onChange={handleChange}
           />
