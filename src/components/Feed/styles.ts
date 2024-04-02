@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FeedContainer = styled.div`
   width: 30px;
@@ -46,8 +45,4 @@ const FeedContainer = styled.div`
   }
 `;
 
-const Feed: React.FC = () => {
-  return <FeedContainer>Feed</FeedContainer>;
-};
-
-export default Feed;
+export default FeedContainer;

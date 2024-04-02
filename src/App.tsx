@@ -1,7 +1,7 @@
 import React from "react";
 import GlobalStyles from "./GlobalStyles";
-import Header from "./components/Header";
-import PostList from "./components/PostList";
+import Header from "./components/Header/Header";
+import PostList from "./components/PostList/PostList";
 
 const App: React.FC = () => {
   return (

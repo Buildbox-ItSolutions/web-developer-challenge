@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import logoSVG from '../assets/bx-logo.svg';
 
 const HeaderContainer = styled.div`
     background-color: #2b2b2b;
@@ -16,12 +14,4 @@ const Logo = styled.img`
     max-width: 100%;
 `;
 
-const Header: React.FC = () => {
-  return (
-    <HeaderContainer>
-      <Logo src={logoSVG} alt="Logo" />
-    </HeaderContainer>
-  );
-};
-
-export default Header;
+export { HeaderContainer, Logo };
