@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 const InputContent = styled.div`
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; 
 
-    input {
+    textarea {
         width: 100%;
-        height: 40px;
-        margin: 16px 0 8px;
-        padding: 0 16px; 
+        min-height: 80px;
+        margin: 8px 0 32px;
+        padding: 20px 16px;
         border-radius: 8px;
+        border: none;
         background-color: #494949;
-
         font-family: Roboto;
         font-size: 14px;
         font-weight: normal;
@@ -22,15 +22,14 @@ const InputContent = styled.div`
         letter-spacing: normal;
         text-align: left;
         color: white;
-        border: none; 
-        outline: none;
+        resize: none;
     }
 `;
 
-export default function InputName() {
+export default function InputDescription() {
     return (
         <InputContent>
-            <input />
+            <textarea />
         </InputContent>
     );
 }

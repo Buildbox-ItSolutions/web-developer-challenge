@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { DeleteIcon } from "../../utils/icons/delete";
 import InputName from "../InputName";
+import InputDescription from "../InputDescription";
 
 const Card = styled.div`
     width: 516px;
@@ -48,6 +49,7 @@ export default function AddCard() {
 
             <div>
                 <InputName />
+                <InputDescription />
             </div>
             <div>
                 <button>descarta</button>
