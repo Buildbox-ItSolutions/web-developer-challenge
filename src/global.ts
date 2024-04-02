@@ -45,5 +45,13 @@ class Publication {
 
 
 const Publish = new Publication();
+
+interface Publication {
+    Foto: File | null;
+    Nome: string;
+    Mensagem: string;
+}
+
 export default Publish;
+export {Publication};
 

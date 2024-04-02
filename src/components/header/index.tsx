@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     background-color: #2b2b2b;
+    position: fixed;
 `;
 
 const StyledLogo = styled.img`

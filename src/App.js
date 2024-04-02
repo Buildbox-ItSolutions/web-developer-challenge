@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import Header from "./components/header/index.tsx";
@@ -10,15 +10,19 @@ const StyledApp = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 170px;
+  overflow-x: hidden;
 `;
 
 export default function App() {
+  const [change, setChange] = useState(false)
+
   return (
     <StyledApp>
-      <div className="App">
-        <Header />
-        <Create />
-        <Feed />
+      <Header />
+      <div className="App" style={{marginTop: '93px'}}>
+        <Create  setChange={setChange}/>
+        <Feed setChange={setChange} change={change}/>
       </div>
     </StyledApp>
   );

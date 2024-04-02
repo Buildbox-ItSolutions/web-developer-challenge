@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 import CardPubli from "../cardPubli/index.tsx";
+import {Publication} from '../../global.ts';
+import { getFeed, dell } from "../../globalList.ts";
 
 const StyledContent = styled.div`
     margin: auto;
@@ -20,14 +22,40 @@ const StyledP = styled.p`
     letter-spacing: normal;
     text-align: left;
     color: #7A7A7A;
+    margin-bottom: 8px;
 `;
 
-export default function Feed() {
+export default function Feed(props: any) {
+    const [Feed, setFeed] = useState<Publication[]>(getFeed());
+
+    const geraPosts = () => {
+        
+        const list: JSX.Element[] = [];
+        for(let i = 0; i < Feed.length; i++){
+            const card = <CardPubli key={i} infos={Feed[i]} id={i} deleta={deleta}/>;
+            list.push(card);
+        }
+
+        return list;
+    };
+
+    useEffect(()=>{
+        if(props.change){
+            setFeed(getFeed());
+            props.setChange(false);
+        }
+    },[props.change])
+    const deleta = (index: number) => {
+        const newFeed = dell(index); 
+        setFeed([...newFeed]); 
+    }
+    
+
     return (
         <StyledContent>
             <StyledP>Feed</StyledP>
             <section style={{width: '100%'}}>
-                <CardPubli />
+                {geraPosts()}
             </section>
         </StyledContent>
     );

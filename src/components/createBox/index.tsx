@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import InputCustom from "../inputCustom/index.tsx";
 import Publish from "../../global.ts";
+import { inserir } from "../../globalList.ts";
 
 const StyledBox = styled.div`
     width: 516px;
@@ -99,7 +100,7 @@ const StyledButton = styled.button<{ $pronto: boolean }>`
     margin-top: 32px;
 `;
 
-export default function Create() {
+export default function Create(props) {
     const [nome, setNome] = useState<string>(Publish.getNome());
     const [mensagem, setMensagem] = useState<string>(Publish.getMensagem());
     const [foto, setFoto] = useState<boolean>(false);
@@ -116,6 +117,13 @@ export default function Create() {
         Publish.setMensagem(e.target.value);
     };
 
+    const handlePublic = () => {
+        const publicacao = Publish;
+        inserir(publicacao);
+        props.setChange(true);
+        clear();
+    }
+
     useEffect(() => {
         if (nome && mensagem && foto) {
             setPronto(true);
@@ -125,6 +133,8 @@ export default function Create() {
     }, [nome, mensagem, foto])
 
     const clear = () => {
+        Publish.Clear();
+        setFotoClear(true); 
         setMensagem('');
         setNome('');
         setFoto(false);
@@ -151,8 +161,8 @@ export default function Create() {
             />
 
             <span style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'flex-end', gap: '24px' }}>
-                <StyledP onClick={() => { Publish.Clear(); clear(); setFotoClear(true); }}>Descartar</StyledP>
-                <StyledButton $pronto={pronto}>Publicar</StyledButton>
+                <StyledP onClick={() => { clear();}}>Descartar</StyledP>
+                <StyledButton $pronto={pronto} onClick={pronto? ()=>{handlePublic()} : ()=>{}}>Publicar</StyledButton>
             </span>
         </StyledBox>
     );
