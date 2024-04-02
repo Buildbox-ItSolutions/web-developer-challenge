@@ -8,6 +8,12 @@ const FeedContainer = styled.div`
     flex-grow: 1;
 `
 
+const FeedSpan = styled.span`
+    color: #7a7a7a;
+    font-weight: 500;
+`
+
 export {
-    FeedContainer
+    FeedContainer,
+    FeedSpan
 }
