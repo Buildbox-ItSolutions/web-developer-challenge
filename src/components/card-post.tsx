@@ -72,11 +72,15 @@ export default function CardPost({ post }: { post: Post }) {
     setPosts(postsFilted);
   };
 
+  const isValidImageUrl = (url: string) => {
+    return url !== "";
+  };
+
   return (
     <CardContanier>
       <DeleteIcon data-delete onClick={handleClick} />
       <BoxStyled $variant="image">
-        {!imageError ? (
+        {isValidImageUrl(post.image) && !imageError ? (
           <Image
             src={post.image}
             alt="avatar"
