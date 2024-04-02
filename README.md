@@ -1,30 +1,31 @@
-# web-developer-challenge
+## Getting Started
 
-Olá!
+Run in development server:
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+```bash
+npm run dev
+```
 
-O Desafio é o seguinte:
+Run in prod:
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+```bash
+npm run start:prod
+# or
+docker-compose up
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+```
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+## Libs
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+Produced in Next.js with:
 
+- TypeScript
+- Styled-components
+- Fakerjs
+- Eslint
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+## Deploy on Vercel
 
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+Check out the website [here](https://challenge-front-end-buildbox.vercel.app/).
