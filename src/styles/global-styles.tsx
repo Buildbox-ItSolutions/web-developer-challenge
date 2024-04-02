@@ -10,6 +10,7 @@ export default createGlobalStyle`
         --bg-primary: var(--black);
         --bg-input: var(--greyish-brown);
         --bg-btn-disable: var(--black-two);
+        --bg-card-post: var(--black-two);
 
         --warm-grey: #707070;
         --dark-lime-green: #71bb00;
@@ -22,6 +23,8 @@ export default createGlobalStyle`
         --greyish-brown: #494949;
         --black-two: #313131;
         --brownish-grey:#5f5f5f;
+        --greyish-brown-two:#3b3b3b;
+        --warm-grey-three:#9f9f9f;
     }
 
     * {

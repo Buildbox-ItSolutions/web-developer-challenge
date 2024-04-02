@@ -10,6 +10,6 @@ function createRandomPost(): Post {
   };
 }
 
-export const posts: Post[] = faker.helpers.multiple(createRandomPost, {
+export const fakerPosts: Post[] = faker.helpers.multiple(createRandomPost, {
   count: 4,
 });
