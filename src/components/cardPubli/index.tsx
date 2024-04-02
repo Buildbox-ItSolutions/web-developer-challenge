@@ -12,6 +12,10 @@ const StyledCard = styled.div`
     background-color: #313131;
     display: flex;
     margin-bottom: 16px;
+
+    @media screen and (max-width: 515px) {
+        width: calc(100% - 48px);
+    }
 `;
 
 const StyledImage = styled.img`
@@ -20,6 +24,12 @@ const StyledImage = styled.img`
     border-radius: 36px;
     margin-top: 56px;
     object-fit: cover;
+
+    @media screen and (max-width: 515px) {
+        height: 60px;
+        width: 60px;
+    }
+    
 `;
 
 const StyledText = styled.p`
@@ -37,6 +47,14 @@ const StyledText = styled.p`
     color: #9f9f9f;
     margin-top: 56px;
     word-break: break-all;
+
+    @media screen and (max-width: 515px) {
+        min-width: calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        margin-left: 20px;
+    }
+
+   
 `;
 
 const StyledName = styled.p`
@@ -51,6 +69,13 @@ const StyledName = styled.p`
     color: #7a7a7a;
     word-break: break-all;
 
+    @media screen and (max-width: 515px) {
+        min-width: calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        margin-left: -10px;
+    }
+
+
 `;
 
 const StyledSand = styled.p`
@@ -63,6 +88,7 @@ const StyledSand = styled.p`
     letter-spacing: 0.29px;
     text-align: left;
     color: #5f5f5f;
+    margin-left: -10px;
 `;
 
 export default function CardPubli(props: any) {
@@ -96,7 +122,7 @@ export default function CardPubli(props: any) {
                 </div>
 
             </span>
-            <div style={{ height: '100%', paddingRight: '12px', paddingTop: '12px' }}>
+            <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'flex-end', paddingRight: '12px', paddingTop: '12px' }}>
                 <img onClick={()=>{props.deleta(props.id);}} src={x} alt="delete" style={{ height: '20px', width: '20px', cursor: 'pointer' }} />
             </div>
         </StyledCard>

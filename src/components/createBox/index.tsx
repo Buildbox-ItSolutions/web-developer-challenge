@@ -17,6 +17,10 @@ const StyledBox = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 24px;
+
+    @media screen and (max-width: 515px) {
+        width: calc(100% - 24px);
+    }
 `;
 
 const StyledTextInput = styled.input`
@@ -33,6 +37,10 @@ const StyledTextInput = styled.input`
     color: white;
     ::placeholder {
         color: #999999;
+    }
+
+    @media screen and (max-width: 515px) {
+        width: 100%;
     }
 `;
 
@@ -58,6 +66,10 @@ const StyledTextArea = styled.textarea`
     &::-webkit-scrollbar-thumb {
         background-color: #000;
         border-radius: 20px;
+    }
+
+    @media screen and (max-width: 515px) {
+        width: 100%;
     }
 `;
 
@@ -134,7 +146,7 @@ export default function Create(props) {
 
     const clear = () => {
         Publish.Clear();
-        setFotoClear(true); 
+        setFotoClear(true);
         setMensagem('');
         setNome('');
         setFoto(false);
@@ -161,8 +173,8 @@ export default function Create(props) {
             />
 
             <span style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'flex-end', gap: '24px' }}>
-                <StyledP onClick={() => { clear();}}>Descartar</StyledP>
-                <StyledButton $pronto={pronto} onClick={pronto? ()=>{handlePublic()} : ()=>{}}>Publicar</StyledButton>
+                <StyledP onClick={() => { clear(); }}>Descartar</StyledP>
+                <StyledButton $pronto={pronto} onClick={pronto ? () => { handlePublic() } : () => { }}>Publicar</StyledButton>
             </span>
         </StyledBox>
     );

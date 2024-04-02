@@ -10,6 +10,10 @@ const StyledContent = styled.div`
     width: 516px;
     height: 100%;
     margin-top: 56px;
+
+    @media screen and (max-width: 515px) {
+        width: 100%;
+    }
 `;
 
 const StyledP = styled.p`
@@ -23,6 +27,12 @@ const StyledP = styled.p`
     text-align: left;
     color: #7A7A7A;
     margin-bottom: 8px;
+
+    @media screen and (max-width: 515px) {
+        width: 100%;
+        padding-left: 20px;
+    }
+    
 `;
 
 export default function Feed(props: any) {
@@ -54,7 +64,7 @@ export default function Feed(props: any) {
     return (
         <StyledContent>
             <StyledP>Feed</StyledP>
-            <section style={{width: '100%'}}>
+            <section style={{width: 'calc(100% + 24px)', marginLeft: '-12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                 {geraPosts()}
             </section>
         </StyledContent>
