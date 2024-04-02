@@ -91,6 +91,42 @@ const DeleteButton = styled(Button)<{ photoURL?: string | null }>`
   border: none;
   cursor: pointer;
   display: ${({ photoURL }) => (photoURL ? "block" : "none")};
+
+  @media screen and (min-width: 320px) and (max-width: 568px) {
+    width: 1.25rem;
+    top: 11.2rem;
+    left: 55%;
+  }
+
+  @media screen and (min-width: 569px) and (max-width: 768px) {
+    width: 1.25rem;
+    top: 23.5%;
+    left: 53%;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    width: 1.25rem;
+    top: 27%;
+    left: 52%;
+  }
+
+  @media screen and (min-width: 1025px) and (max-width: 1440px) {
+    width: 1.25rem;
+    top: 28%;
+    left: 51.6%;
+  }
+
+  @media screen and (min-width: 1441px) and (max-width: 1680px) {
+    width: 1.25rem;
+    top: 23.5%;
+    left: 51.6%;
+  }
+
+  @media screen and (min-width: 1681px) {
+    width: 1.25rem;
+    top: 22.5%;
+    left: 51.3%;
+  }
 `;
 
 const InputField = styled.input`

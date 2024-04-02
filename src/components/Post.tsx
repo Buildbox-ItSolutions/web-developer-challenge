@@ -5,6 +5,7 @@ import { PostType } from "./PostType";
 
 const PostContainer = styled.div`
   display: flex;
+  margin-bottom: 1rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -24,15 +25,15 @@ const PostDisplay = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 80%;
-    margin: 20px auto;
+    margin: 8px auto;
     padding: 26px;
   }
 `;
 
 const DeleteButton = styled.button`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.8rem;
+  right: 1.2rem;
   width: 1.25rem;
   height: 1.25rem;
   background: none;
