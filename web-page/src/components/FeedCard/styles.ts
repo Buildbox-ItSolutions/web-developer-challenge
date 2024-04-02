@@ -13,6 +13,16 @@ export const Container = styled.div`
   background-color: #313131;
   border: 1px solid #373737;
   position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   .delete-button{
     margin-left: auto;

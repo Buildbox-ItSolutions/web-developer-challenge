@@ -1,14 +1,14 @@
-import { QueryFunctionContext, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import api from '../../src/services/api'
 
 import { IGetPhotoDetails } from './type'
 
-export const getPhotoDetails = async (ctx: QueryFunctionContext) => {
-  const [id] = ctx.queryKey
-  if (!id) {
-    return
-  }
-  const { data } = await api.get<IGetPhotoDetails>(`/photos/random`)
+export const getPhotoDetails = async () => {
+  const { data } = await api.get<IGetPhotoDetails>(`/photos/random?client_id=${import.meta.env.VITE_REACT_ACCESS_KEY}`,{
+    headers: {
+      Authorization: `Client-ID ${import.meta.env.VITE_REACT_ACCESS_KEY}`
+    }
+  })
   return data
 }
 

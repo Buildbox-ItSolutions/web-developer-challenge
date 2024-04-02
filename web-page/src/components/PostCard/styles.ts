@@ -68,6 +68,7 @@ export const Content = styled.div`
     background-color: #494949;
     color: #919191;
     border: none;
+    overflow: hidden;
     border-radius: 0.5rem;
     text-align: start;
     width: 100%;

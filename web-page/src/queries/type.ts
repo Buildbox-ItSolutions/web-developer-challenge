@@ -1,19 +1,7 @@
 
 export interface IGetPhotoDetails {
   id: string
-  created_at: string
-  updated_at: string
-  width: number
-  height: number
-  color: string
-  blur_hash: string
-  downloads: number
-  likes: number
-  liked_by_user: boolean
   description: string
-  exif: Exif
-  location: Location
-  current_user_collections: CurrentUserCollection[]
   urls: Urls
   links: Links
   user: User
@@ -69,7 +57,7 @@ export interface User {
   id: string
   updated_at: string
   username: string
-  name: string
+  name?: string
   portfolio_url: string
   bio: string
   location: string
