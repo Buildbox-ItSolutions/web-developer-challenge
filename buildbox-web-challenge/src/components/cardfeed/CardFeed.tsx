@@ -1,27 +1,32 @@
-import { Container, Foto, TextoPost, Textos, BotaoRemover, ConteudoPost, AutorPost } from "./Styles"
-import FotoPostFeed from "../../assets/photo-base@3x.png";
+import {
+    Container,
+    Foto,
+    TextoPost,
+    Textos,
+    BotaoRemover,
+    ConteudoPost,
+    PostInfos,
+} from "./Styles";
 import Remover from "../../assets/delete@3x.png";
-
-const CardFeed = () => {
+import ICardFeed from "../../interfaces/ICardFeed";
+  
+  const CardFeed = ({ id, foto, texto, autor }: ICardFeed) => {
     return (
-        <Container>
-            <BotaoRemover src={Remover} alt="" />
-            <ConteudoPost>
-                <Foto src={FotoPostFeed} alt="" />
-                <Textos>
-                    <TextoPost>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.
-                    </TextoPost>
-                    <span>
-                        Enviado por
-                    </span>
-                    <AutorPost>
-                        Manuela Oliveira
-                    </AutorPost>
-                </Textos>
-            </ConteudoPost>
-        </Container>
-    )
-}
-
-export default CardFeed
+      <Container>
+        <BotaoRemover src={Remover} alt='' />
+        <ConteudoPost key={id}>
+          <Foto src={foto} alt='' />
+          <Textos>
+            <TextoPost>
+              {texto}
+            </TextoPost>
+            <PostInfos>
+              Enviado por <span>{autor}</span>
+            </PostInfos>
+          </Textos>
+        </ConteudoPost>
+      </Container>
+    );
+  };
+  
+  export default CardFeed;
