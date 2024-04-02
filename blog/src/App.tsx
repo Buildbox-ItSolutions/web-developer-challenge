@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
+import './global.css';
+import Header from './components/Header';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+export default function App() {
+    return (
+      <div>
+        <Header /> 
+        <h1>Deus te ama</h1>
+      </div>
+    );
 }
-
-export default App;
 
