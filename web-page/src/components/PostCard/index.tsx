@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AxiosError } from "axios";
 import React from "react";
-import { FormProvider, set, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import * as Yup from 'yup';
 import logo from "../../assets/images/logo.svg";
