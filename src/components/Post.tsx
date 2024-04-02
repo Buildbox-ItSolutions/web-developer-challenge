@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import deleteIcon from '../assets/delete (1).svg';
+import React, { useState } from "react";
+import styled from "styled-components";
+import deleteIcon from "../assets/delete (1).svg";
+import { PostType } from "./PostType";
 
 const PostDisplay = styled.div`
   position: relative;
@@ -10,6 +11,12 @@ const PostDisplay = styled.div`
   border-radius: 3px;
   border: 1px solid #3b3b3b;
   background-color: #313131;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    margin: 0 20px 20px;
+    padding: 26px;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -29,18 +36,7 @@ const PostContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  height: calc(100vh - 2rem);
   margin-top: 1rem;
-`;
-
-const FeedText = styled.h1`
-  width: 27rem;
-  height: 1.063rem;
-  margin: 1rem 56.938rem 0.5rem 24rem;
-  font-family: Roboto-Regular;
-  font-size: 1rem;
-  line-height: 1.29;
-  color: #7a7a7a;
 `;
 
 const ModalOverlay = styled.div`
@@ -101,7 +97,15 @@ const ModalText = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-const Post: React.FC = () => {
+const PostImage = styled.img`
+  width: 88px;
+  height: 88px;
+  margin: 24px 32px 16px 0;
+  object-fit: contain;
+  border-radius: 36px;
+`;
+
+const Post: React.FC<PostType> = ({ name, message, photoURL, onDelete }) => {
   const [excluirPost, setExcluirPost] = useState(false);
 
   const handleDelete = () => {
@@ -113,29 +117,41 @@ const Post: React.FC = () => {
   };
 
   const handleConfirmarExclusao = () => {
-    console.log("Post excluído!");
+    onDelete();
     setExcluirPost(false);
   };
 
+  if (!name && !message && !photoURL) {
+    return null;
+  }
+
   return (
     <PostContainer>
-      <FeedText>Feed</FeedText>
       <PostDisplay>
-        <DeleteButton onClick={handleDelete}><img src={deleteIcon} alt="Delete" /></DeleteButton>
+        <DeleteButton onClick={handleDelete}>
+          <img src={deleteIcon} alt="Delete" />
+        </DeleteButton>
+        <h2>{name}</h2>
+        <p>{message}</p>
+        {photoURL && <PostImage src={photoURL} alt="Uploaded Photo" />}
       </PostDisplay>
       {excluirPost && (
         <ModalOverlay>
           <ModalContent>
             <ModalText>Excluir post?</ModalText>
             <ModalActions>
-              <CancelButton onClick={handleCancelarExclusao}>Cancelar</CancelButton>
-              <DeletePostButton onClick={handleConfirmarExclusao}>Excluir</DeletePostButton>
+              <CancelButton onClick={handleCancelarExclusao}>
+                Cancelar
+              </CancelButton>
+              <DeletePostButton onClick={handleConfirmarExclusao}>
+                Excluir
+              </DeletePostButton>
             </ModalActions>
           </ModalContent>
         </ModalOverlay>
       )}
     </PostContainer>
   );
-}
+};
 
 export default Post;

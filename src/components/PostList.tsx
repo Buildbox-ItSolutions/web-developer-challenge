@@ -3,6 +3,9 @@ import styled from "styled-components";
 import photoUploadSVG from "../assets/photo-upload.svg";
 import otherImage from "../assets/image.svg";
 import deleteIcon from "../assets/trash (1).svg";
+import Post from "./Post";
+import { PostType } from "./PostType";
+import Feed from "./Feed";
 
 // Estilos dos componentes usando styled-components
 const PostListContainer = styled.div`
@@ -162,11 +165,16 @@ const ButtonPublicar = styled(Button)<{ isFilled: boolean }>`
 `;
 
 const PostList: React.FC = () => {
+  const [posts, setPosts] = useState<PostType[]>([]);
   const [photoURL, setPhotoURL] = useState<string | null>(null);
   const [name, setName] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const publishButtonRef = useRef<HTMLButtonElement>(null);
+
+  const addPost = (newPost: PostType) => {
+    setPosts([...posts, newPost]);
+  };
 
   useEffect(() => {
     const isFilled = !!name && !!message && !!photoURL;
@@ -195,44 +203,81 @@ const PostList: React.FC = () => {
     }
   };
 
+  const handleDeletePost = (index: number) => {
+    const updatedPosts = [...posts];
+    updatedPosts.splice(index, 1);
+    setPosts(updatedPosts);
+  };
+
   return (
-    <PostListContainer>
-      <DeleteButton photoURL={photoURL} onClick={() => setPhotoURL(null)}>
-        <img src={deleteIcon} alt="Delete Icon" />
-      </DeleteButton>
-      <PhotoUpload>
-        <PhotoInput type="file" accept="image/*" onChange={handlePhotoChange} />
-        <PhotoPreviewContainer>
-          {photoURL ? (
-            <PhotoPreview src={photoURL} alt="Uploaded Photo" />
-          ) : (
-            <UploadIcon src={photoUploadSVG} alt="Upload Icon" />
-          )}
-          <OtherImage photoURL={photoURL} src={otherImage} alt="Other Image" />
-        </PhotoPreviewContainer>
-      </PhotoUpload>
-      <InputField
-        type="text"
-        placeholder="Digite seu nome"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <MessageField
-        placeholder="Mensagem"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <ButtonContainer>
-        <ButtonDescartar onClick={clearFields}>Descartar</ButtonDescartar>
-        <ButtonPublicar
-          ref={publishButtonRef}
-          isFilled={!!name && !!message && !!photoURL}
-          disabled={!name || !message || !photoURL}
-        >
-          Publicar
-        </ButtonPublicar>
-      </ButtonContainer>
-    </PostListContainer>
+    <>
+      <PostListContainer>
+        <DeleteButton photoURL={photoURL} onClick={() => setPhotoURL(null)}>
+          <img src={deleteIcon} alt="Delete Icon" />
+        </DeleteButton>
+        <PhotoUpload>
+          <PhotoInput
+            type="file"
+            accept="image/*"
+            onChange={handlePhotoChange}
+          />
+          <PhotoPreviewContainer>
+            {photoURL ? (
+              <PhotoPreview src={photoURL} alt="Uploaded Photo" />
+            ) : (
+              <UploadIcon src={photoUploadSVG} alt="Upload Icon" />
+            )}
+            <OtherImage
+              photoURL={photoURL}
+              src={otherImage}
+              alt="Other Image"
+            />
+          </PhotoPreviewContainer>
+        </PhotoUpload>
+        <InputField
+          type="text"
+          placeholder="Digite seu nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <MessageField
+          placeholder="Mensagem"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <ButtonContainer>
+          <ButtonDescartar onClick={clearFields}>Descartar</ButtonDescartar>
+          <ButtonPublicar
+            ref={publishButtonRef}
+            isFilled={!!name && !!message && !!photoURL}
+            disabled={!name || !message || !photoURL}
+            onClick={() =>
+              addPost({
+                name: name,
+                message: message,
+                photoURL: photoURL,
+                onDelete: () => {},
+              })
+            }
+          >
+            Publicar
+          </ButtonPublicar>
+        </ButtonContainer>
+      </PostListContainer>
+      <Feed />
+      {posts
+        .slice()
+        .reverse()
+        .map((post, index) => (
+          <Post
+            key={index}
+            name={post.name}
+            message={post.message}
+            photoURL={post.photoURL}
+            onDelete={() => handleDeletePost(index)}
+          />
+        ))}
+    </>
   );
 };
 
