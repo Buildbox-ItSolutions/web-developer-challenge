@@ -116,6 +116,11 @@ const PublishButton = styled.button<{disabled?: boolean}>`
     border: none;
 `
 
+const TrashImage = styled.img`
+    cursor: pointer;
+
+`
+
 export {
     PostImageContainer,
     PostInputName,
@@ -124,5 +129,6 @@ export {
     InputsContainer,
     DeleteButton,
     PublishButton,
-    ButtonsContainer
+    ButtonsContainer,
+    TrashImage
 }

@@ -1,26 +1,26 @@
 import { DeleteIcon, PostAuthorContainer, PostContainer, PostContentContainer, PostImage, PostMessage, PostMessageContainer, SendBy, SendBySmall } from "./styles";
 import deleteIcon from "../../../../assets/delete.svg"
-import postImage from "../../../../assets/photo-base.jpg"
+import { IPost, usePostContext } from "../../../../contexts/postContext";
 
+export default function Post({authorName, message, postPhoto, id} : IPost) {
 
-export default function Post() {
+    const {deletePost} = usePostContext()
+
     return <PostContainer>
         
-        <DeleteIcon src={deleteIcon} />
+        <DeleteIcon src={deleteIcon} onClick={() => deletePost(id)} />
         
         <PostContentContainer>
             <PostImage 
-                src={postImage}
-                // srcSet="img/photo-base@2x.png 2x,
-                //         img/photo-base@3x.png 3x"
+                src={postPhoto}
             />
             <PostMessageContainer>
                 <PostMessage>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis ligula vel velit scelerisque iaculis. Nam mattis justo id orci commodo, eu tempus purus cursus.
+                    {message}
                 </PostMessage>
                 <PostAuthorContainer>
                     <SendBySmall>Enviado por</SendBySmall>
-                    <SendBy>Manuela Oliveira</SendBy>
+                    <SendBy>{authorName}</SendBy>
                 </PostAuthorContainer>
             </PostMessageContainer>
         </PostContentContainer>
