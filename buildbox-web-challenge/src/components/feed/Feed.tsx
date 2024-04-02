@@ -1,14 +1,14 @@
 import CardFeed from "../cardfeed/CardFeed"
 import { Titulo } from "./Styles"
-import db from "../../../db.json";
+import IPost from "../../interfaces/IPost";
 
-const Feed = () => {
+const Feed: React.FC<{ data: IPost }> = ({ data }) => {
     return (
         <div>
             <Titulo>
                 Feed
             </Titulo>
-            {db.map((post) => (
+            {data.posts.map((post: { id: string | number; foto: string; texto: string; autor: string; }) => (
                 <div>
                     <CardFeed 
                         id={post.id} 
