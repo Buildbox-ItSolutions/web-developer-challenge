@@ -9,6 +9,7 @@ import { Input } from '../../common/Input';
 import * as S from './styles';
 
 const MESSAGE_LIMIT = 2000;
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB;
 
 const createPostSchema = z.object({
   name: z.string().min(1, 'O nome é obrigatório.'),
@@ -21,7 +22,13 @@ const createPostSchema = z.object({
     .refine((fileList) => fileList.length === 1, {
       message: 'Selecione uma imagem',
     })
-    .transform((fileList) => fileList[0]),
+    .transform((fileList) => fileList[0])
+    .refine((file) => /image\/(jpeg|jpg|png|gif|webp|avif)/.test(file.type), {
+      message: 'Selecione uma imagem do tipo: jpeg, jpg, png, gif, webp, avif',
+    })
+    .refine((file) => file.size <= MAX_FILE_SIZE, {
+      message: 'Tamanho máximo permitido: 50MB',
+    }),
 });
 
 type CreatePostData = z.infer<typeof createPostSchema>;
