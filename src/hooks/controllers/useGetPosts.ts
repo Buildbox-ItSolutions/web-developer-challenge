@@ -4,6 +4,7 @@ import { QueryKeys } from '../../constants/queryKeys';
 import { postService } from '../../services/posts';
 
 type GetPostsPayload = {
+  limit?: number;
   initialPage?: number;
 };
 
@@ -17,7 +18,7 @@ export function useGetPosts(payload?: GetPostsPayload) {
   } = useInfiniteQuery({
     queryKey: QueryKeys.posts(),
     queryFn: ({ pageParam }) =>
-      postService.getPosts({ limit: 6, page: pageParam }),
+      postService.getPosts({ limit: payload?.limit ?? 5, page: pageParam }),
     initialPageParam: payload?.initialPage ?? 1,
     getNextPageParam: (lastPage, allPages) =>
       lastPage.totalPages === allPages.length ? undefined : allPages.length + 1,
