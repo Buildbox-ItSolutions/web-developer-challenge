@@ -1,6 +1,7 @@
 export interface PostType {
-    name: string;
-    message: string;
-    photoURL: string | null;
-    onDelete: () => void;
-  }
+  id: string;
+  name: string;
+  message: string;
+  photoURL: string | null;
+  onDelete: () => void;
+}

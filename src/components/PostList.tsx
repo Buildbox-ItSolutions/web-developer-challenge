@@ -169,11 +169,14 @@ const PostList: React.FC = () => {
   const [photoURL, setPhotoURL] = useState<string | null>(null);
   const [name, setName] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [nextId, setNextId] = useState(1);
 
   const publishButtonRef = useRef<HTMLButtonElement>(null);
 
   const addPost = (newPost: PostType) => {
-    setPosts([...posts, newPost]);
+    const postWithId = { ...newPost, id: nextId.toString() };
+    setNextId(nextId + 1);
+    setPosts([...posts, postWithId]);
   };
 
   useEffect(() => {
@@ -203,9 +206,8 @@ const PostList: React.FC = () => {
     }
   };
 
-  const handleDeletePost = (index: number) => {
-    const updatedPosts = [...posts];
-    updatedPosts.splice(index, 1);
+  const handleDeletePost = (id: string) => {
+    const updatedPosts = posts.filter((post) => post.id !== id);
     setPosts(updatedPosts);
   };
 
@@ -253,6 +255,7 @@ const PostList: React.FC = () => {
             disabled={!name || !message || !photoURL}
             onClick={() =>
               addPost({
+                id: "",
                 name: name,
                 message: message,
                 photoURL: photoURL,
@@ -270,11 +273,12 @@ const PostList: React.FC = () => {
         .reverse()
         .map((post, index) => (
           <Post
-            key={index}
+            key={post.id}
+            id={post.id}
             name={post.name}
             message={post.message}
             photoURL={post.photoURL}
-            onDelete={() => handleDeletePost(index)}
+            onDelete={() => handleDeletePost(post.id)}
           />
         ))}
     </>

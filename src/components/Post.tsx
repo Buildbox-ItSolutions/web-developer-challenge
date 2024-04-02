@@ -3,20 +3,24 @@ import styled from "styled-components";
 import deleteIcon from "../assets/delete (1).svg";
 import { PostType } from "./PostType";
 
+const PostContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+`;
+
 const PostDisplay = styled.div`
   position: relative;
   width: 525px;
-  height: 14.163rem;
-  padding: 0.75rem 0.75rem 2rem 1.5rem;
+  padding: 1.5rem;
   border-radius: 3px;
   border: 1px solid #3b3b3b;
   background-color: #313131;
-
-  @media screen and (max-width: 768px) {
-    width: 80%;
-    margin: 0 20px 20px;
-    padding: 26px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const DeleteButton = styled.button`
@@ -30,13 +34,46 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-const PostContainer = styled.div`
+const PostImage = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 36px;
+  margin-left: 0.8rem;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  margin-top: 1rem;
+  margin-left: 1.8rem;
+`;
+
+const PostMessage = styled.p`
+  font-family: Roboto;
+  font-size: 16px;
+  color: #9f9f9f;
+  margin-bottom: 1.4rem;
+  word-wrap: break-word;
+  max-width: 300px;
+`;
+
+const PostName = styled.h2`
+  font-family: Roboto;
+  font-size: 14px;
+  text-align: left;
+  color: #7a7a7a;
+  margin: 0;
+`;
+
+const EnviadoPor = styled.h2`
+  font-family: Roboto;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: 0.29px;
+  color: #5f5f5f;
 `;
 
 const ModalOverlay = styled.div`
@@ -97,14 +134,6 @@ const ModalText = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-const PostImage = styled.img`
-  width: 88px;
-  height: 88px;
-  margin: 24px 32px 16px 0;
-  object-fit: contain;
-  border-radius: 36px;
-`;
-
 const Post: React.FC<PostType> = ({ name, message, photoURL, onDelete }) => {
   const [excluirPost, setExcluirPost] = useState(false);
 
@@ -121,19 +150,18 @@ const Post: React.FC<PostType> = ({ name, message, photoURL, onDelete }) => {
     setExcluirPost(false);
   };
 
-  if (!name && !message && !photoURL) {
-    return null;
-  }
-
   return (
     <PostContainer>
       <PostDisplay>
         <DeleteButton onClick={handleDelete}>
           <img src={deleteIcon} alt="Delete" />
         </DeleteButton>
-        <h2>{name}</h2>
-        <p>{message}</p>
         {photoURL && <PostImage src={photoURL} alt="Uploaded Photo" />}
+        <ContentContainer>
+          <PostMessage>{message}</PostMessage>
+          <EnviadoPor>Enviado por</EnviadoPor>
+          <PostName>{name}</PostName>
+        </ContentContainer>
       </PostDisplay>
       {excluirPost && (
         <ModalOverlay>
