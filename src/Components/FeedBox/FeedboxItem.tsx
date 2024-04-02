@@ -12,10 +12,10 @@ import {
   getTitleStyle,
 } from "./Feedbox.styles.tsx";
 import { FaRegComment, FaRegShareSquare, FaRegBookmark } from "react-icons/fa";
-import { RiMoreLine } from "react-icons/ri";
 import { GrLike } from "react-icons/gr";
 // @ts-ignore
 import Avatar from "../../assets/images/Avatar.png";
+import { IoMdClose } from "react-icons/io";
 
 const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
   (
@@ -33,7 +33,7 @@ const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
             sx={getMenuButtonStyle}
             onClick={() => handleRemoveItem(id)}
           >
-            <RiMoreLine />
+            <IoMdClose />
           </IconButton>
         </Box>
         <Box>
