@@ -30,52 +30,33 @@ export const Foto = styled.img`
 export const Campos = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 8px;
 `;
 
-export const Nome = styled.div`
+export const Nome = styled.input`
     width: 468px;
     height: 40px;
     margin: 16px 0 8px;
-    padding: 12px 351px 11px 16px;
+    padding: 12px 1rem 12px 1rem;
     border-radius: 8px;
     background-color: #494949;
-`;
-
-export const TextoNome = styled.span`
-    display: flex;
-    width: 130px;
-    height: 17px;
-    font-family: Roboto;
+    color: #9f9f9f;
+    border: none;
     font-size: 14px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.29;
-    letter-spacing: normal;
-    text-align: left;
-    color: #9f9f9f;
+    outline: none;
 `;
 
-export const Mensagem = styled.input`
+export const Mensagem = styled.textarea`
     width: 468px;
     height: 80px;
     margin: 8px 0 32px;
-    padding: 12px 382px 51px 16px;
+    text-align: left;
+    padding: 12px 1rem 2.7rem 1rem;
     border-radius: 8px;
     background-color: #494949;
-`;
-
-export const TextoMensagem = styled.span`
-    width: 70px;
-    height: 17px;
-    font-family: Roboto;
+    color: #9f9f9f;
+    outline: none;
+    border: none;
     font-size: 14px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.29;
-    letter-spacing: normal;
-    text-align: left;
-    color: #9f9f9f;
 `;
