@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import StyledComponentsRegistry from "@/lib/registry";
 import Header from "@/components/header";
 import GlobalStyles from "@/styles/global-styles";
+import { FeedProvider } from "@/context/feed";
 
 export const metadata: Metadata = {
   title: "BuildBox",
@@ -17,9 +18,11 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>
         <StyledComponentsRegistry>
-          <GlobalStyles />
-          <Header />
-          {children}
+          <FeedProvider>
+            <GlobalStyles />
+            <Header />
+            {children}
+          </FeedProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

@@ -3,10 +3,12 @@
 import Form from "@/components/Form";
 import styled from "styled-components";
 import { roboto } from "@/styles/fonts";
+import Feed from "@/components/feed";
 
 const Contanier = styled.main`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   padding: 41px 0;
   min-height: calc(100vh - 93px);
@@ -24,6 +26,7 @@ export default function Home() {
   return (
     <Contanier className={roboto.className}>
       <Form />
+      <Feed />
     </Contanier>
   );
 }

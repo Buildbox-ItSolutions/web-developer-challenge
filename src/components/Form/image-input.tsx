@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import ImageIcon from "../icons/image-icon";
 import TrashIcon from "../icons/trash-icon";
@@ -28,6 +28,14 @@ export const BoxStyled = styled.label<BoxProps>`
         img {
           object-fit: cover;
           border-radius: 36px;
+        }
+        svg {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
         }`;
     } else if (props.$variant === "input") {
       return `
@@ -63,9 +71,12 @@ export const BoxStyled = styled.label<BoxProps>`
   }}
 `;
 
-export default function ImageInput() {
-  const [image, setImage] = useState("");
+interface ImageInputProps {
+  image: string;
+  setImage: Dispatch<SetStateAction<string>>;
+}
 
+export default function ImageInput({ image, setImage }: ImageInputProps) {
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0];
     if (file) {
