@@ -12,6 +12,10 @@ const NewPostContainer = styled.div`
     border-radius: 3px;
     border: solid 1px #3b3b3b;
     background-color: #313131;
+
+    @media screen and (max-width: 600px) {
+        width: 300px;
+    }
 `
 
 const PostImageContainer = styled.div<{imageURL: string}>`
@@ -20,10 +24,8 @@ const PostImageContainer = styled.div<{imageURL: string}>`
     align-items: center;
     cursor: pointer;
 
-    /* width: 88px; */
     width: 3%.5rem;
     height: 3%.5rem;
-    /* height: 88px; */
     padding: 32px;
     object-fit: contain;
     border-radius: 36px;
@@ -78,6 +80,11 @@ const InputsContainer = styled.div`
     flex-direction: column;
     gap: 0.5rem;
     min-width: 400px;
+
+    @media screen and (max-width: 600px) {
+        min-width: 300px;
+        width: 300px;
+    }
 `
 
 const ButtonsContainer = styled.div`
