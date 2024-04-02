@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { DeleteIcon } from "../../utils/icons/delete";
 import InputName from "../InputName";
 import InputDescription from "../InputDescription";
+import ButtonTrash from "../Buttons/buttonTrash";
+import ButtonPublish from "../Buttons/buttonPublish";
 
 const Card = styled.div`
     width: 516px;
@@ -17,6 +19,7 @@ const ItensContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
     img {
         width: 88px;
@@ -36,6 +39,17 @@ const ItensContent = styled.div`
     }
 `;
 
+const ItensInputs = styled.div`
+    padding: 10px;    
+`;
+
+const ItensButtons = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 24px;
+`;
+
 export default function AddCard() {
     return (
         <Card>
@@ -45,16 +59,14 @@ export default function AddCard() {
                     <DeleteIcon />
                 </span>
             </ItensContent>
-
-
-            <div>
+            <ItensInputs>
                 <InputName />
                 <InputDescription />
-            </div>
-            <div>
-                <button>descarta</button>
-                <button>publicar</button>
-            </div>
+            </ItensInputs>
+            <ItensButtons>
+                <ButtonTrash />
+                <ButtonPublish />
+            </ItensButtons>
         </Card>
     );
 }

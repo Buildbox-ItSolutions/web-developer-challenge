@@ -8,7 +8,6 @@ export default function App() {
       <div>
         <Header /> 
         <AddCard />
-        <h1>Deus te ama</h1>
       </div>
     );
 }

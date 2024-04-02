@@ -4,6 +4,7 @@ const InputContent = styled.div`
     position: relative;
     display: flex;
     justify-content: center; 
+    margin-top: -9px;
 
     textarea {
         width: 100%;
@@ -29,7 +30,7 @@ const InputContent = styled.div`
 export default function InputDescription() {
     return (
         <InputContent>
-            <textarea />
+            <textarea placeholder="Mensagem"/>
         </InputContent>
     );
 }
