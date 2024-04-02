@@ -21,6 +21,12 @@ const PostDisplay = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    margin: 20px auto;
+    padding: 26px;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -129,6 +135,7 @@ const DeletePostButton = styled(Button)`
 const ModalText = styled.p`
   font-family: Roboto-Regular;
   font-size: 1.4rem;
+  text-align: center;
   line-height: 1.29;
   color: #f8f8ff;
   margin-bottom: 1.5rem;
