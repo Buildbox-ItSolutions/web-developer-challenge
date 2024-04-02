@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 38vw;
-  max-height: 250px;
+  max-height: 280px;
   max-width: 620px;
+  min-height: 180px;
+  min-width: 520px;
   margin: 8px;
   border-radius: 3px;
   border: solid 1px #3b3b3b;
@@ -13,6 +15,13 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    max-height: 680px;
+    min-width: 320px;
+    width: 90vw;
+    padding: 12px;
+  }
 `;
 
 export const CardPostInner = styled.div`

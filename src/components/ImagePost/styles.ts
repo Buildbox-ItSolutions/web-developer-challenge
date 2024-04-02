@@ -17,6 +17,10 @@ export const Label = styled.label<LabelProps>`
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+
+    &:hover {
+      border: solid 1px rgb(255 252 252);
+    }
   `}
 `;
 

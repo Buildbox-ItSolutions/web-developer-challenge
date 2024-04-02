@@ -4,11 +4,19 @@ const variants = {
   primary: css`
     background-color: #5f5f5f;
     color: #313131;
+
+    &:hover {
+      background-color: #717070;
+    }
   `,
   transparent: css`
     background-color: transparent;
     color: #5f5f5f;
     text-decoration: underline;
+
+    &:hover {
+      color: #717070;
+    }
   `,
 };
 

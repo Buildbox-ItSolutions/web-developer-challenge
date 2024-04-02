@@ -6,6 +6,8 @@ export const FormGroup = styled.div`
   height: 50vh;
   max-width: 570px;
   max-height: 380px;
+  min-width: 400px;
+  min-height: 320px;
   gap: 12px;
   margin: 40px 0;
   padding: 24px 45px;
@@ -15,6 +17,12 @@ export const FormGroup = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    height: 50vh;
+    padding: 12px;
+  }
 `;
 
 export const Actions = styled.div`
