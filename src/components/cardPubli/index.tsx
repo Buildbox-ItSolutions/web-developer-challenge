@@ -88,7 +88,10 @@ const StyledSand = styled.p`
     letter-spacing: 0.29px;
     text-align: left;
     color: #5f5f5f;
-    margin-left: -10px;
+
+    @media screen and (max-width: 515px) {
+        margin-left: -10px;
+    }
 `;
 
 export default function CardPubli(props: any) {
