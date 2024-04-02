@@ -23,13 +23,18 @@ const Home = () => {
     localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
 
-  const handleRemoveItem = () => {
-    const updatedItems = [...postList];
-    updatedItems.pop();
+  // const handleRemoveItem = () => {
+  //   const updatedItems = [...postList];
+  //   updatedItems.pop();
+  //   setPostList(updatedItems);
+  // };
+
+  const handleRemoveItem = (idToRemove) => {
+    const updatedItems = postList.filter((item) => item.id !== idToRemove);
     setPostList(updatedItems);
   };
 
-  console.log(postList);
+  // console.log(postList);
 
   return (
     <Box sx={getContainerStyle()}>

@@ -3,5 +3,6 @@ export interface FeedboxProps {
   text: string;
   profileImage: string;
   uploadedImage?: string;
+  id?: number;
   handleRemoveItem?: () => void;
 }

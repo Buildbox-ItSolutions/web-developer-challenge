@@ -19,7 +19,7 @@ import Avatar from "../../assets/images/Avatar.png";
 
 const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
   (
-    { name, text, profileImage, uploadedImage, handleRemoveItem, ...props },
+    { name, text, profileImage, uploadedImage, id, handleRemoveItem, ...props },
     ref
   ) => {
     return (
@@ -29,7 +29,10 @@ const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
             <img alt="" src={profileImage ? `${profileImage}` : `${Avatar}`} />
           </Box>
           <Typography sx={getTitleStyle}>{name}</Typography>
-          <IconButton sx={getMenuButtonStyle} onClick={handleRemoveItem}>
+          <IconButton
+            sx={getMenuButtonStyle}
+            onClick={() => handleRemoveItem(id)}
+          >
             <RiMoreLine />
           </IconButton>
         </Box>

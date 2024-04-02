@@ -11,6 +11,7 @@ const Feedbox = ({ postList, handleRemoveItem }) => {
       {sortedPostList.map((item) => (
         <FeedboxItem
           key={item.id}
+          id={item.id}
           name={item.nome}
           text={item.texto}
           profileImage={item.profileImage}
