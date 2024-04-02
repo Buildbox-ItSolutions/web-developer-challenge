@@ -1,21 +1,28 @@
-[
+{
+  "posts": [
     {
-      "id": 1,
+      "id": "1",
       "foto": "./src/assets/photo-base@3x.png",
       "texto": "Este é o texto da primeira postagem.",
       "autor": "Autor 1"
     },
     {
-      "id": 2,
+      "id": "2",
       "foto": "./src/assets/photo-base@3x.png",
       "texto": "Este é o texto da segunda postagem.",
       "autor": "Autor 2"
     },
     {
-      "id": 3,
+      "id": "3",
       "foto": "./src/assets/photo-base@3x.png",
       "texto": "Este é o texto da terceira postagem.",
       "autor": "Autor 3"
+    },
+    {
+      "id": 747858,
+      "foto": "/src/assets/image@3x.png",
+      "texto": "Mensagem de exemplo do post",
+      "autor": "Teste post"
     }
   ]
-  
+}
