@@ -8,9 +8,9 @@ export const getContainerStyle = (): SxProps => ({
     display: "block",
     height: "100%",
     width: "100%",
-    margin: "0% 22% 0% 22%",
+    margin: "0% 22% 0% 35%",
     "@media(max-width: 1920px)": {
-      margin: "0% 15% 0% 15%",
+      margin: "0% 15% 0% 30%",
     },
   },
 });

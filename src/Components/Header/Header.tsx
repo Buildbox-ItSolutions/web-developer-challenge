@@ -10,7 +10,7 @@ import {
 
 const Header = () => {
   return (
-    <Box sx={getContainerStyle}>
+    <Box sx={getContainerStyle} id="header">
       <Box sx={getLogoStyle}>
         <Box>
           <SvgLogo />
