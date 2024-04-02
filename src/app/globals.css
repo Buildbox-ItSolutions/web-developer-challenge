@@ -40,9 +40,11 @@ input:focus {
   outline: none;
 }
 
-.main-container {
-  
+textarea:focus {
+  outline: none;
 }
+
+.main-container {}
 
 @media (min-width: 515px) {
   .main-container {

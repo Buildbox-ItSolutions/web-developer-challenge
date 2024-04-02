@@ -33,12 +33,23 @@ export const TagCard = styled.li`
         border-radius: 36px;
     }
 
+    .picture-default {
+        width: 88px;
+        height: 88px;
+        border-radius: 36px;
+        display: flex;
+        justify-content: center;
+        border: solid 1px var(--color-grey-2);
+        align-items: center;
+    }
+
     .content-post p {
         text-align: center;
         font-size: var(--font-large);
         color: var(--color-grey-1);
         margin-top: 24px;
         margin-bottom: 20px;
+        word-break: break-all;
     }
 
     .profile-post span {

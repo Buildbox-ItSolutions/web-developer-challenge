@@ -11,14 +11,39 @@ export const TagFormPost = styled.section`
     border: solid 1px var(--color-grey-5);
     border-radius: 3px;
 
+    .content-picture {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
 
     .picture {
         width: 88px;
         height: 88px;
         margin: 24px 0px 16px 0px;
+        display: flex;
+        justify-content: center;
         background-color: transparent;
         border: solid 1px var(--color-grey-2);
         border-radius: 36px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .picture-active {
+        width: 86px;
+        height: 86px;
+        border-radius: 36px;
+    }
+
+    .trash-icon {
+        display: none;
+    }
+
+    .trash-icon-active {
+        position: absolute;
+        left: 100px;
+        cursor: pointer;
     }
 
     .form-add {
@@ -34,15 +59,37 @@ export const TagFormPost = styled.section`
             padding-right: 5px;
             border-radius: 8px;
         }
+
+        textarea {
+            width: 100%;
+            background-color: var(--color-grey-4);
+            border: none;
+            color: var(--color-white);
+            padding-left: 16px;
+            padding-right: 5px;
+            padding-top: 12px;
+            border-radius: 8px;
+            resize: none;
+        }
     }
 
     .form-add .form-input-name {
         height: 40px;
+        font-size: var(--font-medium);
+    }
+
+    .form-add .form-input-name::placeholder {
+        color: var(--color-grey-1);
     }
 
     .form-add .form-input-message {
         height: 80px;
         margin-top: 8px;
+        font-size: var(--font-medium);
+    }
+
+    .form-add .form-input-message::placeholder {
+        color: var(--color-grey-1);
     }
 
     .form-add .form-button {
@@ -61,12 +108,21 @@ export const TagFormPost = styled.section`
         cursor: pointer;
     }
 
-    .form-add .form-button button {
+    .form-add .form-button .send-button {
         width: 98px;
         height: 41px;
         border-radius: 8px;
         background-color: var(--color-grey-2);
         color: var(--color-black-2);
+        font-size: var(--font-medium);
+    }
+
+    .form-add .form-button .send-button-active {
+        width: 98px;
+        height: 41px;
+        border-radius: 8px;
+        background-color: var(--color-green);
+        color: var(--color-white);
         font-size: var(--font-medium);
     }
 
