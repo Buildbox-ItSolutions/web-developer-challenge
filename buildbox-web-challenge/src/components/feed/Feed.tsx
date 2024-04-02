@@ -1,5 +1,6 @@
 import CardFeed from "../cardfeed/CardFeed"
 import { Titulo } from "./Styles"
+import db from "../../../db.json";
 
 const Feed = () => {
     return (
@@ -7,12 +8,16 @@ const Feed = () => {
             <Titulo>
                 Feed
             </Titulo>
-            <div>
-                <CardFeed />
-                <CardFeed />
-                <CardFeed />
-                <CardFeed />
-            </div>
+            {db.map((post) => (
+                <div>
+                    <CardFeed 
+                        id={post.id} 
+                        foto={post.foto} 
+                        texto={post.texto} 
+                        autor={post.autor}
+                    />
+                </div>
+            ))}
         </div>
     )
 }
