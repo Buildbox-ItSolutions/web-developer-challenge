@@ -3,6 +3,7 @@ export interface IGetPhotoDetails {
   id: string
   description: string
   urls: Urls
+  blur_hash?: string
   links: Links
   user: User
 }
@@ -57,7 +58,7 @@ export interface User {
   id: string
   updated_at: string
   username: string
-  name?: string
+  name: string
   portfolio_url: string
   bio: string
   location: string

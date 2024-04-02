@@ -1,8 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { AxiosError } from "axios";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import logo from "../../assets/images/logo.svg";
 import { useGetPhotoDetails } from "../../queries/getRandomPhotos";
@@ -10,8 +9,6 @@ import { usePostsStore } from "../../stores/Posts";
 import { TrashIcon } from "../Icons";
 import { photoDescription } from "./mockLorem";
 import { CardFooter, Container, Content } from "./styles";
-import LoadingSpin from '../LoadingSpin/LoadingSping';
-import Swal from 'sweetalert2';
 
 interface Props {
   children?: React.ReactNode;
@@ -26,8 +23,7 @@ export interface FormDataType {
 
 const validationSchema = Yup.object().shape({
   id: Yup.string(),
-  urlSmall: Yup.string()
-    .required('Campo obrigatório'),
+  urlSmall: Yup.string(),
   userName: Yup.string()
     .min(8, 'Deve ter pelo menos 8 caracteres.')
     .required('Campo obrigatório'),
@@ -40,12 +36,6 @@ const PostCard: React.FC<Props> = () => {
   const methods = useForm({
     resolver: yupResolver(validationSchema),
   })
-  const fields = methods.watch([
-    'id',
-    'urlSmall',
-    'userName',
-    'description',
-  ])
 
   const {
     post,
@@ -59,15 +49,24 @@ const PostCard: React.FC<Props> = () => {
     removePost: state.removePost
   }))
 
-  const { data: photoDetails, refetch } = useGetPhotoDetails()
+  const photoDetails = useGetPhotoDetails()
   const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
-    methods.setValue('id', photoDetails?.id || '')
-    methods.setValue('urlSmall', photoDetails?.urls?.small || '')
-    methods.setValue('userName', photoDetails?.user?.name || '')
-    methods.setValue('description', photoDescription.description || '')
-  }, [photoDetails])
+    if (post !== null) {
+      methods.setValue('id', post.id)
+      methods.setValue('description', post.description ?? photoDescription.description)
+      methods.setValue('urlSmall', post.urlSmall)
+      methods.setValue('userName', post.userName)
+    }else{
+      methods.reset({
+        id: '',
+        urlSmall: '',
+        userName: '',
+        description: '',
+      })
+    }
+  }, [post])
 
   const onSubmit = (data: FormDataType) => {
     setLoading(true)
@@ -87,15 +86,16 @@ const PostCard: React.FC<Props> = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setPosts((prevPosts) => [...prevPosts, postPayload])
+        setPost(null)
       }
     })
     setLoading(false)
   }
 
-
   const handleRemove = (id: string) => {
     removePost(id)
-    setPost({
+    setPost(null)
+    methods.reset({
       id: '',
       urlSmall: '',
       userName: '',
@@ -103,18 +103,19 @@ const PostCard: React.FC<Props> = () => {
     })
   }
 
-  const handleSetImage = async () => {
-    try {
-      await refetch()
-      setPost({
-        id: photoDetails?.id || '',
-        urlSmall: photoDetails?.urls?.small || '',
-        userName: photoDetails?.user?.name || photoDescription.userName,
-        description: photoDescription.description || '',
-      })
-    } catch (error) {
-      const err = error as AxiosError
-      toast.error(err.message || 'Erro ao buscar imagem')
+  const handleSetImage = () => {
+    if (post === null) {
+      photoDetails.mutateAsync()
+        .then((res) => {
+          setPost({
+            id: res.id,
+            urlSmall: res.urls.small,
+            userName: res.user.name,
+            description: res.description ?? photoDescription.description,
+          })
+        }).catch((err) => {
+          console.log('err', err)
+        })
     }
   }
 
@@ -124,22 +125,16 @@ const PostCard: React.FC<Props> = () => {
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <img
-              src={
-                loading
-                  ? (
-                    <LoadingSpin color='#313131' />
-                  ) : (
-                    post?.urlSmall || logo
-                  )}
+              src={methods.watch('urlSmall') || logo}
               id="urlSmall"
               onClick={handleSetImage}
               alt="post-image"
               className="post-image"
             />
-            {post.urlSmall && (
+            {post?.urlSmall && (
               <button
                 type="button"
-                onClick={() => handleRemove(post.id)}
+                onClick={() => handleRemove(post?.id)}
                 className="trash-button"
               >
                 <TrashIcon className="w-6 h-6 " />
@@ -149,7 +144,7 @@ const PostCard: React.FC<Props> = () => {
               <input
                 type="text"
                 id="userName"
-                value={post.userName || ''}
+                {...methods.register('userName')}
                 className="post-title-input"
                 placeholder="Digite seu nome"
                 onChange={(e) => methods.setValue('userName', e.target.value)}
@@ -157,7 +152,7 @@ const PostCard: React.FC<Props> = () => {
               <input
                 type="text"
                 id="description"
-                value={post.description || ''}
+                {...methods.register('description')}
                 className="post-message"
                 placeholder="Mensagem"
                 onChange={(e) => methods.setValue('description', e.target.value)}
@@ -166,16 +161,21 @@ const PostCard: React.FC<Props> = () => {
             <CardFooter>
               <button
                 type="button"
-                onClick={() => handleRemove(post.id)}
+                onClick={() => {
+                  if (post?.urlSmall){
+                    handleRemove(post?.id)
+                  }
+                }}
                 className="remove-button"
               >
                 <u>Descartar</u>
               </button>
               <button
                 type="submit"
-                className="publish-button">
+                className={`publish-button ${post?.urlSmall ? 'active' : ''}`}
+              >
                 {loading ? (
-                  <LoadingSpin color='#313131' />
+                  'Publicando...'
                 ) : (
                   'Publicar'
                 )}

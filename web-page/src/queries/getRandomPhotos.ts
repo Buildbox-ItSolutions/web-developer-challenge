@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import api from '../../src/services/api'
 
 import { IGetPhotoDetails } from './type'
@@ -14,5 +14,8 @@ export const getPhotoDetails = async () => {
 
 
 export const useGetPhotoDetails = () => {
-  return useQuery({queryKey: ['getPhotoDetails'], queryFn: getPhotoDetails})
+  return useMutation({
+    mutationKey: ['getPhotoDetails'],
+    mutationFn: getPhotoDetails,
+  })
 }

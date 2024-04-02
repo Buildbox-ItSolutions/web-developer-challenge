@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const fadeIn = keyframes`
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+`;
+
+const fadeOut = keyframes`
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+`;
+
 
 export const Container = styled.div`
   width: 100%;
@@ -13,15 +24,11 @@ export const Container = styled.div`
   background-color: #313131;
   border: 1px solid #373737;
   position: relative;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  opacity: 1;
+  animation: ${fadeIn} 2s;
+
+  &.fade-out{
+    animation: ${fadeOut} 2s;
   }
 
   .delete-button{
@@ -52,7 +59,7 @@ export const ContainerBody = styled.div`
   img{
     width: 8rem;
     height: 8rem;
-    border-radius: 40%;
+    border-radius: 50%;
     border: 1px solid #494949;
     margin-right: 1rem;
   }

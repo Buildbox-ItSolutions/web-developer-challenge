@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled,  { keyframes }  from "styled-components";
 
+const fadeIn = keyframes`
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+`;
 
 export const Container = styled.div`
   background-color: #313131;
@@ -17,13 +21,19 @@ export const Container = styled.div`
   position: relative;
   margin-bottom: 2rem;
 
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
   .post-image{
-    border-radius: 40%;
+    border-radius: 50%;
     border: 1px solid #494949;
     cursor: pointer;
     margin: auto;
     width: 8rem;
     height: 8rem;
+    animation: ${fadeIn} 2s;
   }
   .change-image-button{
     position: absolute;
@@ -62,6 +72,7 @@ export const Content = styled.div`
     padding: 0.7rem;
     text-align: start;
     font-size: 1rem;
+    animation: ${fadeIn} 1s;
   }
   .post-message{
     outline: none;
@@ -77,6 +88,7 @@ export const Content = styled.div`
     padding: 0.5rem;
     font-size: 1rem;
     margin-bottom: 1rem;
+    animation: ${fadeIn} 1s;
   }
 `;
 
@@ -105,11 +117,11 @@ export const CardFooter = styled.div`
     width: 8rem;
     cursor: pointer;
     font-size: 1rem;
-
   }
-  .publish-button:hover{
+  .publish-button:hover,
+  .publish-button.active {
+    animation: ${fadeIn} 1s;
     background-color: #71BB00;
     color: #FFF;
   }
 `;
-
