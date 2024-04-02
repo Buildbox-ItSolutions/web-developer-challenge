@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(75,75,75,0);
+        stroke: #4b4b4b;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="photo-upload" class="cls-1">
+    <rect class="cls-2" width="88" height="88" rx="36"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="87" height="87" rx="35.5"/>
+  </g>
+</svg>
