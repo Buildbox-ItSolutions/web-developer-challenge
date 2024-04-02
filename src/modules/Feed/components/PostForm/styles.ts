@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const FormGroup = styled.div`
   background-color: #313131;
   width: 37vw;
-  height: 55vh;
+  height: 50vh;
   max-width: 570px;
   max-height: 380px;
-  gap: 8px;
+  gap: 12px;
   margin: 40px 0;
   padding: 24px 45px;
   border-radius: 3px;
@@ -22,4 +22,16 @@ export const Actions = styled.div`
   margin-top: 5%;
   display: flex;
   align-self: end;
+`;
+
+export const Footer = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+`;
+
+export const Errors = styled.div`
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  color: #e17978;
 `;

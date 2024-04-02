@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 type TextAreaStyleType = {
-  hasError: string | undefined;
+  $hasError: string | undefined;
 };
 export const TextAreaStyle = styled.textarea<TextAreaStyleType>`
   width: 100%;
@@ -9,25 +9,25 @@ export const TextAreaStyle = styled.textarea<TextAreaStyleType>`
   padding: 12px;
   border-radius: 8px;
   background-color: #494949;
-  color: #9f9f9f;
+  color: #ffffff;
+
   border: none;
   outline: none;
   line-height: 1.29;
-  font-size: 14px;
+  font-size: 0.875rem;
   resize: none;
-
+  &::placeholder {
+    color: #9f9f9f;
+  }
   + span {
-    color: red;
+    color: #e17978;
     display: block;
     font-size: 12px;
-    margin-top: -15px;
   }
 
-  ${({ hasError }) =>
-    hasError &&
+  ${({ $hasError }) =>
+    $hasError &&
     css`
-      height: calc(40px + 16px); /* Ajusta a altura do input */
-      margin-bottom: 12px;
-      border: 1px solid red; /* Adiciona espaço extra abaixo do input */
+      border: 1px solid #e17978;
     `}
 `;

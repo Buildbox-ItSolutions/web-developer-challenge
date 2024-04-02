@@ -20,5 +20,6 @@ export const FeedArea = styled.section`
     font-size: 14px;
     color: #7a7a7a;
     align-self: start;
+    font-weight: 500;
   }
 `;

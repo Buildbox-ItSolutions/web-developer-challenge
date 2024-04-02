@@ -3,20 +3,26 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Feed } from "./modules/Feed";
 import "./styles/reset.css";
+import { Layout } from "./modules/Layout";
+import { PostsProvider } from "./providers/PostsContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>Home Page</h1>,
-  },
-  {
-    path: "/feed",
-    element: <Feed />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/feed",
+        element: <Feed />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <PostsProvider>
+      <RouterProvider router={router} />
+    </PostsProvider>
   </React.StrictMode>
 );
