@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
 import {
   getContainerStyle,
@@ -79,7 +79,7 @@ const SideMenu = () => {
           Figma
         </StyledButton>
       </Box>
-      {IsFullHd && (
+      {!IsFullHd && (
         <Box>
           <Divider />
           <StyledTitle variant={2}>Dados de contato </StyledTitle>

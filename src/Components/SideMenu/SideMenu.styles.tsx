@@ -41,6 +41,11 @@ export const getContainerStyle = (
     flexDirection: "column",
     gap: 1,
   },
+  "> div:nth-of-type(3n)": {
+    display: "flex",
+    flexDirection: "column",
+    gap: 1,
+  },
 });
 
 export const getSubtitleStyle = (): SxProps => ({

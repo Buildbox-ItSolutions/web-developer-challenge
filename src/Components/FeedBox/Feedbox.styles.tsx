@@ -63,7 +63,7 @@ export const getTitleStyle = () => ({
 export const getMenuButtonStyle = () => ({
   position: "absolute",
   top: 10,
-  right: 10,
+  right: 15,
 });
 
 export const getSubtitleStyle = () => ({
