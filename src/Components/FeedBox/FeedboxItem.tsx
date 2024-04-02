@@ -18,7 +18,10 @@ import { GrLike } from "react-icons/gr";
 import Avatar from "../../assets/images/Avatar.png";
 
 const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
-  ({ name, text, profileImage, uploadedImage, ...props }, ref) => {
+  (
+    { name, text, profileImage, uploadedImage, handleRemoveItem, ...props },
+    ref
+  ) => {
     return (
       <Box sx={getContainerStyle} {...props}>
         <Box>
@@ -26,7 +29,7 @@ const FeedboxItem = React.forwardRef<HTMLDivElement, FeedboxProps>(
             <img alt="" src={profileImage ? `${profileImage}` : `${Avatar}`} />
           </Box>
           <Typography sx={getTitleStyle}>{name}</Typography>
-          <IconButton sx={getMenuButtonStyle}>
+          <IconButton sx={getMenuButtonStyle} onClick={handleRemoveItem}>
             <RiMoreLine />
           </IconButton>
         </Box>

@@ -23,12 +23,20 @@ const Home = () => {
     localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
 
+  const handleRemoveItem = () => {
+    const updatedItems = [...postList];
+    updatedItems.pop();
+    setPostList(updatedItems);
+  };
+
+  console.log(postList);
+
   return (
     <Box sx={getContainerStyle()}>
       <SideMenu />
       <Box>
         <ShareBox setPostList={setPostList} />
-        <Feedbox postList={postList} />
+        <Feedbox postList={postList} handleRemoveItem={handleRemoveItem} />
       </Box>
     </Box>
   );

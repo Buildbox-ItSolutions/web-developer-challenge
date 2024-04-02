@@ -43,8 +43,6 @@ const SideMenu = () => {
 
   window.onresize = detectWindowSize;
 
-  console.log(IsFullHd);
-
   return (
     <Box sx={getContainerStyle(headIsOut)}>
       <Box>
