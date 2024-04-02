@@ -1,3 +1,7 @@
-export default function () {
-    return <></>
+import Post from "./conponents/post";
+
+export default function Feed() {
+    return <>
+        <Post />
+    </>
 }

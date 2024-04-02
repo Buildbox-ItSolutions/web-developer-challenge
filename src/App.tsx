@@ -1,5 +1,7 @@
 import { PostContextProvider } from "./contexts/postContext";
+import Feed from "./sections/feed";
 import NewPost from "./sections/newPost";
+import { AppContainer, AppContent } from "./styles";
 
 
 function App() {
@@ -7,9 +9,12 @@ function App() {
 
   return (
     <PostContextProvider>
-      <div style={{width: '100vw', display: 'flex', justifyContent: 'center'}}>
-        <NewPost />
-      </div>
+      <AppContainer>
+        <AppContent>
+          <NewPost />
+          <Feed />
+        </AppContent>
+      </AppContainer>
     </PostContextProvider>
   )
 }
