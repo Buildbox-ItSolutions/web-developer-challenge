@@ -12,15 +12,44 @@ export const Container = styled.div`
   display: flex;
   position: relative;
   gap: 32px;
+  background-color: #313131;
+
+  @media (screen: 516px) {
+    width: 516px;
+    margin: 0 auto;
+    padding-top: 56px;
+    margin-bottom: 16px;
+  }
 `;
-export const BotaoRemover = styled.img`
-  width: 20px;
-  height: 20px;
+export const BotaoRemover = styled.button`
+  width: 23px;
+  height: 23px;
   position: absolute;
   right: 12px;
   top: 12px;
   object-fit: contain;
+  background-color: #313131;
+  border: none;
+
+  img {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
 `;
+
+// export const RemoverIcone = styled.img`
+//   width: 20px;
+//   height: 20px;
+//   position: absolute;
+//   right: 12px;
+//   top: 12px;
+//   object-fit: contain;
+
+// `;
 
 export const ConteudoPost = styled.div`
   display: flex;
