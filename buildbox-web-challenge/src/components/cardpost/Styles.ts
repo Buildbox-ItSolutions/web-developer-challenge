@@ -18,6 +18,9 @@ export const Container = styled.div`
 `;
 
 export const ContainerFoto = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 88px;
     height: 88px;
     margin: 0 8px 16px 190px;
@@ -28,10 +31,12 @@ export const ContainerFoto = styled.div`
     background-color: rgba(75, 75, 75, 0);
 
     @media (max-width: 400px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 44px;
         height: 44px;
         margin: 0 auto;
-        padding: 32px;
         object-fit: contain;
         border-radius: 36px;
         border: solid 1px #4b4b4b;
@@ -43,17 +48,25 @@ export const Foto = styled.img`
     width: 24px;
     height: 24px;
     object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 400px) {
         width: 20px;
         height: 20px;
-        margin-bottom: 50px;
     }
 `;
 
 export const Campos = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    @media (max-width: 400px) {
+        padding: 0 0.5rem 0 0;
+    }
 `;
 
 export const Nome = styled.input`
@@ -68,21 +81,24 @@ export const Nome = styled.input`
     font-size: 14px;
     font-weight: normal;
     outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 400px) {
         width: 300px;
         height: 35px;
-        margin: 16px auto 8px;
-        padding: 12px 1rem 12px 1rem;
+        /* margin: 16px auto 8px; */
+        /* padding: 12px 1rem 12px 1rem; */
     }
 `;
 
 export const Mensagem = styled.textarea`
     width: 468px;
     height: 80px;
-    margin: 8px 0 32px;
+    margin: 8px 0 12px;
     text-align: left;
-    padding: 12px 1rem 2.7rem 1rem;
+    padding: 12px 1rem 0 1rem;
     border-radius: 8px;
     background-color: #494949;
     color: #9f9f9f;
@@ -93,7 +109,7 @@ export const Mensagem = styled.textarea`
 
     @media (max-width: 400px) {
         width: 300px;
-        height: 35px;
+        height: 50px;
         scroll: hidden;
     }
 `;

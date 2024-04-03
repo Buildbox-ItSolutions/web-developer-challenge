@@ -56,7 +56,7 @@ const CardPost = () => {
                 <Foto src={PhotoUpload} alt="" />
             </ContainerFoto>
             <Campos>
-                <Nome type="text" value={nome} onChange={handleNomeChange} placeholder="Digite seu nome" />
+                <Nome value={nome} onChange={handleNomeChange} placeholder="Digite seu nome" />
                 <Mensagem value={mensagem} onChange={handleMensagemChange} rows={4} placeholder="Mensagem" />
             </Campos>
             <CardPostButtons onSubmit={handleSubmit} onDiscard={handleDiscard} />
