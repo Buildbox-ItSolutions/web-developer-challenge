@@ -1,5 +1,5 @@
 interface ICardFeed {
-    id: string | number;
+    id: string;
     foto: string;
     texto: string;
     autor: string;
