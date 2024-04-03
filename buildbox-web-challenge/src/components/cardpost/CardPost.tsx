@@ -17,7 +17,7 @@ const CardPost = () => {
     };
 
     const handleSubmit = async () => {
-        const novoId = Math.floor(Math.random() * 1000000);
+        const novoId = Math.floor(Math.random() * 1000000).toString();
         const novoPost = {
             id: novoId,
             foto: fotoExemplo,
