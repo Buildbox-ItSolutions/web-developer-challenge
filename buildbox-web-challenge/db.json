@@ -1,28 +1,16 @@
 {
   "posts": [
     {
-      "id": "1",
-      "foto": "./src/assets/photo-base@3x.png",
-      "texto": "Este é o texto da primeira postagem.",
-      "autor": "Autor 1"
+      "id": "423626",
+      "foto": "/src/assets/photo-base@3x.png",
+      "texto": "Aqui vai um exemplo de post criado pelo frontend",
+      "autor": "Marcos"
     },
     {
-      "id": "2",
-      "foto": "./src/assets/photo-base@3x.png",
-      "texto": "Este é o texto da segunda postagem.",
-      "autor": "Autor 2"
-    },
-    {
-      "id": "3",
-      "foto": "./src/assets/photo-base@3x.png",
-      "texto": "Este é o texto da terceira postagem.",
-      "autor": "Autor 3"
-    },
-    {
-      "id": 747858,
-      "foto": "/src/assets/image@3x.png",
-      "texto": "Mensagem de exemplo do post",
-      "autor": "Teste post"
+      "id": "546932",
+      "foto": "/src/assets/photo-base@3x.png",
+      "texto": "Esse projeto está ficando bom demais kkkkk",
+      "autor": "Jess"
     }
   ]
 }
