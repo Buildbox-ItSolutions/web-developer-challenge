@@ -13,4 +13,8 @@ export const Titulo = styled.span`
     letter-spacing: normal;
     text-align: left;
     color: #7a7a7a;
+
+    @media (max-width: 516px) {
+        margin: 0 0 0 1rem;
+    }
 `;
