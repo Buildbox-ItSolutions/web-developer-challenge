@@ -1,15 +1,14 @@
 import CardPost from '../components/cardpost/CardPost'
 import Feed from '../components/feed/Feed'
 import Header from '../components/header/Header'
-import { Container } from './Styles'
-import dbData from '../../db.json';
+import { Container } from './Styles';
 
 const Home = () => {
   return (
     <Container>
       <Header />
       <CardPost />
-      <Feed data={dbData}/>
+      <Feed />
     </Container>
   )
 }
