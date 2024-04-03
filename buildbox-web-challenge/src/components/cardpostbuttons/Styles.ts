@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Botoes = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
-    padding-bottom: 12px;
-    margin-bottom: 20px;
+    /* padding-bottom: 12px;
+    margin-bottom: 20px; */
 `;
 
 export const Publicar = styled.button`
