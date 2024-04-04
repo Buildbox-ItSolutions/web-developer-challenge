@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
+import { act } from 'react-dom/test-utils';
 
 import Form from '../Form';
+import { useForm } from '../Form/hooks/useForm';
 
 describe('Form Component', () => {
 	beforeEach(() => {
@@ -29,5 +32,37 @@ describe('Form Component', () => {
 	it('should have a "publish" button', () => {
 		const publishButton = screen.getByTestId('publish-button');
 		expect(publishButton).toBeInTheDocument();
+	});
+});
+
+describe('useForm hook', () => {
+	it('should update state values correctly', () => {
+		const { result } = renderHook(() => useForm());
+
+		act(() => {
+			result.current.setImage('test-image');
+			result.current.setName('test-name');
+			result.current.setMessage('test-message');
+		});
+
+		expect(result.current.image).toBe('test-image');
+		expect(result.current.name).toBe('test-name');
+		expect(result.current.message).toBe('test-message');
+	});
+
+	it('should reset state values when discard is called', () => {
+		const { result } = renderHook(() => useForm());
+
+		act(() => {
+			result.current.setImage('test-image');
+			result.current.setName('test-name');
+			result.current.setMessage('test-message');
+			// @ts-expect-error discard does not require all types of MouseEvent
+			result.current.discard({ preventDefault: () => {} });
+		});
+
+		expect(result.current.image).toBe('');
+		expect(result.current.name).toBe('');
+		expect(result.current.message).toBe('');
 	});
 });
