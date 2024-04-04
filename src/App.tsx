@@ -5,6 +5,8 @@ import { Header } from "./components/Header"
 import { Form } from "./components/Form"
 import { Post } from "./components/Post"
 
+
+
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -12,7 +14,7 @@ export function App() {
 
       <Form />
 
-      <Post />
+      <Post publishedAt={new Date()}/>
 
       <GlobalStyle />
     </ThemeProvider>

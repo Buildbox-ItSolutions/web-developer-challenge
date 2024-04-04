@@ -5,7 +5,9 @@ export function Form() {
   return (
     <FormContainer>
       <div className="photo-container">
-        <Image size={30} />
+        <div className="img-post-button">
+          <Image size={30} />
+        </div>
         <TrashSimple size={24} />
       </div>
       <div className="input-container">

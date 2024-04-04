@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const PostContainer = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
   gap: 2rem;
 
   margin: 3.5rem auto 0;
@@ -19,16 +18,43 @@ export const PostContainer = styled.div`
 
   background-color: ${props => props.theme["bg-post"]};
 
+  .post-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+
+    border-radius: 36px;
+    border: 1px solid ${props => props.theme["border-post"]};
+  }
+
+  .time {
+    margin-bottom: 1rem;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.29px;
+
+    color: ${props => props.theme["post-h5"]};
+  }
+
   p {
     font-size: 1rem;
     line-height: 20px;
 
+    width: 100%;
+    max-width: 21.75rem;
+
     color: ${props => props.theme["post-text"]};
+  }
+
+  .footer-post {
+    padding-top: 1.5rem;
   }
   
   h5 {
-    padding-top: 1.5rem;
-
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.6;

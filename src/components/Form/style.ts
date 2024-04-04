@@ -20,7 +20,22 @@ export const FormContainer = styled.form`
   .photo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+  }
+
+  .img-post-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+
+    cursor: pointer;
+
+    border-radius: 36px;
+    border: 1px solid ${props => props.theme["border-post"]};
+
   }
 
   svg:nth-child(2) {
