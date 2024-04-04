@@ -89,6 +89,7 @@ export const ButtonContainer = styled.div`
 
   a {
     font-size: 0.875rem;
+    cursor: pointer;
 
     transition: 0.2s ease-in-out;
 

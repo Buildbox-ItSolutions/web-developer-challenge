@@ -10,7 +10,12 @@ export function Form( { onPostAdd }:FormProps ) {
   const [newNamePost, setNewNamePost] = useState('')
   const [newCommentPost, setNewCommentPost] = useState('')
 
-  const isNewPostEmpty = newNamePost.length === 0 || newCommentPost.length === 0
+  const isNewPostEmpty = newNamePost.length === 0 || newCommentPost.length === 0;
+
+  function handleCleanFormData() {
+    setNewNamePost('')
+    setNewCommentPost('')
+  }
 
   function handleCreateNewPost(event: FormEvent) {
     event.preventDefault()
@@ -51,7 +56,7 @@ export function Form( { onPostAdd }:FormProps ) {
         </div>
       </div>
       <ButtonContainer>
-        <a href="">Descartar</a>
+        <a onClick={handleCleanFormData}>Descartar</a>
         <button type="submit" disabled={isNewPostEmpty}>Publicar</button>
       </ButtonContainer>
       
