@@ -10,7 +10,7 @@ describe('Header Component', () => {
 	});
 
 	it('should have a "src" attribute', () => {
-		expect(img).toHaveAttribute('src', '/src/assets/bx-logo.svg');
+		expect(img).toHaveAttribute('src', '/src/assets/images/bx-logo.svg');
 	});
 
 	it('should have a "alt" attribute', () => {
