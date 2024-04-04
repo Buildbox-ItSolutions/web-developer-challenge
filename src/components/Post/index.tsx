@@ -1,3 +1,6 @@
+import { format, formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale/pt-BR'
+
 import { X } from "@phosphor-icons/react";
 import { PostContainer } from "./style";
 
@@ -6,12 +9,14 @@ interface PostProps {
 }
 
 export function Post( { publishedAt }:PostProps) {
-  const publishedDateFormatted = new Intl.DateTimeFormat('pt-BR', {
-    day: '2-digit',
-    month: 'long',
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(publishedAt)
+  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH'h'mm", {
+    locale: ptBR,
+  })
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  })
 
   return (
     <PostContainer>
@@ -20,7 +25,7 @@ export function Post( { publishedAt }:PostProps) {
       </div>
       <div>
         <div className="time">
-          <time title="4 de fevereiro às 10:15" dateTime="2024-02-04 10:15:45" >{publishedDateFormatted}</time>
+          <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
         </div>
         <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, in reiciendis voluptatum cupiditate optio quidem nesciunt maiores, cumque, ut sint autem. Accusamus facilis nesciunt ullam illum, deserunt incidunt. Consectetur, dicta!
