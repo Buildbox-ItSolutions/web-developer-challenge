@@ -6,12 +6,13 @@ interface PostProps {
 	message: string;
 	author: string;
 	uuid: string;
+	handleClick: () => void;
 }
 
-function Post({ image, author, message }: PostProps) {
+function Post({ image, author, message, handleClick }: PostProps) {
 	return (
 		<article>
-			<button data-testid="delete-button">
+			<button data-testid="delete-button" onClick={handleClick}>
 				<img src={deleteIcon} alt="red X surrounded by a red circle" />
 			</button>
 			<img src={image} data-testid="image-post" />
