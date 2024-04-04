@@ -17,6 +17,7 @@ describe('Post Component', () => {
 				message={postMock.message}
 				image={postMock.image}
 				uuid={postMock.id}
+				handleClick={() => {}}
 			/>
 		);
 	});
