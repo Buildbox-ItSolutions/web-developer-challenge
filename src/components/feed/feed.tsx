@@ -55,37 +55,35 @@ export const FeedPosts = () => {
             </S.DivFeed>
 
             {post.length > 0 && post.map((item) => {
-    console.log("Post:", post);
-    console.log("Item:", item);
 
-    return (
-        <S.PostIncluded key={item.id}>
-            <S.DivIcon>
-                <ButtonClosed onClick={() => deletePost(item.id)}>
-                    <DeleteIcon />
-                </ButtonClosed>
-            </S.DivIcon>
-            <S.CardDiv>
-                <S.DivImage>
-                    {item.imageIndex !== undefined && (
-                        <ImageComponentCard src={images[item.imageIndex].url} alt="Imagem aleatória/ Random image" />
-                    )}
-                </S.DivImage>
+                return (
+                    <S.PostIncluded key={item.id}>
+                        <S.DivIcon>
+                            <ButtonClosed onClick={() => deletePost(item.id)}>
+                                <DeleteIcon />
+                            </ButtonClosed>
+                        </S.DivIcon>
+                        <S.CardDiv>
+                            <S.DivImage>
+                                {item.imageIndex !== undefined && (
+                                    <ImageComponentCard src={images[item.imageIndex].url} alt="Imagem aleatória/ Random image" />
+                                )}
+                            </S.DivImage>
 
-                <S.DivInformation>
-                    <MesageParagraph>
-                        {item.message}
-                    </MesageParagraph>
-                    <WhoParagraph>
-                        Enviado por: 
-                    </WhoParagraph>
-                    <NameParagraph>
-                        {item.name}
-                    </NameParagraph>
-                </S.DivInformation>
-            </S.CardDiv>
-        </S.PostIncluded>
-    );
+                            <S.DivInformation>
+                                <MesageParagraph>
+                                    {item.message}
+                                </MesageParagraph>
+                                <WhoParagraph>
+                                    Enviado por: 
+                                </WhoParagraph>
+                                <NameParagraph>
+                                    {item.name}
+                                </NameParagraph>
+                            </S.DivInformation>
+                        </S.CardDiv>
+                    </S.PostIncluded>
+                );
 })}
         </>
     )

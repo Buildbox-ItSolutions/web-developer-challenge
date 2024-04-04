@@ -25,7 +25,6 @@ export const usePost = () => {
         const updatedPost: Post[] = [...post, newPost];
         setPost(updatedPost);
     
-        // Atualizar o currentImageIndex para a próxima imagem
         const nextImageIndex = (currentImageIndex + 1) % images.length;
         setCurrentImageIndex(nextImageIndex);
     }
