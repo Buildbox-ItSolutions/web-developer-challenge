@@ -32,7 +32,9 @@ export function Form( { onPostAdd }:FormProps ) {
         <div className="img-post-button">
           <Image size={30} />
         </div>
-        <TrashSimple size={24} />
+        <div className="delete-photo">
+          <TrashSimple size={24} />
+        </div>
       </div>
       <div className="input-container">
         <div className="label-wrapper">

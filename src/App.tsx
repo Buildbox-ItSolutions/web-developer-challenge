@@ -33,7 +33,7 @@ export function App() {
             </p>
           </section>
         ) : (
-          <section className="teste">
+          <section className="with-post">
             <h3>Feed</h3>  
           <div className="post-area">
             {posts.map((post, index) => (
@@ -61,9 +61,14 @@ const ContentContainer = styled.section`
   justify-content: center;
 
   .not-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
     width: 32.5rem;
     max-width: 100%;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     /* margin: 5rem auto 0; */
 
     text-align: center;
@@ -80,7 +85,7 @@ const ContentContainer = styled.section`
     
   }
 
-  .teste > h3 {
+  .with-post > h3 {
     width: 32.5rem;
     max-width: 100%;
 

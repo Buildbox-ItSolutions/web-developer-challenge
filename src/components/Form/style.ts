@@ -23,6 +23,8 @@ export const FormContainer = styled.form`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
+    color: ${props => props.theme["border-post"]};
   }
 
   .img-post-button {
@@ -39,10 +41,15 @@ export const FormContainer = styled.form`
 
   }
 
-  svg:nth-child(2) {
+  .delete-photo {
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 
     color: ${props => props.theme["orange"]};
+
+    &:hover {
+      color: ${props => props.theme["hover-orange"]};
+    }
   }
 
   .input-container {
