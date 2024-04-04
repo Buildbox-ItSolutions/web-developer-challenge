@@ -1,4 +1,3 @@
-import React from 'react';
 import './Header.css';
 import BxLogo from '../../assets/bx-logo.svg';
 
