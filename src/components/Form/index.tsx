@@ -1,9 +1,28 @@
 import { Image, TrashSimple } from "@phosphor-icons/react";
 import { ButtonContainer, FormContainer } from "./style";
+import { FormEvent, useState } from "react";
 
-export function Form() {
+interface FormProps {
+  onPostAdd: (name: string, comment: string) => void;
+}
+
+export function Form( { onPostAdd }:FormProps ) {
+  const [newNamePost, setNewNamePost] = useState('')
+  const [newCommentPost, setNewCommentPost] = useState('')
+
+  const isNewPostEmpty = newNamePost.length === 0 || newCommentPost.length === 0
+
+  function handleCreateNewPost(event: FormEvent) {
+    event.preventDefault()
+
+    onPostAdd(newNamePost, newCommentPost);
+
+    setNewNamePost('')
+    setNewCommentPost('')
+  }
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleCreateNewPost}>
       <div className="photo-container">
         <div className="img-post-button">
           <Image size={30} />
@@ -13,16 +32,27 @@ export function Form() {
       <div className="input-container">
         <div className="label-wrapper">
           <label htmlFor="name">Digite seu nome</label>
-          <input type="text" id="name" placeholder="Digite seu nome" />
+          <input
+            type="text"
+            id="name"
+            placeholder="Digite seu nome"
+            value={newNamePost}
+            onChange={(e) => setNewNamePost(e.target.value)}
+          />
         </div>
         <div className="label-wrapper">
           <label htmlFor="message">Digite seu nome</label>
-          <textarea id="message" placeholder="Mensagem" />
+          <textarea
+            id="message"
+            placeholder="Mensagem"
+            value={newCommentPost}
+            onChange={(e) => setNewCommentPost(e.target.value)}
+          />
         </div>
       </div>
       <ButtonContainer>
         <a href="">Descartar</a>
-        <button>Publicar</button>
+        <button type="submit" disabled={isNewPostEmpty}>Publicar</button>
       </ButtonContainer>
       
     </FormContainer>

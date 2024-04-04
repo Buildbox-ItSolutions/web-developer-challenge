@@ -6,7 +6,7 @@ export const PostContainer = styled.div`
   align-items: start;
   gap: 2rem;
 
-  margin: 3.5rem auto 0;
+  /* margin: 0 auto; */
   padding: 3.5rem 1.5rem 2rem;
 
   width: 32.5rem;

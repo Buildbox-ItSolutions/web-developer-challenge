@@ -7,7 +7,8 @@ export const FormContainer = styled.form`
   align-items: center;
   gap: 1rem;
 
-  margin: 2.5rem auto 0;
+  margin-top: 2.5rem;
+  /* margin: 2.5rem auto 0; */
   padding: 1.5rem;
   width: 32.5rem;
   max-width: 100%;
@@ -113,8 +114,13 @@ export const ButtonContainer = styled.div`
     color: ${props => props.theme.white};
     background-color: ${props => props.theme["bg-button"]};
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: ${props => props.theme["hover-button"]};
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 `
