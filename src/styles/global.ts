@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    padding-bottom: 10.625rem;
+
     color: ${props => props.theme.white};
     background-color: ${props => props.theme["background"]};
   }
