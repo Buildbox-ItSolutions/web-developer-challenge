@@ -34,11 +34,19 @@ export const FormContainer = styled.form`
     width: 5.5rem;
     height: 5.5rem;
 
+    overflow: hidden;
+
     cursor: pointer;
 
     border-radius: 36px;
     border: 1px solid ${props => props.theme["border-post"]};
 
+  }
+
+  .img-url {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .delete-photo {

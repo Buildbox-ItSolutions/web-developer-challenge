@@ -7,10 +7,11 @@ import { PostContainer } from "./style";
 interface PostProps {
   name: string;
   comment: string
+  imageUrl: string | null;
   publishedAt: Date;
 }
 
-export function Post( { name, comment, publishedAt }:PostProps) {
+export function Post( { name, comment, imageUrl, publishedAt }:PostProps) {
   const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH'h'mm", {
     locale: ptBR,
   })
@@ -22,9 +23,11 @@ export function Post( { name, comment, publishedAt }:PostProps) {
 
   return (
     <PostContainer>
-      <div className="post-img">
-        imagem
-      </div>
+      {imageUrl && (
+        <div className="post-img-container">
+          <img className='post-img' src={imageUrl} alt='oi'/>
+        </div>
+      )}
       <div>
         <div className="time">
           <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>

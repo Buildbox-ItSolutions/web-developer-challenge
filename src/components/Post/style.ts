@@ -18,15 +18,24 @@ export const PostContainer = styled.div`
 
   background-color: ${props => props.theme["bg-post"]};
 
-  .post-img {
+  .post-img-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 5.5rem;
     height: 5.5rem;
 
+    overflow: hidden;
+    object-fit: cover;
+
     border-radius: 36px;
     border: 1px solid ${props => props.theme["border-post"]};
+  }
+
+  .post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .time {

@@ -10,10 +10,11 @@ import { Note } from "@phosphor-icons/react"
 
 
 export function App() {
-  const [posts, setPosts] = useState<{ name: string; comment: string; date: Date }[]>([])
+  const [posts, setPosts] = useState<{ name: string; comment: string; imageUrl: string | null; date: Date }[]>([])
 
-  const handleAddPost = (name: string, comment: string) => {
-    const newPost = {name, comment, date: new Date() };
+  const handleAddPost = (name: string, comment: string, image: File | null) => {
+    const imageUrl = image ? URL.createObjectURL(image) : null;
+    const newPost = {name, comment, imageUrl, date: new Date() };
     setPosts([...posts, newPost])
   }
 
@@ -41,6 +42,7 @@ export function App() {
                 key={index}
                 name={post.name}
                 comment={post.comment}
+                imageUrl={post.imageUrl}
                 publishedAt={new Date()}
               />
             ))}
