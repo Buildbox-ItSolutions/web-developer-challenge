@@ -1,5 +1,5 @@
 import './Header.css';
-import BxLogo from '../../assets/bx-logo.svg';
+import BxLogo from '../../assets/images/bx-logo.svg';
 
 function Header() {
 	return (
