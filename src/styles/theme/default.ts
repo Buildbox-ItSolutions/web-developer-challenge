@@ -20,4 +20,6 @@ export const defaultTheme = {
   'cancel-text': '#5f5f5f',
 
   'orange': '#CD5724',
+  'hover-orange': '#ed6f39',
+
 }

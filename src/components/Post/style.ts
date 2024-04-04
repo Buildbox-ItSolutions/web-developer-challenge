@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const PostContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,5 +43,33 @@ export const PostContainer = styled.div`
     line-height: 18px;
 
     color: ${props => props.theme["post-name"]};
+  }
+
+  .x-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 4px;
+
+    border: 1px solid ${props => props.theme.orange};
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: 0.3s ease-in-out;
+
+    color: ${props => props.theme.orange};
+
+    &:hover {
+      border: 1px solid ${props => props.theme["hover-orange"]};
+      color: ${props => props.theme["hover-orange"]};
+    }
   }
 `

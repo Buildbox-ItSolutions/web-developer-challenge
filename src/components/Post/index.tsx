@@ -1,3 +1,4 @@
+import { X } from "@phosphor-icons/react";
 import { PostContainer } from "./style";
 
 export function Post() {
@@ -12,6 +13,9 @@ export function Post() {
         </p>
         <h5>Enviado por</h5>
         <h3>Manuela Oliveira</h3>
+      </div>
+      <div className="x-btn">
+        <X />
       </div>
     </PostContainer>
   )
