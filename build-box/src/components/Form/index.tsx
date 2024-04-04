@@ -1,15 +1,15 @@
 import './Form.css';
-import photograph from '../../assets/photograph.svg';
+import photograph from '../../assets/images/photograph.svg';
 import { useForm } from './hooks/useForm';
 
 function Form() {
 	const {
 		image,
 		message,
-		name,
+		author,
 		setImage,
 		setMessage,
-		setName,
+		setAuthor,
 		discard,
 		publish,
 	} = useForm();
@@ -23,16 +23,17 @@ function Form() {
 					data-testid="image-input"
 					onChange={({ target: { value } }) => setImage(value)}
 					value={image}
+					hidden
 				/>
-				<img src={photograph} alt="" />
+				<img src={photograph} alt="square with two mountains and a sun drawn" />
 			</label>
-			<label htmlFor="name-input">
+			<label htmlFor="author-input">
 				<input
 					type="text"
-					id="name-input"
-					data-testid="name-input"
-					onChange={({ target: { value } }) => setName(value)}
-					value={name}
+					id="author-input"
+					data-testid="author-input"
+					onChange={({ target: { value } }) => setAuthor(value)}
+					value={author}
 				/>
 			</label>
 			<label htmlFor="message-input">

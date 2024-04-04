@@ -14,9 +14,9 @@ describe('Form Component', () => {
 		expect(imageInput).toBeInTheDocument();
 	});
 
-	it('should have a "name" input field', () => {
-		const nameInput = screen.getByTestId('name-input');
-		expect(nameInput).toBeInTheDocument();
+	it('should have a "author" input field', () => {
+		const authorInput = screen.getByTestId('author-input');
+		expect(authorInput).toBeInTheDocument();
 	});
 
 	it('should have a "message" input field', () => {
@@ -41,12 +41,12 @@ describe('useForm hook', () => {
 
 		act(() => {
 			result.current.setImage('test-image');
-			result.current.setName('test-name');
+			result.current.setAuthor('test-author');
 			result.current.setMessage('test-message');
 		});
 
 		expect(result.current.image).toBe('test-image');
-		expect(result.current.name).toBe('test-name');
+		expect(result.current.author).toBe('test-author');
 		expect(result.current.message).toBe('test-message');
 	});
 
@@ -55,14 +55,14 @@ describe('useForm hook', () => {
 
 		act(() => {
 			result.current.setImage('test-image');
-			result.current.setName('test-name');
+			result.current.setAuthor('test-author');
 			result.current.setMessage('test-message');
 			// @ts-expect-error discard does not require all types of MouseEvent
 			result.current.discard({ preventDefault: () => {} });
 		});
 
 		expect(result.current.image).toBe('');
-		expect(result.current.name).toBe('');
+		expect(result.current.author).toBe('');
 		expect(result.current.message).toBe('');
 	});
 });

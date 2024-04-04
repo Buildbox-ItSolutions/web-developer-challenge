@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 export function useForm() {
 	const [image, setImage] = useState('');
-	const [name, setName] = useState('');
+	const [author, setAuthor] = useState('');
 	const [message, setMessage] = useState('');
 
 	function discard(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		e.preventDefault();
 		setImage('');
-		setName('');
+		setAuthor('');
 		setMessage('');
 	}
 
@@ -20,8 +20,8 @@ export function useForm() {
 	return {
 		image,
 		setImage,
-		name,
-		setName,
+		author,
+		setAuthor,
 		message,
 		setMessage,
 		discard,
