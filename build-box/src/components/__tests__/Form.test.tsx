@@ -65,4 +65,38 @@ describe('useForm hook', () => {
 		expect(result.current.author).toBe('');
 		expect(result.current.message).toBe('');
 	});
+
+	it('should set image state when handleImage is called', async () => {
+		const { result } = renderHook(() => useForm());
+
+		await act(async () => {
+			const fileList: FileList = {
+				0: new File(['(⌐□_□)'], 'chucknorris.png', {
+					type: 'image/png',
+				}),
+				length: 1,
+				item: () => null,
+				[Symbol.iterator]: function* () {
+					yield this[0];
+				},
+			};
+			return result.current.handleImage(fileList);
+		});
+
+		setTimeout(() => {
+			expect(result.current.image).resolves.toBe(
+				'data:image/png;base64,KEludGVybmV0IFBhZ2UgJygpXHJcbik='
+			);
+		}, 1500);
+	});
+
+	it('should set image state to empty string when handleImage is called without files', () => {
+		const { result } = renderHook(() => useForm());
+
+		act(() => {
+			result.current.handleImage(null);
+		});
+
+		expect(result.current.image).toBe('');
+	});
 });
