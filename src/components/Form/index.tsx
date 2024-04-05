@@ -11,6 +11,7 @@ export function Form( { onPostAdd }:FormProps ) {
   const [newCommentPost, setNewCommentPost] = useState('')
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [imageUrl, setImageUrl] = useState<string | null>(null)
+  const [fileDialogOpened, setFileDialogOpened] = useState(false)
   const inputFileRef = useRef<HTMLInputElement>(null)
 
   const isNewPostEmpty = newNamePost.length === 0 || newCommentPost.length === 0;
@@ -30,6 +31,7 @@ export function Form( { onPostAdd }:FormProps ) {
       setSelectedImage(selectedFile)
       const imageUrl = URL.createObjectURL(selectedFile)
       setImageUrl(imageUrl)
+      setFileDialogOpened(false)
     } 
   } 
 
@@ -53,8 +55,9 @@ export function Form( { onPostAdd }:FormProps ) {
     }
   }
 
-  function handleSelectPhoto() {
-    if (inputFileRef.current) {
+  function handleSelectPhoto(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    if (!fileDialogOpened && !imageUrl && inputFileRef.current && event.target !== inputFileRef.current) {
+      setFileDialogOpened(true)
       inputFileRef.current.click()
     }
   }
@@ -63,9 +66,11 @@ export function Form( { onPostAdd }:FormProps ) {
     <FormContainer onSubmit={handleCreateNewPost}>
       <div className="photo-container">
         <div className="img-post-button" onClick={handleSelectPhoto}>
-          <label htmlFor="imageUpload">
-            <Image size={30} />
-          </label>
+          {!imageUrl && (
+            <label htmlFor="imageUpload">
+              <Image size={30} />
+            </label>
+          )}
           <input
             ref={inputFileRef}
             id="imageUpload"

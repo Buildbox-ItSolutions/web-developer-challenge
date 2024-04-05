@@ -9,9 +9,10 @@ interface PostProps {
   comment: string
   imageUrl: string | null;
   publishedAt: Date;
+  onDelete: () => void;
 }
 
-export function Post( { name, comment, imageUrl, publishedAt }:PostProps) {
+export function Post( { name, comment, imageUrl, publishedAt, onDelete }:PostProps) {
   const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH'h'mm", {
     locale: ptBR,
   })
@@ -21,11 +22,15 @@ export function Post( { name, comment, imageUrl, publishedAt }:PostProps) {
     addSuffix: true,
   })
 
+  const handleDeletePost = () => {
+    onDelete()
+  }
+
   return (
     <PostContainer>
       {imageUrl && (
         <div className="post-img-container">
-          <img className='post-img' src={imageUrl} alt='oi'/>
+          <img className='post-img' src={imageUrl} />
         </div>
       )}
       <div>
@@ -40,7 +45,7 @@ export function Post( { name, comment, imageUrl, publishedAt }:PostProps) {
           <h3>{name}</h3>
         </div>
       </div>
-      <div className="x-btn">
+      <div className="x-btn" onClick={handleDeletePost}>
         <X />
       </div>
     </PostContainer>

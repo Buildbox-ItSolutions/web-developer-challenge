@@ -10,12 +10,18 @@ import { Note } from "@phosphor-icons/react"
 
 
 export function App() {
-  const [posts, setPosts] = useState<{ name: string; comment: string; imageUrl: string | null; date: Date }[]>([])
+  const [posts, setPosts] = useState<{ id:number; name: string; comment: string; imageUrl: string | null; date: Date }[]>([])
+  const [postIdCounter, setPostIdCounter] = useState(0)
 
   const handleAddPost = (name: string, comment: string, image: File | null) => {
     const imageUrl = image ? URL.createObjectURL(image) : null;
-    const newPost = {name, comment, imageUrl, date: new Date() };
+    const newPost = { id: postIdCounter, name, comment, imageUrl, date: new Date() };
     setPosts([...posts, newPost])
+    setPostIdCounter(postIdCounter + 1)
+  }
+
+  const handleDeletePost = (postId: number) => {
+    setPosts(posts.filter(post => post.id !== postId))
   }
 
   return (
@@ -44,6 +50,7 @@ export function App() {
                 comment={post.comment}
                 imageUrl={post.imageUrl}
                 publishedAt={new Date()}
+                onDelete={() => handleDeletePost(post.id)}
               />
             ))}
           </div>
