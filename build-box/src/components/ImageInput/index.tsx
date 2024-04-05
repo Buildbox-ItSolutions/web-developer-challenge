@@ -53,7 +53,16 @@ function Header({
 						alt="square with two mountains and a sun drawn"
 					/>
 				) : (
-					<StylizedImage src={image} alt="" />
+					<img
+						src={image}
+						style={{
+							width: '88px',
+							height: '88px',
+							borderRadius: '36px',
+							objectFit: 'cover',
+						}}
+						alt="Preview"
+					/>
 				)}
 			</StylizedLabel>
 		</StylizedContainer>
