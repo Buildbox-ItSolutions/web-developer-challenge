@@ -72,9 +72,11 @@ export function Form( { onPostAdd }:FormProps ) {
             <img className="img-url" src={imageUrl} alt="Imagem selecionada" />
           )}
         </div>
+        {imageUrl && (
         <div onClick={handleDeletePhoto} className="delete-photo">
           <TrashSimple size={24} />
         </div>
+        )}
       </div>
       <div className="input-container">
         <div className="label-wrapper">
