@@ -47,13 +47,18 @@ export const FormContainer = styled.form`
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    /* background-color: red; */
   }
 
   .delete-photo {
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
+    border: none;
+
     color: ${props => props.theme["orange"]};
+    background-color: transparent;
 
     &:hover {
       color: ${props => props.theme["hover-orange"]};

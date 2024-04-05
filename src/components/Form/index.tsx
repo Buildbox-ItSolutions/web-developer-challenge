@@ -1,6 +1,6 @@
 import { Image, TrashSimple } from "@phosphor-icons/react";
 import { ButtonContainer, FormContainer } from "./style";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 
 interface FormProps {
   onPostAdd: (name: string, comment: string, image: File | null) => void;
@@ -11,21 +11,22 @@ export function Form( { onPostAdd }:FormProps ) {
   const [newCommentPost, setNewCommentPost] = useState('')
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [imageUrl, setImageUrl] = useState<string | null>(null)
+  const inputFileRef = useRef<HTMLInputElement>(null)
 
   const isNewPostEmpty = newNamePost.length === 0 || newCommentPost.length === 0;
 
   function handleCleanFormData() {
-    setNewNamePost('')
-    setNewCommentPost('')
-    setSelectedImage(null)
-    setImageUrl(null)
+    setNewNamePost('');
+    setNewCommentPost('');
+    setSelectedImage(null);
+    setImageUrl(null);
+    resetInputFile();
   }
 
   function handleImageChange( event: React.ChangeEvent<HTMLInputElement>) { 
     const files = event.target.files 
     if (files && files.length > 0) {
       const selectedFile = files[0]
-      // setSelectedImage(files[0]) 
       setSelectedImage(selectedFile)
       const imageUrl = URL.createObjectURL(selectedFile)
       setImageUrl(imageUrl)
@@ -40,6 +41,18 @@ export function Form( { onPostAdd }:FormProps ) {
     handleCleanFormData()
   }
 
+  function handleDeletePhoto() {
+    setSelectedImage(null)
+    setImageUrl(null)
+    resetInputFile()
+  }
+
+  function resetInputFile() {
+    if (inputFileRef.current) {
+      inputFileRef.current.value = ''
+    }
+  }
+
   return (
     <FormContainer onSubmit={handleCreateNewPost}>
       <div className="photo-container">
@@ -48,6 +61,7 @@ export function Form( { onPostAdd }:FormProps ) {
             <Image size={30} />
           </label>
           <input
+            ref={inputFileRef}
             id="imageUpload"
             type="file"
             accept="image/*"
@@ -58,7 +72,7 @@ export function Form( { onPostAdd }:FormProps ) {
             <img className="img-url" src={imageUrl} alt="Imagem selecionada" />
           )}
         </div>
-        <div className="delete-photo">
+        <div onClick={handleDeletePhoto} className="delete-photo">
           <TrashSimple size={24} />
         </div>
       </div>
