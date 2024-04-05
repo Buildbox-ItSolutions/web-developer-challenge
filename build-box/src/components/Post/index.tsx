@@ -79,6 +79,7 @@ const StylizedAuthor = styled.span`
 
 const StylizedButton = styled.img`
 	align-self: flex-start;
+	cursor: pointer;
 	height: 20px;
 	object-fit: contain;
 	width: 20px;
