@@ -1,4 +1,4 @@
-import { PostContainer, PostImage } from "../style";
+import { PostContainer, PostImage, RemovePost } from "../style";
 
 export const Post: React.FC<{ post: { name: string; message: string; photo: string; id: number }; onRemove: (id: number) => void }> = ({
   post,
@@ -7,7 +7,7 @@ export const Post: React.FC<{ post: { name: string; message: string; photo: stri
   <PostContainer>
     <h3>{post.name}</h3>
     <p>{post.message}</p>
-    <PostImage src={post.photo} alt="Post" />
-    <button onClick={() => onRemove(post.id)}>Remover</button>
+    <PostImage src={post.photo} alt="" />
+    <RemovePost onClick={() => onRemove(post.id)}>Remover Post</RemovePost>
   </PostContainer>
 );

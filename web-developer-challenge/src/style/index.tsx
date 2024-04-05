@@ -48,9 +48,16 @@ const PostH2 = styled.h2`
 `;
 
 const PostContainer = styled.div`
-  display: flex;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0 auto;
+background-color: #343434;
+border: 1px solid #5f5f5f;
+margin-top: 40px;
+padding: 20px;
+width: 440px;
+border-radius: 2px;
 `;
 
 const PostImage = styled.img`
@@ -109,6 +116,24 @@ const ButtonInput = styled.button`
     background-color: #71bb00;
     color: #fff;
   }
+`;
+
+const RemovePost = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  background-color: #494949;
+  padding: 10px;
+  width: 25%; 
+  border: 1px solid #5f5f5f;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #343434;
+
+  &:hover {
+    background-color: #71bb00;
+    color: #fff;
+  }
 `; 
 
 export { 
@@ -124,4 +149,5 @@ export {
   NameInput,
   MessageInput,
   ButtonInput,
+  RemovePost
  };
