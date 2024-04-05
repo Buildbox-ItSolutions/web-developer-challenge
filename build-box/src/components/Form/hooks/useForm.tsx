@@ -5,7 +5,7 @@ export function useForm() {
 	const [author, setAuthor] = useState('');
 	const [message, setMessage] = useState('');
 
-	function discard(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+	function discard(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
 		e.preventDefault();
 		setImage('');
 		setAuthor('');
