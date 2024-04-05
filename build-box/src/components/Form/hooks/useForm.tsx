@@ -12,9 +12,13 @@ export function useForm() {
 		setMessage('');
 	}
 
-	function publish(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-		e.preventDefault();
-		console.log('Publishing...', image, name, message);
+	function handleImage(files: FileList | null) {
+		if (!files) return;
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			setImage(e.target?.result as string);
+		};
+		reader.readAsDataURL(files[0]);
 	}
 
 	return {
@@ -25,6 +29,6 @@ export function useForm() {
 		message,
 		setMessage,
 		discard,
-		publish,
+		handleImage,
 	};
 }
