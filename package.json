@@ -1,0 +1,49 @@
+{
+  "name": "buildbox-web-challenge",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Felipe Oliveira",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint **/*.{ts,tsx}",
+    "lint:fix": "eslint **/*.{ts,tsx} --fix",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "preinstall": "npx only-allow npm",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@tanstack/react-query": "^5.28.9",
+    "@tanstack/react-query-devtools": "^5.28.10",
+    "framer-motion": "^11.0.24",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.2",
+    "react-intersection-observer": "^9.8.1",
+    "react-wrap-balancer": "^1.1.0",
+    "sonner": "^1.4.41",
+    "styled-components": "^6.1.8",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@felipstein/eslint-config-react": "^1.1.4",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}

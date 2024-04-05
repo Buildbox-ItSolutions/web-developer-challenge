@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+
+  pre_build:
+    commands:
+      - npm pkg delete scripts.preinstall
+      - npm pkg delete scripts.prepare
+      - npm ci
+
+  build:
+    commands:
+      - npm run build
+
+  post_build:
+    commands:
+      - aws s3 sync --delete ./dist s3://${DEPLOY_BUCKET}
+      - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths "/index.html" "/favicon.ico"
