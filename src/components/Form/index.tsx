@@ -53,10 +53,16 @@ export function Form( { onPostAdd }:FormProps ) {
     }
   }
 
+  function handleSelectPhoto() {
+    if (inputFileRef.current) {
+      inputFileRef.current.click()
+    }
+  }
+
   return (
     <FormContainer onSubmit={handleCreateNewPost}>
       <div className="photo-container">
-        <div className="img-post-button">
+        <div className="img-post-button" onClick={handleSelectPhoto}>
           <label htmlFor="imageUpload">
             <Image size={30} />
           </label>
