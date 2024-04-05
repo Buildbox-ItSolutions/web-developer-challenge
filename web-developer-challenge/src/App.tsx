@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { IPost } from "./interfaces";
 import { PostsList } from "./components/PostList";
-import { GlobalStyle, PostMain } from "./style";
+import { GlobalStyle, PostMain, DivImage, InputImage, NameInput, MessageInput, ButtonInput} from "./style";
 import { Header } from "./components/Header";
+import ImageIcon from '@mui/icons-material/Image';
 
 const App: React.FC = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -33,27 +34,31 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Header />
       <PostMain>
-          <input
+        <DivImage>
+          <ImageIcon />
+        </DivImage>
+        <InputImage          
             type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Mensagem"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="URL da Foto"
+            placeholder=""
             value={photo}
             onChange={(e) => setPhoto(e.target.value)}
-          />
-          <button onClick={handleAddPost}>Adicionar Post</button>
-          <PostsList posts={posts} onRemove={handleRemovePost} />
+          
+        />
+        <NameInput
+          type="text"
+          placeholder="Digite seu nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <MessageInput
+          type="text"
+          placeholder="Mensagem"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <ButtonInput onClick={handleAddPost}>Adicionar Post</ButtonInput>
       </PostMain>
+      <PostsList posts={posts} onRemove={handleRemovePost} />
     </>
   );
 };
