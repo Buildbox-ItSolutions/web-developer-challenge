@@ -104,6 +104,11 @@ const ButtonInput = styled.button`
   border-radius: 8px;
   margin-bottom: 10px;
   color: #343434;
+
+  &:hover {
+    background-color: #71bb00;
+    color: #fff;
+  }
 `; 
 
 export { 
