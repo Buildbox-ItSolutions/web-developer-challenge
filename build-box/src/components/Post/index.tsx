@@ -1,4 +1,3 @@
-import './Post.css';
 import deleteIcon from '../../assets/images/delete.svg';
 
 interface PostProps {

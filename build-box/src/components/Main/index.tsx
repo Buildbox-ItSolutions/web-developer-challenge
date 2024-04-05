@@ -1,4 +1,3 @@
-import './Main.css';
 import Form from '../Form';
 import Feed from '../Feed';
 import { Provider } from './context';
