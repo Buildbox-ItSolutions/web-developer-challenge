@@ -1,18 +1,21 @@
 import './Form.css';
 import photograph from '../../assets/images/photograph.svg';
 import { useForm } from './hooks/useForm';
+import { useContext } from 'react';
+import { Context } from '../Main/context';
 
 function Form() {
 	const {
 		image,
 		message,
 		author,
-		setImage,
 		setMessage,
 		setAuthor,
 		discard,
-		publish,
+		handleImage,
 	} = useForm();
+	const { publish } = useContext(Context);
+
 	return (
 		<form action="">
 			<label htmlFor="file-input">
@@ -21,11 +24,17 @@ function Form() {
 					id="file-input"
 					type="file"
 					data-testid="image-input"
-					onChange={({ target: { value } }) => setImage(value)}
-					value={image}
+					onChange={({ target: { files } }) => handleImage(files)}
 					hidden
 				/>
-				<img src={photograph} alt="square with two mountains and a sun drawn" />
+				{!image ? (
+					<img
+						src={photograph}
+						alt="square with two mountains and a sun drawn"
+					/>
+				) : (
+					<img src={image} alt="" />
+				)}
 			</label>
 			<label htmlFor="author-input">
 				<input
@@ -55,7 +64,10 @@ function Form() {
 			<button
 				type="submit"
 				data-testid="publish-button"
-				onClick={(e) => publish(e)}
+				onClick={(e) => {
+					publish(e, image, author, message);
+					discard(e);
+				}}
 			>
 				Publicar
 			</button>
