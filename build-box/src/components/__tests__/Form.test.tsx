@@ -4,10 +4,15 @@ import { act } from 'react-dom/test-utils';
 
 import Form from '../Form';
 import { useForm } from '../Form/hooks/useForm';
+import { Provider } from '../Main/context/provider';
 
 describe('Form Component', () => {
 	beforeEach(() => {
-		render(<Form />);
+		render(
+			<Provider>
+				<Form />
+			</Provider>
+		);
 	});
 	it('should have a "image" input field', () => {
 		const imageInput = screen.getByTestId('image-input');
@@ -32,6 +37,60 @@ describe('Form Component', () => {
 	it('should have a "publish" button', () => {
 		const publishButton = screen.getByTestId('publish-button');
 		expect(publishButton).toBeInTheDocument();
+	});
+
+	it('should have a "discard" button that resets the form', () => {
+		const discardButton = screen.getByTestId('discard-button');
+		const imageInput = screen.getByTestId('image-input') as HTMLInputElement;
+		const authorInput = screen.getByTestId('author-input') as HTMLInputElement;
+		const messageInput = screen.getByTestId(
+			'message-input'
+		) as HTMLInputElement;
+
+		act(() => {
+			authorInput.value = 'test-author';
+			messageInput.value = 'test-message';
+		});
+
+		expect(authorInput.value).toBe('test-author');
+		expect(messageInput.value).toBe('test-message');
+
+		act(() => {
+			discardButton.click();
+		});
+
+		setTimeout(() => {
+			expect(imageInput.value).toBe('');
+			expect(authorInput.value).toBe('');
+			expect(messageInput.value).toBe('');
+		}, 1500);
+	});
+
+	it('should have a "publish" button that calls the publish function', () => {
+		const publishButton = screen.getByTestId('publish-button');
+		const imageInput = screen.getByTestId('image-input') as HTMLInputElement;
+		const authorInput = screen.getByTestId('author-input') as HTMLInputElement;
+		const messageInput = screen.getByTestId(
+			'message-input'
+		) as HTMLInputElement;
+
+		act(() => {
+			authorInput.value = 'test-author';
+			messageInput.value = 'test-message';
+		});
+
+		expect(authorInput.value).toBe('test-author');
+		expect(messageInput.value).toBe('test-message');
+
+		act(() => {
+			publishButton.click();
+		});
+
+		setTimeout(() => {
+			expect(imageInput.value).toBe('');
+			expect(authorInput.value).toBe('');
+			expect(messageInput.value).toBe('');
+		}, 1500);
 	});
 });
 
