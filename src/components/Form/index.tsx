@@ -32,7 +32,10 @@ export function Form( { onPostAdd }:FormProps ) {
       const imageUrl = URL.createObjectURL(selectedFile)
       setImageUrl(imageUrl)
       setFileDialogOpened(false)
-    } 
+    } else {
+      setSelectedImage(null)
+      setImageUrl(null)
+    }
   } 
 
   function handleCreateNewPost(event: FormEvent) {

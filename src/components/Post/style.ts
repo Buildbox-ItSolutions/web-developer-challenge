@@ -32,6 +32,19 @@ export const PostContainer = styled.div`
     border: 1px solid ${props => props.theme["border-post"]};
   }
 
+  .svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+
+    border-radius: 36px;
+    border: 1px solid ${props => props.theme["border-post"]};
+
+    color: ${props => props.theme["border-post"]};
+  }
+
   .post-img {
     width: 100%;
     height: 100%;

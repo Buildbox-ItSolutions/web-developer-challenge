@@ -1,7 +1,7 @@
 import { format, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 
-import { X } from "@phosphor-icons/react";
+import { X, Image } from "@phosphor-icons/react";
 import { PostContainer } from "./style";
 
 interface PostProps {
@@ -28,11 +28,16 @@ export function Post( { name, comment, imageUrl, publishedAt, onDelete }:PostPro
 
   return (
     <PostContainer>
-      {imageUrl && (
+      {imageUrl ? (
         <div className="post-img-container">
           <img className='post-img' src={imageUrl} />
         </div>
-      )}
+      ) : (
+        <div className="svg-container">
+          <Image size={30} />
+        </div>
+      )
+    }
       <div>
         <div className="time">
           <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
