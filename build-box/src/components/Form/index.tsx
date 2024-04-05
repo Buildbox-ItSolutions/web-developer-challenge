@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Context } from '../Main/context';
 import styled from 'styled-components';
 import ImageInput from '../ImageInput';
+import Trash from '../../assets/images/trash.svg';
 
 const StylizedForm = styled.form`
 	align-items: center;
@@ -20,6 +21,20 @@ const StylizedForm = styled.form`
 	@media screen and (max-width: 515px) {
 		width: calc(100% - 24px);
 	}
+`;
+
+const StylizedImageContainer = styled.div`
+	align-items: center;
+	display: flex;
+	justify-content: center;
+`;
+
+const StylizedImage = styled.img`
+	cursor: pointer;
+	height: 24px;
+	margin: 0 0 16px 16px;
+	object-fit: contain;
+	width: 24px;
 `;
 
 const StylizedTextInput = styled.input`
@@ -122,12 +137,20 @@ function Form() {
 		setAuthor,
 		discard,
 		handleImage,
+		setImage,
 	} = useForm();
 	const { publish } = useContext(Context);
 
 	return (
 		<StylizedForm>
-			<ImageInput handleImage={handleImage} image={image} />
+			<StylizedImageContainer>
+				<ImageInput handleImage={handleImage} image={image} />
+				<StylizedImage
+					src={Trash}
+					alt="Imagem selecionada"
+					onClick={() => setImage('')}
+				/>
+			</StylizedImageContainer>
 			<StylizedTextInput
 				type="text"
 				id="author-input"
