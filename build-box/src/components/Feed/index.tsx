@@ -21,7 +21,7 @@ const StylizedTitle = styled.h3`
 const StylizedFeed = styled.section`
 	height: 100%;
 	margin: auto;
-	margin-top: 145px;
+	margin-top: 81px;
 	width: 516px;
 
 	@media screen and (max-width: 515px) {
