@@ -1,4 +1,3 @@
-import './Header.css';
 import BxLogo from '../../assets/images/bx-logo.svg';
 import styled from 'styled-components';
 
