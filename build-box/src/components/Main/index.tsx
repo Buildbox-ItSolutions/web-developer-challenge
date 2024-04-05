@@ -1,12 +1,15 @@
 import './Main.css';
 import Form from '../Form';
 import Feed from '../Feed';
+import { Provider } from './context';
 
 function Main() {
 	return (
 		<main>
-			<Form />
-			<Feed />
+			<Provider>
+				<Form />
+				<Feed />
+			</Provider>
 		</main>
 	);
 }
