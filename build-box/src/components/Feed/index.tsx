@@ -1,8 +1,9 @@
+import { useContext } from 'react';
 import Post from '../Post';
-import useFeed from './hooks/useFeed';
+import { Context } from '../Main/context';
 
 function Feed() {
-	const { mainPosts, deletePost } = useFeed();
+	const { deletePost, mainPosts } = useContext(Context);
 
 	return (
 		<section>
