@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IconX } from "../../utils/icons/x";
 
 const Card = styled.div`
     width: 516px;
@@ -12,6 +13,14 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    button {
+        display: flex;
+        justify-content: flex-end;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
 `;
 
 const CardInfo = styled.div`
@@ -26,7 +35,7 @@ const CardImage = styled.img`
     height: 88px;
     margin: 24px 32px 16px 0;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: 50%; 
 `;
 
 const CardText = styled.p`
@@ -90,8 +99,14 @@ const SenderName = styled.span`
 export default function PublishedCard() {
     return (
         <Card>
+            <button>
+                x
+            </button>
             <CardInfo>
-                <CardImage src="url_da_sua_imagem" alt="Imagem de perfil" />
+                <CardImage 
+                    src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335_1280.jpg" 
+                    alt="Imagem de perfil" 
+                />
                 <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repellat.</CardText>
             </CardInfo>
             <CardFooter>

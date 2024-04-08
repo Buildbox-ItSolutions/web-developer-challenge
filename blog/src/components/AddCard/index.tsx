@@ -56,7 +56,7 @@ export default function AddCard() {
         <>
         <Card>
             <ItensContent>
-                <img src="mar.jpg" alt="Imagem"/>
+                <img src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335_1280.jpg" alt="Imagem"/>
                 <span>
                     <DeleteIcon />
                 </span>
