@@ -4,6 +4,7 @@ import InputName from "../InputName";
 import InputDescription from "../InputDescription";
 import ButtonTrash from "../Buttons/buttonTrash";
 import ButtonPublish from "../Buttons/buttonPublish";
+import PublishedCard from "../PublishedCard";
 
 const Card = styled.div`
     width: 516px;
@@ -52,6 +53,7 @@ const ItensButtons = styled.div`
 
 export default function AddCard() {
     return (
+        <>
         <Card>
             <ItensContent>
                 <img src="mar.jpg" alt="Imagem"/>
@@ -68,6 +70,8 @@ export default function AddCard() {
                 <ButtonPublish />
             </ItensButtons>
         </Card>
+        <PublishedCard />
+        </>
     );
 }
 
