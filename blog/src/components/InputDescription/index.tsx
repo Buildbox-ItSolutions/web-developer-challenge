@@ -30,7 +30,7 @@ const InputContent = styled.div`
 export default function InputDescription() {
     return (
         <InputContent>
-            <textarea placeholder="Mensagem"/>
+            <textarea id="input-description" placeholder="Mensagem"/>
         </InputContent>
     );
 }

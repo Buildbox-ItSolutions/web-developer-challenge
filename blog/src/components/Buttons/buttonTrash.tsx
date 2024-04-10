@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useImagePreview } from "../../services/hooks/usePublish";
 
 const Button = styled.span`
     width: 60px;
@@ -19,7 +20,9 @@ const Button = styled.span`
 `;
 
 export default function ButtonTrash() {
+    const { handleToDiscard } = useImagePreview();
+
     return (
-        <Button>Descartar</Button>
+        <Button onClick={handleToDiscard}>Descartar</Button>
     );
 }

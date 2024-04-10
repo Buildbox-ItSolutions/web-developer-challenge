@@ -30,7 +30,7 @@ const InputContent = styled.div`
 export default function InputName() {
     return (
         <InputContent>
-            <input placeholder="Digite seu nome"/>
+            <input id="input-name" placeholder="Digite seu nome"/>
         </InputContent>
     );
 }

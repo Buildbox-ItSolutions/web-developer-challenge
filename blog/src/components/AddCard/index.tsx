@@ -5,6 +5,7 @@ import InputDescription from "../InputDescription";
 import ButtonTrash from "../Buttons/buttonTrash";
 import ButtonPublish from "../Buttons/buttonPublish";
 import PublishedCard from "../PublishedCard";
+import { useImagePreview } from "../../services/hooks/usePublish";
 
 const Card = styled.div`
     width: 516px;
@@ -38,6 +39,12 @@ const ItensContent = styled.div`
         align-items: center;
         cursor: pointer;
     }
+
+    button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
 `;
 
 const ItensInputs = styled.div`
@@ -52,13 +59,30 @@ const ItensButtons = styled.div`
 `;
 
 export default function AddCard() {
+    const { imagePreview, imagePresent, handleImageChange, handleRemoveImage } = useImagePreview();
+
     return (
         <>
         <Card>
             <ItensContent>
-                <img src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335_1280.jpg" alt="Imagem"/>
+            <input
+                    type="file"
+                    accept="image/*"
+                    id="image-upload"
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
+                />
+                <label htmlFor="image-upload">
+                    <img 
+                        id="image-preview" 
+                        src={imagePreview}
+                        alt="Imagem"
+                        />
+                </label>
                 <span>
-                    <DeleteIcon />
+                        <button onClick={handleRemoveImage}>
+                            <DeleteIcon/>
+                        </button>
                 </span>
             </ItensContent>
             <ItensInputs>
