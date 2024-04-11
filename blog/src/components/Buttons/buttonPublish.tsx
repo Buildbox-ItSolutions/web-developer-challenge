@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { handlePublish } from "../../services/hooks/usePublish";
+import { usePublications } from "../../services/hooks/usePublish";
 
 const Button = styled.button`
     width: 98px;
@@ -22,6 +22,7 @@ const Button = styled.button`
 `;
 
 export default function ButtonPublish() {
+    const { handlePublish } = usePublications();
     return (
         <Button onClick={handlePublish}>Publicar</Button>
     );

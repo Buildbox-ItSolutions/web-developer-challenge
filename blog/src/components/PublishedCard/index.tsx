@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IconX } from "../../utils/icons/x";
+import { Publication } from "../../services/types/Publication";
 
 const Card = styled.div`
     width: 516px;
@@ -97,24 +98,42 @@ const SenderName = styled.span`
 `;
 
 export default function PublishedCard() {
+    const [publications, setPublications] = useState<Publication[]>([]);
+
+    useEffect(() => {
+        const storedPublications: Publication[] = JSON.parse(localStorage.getItem('publications') || '[]');
+        setPublications(storedPublications);
+    }, [publications]);
+
+    const handleRemovePublication = (index: number) => {
+        const updatedPublications = [...publications];
+        updatedPublications.splice(index, 1);
+        setPublications(updatedPublications);
+        localStorage.setItem('publications', JSON.stringify(updatedPublications));
+    };
+    
     return (
-        <Card>
-            <button>
-                x
-            </button>
-            <CardInfo>
-                <CardImage 
-                    src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335_1280.jpg" 
-                    alt="Imagem de perfil" 
-                />
-                <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repellat.</CardText>
-            </CardInfo>
-            <CardFooter>
-                <SenderInfo>
-                    <SenderLabel>Enviado por</SenderLabel>
-                    <SenderName>nome</SenderName>
-                </SenderInfo>
-            </CardFooter>
-        </Card>
+        <>
+        {publications.slice().reverse().map((publication, index) => (
+            <Card key={index}>
+                <button onClick={() => handleRemovePublication(index)}>
+                    x
+                </button>
+                <CardInfo>
+                    <CardImage 
+                        src={publication.imagePath} 
+                        alt="Imagem de perfil" 
+                    />
+                    <CardText>{publication.description}</CardText>
+                </CardInfo>
+                <CardFooter>
+                    <SenderInfo>
+                        <SenderLabel>Enviado por</SenderLabel>
+                        <SenderName>{publication.name}</SenderName>
+                    </SenderInfo>
+                </CardFooter>
+            </Card>
+        ))}
+        </>
     );
 }
