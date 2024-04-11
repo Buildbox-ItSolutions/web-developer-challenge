@@ -1,30 +1,85 @@
-# web-developer-challenge
+<div id="top"></div>
+<h1 align="center" style="color: black; font-weight: bold; font-size: 40px">
+web-developer-challenge
+</h1>
+<div style="display: row">
+  <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript">
+</div>
 
-Olá!
+<div id="sobre-o-projeto"> </div>
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+## 📝 Sobre o projeto
 
-O Desafio é o seguinte:
-
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
-
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
-
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
-
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
-
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
+Web-developer-challenge se trata de um desafio proposto para a vaga de FULL STACK JAVASCRIPT da [BuildBox](https://buildbox.com.br/).
 
 
-## Interface XD
-https://adobe.ly/2BVcy5C
+É possível acessar a interface por meio do [Vercel](https://web-developer-challenge-pi.vercel.app/).
 
-## Design - Zeplin
-https://app.zeplin.io/login
 
-E-mail - buildbox.guest@gmail.com
+<div id="feito-com"> </div>
 
-Senha - JhZ5dAPG
+### 🔨 Feito com
 
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+Aqui estão algumas ferramentas que foram utilizadas:
+
+* [ReactJS](https://react.dev/)
+* [Typescript](https://www.typescriptlang.org/)
+* [Styled Components](https://styled-components.com/)
+
+<div id="comecando"> </div>
+
+<!-- GETTING STARTED -->
+## ⌨️ Começando
+
+Aqui estão algumas instruções sobre como configurar o projeto localmente. Para obter uma cópia local, siga os passos abaixo:
+
+<div id="instalacao"> </div>
+
+## 💻 Instalação
+
+Clone o repositório
+```sh
+git clone https://github.com/vitorbarros15/web-developer-challenge.git
+```
+
+### 📱 Inicializando Front-end
+```bash
+  # Instale as dependencias:
+  $ yarn install
+  # Para rodar a aplicação em modo de desenvolvimento:
+  $ yarn start
+```
+
+<div id="exemplos-de-uso"> </div>
+
+
+<div id="estrutura-de-arquivos"> </div>
+
+<div id="contribuindo"> </div>
+
+<!-- CONTRIBUTING -->
+## 🤝 Contribuindo
+
+Se você tem alguma sugestão que fará este app ficar melhor, por favor realize um fork e crie um Pull Request. Você pode também simplesmente abrir uma issue com a tag "enhancement" para sugestões e "error" para problemas enfrentados
+
+1. Faça um fork do Projeto
+2. Crie seu branch da Feature (`git checkout -b feature/AmazingFeature`)
+3. Faça commit das suas modificações (`git commit -m 'Add some AmazingFeature'`)
+4. Faça um push para o branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+<div id="contato"> </div>
+
+<!-- CONTACT -->
+## ✉️ Contato
+
+E-mail: vitorbarros15@hotmail.com
+
+Linkedin: https://www.linkedin.com/in/vitorbarrosdossantos/
+
+Link do projeto: https://github.com/vitorbarros15/web-developer-challenge
+
+
+<p align="right">(<a href="#top">Voltar ao topo</a>)</p>
+
