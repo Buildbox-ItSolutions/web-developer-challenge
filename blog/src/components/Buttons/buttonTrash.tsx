@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useImagePreview } from "../../services/hooks/usePublish";
+import { useImagePreview } from "../../services/hooks/useImage/index";
 
 const Button = styled.span`
     width: 60px;
