@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div`
     width: 516px;
-    height: 353px;
+    height: 460px;
     margin: 40px auto 56px;
     padding: 24px;
     border-radius: 3px;
@@ -17,20 +17,17 @@ export const ItensContent = styled.div`
     position: relative;
 
     img {
-        width: 88px;
-        height: 88px;
+        width: 90px;
+        height: 90px;
         margin: 0 8px 16px 16px;
         padding: 32px;
-        object-fit: contain;
-        border-radius: 36px;
-        border-radius: 40%;
+        border-radius: 50%;
         border: solid 1px var(--greyish-brown);
         background-color: var(--black-third);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
     }
 
     span {

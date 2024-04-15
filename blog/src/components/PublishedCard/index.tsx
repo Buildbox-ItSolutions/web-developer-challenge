@@ -13,8 +13,9 @@ export default function PublishedCard() {
     }, [publications]);
 
     const handleRemovePublication = (index: number) => {
+        const originalIndex = publications.length - 1 - index;
         const updatedPublications = [...publications];
-        updatedPublications.splice(index, 1);
+        updatedPublications.splice(originalIndex, 1);
         setPublications(updatedPublications);
         localStorage.setItem('publications', JSON.stringify(updatedPublications));
     };
@@ -34,18 +35,20 @@ export default function PublishedCard() {
                                 src={publication.imagePath}
                                 alt="imagem"
                             />
-                            <CardText>{publication.description}</CardText>
-                        </CardInfo>
-                        <CardFooter>
-                            <SenderInfo>
-                                <SenderLabel>Enviado por</SenderLabel>
-                                <SenderName>{publication.name}</SenderName>
-                            </SenderInfo>
-                        </CardFooter>
-                    </Card>
-                </CSSTransition>
-            ))}
-        </TransitionGroup>
+                            <div>
+                                    <CardText>{publication.description}</CardText>
+                                    <CardFooter>
+                                        <SenderInfo>
+                                            <SenderLabel>Enviado por</SenderLabel>
+                                            <SenderName>{publication.name}</SenderName>
+                                        </SenderInfo>
+                                    </CardFooter>
+                            </div>
+                            </CardInfo>
+                        </Card>
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
         </>
     );
 }
