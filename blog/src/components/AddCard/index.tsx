@@ -6,6 +6,8 @@ import ButtonPublish from "../Buttons/buttonPublish";
 import PublishedCard from "../PublishedCard";
 import { useImagePreview } from "../../services/hooks/useImage/index";
 import { Card, ItensButtons, ItensContent, ItensInputs } from './style'
+import { Placeholder } from "../../utils/img/image";
+import { IconX } from "../../utils/icons/x";
 
 export default function AddCard() {
     const { imagePreview, handleImageChange, handleRemoveImage } = useImagePreview();
@@ -24,9 +26,10 @@ export default function AddCard() {
                 <label htmlFor="image-upload">
                     <img 
                         id="image-preview" 
-                        src={imagePreview}
-                        alt="Imagem"
+                        src={imagePreview ? imagePreview : "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"}
+                        alt="Pre-visualização da imagem"
                         />
+                        
                 </label>
                 <span>
                         <button onClick={handleRemoveImage}>

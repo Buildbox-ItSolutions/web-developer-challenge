@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { IconX } from "../../utils/icons/x";
 import { Publication } from "../../services/types/Publication";
-import { Card, CardFooter, CardImage, CardInfo, CardText, SenderInfo, SenderLabel, SenderName } from "./style";
-
+import { Card, CardFooter, CardImage, CardInfo, CardText, SenderInfo, SenderLabel, SenderName } from "./style"; // Remova o import do TransitionStyles
 
 export default function PublishedCard() {
     const [publications, setPublications] = useState<Publication[]>([]);
@@ -21,26 +21,31 @@ export default function PublishedCard() {
     
     return (
         <>
-        {publications.slice().reverse().map((publication, index) => (
-            <Card key={index}>
-                <button onClick={() => handleRemovePublication(index)}>
-                    x
-                </button>
-                <CardInfo>
-                    <CardImage 
-                        src={publication.imagePath} 
-                        alt="Imagem de perfil" 
-                    />
-                    <CardText>{publication.description}</CardText>
-                </CardInfo>
-                <CardFooter>
-                    <SenderInfo>
-                        <SenderLabel>Enviado por</SenderLabel>
-                        <SenderName>{publication.name}</SenderName>
-                    </SenderInfo>
-                </CardFooter>
-            </Card>
-        ))}
+        <h1>FEED</h1>
+        <TransitionGroup>
+            {publications.slice().reverse().map((publication, index) => (
+                <CSSTransition key={index} classNames="card" timeout={300}>
+                    <Card>
+                        <button onClick={() => handleRemovePublication(index)}>
+                            <IconX />
+                        </button>
+                        <CardInfo>
+                            <CardImage 
+                                src={publication.imagePath}
+                                alt="imagem"
+                            />
+                            <CardText>{publication.description}</CardText>
+                        </CardInfo>
+                        <CardFooter>
+                            <SenderInfo>
+                                <SenderLabel>Enviado por</SenderLabel>
+                                <SenderName>{publication.name}</SenderName>
+                            </SenderInfo>
+                        </CardFooter>
+                    </Card>
+                </CSSTransition>
+            ))}
+        </TransitionGroup>
         </>
     );
 }

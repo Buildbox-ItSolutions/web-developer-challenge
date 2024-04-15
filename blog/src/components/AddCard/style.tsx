@@ -14,16 +14,23 @@ export const ItensContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    position: relative;
 
     img {
         width: 88px;
         height: 88px;
-        margin-right: 16px;
+        margin: 0 8px 16px 16px;
+        padding: 32px;
         object-fit: contain;
-        border-radius: 50%; 
+        border-radius: 36px;
+        border-radius: 40%;
+        border: solid 1px var(--greyish-brown);
+        background-color: var(--black-third);
         cursor: pointer;
-        background-image: url("base.png");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
     }
 
     span {

@@ -35,7 +35,7 @@ export const useImagePreview = () => {
         if (inputName && inputDescription && inputImage) {
             inputName.value = '';
             inputDescription.value = '';
-            inputImage.src = '';
+            inputImage.src = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png';
         }
 
         handleRemoveImage()

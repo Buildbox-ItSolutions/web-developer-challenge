@@ -19,6 +19,7 @@ export const Card = styled.div`
         background: transparent;
         cursor: pointer;
     }
+
 `;
 
 export const CardInfo = styled.div`
