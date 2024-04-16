@@ -8,6 +8,13 @@ export const useImagePreview = () => {
     const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
+
+            if (file.size > 1 * 1024 * 1024) {
+                console.log(`Image size ${file.size}`)
+                alert("O tamanho da imagem é muito grande. Por favor, escolha uma imagem menor.");
+                return;
+            }
+
             const reader = new FileReader();
             reader.onload = () => {
                 setImagePreview(reader.result as string);

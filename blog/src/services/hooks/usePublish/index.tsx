@@ -7,11 +7,7 @@ export const usePublications = () => {
     useEffect(() => {
         const storedPublications: Publication[] = JSON.parse(localStorage.getItem('publications') || '[]');
         setPublications(storedPublications)
-    }, [])
-
-    const updatePublications = (newPublications: Publication[]) => {
-        setPublications(newPublications)
-    }
+    }, [publications])
 
     const handlePublish = () => {
         const name = (document.getElementById('input-name') as HTMLInputElement).value;
@@ -28,13 +24,11 @@ export const usePublications = () => {
                     if (imagePath) {
                         const publication = { name, description, imagePath };
 
-                        let publications = JSON.parse(localStorage.getItem('publications') || '[]');
-                        publications.push(publication);
-                        localStorage.setItem('publications', JSON.stringify(publications));
+                        const updatedPublications = [...publications, publication];
+                        localStorage.setItem('publications', JSON.stringify(updatedPublications));
 
-                        updatePublications(publications);
+                        setPublications(updatedPublications);
 
-                    
                         (document.getElementById('input-name') as HTMLInputElement).value = '';
                         (document.getElementById('input-description') as HTMLInputElement).value = '';
                         (document.getElementById('image-upload') as HTMLInputElement).value = '';
