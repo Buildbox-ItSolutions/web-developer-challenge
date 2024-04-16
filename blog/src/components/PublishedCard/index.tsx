@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { IconX } from "../../utils/icons/x";
 import { Publication } from "../../services/types/Publication";
-import { Card, CardFooter, CardImage, CardInfo, CardText, SenderInfo, SenderLabel, SenderName } from "./style"; // Remova o import do TransitionStyles
+import {  Card, CardFooter, CardImage, CardInfo, CardText, Feed, SenderInfo, SenderLabel, SenderName } from "./style";
 
 export default function PublishedCard() {
     const [publications, setPublications] = useState<Publication[]>([]);
@@ -22,7 +22,7 @@ export default function PublishedCard() {
     
     return (
         <>
-        <h1>FEED</h1>
+        {publications.length > 0 && <Feed>FEED</Feed>}
         <TransitionGroup>
             {publications.slice().reverse().map((publication, index) => (
                 <CSSTransition key={index} classNames="card" timeout={300}>

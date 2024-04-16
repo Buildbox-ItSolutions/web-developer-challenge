@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const Feed = styled.h1`
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    align-items: center;
+    margin-left: 30%;
+
+    @media screen and (min-width: 700px) {
+        display: flex;
+    }
+`;
+
 export const Card = styled.div`
     width: 516px;
     height: auto;
@@ -23,6 +35,12 @@ export const Card = styled.div`
         border: none;
         background: transparent;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 700px) {
+        width: calc(100% - 50px);
+        margin: 20px auto;
+        padding: 5px;
     }
 
 `;
@@ -59,6 +77,13 @@ export const CardText = styled.p`
     overflow-wrap: break-word;
     max-width: 300px;
     color: var(--brownish-grey);
+
+    @media screen and (max-width: 700px) {
+        font-size: 10px;
+        overflow-wrap: break-word;
+        max-width: 150px;
+        padding-top: 15px;
+    }
 `;
 
 export const CardFooter = styled.div`

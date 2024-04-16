@@ -8,6 +8,13 @@ export const Card = styled.div`
     border-radius: 3px;
     border: solid 1px var(--greyish-brown-two);
     background-color: var(--black-third);
+
+    @media screen and (max-width: 700px) {
+        width: calc(100% - 50px);
+        height: 450px;
+        margin: 30px auto;
+        padding: 5px;
+    }
 `;
 
 export const ItensContent = styled.div`
@@ -42,10 +49,18 @@ export const ItensContent = styled.div`
         background: transparent;
         cursor: pointer;
     }
+
+    @media screen and (max-width: 700px) {
+
+    }
 `;
 
 export const ItensInputs = styled.div`
-    padding: 10px;    
+    padding: 10px;
+
+    @media screen and (max-width: 700px) {
+        padding: 5px;
+    }
 `;
 
 export const ItensButtons = styled.div`
@@ -53,4 +68,8 @@ export const ItensButtons = styled.div`
     align-items: center;
     justify-content: end;
     height: 24px;
+
+    @media screen and (max-width: 700px) {
+        justify-content: center;
+    }
 `;
