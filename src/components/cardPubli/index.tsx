@@ -49,8 +49,14 @@ const StyledText = styled.p`
     word-break: break-all;
 
     @media screen and (max-width: 515px) {
-        min-width: calc(100% - 24px);
-        max-width: calc(100% - 24px);
+        min-width: 210px;
+        max-width: 210px;
+        margin-left: 20px;
+    }
+
+    @media screen and (max-width: 362px) {
+        min-width: 100px;
+        max-width: 100px;
         margin-left: 20px;
     }
 
