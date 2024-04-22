@@ -1,19 +1,22 @@
-import { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+
 
 export const useImagePreview = () => {
-    const [imagePreview, setImagePreview] = useState("");
-    const [imagePresent, setImagePresent] = useState(true);
-    const [, setSelectedImage] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string>("");
+    const [imagePresent, setImagePresent] = useState<boolean>(true);
+    const [selectedImage, setSelectedImage] = useState<File | null>(null);
+    const [showWarning, setShowWarning] = useState<boolean>(false);
 
     const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
 
             if (file.size > 1 * 1024 * 1024) {
-                console.log(`Image size ${file.size}`)
-                alert("O tamanho da imagem é muito grande. Por favor, escolha uma imagem menor.");
+                setShowWarning(true);
                 return;
             }
+
+            setShowWarning(false);
 
             const reader = new FileReader();
             reader.onload = () => {
@@ -23,7 +26,7 @@ export const useImagePreview = () => {
             };
             reader.readAsDataURL(file);
             console.log("Arquivo selecionado:", file);
-        } 
+        }
     };
 
     const handleRemoveImage = () => {
@@ -33,20 +36,18 @@ export const useImagePreview = () => {
     };
 
     const handleToDiscard = () => {
-        
-        const inputName = document.getElementById('input-name') as HTMLInputElement;
-        const inputDescription = document.getElementById('input-description') as HTMLInputElement;
-        const inputImage = document.getElementById('image-preview') as HTMLInputElement;
-
+        const inputName = document.getElementById("input-name") as HTMLInputElement;
+        const inputDescription = document.getElementById("input-description") as HTMLInputElement;
+        const inputImage = document.getElementById("image-preview") as HTMLInputElement;
 
         if (inputName && inputDescription && inputImage) {
-            inputName.value = '';
-            inputDescription.value = '';
-            inputImage.src = 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png';
+            inputName.value = "";
+            inputDescription.value = "";
+            inputImage.src = "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png";
         }
 
-        handleRemoveImage()
-    }
+        handleRemoveImage();
+    };
 
-    return { imagePreview, imagePresent, handleImageChange, handleRemoveImage, handleToDiscard }
+    return { imagePreview, imagePresent,showWarning, handleImageChange, handleRemoveImage, handleToDiscard };
 };
