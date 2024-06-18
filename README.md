@@ -33,7 +33,7 @@ Senha - JhZ5dAPG
 
 A página esta funcionado atravez desse <a href="https://web-developer-challenge-blue.vercel.app/" target="_blank" rel="noreferrer">Link</a>, até o momento, é uma página sem backend para salvar as informações.
 
-![desafioBuildBox](https://github.com/cleitson/web-developer-challenge/assets/19842885/53be7acf-8faa-4a17-8263-f1159ca1fd7d)
+![desafioBuildBox](https://raw.githubusercontent.com/cleitson/web-developer-challenge/master/src/assets/desafioBuildBox.png)
 
 ### 📨 Contato
 Pode me encontrar em:
