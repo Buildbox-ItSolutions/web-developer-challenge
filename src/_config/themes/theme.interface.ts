@@ -30,6 +30,7 @@ export interface IBaseTheme {
     small: string;
     medium: string;
     large: string;
+    xLarge: string;
   };
 }
 

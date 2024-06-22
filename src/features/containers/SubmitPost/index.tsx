@@ -1,5 +1,6 @@
 import { Button } from "../../../components/Button";
 import { Cards } from "../../../components/Cards";
+import { ImageInput } from "../../../components/ImageInput";
 import { Input } from "../../../components/Input";
 import { Textarea } from "../../../components/Textarea";
 import { FormContainer } from "./style";
@@ -9,6 +10,7 @@ export function SubmitPost() {
     <Cards.Root>
       <Cards.Body>
         <FormContainer>
+          <ImageInput />
           <Input type="text" placeholder="Digite seu nome" name="name" />
           <Textarea placeholder="Mensagem" name="message" />
         </FormContainer>
