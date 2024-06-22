@@ -4,8 +4,8 @@ import { BASE_THEME } from "./base.theme";
 export const DARK_THEME: ITheme = {
   colors: {
     background: {
-      page: "#303030",
-      darker: "#232323",
+      page: "#353535",
+      darker: "#303030",
       lighter: "#444444",
     },
     text: {
@@ -16,8 +16,8 @@ export const DARK_THEME: ITheme = {
       tertiary: "#555555",
     },
     main: {
-      primary: "#82D305",
-      hover: "#C8F902",
+      primary: "#7DBD1E",
+      hover: "#A3C90E",
     },
     danger: {
       primary: "#EC9006",
