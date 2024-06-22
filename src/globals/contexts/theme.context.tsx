@@ -9,9 +9,12 @@ import { ITheme } from "../../_config/themes/theme.interface";
 import { LIGHT_THEME } from "../../_config/themes/light.theme";
 import { DARK_THEME } from "../../_config/themes/dark.theme";
 
+type SelectedTheme = "LIGHT_THEME" | "DARK_THEME";
+
 interface IThemeContext {
   theme: ITheme;
   toggleTheme: () => void;
+  selectedTheme: SelectedTheme;
 }
 
 interface Props {
@@ -20,15 +23,13 @@ interface Props {
 
 export const SelectedThemeContext = createContext<IThemeContext>({
   theme: DARK_THEME,
-  toggleTheme: () => {
-    console.log("DEFAULT TOGGLE");
-  },
+  toggleTheme: () => {},
+  selectedTheme: "DARK_THEME",
 });
 
 export function SelectedThemeContextProvider({ children }: Readonly<Props>) {
-  const [selectedTheme, setSelectedTheme] = useState<
-    "LIGHT_THEME" | "DARK_THEME"
-  >("DARK_THEME");
+  const [selectedTheme, setSelectedTheme] =
+    useState<SelectedTheme>("DARK_THEME");
 
   const themes = useMemo(
     () => ({
@@ -39,8 +40,6 @@ export function SelectedThemeContextProvider({ children }: Readonly<Props>) {
   );
 
   const toggleTheme = useCallback(() => {
-    console.log("TOGGLE THEME BRO");
-
     setSelectedTheme(
       selectedTheme === "LIGHT_THEME" ? "DARK_THEME" : "LIGHT_THEME"
     );
@@ -50,6 +49,7 @@ export function SelectedThemeContextProvider({ children }: Readonly<Props>) {
     () => ({
       theme: themes[selectedTheme],
       toggleTheme,
+      selectedTheme,
     }),
     [selectedTheme, themes, toggleTheme]
   );

@@ -10,6 +10,8 @@ export interface IColors {
     lighter: string;
   };
   text: {
+    white: string;
+    black: string;
     primary: string;
     secondary: string;
     tertiary: string;
