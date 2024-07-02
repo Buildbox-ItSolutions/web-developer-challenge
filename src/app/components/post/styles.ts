@@ -14,6 +14,7 @@ export const Container = styled.section`
   grid-template-areas:
     'close close'
     'image content';
+  transition: 0.2s;
 `;
 
 export const CloseButton = styled(FiXCircle)`
@@ -47,6 +48,7 @@ export const Message = styled.div`
   padding-right: 1rem;
   font-size: 1.125rem;
   color: #878787;
+  flex: 1;
 `;
 
 export const AuthorLabel = styled.label`

@@ -1,4 +1,4 @@
-import { StyledComponentsRegistry } from '@/lib';
+import { ReactQueryRegistry, StyledComponentsRegistry } from '@/lib';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './global.css';
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={roboto.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <ReactQueryRegistry>{children}</ReactQueryRegistry>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

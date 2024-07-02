@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { usePost } from '@/hooks';
 import {
   Author,
   AuthorLabel,
@@ -10,10 +11,12 @@ import {
 } from './styles';
 import { PostProps } from './types';
 
-export function Post({ message, author }: PostProps) {
+export function Post({ id, message, author }: PostProps) {
+  const { deletePost } = usePost();
+
   return (
     <Container>
-      <CloseButton />
+      <CloseButton onClick={() => deletePost(id)} />
       <Image />
       <Content>
         <Message>{message}</Message>

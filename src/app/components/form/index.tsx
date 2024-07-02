@@ -1,6 +1,5 @@
 'use client';
 
-import { Archivo_Black } from 'next/font/google';
 import {
   Buttons,
   CancelButton,
@@ -14,23 +13,32 @@ import {
   TrashButton,
   TrashIcon,
 } from './styles';
-import { useState } from 'react';
-
-const archivoBlack = Archivo_Black({ weight: '400', subsets: ['latin'] });
+import { useForm } from 'react-hook-form';
+import { FieldValues } from './types';
+import { usePost } from '@/hooks';
 
 export function Form() {
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid },
+    reset,
+  } = useForm<FieldValues>({ mode: 'onChange' });
 
   function handleCancelButtonClick() {
-    setName('');
-    setMessage('');
+    reset();
   }
 
-  const disabled = !name || !message;
+  const { createPost, creatingPost } = usePost({
+    onCreatePost: () => reset(),
+  });
+
+  function onSubmit(data: FieldValues) {
+    createPost(data);
+  }
 
   return (
-    <Container>
+    <Container onSubmit={handleSubmit(onSubmit)}>
       <ImageContainer>
         <ImageInput>
           <ImageIcon />
@@ -40,20 +48,18 @@ export function Form() {
         </TrashButton>
       </ImageContainer>
       <Input
-        name="name"
+        {...register('name', { required: true })}
         placeholder="Digite seu nome"
-        onChange={(e) => setName(e.target.value)}
       />
       <Textarea
-        name="message"
+        {...register('message', { required: true })}
         placeholder="Mensagem"
-        onChange={(e) => setMessage(e.target.value)}
       />
 
       <Buttons>
         <CancelButton onClick={handleCancelButtonClick}>Descartar</CancelButton>
-        <SubmitButton disabled={disabled} type="submit">
-          Publicar
+        <SubmitButton disabled={!isValid || creatingPost} type="submit">
+          {creatingPost ? 'Publicando...' : 'Publicar'}
         </SubmitButton>
       </Buttons>
     </Container>

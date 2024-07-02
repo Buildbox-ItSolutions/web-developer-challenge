@@ -1,11 +1,10 @@
-import { FiImage, FiTrash } from 'react-icons/fi';
 import styled from 'styled-components';
 
 export const Container = styled.main`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-top: 6rem;
+  padding-top: 6rem;
 `;
 
 export const Header = styled.header`
@@ -44,4 +43,9 @@ export const FeedTitle = styled.h2`
   font-size: 1rem;
   color: #7a7a7a;
   margin-top: 2rem;
+`;
+
+export const EmptyFeed = styled.p`
+  color: #7a7a7a;
+  text-align: center;
 `;
