@@ -1,0 +1,20 @@
+:root {
+	--headerBg: #2b2b2b;
+	--mainBg: #343434;
+	--cinzaEscuro: #313131;
+	--cinza: #494949;
+}
+
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: var(--mainBg);
+}
+
+main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
