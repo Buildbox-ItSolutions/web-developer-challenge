@@ -8,6 +8,7 @@ import {
   ImageIcon,
   ImageInput,
   Input,
+  RealImageInput,
   SubmitButton,
   Textarea,
   TrashButton,
@@ -16,6 +17,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { FieldValues } from './types';
 import { usePost } from '@/hooks';
+import { useEffect, useRef } from 'react';
 
 export function Form() {
   const {
@@ -23,7 +25,13 @@ export function Form() {
     register,
     formState: { isValid },
     reset,
+    setValue,
+    resetField,
+    watch,
+    trigger,
   } = useForm<FieldValues>({ mode: 'onChange' });
+
+  const imageURL = watch('imageURL');
 
   function handleCancelButtonClick() {
     reset();
@@ -37,15 +45,59 @@ export function Form() {
     createPost(data);
   }
 
+  useEffect(() => {
+    register('imageURL', { required: true });
+  }, []);
+
+  useEffect(() => {
+    if (imageURL) {
+      const imageInput = imageInputRef.current;
+      if (!imageInput) return;
+
+      imageInput.style.backgroundImage = `url(${imageURL})`;
+    } else {
+      const imageInput = imageInputRef.current;
+      if (!imageInput) return;
+
+      imageInput.style.backgroundImage = 'none';
+    }
+  }, [imageURL]);
+
+  const imageInputRef = useRef<HTMLLabelElement>(null);
+
+  function handleImageSelected(event: React.ChangeEvent<HTMLInputElement>) {
+    const selectedFile = event.target.files?.[0];
+    if (!selectedFile) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      if (!event.target) return;
+      if (!imageInputRef.current?.style) return;
+
+      const imageURL = event.target.result?.toString();
+
+      if (imageURL) setValue('imageURL', imageURL);
+      else resetField('imageURL');
+
+      trigger('imageURL');
+    };
+
+    reader.readAsDataURL(selectedFile);
+  }
+
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>
       <ImageContainer>
-        <ImageInput>
-          <ImageIcon />
+        <RealImageInput onChange={handleImageSelected} />
+        <ImageInput ref={imageInputRef}>
+          {!imageURL && <ImageIcon />}
         </ImageInput>
-        <TrashButton>
-          <TrashIcon />
-        </TrashButton>
+        {!!imageURL && (
+          <TrashButton onClick={() => resetField('imageURL')}>
+            <TrashIcon />
+          </TrashButton>
+        )}
       </ImageContainer>
       <Input
         {...register('name', { required: true })}

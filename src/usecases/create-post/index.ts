@@ -10,6 +10,7 @@ export async function createPost(
       const post = await PostCRUDService.create({
         author: payload.name,
         message: payload.message,
+        imageURL: payload.imageURL,
       });
 
       resolve(post);

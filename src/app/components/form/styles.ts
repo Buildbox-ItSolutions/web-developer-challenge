@@ -17,7 +17,15 @@ export const ImageContainer = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const ImageInput = styled.div`
+export const RealImageInput = styled.input.attrs({
+  type: 'file',
+  accept: 'image/*',
+  id: 'image-input',
+})`
+  display: none;
+`;
+
+export const ImageInput = styled.label.attrs({ htmlFor: 'image-input' })`
   border-radius: 3rem;
   width: 7rem;
   height: 7rem;
@@ -27,6 +35,10 @@ export const ImageInput = styled.div`
   justify-content: center;
   font-size: 1.75rem;
   color: #7a7a7a;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const ImageIcon = styled(FiImage)``;

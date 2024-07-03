@@ -7,17 +7,22 @@ import {
   Container,
   Content,
   Image,
+  LoadingCloseButton,
   Message,
 } from './styles';
 import { PostProps } from './types';
 
-export function Post({ id, message, author }: PostProps) {
-  const { deletePost } = usePost();
+export function Post({ id, message, author, imageURL }: PostProps) {
+  const { deletePost, deletingPost } = usePost();
 
   return (
     <Container>
-      <CloseButton onClick={() => deletePost(id)} />
-      <Image />
+      {deletingPost ? (
+        <LoadingCloseButton />
+      ) : (
+        <CloseButton onClick={() => deletePost(id)} />
+      )}
+      <Image $src={imageURL} />
       <Content>
         <Message>{message}</Message>
         <AuthorLabel>Enviado por</AuthorLabel>

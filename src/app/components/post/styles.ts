@@ -1,5 +1,6 @@
-import { FiXCircle } from 'react-icons/fi';
-import styled from 'styled-components';
+import { FiMinusCircle, FiXCircle } from 'react-icons/fi';
+import styled, { keyframes } from 'styled-components';
+import { $ImageProps } from './types';
 
 export const Container = styled.section`
   gap: 0.5rem;
@@ -30,12 +31,34 @@ export const CloseButton = styled(FiXCircle)`
   }
 `;
 
-export const Image = styled.div`
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+export const LoadingCloseButton = styled(FiMinusCircle)`
+  color: #686868;
+  font-size: 1.5rem;
+  grid-area: close;
+  justify-self: end;
+  animation: ${rotate} 1s linear infinite;
+`;
+
+export const Image = styled.div<$ImageProps>`
   border-radius: 2.5rem;
   width: 6rem;
   height: 6rem;
   margin: 0 1rem;
   border: 1px solid #494949;
+  background-image: url(${({ $src }) => $src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Content = styled.div`
