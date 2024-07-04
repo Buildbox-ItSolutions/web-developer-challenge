@@ -1,6 +1,6 @@
 ### Saudações
 
-Olá! Meu nome é Marcus, e espero que goste do que encontra-rá por aqui!
+Olá! Meu nome é Marcus, e espero que goste do que encontrará por aqui!
 
 ### Sobre
 
