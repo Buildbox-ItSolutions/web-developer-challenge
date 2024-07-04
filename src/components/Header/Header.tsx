@@ -1,9 +1,12 @@
-import { HeaderContainer } from "./Header.styles";
+import { Content, HeaderContainer, SubTitle, Title } from "./Header.styles";
 
 export default function Header() {
   return (
     <HeaderContainer>
-      <span>BuildBox</span>
+      <Content>
+        <Title>buildbox</Title>
+        <SubTitle>Web Challenge</SubTitle>
+      </Content>
     </HeaderContainer>
   );
 }

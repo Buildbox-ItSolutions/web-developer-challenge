@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const FeedListContainer = styled.div``;
+export const FeedListContainer = styled.div`
+  width: 100%;
+  margin-top: 16px;
+`;
 
 export const FeedTitle = styled.span`
   font-size: 14px;

@@ -6,13 +6,17 @@ export const FeedItemContainer = styled.li`
   align-items: center;
   width: 100%;
   height: 100%;
-  max-height: 320px;
+  min-height: 240px;
   padding: 16px 32px;
   box-sizing: border-box;
   background-color: #242424;
   margin-bottom: 32px;
   border: 1px solid #474747;
   position: relative;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 export const Avatar = styled.img`
