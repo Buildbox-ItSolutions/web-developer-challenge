@@ -10,7 +10,6 @@ function App() {
 
       <AppMain>
         <FeedForm />
-
         <FeedList />
       </AppMain>
     </AppContainer>

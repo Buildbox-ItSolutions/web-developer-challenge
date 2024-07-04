@@ -5,16 +5,15 @@ export const AppContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const AppMain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  max-width: 540px;
   width: 100%;
-  max-width: 640px;
-
-  margin: 0 auto;
+  min-height: 100vh;
+  margin: 120px auto 0 auto;
 `;
