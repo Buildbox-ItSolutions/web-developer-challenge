@@ -17,14 +17,8 @@ Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu 
 Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
 
 
-## Interface XD
+## Design para o Desafio
 https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
+https://xd.adobe.com/view/89306ae3-6b1a-4574-a495-12b5280914e6-dc63/grid
 
 ![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
