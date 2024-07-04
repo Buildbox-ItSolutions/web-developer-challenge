@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export const Button = ({ children, noBg = false }: ButtonProps) => {
   return (
-    <CustomButton type="submit" noBg={noBg}>
+    <CustomButton type={noBg ? "button" : "submit"} noBg={noBg}>
       {children}
     </CustomButton>
   );
