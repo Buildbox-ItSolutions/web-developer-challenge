@@ -1,30 +1,25 @@
 import { FeedListUl, FeedListContainer, FeedTitle } from "./FeedList.styles";
 import FeedItem from "./FeedItem/FeedItem";
-import { feedItemsMocked } from "../../lib/mocks";
-import { useState } from "react";
+import { useFeedItemsStore } from "../../store/feedListStore";
 
 export default function FeedList() {
-  const [feedItems, setFeedItems] = useState(feedItemsMocked);
-
-  const handleRemoveItem = (id: number) => {
-    const filteredFeedItems = feedItems.filter(
-      (feedItem) => feedItem.id !== id
-    );
-    setFeedItems(filteredFeedItems);
-  };
+  const feedItems = useFeedItemsStore((state) => state.feedItems);
+  const handleRemoveItem = useFeedItemsStore((state) => state.removeFeedItem);
 
   return (
     <FeedListContainer>
       <FeedTitle>Feed</FeedTitle>
 
       <FeedListUl>
-        {feedItems.map((feedItem) => (
-          <FeedItem
-            key={feedItem.id}
-            feedItem={feedItem}
-            handleRemoveItem={handleRemoveItem}
-          />
-        ))}
+        {feedItems.length > 0
+          ? feedItems.map((feedItem) => (
+              <FeedItem
+                key={feedItem.id}
+                feedItem={feedItem}
+                handleRemoveItem={handleRemoveItem}
+              />
+            ))
+          : null}
       </FeedListUl>
     </FeedListContainer>
   );

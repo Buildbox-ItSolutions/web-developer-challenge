@@ -22,8 +22,19 @@ export default function FeedForm() {
     }
   };
 
+  const resetForm = () => {
+    setName("");
+    setMessage("");
+  };
+
+  const handleSubmitFeed = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log({ name, message });
+    resetForm();
+  };
+
   return (
-    <FeedFormContainer>
+    <FeedFormContainer onSubmit={(event) => handleSubmitFeed(event)}>
       <InputImg type="file" accept="image/*" onChange={handleImageChange} />
       {selectedImage && (
         <div>
@@ -50,8 +61,10 @@ export default function FeedForm() {
       />
 
       <ActionContainerButton>
-        <DiscardButton>Descartar</DiscardButton>
-        <PublishButton>Publicar</PublishButton>
+        <DiscardButton type="button" onClick={resetForm}>
+          Descartar
+        </DiscardButton>
+        <PublishButton type="submit">Publicar</PublishButton>
       </ActionContainerButton>
     </FeedFormContainer>
   );

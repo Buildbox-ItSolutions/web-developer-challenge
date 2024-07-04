@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FeedFormContainer = styled.section`
+export const FeedFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,10 +52,22 @@ export const DiscardButton = styled.button`
   border: none;
   text-decoration: underline;
   margin-right: 8px;
+  cursor: pointer;
+
+  transition: all 0.4s;
+  &:hover {
+    opacity: 0.6;
+  }
 `;
 
 export const PublishButton = styled.button`
   border-radius: 8px;
   border: none;
   padding: 12px 24px;
+  cursor: pointer;
+
+  transition: all 0.4s;
+  &:hover {
+    opacity: 0.6;
+  }
 `;
