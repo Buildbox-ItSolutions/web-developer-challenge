@@ -32,7 +32,7 @@ export const useFeedItemsStore = create<Store>((set, get) => ({
     };
 
     set((state) => ({
-      feedItems: [...state.feedItems, newItem],
+      feedItems: [newItem, ...state.feedItems],
     }));
   },
 }));

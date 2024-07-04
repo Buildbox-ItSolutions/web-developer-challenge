@@ -1,3 +1,4 @@
+import { MdPhotoCamera } from "react-icons/md";
 import styled from "styled-components";
 
 export const FeedFormContainer = styled.form`
@@ -6,7 +7,6 @@ export const FeedFormContainer = styled.form`
   align-items: center;
   width: 100%;
   height: 100%;
-  max-height: 320px;
   padding: 16px 32px;
   box-sizing: border-box;
   background-color: #242424;
@@ -18,7 +18,7 @@ export const InputImg = styled.input`
 `;
 
 export const InputName = styled.input`
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   width: 100%;
   height: 40px;
   border: none;
@@ -70,4 +70,29 @@ export const PublishButton = styled.button`
   &:hover {
     opacity: 0.6;
   }
+`;
+
+export const PlaceholderImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const ImageContainer = styled.div`
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+`;
+
+export const CameraIcon = styled(MdPhotoCamera)`
+  font-size: 60px;
+  color: #888;
 `;

@@ -6,6 +6,7 @@ import {
   AuthorName,
   RemoveButton,
   SentBy,
+  Description,
 } from "./FeedItem.styles";
 
 type FeedItemProps = {
@@ -27,7 +28,7 @@ export default function FeedItem({
       <Avatar src={feedItem.imgUrl} alt="avatar" />
 
       <div>
-        <p>{feedItem.description}</p>
+        <Description>{feedItem.description}</Description>
 
         <AuthorInfo>
           <SentBy>Enviado por</SentBy>

@@ -1,51 +1,62 @@
 import { useState } from "react";
+import { useDropzone } from "react-dropzone";
 import {
   ActionContainerButton,
   DiscardButton,
   FeedFormContainer,
+  ImageContainer,
+  PlaceholderImage,
   InputImg,
   InputName,
   PublishButton,
   TextareaMessage,
+  CameraIcon,
 } from "./FeedForm.styles";
+import { useFeedItemsStore } from "../../store/feedListStore";
 
 export default function FeedForm() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const addItemToList = useFeedItemsStore((state) => state.addItemToList);
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      const file = files[0];
+  const onDrop = (acceptedFiles: File[]) => {
+    if (acceptedFiles.length > 0) {
+      const file = acceptedFiles[0];
       setSelectedImage(URL.createObjectURL(file));
     }
   };
 
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/png": [".png"],
+      "image/jpeg": [".jpg", ".jpeg"],
+    },
+    onDrop,
+  });
+
   const resetForm = () => {
     setName("");
     setMessage("");
+    setSelectedImage("");
   };
 
   const handleSubmitFeed = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ name, message });
+    addItemToList(selectedImage, name, message);
     resetForm();
   };
 
   return (
-    <FeedFormContainer onSubmit={(event) => handleSubmitFeed(event)}>
-      <InputImg type="file" accept="image/*" onChange={handleImageChange} />
-      {selectedImage && (
-        <div>
-          <h2>Preview:</h2>
-          <img
-            src={selectedImage}
-            alt="Selected"
-            style={{ width: "300px", height: "auto" }}
-          />
-        </div>
-      )}
+    <FeedFormContainer onSubmit={handleSubmitFeed}>
+      <ImageContainer {...getRootProps()}>
+        <InputImg {...getInputProps()} />
+        {selectedImage ? (
+          <PlaceholderImage src={selectedImage} alt="Selected Image" />
+        ) : (
+          <CameraIcon />
+        )}
+      </ImageContainer>
 
       <InputName
         placeholder="Digite seu nome"
