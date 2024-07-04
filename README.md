@@ -1,30 +1,24 @@
-# web-developer-challenge
+### Saudações
 
-Olá!
+Olá! Meu nome é Marcus, e espero que goste do que encontrará por aqui!
 
-Este desafio consiste em identificar seu conhecimento em desenvolvimento Web, portanto esperamos que você tente resolve-lo usando toda a sua capacidade e conhecimento da tecnologia.
+Contato:
+nome: Marcus Martins
+email: marcusmartins38@gmail.com
+celular: (69) 98401-2555
 
-O Desafio é o seguinte:
+### Sobre
 
-Monte uma página utilizando React.js que contenha uma lista de posts com a possíbilidade de adicionar e remover. Cada post deve conter nome, mensagem e foto. Não é necessário fazer o Back-End, os dados podem estar apenas em tempo de execução no Front-End.
+Este projeto foi desenvolvido como parte de um desafio técnico para demonstrar minhas habilidades em desenvolvimento de software. Infelizmente, não consegui acessar o design completo encontrado no Adobe devido a restrições de acesso à conta disponibilizada. Porém, fiz o mais próximo que consegui no 'olhômetro' kkkk😅.
 
-**Projetos que encontramos Typescript, Styled Compoments, Responsividade, terão pontos adicionais!**
+Estou sempre buscando maneiras de aprimorar o código e aprender novas técnicas. No entanto, durante este desafio, precisei equilibrar a vontade de explorar mais a fundo com a velocidade de entrega.
 
-Tente colocar ao máximo todos os recursos técnicos que você conhece, padrão de arquitetura, boas práticas de código, bibliotecas, etc.
+![alt text](image.png)
 
-Você deve fazer um Fork deste repositório e solicitar um Pull Request com seu nome, email e celular na descrição para nossa avaliação e contato.
+### Como Executar
 
-Abaixo segue o link do XD com protótipo navegável para conhecer a dinâmica da interface e os dados para Logar no Zeplin para ter acesso ao Design com suas medidas.
-
-
-## Interface XD
-https://adobe.ly/2BVcy5C
-
-## Design - Zeplin
-https://app.zeplin.io/login
-
-E-mail - buildbox.guest@gmail.com
-
-Senha - JhZ5dAPG
-
-![footer](https://cdn-images-1.medium.com/max/2600/1*_DOHv30w-0eI-Ysz5U47Yg.png)
+```
+git clone https://github.com/MarcusMartins38/web-developer-challenge.git
+npm install
+npm run dev
+```
