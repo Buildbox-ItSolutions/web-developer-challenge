@@ -1,12 +1,12 @@
 import { FeedListUl, FeedListContainer, FeedTitle } from "./FeedList.styles";
 import FeedItem from "./FeedItem/FeedItem";
-import { feedItems, feedItemsMocked } from "../../lib/mocks";
+import { feedItemsMocked } from "../../lib/mocks";
 import { useState } from "react";
 
 export default function FeedList() {
   const [feedItems, setFeedItems] = useState(feedItemsMocked);
 
-  const handleRemoveItem = (id) => {
+  const handleRemoveItem = (id: number) => {
     const filteredFeedItems = feedItems.filter(
       (feedItem) => feedItem.id !== id
     );
