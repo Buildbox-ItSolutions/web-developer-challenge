@@ -7,6 +7,7 @@ export const HeaderContainer = styled.nav`
   text-align: center;
   padding-top: 22px;
   border-bottom: 1px solid ${(props) => props.theme.colors.gray.darker};
+  user-select: none;
 `;
 
 export const Title = styled.h1`
