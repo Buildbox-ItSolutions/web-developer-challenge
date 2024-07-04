@@ -2,9 +2,14 @@ import React from "react";
 import { CustomButton } from "./style";
 
 type ButtonProps = {
-  label: string;
+  children: string;
+  noBg?: boolean;
 };
 
-export const Button = ({ label }: ButtonProps) => {
-  return <CustomButton type="submit">{label}</CustomButton>;
+export const Button = ({ children, noBg = false }: ButtonProps) => {
+  return (
+    <CustomButton type="submit" noBg={noBg}>
+      {children}
+    </CustomButton>
+  );
 };

@@ -1,17 +1,33 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const CustomButton = styled.button`
+export const CustomButton = styled.button<{ noBg?: boolean }>`
   background-color: #007bff;
   border: none;
-  border-radius: 4px;
-  color: #ffffff;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 20px;
-  transition: background-color 0.3s;
+  font-size: 14px;
+  font-weight: 300;
+  transition-duration: 0.3s;
+  width: 98px;
+  height: 41px;
 
-  &:hover {
-    background-color: #0056b3;
-  }
+  ${(props) =>
+    props.noBg
+      ? css`
+          background-color: transparent;
+          text-decoration: underline;
+          color: ${(props) => props.theme.colors.gray.lightest};
+
+          &:hover {
+            text-decoration: none;
+          }
+        `
+      : css`
+          background-color: ${props.theme.colors.primary.main};
+          color: #fff;
+
+          &:hover {
+            background-color: ${props.theme.colors.primary.dark};
+          }
+        `}
 `;
