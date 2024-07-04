@@ -6,6 +6,12 @@ type AvatarProps = {
 
 export const Avatar = ({ url }: AvatarProps) => {
   return (
-    <AvatarImage src={`url(${url})`} width={88} height={88} alt="avatar" />
+    <AvatarImage
+      loader={() => url}
+      src={`${url}`}
+      width={88}
+      height={88}
+      alt="avatar"
+    />
   );
 };
