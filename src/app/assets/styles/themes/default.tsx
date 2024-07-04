@@ -4,6 +4,7 @@ const defaultTheme = {
     inputBackground: "#494949",
     primary: {
       main: "#71BB00",
+      dark: "#5c9606",
     },
     secondary: {
       main: "#d65923",
