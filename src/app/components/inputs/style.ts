@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import css from "styled-jsx/css";
 
-export const CustomInput = styled.input`
+export const CustomInput = styled.input<{ error?: any }>`
   width: 100%;
   height: 40px;
   background-color: ${(props) => props.theme.colors.inputBackground};
@@ -18,9 +19,16 @@ export const CustomInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  ${(props) =>
+    props.error &&
+    css`
+      border: 1px solid ${props.theme.colors.secondary.main};
+      margin-bottom: 2px;
+    `};
 `;
 
-export const CustomTextArea = styled.textarea`
+export const CustomTextArea = styled.textarea<{ error?: any }>`
   width: 100%;
   background-color: ${(props) => props.theme.colors.inputBackground};
   border-radius: 8px;
@@ -39,6 +47,13 @@ export const CustomTextArea = styled.textarea`
   &:focus {
     outline: none;
   }
+
+  ${(props) =>
+    props.error &&
+    css`
+      border: 1px solid ${props.theme.colors.secondary.main};
+      margin-bottom: 2px;
+    `};
 `;
 
 export const CustomImageInput = styled.input`
@@ -66,4 +81,10 @@ export const CustomImageLabel = styled.label`
     color: #fff;
     font-size: 24px;
   }
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 10px;
+  color: ${(props) => props.theme.colors.secondary.main};
+  margin-bottom: 2px;
 `;

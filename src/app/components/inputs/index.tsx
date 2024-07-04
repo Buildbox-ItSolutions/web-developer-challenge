@@ -4,16 +4,27 @@ import {
   CustomImageLabel,
   CustomInput,
   CustomTextArea,
+  ErrorMessage,
 } from "./style";
 import { PiImageSquareThin } from "react-icons/pi";
 import { PiTrashSimpleLight } from "react-icons/pi";
 
 export const Input = ({ ...props }) => {
-  return <CustomInput {...props} />;
+  return (
+    <>
+      <CustomInput {...props} />
+      {props.errorMessage && <ErrorMessage>{props.errorMessage}</ErrorMessage>}
+    </>
+  );
 };
 
 export const TextArea = ({ ...props }) => {
-  return <CustomTextArea {...props} />;
+  return (
+    <>
+      <CustomTextArea {...props} />
+      {props.errorMessage && <ErrorMessage>{props.errorMessage}</ErrorMessage>}
+    </>
+  );
 };
 
 export const ImageInput = ({ ...props }) => {
