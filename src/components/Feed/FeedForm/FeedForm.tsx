@@ -12,7 +12,7 @@ import {
   TextareaMessage,
   CameraIcon,
 } from "./FeedForm.styles";
-import { useFeedItemsStore } from "../../store/feedListStore";
+import { useFeedItemsStore } from "../../../store/feedListStore";
 
 export default function FeedForm() {
   const [selectedImage, setSelectedImage] = useState<string>("");

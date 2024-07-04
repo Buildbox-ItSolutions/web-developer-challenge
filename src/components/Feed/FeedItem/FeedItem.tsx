@@ -6,16 +6,12 @@ import {
   AuthorName,
   RemoveButton,
   SentBy,
-  Description,
+  Message,
 } from "./FeedItem.styles";
+import { TFeedItem } from "../../../lib/types";
 
 type FeedItemProps = {
-  feedItem: {
-    id: number;
-    imgUrl: string;
-    description: string;
-    name: string;
-  };
+  feedItem: TFeedItem;
   handleRemoveItem: (id: number) => void;
 };
 
@@ -28,7 +24,7 @@ export default function FeedItem({
       <Avatar src={feedItem.imgUrl} alt="avatar" />
 
       <div>
-        <Description>{feedItem.description}</Description>
+        <Message>{feedItem.message}</Message>
 
         <AuthorInfo>
           <SentBy>Enviado por</SentBy>

@@ -1,6 +1,6 @@
 import { AppContainer, AppMain } from "./App.styles";
-import FeedForm from "./components/FeedForm/FeedForm";
-import FeedList from "./components/FeedList/FeedList";
+import FeedForm from "./components/Feed/FeedForm/FeedForm";
+import FeedList from "./components/Feed/FeedList/FeedList";
 import Header from "./components/Header/Header";
 
 function App() {

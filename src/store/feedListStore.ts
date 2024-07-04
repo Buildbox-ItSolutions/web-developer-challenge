@@ -6,7 +6,7 @@ type Store = {
   feedItems: TFeedItem[];
   isLoading: boolean;
   removeFeedItem: (id: number) => void;
-  addItemToList: (imgUrl: string, name: string, description: string) => void;
+  addItemToList: (imgUrl: string, name: string, message: string) => void;
 };
 
 export const useFeedItemsStore = create<Store>((set, get) => ({
@@ -23,12 +23,12 @@ export const useFeedItemsStore = create<Store>((set, get) => ({
       feedItems: filteredFeedItems,
     }));
   },
-  addItemToList: (imgUrl: string, name: string, description: string) => {
+  addItemToList: (imgUrl: string, name: string, message: string) => {
     const newItem: TFeedItem = {
       id: new Date().getTime(),
       imgUrl,
       name,
-      description,
+      message,
     };
 
     set((state) => ({

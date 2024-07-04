@@ -24,11 +24,11 @@ export const Avatar = styled.img`
   width: 100%;
   max-height: 96px;
   max-width: 96px;
-  border-radius: 40%;
+  border-radius: 42%;
   margin-right: 24px;
 `;
 
-export const Description = styled.p`
+export const Message = styled.p`
   padding: 0 4px;
 `;
 

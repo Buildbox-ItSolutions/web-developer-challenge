@@ -1,6 +1,6 @@
 export type TFeedItem = {
   id: number;
   imgUrl: string;
-  description: string;
+  message: string;
   name: string;
 };

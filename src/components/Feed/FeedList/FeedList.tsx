@@ -1,6 +1,6 @@
 import { FeedListUl, FeedListContainer, FeedTitle } from "./FeedList.styles";
-import FeedItem from "./FeedItem/FeedItem";
-import { useFeedItemsStore } from "../../store/feedListStore";
+import FeedItem from "../FeedItem/FeedItem";
+import { useFeedItemsStore } from "../../../store/feedListStore";
 
 export default function FeedList() {
   const feedItems = useFeedItemsStore((state) => state.feedItems);
