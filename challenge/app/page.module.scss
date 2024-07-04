@@ -1,0 +1,25 @@
+.main {
+	gap: 20px;
+	width: 100%;
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	// 80px do header e o 40px é modificavel
+	padding-top: calc(80px + 40px);
+	flex-direction: column;
+	background-color: #343434;
+}
+
+.content {
+	width: 500px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+@media (max-width: 500px) {
+	.content {
+		width: 90%;
+	}
+}
