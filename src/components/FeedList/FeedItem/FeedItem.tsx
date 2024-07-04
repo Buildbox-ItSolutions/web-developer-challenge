@@ -1,11 +1,11 @@
 import { CiCircleRemove } from "react-icons/ci";
 import {
-  AuthorContent,
+  AuthorInfo,
   Avatar,
   FeedItemContainer,
-  Name,
-  RemoveFeedItemButton,
-  SendBy,
+  AuthorName,
+  RemoveButton,
+  SentBy,
 } from "./FeedItem.styles";
 
 type FeedItemProps = {
@@ -29,18 +29,18 @@ export default function FeedItem({
       <div>
         <p>{feedItem.description}</p>
 
-        <AuthorContent>
-          <SendBy>Enviado por</SendBy>
-          <Name>{feedItem.name}</Name>
-        </AuthorContent>
+        <AuthorInfo>
+          <SentBy>Enviado por</SentBy>
+          <AuthorName>{feedItem.name}</AuthorName>
+        </AuthorInfo>
       </div>
-      <RemoveFeedItemButton>
+      <RemoveButton>
         <CiCircleRemove
           size={24}
           color="red"
           onClick={() => handleRemoveItem(feedItem.id)}
         />
-      </RemoveFeedItemButton>
+      </RemoveButton>
     </FeedItemContainer>
   );
 }

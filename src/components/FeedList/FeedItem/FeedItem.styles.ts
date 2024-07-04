@@ -24,12 +24,16 @@ export const Avatar = styled.img`
   margin-right: 24px;
 `;
 
-export const AuthorContent = styled.section`
+export const Description = styled.p`
+  padding: 0 4px;
+`;
+
+export const AuthorInfo = styled.section`
   display: flex;
   flex-direction: column;
 `;
 
-export const RemoveFeedItemButton = styled.button`
+export const RemoveButton = styled.button`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -46,10 +50,10 @@ export const RemoveFeedItemButton = styled.button`
   }
 `;
 
-export const SendBy = styled.span`
+export const SentBy = styled.span`
   font-size: 12px;
 `;
 
-export const Name = styled.strong`
+export const AuthorName = styled.strong`
   font-size: 13px;
 `;
