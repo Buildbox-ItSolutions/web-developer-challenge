@@ -43,7 +43,19 @@ export default function FeedForm() {
 
   const handleSubmitFeed = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addItemToList(selectedImage, name, message);
+    const formattedName = name.trim();
+    const formattedMessage = message.trim();
+
+    if (!formattedName || !formattedMessage) {
+      alert("Somente o campo de imagem pode estar vazio!");
+      return;
+    }
+
+    const image =
+      selectedImage ||
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
+
+    addItemToList(image, formattedName, formattedMessage);
     resetForm();
   };
 
