@@ -14,6 +14,6 @@ export const AppMain = styled.div`
   align-items: center;
   max-width: 540px;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   margin: 120px auto 0 auto;
 `;

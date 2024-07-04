@@ -29,7 +29,7 @@ export const AuthorContent = styled.section`
   flex-direction: column;
 `;
 
-export const RemoveFeedItem = styled.button`
+export const RemoveFeedItemButton = styled.button`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -37,6 +37,13 @@ export const RemoveFeedItem = styled.button`
   border: none;
   display: flex;
   align-items: center;
+
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 `;
 
 export const SendBy = styled.span`
