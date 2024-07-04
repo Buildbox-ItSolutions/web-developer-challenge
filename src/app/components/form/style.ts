@@ -11,6 +11,11 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 40px;
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme.colors.gray.lighter};
+  }
 `;
 
 export const AvatarContainer = styled.div`
@@ -24,4 +29,5 @@ export const Actions = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
 `;
