@@ -2,6 +2,11 @@
 
 Olá! Meu nome é Marcus, e espero que goste do que encontrará por aqui!
 
+Contato:
+nome: Marcus Martins
+email: marcusmartins38@gmail.com
+celular: (69) 98401-2555
+
 ### Sobre
 
 Este projeto foi desenvolvido como parte de um desafio técnico para demonstrar minhas habilidades em desenvolvimento de software. Infelizmente, não consegui acessar o design completo encontrado no Adobe devido a restrições de acesso à conta disponibilizada. Porém, fiz o mais próximo que consegui no 'olhômetro' kkkk😅.
