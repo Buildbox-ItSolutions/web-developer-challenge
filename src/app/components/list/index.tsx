@@ -1,5 +1,15 @@
 import React from "react";
+import { ListContainer } from "./style";
 
-export const List = () => {
-  return <div>index</div>;
+type ListProps = {
+  children: React.ReactNode;
+};
+
+export const List = ({ children }: ListProps) => {
+  return (
+    <ListContainer>
+      <h1>Feed</h1>
+      {children}
+    </ListContainer>
+  );
 };
