@@ -24,4 +24,9 @@ export let cached = [
   },
 ] as IPost[];
 
-export const getData = () => cached;
+export const getData = async (): Promise<IPost[]> => {
+  // Somente para simular uma demora na conexao
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return cached;
+};
