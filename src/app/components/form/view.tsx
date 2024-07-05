@@ -18,6 +18,7 @@ export const FormView = ({
   avatarImage,
   resetAvatar,
   resetForm,
+  isPending,
 }: ReturnType<typeof useFormModel>) => {
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
@@ -51,7 +52,7 @@ export const FormView = ({
             <Input
               {...field}
               type="text"
-              placeholder="Name"
+              placeholder="Digite o seu nome"
               error={errors.name}
               errorMessage={errors.name?.message?.toString()}
             />
@@ -64,7 +65,7 @@ export const FormView = ({
           render={({ field }) => (
             <TextArea
               {...field}
-              placeholder="Message"
+              placeholder="Mensagem"
               error={errors.message}
               errorMessage={errors.message?.message?.toString()}
             />
@@ -75,7 +76,7 @@ export const FormView = ({
         <Button $noBg onClick={resetForm}>
           Descartar
         </Button>
-        <Button disabled={!isValid}>Publicar</Button>
+        <Button disabled={!isValid || isPending}>Publicar</Button>
       </Actions>
     </FormContainer>
   );

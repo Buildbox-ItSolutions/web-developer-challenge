@@ -34,7 +34,7 @@ export const useFormModel = () => {
 
   const avatarImage = watch("avatar");
 
-  const { mutateAsync: createPostFn } = useMutation({
+  const { mutateAsync: createPostFn, isPending } = useMutation({
     mutationFn: createPost,
     onSuccess: (_, variables) => {
       const cached: IPost[] | undefined = queryClient.getQueryData(["posts"]);
@@ -98,5 +98,6 @@ export const useFormModel = () => {
     avatarImage,
     resetAvatar,
     resetForm,
+    isPending,
   };
 };
