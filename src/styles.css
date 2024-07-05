@@ -5,11 +5,11 @@
     padding: 0;
 
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
     background-color: #343434;
-    font-family: "Roboto", sans-serif;
 }
 
 textarea {
@@ -17,16 +17,16 @@ textarea {
     padding: 0.8rem 1rem;
     border-radius: 8px;
     margin: 0.5rem 0;
+    background-color: #494949;
+    color: #949494;
+    font-size: 10pt;
+    resize: vertical;
 }
 
 button {
     border: none;
-    cursor: pointer;
-}
-
-button[type='submit'] {
-    padding: 0.8rem 1.2rem;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 input {
@@ -37,6 +37,8 @@ input[type='text'] {
     padding: 0.8rem 1rem;
     border-radius: 8px;
     margin: 0.5rem 0;
+    background-color: #494949;
+    color: #949494;
 }
 
 input[type='file'] {

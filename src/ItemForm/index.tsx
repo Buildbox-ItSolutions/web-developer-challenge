@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import styled from "styled-components";
 
-import icon from "../assets/icon.png";
+import UploadImage from "../components/UploadImage";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
+import { TextArea } from "../components/TextArea";
 
 export interface IItem {
   name: string;
@@ -15,37 +18,33 @@ interface IItemForm {
 }
 
 const Card = styled("div")(() => ({
-  marginTop: "4rem",
+  marginTop: "2.5rem",
   padding: "1.5rem",
   border: "1px solid #3b3b3b",
   borderRadius: "4px",
+  backgroundColor: "#313131",
 }));
 
-const Input = styled("input")(() => ({
-  width: "100%",
-  padding: "1rem",
-  border: "none",
-  borderRadius: "8px",
-  margin: "0.5rem 0",
-}));
-
-const TextArea = styled("textarea")(() => ({
-  width: "100%",
-  padding: "1rem",
-  border: "none",
-  borderRadius: "8px",
-  margin: "0.5rem 0",
+const CardButtons = styled("div")(() => ({
+  display: "flex",
+  justifyContent: "flex-end",
+  gap: "1.5rem",
+  marginTop: "1.6rem",
 }));
 
 function ItemForm({ addItem }: IItemForm) {
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  const [item, setItem] = useState<IItem>({} as IItem);
 
-  const handleClean = () => {
-    setName("");
-    setDescription("");
-    setImage("");
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    addItem({
+      name: item.name,
+      description: item.description,
+      image: item.image,
+    });
+
+    handleClean();
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,108 +52,62 @@ function ItemForm({ addItem }: IItemForm) {
 
     const reader = new FileReader();
 
-    reader.onloadend = () => setImage(reader.result as string);
+    reader.onloadend = () => {
+      setItem((prev) => ({
+        ...prev,
+        image: reader.result as string,
+      }));
+    };
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleOnChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setItem((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
-    addItem({ name, description, image: image });
-
-    handleClean();
+  const handleClean = () => {
+    setItem({
+      name: "",
+      description: "",
+      image: "",
+    });
   };
 
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <div
-          style={{
-            marginBottom: "1rem",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <input
-            id="upload-photo"
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            required
-          />
-
-          {image && (
-            <label
-              htmlFor="upload-photo"
-              style={{
-                cursor: "pointer",
-                borderRadius: "40%",
-                width: "90px",
-                height: "90px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-              }}
-            >
-              <img
-                src={image}
-                alt="image"
-                style={{ borderRadius: "40%" }}
-                width="90"
-                height="90"
-              />
-            </label>
-          )}
-
-          {!image && (
-            <label
-              htmlFor="upload-photo"
-              style={{
-                cursor: "pointer",
-                borderRadius: "40%",
-                padding: "2rem",
-                width: "90px",
-                height: "90px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-                border: "1px solid white",
-              }}
-            >
-              <img src={icon} alt="icone" />
-            </label>
-          )}
-        </div>
+        <UploadImage image={item.image} onChange={handleImageChange} />
 
         <Input
-          type="text"
-          value={name}
+          name="name"
+          value={item.name}
           placeholder="Digite seu nome"
-          onChange={(e) => setName(e.target.value)}
+          onChange={handleOnChange}
           required
+          type="text"
         />
 
         <TextArea
-          value={description}
+          name="description"
+          value={item.description}
           placeholder="Mensagem"
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleOnChange}
           required
           rows={3}
         />
 
-        <div
-          style={{ display: "flex", justifyContent: "flex-end", gap: "1rem" }}
-        >
-          <button
-            type="button"
-            onClick={handleClean}
-            style={{ background: "none", textDecoration: "underline" }}
-          >
+        <CardButtons>
+          <Button type="button" onClick={handleClean}>
             Descartar
-          </button>
+          </Button>
 
-          <button type="submit">Adicionar</button>
-        </div>
+          <Button type="submit">Publicar</Button>
+        </CardButtons>
       </form>
     </Card>
   );
