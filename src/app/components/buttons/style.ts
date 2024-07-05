@@ -41,7 +41,7 @@ export const CustomButton = styled.button<{ noBg?: boolean }>`
         `}
 `;
 
-export const CustomIconButton = styled.button<{ outlined?: boolean }>`
+export const CustomIconButton = styled.button<{ confirmation?: boolean }>`
   width: 26px;
   height: 26px;
   display: flex;
@@ -53,11 +53,9 @@ export const CustomIconButton = styled.button<{ outlined?: boolean }>`
   background-color: transparent;
   border: none;
 
-  ${(props) =>
-    props.outlined && `border: 1px solid ${props.theme.colors.secondary.main}`}
-
   & svg {
-    color: ${(props) => props.theme.colors.secondary.main};
+    color: ${(props) =>
+      props.confirmation ? `red` : props.theme.colors.secondary.main};
     font-size: 20px;
   }
 `;

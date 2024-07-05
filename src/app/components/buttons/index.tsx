@@ -10,6 +10,9 @@ type ButtonProps = {
 
 type IconButtonProps = {
   children: React.ReactNode;
+  onClick?: () => void;
+  confirmation?: boolean;
+  title?: string;
 };
 
 export const Button = ({
@@ -30,6 +33,20 @@ export const Button = ({
   );
 };
 
-export const IconButton = ({ children }: IconButtonProps) => {
-  return <CustomIconButton type="button">{children}</CustomIconButton>;
+export const IconButton = ({
+  children,
+  onClick,
+  confirmation,
+  title,
+}: IconButtonProps) => {
+  return (
+    <CustomIconButton
+      confirmation={confirmation}
+      type="button"
+      title={title}
+      onClick={onClick}
+    >
+      {children}
+    </CustomIconButton>
+  );
 };
