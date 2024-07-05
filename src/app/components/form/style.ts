@@ -16,6 +16,10 @@ export const FormContainer = styled.form`
   &:hover {
     border: 1px solid ${(props) => props.theme.colors.gray.lighter};
   }
+
+  @media (max-width: 550px) {
+    width: 90%;
+  }
 `;
 
 export const AvatarContainer = styled.div`
