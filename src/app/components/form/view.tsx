@@ -1,3 +1,5 @@
+"use client";
+
 import { Controller } from "react-hook-form";
 import { Avatar } from "../avatar";
 import { Button, IconButton } from "../buttons";
