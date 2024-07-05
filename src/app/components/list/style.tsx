@@ -12,4 +12,9 @@ export const ListContainer = styled.section`
     font-size: 14px;
     font-weight: 400;
   }
+
+  @media (max-width: 550px) {
+    width: 90%;
+    margin: 38px 0;
+  }
 `;
