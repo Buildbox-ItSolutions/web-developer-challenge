@@ -1,12 +1,17 @@
+import { IPostPayload } from "@/app/types";
+
 export const getPosts = async () => {
   const response = await fetch("/api/posts");
   const data = await response.json();
-  const { projects } = data;
-  return projects;
+  const { posts } = data;
+  return posts;
 };
 
-export const createPost = async () => {
-  const response = await fetch("/api/posts");
+export const createPost = async (post: IPostPayload) => {
+  const response = await fetch("/api/posts", {
+    method: "POST",
+    body: JSON.stringify(post),
+  });
   const data = await response.json();
   return data;
 };
