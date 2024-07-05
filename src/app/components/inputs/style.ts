@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CustomInput = styled.input<{ error?: any }>`
   width: 100%;
   height: 40px;
+  font-size: 12px;
   background-color: ${(props) => props.theme.colors.inputBackground};
   border-radius: 8px;
   margin-bottom: 8px;
@@ -32,6 +33,7 @@ export const CustomTextArea = styled.textarea<{ error?: any }>`
   background-color: ${(props) => props.theme.colors.inputBackground};
   border-radius: 8px;
   height: 80px;
+  font-size: 12px;
   max-height: 80px;
   resize: none;
   padding: 16px;
