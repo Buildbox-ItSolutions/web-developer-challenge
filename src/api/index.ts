@@ -15,3 +15,11 @@ export const createPost = async (post: IPostPayload) => {
   const data = await response.json();
   return data;
 };
+
+export const deletePost = async (id: number) => {
+  const response = await fetch(`/api/posts?id=${id}`, {
+    method: "DELETE",
+  });
+  const data = await response.json();
+  return data;
+};
