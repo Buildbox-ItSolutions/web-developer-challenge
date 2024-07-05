@@ -4,6 +4,7 @@ import picture from '../../assets/picture.png';
 export const AppForm = styled.form`
 	align-items: center;
 	background-color: var(--cinzaEscuro);
+	border: 1px solid var(--cinza);
 	border-radius: 7px;
 	display: flex;
 	flex-direction: column;
@@ -33,6 +34,32 @@ export const AppForm = styled.form`
 	input[type='file'] {
 		display: none;
 	}
+`;
+
+export const SelectedImageDiv = styled.div`
+	margin-bottom: 15px;
+	position: relative;
+
+	button {
+		background: none;
+		border: none;
+		top: 25%;
+		left: 90px;
+		position: absolute;
+	}
+
+	button > img {
+		cursor: pointer;
+	}
+`;
+
+export const SelectedImage = styled.img`
+	align-self: center;
+	border: 1px solid var(--cinza);
+	border-radius: 40%;
+	height: 80px;
+	object-fit: cover;
+	width: 80px;
 `;
 
 const defaultInput = css`
