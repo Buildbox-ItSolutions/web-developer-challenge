@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostContainer = styled.article`
+export const PostContainer = styled.article<{ isPending: boolean }>`
   display: flex;
   position: relative;
   background-color: ${(props) => props.theme.colors.gray.main};
@@ -22,6 +22,13 @@ export const PostContainer = styled.article`
   & p:nth-child(1) {
     margin-bottom: 30px;
   }
+
+  ${(props) =>
+    props.isPending &&
+    `
+    opacity: 0.5;
+    pointer-events: none;
+  `}
 `;
 
 export const Message = styled.p`
@@ -35,6 +42,17 @@ export const SendBy = styled.span`
 `;
 
 export const Name = styled.h3`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
+  text-transform: capitalize;
+`;
+
+export const AvatarContainer = styled.div``;
+
+export const MessageContainer = styled.div``;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 12px;
 `;
