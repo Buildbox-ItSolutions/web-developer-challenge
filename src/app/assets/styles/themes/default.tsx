@@ -2,6 +2,7 @@ const defaultTheme = {
   colors: {
     background: "#343434",
     inputBackground: "#494949",
+    disabledBackground: "#5f5f5f",
     primary: {
       main: "#71BB00",
       dark: "#5c9606",
@@ -17,14 +18,6 @@ const defaultTheme = {
       dark: "#2b2b2b",
       darker: "#232323",
     },
-    // danger: {
-    //   main: "#FC5050",
-    //   light: "#F97171",
-    //   dark: "#FF0000",
-    // },
-    // success: {
-    //   main: "#51CA73",
-    // },
   },
 };
 
