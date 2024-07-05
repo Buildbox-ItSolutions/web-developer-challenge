@@ -1,16 +1,18 @@
 @import url('reset.css');
 
 :root {
-  --bg-primary: hsl(0, 0%, 97%);
-  --text-primary: hsl(0, 0%, 10%);
+  --bg-primary: hsl(0, 0%, 20%);
+  --bg-secondary: hsl(0, 0%, 19%);
+  --bg-header: hsl(0, 0%, 17%);
+  --text-primary: hsl(0, 0%, 100%);
+  --text-foreground: hsl(0, 0%, 62%);
+  --text-highlight: hsl(84, 100%, 37%);
 
   
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   line-height: 1.5;
   margin: 0 auto;
-  max-width: 1280px;
-  padding: 2rem;
   text-align: center;
   text-rendering: optimizeLegibility;
 

@@ -1,13 +1,12 @@
 import FormPost from './components/form/FormPost'
+import Header from './components/header/Header'
 import './Styles/App.css'
-// import styled from 'styled-components';
-// import form from './components/form/FormPost';
 
 function App() {
 
   return (
     <>
-      <h1>BuildBox - Posts</h1>
+      <Header />
       <FormPost />
     </>
   )
