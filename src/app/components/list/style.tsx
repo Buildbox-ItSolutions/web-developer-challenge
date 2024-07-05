@@ -4,7 +4,7 @@ export const ListContainer = styled.section`
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: 48px;
+  margin: 48px 0;
   gap: 16px;
 
   h1 {
