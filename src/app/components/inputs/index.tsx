@@ -7,7 +7,6 @@ import {
   ErrorMessage,
 } from "./style";
 import { PiImageSquareThin } from "react-icons/pi";
-import { PiTrashSimpleLight } from "react-icons/pi";
 
 export const Input = ({ ...props }) => {
   return (

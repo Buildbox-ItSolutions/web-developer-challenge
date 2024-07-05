@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import css from "styled-jsx/css";
 
 export const CustomInput = styled.input<{ error?: any }>`
   width: 100%;
@@ -22,7 +21,7 @@ export const CustomInput = styled.input<{ error?: any }>`
 
   ${(props) =>
     props.error &&
-    css`
+    `
       border: 1px solid ${props.theme.colors.secondary.main};
       margin-bottom: 2px;
     `};
@@ -50,7 +49,7 @@ export const CustomTextArea = styled.textarea<{ error?: any }>`
 
   ${(props) =>
     props.error &&
-    css`
+    `
       border: 1px solid ${props.theme.colors.secondary.main};
       margin-bottom: 2px;
     `};
