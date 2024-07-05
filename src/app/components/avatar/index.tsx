@@ -1,4 +1,5 @@
-import { AvatarImage } from "./style";
+import { AvatarImage, CustomNoImage } from "./style";
+import { CiUser } from "react-icons/ci";
 
 type AvatarProps = {
   url: string;
@@ -15,3 +16,9 @@ export const Avatar = ({ url }: AvatarProps) => {
     />
   );
 };
+
+export const NoImage = () => (
+  <CustomNoImage>
+    <CiUser />
+  </CustomNoImage>
+);
