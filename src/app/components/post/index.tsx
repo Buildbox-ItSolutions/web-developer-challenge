@@ -1,16 +1,15 @@
-import { IPost } from "@/app/types";
+import { IPost, IPostPayload } from "@/app/types";
 import { SlClose } from "react-icons/sl";
 import React from "react";
 import { Name, PostContainer, Message, SendBy } from "./style";
-import { Avatar } from "../avatar";
+import { Avatar, NoImage } from "../avatar";
 
-export type PostProps = Omit<IPost, "id">;
-
-export const Post = ({ message, name, avatar }: PostProps) => {
+export const Post = ({ message, name, avatar }: IPostPayload) => {
   return (
     <PostContainer>
       <div>
-        <Avatar url={avatar} />
+        {avatar && <Avatar url={avatar || ""} />}
+        {!avatar && <NoImage />}
       </div>
       <div>
         <Message>{message}</Message>
