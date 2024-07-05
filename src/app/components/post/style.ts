@@ -17,6 +17,10 @@ export const PostContainer = styled.article<{ isPending: boolean }>`
     display: flex;
     flex-direction: column;
     color: ${(props) => props.theme.colors.gray.lightest};
+
+    @media (max-width: 550px) {
+      padding: 0 0 0 12px;
+    }
   }
 
   & p:nth-child(1) {
