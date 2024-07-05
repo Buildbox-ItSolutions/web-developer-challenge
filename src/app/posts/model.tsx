@@ -1,3 +1,5 @@
+"use client";
+
 import { deletePost, getPosts } from "@/api";
 import { queryClient } from "@/lib/react-query";
 import { useMutation, useQuery } from "@tanstack/react-query";

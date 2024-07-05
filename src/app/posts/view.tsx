@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "../components/header";
 import { Container } from "./styles";
 import { Form } from "../components/form";

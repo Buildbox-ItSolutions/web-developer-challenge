@@ -72,7 +72,7 @@ export const FormView = ({
         />
       </div>
       <Actions>
-        <Button noBg onClick={resetForm}>
+        <Button $noBg onClick={resetForm}>
           Descartar
         </Button>
         <Button disabled={!isValid}>Publicar</Button>

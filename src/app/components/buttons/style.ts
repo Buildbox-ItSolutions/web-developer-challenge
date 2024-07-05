@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const CustomButton = styled.button<{ noBg?: boolean }>`
+export const CustomButton = styled.button<{ $noBg?: boolean }>`
   background-color: #007bff;
   border: none;
   border-radius: 8px;
@@ -21,7 +21,7 @@ export const CustomButton = styled.button<{ noBg?: boolean }>`
   }
 
   ${(props) =>
-    props.noBg
+    props.$noBg
       ? css`
           background-color: transparent;
           text-decoration: underline;

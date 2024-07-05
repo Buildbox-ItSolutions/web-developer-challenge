@@ -5,7 +5,7 @@ type ButtonProps = {
   children: string;
   onClick?: () => void;
   disabled?: boolean;
-  noBg?: boolean;
+  $noBg?: boolean;
 };
 
 type IconButtonProps = {
@@ -19,13 +19,13 @@ export const Button = ({
   children,
   onClick,
   disabled,
-  noBg = false,
+  $noBg = false,
 }: ButtonProps) => {
   return (
     <CustomButton
-      type={noBg ? "button" : "submit"}
+      type={$noBg ? "button" : "submit"}
       onClick={onClick}
-      noBg={noBg}
+      $noBg={$noBg}
       disabled={disabled}
     >
       {children}
