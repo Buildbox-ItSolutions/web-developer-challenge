@@ -10,7 +10,10 @@ import { SkeletonLoader } from "../components/loader";
 
 export default function PostsView({
   isLoading,
+  isPending,
+  variables,
   posts,
+  handleDelete,
 }: ReturnType<typeof usePostsView>) {
   return (
     <>
@@ -21,9 +24,22 @@ export default function PostsView({
           {isLoading && <SkeletonLoader />}
           {posts
             ?.map(({ id, avatar, name, message }: IPost) => (
-              <Post key={id} avatar={avatar} name={name} message={message} />
+              <Post
+                key={id}
+                id={id}
+                avatar={avatar}
+                name={name}
+                message={message}
+                handleDelete={handleDelete}
+                isPending={isPending && variables === id}
+              />
             ))
             .reverse()}
+          {posts?.length === 0 && !isLoading && (
+            <h1 style={{ textAlign: "center", marginTop: "30px" }}>
+              Não há mensagens
+            </h1>
+          )}
         </List>
       </Container>
     </>
