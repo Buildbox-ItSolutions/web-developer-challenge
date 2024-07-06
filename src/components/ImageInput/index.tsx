@@ -19,7 +19,14 @@ export function ImageInput({ onFileUpload, value }: Readonly<Props>) {
 						<Image size={32} />
 					</IconContainer>
 				)}
-				<Input type="file" id="image" name="image" style={{ display: "none" }} onChange={onFileUpload} />
+				<Input
+					accept="image/png,image/jpeg,image/gif"
+					type="file"
+					id="image"
+					name="image"
+					style={{ display: "none" }}
+					onChange={onFileUpload}
+				/>
 			</Container>
 		</label>
 	);
