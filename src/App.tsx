@@ -1,14 +1,18 @@
 import { useState } from "react";
-import { IoMdCloseCircleOutline } from "react-icons/io";
 
 import styled from "styled-components";
 
 import ItemForm, { IItem } from "./ItemForm";
+import Feed from "./Feed";
 
 const Navbar = styled("div")(() => ({
   backgroundColor: "#2b2b2b",
   padding: "1.5rem 0",
   borderBottom: "1px solid #232323",
+  position: "fixed",
+  width: "100%",
+  zIndex: 1,
+  top: 0,
 }));
 
 const Title = styled("h2")(() => ({
@@ -22,14 +26,6 @@ const Subtitle = styled("h6")(() => ({
   textAlign: "center",
   fontWeight: "light",
   textTransform: "uppercase",
-}));
-
-const Card = styled("div")(() => ({
-  position: "relative",
-  padding: "1.5rem",
-  border: "1px solid #3b3b3b",
-  borderRadius: "4px",
-  backgroundColor: "#313131",
 }));
 
 const Container = styled.div`
@@ -80,55 +76,7 @@ function App() {
       <Container>
         <ItemForm addItem={addItem} />
 
-        <div style={{ marginTop: "3rem" }}>
-          <h4 style={{ marginBottom: "0.5rem", color: "#7a7a7a" }}>Feed</h4>
-
-          {items.map((item, index) => (
-            <Card key={index}>
-              <IoMdCloseCircleOutline
-                color="#bc5225"
-                size={20}
-                style={{
-                  position: "absolute",
-                  margin: "8px",
-                  top: 0,
-                  right: 0,
-                }}
-              />
-
-              <div
-                style={{ marginTop: "2rem", display: "flex", gap: "1.5rem" }}
-              >
-                <div
-                  style={{
-                    borderRadius: "40%",
-                    width: "90px",
-                    height: "90px",
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    width="90"
-                    height="90"
-                    style={{ borderRadius: "40%" }}
-                  />
-                </div>
-
-                <div>
-                  <p style={{ color: "#7a7a7a", marginBottom: "1.2rem" }}>
-                    {item.description}
-                  </p>
-
-                  <div>
-                    <p style={{ color: "#7a7a7a" }}>Enviado por</p>
-                    <p style={{ color: "#7a7a7a" }}>{item.name}</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <Feed items={items} setItems={setItems} />
       </Container>
     </div>
   );

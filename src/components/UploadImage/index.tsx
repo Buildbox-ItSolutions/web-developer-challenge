@@ -1,14 +1,23 @@
+import { FaRegTrashAlt } from "react-icons/fa";
 import { GoImage } from "react-icons/go";
+
+import { IconButton } from "../IconButton";
 
 interface IUploadImage {
   image: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onClean: () => void;
 }
 
-export default function UploadImage({ image, onChange }: IUploadImage) {
+export default function UploadImage({
+  image,
+  onChange,
+  onClean,
+}: IUploadImage) {
   return (
     <div
       style={{
+        position: "relative",
         marginBottom: "0.8rem",
         display: "flex",
         justifyContent: "center",
@@ -35,9 +44,11 @@ export default function UploadImage({ image, onChange }: IUploadImage) {
           <img
             src={image}
             alt="image"
-            style={{ borderRadius: "40%" }}
-            width="90"
-            height="90"
+            style={{
+              borderRadius: "40%",
+              width: "90px",
+              height: "90px",
+            }}
           />
         </label>
       )}
@@ -59,6 +70,19 @@ export default function UploadImage({ image, onChange }: IUploadImage) {
         >
           <GoImage size={24} color="#9b9b9b" />
         </label>
+      )}
+
+      {image && (
+        <IconButton
+          onClick={onClean}
+          style={{
+            position: "absolute",
+            top: "38px",
+            right: "150px",
+          }}
+        >
+          <FaRegTrashAlt size={18} color="#bc5225" />
+        </IconButton>
       )}
     </div>
   );

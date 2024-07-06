@@ -14,7 +14,5 @@ export const Button = styled("button")((props: any) => ({
     background: "none",
     color: "#5f5f5f",
     textDecoration: "underline",
-    margin: 0,
-    padding: 0,
   }),
 }));

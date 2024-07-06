@@ -18,7 +18,7 @@ interface IItemForm {
 }
 
 const Card = styled("div")(() => ({
-  marginTop: "2.5rem",
+  marginTop: "8rem",
   padding: "1.5rem",
   border: "1px solid #3b3b3b",
   borderRadius: "4px",
@@ -61,6 +61,13 @@ function ItemForm({ addItem }: IItemForm) {
     reader.readAsDataURL(file);
   };
 
+  const handleCleanImage = () => {
+    setItem((prev) => ({
+      ...prev,
+      image: "",
+    }));
+  };
+
   const handleOnChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -81,7 +88,11 @@ function ItemForm({ addItem }: IItemForm) {
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <UploadImage image={item.image} onChange={handleImageChange} />
+        <UploadImage
+          image={item.image}
+          onChange={handleImageChange}
+          onClean={handleCleanImage}
+        />
 
         <Input
           name="name"
