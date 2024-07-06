@@ -41,21 +41,6 @@ const Container = styled.div`
   @media (min-width: 600px) {
     max-width: 520px;
   }
-
-  // medium
-  @media (min-width: 900px) {
-    max-width: 520px;
-  }
-
-  // large
-  @media (min-width: 1200px) {
-    max-width: 520px;
-  }
-
-  // extra-large
-  @media (min-width: 1536px) {
-    max-width: 520px;
-  }
 `;
 
 function App() {

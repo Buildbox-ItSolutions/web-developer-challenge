@@ -78,7 +78,7 @@ export default function UploadImage({
           style={{
             position: "absolute",
             top: "38px",
-            right: "150px",
+            right: "35px",
           }}
         >
           <FaRegTrashAlt size={18} color="#bc5225" />

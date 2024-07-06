@@ -20,6 +20,56 @@ const CardContent = styled("div")(() => ({
   gap: "1.5rem",
 }));
 
+const Text = styled("p")(() => ({
+  color: "#7a7a7a",
+}));
+
+const TextLabel = styled.p`
+  color: #595959;
+
+  // extra-small
+  @media (min-width: 0) {
+    fontsize: 8pt;
+  }
+
+  // small
+  @media (min-width: 600px) {
+    fontsize: 10pt;
+  }
+`;
+
+const ImageContainer = styled.div`
+  border-radius: 40%;
+
+  // extra-small
+  @media (min-width: 0) {
+    width: 50px;
+    height: 50px;
+  }
+
+  // small
+  @media (min-width: 600px) {
+    width: 90px;
+    height: 90px;
+  }
+`;
+
+const Image = styled.img`
+  border-radius: 40%;
+
+  // extra-small
+  @media (min-width: 0) {
+    width: 50px;
+    height: 50px;
+  }
+
+  // small
+  @media (min-width: 600px) {
+    width: 90px;
+    height: 90px;
+  }
+`;
+
 interface IFeed {
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
@@ -53,34 +103,16 @@ export default function Feed({ items, setItems }: IFeed) {
           </IconButton>
 
           <CardContent>
-            <div
-              style={{
-                borderRadius: "40%",
-                width: "90px",
-                height: "90px",
-              }}
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{
-                  borderRadius: "40%",
-                  width: "90px",
-                  height: "90px",
-                }}
-              />
-            </div>
+            <ImageContainer>
+              <Image src={item.image} alt={item.name} />
+            </ImageContainer>
 
             <div>
-              <p style={{ color: "#7a7a7a", marginBottom: "1.2rem" }}>
-                {item.description}
-              </p>
+              <Text style={{ marginBottom: "1.2rem" }}>{item.description}</Text>
 
               <div>
-                <p style={{ color: "#595959", fontSize: "10pt" }}>
-                  Enviado por
-                </p>
-                <p style={{ color: "#7a7a7a" }}>{item.name}</p>
+                <TextLabel>Enviado por</TextLabel>
+                <Text>{item.name}</Text>
               </div>
             </div>
           </CardContent>
