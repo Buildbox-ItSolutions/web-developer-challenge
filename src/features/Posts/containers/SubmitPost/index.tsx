@@ -1,15 +1,18 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useContext } from "react";
 import { Button } from "../../../../components/Button";
 import { Cards } from "../../../../components/Cards";
 import { ImageInput } from "../../../../components/ImageInput";
 import { Input } from "../../../../components/Input";
 import { Textarea } from "../../../../components/Textarea";
 import { FormContainer } from "./style";
+import { PostsContext } from "../../contexts/posts.context";
 
 export function SubmitPost() {
 	const [postPhoto, setPostPhoto] = useState<File | null>(null);
 	const [name, setName] = useState<string>("");
 	const [message, setMessage] = useState<string>("");
+
+	const { submitPost } = useContext(PostsContext);
 
 	function handleImageUpload(event: ChangeEvent<HTMLInputElement>) {
 		const files = event.target.files;
@@ -20,12 +23,18 @@ export function SubmitPost() {
 		setPostPhoto(files[0]);
 	}
 
-	function submitPost() {
+	function handleSubmit() {
 		if (!postPhoto || !name || !message) {
 			return;
 		}
 
-		console.log({ postPhoto, name, message });
+		submitPost({
+			message,
+			name,
+			postPhoto: URL.createObjectURL(postPhoto),
+		});
+
+		discardPost();
 	}
 
 	function discardPost() {
@@ -58,7 +67,7 @@ export function SubmitPost() {
 				<Button onClick={discardPost} variant="outline">
 					Descartar
 				</Button>
-				<Button onClick={submitPost}>Publicar</Button>
+				<Button onClick={handleSubmit}>Publicar</Button>
 			</Cards.Footer>
 		</Cards.Root>
 	);
