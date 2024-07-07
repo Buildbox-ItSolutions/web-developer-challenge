@@ -10,10 +10,5 @@
   margin: 0;
   box-sizing: border-box;
 
-  font-family: 'Roboto';
-}
-
-html, body, main {
-  width: 100vw;
-  height: 100vh;
+  font-family: 'Inter', 'Roboto', sans-serif;
 }
