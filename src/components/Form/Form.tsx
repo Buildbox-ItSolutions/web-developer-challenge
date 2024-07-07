@@ -1,10 +1,11 @@
 
-import slcImage from '../assets/images/slcImage.svg';
+import slcImage from '../../assets/images/slcImage.svg';
 import { Form as StyleForm } from './Form-style';
 
 export default function Form() {
     return (
         <div>
+            
             <StyleForm>
                 <label htmlFor="imgUpload">
                     <img id="test" src={slcImage} alt="Selecionar imagem"/>
