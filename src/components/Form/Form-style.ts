@@ -5,7 +5,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 90px;
     padding: 15px 0;
 
     border-radius: 5px;
@@ -61,7 +61,7 @@ export const Form = styled.form`
         display: inline;
         
         color: #343434;
-        width: 20%;
+        width: 30%;
 
     }
 `;
