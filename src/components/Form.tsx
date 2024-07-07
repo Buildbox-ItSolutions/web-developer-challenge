@@ -1,10 +1,11 @@
 
 import slcImage from '../assets/images/slcImage.svg';
+import { Form as StyleForm } from './Form-style';
+
 export default function Form() {
     return (
         <div>
-            <form>
-                
+            <StyleForm>
                 <label htmlFor="imgUpload">
                     <img id="test" src={slcImage} alt="Selecionar imagem"/>
                 </label>
@@ -14,9 +15,11 @@ export default function Form() {
                 <input type="text" placeholder="Digite seu nome" />
                 <textarea placeholder="Mensagem"></textarea>
 
-                <a href="#">Descartar</a>
-                <button type="submit">Publicar</button>
-            </form>
+                <div className="buttons-wrapper">
+                    <a href="#">Descartar</a>
+                    <button type="submit">Publicar</button>
+                </div>
+            </StyleForm>
         </div>
     );
 }

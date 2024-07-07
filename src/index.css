@@ -1,8 +1,12 @@
 :root {
-  --primary-color: #7001FD;
-  --secondary-color: #1E2772;
-  --light-grey: #C2C2C2;
-  --dark-grey: #555555;
+  --bg-main-color: #343434;
+  --bg-section-color: #313131;
+  --light-grey: #9F9F9F;
+
+
+  /*Form*/
+  --form-input-data: #494949;
+
 }
 
 * {
@@ -11,4 +15,21 @@
   box-sizing: border-box;
 
   font-family: 'Inter', 'Roboto', sans-serif;
+  color: #fff;
+}
+
+main {
+  background-color: var(--bg-main-color);
+  position: absolute;
+
+  padding: 0 20px;
+  width: 100vw;
+  height: 100vh;  
+}
+
+/* Larger screens */
+@media screen and (min-width: 768px) {
+  main {
+    padding: 0 30vw;
+  }
 }
