@@ -1,0 +1,19 @@
+:root {
+  --primary-color: #7001FD;
+  --secondary-color: #1E2772;
+  --light-grey: #C2C2C2;
+  --dark-grey: #555555;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto';
+}
+
+html, body, main {
+  width: 100vw;
+  height: 100vh;
+}
