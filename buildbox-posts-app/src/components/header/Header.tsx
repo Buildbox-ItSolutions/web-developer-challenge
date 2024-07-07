@@ -1,4 +1,4 @@
-import * as S from './HeaderStyle'
+import * as S from '../indexStyles';
 export default function Header() {
     return (
         <S.HeaderContainer>

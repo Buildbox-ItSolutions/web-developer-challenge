@@ -4,9 +4,14 @@
   --bg-primary: hsl(0, 0%, 20%);
   --bg-secondary: hsl(0, 0%, 19%);
   --bg-header: hsl(0, 0%, 17%);
+  --bg-input: hsl(0, 0%, 29%);
   --text-primary: hsl(0, 0%, 100%);
-  --text-foreground: hsl(0, 0%, 62%);
-  --text-highlight: hsl(84, 100%, 37%);
+  --text-foreground: hsl(0, 0%, 41%);
+  --text-placeholder: hsl(0, 0%, 61%);
+  --highlight-primary: hsl(84, 100%, 37%);
+  --highlight-secondary: hsl(84, 100%, 30%);
+  --border-primary: hsl(0, 0%, 27%);
+  --border-secondary: hsl(0, 0%, 61%);
 
   
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import styled from 'styled-components';
-
+import * as S from '../indexStyles';
+import DefaultPicture from '../Picture/DefaultImg';
 type InputProps = {
     picture: FileList,
     name: string,
@@ -15,21 +15,35 @@ export default function FormPost() {
     }
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    {...register("picture")}
-                    type="file"
-                />
-                <input {...register("name")} type="text" />
-                <textarea
-                    {...register("message")}
-                    placeholder='Digite sua mensagem aqui...'
-                    rows={4}
-                    cols={50}
-                />
-                <button type="button">Descartar</button>
-                <button type="submit">Publicar</button>
-            </form>
+            <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
+                <S.InputContainer>
+                    {/* <S.InputFile
+                        {...register("picture")}
+                        type="file"
+                    /> */}
+                    <DefaultPicture />
+                    <S.Input
+                        placeholder='Digite seu nome'
+                        {...register("name")}
+                        type="text"
+                    />
+                    <S.TextArea
+                        {...register("message")}
+                        placeholder='Mensagem'
+                        rows={6}
+
+                    />
+                    <S.BtnContainer>
+                        <S.BtnDiscard type="button">Descartar</S.BtnDiscard>
+                        <S.BtnSubmit
+                            type="submit"
+                        // disabled
+                        >
+                            Publicar
+                        </S.BtnSubmit>
+                    </S.BtnContainer>
+                </S.InputContainer>
+            </S.FormContainer>
         </>
     )
 }

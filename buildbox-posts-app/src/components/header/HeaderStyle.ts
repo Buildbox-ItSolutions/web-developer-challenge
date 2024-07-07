@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   background-color: var(--bg-header);
   display: flex;
   flex-direction: column;
-  height: 8vh;
+  height: 15vh;
   justify-content: center;
   width: auto;
 
@@ -15,8 +15,8 @@ export const HeaderContainer = styled.header`
 `;
 
 export const H1 = styled.h1`
-  color: var(--text-highlight);
-  font-size: 2rem;
+  color: var(--highlight-primary);
+  font-size: 2.5rem;
   font-weight: 900;
   text-transform: lowercase;
 
@@ -27,7 +27,7 @@ export const H1 = styled.h1`
 
 export const H3 = styled.h3`
   color: var(--text-foreground);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 100;
   text-transform: uppercase;
 
