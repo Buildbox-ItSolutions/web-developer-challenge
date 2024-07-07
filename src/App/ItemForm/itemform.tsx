@@ -1,39 +1,24 @@
 import { useState } from "react";
 
-import styled from "styled-components";
+import UploadImage from "../../components/UploadImage";
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
+import { TextArea } from "../../components/TextArea";
 
-import UploadImage from "../components/UploadImage";
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
-import { TextArea } from "../components/TextArea";
+import { Card, CardButtons } from "./itemform.styles";
 
-export interface IItem {
+export interface ItemProps {
   name: string;
   description: string;
   image: string;
 }
 
-interface IItemForm {
-  addItem: (item: IItem) => void;
+interface ItemFormProps {
+  addItem: (item: ItemProps) => void;
 }
 
-const Card = styled("div")(() => ({
-  marginTop: "8rem",
-  padding: "1.5rem",
-  border: "1px solid #3b3b3b",
-  borderRadius: "4px",
-  backgroundColor: "#313131",
-}));
-
-const CardButtons = styled("div")(() => ({
-  display: "flex",
-  justifyContent: "flex-end",
-  gap: "1.5rem",
-  marginTop: "1.6rem",
-}));
-
-function ItemForm({ addItem }: IItemForm) {
-  const [item, setItem] = useState<IItem>({} as IItem);
+export default function ItemForm({ addItem }: ItemFormProps) {
+  const [item, setItem] = useState<ItemProps>({} as ItemProps);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -123,5 +108,3 @@ function ItemForm({ addItem }: IItemForm) {
     </Card>
   );
 }
-
-export default ItemForm;

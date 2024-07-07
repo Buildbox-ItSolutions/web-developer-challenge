@@ -3,7 +3,7 @@ import { GoImage } from "react-icons/go";
 
 import { IconButton } from "../IconButton";
 
-interface IUploadImage {
+interface UploadImageProps {
   image: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClean: () => void;
@@ -13,7 +13,7 @@ export default function UploadImage({
   image,
   onChange,
   onClean,
-}: IUploadImage) {
+}: UploadImageProps) {
   return (
     <div
       style={{
