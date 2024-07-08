@@ -6,9 +6,9 @@ export const FormContainer = styled.form`
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
-  padding: 4rem 0;
   height: 100vh;
   justify-content: start;
+  padding: 4rem 0;
 `;
 
 export const InputContainer = styled.section`
@@ -21,10 +21,14 @@ export const InputContainer = styled.section`
   padding: 2rem;
   width: 90vw;
 
-  @media (min-width: 1024px) {
-    gap: 1.5rem;
-    width: 60vw;
-  }
+    @media (min-width: 1024px) {
+      gap: 1.5rem;
+      width: 60vw;
+    }
+`;
+
+export const InputFile = styled.input`
+  display: none;
 `;
 
 export const Input = styled.input`
@@ -37,22 +41,22 @@ export const Input = styled.input`
   height: 4rem;
   padding: 0 1.3rem;
 
-  &::placeholder {
-    color: var(--text-placeholder);
-    font-size: 1.8rem;
-  }
-
-  &:focus {
-    outline: 1px solid var(--highlight-primary);
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 1.5rem;
-
     &::placeholder {
-        font-size: 1.5rem;
+      color: var(--text-placeholder);
+      font-size: 1.8rem;
     }
-  }
+
+    &:focus {
+      outline: 1px solid var(--highlight-primary);
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.5rem;
+
+      &::placeholder {
+        font-size: 1.5rem;
+      }
+    }
 `;
 
 export const TextArea = styled.textarea`
@@ -65,24 +69,24 @@ export const TextArea = styled.textarea`
   padding: 1.3rem;
   resize: none;
 
-  &::placeholder {
-    color: var(--text-placeholder);
-    font-size: 1.8rem;
-  }
+    &::placeholder {
+      color: var(--text-placeholder);
+      font-size: 1.8rem;
+    }
 
-  &:focus {
-    outline: 1px solid var(--highlight-primary);
-  }
+    &:focus {
+      outline: 1px solid var(--highlight-primary);
+    }
 
-  @media (min-width: 1024px) {
-    font-size: 1.5rem;
-  }
+    @media (min-width: 1024px) {
+      font-size: 1.5rem;
+    }
 `;
 
 export const BtnContainer = styled.section`
   display: flex;
-  justify-content: end;
   gap: 3rem;
+  justify-content: end;
   margin-top: 2rem;
 `;
 
@@ -94,18 +98,18 @@ export const BtnSubmit = styled.button`
   font-size: 1.6rem;
   padding: 1.7rem 2.5rem;
 
-  &:hover {
-    background-color: var(--highlight-secondary);
-  }
+    &:hover {
+      background-color: var(--highlight-secondary);
+    }
 
-  &:active {
-    transform: scale(0.95);
-  }
-  
-  &:disabled {
-    background-color: var(--text-foreground);
-    cursor: not-allowed;
-  }
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    &:disabled {
+      background-color: var(--text-foreground);
+      cursor: not-allowed;
+    }
 `
 
 export const BtnDiscard = styled.button`
@@ -116,11 +120,11 @@ export const BtnDiscard = styled.button`
   font-size: 1.6rem;
   text-decoration: underline;
 
-&:hover {
-  color: var(--text-primary);
-}
+    &:hover {
+      color: var(--text-primary);
+    }
 
-&:active {
-  transform: scale(0.95);
-}
+    &:active {
+      transform: scale(0.95);
+    }
 `

@@ -1,16 +1,19 @@
 import React from 'react';
 import * as S from '../indexStyles';
 
-const DefaultPicture: React.FC = () => {
+type AvatarPictureProps = {
+    src: string,
+}
+const AvatarPicture: React.FC<AvatarPictureProps> = ({src}) => {
     return (
         <div>
             <S.ImgContainer>
                 <S.BtnAvatar>
-                    <S.ImgAvatar />
+                    <S.ImgAvatar src={src}/>
                 </S.BtnAvatar>
             </S.ImgContainer>
         </div>
     )
 }
 
-export default DefaultPicture;
+export default AvatarPicture;
