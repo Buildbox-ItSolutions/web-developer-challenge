@@ -13,6 +13,17 @@ export const Form = styled.form`
     background-color: var(--bg-section-color);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
+    img {
+        border: 1px solid #5F5F5F;
+        border-radius: 2em;
+
+        padding-top: 20px;
+
+        width: 5em;
+        height: 5em;
+        margin: 10px 0;
+    }
+
     input, textarea {
         padding: 10px;
         width: 90%;
