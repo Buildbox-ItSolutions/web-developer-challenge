@@ -1,0 +1,9 @@
+import * as S from "./styles.tsx";
+
+export const {{pascalCase name}}: React.FC<object & React.ComponentPropsWithoutRef<"div">> = ({ ...rest }) => {
+  return (
+    <S.Wrapper {...rest}>
+      <h1>{{pascalCase name}} component</h1>
+    </S.Wrapper>
+  );
+};
