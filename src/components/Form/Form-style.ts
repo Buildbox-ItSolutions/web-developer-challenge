@@ -74,5 +74,18 @@ export const Form = styled.form`
         color: #343434;
         width: 30%;
 
+        transition: 0.3s;
     }
+    
+    button[type="submit"]:disabled {
+        cursor: not-allowed;
+        background-color: #5F5F5F;
+    }
+
+    button[type="submit"]:enabled {
+        cursor: pointer;
+        background-color: #71BB00;
+    }
+
+    
 `;
