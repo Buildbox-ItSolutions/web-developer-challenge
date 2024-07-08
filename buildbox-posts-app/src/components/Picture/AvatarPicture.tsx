@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from '../indexStyles';
+import * as S from './AvatarPictureStyle';
 
 type AvatarPictureProps = {
     src: string,

@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import * as S from '../indexStyles';
+import * as S from './FormPostStyle';
 import NoAvatarPicture from '../Picture/NoAvatarPicture';
 import AvatarPicture from '../Picture/AvatarPicture';
 
@@ -48,13 +48,13 @@ export default function FormPost() {
                     <div onClick={handleLoadPicture}>
                         {avatar && <AvatarPicture src={avatar} />}
                         {!avatar && <NoAvatarPicture />}
-                        <S.InputFile
-                            id='picture'
-                            type="file"
-                            ref={inputFileRef}
-                            onChange={handleImgChange}
-                        />
                     </div>
+                    <S.InputFile
+                        id='picture'
+                        type="file"
+                        ref={inputFileRef}
+                        onChange={handleImgChange}
+                    />
                     <S.Input
                         placeholder='Digite seu nome'
                         {...register("name")}
