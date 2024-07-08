@@ -1,19 +1,22 @@
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { Post as StylePost } from './Post-style';
 import SelectImg from '../../assets/images/icons/Select-img.svg';
+import { IPost } from "../../Interfaces/IPost";
 
-export default function Post() {
+export default function Post(data: IPost) {
+    const { imgSrc, message, name } = data;
+
     return (
         <StylePost>
             <div className="first-section">
-                <img src={ SelectImg } alt="post image" />
+                <img src={ imgSrc } alt="post image" />
                 <IoIosCloseCircleOutline id="close-icon" fill="#A34C27" />
             </div>
 
-            <p>Consectetur anim qui nostrud aliquip cupidatat eiusmod ut tempor sint. Labore voluptate fugiat proident elit eiusmod consectetur ullamco. Non et cillum voluptate laboris aute non ullamco id velit. </p>
+            <p>{ message }</p>
 
             <small>Enviador por</small>
-            <p id="nameAuthor">Autor</p>
+            <p id="nameAuthor">{ name }</p>
         </StylePost>
     );
 }

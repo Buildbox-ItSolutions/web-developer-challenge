@@ -2,11 +2,9 @@
 import { FormEvent, useState } from 'react';
 import SelectImg from '../../assets/images/icons/Select-img.svg';
 import { Form as StyleForm } from './Form-style';
-import { addPost } from '../../services/posts/postServices';
+import { addPost } from '../../services/posts/postServices.ts';
 
 export default function Form() {
-
-    const posts = [];
 
     const [img, setImg] = useState(SelectImg);
     const [name, setName] = useState<string>('');
