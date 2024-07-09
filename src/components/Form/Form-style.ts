@@ -17,11 +17,12 @@ export const Form = styled.form`
         border: 1px solid #5F5F5F;
         border-radius: 2em;
 
-        padding-top: 20px;
 
         width: 5em;
         height: 5em;
         margin: 10px 0;
+
+        object-fit: fill;
     }
 
     input, textarea {

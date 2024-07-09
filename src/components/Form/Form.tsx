@@ -2,34 +2,58 @@
 import { FormEvent, useState } from 'react';
 import SelectImg from '../../assets/images/icons/Select-img.svg';
 import { Form as StyleForm } from './Form-style';
-import { addPost } from '../../services/posts/postServices.ts';
+import { IPost } from '../../Interfaces/IPost';
 
-export default function Form() {
+interface FormProps {
+    onSend: (post: IPost) => void;
+}
 
-    const [img, setImg] = useState(SelectImg);
+export default function Form({ onSend }: FormProps) {
+
+    const [imgSrc, setImgSrc] = useState<string>(SelectImg);
     const [name, setName] = useState<string>('');
     const [message, setMessage] = useState<string>('');
 
-    const addNewPost = (event: FormEvent) => {
+    const savePost = (event: FormEvent) => {
+        // stop form of reloading
         event.preventDefault();        
 
-        addPost({ imgSrc: img, name, message });
+        onSend({ imgSrc, name, message });
+        cleanForm();
+    }
+
+
+    const updateImg = (event: React.ChangeEvent<HTMLInputElement>) => {
+        
+        const file = event.target.files?.[0];
+
+        if (file) {
+            const imgUrl = URL.createObjectURL(file);
+            setImgSrc(imgUrl);
+        }
+
+    }
+
+    const cleanForm = () => {
+        setImgSrc(SelectImg);
+        setName('');
+        setMessage('');
     }
 
     return (
         <div>
-            <StyleForm onSubmit={ (event) => addNewPost(event)}>
+            <StyleForm onSubmit={ (event) => savePost(event)}>
                 <label htmlFor="imgUpload" id="imgWrapper">
-                    <img id="test" src={img} alt="Selecionar imagem"/>
+                    <img id="previewImg" src={imgSrc} alt="Selecionar imagem"/>
                 </label>
                 
-                <input id="imgUpload" type="file" accept="image/*" hidden />
+                <input id="imgUpload" type="file" accept="image/*" onChange={(e) => updateImg(e)} hidden />
                 
-                <input type="text" onChange={ ({ target }) => setName(target.value)} placeholder="Digite seu nome" />
-                <textarea placeholder="Mensagem" onChange={ ({ target }) => setMessage(target.value)}></textarea>
+                <input type="text" onChange={ ({ target }) => setName(target.value)} value={name} placeholder="Digite seu nome" />
+                <textarea onChange={ ({ target }) => setMessage(target.value)} value={message} placeholder="Mensagem" ></textarea>
 
                 <div className="buttons-wrapper">
-                    <a href="#">Descartar</a>
+                    <a href="#" onClick={() => cleanForm()}>Descartar</a>
                     <button type="submit" disabled={!name || !message}>Publicar</button>
                 </div>
             </StyleForm>
