@@ -17,7 +17,12 @@ function App() {
       <section>
         <h2>Feed</h2>
         { posts.length == 0 && "Nenhum post"}
-        { posts.length > 0 && <Post data={posts} />}
+
+        { posts.length > 0 && (
+          posts.map((post, index) => (
+            <Post key={index} data={post} />
+          ))
+        )}
       </section>
 
     </StyleMain>
