@@ -10,7 +10,6 @@ import { IPost } from "../../Interfaces/IPost";
 function App() {
 
   const [posts, setPosts] = useState<IPost[]>([]);
-  const [test] = useState('');
 
   useEffect(() => {
     const getPosts = getAllPosts();
@@ -22,6 +21,11 @@ function App() {
     setPosts(prevPosts => [...prevPosts, newPost]);
   }
 
+  function deletePost(id: number) {    
+    posts.splice(id, 1);
+
+    setPosts([...posts]);
+  }
 
   return (
     <StyleMain>
@@ -34,7 +38,7 @@ function App() {
 
         { posts.length > 0 && (
           posts.map((post, index) => (
-            <Post key={index} data={post} />
+            <Post key={index} id={index} data={post} deletePost={deletePost} />
           ))
         )}
       </section>
