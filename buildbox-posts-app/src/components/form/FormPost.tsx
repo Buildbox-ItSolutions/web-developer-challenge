@@ -1,8 +1,9 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import * as S from './FormPostStyle';
-import NoAvatarPicture from '../Picture/NoAvatarPicture';
-import AvatarPicture from '../Picture/AvatarPicture';
+import NoAvatarPicture from '../pictures/NoAvatarPicture';
+import AvatarPicture from '../pictures/AvatarPicture';
+import { PostProps } from '../../types/Post';
 
 type InputProps = {
     picture: FileList | null,
@@ -10,7 +11,11 @@ type InputProps = {
     message: string,
 }
 
-export default function FormPost() {
+type FormPostProps = {
+    onAddPost: (post: Omit<PostProps, 'id'>) => void;
+}
+
+export default function FormPost({onAddPost}: FormPostProps) {
     const { handleSubmit, register, setValue } = useForm<InputProps>();
     const [avatar, setAvatar] = useState<string>();
     const inputFileRef = useRef<HTMLInputElement>(null);
@@ -34,11 +39,14 @@ export default function FormPost() {
     }
 
     const onSubmit: SubmitHandler<InputProps> = (data) => {
-        console.log('🚀  data:', data);
-        const { picture } = data;
-        if (picture && picture[0]) {
-            console.log('🚀  isLoaded:', picture);
-        }
+        const { name, message, picture } = data;
+        const pictureURL = picture && picture[0] ? URL.createObjectURL(picture[0]) : '';
+        const newPost = {
+            name,
+            message,
+            picture: pictureURL,
+        };
+        onAddPost(newPost);
     }
 
     return (

@@ -29,5 +29,5 @@ export const BtnAvatar = styled.section`
 `
 export const ImgAvatar = styled.img`
     color: var(--border-secondary);
-    object-fit: contain;
+    height: 100%;
 `
