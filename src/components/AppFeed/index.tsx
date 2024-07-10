@@ -1,3 +1,4 @@
+// AppFeed.tsx
 import {
 	Div,
 	DivSended,
@@ -10,31 +11,13 @@ import {
 	SpanIcon,
 } from "./style";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useEffect, useState } from "react";
-
-interface PostData {
-	id: string;
-	image: string;
-	name: string;
-	message: string;
-}
+import { usePosts } from "../../context/PostContext";
 
 export default function AppFeed() {
-	const [posts, setPosts] = useState<PostData[]>([]);
-
-	useEffect(() => {
-		const fetchPosts = () => {
-			const storedPosts = JSON.parse(localStorage.getItem("posts") || "[]");
-			setPosts(storedPosts);
-		};
-
-		fetchPosts();
-	}, []);
+	const { posts, deletePost } = usePosts();
 
 	const handleDeletePost = (id: string) => {
-		const updatedPosts = posts.filter((post) => post.id !== id);
-		setPosts(updatedPosts);
-		localStorage.setItem("posts", JSON.stringify(updatedPosts));
+		deletePost(id);
 	};
 
 	return (

@@ -1,3 +1,4 @@
+// AppForm.tsx
 import { useState } from "react";
 import {
 	Section,
@@ -15,6 +16,7 @@ import {
 import { FaImage } from "react-icons/fa";
 import { PiTrashSimpleThin } from "react-icons/pi";
 import { v4 as uuidv4 } from "uuid";
+import { usePosts } from "../../context/PostContext";
 
 interface ImageData {
 	imageUpload: string;
@@ -27,17 +29,14 @@ interface PostData {
 	message: string;
 }
 
-interface AppFormProps {
-	updatePosts: () => void;
-}
-
-export default function AppForm({ updatePosts }: AppFormProps) {
+export default function AppForm() {
 	const [image, setImage] = useState<ImageData | null>(null);
 	const [showDefaultImage, setDefaultImage] = useState(true);
 	const [name, setName] = useState("");
 	const [message, setMessage] = useState("");
 	const [upload, setUpload] = useState("");
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+	const { addPost } = usePosts();
 
 	const handleFieldsChange = () => {
 		setIsButtonDisabled(!(name.trim() && message.trim() && upload));
@@ -78,12 +77,7 @@ export default function AppForm({ updatePosts }: AppFormProps) {
 			name: name,
 			message: message,
 		};
-		const storedPosts = JSON.parse(localStorage.getItem("posts") || "[]");
-		const updatedPosts = [...storedPosts, newPost];
-		localStorage.setItem("posts", JSON.stringify(updatedPosts));
-
-		updatePosts(); // Atualiza a lista de posts em AppFeed
-
+		addPost(newPost);
 		handleReset();
 	};
 
