@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Feed from './components/Feed';
-import FormPost, { Post } from './components/FormPost';
+import FormPost, { Post } from '../FormPost'; 
+import Feed from '../Feed';
 
-function App() {
+const ParentComponent = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
@@ -20,9 +20,8 @@ function App() {
         <div>
             <FormPost setPosts={setPosts} posts={posts} />
             <Feed posts={posts} />
-            <p className="text-center">Test tailwind.</p>
         </div>
     );
-}
+};
 
-export default App;
+export default ParentComponent;
