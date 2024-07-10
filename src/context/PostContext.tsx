@@ -1,11 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-
-interface PostData {
-	id: string;
-	image: string | null;
-	name: string;
-	message: string;
-}
+import { PostData } from "../interfaces/PostData";
 
 interface PostContextProps {
 	posts: PostData[];

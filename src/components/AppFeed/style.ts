@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const Main = styled.main`
 	display: grid;
 	justify-content: center;
-	align-items: center;
 `;
 
 export const H6 = styled.h6`
 	color: ${(props) => props.theme.colors.h6};
-	font-size: 16px;
+	font-size: ${(props) => props.theme.fontSizes.medium};
 	font-family: ${(props) => props.theme.fonts.main};
 	padding: 10px;
 `;
@@ -24,7 +23,8 @@ export const SpanIcon = styled.span`
 `;
 
 export const Section = styled.section`
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	padding: 0px 0px 40px 30px;
 	height: 220px;
 	background-color: ${(props) => props.theme.colors.secondary};
@@ -41,6 +41,7 @@ export const Div = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 30px;
+	flex-wrap: wrap;
 `;
 
 export const Img = styled.img`
@@ -51,10 +52,11 @@ export const Img = styled.img`
 `;
 
 export const P = styled.p`
-	width: 314px;
+	width: 309px;
 	height: 78px;
 	color: ${(props) => props.theme.colors.feedText};
 	font-family: ${(props) => props.theme.fonts.main};
+	word-break: break-all;
 `;
 
 export const DivSended = styled.div`
@@ -66,5 +68,5 @@ export const DivSended = styled.div`
 `;
 
 export const PSended = styled.p`
-	font-size: ${(props) => props.theme.fontSizes.small};
+	font-size: ${(props) => props.theme.fontSizes.smaller};
 `;

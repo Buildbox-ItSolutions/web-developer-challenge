@@ -16,17 +16,8 @@ import { FaImage } from "react-icons/fa";
 import { PiTrashSimpleThin } from "react-icons/pi";
 import { v4 as uuidv4 } from "uuid";
 import { usePosts } from "../../context/PostContext";
-
-interface ImageData {
-	imageUpload: string;
-}
-
-interface PostData {
-	id: string;
-	image: string | null;
-	name: string;
-	message: string;
-}
+import { ImageData } from "../../interfaces/ImageData";
+import { PostData } from "../../interfaces/PostData";
 
 export default function AppForm() {
 	const [image, setImage] = useState<ImageData | null>(null);
@@ -116,14 +107,16 @@ export default function AppForm() {
 				<InputName
 					placeholder="Digite seu nome"
 					type="text"
+					maxLength={15}
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 					onBlur={handleFieldsChange}
 				/>
 				<InputMessage
 					placeholder="Mensagem"
-					rows={3}
+					rows={1}
 					cols={50}
+					maxLength={120}
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
 					onBlur={handleFieldsChange}

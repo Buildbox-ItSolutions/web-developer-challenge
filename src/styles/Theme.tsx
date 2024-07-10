@@ -24,15 +24,9 @@ export const theme = {
 		main: "'Roboto', sans-serif",
 	},
 	fontSizes: {
-		small: "12px",
+		smaller: "12px",
+		small: "14px",
 		medium: "16px",
-		large: "20px",
-		xl: "24px",
-	},
-	spacing: {
-		small: "8px",
-		medium: "16px",
-		large: "24px",
 	},
 };
 

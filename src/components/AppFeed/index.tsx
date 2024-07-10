@@ -22,7 +22,6 @@ export default function AppFeed() {
 	return (
 		<Main>
 			<H6>Feed</H6>
-
 			{posts.map((post) => (
 				<Section key={post.id}>
 					<SpanIcon>

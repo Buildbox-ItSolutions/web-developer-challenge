@@ -89,7 +89,7 @@ export const InputMessage = styled.textarea`
 
 export const Nav = styled.nav`
 	display: flex;
-	width: 90%;
+	width: 100%;
 	justify-content: end;
 	gap: 10px;
 `;

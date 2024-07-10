@@ -13,7 +13,7 @@ export const H2 = styled.h2`
 	color: ${(props) => props.theme.colors.h1};
 `;
 export const H3 = styled.h3`
-	font-size: 14px;
+	font-size: ${(props) => props.theme.fontSizes.small};
 	font-weight: 400;
 	color: ${(props) => props.theme.colors.h3};
 `;
