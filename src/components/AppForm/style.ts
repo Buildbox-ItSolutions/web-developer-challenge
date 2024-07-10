@@ -10,12 +10,15 @@ export const Section = styled.section`
 export const Form = styled.form`
 	display: grid;
 	place-items: center;
-	width: 520px;
 	height: 360px;
 	background-color: ${(props) => props.theme.colors.secondary};
 	border-radius: 5px;
 	border: 2px solid ${(props) => props.theme.colors.border};
 	padding: 35px;
+
+	@media (width <= 576px) {
+		width: 400px;
+	}
 `;
 
 export const DivMain = styled.div`
@@ -45,14 +48,12 @@ export const Img = styled.img`
 
 export const InputImg = styled.input`
 	opacity: 0;
-	width: 94px;
-	height: 89px;
 	position: absolute;
 	cursor: pointer;
 `;
 
 export const InputName = styled.input`
-	width: 465px;
+	width: 100%;
 	height: 40px;
 	padding: 0px 17px 0px 17px;
 	border: none;
@@ -68,7 +69,7 @@ export const InputName = styled.input`
 `;
 
 export const InputMessage = styled.textarea`
-	width: 465px;
+	width: 100%;
 	height: 80px;
 	border: none;
 	background-color: ${(props) => props.theme.colors.input};

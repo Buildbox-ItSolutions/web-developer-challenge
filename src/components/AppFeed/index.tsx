@@ -1,4 +1,3 @@
-// AppFeed.tsx
 import {
 	Div,
 	DivSended,

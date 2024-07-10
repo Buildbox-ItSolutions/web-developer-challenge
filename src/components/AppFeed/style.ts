@@ -17,18 +17,24 @@ export const SpanIcon = styled.span`
 	display: flex;
 	justify-content: end;
 	padding: 10px;
+
+	@media (width <= 576px) {
+		margin-right: 15%;
+	}
 `;
 
 export const Section = styled.section`
 	display: grid;
-	justify-content: space-around;
 	padding: 0px 0px 40px 30px;
-	width: 510px;
 	height: 220px;
 	background-color: ${(props) => props.theme.colors.secondary};
 	border-radius: 5px;
 	border: 1px solid ${(props) => props.theme.colors.border};
 	margin-bottom: 18px;
+
+	@media (width <= 576px) {
+		width: 400px;
+	}
 `;
 
 export const Div = styled.div`
