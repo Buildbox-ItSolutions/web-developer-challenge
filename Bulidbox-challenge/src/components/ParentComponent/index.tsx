@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import FormPost, { Post } from '../FormPost'; 
 import Feed from '../Feed';
 
@@ -19,7 +19,7 @@ const ParentComponent = () => {
     return (
         <div>
             <FormPost setPosts={setPosts} posts={posts} />
-            <Feed posts={posts} />
+            <Feed setPosts={setPosts} posts={posts} />
         </div>
     );
 };

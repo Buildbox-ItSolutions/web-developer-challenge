@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ButtonForm from '../ButtonForm';
 import InputField from '../InputForm';
 import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
 
 export type Post = {
     username: string;
@@ -14,7 +15,7 @@ type FormPostProps = {
     setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 };
 
-const FormPost: React.FC<FormPostProps> = ({ posts, setPosts }) => {
+const FormPost: React.FC<FormPostProps> = ({ setPosts }) => {
     const { register, handleSubmit, reset } = useForm<Post>();
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -41,23 +42,26 @@ const FormPost: React.FC<FormPostProps> = ({ posts, setPosts }) => {
     };
 
     return (
-        <div className='my-12 flex items-center border-b-[0.2px] border-zinc-700 pb-12 justify-center'>
-            <div className='border border-zinc-700 rounded-sm bg-white bg-opacity-5 py-4' style={{ width: '600px' }}>
-                <h1 className='text-2xl font-bold text-center'>Formulario de Post</h1>
-                <div className='flex justify-center mt-10'>
-                    <label htmlFor="photo-upload">
-                        <img className='rounded-full cursor-pointer' src={selectedFile ? URL.createObjectURL(selectedFile) : "/src/assets/icon-img.png"} width={90} alt="" />
-                    </label>
-                    <input
-                        id="photo-upload"
-                        type="file"
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        onChange={handleFileChange}
+        <Wrapper>
+            <FormContainer>
+                <Title>Formulario de Post</Title>
+                <Paragraph>selecione uma imagem</Paragraph>
+                <PhotoUploadLabel htmlFor="photo-upload">
+                    <PhotoUploadImage
+                        src={selectedFile ? URL.createObjectURL(selectedFile) : "/src/assets/icon-img.png"}
+                        width={90}
+                        alt=""
                     />
-                </div>
-                <div className='flex flex-col justify-center items-center mt-6 px-6'>
-                    <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+                </PhotoUploadLabel>
+                <input
+                    id="photo-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                />
+                <FormContent>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
                         <InputField
                             label="Nome de usuário"
                             type="text"
@@ -70,24 +74,89 @@ const FormPost: React.FC<FormPostProps> = ({ posts, setPosts }) => {
                             name="description"
                             register={register}
                         />
-                        <div className='flex justify-end px-6'>
-                            <button
+                        <ButtonContainer>
+                            <DiscardButton
                                 type="button"
-                                className='my-4 py-1 px-3 underline text-sm rounded-xl'
                                 onClick={() => {
                                     reset();
                                     setSelectedFile(null);
                                 }}
                             >
                                 descartar
-                            </button>
+                            </DiscardButton>
                             <ButtonForm />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        </ButtonContainer>
+                    </Form>
+                </FormContent>
+            </FormContainer>
+        </Wrapper>
     );
 };
+
+
+const Wrapper = styled.div`
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.2px solid #3f3f46;
+  padding-bottom: 3rem;
+  justify-content: center;
+`;
+
+const FormContainer = styled.div`
+  border: 1px solid #3f3f46;
+  border-radius: 0.125rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  width: 600px;
+`;
+
+const Title = styled.h1`
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+`;
+
+const Paragraph = styled.p`
+    font-size: 0.75rem;
+    text-align: center;
+`
+
+const PhotoUploadLabel = styled.label`
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+`;
+
+const PhotoUploadImage = styled.img`
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+const FormContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+`;
+
+const Form = styled.form`
+  width: 100%;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem;
+`;
+
+const DiscardButton = styled.button`
+  margin: 1rem 0;
+  padding: 0.25rem 0.75rem;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+`;
 
 export default FormPost;

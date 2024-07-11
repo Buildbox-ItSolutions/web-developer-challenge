@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { FaTrash } from "react-icons/fa";
 
 type Post = {
@@ -12,41 +13,127 @@ type FeedProps = {
     setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 };
 
+
+
 const Feed: React.FC<FeedProps> = ({ posts, setPosts }) => {
     const handleDelete = (index: number) => {
         setPosts(posts.filter((_, i) => i !== index));
     };
 
     return (
-        <div className='flex items-center flex-col'>
-            <div className='flex items-center justify-start' style={{ width: '600px' }}>
-                <h2>Feed</h2>
-            </div>
+        <FeedContainer>
+            <FeedHeader>
+                <FeedTitle>Feed</FeedTitle>
+            </FeedHeader>
             {posts.map((post, index) => (
-                <div key={index} className='my-10 bg-white bg-opacity-5 flex items-center justify-center'>
-                    <div className='border border-zinc-700 rounded-sm pl-10 flex flex-col' style={{ width: '600px' }}>
-                        <div className='flex justify-between items-start'>
-                            <div className='flex justify-center p-2 items-center mt-10'>
-                                <img className='rounded-full' src={post.photo} width={90} alt="" />
-                            </div>
-                            <div className='p-10'>
-                                <button onClick={() => handleDelete(index)}><FaTrash color='white' /></button>
-                            </div>
-                        </div>
-                        <div className='flex flex-col justify-center items-start ml-4 my-10'>
-                            <div>
-                                <span className='text-zinc-300'>{post.description}</span>
-                                <div className='text-zinc-500'>
-                                    <p className='text-sm text-zinc-500 font-medium'>Enviado por:</p>
-                                    <h3 className='text-md'>{post.username}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <PostContainer key={index}>
+                    <PostContent>
+                        <PostHeader>
+                            <PostImageContainer>
+                                <PostImage src={post.photo} width={90} height={90}  alt="imagem" />
+                            </PostImageContainer>
+                            <DeleteButtonContainer>
+                                <DeleteButton onClick={() => handleDelete(index)}><FaTrash color='white' /></DeleteButton>
+                            </DeleteButtonContainer>
+                        </PostHeader>
+                        <PostBody>
+                            <PostDescription>{post.description}</PostDescription>
+                            <PostSenderInfo>
+                                <SenderTitle>Enviado por:</SenderTitle>
+                                <SenderName>{post.username}</SenderName>
+                            </PostSenderInfo>
+                        </PostBody>
+                    </PostContent>
+                </PostContainer>
             ))}
-        </div>
+        </FeedContainer>
     );
 };
+
+const FeedContainer = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`;
+
+const FeedHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 600px;
+`;
+
+const FeedTitle = styled.h2`
+
+`;
+
+const PostContainer = styled.div`
+    margin: 2.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const PostContent = styled.div`
+    border: 1px solid #3f3f46;
+    border-radius: 0.125rem;
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+`;
+
+const PostHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+`;
+
+const PostImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    align-items: center;
+    margin-top: 2.5rem;
+`;
+
+const PostImage = styled.img`
+    border-radius: 100%;
+`;
+
+const DeleteButtonContainer = styled.div`
+    padding: 2.5rem;
+`;
+
+const DeleteButton = styled.button`
+    // You can add more styles if needed
+`;
+
+const PostBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 1rem;
+    margin: 2.5rem 0;
+`;
+
+const PostDescription = styled.span`
+    color: #a1a1aa; // Equivalent to text-zinc-300
+`;
+
+const PostSenderInfo = styled.div`
+    color: #71717a; // Equivalent to text-zinc-500
+`;
+
+const SenderTitle = styled.p`
+    font-size: 0.875rem; // Equivalent to text-sm
+    font-weight: 500; // Equivalent to font-medium
+`;
+
+const SenderName = styled.h3`
+    font-size: 1rem; // Equivalent to text-md
+`;
 
 export default Feed;

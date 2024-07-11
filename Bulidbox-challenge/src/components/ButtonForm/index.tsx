@@ -1,11 +1,34 @@
-import React from 'react'
+import styled from 'styled-components';
 
 const ButtonForm = () => {
   return (
-    <div>
-        <button type='submit' className='my-4 bg-green-500 py-1 px-3 text-sm rounded-xl'>Publicar</button>
-    </div>
-  )
-}
+    <ButtonContainer>
+      <ButtonCreate type="submit">
+        publicar
+      </ButtonCreate>
+    </ButtonContainer>
+  );
+};
 
-export default ButtonForm
+const ButtonContainer = styled.div`
+  
+`;
+
+const ButtonCreate = styled.button`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #22c55e;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  border-radius: 0.75rem;
+  color: white;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #16a34a;
+  }
+`;
+
+export default ButtonForm;
