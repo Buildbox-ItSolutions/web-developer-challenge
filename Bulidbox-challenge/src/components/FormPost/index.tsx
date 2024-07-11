@@ -16,7 +16,7 @@ type FormPostProps = {
 };
 
 const FormPost: React.FC<FormPostProps> = ({ setPosts }) => {
-    const { register, handleSubmit, reset } = useForm<Post>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Post>();
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
     const onSubmit = (data: Post) => {
@@ -48,7 +48,7 @@ const FormPost: React.FC<FormPostProps> = ({ setPosts }) => {
                 <Paragraph>selecione uma imagem</Paragraph>
                 <PhotoUploadLabel htmlFor="photo-upload">
                     <PhotoUploadImage
-                        src={selectedFile ? URL.createObjectURL(selectedFile) : "/src/assets/icon-img.png"}
+                        src={selectedFile ? URL.createObjectURL(selectedFile) : "/src/assets/user.jpg"}
                         width={90}
                         alt=""
                     />
@@ -67,12 +67,14 @@ const FormPost: React.FC<FormPostProps> = ({ setPosts }) => {
                             type="text"
                             name="username"
                             register={register}
+                            errors={errors}
                         />
                         <InputField
                             label="Mensagem"
                             type="text"
                             name="description"
                             register={register}
+                            errors={errors} 
                         />
                         <ButtonContainer>
                             <DiscardButton
@@ -120,12 +122,13 @@ const Title = styled.h1`
 const Paragraph = styled.p`
     font-size: 0.75rem;
     text-align: center;
+    margin-top: 2rem;
 `
 
 const PhotoUploadLabel = styled.label`
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 0.5rem;
 `;
 
 const PhotoUploadImage = styled.img`

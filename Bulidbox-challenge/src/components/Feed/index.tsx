@@ -30,7 +30,7 @@ const Feed: React.FC<FeedProps> = ({ posts, setPosts }) => {
                     <PostContent>
                         <PostHeader>
                             <PostImageContainer>
-                                <PostImage src={post.photo} width={90} height={90}  alt="imagem" />
+                                <PostImage src={post.photo || "/src/assets/user.jpg"} width={90} height={90}  alt="imagem" />
                             </PostImageContainer>
                             <DeleteButtonContainer>
                                 <DeleteButton onClick={() => handleDelete(index)}><FaTrash color='white' /></DeleteButton>
@@ -107,7 +107,6 @@ const DeleteButtonContainer = styled.div`
 `;
 
 const DeleteButton = styled.button`
-    // You can add more styles if needed
 `;
 
 const PostBody = styled.div`
@@ -120,20 +119,20 @@ const PostBody = styled.div`
 `;
 
 const PostDescription = styled.span`
-    color: #a1a1aa; // Equivalent to text-zinc-300
+    color: #a1a1aa; 
 `;
 
 const PostSenderInfo = styled.div`
-    color: #71717a; // Equivalent to text-zinc-500
+    color: #71717a; 
 `;
 
 const SenderTitle = styled.p`
-    font-size: 0.875rem; // Equivalent to text-sm
-    font-weight: 500; // Equivalent to font-medium
+    font-size: 0.875rem; 
+    font-weight: 500; 
 `;
 
 const SenderName = styled.h3`
-    font-size: 1rem; // Equivalent to text-md
+    font-size: 1rem;
 `;
 
 export default Feed;

@@ -7,18 +7,7 @@ type InputFieldProps = {
   type: string;
   name: string;
   register: UseFormRegister<any>;
-};
-
-const InputField: React.FC<InputFieldProps> = ({ label, type, name, register }) => {
-  return (
-    <InputFieldContainer>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
-      <Input
-        type={type}
-        {...register(name)}
-      />
-    </InputFieldContainer>
-  );
+  errors: any;
 };
 
 const InputFieldContainer = styled.div`
@@ -28,7 +17,7 @@ const InputFieldContainer = styled.div`
 `;
 
 const InputLabel = styled.label`
-  
+
 `;
 
 const Input = styled.input`
@@ -37,4 +26,24 @@ const Input = styled.input`
   border-radius: 0.5rem;
   width: 100%;
 `;
+
+const ErrorMessage = styled.span`
+  color: red;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+`;
+
+const InputField: React.FC<InputFieldProps> = ({ label, type, name, register, errors }) => {
+  return (
+    <InputFieldContainer>
+      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <Input
+        type={type}
+        {...register(name, { required: `campo ${label} vazio` })}
+      />
+      {errors[name] && <ErrorMessage>{errors[name].message}</ErrorMessage>}
+    </InputFieldContainer>
+  );
+};
+
 export default InputField;
