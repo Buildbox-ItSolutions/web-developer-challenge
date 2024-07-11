@@ -1,0 +1,61 @@
+.card-container{
+    border-radius: 3px;
+    border: solid 1px #3b3b3b;
+    background-color: #313131;
+    margin-bottom: 16px;
+}
+.header-close{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+}
+.delete-button{
+    margin: 12px 12px 24px 0;
+    cursor: pointer;
+}
+.context-feed{
+    display: flex;
+    flex-direction: row;
+    margin-left: 24px;
+    margin-bottom: 32px;
+}
+.text-style{
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+    margin-right: 24px;
+}
+
+.mensagem-style{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9f9f9f;
+    margin-bottom: 24px;
+
+}
+
+.autor-style{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #7a7a7a;
+    display: flex;
+    flex-direction: column;
+}
+.mini-text-style{
+    color:#5f5f5f;
+    font-size: 12px;
+    font-weight: 500;
+}
