@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Post } from '../../App';
-import { StyledImage } from '../image';
 import { Box, CardContainer, CardContent, CustomDeleteIcon, TextContainer, TextStyled } from './style';
+import { StyledImage } from '../image/style';
 
 
 
