@@ -26,7 +26,7 @@ export const Form = styled.form`
     }
 
     input, textarea {
-        padding: 10px;
+        padding: 15px;
         width: 90%;
         color: #fff;
         background-color: var(--form-input-data);
@@ -39,7 +39,7 @@ export const Form = styled.form`
     textarea {
         min-width: 90%;
         max-width: 90%;
-        min-height: 60px;
+        min-height: 90px;
         max-height: 150px;
     }
 

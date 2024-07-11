@@ -11,21 +11,24 @@ interface PostProps {
 export default function Post({ data, id, deletePost }: PostProps) {
     const { imgSrc, message, name } = data;
 
-
-
     return (
         <StylePost>
-            <div className="first-section">
-                <img src={ imgSrc } alt="post image" />
-                <button onClick={() => deletePost(id)}>
-                    <IoIosCloseCircleOutline id="close-icon" fill="#A34C27" />
-                </button>
-            </div>
+            <button onClick={() => deletePost(id)}>
+                <IoIosCloseCircleOutline id="close-icon" fill="#A34C27" />
+            </button>
+            <section className="content-wrapper">
+                <div className="photo-wrapper">        
+                    <img src={ imgSrc } alt="post image" />
+                </div>
+                
+                <div className="message-wrapper">
+                    <p>{ message }</p>
 
-            <p>{ message }</p>
+                    <small>Enviador por</small>
+                    <p id="nameAuthor">{ name }</p>
+                </div>
+            </section>
 
-            <small>Enviador por</small>
-            <p id="nameAuthor">{ name }</p>
         </StylePost>
     );
 }
