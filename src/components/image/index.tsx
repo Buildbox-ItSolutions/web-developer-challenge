@@ -45,10 +45,10 @@ const FileInput = styled.input`
 `;
 
 const CustomDeleteIcon = styled(PiTrashSimple)`
-  color: #A54D27;
-  cursor: pointer;
-  font-size: 2opx;
-  background-color: transparent;
+    color: #A54D27;
+    cursor: pointer;
+    font-size: 2opx;
+     background-color: transparent;
 `;
 
 export default function ImageInput({ onDeleteImage, imageUrl, setNewPost }: {onDeleteImage:any, imageUrl:string, setNewPost: any}){

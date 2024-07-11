@@ -88,28 +88,27 @@ export default function App(){
   }
 
   return (
-    <ContainerWrapper>
-      <Header />
-      <AppContainer>
-        <PostForm>
-          <ImageInput imageUrl={newPost.image} setNewPost={setNewPost} onDeleteImage={onDeleteImage}/>
-          <Input onChange={handleInputChange} placeholder='Digite seu nome' value={newPost.name} name='name' />
-          <TextArea id="message" name="message" value={newPost.message} onChange={handleInputChange} placeholder='Mensagem'/>
-          <ButtonRow>
-            <Button onClick={handleClean} underline color='#5F5F5F'>Descartar</Button>
-            <Button onClick={handleSubmit} backgroundColor={allowedSubmit ? '#71BB00' : '#5F5F5F'} color={allowedSubmit? 'white':'#404040'}>Publicar</Button>
-          </ButtonRow>
-        </PostForm>
-
-        <PostListContainer className="post-list">
-          {posts.length > 0 && <p>Feed</p>}
-          {posts.slice().reverse().map((post: Post) => (
-            <Card key={post.id} post={post} onDelete={() => handleDelete(post)} />
+  <ContainerWrapper>
+    <Header />
+    <AppContainer>
+      <PostForm>
+        <ImageInput imageUrl={newPost.image} setNewPost={setNewPost} onDeleteImage={onDeleteImage}/>
+        <Input onChange={handleInputChange} placeholder='Digite seu nome' value={newPost.name} name='name' />
+        <TextArea id="message" name="message" value={newPost.message} onChange={handleInputChange} placeholder='Mensagem'/>
+        <ButtonRow>
+          <Button onClick={handleClean} underline color='#5F5F5F'>Descartar</Button>
+          <Button onClick={handleSubmit} backgroundColor={allowedSubmit ? '#71BB00' : '#5F5F5F'} color={allowedSubmit ? 'white' : '#404040'}>Publicar</Button>
+        </ButtonRow>
+      </PostForm>
+  
+      <PostListContainer className="post-list">
+        {posts.length > 0 && <p>Feed</p>}
+        {posts.slice().reverse().map((post: Post) => (
+          <Card key={post.id} post={post} onDelete={() => handleDelete(post)} />
         ))}
-        
-    </PostListContainer>
-      </AppContainer>
-    </ContainerWrapper>
+      </PostListContainer>
+    </AppContainer>
+  </ContainerWrapper>
   );
 };
 
