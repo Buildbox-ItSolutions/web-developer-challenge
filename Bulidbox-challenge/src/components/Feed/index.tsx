@@ -4,6 +4,7 @@ import { FaTrash } from "react-icons/fa";
 type Post = {
     username: string;
     description: string;
+    photo: string;
 };
 
 type FeedProps = {
@@ -26,10 +27,10 @@ const Feed: React.FC<FeedProps> = ({ posts, setPosts }) => {
                     <div className='border border-zinc-700 rounded-sm pl-10 flex flex-col' style={{ width: '600px' }}>
                         <div className='flex justify-between items-start'>
                             <div className='flex justify-center p-2 items-center mt-10'>
-                                <img className='rounded-full' src="/src/assets/aa.jpg" width={90} alt="" />
+                                <img className='rounded-full' src={post.photo} width={90} alt="" />
                             </div>
                             <div className='p-10'>
-                                <button  onClick={() => handleDelete(index)}><FaTrash color='white' /></button>
+                                <button onClick={() => handleDelete(index)}><FaTrash color='white' /></button>
                             </div>
                         </div>
                         <div className='flex flex-col justify-center items-start ml-4 my-10'>
