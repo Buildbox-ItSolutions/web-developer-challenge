@@ -15,7 +15,7 @@ type FormPostProps = {
     onAddPost: (post: Omit<PostProps, 'id'>) => void;
 }
 
-export default function FormPost({onAddPost}: FormPostProps) {
+export default function FormPost({ onAddPost }: FormPostProps) {
     const { handleSubmit, register, setValue, reset } = useForm<InputProps>();
     const [avatar, setAvatar] = useState<string>();
     const inputFileRef = useRef<HTMLInputElement>(null);
@@ -38,6 +38,11 @@ export default function FormPost({onAddPost}: FormPostProps) {
         inputFileRef.current?.click();
     }
 
+    const handleResetForm = () => {
+        reset();
+        setAvatar('');
+    }
+
     const onSubmit: SubmitHandler<InputProps> = (data) => {
         const { name, message, picture } = data;
         const pictureURL = picture && picture[0] ? URL.createObjectURL(picture[0]) : '';
@@ -47,8 +52,7 @@ export default function FormPost({onAddPost}: FormPostProps) {
             picture: pictureURL,
         };
         onAddPost(newPost);
-        reset();
-        setAvatar('');
+        handleResetForm();
     }
 
     return (
@@ -61,9 +65,9 @@ export default function FormPost({onAddPost}: FormPostProps) {
                     </div>
                     <S.InputFile
                         id='picture'
-                        type="file"
-                        ref={inputFileRef}
                         onChange={handleImgChange}
+                        ref={inputFileRef}
+                        type="file"
                     />
                     <S.Input
                         placeholder='Digite seu nome'
@@ -77,7 +81,12 @@ export default function FormPost({onAddPost}: FormPostProps) {
 
                     />
                     <S.BtnContainer>
-                        <S.BtnDiscard type="button">Descartar</S.BtnDiscard>
+                        <S.BtnDiscard
+                            onClick={handleResetForm}
+                            type="button"
+                        >
+                            Descartar
+                        </S.BtnDiscard>
                         <S.BtnSubmit
                             type="submit"
                         >
