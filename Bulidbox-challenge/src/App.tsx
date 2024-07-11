@@ -19,8 +19,7 @@ function App() {
     return (
         <div>
             <FormPost setPosts={setPosts} posts={posts} />
-            <Feed posts={posts} />
-            <p className="text-center">Test tailwind.</p>
+            <Feed posts={posts} setPosts={setPosts} />
         </div>
     );
 }

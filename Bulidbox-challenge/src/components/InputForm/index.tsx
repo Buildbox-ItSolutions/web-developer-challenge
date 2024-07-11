@@ -1,24 +1,21 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
-interface Props {
+type InputFieldProps = {
   label: string;
   type: string;
   name: string;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+  register: UseFormRegister<any>;
+};
 
-const InputField: React.FC<Props> = ({ label, type, name, value, onChange }) => {
+const InputField: React.FC<InputFieldProps> = ({ label, type, name, register }) => {
   return (
     <div className=' flex flex-col py-2'>
       <label htmlFor={name}>{label}</label>
       <input
         className='h-10 px-3 py-2 rounded-lg w-full'
         type={type}
-        id={name}
-        name={name}
-        value={value}  
-        onChange={onChange}  
+        {...register(name)}
       />
     </div>
   );
