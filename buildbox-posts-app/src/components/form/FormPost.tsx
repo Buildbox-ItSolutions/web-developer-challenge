@@ -16,7 +16,7 @@ type FormPostProps = {
 }
 
 export default function FormPost({onAddPost}: FormPostProps) {
-    const { handleSubmit, register, setValue } = useForm<InputProps>();
+    const { handleSubmit, register, setValue, reset } = useForm<InputProps>();
     const [avatar, setAvatar] = useState<string>();
     const inputFileRef = useRef<HTMLInputElement>(null);
 
@@ -47,6 +47,8 @@ export default function FormPost({onAddPost}: FormPostProps) {
             picture: pictureURL,
         };
         onAddPost(newPost);
+        reset();
+        setAvatar('');
     }
 
     return (
