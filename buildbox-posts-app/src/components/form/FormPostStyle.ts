@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import '../../Styles/App.css';
+import { PiTrashSimple } from "react-icons/pi";
 
 export const FormContainer = styled.form`
     align-items: center;
@@ -19,12 +20,35 @@ export const InputContainer = styled.section`
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
+    position: relative;
     width: 90vw;
 
       @media (min-width: 1024px) {
         gap: 1.5rem;
         width: 60vw;
       }
+`;
+
+export const TrashCan = styled(PiTrashSimple)`
+    color: var(--alert);
+    cursor: pointer;
+    height: 2.5rem;
+    position: absolute;
+    right: 22rem;
+    top: 6rem;
+    width: 2.5rem;
+
+      &:hover {
+        color: var(--highlight-primary);
+      }
+`;
+
+export const BtnAddAvatar = styled.div`
+    align-self: center;
+    border-radius: 4rem;
+    display: flex;
+    justify-content: center;
+    width: 10rem;
 `;
 
 export const InputFile = styled.input`
@@ -71,7 +95,7 @@ export const TextArea = styled.textarea`
 
       &::placeholder {
         color: var(--text-placeholder);
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
 
       &:focus {

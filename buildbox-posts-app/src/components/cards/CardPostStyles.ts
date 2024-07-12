@@ -9,7 +9,7 @@ export const Card = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
     width: 90vw;
 
         @media (min-width: 1024px) {
@@ -33,8 +33,8 @@ export const RemoveIcon = styled(TiDeleteOutline)`
     color: var(--alert);
     display: flex;
     align-self: end;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
 `
 
 export const CardContent = styled.section`

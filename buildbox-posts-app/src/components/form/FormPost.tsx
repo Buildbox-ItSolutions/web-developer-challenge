@@ -38,9 +38,13 @@ export default function FormPost({ onAddPost }: FormPostProps) {
         inputFileRef.current?.click();
     }
 
+    const handleRemovePicture = () => {
+        setAvatar('');
+    }
+
     const handleResetForm = () => {
         reset();
-        setAvatar('');
+        handleRemovePicture();
     }
 
     const onSubmit: SubmitHandler<InputProps> = (data) => {
@@ -59,10 +63,19 @@ export default function FormPost({ onAddPost }: FormPostProps) {
         <>
             <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
                 <S.InputContainer>
-                    <div onClick={handleLoadPicture}>
-                        {avatar && <AvatarPicture src={avatar} />}
-                        {!avatar && <NoAvatarPicture />}
-                    </div>
+                    {avatar && (
+                        <>
+                            <S.TrashCan onClick={handleRemovePicture}/>
+                            <AvatarPicture src={avatar} />
+                        </>
+                    )}
+                    {!avatar && (
+                        <>
+                            <S.BtnAddAvatar onClick={handleLoadPicture}>
+                                <NoAvatarPicture />
+                            </S.BtnAddAvatar>
+                        </>
+                    )}
                     <S.InputFile
                         id='picture'
                         onChange={handleImgChange}
@@ -87,6 +100,10 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                         >
                             Descartar
                         </S.BtnDiscard>
+                        {/* <PiTrashSimple
+                            onClick={handleRemovePicture}
+                            type="button"
+                        /> */}
                         <S.BtnSubmit
                             type="submit"
                         >
