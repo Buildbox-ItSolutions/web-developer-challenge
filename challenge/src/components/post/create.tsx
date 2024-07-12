@@ -1,13 +1,14 @@
 'use client'
 
-import { Post } from '@/action/post'
 import { uniqueId } from '@/function/uniqueId'
+import { usePostStatus } from '@/hook/postStatusContext'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { GoFileMedia } from 'react-icons/go'
 import { LuTrash } from 'react-icons/lu'
 
 export const CreatePost = () => {
+  const { setPostAdded } = usePostStatus()
   const [img, setImg] = useState('')
   const [data, setData] = useState({
     image: '',
@@ -19,12 +20,11 @@ export const CreatePost = () => {
   function handleImgChange({ target }: React.ChangeEvent<HTMLInputElement>) {
     if (target.files && target.files.length > 0) {
       const file = target.files[0]
-      const imageUrl = URL.createObjectURL(file)
-      setImg(imageUrl)
-      setData((prevData) => ({
-        ...prevData,
-        image: imageUrl,
-      }))
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImg(reader.result as string)
+      }
+      reader.readAsDataURL(file)
     }
   }
 
@@ -46,15 +46,21 @@ export const CreatePost = () => {
       ...prevData,
       [name]: value,
       id: newId,
+      image: img,
     }))
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault()
-    const postInstance = new Post()
-    postInstance.SetPost(data)
-    handleClear(e)
+
+    if (data.image && data.message && data.name) {
+      const postDataString = JSON.stringify(data)
+      localStorage.setItem(`post_${data.id}`, postDataString)
+      setPostAdded(true)
+      handleClear(e)
+    }
   }
+
   const handleClear = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault()
     setData({
@@ -70,7 +76,7 @@ export const CreatePost = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="h-96 bg-zinc-750 w-[600px] mx-auto mt-10 border border-zinc-600 rounded-md flex flex-col items-center justify-center"
+        className="h-96 bg-zinc-750 max-w-[600px] mx-auto mt-10 border border-zinc-600 rounded-md flex flex-col items-center justify-center"
       >
         <div className="h-[40%] w-full flex items-center justify-center">
           {!img ? (
