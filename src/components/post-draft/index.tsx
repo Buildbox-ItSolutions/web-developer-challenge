@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { PostProps } from "../post"
 import logo from '../../logo.svg';
+import ImageInput from "../image-upload";
 
 export type PostDraftProps = {
     Publish: (post: PostProps) => void
@@ -15,7 +16,7 @@ export default function PostDraft(props: PostDraftProps) {
 
     function discard() {
         setDraft({
-            Image64: logo,
+            Image64: "data:image/jpeg;base64" + logo,
             Message: "",
             SentBy: ""
         })
@@ -53,12 +54,7 @@ export default function PostDraft(props: PostDraftProps) {
 
     return (
         <section id="post-draft">
-            <input
-                type="file"
-                onChange={handleChangeImage}
-                style={{ display: "none" }}
-            />
-            <img src={draft.Image64} />
+            <ImageInput Img={draft.Image64} HandleChangeImage={handleChangeImage} />
             <input
                 value={draft.SentBy}
                 type="text"
