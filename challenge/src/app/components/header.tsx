@@ -15,15 +15,15 @@ export const Header = () => {
 const HeaderContainer = styled.header`
 	background: ${({ theme }) => theme.colors.gray900};
 	border-bottom: ${({ theme }) => theme.colors.gray999} solid 2px;
-	padding:25px;
+	padding:20px;
 	h1{
 		color: ${({ theme }) => theme.colors.green};
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	h2{
 		color: ${({ theme }) => theme.colors.gray500};
 		font-weight: 300;
-		font-size: 1rem;
+		font-size: 0.72rem;
 	}
 	div{
 		align-items: center;
