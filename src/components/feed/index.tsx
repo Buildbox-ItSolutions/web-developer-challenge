@@ -7,9 +7,10 @@ export type FeedProps = {
 
 export default function Feed(props: FeedProps) {
     function getPosts(postProps: PostProps[]) {
-        return postProps.map((p) => {
+        const mapped = postProps.map((p) => {
             return Post(p);
         });
+        return mapped.reverse();
     }
 
     return (
