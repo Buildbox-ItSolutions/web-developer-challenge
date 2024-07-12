@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`bg-zinc-700 ${inter.className}`}>
         <Header />
-        <div className="max-w-[1200px] mx-auto">{children}</div>
+        <div className="max-w-[1200px] mx-auto my-2">{children}</div>
       </body>
     </html>
   )
