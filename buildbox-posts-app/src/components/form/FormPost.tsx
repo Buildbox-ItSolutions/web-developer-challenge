@@ -65,8 +65,10 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                 <S.InputContainer>
                     {avatar && (
                         <>
-                            <S.TrashCan onClick={handleRemovePicture}/>
+                        <S.BtnAddAvatarContainer>
+                            <S.TrashCan onClick={handleRemovePicture} />
                             <AvatarPicture src={avatar} />
+                        </S.BtnAddAvatarContainer>
                         </>
                     )}
                     {!avatar && (
@@ -100,10 +102,6 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                         >
                             Descartar
                         </S.BtnDiscard>
-                        {/* <PiTrashSimple
-                            onClick={handleRemovePicture}
-                            type="button"
-                        /> */}
                         <S.BtnSubmit
                             type="submit"
                         >

@@ -16,7 +16,15 @@ export const Feed = styled.span`
     text-align: left;
     width: 90vw;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 640px) {
+        width: 80vw;
+    }
+
+    @media (min-width: 640px) {
         width: 60vw;
+    }
+
+    @media (min-width: 1536px) {
+        width: 40vw;
     }
 `;

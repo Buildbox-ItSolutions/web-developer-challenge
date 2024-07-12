@@ -9,8 +9,8 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   width: auto;
 
-  @media (min-width: 1024px) {
-    height: 12vh;
+  @media (min-width: 1536px) {
+    height: 10vh;
   }
 `;
 

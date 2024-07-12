@@ -20,13 +20,35 @@ export const InputContainer = styled.section`
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
-    position: relative;
     width: 90vw;
 
-      @media (min-width: 1024px) {
-        gap: 1.5rem;
-        width: 60vw;
-      }
+    @media (min-width: 640px) {
+      gap: 1.5rem;
+      width: 80vw;
+    }
+
+    @media (min-width: 1024px) {
+      width: 60vw;
+    }
+    
+    @media (min-width: 1536px) {
+      width: 40vw;
+    }
+`;
+
+export const BtnAddAvatarContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+`;
+
+export const BtnAddAvatar = styled.div`
+    align-self: center;
+    border-radius: 4rem;
+    display: flex;
+    width: 10rem;
 `;
 
 export const TrashCan = styled(PiTrashSimple)`
@@ -34,21 +56,25 @@ export const TrashCan = styled(PiTrashSimple)`
     cursor: pointer;
     height: 2.5rem;
     position: absolute;
-    right: 22rem;
-    top: 6rem;
+    right: 7rem;
+    top: 4rem;
     width: 2.5rem;
 
       &:hover {
         color: var(--highlight-primary);
       }
-`;
 
-export const BtnAddAvatar = styled.div`
-    align-self: center;
-    border-radius: 4rem;
-    display: flex;
-    justify-content: center;
-    width: 10rem;
+      @media (min-width: 640px) {
+        right: 14rem;
+      }
+
+      @media (min-width: 1024px) {
+        right: 25rem;
+      }
+
+      @media (min-width: 1920px) {
+        right: 27rem;
+      }
 `;
 
 export const InputFile = styled.input`
@@ -81,6 +107,10 @@ export const Input = styled.input`
           font-size: 1.5rem;
         }
       }
+
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+      }
 `;
 
 export const TextArea = styled.textarea`
@@ -95,15 +125,19 @@ export const TextArea = styled.textarea`
 
       &::placeholder {
         color: var(--text-placeholder);
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
       &:focus {
         outline: 1px solid var(--highlight-primary);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) {
         font-size: 1.5rem;
+      }
+
+      @media (min-width: 1024px) {
+              font-size: 1.5rem;
       }
 `;
 

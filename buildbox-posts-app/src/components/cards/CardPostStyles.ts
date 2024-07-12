@@ -12,10 +12,17 @@ export const Card = styled.section`
     padding: 2rem 2rem;
     width: 90vw;
 
-        @media (min-width: 1024px) {
-            gap: 2rem;
-            width: 60vw;
-        }
+    @media (min-width: 640px) {
+        width: 80vw;
+    }
+
+    @media (min-width: 1024px) {
+        width: 60vw;
+    }
+
+    @media (min-width: 1536px) {
+        width: 40vw;
+    }
 `;
 
 export const CardWrapper = styled.div`
@@ -23,16 +30,16 @@ export const CardWrapper = styled.div`
     flex-direction: column;
     gap: 2rem;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         flex-direction: row;
         gap: 3rem;
     }
 `;
 
 export const RemoveIcon = styled(TiDeleteOutline)`
+    align-self: end;
     color: var(--alert);
     display: flex;
-    align-self: end;
     height: 3rem;
     width: 3rem;
 `
@@ -41,6 +48,7 @@ export const CardContent = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 `;
 
 export const CardUser = styled.span`
