@@ -26,7 +26,7 @@ export default function Home() {
         <p className="font-light text-neutral-500 text-center text-xs">WEB CHALLENGE</p>
       </div>
 
-      <div className="w-full flex flex-col gap-y-16">
+      <div className="w-full md:mt-8 mt-24 flex flex-col gap-y-16">
 
         <PostForm postSubmitedHandler={postSubmitedHandler}/>
 

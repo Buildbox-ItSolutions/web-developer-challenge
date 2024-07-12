@@ -15,8 +15,8 @@ export default function FeedPost({post, postDeletedHandler}: PostProps) {
             <Image src="/close-circle-svgrepo-com.svg" alt="Image placeholder" className="cursor-pointer" onClick={_ => postDeletedHandler(post)} width={24} height={24} priority />    
         </div>
 
-        <div className="mx-auto h-full flex gap-x-8 px-8 pb-8 pt-4">
-            <div className="w-1/5">
+        <div className="mx-auto h-full md:flex flex-col md:flex-row md:ml-0 md:gap-x-8 md:px-8 md:pb-8 md:pt-4 gap-x-4 px-4 pb-4 pt-2">
+            <div className="w-full md:w-1/5 flex justify-center md:justify-start md:ml-0">
                 <div className="w-24 h-24 flex rounded-full border-[1px] border-neutral-500">
                     { post.image == "" 
                         ? <Image src="/user-5-svgrepo-com.svg" alt="Image placeholder" className="mx-auto" width={64} height={64} priority/>
@@ -24,9 +24,9 @@ export default function FeedPost({post, postDeletedHandler}: PostProps) {
                     }
                 </div>
             </div>
-        <div className='h-auto flex flex-col justify-between w-4/5'>
-            <p className="text-neutral-400">{post.text}</p>
-            <p className='text-xs font-semibold text-gray-0 mt-4'>
+        <div className='h-auto flex flex-col justify-between md:w-4/5 w-full md:mt-0 mt-4'>
+            <p className="md:text-left text-center text-neutral-400">{post.text}</p>
+            <p className='md:text-left text-center text-xs font-semibold text-gray-0 mt-4'>
                 Enviado por <br/>
                 <span className='text-sm font-light text-neutral-400'>{post.author}</span>
             </p>

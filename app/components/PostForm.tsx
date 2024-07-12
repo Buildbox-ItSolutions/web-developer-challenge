@@ -66,7 +66,7 @@ export default function PostForm({
         <div>
             <input title="File input" ref={imageUploadRef} className="hidden invisible" type="file" name="avatar" accept=".jpef, .png, .jpg" onChange={handleImageChange} />
 
-            <div id="formContainer" className="mx-auto mt-8 border-[1px] border-gray-1 bg-gray-3 w-full md:w-2/5 h-fit p-8 flex flex-col gap-y-4">
+            <div id="formContainer" className="mx-auto border-[1px] border-gray-1 bg-gray-3 w-full md:w-2/5 h-fit p-8 flex flex-col gap-y-4">
 
                 <div className="mx-auto gap-x-4 flex bg-opacity-0">
                     <div onClick={handleImageClick} className="w-32 h-32 flex rounded-full border-[1px] border-neutral-500 cursor-pointer">
