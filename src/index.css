@@ -1,0 +1,21 @@
+* {
+    font-family: roboto;
+}
+
+input {
+    font-family: roboto;
+}
+
+body {
+    margin: 0;
+    background: #343434;
+}
+
+h1 {
+    font-weight: bold;
+    color: #71BB00;
+}
+
+h4 {
+    color: #6F6F6F;
+}

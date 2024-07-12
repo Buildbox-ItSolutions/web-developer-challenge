@@ -1,15 +1,76 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { PostProps } from "../post"
 import ImageInput from "../image-upload";
+import styled from "styled-components";
 
 export type PostDraftProps = {
     Publish: (post: PostProps) => void
 }
 
+const Section = styled.section`
+    border: 1px solid #3B3B3B;
+    border-radius: 2px;
+    background-color: #313131;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+`;
+
+const StyledInput = styled.input`
+    background: #494949;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 90%;
+    margin-bottom: 6px;
+
+    color: #F9F9F9;
+`;
+
+const StyledTextarea = styled.textarea`
+    background: #494949;
+    border: none;
+    border-radius: 4px;
+    resize: none;
+
+    padding: 0.5rem;
+    height: 5rem;
+    width: 90%;
+
+    color: #F9F9F9;
+`;
+
+const DiscardButton = styled.button`
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+
+    color: #5F5F5F;
+`
+
+const PublishButton = styled.button`
+    background: #71BB00;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+
+    color: #FFFFFF;
+`
+
+const ButtonArea = styled.span`
+    margin: 1rem;
+
+    align-self: end;
+`;
+
 export default function PostDraft(props: PostDraftProps) {
+
     const [draft, setDraft] = useState<PostProps>({
         Id: "",
-        Image64: "data:image/jpeg;base64",
+        Image64: "",
         Message: "",
         SentBy: ""
     });
@@ -17,7 +78,7 @@ export default function PostDraft(props: PostDraftProps) {
     function discard() {
         setDraft({
             Id: "",
-            Image64: "data:image/jpeg;base64",
+            Image64: "",
             Message: "",
             SentBy: ""
         })
@@ -41,7 +102,7 @@ export default function PostDraft(props: PostDraftProps) {
         })
     }
 
-    function handleChangeMessage(e: ChangeEvent<HTMLInputElement>) {
+    function handleChangeMessage(e: ChangeEvent<HTMLTextAreaElement>) {
         setDraft({
             ...draft,
             Message: e.target.value
@@ -49,27 +110,33 @@ export default function PostDraft(props: PostDraftProps) {
     }
 
     function handlePublish() {
+        if (!draft.Message && !draft.SentBy) return;
+
         props.Publish(draft);
         discard();
     }
 
     return (
-        <section id="post-draft">
-            <ImageInput Img={draft.Image64} HandleChangeImage={handleChangeImage} />
-            <input
+        <Section>
+            <ImageInput
+                Img={draft.Image64}
+                HandleChangeImage={handleChangeImage}
+            />
+            <StyledInput
                 value={draft.SentBy}
                 type="text"
                 placeholder="Digite seu nome"
                 onChange={handleChangeName}
             />
-            <input
+            <StyledTextarea
                 value={draft.Message}
-                type="text"
                 placeholder="Mensagem"
                 onChange={handleChangeMessage}
             />
-            <button id="discard" onClick={discard}>Descartar</button>
-            <button id="publish" onClick={handlePublish}>Publicar</button>
-        </section>
+            <ButtonArea>
+                <DiscardButton id="discard" onClick={discard}>Descartar</DiscardButton>
+                <PublishButton id="publish" onClick={handlePublish}>Publicar</PublishButton>
+            </ButtonArea>
+        </Section>
     )
-}   
+}
