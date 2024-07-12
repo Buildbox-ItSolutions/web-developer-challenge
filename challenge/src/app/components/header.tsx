@@ -21,7 +21,7 @@ const HeaderContainer = styled.header`
 		font-size: 2rem;
 	}
 	h2{
-		color: ${({ theme }) => theme.colors.gray600};
+		color: ${({ theme }) => theme.colors.gray500};
 		font-weight: 300;
 		font-size: 1rem;
 	}

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CardInputContainer } from './components/cardInput';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<div>
-			teste
+			<CardInputContainer />
 		</div>
 	);
 }
