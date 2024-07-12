@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import PostDraft from './components/post-draft';
 import { PostProps } from './components/post';
 import Feed from './components/feed';
@@ -7,10 +6,16 @@ import Feed from './components/feed';
 function App() {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
-  function publishPost(post: PostProps) {
-    setPosts([...posts, post])
+  function removePost(id: string) {
+    const newPosts = posts.filter((p) => p.Id != id);
+    setPosts(newPosts);
   }
 
+  function publishPost(post: PostProps) {
+    post.Id = crypto.randomUUID()
+    post.RemovePost = () => removePost(post.Id);
+    setPosts([...posts, post])
+  }
 
   return (
     <div className="App">

@@ -1,6 +1,5 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { PostProps } from "../post"
-import logo from '../../logo.svg';
 import ImageInput from "../image-upload";
 
 export type PostDraftProps = {
@@ -9,14 +8,16 @@ export type PostDraftProps = {
 
 export default function PostDraft(props: PostDraftProps) {
     const [draft, setDraft] = useState<PostProps>({
-        Image64: "data:image/jpeg;base64" + logo,
+        Id: "",
+        Image64: "data:image/jpeg;base64",
         Message: "",
         SentBy: ""
     });
 
     function discard() {
         setDraft({
-            Image64: "data:image/jpeg;base64" + logo,
+            Id: "",
+            Image64: "data:image/jpeg;base64",
             Message: "",
             SentBy: ""
         })
