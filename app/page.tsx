@@ -31,7 +31,7 @@ export default function Home() {
         <PostForm postSubmitedHandler={postSubmitedHandler}/>
 
         <div id="feed" className="mx-auto flex flex-col w-full md:w-2/5">
-            <p className="text-gray-0 text-sm font-bold mb-2">Feed</p>
+            <p className="text-gray-0 text-md font-bold mb-2">Feed</p>
             <div className="flex flex-col gap-y-4">
               { posts.map(post => <FeedPost post={post} postDeletedHandler={postDeletedHandler} key={post.id}/>) }
             </div>

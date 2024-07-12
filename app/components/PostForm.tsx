@@ -32,6 +32,16 @@ export default function PostForm({
           setText("");
     }
 
+    const clearImage = () => {
+        setImagePreview("");
+    }
+
+    const discardPost = () => {
+        setImagePreview("");
+        setUsername("");
+        setText("");
+    }
+
     const handleUsernameChange = (e: any) => setUsername(e.target.value);
 
     const handleTextChange = (e: any) => setText(e.target.value);
@@ -48,20 +58,24 @@ export default function PostForm({
         }
     }
 
+    const canBeSubmited = (): boolean => {
+        return username != "" && text != ""
+    }
+
     return (
         <div>
             <input title="File input" ref={imageUploadRef} className="hidden invisible" type="file" name="avatar" accept=".jpef, .png, .jpg" onChange={handleImageChange} />
 
             <div id="formContainer" className="mx-auto mt-8 border-[1px] border-gray-1 bg-gray-3 w-full md:w-2/5 h-fit p-8 flex flex-col gap-y-4">
 
-                <div className="mx-auto bg-opacity-0">
+                <div className="mx-auto gap-x-4 flex bg-opacity-0">
                     <div onClick={handleImageClick} className="w-32 h-32 flex rounded-full border-[1px] border-neutral-500 cursor-pointer">
                         {imagePreview == ""
                             ? <Image src="/landscape-focus-svgrepo-com.svg" alt="Image placeholder" className="mx-auto" width={64} height={64} priority />
                             : <Image src={imagePreview} alt="User avatar" className="rounded-full object-cover" width={128} height={128} />
                         }
                     </div>
-                    {imagePreview != "" && <Image src="/trash-1-svgrepo-com.svg" alt="Image placeholder" width={32} height={32} priority />}
+                    {imagePreview != "" && <Image src="/trash-1-svgrepo-com.svg" alt="Image placeholder" className="cursor-pointer" onClick={clearImage} width={32} height={32} priority />}
                 </div>
 
 
@@ -74,8 +88,8 @@ export default function PostForm({
                     value={text} onChange={handleTextChange} />
 
                 <div className="mt-4 ml-auto flex gap-x-4">
-                    <a className="my-auto text-sm underline text-gray-1 cursor-pointer">Descartar</a>
-                    <button onClick={submit} className="text-sm text-white bg-lime-500 px-4 py-2 rounded-lg">Publicar</button>
+                    <a onClick={discardPost} className="my-auto text-sm underline text-gray-1 cursor-pointer">Descartar</a>
+                    <button onClick={submit} className={`text-sm px-4 py-2 rounded-lg ${canBeSubmited() ? 'bg-lime-500 text-white' : 'bg-gray-1 text-gray-0'}`}>Publicar</button>
                 </div>
 
             </div>
