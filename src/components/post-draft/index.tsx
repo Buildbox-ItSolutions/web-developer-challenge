@@ -56,8 +56,13 @@ const PublishButton = styled.button`
     border-radius: 8px;
     padding: 1rem;
     cursor: pointer;
-
+    
     color: #FFFFFF;
+    
+    &:disabled {
+        background: #5a9404;
+        cursor: not-allowed;
+    }
 `
 
 const ButtonArea = styled.span`
@@ -67,13 +72,14 @@ const ButtonArea = styled.span`
 `;
 
 export default function PostDraft(props: PostDraftProps) {
-
     const [draft, setDraft] = useState<PostProps>({
         Id: "",
         Image64: "",
         Message: "",
         SentBy: ""
     });
+
+    const canPublish = (!draft.Message || !draft.SentBy || !draft.Image64);
 
     function discard() {
         setDraft({
@@ -110,7 +116,7 @@ export default function PostDraft(props: PostDraftProps) {
     }
 
     function handlePublish() {
-        if (!draft.Message && !draft.SentBy) return;
+        if (!draft.Message || !draft.SentBy || !draft.Image64) return;
 
         props.Publish(draft);
         discard();
@@ -135,7 +141,7 @@ export default function PostDraft(props: PostDraftProps) {
             />
             <ButtonArea>
                 <DiscardButton id="discard" onClick={discard}>Descartar</DiscardButton>
-                <PublishButton id="publish" onClick={handlePublish}>Publicar</PublishButton>
+                <PublishButton disabled={canPublish} id="publish" onClick={handlePublish}>Publicar</PublishButton>
             </ButtonArea>
         </Section>
     )

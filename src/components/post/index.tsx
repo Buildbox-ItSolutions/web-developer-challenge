@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IoCloseCircleOutline } from "react-icons/io5";
+import { IoCloseCircleOutline, IoImageOutline } from "react-icons/io5";
 
 
 export type PostProps = {
@@ -57,21 +57,27 @@ const Content = styled.div`
 const Delete = styled.span`
     align-self: end;
     cursor: pointer;
-    margin: 1rem 1rem 0 0;
+    margin: 0.5rem 0.5rem 0 0;
 `;
 
 const Image = styled.img`
-    width: 16vh;
-    height: 16vh;
+    width: auto;
+    height: 100%;
+
+    aspect-ratio: 1;
+        
+    object-fit: cover;
 
     border-radius: 20px;
     border: 1px solid #4B4B4B;
-
-    object-fit: cover;
 `;
 
 const ImageEncolsure = styled.div`
     margin: 0 4%;
+    border-radius: 20px;
+    border: 1px solid #4B4B4B;
+
+    height: 128px;
 `;
 
 const SentBy = styled.span``;
@@ -80,7 +86,7 @@ export default function Post(props: PostProps) {
     return (
         <PostArticle key={props.Id}>
             <Delete>
-                <IoCloseCircleOutline size='40px' color="#D65923" onClick={props.RemovePost!} />
+                <IoCloseCircleOutline size='28px' color="#D65923" onClick={props.RemovePost!} />
             </Delete>
             <Content>
                 <ImageEncolsure>
