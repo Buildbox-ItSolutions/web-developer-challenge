@@ -45,6 +45,14 @@ export const RemoveIcon = styled(TiDeleteOutline)`
     display: flex;
     height: 3rem;
     width: 3rem;
+
+    &:hover {
+        color: var(--highlight-primary);
+    }
+
+    /* &:active {
+        transform: scale(0.95);
+    } */
 `
 
 export const CardContent = styled.section`
