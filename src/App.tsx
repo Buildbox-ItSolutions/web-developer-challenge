@@ -41,11 +41,11 @@ function App() {
     const newPosts = posts.filter((p) => p.Id != id);
     setPosts(newPosts);
   }
-
+  
   function publishPost(post: PostProps) {
     post.Id = crypto.randomUUID()
-    post.RemovePost = () => removePost(post.Id);
     setPosts([...posts, post])
+    console.log("posts > ", posts);
   }
 
   return (
@@ -56,7 +56,7 @@ function App() {
       </Header>
       <Main>
         <PostDraft Publish={publishPost} />
-        <Feed Posts={posts} />
+        <Feed Posts={posts} RemovePost={removePost}/>
       </Main>
     </>
   );

@@ -3,6 +3,7 @@ import Post, { PostProps } from "../post"
 
 export type FeedProps = {
     Posts: PostProps[]
+    RemovePost: (id: string) => void
 }
 
 const FeedSection = styled.section`
@@ -17,9 +18,11 @@ const FeedSection = styled.section`
     }
 `;
 
+
 export default function Feed(props: FeedProps) {
     function getPosts(postProps: PostProps[]) {
-        const mapped = postProps.map((p) => {
+        const mapped = postProps.map((p, _, a) => {
+            p.RemovePost = () => props.RemovePost(p.Id);
             return Post(p);
         });
         return mapped.reverse();
