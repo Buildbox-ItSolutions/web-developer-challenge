@@ -26,11 +26,13 @@ export const Card = styled.section`
 `;
 
 export const CardWrapper = styled.div`
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
     @media (min-width: 768px) {
+        align-items: start;
         flex-direction: row;
         gap: 3rem;
     }

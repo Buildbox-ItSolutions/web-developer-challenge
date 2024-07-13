@@ -1,22 +1,28 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import * as S from './FormPostStyle';
+import { PostProps } from '../../types/Post';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { formSchema } from '../../types/formSchema';
 import NoAvatarPicture from '../pictures/NoAvatarPicture';
 import AvatarPicture from '../pictures/AvatarPicture';
-import { PostProps } from '../../types/Post';
+import * as S from './FormPostStyle';
 
-type InputProps = {
-    picture: FileList | null,
-    name: string,
-    message: string,
-}
+type InputProps = z.infer<typeof formSchema>;
 
 type FormPostProps = {
     onAddPost: (post: Omit<PostProps, 'id'>) => void;
 }
 
 export default function FormPost({ onAddPost }: FormPostProps) {
-    const { handleSubmit, register, setValue, reset } = useForm<InputProps>();
+    const {
+        handleSubmit,
+        register,
+        setValue,
+        reset,
+        formState: { errors }
+    } = useForm<InputProps>({ resolver: zodResolver(formSchema) });
+
     const [avatar, setAvatar] = useState<string>();
     const inputFileRef = useRef<HTMLInputElement>(null);
 
@@ -31,7 +37,7 @@ export default function FormPost({ onAddPost }: FormPostProps) {
             setAvatar(URL.createObjectURL(file));
             setValue('picture', files)
         }
-        setValue("picture", files);
+        setValue("picture", files || undefined);
     }
 
     const handleLoadPicture = () => {
@@ -50,6 +56,7 @@ export default function FormPost({ onAddPost }: FormPostProps) {
     const onSubmit: SubmitHandler<InputProps> = (data) => {
         const { name, message, picture } = data;
         const pictureURL = picture && picture[0] ? URL.createObjectURL(picture[0]) : '';
+        
         const newPost = {
             name,
             message,
@@ -65,10 +72,10 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                 <S.InputContainer>
                     {avatar && (
                         <>
-                        <S.AvatarContainer>
-                            <S.TrashCan onClick={handleRemovePicture} />
-                            <AvatarPicture src={avatar} />
-                        </S.AvatarContainer>
+                            <S.AvatarContainer>
+                                <S.TrashCan onClick={handleRemovePicture} />
+                                <AvatarPicture src={avatar} />
+                            </S.AvatarContainer>
                         </>
                     )}
                     {!avatar && (
@@ -86,15 +93,16 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                     />
                     <S.Input
                         placeholder='Digite seu nome'
-                        {...register("name")}
+                        {...register("name", { required: true })}
                         type="text"
                     />
+                    {errors.name && <S.ValidationErrorMsg>{errors.name.message}</S.ValidationErrorMsg>}
                     <S.TextArea
-                        {...register("message")}
+                        {...register("message", { required: true })}
                         placeholder='Mensagem'
                         rows={6}
-
                     />
+                    {errors.message && <S.ValidationErrorMsg>{errors.message.message}</S.ValidationErrorMsg>}
                     <S.BtnContainer>
                         <S.BtnDiscard
                             onClick={handleResetForm}

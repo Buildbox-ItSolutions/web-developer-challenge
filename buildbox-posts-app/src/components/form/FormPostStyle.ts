@@ -137,6 +137,16 @@ export const TextArea = styled.textarea`
       }
 `;
 
+export const ValidationErrorMsg = styled.span`
+    color: var(--alert);
+    margin: 0 1rem;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      font-size: 1.4rem;
+    }
+`;
+
 export const BtnContainer = styled.section`
     display: flex;
     gap: 3rem;
