@@ -36,7 +36,7 @@ export const InputContainer = styled.section`
     }
 `;
 
-export const BtnAddAvatarContainer = styled.div`
+export const AvatarContainer = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
@@ -100,16 +100,12 @@ export const Input = styled.input`
         outline: 1px solid var(--highlight-primary);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) {
         font-size: 1.5rem;
 
         &::placeholder {
           font-size: 1.5rem;
         }
-      }
-
-      @media (min-width: 768px) {
-        font-size: 1.5rem;
       }
 `;
 
@@ -134,10 +130,10 @@ export const TextArea = styled.textarea`
 
       @media (min-width: 768px) {
         font-size: 1.5rem;
-      }
 
-      @media (min-width: 1024px) {
-              font-size: 1.5rem;
+        &::placeholder {
+          font-size: 1.5rem;
+        }
       }
 `;
 

@@ -65,10 +65,10 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                 <S.InputContainer>
                     {avatar && (
                         <>
-                        <S.BtnAddAvatarContainer>
+                        <S.AvatarContainer>
                             <S.TrashCan onClick={handleRemovePicture} />
                             <AvatarPicture src={avatar} />
-                        </S.BtnAddAvatarContainer>
+                        </S.AvatarContainer>
                         </>
                     )}
                     {!avatar && (

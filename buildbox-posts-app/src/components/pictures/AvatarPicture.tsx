@@ -8,9 +8,7 @@ const AvatarPicture: React.FC<AvatarPictureProps> = ({src}) => {
     return (
         <div>
             <S.ImgContainer>
-                <S.BtnAvatar>
                     <S.ImgAvatar src={src}/>
-                </S.BtnAvatar>
             </S.ImgContainer>
         </div>
     )
