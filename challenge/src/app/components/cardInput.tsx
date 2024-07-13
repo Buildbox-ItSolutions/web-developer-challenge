@@ -1,25 +1,32 @@
 'use client';
 import { Dispatch, SetStateAction, ChangeEvent } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { CiImageOn } from 'react-icons/ci';
 import { FiTrash } from 'react-icons/fi';
 import styled from 'styled-components';
 
 export interface CardInputProps {
 	post: {
+		id: string;
 		name: string | null;
 		message: string;
 		photo: string;
 	};
 	setPost: Dispatch<SetStateAction<{
+		id: string;
 		name: string | null;
 		message: string;
 		photo: string;
 	}>>;
-	handlePublish: () => void;
+	handlePublish: (post: {
+		id: string;
+		name: string | null;
+		message: string;
+		photo: string;
+	}) => void;
 }
 
 export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
-
 	const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
 		if (file) {
@@ -34,6 +41,14 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setPost(prevPost => ({ ...prevPost, [name]: value }));
+	};
+
+	const isPublishDisabled = !post.name || !post.message || !post.photo;
+
+	const handlePublishClick = () => {
+		const newPost = { ...post, id: uuidv4() };
+		handlePublish(newPost);
+		setPost({ id: '', name: '', message: '', photo: '' }); // Resetando o formulário
 	};
 
 	return (
@@ -83,14 +98,22 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 				/>
 			</div>
 			<div className='btns'>
-				<button className='descartar' onClick={() => setPost({ name: '', message: '', photo: '' })}>Descartar</button>
-				<button className='publicar' onClick={handlePublish}>Publicar</button>
+				<button className='descartar' onClick={() => setPost({ id: '', name: '', message: '', photo: '' })}>Descartar</button>
+				<button
+					className='publicar'
+					onClick={handlePublishClick}
+					disabled={isPublishDisabled}
+					style={{ backgroundColor: isPublishDisabled ? 'grey' : 'green' }}
+				>
+					Publicar
+				</button>
 			</div>
 		</CardInputContainer>
 	);
 };
-export const CardInputContainer = styled.div`
-background:  ${({ theme }) => theme.colors.gray600};
+
+const CardInputContainer = styled.div`
+	background:  ${({ theme }) => theme.colors.gray600};
 	border: ${({ theme }) => theme.colors.gray750} 0.1px solid;
 	display: flex;
 	flex-direction: column;
@@ -121,26 +144,21 @@ background:  ${({ theme }) => theme.colors.gray600};
 	}
 	.descartar{
 		background: transparent;
-
 		color:  ${({ theme }) => theme.colors.gray500};
 		text-decoration: underline;
 		border: none;
-		/* font-size: 1rem; */
 		padding: 0 12px;
-		
 	}
 	.publicar{
 		background:  ${({ theme }) => theme.colors.gray500};
 		color:  ${({ theme }) => theme.colors.gray900};
 		border: none;
-
 	}
 	.btns{
 		display: flex;
 		justify-content: end;
 		gap: 1rem;
 		padding: 0 12px;
-
 	}
 	.group{
 		display: flex;
