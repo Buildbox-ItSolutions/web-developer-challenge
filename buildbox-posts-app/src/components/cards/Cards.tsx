@@ -3,8 +3,9 @@ import * as S from './CardsStyles';
 import CardPost from './CardPost';
 
 
-export default function Cards({posts}: { posts: PostProps[] }) {
-    
+export default function Cards(
+    { posts, onRemovePost }: { posts: PostProps[], onRemovePost: (id: string) => void }) {
+
     return (
         <>
             <S.CardPostContainer>
@@ -12,6 +13,7 @@ export default function Cards({posts}: { posts: PostProps[] }) {
                 {posts.map((post: PostProps) => (
                     <CardPost
                         key={post.id}
+                        onRemovePost={onRemovePost}
                         post={post}
                     />
                 ))}

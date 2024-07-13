@@ -39,6 +39,7 @@ export const CardWrapper = styled.div`
 export const RemoveIcon = styled(TiDeleteOutline)`
     align-self: end;
     color: var(--alert);
+    cursor: pointer;
     display: flex;
     height: 3rem;
     width: 3rem;

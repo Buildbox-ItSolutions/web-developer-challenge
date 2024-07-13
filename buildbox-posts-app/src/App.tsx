@@ -1,17 +1,17 @@
 import Cards from './components/cards/Cards'
 import FormPost from './components/form/FormPost'
 import Header from './components/header/Header'
-import { useNewPost } from './hooks/useNewPost';
+import { useHandlePosts } from './hooks/useHandlePosts';
 import './Styles/App.css'
 
 function App() {
-  const {posts, newPost} = useNewPost();
+  const {posts, newPost, removePost} = useHandlePosts();
 
   return (
     <>
       <Header />
       <FormPost onAddPost={newPost} />
-      <Cards posts={posts} />
+      <Cards posts={posts} onRemovePost={removePost} />
     </>
   )
 }
