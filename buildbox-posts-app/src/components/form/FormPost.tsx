@@ -82,37 +82,44 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                     )}
                     {!avatar && (
                         <>
-                            <S.BtnAddAvatar onClick={handleLoadPicture}>
+                            <S.BtnAddAvatar
+                                data-testid="btn-add-avatar"
+                                onClick={handleLoadPicture}>
                                 <NoAvatarPicture />
                             </S.BtnAddAvatar>
                         </>
                     )}
                     <S.InputFile
+                        data-testid="input-file"
                         id='picture'
                         onChange={handleImgChange}
                         ref={inputFileRef}
                         type="file"
                     />
                     <S.Input
-                        placeholder='Digite seu nome'
                         {...register("name", { required: true })}
+                        data-testid="input-name"
+                        placeholder='Digite seu nome'
                         type="text"
                     />
                     {errors.name && <S.ValidationErrorMsg>{errors.name.message}</S.ValidationErrorMsg>}
                     <S.TextArea
                         {...register("message", { required: true })}
+                        data-testid="input-message"
                         placeholder='Mensagem'
                         rows={6}
                     />
                     {errors.message && <S.ValidationErrorMsg>{errors.message.message}</S.ValidationErrorMsg>}
                     <S.BtnContainer>
                         <S.BtnDiscard
+                            data-testid="btn-discard"
                             onClick={handleResetForm}
                             type="button"
                         >
                             Descartar
                         </S.BtnDiscard>
                         <S.BtnSubmit
+                            data-testid="btn-submit"
                             type="submit"
                         >
                             Publicar
