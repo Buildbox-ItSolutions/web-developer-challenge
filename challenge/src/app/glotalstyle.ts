@@ -6,6 +6,23 @@ export const GlobalStyle = createGlobalStyle`
 	margin: 0; 
 	padding: 0;
 	box-sizing: border-box;
+	::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 3px;
+}
+
+
+::-webkit-scrollbar-button {
+  display: none;
+}
 }`;
 export const theme = {
 	colors: {
