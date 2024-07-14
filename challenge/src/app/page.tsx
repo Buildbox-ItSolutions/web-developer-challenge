@@ -3,6 +3,7 @@ import { CardInput } from './components/cardInput';
 import { CardPosts } from './components/cardPosts';
 import { PageContainer } from './pageStyle';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface PostProps {
 	id: string;
@@ -14,10 +15,9 @@ interface PostProps {
 export default function Home() {
 	const [post, setPost] = useState<PostProps>({ id: '', name: '', message: '', photo: '' });
 	const [posts, setPosts] = useState<PostProps[]>([]);
-	console.log(posts[0]?.id);
 
 	const handlePublish = (newPost: PostProps) => {
-		setPosts(prevPosts => [...prevPosts, newPost]);
+		setPosts(prevPosts => [newPost, ...prevPosts]);
 		setPost({ id: '', name: '', message: '', photo: '' });
 	};
 
@@ -29,10 +29,20 @@ export default function Home() {
 		<PageContainer>
 			<CardInput post={post} setPost={setPost} handlePublish={handlePublish} />
 			<div>
-				<div className='feed'>Feed</div>
-				{posts.map((p) => (
-					<CardPosts key={p.id} name={p.name} message={p.message} photo={p.photo} id={p.id} onRemove={handleRemovePost} />
-				))}
+				{posts.length > 0 && <div className='feed'>Feed</div>}
+				<AnimatePresence>
+					{posts.map((p) => (
+						<motion.div
+							key={p.id}
+							initial={{ opacity: 0, y: -100 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 100 }}
+							transition={{ duration: 0.8 }}
+						>
+							<CardPosts name={p.name} message={p.message} photo={p.photo} id={p.id} onRemove={handleRemovePost} />
+						</motion.div>
+					))}
+				</AnimatePresence>
 			</div>
 		</PageContainer>
 	);
