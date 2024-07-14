@@ -16,6 +16,10 @@ const HeaderContainer = styled.header`
 	background: ${({ theme }) => theme.colors.gray900};
 	border-bottom: ${({ theme }) => theme.colors.gray999} solid 2px;
 	padding:20px;
+	position: fixed;
+	min-width: 100vw;
+	z-index: 100;
+
 	h1{
 		color: ${({ theme }) => theme.colors.green};
 		font-size: 1.5rem;

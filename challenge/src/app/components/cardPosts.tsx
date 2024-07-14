@@ -37,11 +37,16 @@ const CardPostContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
-	width: 540px;
+	max-width: 540px;
 	min-height: 250px;
 	border-radius: 6px;
 	padding: 15px;
 	position: relative;
+
+	@media (max-width:600px) {
+		width:90%;
+
+	}
 	.close{
 		position: absolute;
 		color: ${({ theme }) => theme.colors.red};
@@ -74,14 +79,14 @@ const CardPostContainer = styled.div`
 	}
 	p{
 		color: ${({ theme }) => theme.colors.gray300};
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 	}
 	span{
 		color: ${({ theme }) => theme.colors.gray200};
-		font-size: 1.1rem;
+		font-size: 0.8rem;
 	}
 	.text{
 		color: ${({ theme }) => theme.colors.gray100};
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 `;
