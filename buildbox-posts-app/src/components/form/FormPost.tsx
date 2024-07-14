@@ -56,7 +56,7 @@ export default function FormPost({ onAddPost }: FormPostProps) {
     const onSubmit: SubmitHandler<InputProps> = (data) => {
         const { name, message, picture } = data;
         const pictureURL = picture && picture[0] ? URL.createObjectURL(picture[0]) : '';
-        
+
         const newPost = {
             name,
             message,
@@ -73,8 +73,10 @@ export default function FormPost({ onAddPost }: FormPostProps) {
                     {avatar && (
                         <>
                             <S.AvatarContainer>
-                                <S.TrashCan onClick={handleRemovePicture} />
-                                <AvatarPicture src={avatar} />
+                                <S.AvatarWrapper>
+                                    <S.TrashCan onClick={handleRemovePicture} />
+                                    <AvatarPicture src={avatar} />
+                                </S.AvatarWrapper>
                             </S.AvatarContainer>
                         </>
                     )}

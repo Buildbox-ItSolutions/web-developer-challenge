@@ -40,8 +40,14 @@ export const AvatarContainer = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
-    position: relative;
   
+`;
+
+export const AvatarWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 20rem;
 `;
 
 export const BtnAddAvatar = styled.div`
@@ -56,24 +62,12 @@ export const TrashCan = styled(PiTrashSimple)`
     cursor: pointer;
     height: 2.5rem;
     position: absolute;
-    right: 7rem;
+    right: 0rem;
     top: 4rem;
     width: 2.5rem;
 
       &:hover {
         color: var(--highlight-primary);
-      }
-
-      @media (min-width: 640px) {
-        right: 14rem;
-      }
-
-      @media (min-width: 1024px) {
-        right: 25rem;
-      }
-
-      @media (min-width: 1920px) {
-        right: 27rem;
       }
 `;
 
