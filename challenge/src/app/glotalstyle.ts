@@ -11,11 +11,12 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: lightgray;
+
 }
 
 ::-webkit-scrollbar-thumb {
-  background: gray;
+  background: darkgray;
   border-radius: 3px;
 }
 

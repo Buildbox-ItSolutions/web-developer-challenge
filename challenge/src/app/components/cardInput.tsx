@@ -33,6 +33,13 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 			const reader = new FileReader();
 			reader.onloadend = () => {
 				setPost(prevPost => ({ ...prevPost, photo: reader.result as string }));
+				// Reset the file input value to allow the same file to be selected again
+				e.target.value = '';
+			};
+			reader.onerror = () => {
+				alert('Erro ao carregar a imagem. Por favor, tente novamente.');
+				setPost(prevPost => ({ ...prevPost, photo: '' }));
+				e.target.value = '';
 			};
 			reader.readAsDataURL(file);
 		}
@@ -48,7 +55,7 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 	const handlePublishClick = () => {
 		const newPost = { ...post, id: uuidv4() };
 		handlePublish(newPost);
-		setPost({ id: '', name: '', message: '', photo: '' }); // Resetando o formulário
+		setPost({ id: '', name: '', message: '', photo: '' });
 	};
 
 	return (
@@ -82,10 +89,10 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 				)}
 			</div>
 			<div className='group'>
-				<input
-					type="text"
-					placeholder='Digite seu nome'
+				<textarea
+					placeholder='Nome'
 					name="name"
+					rows={1}
 					value={post.name || ''}
 					onChange={handleInputChange}
 				/>
@@ -98,15 +105,10 @@ export const CardInput = ({ post, setPost, handlePublish }: CardInputProps) => {
 				/>
 			</div>
 			<div className='btns'>
-				<button className='descartar' onClick={() => setPost({ id: '', name: '', message: '', photo: '' })}>Descartar</button>
-				<button
-					className='publicar'
-					onClick={handlePublishClick}
-					disabled={isPublishDisabled}
-					style={{ backgroundColor: isPublishDisabled ? 'grey' : 'green' }}
-				>
+				<DiscardButton onClick={() => setPost({ id: '', name: '', message: '', photo: '' })}>Descartar</DiscardButton>
+				<PublishButton onClick={handlePublishClick} disabled={isPublishDisabled} isPublishDisabled={isPublishDisabled}>
 					Publicar
-				</button>
+				</PublishButton>
 			</div>
 		</CardInputContainer>
 	);
@@ -119,10 +121,14 @@ const CardInputContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	margin: 0 auto;
-	width: 540px;
 	height: 350px;
 	border-radius: 6px;
 	padding: 15px;
+	max-width: 540px;
+
+	@media (max-width:600px) {
+		width:90%;
+	}
 
 	input,textarea{
 		border-radius: 5px;
@@ -137,22 +143,6 @@ const CardInputContainer = styled.div`
 		border: none;
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 		resize: none;
-	}
-	button{
-		padding: 15px;
-		border-radius: 12px;
-	}
-	.descartar{
-		background: transparent;
-		color:  ${({ theme }) => theme.colors.gray500};
-		text-decoration: underline;
-		border: none;
-		padding: 0 12px;
-	}
-	.publicar{
-		background:  ${({ theme }) => theme.colors.gray500};
-		color:  ${({ theme }) => theme.colors.gray900};
-		border: none;
 	}
 	.btns{
 		display: flex;
@@ -198,8 +188,31 @@ const CardInputContainer = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		object-fit: cover; /* Garante que a imagem preencha o espaço corretamente */
 	}
 	label{
 		width: 100%;
 	}
+`;
+
+interface ButtonProps {
+	isPublishDisabled: boolean;
+}
+
+const PublishButton = styled.button<ButtonProps>`
+	background: ${({ theme, isPublishDisabled }) => isPublishDisabled ? theme.colors.gray500 : theme.colors.green};
+	color: ${({ theme, isPublishDisabled }) => isPublishDisabled ? theme.colors.gray900 : '#fff'};
+	border: none;
+	cursor: ${({ isPublishDisabled }) => isPublishDisabled ? 'not-allowed' : 'pointer'};
+	padding: 15px;
+	border-radius: 12px;
+`;
+
+const DiscardButton = styled.button`
+	background: transparent;
+	cursor: pointer;
+	color:  ${({ theme }) => theme.colors.gray500};
+	text-decoration: underline;
+	border: none;
+	padding: 0 12px;
 `;
