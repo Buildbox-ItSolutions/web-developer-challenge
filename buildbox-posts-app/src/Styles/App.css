@@ -1,0 +1,28 @@
+@import url('reset.css');
+
+:root {
+  --alert: hsl(18, 72%, 49%);
+  --bg-primary: hsl(0, 0%, 20%);
+  --bg-secondary: hsl(0, 0%, 19%);
+  --bg-header: hsl(0, 0%, 17%);
+  --bg-input: hsl(0, 0%, 29%);
+  --text-primary: hsl(0, 0%, 100%);
+  --text-secondary: hsl(0, 0%, 62%);
+  --text-foreground: hsl(0, 0%, 41%);
+  --text-placeholder: hsl(0, 0%, 61%);
+  --highlight-primary: hsl(84, 100%, 37%);
+  --highlight-secondary: hsl(84, 100%, 30%);
+  --border-primary: hsl(0, 0%, 27%);
+  --border-secondary: hsl(0, 0%, 61%);
+
+  background-color: var(--bg-primary);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  margin: 0 auto;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
