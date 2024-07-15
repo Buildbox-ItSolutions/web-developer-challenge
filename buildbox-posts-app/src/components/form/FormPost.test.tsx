@@ -1,6 +1,8 @@
-import { render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import FormPost from './FormPost';
+import { act } from 'react';
 
 
 describe('<FormPost Component/>', () => {
@@ -10,6 +12,14 @@ describe('<FormPost Component/>', () => {
         jest.clearAllMocks();
         render(<FormPost onAddPost={mockAddPost}/>);
     })
+    
+    const mockName = 'João';
+    const mockMessage = 'Mensagem de teste';
+    const mockPost = {
+        name: mockName,
+        message: mockMessage,
+        picture: '',
+    }
 
     it('deve renderizar o botão de adicionar avatar', () => {
         const btnAddAvatar = screen.getByTestId('btn-add-avatar');
@@ -41,7 +51,7 @@ describe('<FormPost Component/>', () => {
 
     it('deve renderizar o botão de publicar com o texto correto', () => {
         const btnSubmit = screen.getByTestId('btn-submit');
-
+        
         expect(btnSubmit).toBeVisible();
         expect(btnSubmit).toHaveTextContent('Publicar')
     })
@@ -53,9 +63,19 @@ describe('<FormPost Component/>', () => {
         expect(btnDiscard).toHaveTextContent('Descartar')
     })
 
-    it('deve renderizar os elementos do formulário corretamente', () => {
+    it('deve chamar onAddPost com os dados quando o formulário for submetido', async () => {
+        const inputName = screen.getByTestId('input-name');
+        const inputMessage = screen.getByTestId('input-message');
+        const btnSubmit = screen.getByTestId('btn-submit');
 
+        await act(async () => {
+            await userEvent.type(inputName, mockName);
+            await userEvent.type(inputMessage, mockMessage);
+            userEvent.click(btnSubmit);
+        })
 
-
+        await waitFor(() => {
+            expect(mockAddPost).toHaveBeenCalledWith(mockPost);
+        })
     })
 });
