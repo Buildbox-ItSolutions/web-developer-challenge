@@ -52,8 +52,9 @@ const CardPostContainer = styled.div`
 		color: ${({ theme }) => theme.colors.red};
 		top: 15px;
 		right: 15px;
-		cursor: pointer;  // Adiciona cursor de ponteiro para indicar que é clicável
+		cursor: pointer;
 	}
+		
 	img{
 		border: solid 1px ${({ theme }) => theme.colors.gray200};
 		height: 100px;
@@ -88,5 +89,8 @@ const CardPostContainer = styled.div`
 	.text{
 		color: ${({ theme }) => theme.colors.gray100};
 		font-size: 1rem;
+		word-wrap: break-word; 
+  	word-break: break-word; 
+  	white-space: normal;
 	}
 `;
