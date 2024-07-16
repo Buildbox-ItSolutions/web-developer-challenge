@@ -52,8 +52,7 @@ export const GetPost = () => {
                 />
                 <div className="w-[70%] max-md:w-[60%] space-y-5 pr-4">
                   <p className="text-zinc-400 text-justify text-wrap w-full h-auto break-words">
-                    {post.message}
-                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    {post.message}{' '}
                   </p>
                   <div className="">
                     <p className="text-xs text-zinc-550">Enviado por</p>
