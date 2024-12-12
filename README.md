@@ -1,3 +1,9 @@
+# instruções para rodar o projeto
+
+## 1 use `npm install` para instalar todas as dependências
+
+## 2 use `npm run start` para iniciar a aplicação!
+
 # web-developer-challenge
 
 Olá!
