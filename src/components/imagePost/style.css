@@ -1,0 +1,13 @@
+img.photo-base {
+  width: 88px;
+  height: 88px;
+  margin: 0 8px 16px 190px;
+  object-fit: contain;
+  border-radius: 36px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hide {
+  display: none;
+}
