@@ -1,0 +1,81 @@
+{
+  "name": "web-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/react": "^2.3.6",
+    "@craco/craco": "^7.0.0",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "axios": "^1.1.3",
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
+    "dayjs": "^1.8.27",
+    "framer-motion": "4.1.17",
+    "fs": "^0.0.1-security",
+    "miragejs": "^0.1.45",
+    "polished": "^4.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.1",
+    "react-image-crop": "^10.0.8",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/faker": "^5.5.9",
+    "@types/jest": "^29.2.2",
+    "@types/react-image-crop": "^8.1.3",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.10",
+    "faker": "^5.5.3",
+    "husky": "^4.2.5",
+    "jest-localstorage-mock": "^2.4.18",
+    "miragejs": "^0.1.38",
+    "prettier": "^2.0.5",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1",
+    "typescript": "^4.8.4"
+  }
+}

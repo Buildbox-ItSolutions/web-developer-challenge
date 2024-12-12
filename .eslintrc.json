@@ -1,0 +1,85 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/prop-types": "off",
+    "no-redeclare": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
+
+// {
+//   "env": {
+//     "browser": true,
+//     "es2021": true,
+//     //permitir ter codigo jest
+//     "jest": true
+//   },
+//   "extends": ["plugin:react/jsx-runtime", "plugin:react/recommended", "airbnb"],
+//   "parserOptions": {
+//     "ecmaFeatures": {
+//       "jsx": true
+//     },
+//     "ecmaVersion": "latest",
+//     "sourceType": "module"
+//   },
+//   "plugins": ["react"],
+//   "rules": {
+//     "react/react-in-jsx-scope": "off",
+//     //para quebrar a linha depois de alguns destructuring
+//     "object-curly-newline": [
+//       // "error",
+//       // "never",
+//       { "ExportDeclaration": { "multiline": false, "minProperties": 3 } }
+//     ],
+//     //para terminar sem virgula
+//     "comma-dangle": ["error", "never"],
+//     //aspas duplas
+//     "quotes": [
+//       "error",
+//       "double",
+//       {
+//         "avoidEscape": true
+//       }
+//     ],
+//     //permitir escrever jsx em um arquivo js
+//     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
+//     "global-require": "off",
+//     "no-unused-expressions": [
+//       "error",
+//       {
+//         "allowTaggedTemplates": true
+//       }
+//     ]
+//   }
+// }
