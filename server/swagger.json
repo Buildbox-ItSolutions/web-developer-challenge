@@ -1,0 +1,111 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Server para web-developer-challenge",
+    "description": "API Server para web-developer-challenge",
+    "version": "0.1.9"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Endpoint of (Development) Server"
+    },
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Endpoint of (Production) Server"
+    }
+  ],
+  "paths": {
+    "/v1/api/posts": {
+      "get": {
+        "summary": "Retorna uma lista com todos os posts.",
+        "description": "Retorna uma lista com todos os posts.",
+        "responses": {
+          "200": {
+            "description": "JSON Array de posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/v1/api/posts/add": {
+      "post": {
+        "summary": "Criar um novo post.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created post"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+
+    "/v1/api/posts/remove/{id}": {
+      "delete": {
+        "summary": "Deletar um post",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post removido com sucesso."
+          },
+          "404": {
+            "description": "Post não encontrado."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "mensagem": {
+            "type": "string"
+          },
+          "imagem": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

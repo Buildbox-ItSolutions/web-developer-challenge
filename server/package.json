@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Api Rest com Sqlite para persistencia de dados para serem consumidos pelo client em React.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts"
+  },
+  "author": "Wictor Hiago Souza Conceicao | 92 982892832 | wictor.backup@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "sequelize-cli": "^6.6.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.37.1",
+    "sqlite3": "^5.1.7",
+    "swagger-ui-express": "^5.0.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}
