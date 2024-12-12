@@ -1,0 +1,28 @@
+
+#text-message{
+  width: 100%;
+  max-width: 468px;
+  height: 80px;
+  background-color: #494949;
+  border-radius: 8px;
+  border: none;
+  resize: none;
+  padding: 12px 16px;
+  color: #9f9f9f;;
+  margin-bottom: 32px;
+  transition: transform 2ms ease-in-out;
+  outline: none;
+}
+
+#text-message:focus{
+  transform: scale(1.05);
+}
+
+
+@media screen and (max-width:281px){
+  #text-message{
+    height: 80px;
+    padding: 10px 14px;
+    font-size:12px;
+  }
+}
