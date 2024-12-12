@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": "423626",
+      "foto": "/src/assets/photo-base@3x.png",
+      "texto": "Aqui vai um exemplo de post criado pelo frontend",
+      "autor": "Marcos"
+    },
+    {
+      "id": "355458",
+      "foto": "/src/assets/photo-base@3x.png",
+      "texto": "Aqui vai um post antes de subir o desafio para a BuildBox",
+      "autor": "Marcos"
+    }
+  ]
+}
