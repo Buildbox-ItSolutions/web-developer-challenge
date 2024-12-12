@@ -1,0 +1,14 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93px;
+  padding: 24px 631px 24px 632px;
+  background-color: #2b2b2b;
+}
+
+.header-container img {
+  width: 103px;
+  height: 45px;
+  object-fit: contain;
+}
