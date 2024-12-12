@@ -1,4 +1,23 @@
+
+
 # web-developer-challenge
+
+
+### Get Started
+1. Make sure you've installed the right node (tip: use [nvm](https://github.com/nvm-sh/nvm) to do it), [node](https://nodejs.org/en/) or [yarn](https://yarnpkg.com/)..
+
+2. on buildbox folder run `npm install` or `yarn install`;
+
+3. then run `npm start` or `yarn start`;
+
+4. project libs dependencies: 
+    - "@faker-js/faker"
+    - "phosphor-react"
+    - "react-grid-system"
+    - "styled-components"
+
+
+## project challenge
 
 Olá!
 
