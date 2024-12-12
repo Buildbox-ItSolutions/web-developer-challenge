@@ -1,0 +1,41 @@
+.button {
+  align-self: center;
+  background-color: #6eb602;
+  border-radius: 10px;
+  color: #272626;
+  cursor: pointer;
+  font-size: clamp(13px, 1.4rem, 2vh);
+  padding: clamp(12px, 1.6rem, 1.4vw);
+  min-width: 100px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+.button[type='submit'] {
+  color: #f6f6f6;
+  &:disabled {
+    background-color: #5f5f5f;
+    color: #272626;
+    cursor: default;
+  }
+  &:not([disabled]):active {
+    background-color: #71bb00;
+  }
+}
+
+.button[type='reset'] {
+  background-color: transparent;
+  color: #5f5f5f;
+  text-decoration: underline;
+  &:active {
+    color: #787878;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .button {
+    min-width: 120px;
+    font-size: 1.6rem;
+  }
+}

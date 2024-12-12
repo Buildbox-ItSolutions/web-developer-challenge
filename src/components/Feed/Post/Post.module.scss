@@ -1,0 +1,127 @@
+.post {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'img'
+    'author'
+    'message';
+  position: relative;
+  background-color: #313131;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 100%;
+  padding: 12px 0;
+
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid tomato;
+    border-radius: 100vw;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: ' ';
+      height: 12px;
+      width: 1px;
+      background-color: tomato;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .imgWrapper {
+    grid-area: img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55vw;
+    max-width: 25rem;
+    aspect-ratio: 1 / 1;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+    inset: 0rem;
+
+    img {
+      display: block;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 1.8vmax;
+    }
+    img.noImage {
+      border-radius: 0;
+    }
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+    grid-area: message;
+
+    p {
+      font-size: clamp(14px, 1.8rem, 2.2vw);
+      color: #9f9f9f;
+      height: min-content;
+      padding: 12px;
+    }
+  }
+
+  .author {
+    grid-area: author;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 12px;
+
+    span:nth-child(1) {
+      font-size: clamp(12px, 1.3rem, 1.5vw);
+      font-weight: 700;
+      color: #5f5f5f;
+    }
+
+    span:nth-child(2) {
+      font-size: clamp(14px, 1.6rem, 2vw);
+      color: #7a7a7a;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 620px) {
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 1fr 60px;
+    grid-template-areas:
+      'img message'
+      'img author';
+    padding: 32px 0;
+    .imgWrapper {
+      width: auto;
+      img {
+        max-width: 80px;
+      }
+    }
+  }
+}
+
+.post + .post {
+  margin-top: 32px;
+}
