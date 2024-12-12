@@ -1,0 +1,97 @@
+#card {
+    width: 100%;
+    padding: 2.4rem;
+    margin-top: .8rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3.2rem;
+
+    border-radius: 3px;
+    border: 1px solid #3b3b3b;
+    background-color: #313131;
+
+    position: relative;
+}
+
+#card img {
+    width: 8.8rem;
+    height: 8.8rem;
+    border-radius: 3.6rem;
+
+    margin-top: 5.6rem;
+}
+
+#card #info {
+    width: 100%;
+
+    margin-top: 5.6rem;
+}
+
+#card #info p {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    text-align: left;
+    color: #9f9f9f;
+}
+
+#card #info #infoNome {
+    margin-top: 2.4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#card #info #infoNome > span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0.29rem;
+    text-align: left;
+    text-transform: uppercase;
+    color: #5f5f5f;
+}
+
+#card #info #infoNome > strong {
+    font-size: 1.4rem;
+    line-height: 1.29;
+    text-align: left;
+    color: #7a7a7a;
+}
+
+#card button {
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: 0%;
+    right: 2%;
+
+    margin-top: -4rem;
+}
+
+#card button > img {
+    width: 2rem;
+    height: 2rem;
+}
+
+@media screen and (max-width: 475px) {
+    #card {
+        flex-direction: column;
+    }
+
+    #card img,
+    #card #info {
+        margin-top: 0;
+    }
+
+    #card button {
+        margin-top: 0;
+        top: 3%;
+    }
+}
