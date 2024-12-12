@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card must render without errors 1`] = `
+.c0 {
+  width: 80%;
+  max-height: 525px;
+  background-color: #313131;
+  border: 1px solid #3b3b3b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.c1 {
+  grid-area: delete;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.c3 {
+  width: 100%;
+  height: 100%;
+  grid-area: pic;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c4 {
+  width: 88px;
+  height: 88px;
+  border-radius: 36px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  color: #9f9f9f;
+  grid-area: message;
+  word-break: break-all;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 30px 20px 0;
+}
+
+.c6 {
+  grid-area: author;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  grid-column-start: 2;
+}
+
+.c6 small {
+  font-size: 12px;
+  color: #5f5f5f;
+}
+
+.c6 strong {
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+@media (min-width:900px) {
+  .c0 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr auto 2fr;
+    grid-template-areas: 'delete delete' 'pic message' 'author author';
+  }
+}
+
+@media (max-width:900px) {
+  .c3 {
+    padding: 10px;
+  }
+}
+
+@media (max-width:900px) {
+  .c5 {
+    padding: 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <img
+      className="c2"
+      data-test="card-delete-button"
+      onClick={[Function]}
+      src="/delete.svg"
+    />
+  </div>
+  <div
+    className="c3"
+  >
+    <img
+      className="c4"
+      src="/default-profile.png"
+    />
+  </div>
+  <p
+    className="c5"
+    data-test="card-message"
+  >
+    hello
+  </p>
+  <div
+    className="c6"
+  >
+    <small>
+      Enviado por
+    </small>
+    <strong
+      data-test="card-author"
+    >
+      Hudson
+    </strong>
+  </div>
+</div>
+`;

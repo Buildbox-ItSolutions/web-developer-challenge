@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header must render without errors 1`] = `
+.c0 {
+  width: 100%;
+  height: 93px;
+  grid-area: header;
+  background-color: #2b2b2b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+}
+
+.c1 {
+  width: 103px;
+  height: 45px;
+}
+
+<header
+  className="c0"
+>
+  <img
+    alt="Logo"
+    className="c1"
+    data-test="header-logo"
+    src="/bx-logo.png"
+  />
+</header>
+`;
