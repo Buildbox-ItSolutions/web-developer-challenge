@@ -1,0 +1,17 @@
+.img {
+  border-radius: 36px;
+}
+.divInputFile {
+  display: flex;
+  width: 88px;
+  height: 88px;
+  border-radius: 36px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid #4b4b4b;
+}
+
+input[type="file"] {
+  display: none;
+}
